@@ -22,9 +22,5 @@ public class TestJUnit {
 		Factorial fact = new Factorial();
 		assertEquals(5040,fact.getFactorial(7));
 	}
-	public void email(){
-		Regex reg = new Regex();
-		assertEquals(true,reg.email("pauracelis@gmail.com"));
-	}
 
 }
