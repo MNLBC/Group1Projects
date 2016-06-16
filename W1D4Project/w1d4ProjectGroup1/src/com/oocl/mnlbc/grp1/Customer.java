@@ -1,5 +1,6 @@
 package com.oocl.mnlbc.grp1;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 public class Customer extends User{
@@ -23,6 +24,20 @@ public class Customer extends User{
 
 	public void addToChart(Product product, int qty){
 		order.setProduct(product, qty);
+	}
+	public boolean hasEnoughStocks(Warehouse wh,Product product, int qty) throws NumberFormatException, IllegalArgumentException, IllegalAccessException{
+		Field[] f = wh.getClass().getDeclaredFields();
+		
+		for (Field field : f) {
+			if (field.getName().equals(product.getProdName())) {
+				
+				if(Integer.parseInt(field.get(wh).toString()) < qty ){
+					return false;
+				}
+			}
+		}
+	
+		return true;
 	}
 	
 	public void removeToChart(Product product, int qt){
@@ -48,7 +63,17 @@ public class Customer extends User{
 	
 		
 	}
+	 public Order getOrder(){
+		 return this.order;
+	 }
 	
+	 public void setOrderStatus(String status){
+		 order.setStatus(status);
+	 }
+	 public String getOrderStatus(){
+		 return order.getStatus();
+	 }
+	 
 	public void viewChart(){
 		List<Product> products = order.getProducts();
 		List<Integer> qty = order.getQty();
@@ -71,6 +96,16 @@ public class Customer extends User{
 		this.creditBalance = this.creditBalance + order.getTotal();
 		System.out.println("Credit Balance: "+this.creditBalance);
 	}
+	public boolean isValidToUpdate(){
+		double cbal = this.creditBalance + order.getTotal();
+		if(cbal>250)
+			return false;
+		else
+			return true;
+	
+	}
+	
+	
 
 	
 

@@ -20,9 +20,9 @@ public class Warehouse {
 		products = new ArrayList<Product>();
 		
 		products.add(new Product("shampoo", 8, "Clear"));
-		products.add(new Product("pencil",5, "s"));
-		products.add(new Product("ballpen", 3, "d"));
-		products.add(new Product("sando", 3, "a"));
+		products.add(new Product("pencil",5, "Mongol"));
+		products.add(new Product("ballpen", 3, "Panda"));
+		products.add(new Product("sando", 3, "Bench"));
 		
 	}
 	
@@ -54,6 +54,33 @@ public class Warehouse {
 	
 	public List<Product> getProducts(){
 		return this.products;
+	}
+	
+	public  void updateWareHouse(Order order) {
+		List<Product> products = order.getProducts();
+		List<Integer> qty = order.getQty();
+		int count = 0;
+		for (Product p : products) {
+
+			switch (p.getProdName()) {
+			case "shampoo":
+				this.shampoo = this.shampoo - qty.get(count);
+				break;
+			case "pencil":	
+				this.pencil = this.pencil - qty.get(count);
+				break;
+			case "ballpen":	
+				this.ballpen = this.ballpen - qty.get(count);
+				break;
+			case "sando":	
+				this.sando = this.sando - qty.get(count);
+				break;
+
+			default:
+				break;
+			}
+			count++;
+		}
 	}
 	
 }
