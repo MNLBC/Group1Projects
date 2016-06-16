@@ -1,7 +1,7 @@
 package com.oocl.mnlbc.grp1;
 
 public class User {
-	
+
 	private long id;
 	private String fname;
 	private String lname;
@@ -10,10 +10,7 @@ public class User {
 	private String password;
 	private String type;
 	private String email;
-	
-		
-	
-	
+
 	public User(long id, String fname, String lname, String contact, String username, String password, String type,
 			String email) {
 		super();
@@ -25,7 +22,7 @@ public class User {
 		this.password = password;
 		this.type = type;
 		this.email = email;
-		
+
 	}
 
 	public long getId() {
@@ -91,7 +88,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 
 }
