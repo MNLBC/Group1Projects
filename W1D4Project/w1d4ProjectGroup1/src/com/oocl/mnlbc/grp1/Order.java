@@ -10,6 +10,15 @@ public class Order {
 	private String desc;
 	private List<Product> products = new ArrayList<>();
 	private List<Integer> qtys = new ArrayList<>();
+	private double total;
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
 
 	public Order(String status, String desc) {
 		this.status = status;
