@@ -11,13 +11,19 @@ public class App {
 				200.50);
 		System.out.println("Created Customer: " + cust1.getFname() + " " + cust1.getLname());
 		Warehouse wh = new Warehouse(5, 5, 5, 4);
+		
+		
+		System.out.println("User " + cust1.getUsername() + " was Logging in...");
+		System.out.println("User " + cust1.getUsername() + " was Successfully login.");
+		System.out.println("Welcome to Valley Online Shop!");
+		
 
 		System.out.println("Customer View Products: ");
 		displayWarehouseStocks(wh);
 
 		// CUSTOMER BUY 3 Shampoo
-		if(cust1.hasEnoughStocks(wh,wh.getProducts().get(2), 6))
-			cust1.addToChart(wh.getProducts().get(2), 6);
+		if(cust1.hasEnoughStocks(wh,wh.getProducts().get(0), 5))
+			cust1.addToChart(wh.getProducts().get(0), 5);
 		else{
 			System.out.println("Insufficient Stocks.");	
 			System.out.println("Canceling Transaction.");
@@ -26,13 +32,13 @@ public class App {
 			return;
 		}
 		
-		// cust1.addToChart(wh.getProducts().get(1), 5); //Not Successful
+		 cust1.addToChart(wh.getProducts().get(1), 5); //Not Successful
 		
-		// display chart
+		//Display Chart
 		cust1.viewChart();
-//		cust1.removeToChart(wh.getProducts().get(0), 1); // remove from cart
-
-		System.out.println("Removed");
+		
+		cust1.removeToChart(wh.getProducts().get(0), 1); // remove from cart
+		System.out.println("User Update Cart...");
 		cust1.viewChart();
 		// Click Order
 		cust1.setOrderStatus("Order Comitted");
@@ -54,9 +60,9 @@ public class App {
 		System.out.println("Charging amount to credit card");
 		cust1.updateCreditBalance();
 		System.out.println("Processing Transaction...");
-		System.out.println("Transaction Completed!");
+		System.out.println("Transaction Finished!");
 		wh.updateWareHouse(cust1.getOrder());
-		displayWarehouseStocks(wh);
+//		displayWarehouseStocks(wh);
 
 	}
 
