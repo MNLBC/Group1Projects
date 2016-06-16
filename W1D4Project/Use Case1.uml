@@ -2720,7 +2720,7 @@
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">SFs8TIs4WUCRXXzhl9ndvwAA</XPD:REF>
 <XPD:REF name="Associations[1]">j0FHVyDbPE6kxGRWQNdQnAAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">6</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="6pLwmljaXkCxpK4jMP1wFwAA">
 <XPD:ATTR name="Name" type="string">status</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
@@ -2741,17 +2741,14 @@
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="cVmPABLJvk2ZCmoJH/kqqgAA">
 <XPD:ATTR name="Name" type="string">products</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">ArrayList</XPD:ATTR>
 <XPD:REF name="Owner">Mue+m6lHykuVkwDJemgVJAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="5P8ZdDkBgk2gf1e+m0YZXAAA">
-<XPD:ATTR name="Name" type="string">qty</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">qtys</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">ArrayList</XPD:ATTR>
-<XPD:REF name="Owner">Mue+m6lHykuVkwDJemgVJAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="1XJbOmPZiEK1cO4g5hJNkAAA">
-<XPD:ATTR name="Name" type="string">total</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Double</XPD:ATTR>
 <XPD:REF name="Owner">Mue+m6lHykuVkwDJemgVJAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -3028,7 +3025,6 @@
 <XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="M789ATaSpEiriu4sV0TJgQAA">
 <XPD:ATTR name="Name" type="string">shampoo</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Integer</XPD:ATTR>
 <XPD:REF name="Owner">RXXMUIN8iUyYcQ5+8kVyggAA</XPD:REF>
 </XPD:OBJ>
