@@ -79,8 +79,9 @@ public class Customer extends User{
 		List<Integer> qty = order.getQty();
 		double total = 0;
 		int count = 0;
+		System.out.println("View Cart");
 		for (Product prod : products) {
-			System.out.println(prod.getProdName() + " " + qty.get(count));
+			System.out.println("Product: " + prod.getProdName() + " Quantity: " + qty.get(count));
 			double subTotal = qty.get(count) * prod.getPrice();
 			total += subTotal;
 			order.setTotal(total);
