@@ -26,9 +26,9 @@ public class Order {
 	}
 
 	public void setProduct(Product product, int qty) {
+		// Adding Product
 		qtys.add(qty);
 		products.add(product);
-
 	}
 
 	public List<Product> getProducts() {
@@ -48,11 +48,13 @@ public class Order {
 	}
 
 	public void removeProductFromList(int index) {
+		// Removing Product
 		products.remove(index);
 		qtys.remove(index);
 	}
 
-	public void updateChartProductQty(int index, int qty) {
+	public void updateCartProductQty(int index, int qty) {
+		// Changing quantity in the cart
 		qtys.set(index, qtys.get(index) - qty);
 	}
 

@@ -37,7 +37,6 @@ public class CustomerTest {
 	 */
 	@Test
 	public void testHasEnoughStocks() throws NumberFormatException, IllegalArgumentException, IllegalAccessException {
-//		fail("Not yet implemented");
 		Customer cust = new Customer(0, "Juan", "Dela Cruz", "09123456789", "jdcruz", "123", "type", "asd@asd.com",
 				200.50);
 		Warehouse wh = new Warehouse(5, 5, 5, 4);

@@ -25,6 +25,7 @@ public class User {
 
 	}
 
+	// Accessors and Mutators
 	public long getId() {
 		return id;
 	}

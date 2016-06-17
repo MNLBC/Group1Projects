@@ -12,6 +12,7 @@ public class Product {
 		this.desc = desc;
 	}
 
+	// Accessors and Mutators
 	public String getProdName() {
 		return prodName;
 	}
