@@ -40,7 +40,8 @@ public class CustomerTest {
 //		fail("Not yet implemented");
 		Customer cust = new Customer(0, "Juan", "Dela Cruz", "09123456789", "jdcruz", "123", "type", "asd@asd.com",
 				200.50);
-		assertEquals(true,cust.hasEnoughStocks(new Warehouse(5, 5, 5, 4), (new Warehouse(5, 5, 5, 4)).getProducts().get(0), 5));
+		Warehouse wh = new Warehouse(5, 5, 5, 4);
+		assertEquals(true,cust.hasEnoughStocks(wh, wh.getProducts().get(0), 5));
 	}
 
 }
