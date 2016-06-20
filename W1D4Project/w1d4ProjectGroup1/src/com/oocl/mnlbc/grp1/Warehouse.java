@@ -12,6 +12,7 @@ public class Warehouse {
 	List<Product> products;
 
 	public Warehouse(int shampoo, int pencil, int ballpen, int sando) {
+		// Initialization of Warehouse
 		this.shampoo = shampoo;
 		this.pencil = pencil;
 		this.ballpen = ballpen;
@@ -63,6 +64,7 @@ public class Warehouse {
 	}
 
 	public void updateWareHouse(Order order) {
+		// Updating Warehouse after buying
 		List<Product> products = order.getProducts();
 		List<Integer> qty = order.getQty();
 		int count = 0;
