@@ -53,7 +53,7 @@ class Booking extends Thread {
 				} else {
 					for (int i = 0; i < socketList.size(); i++) {
 						writer = new PrintWriter(socketList.get(i).getOutputStream());
-						writer.println("Sorry! No available tickets.");
+						writer.println("Sorry! Insufficient number of tickets.");
 						writer.flush();
 					}
 				}

@@ -20,7 +20,7 @@ public class BookingServer {
 		while (true) {
 			socket = serverSocket.accept();
 			count++;
-			System.out.println(ticket.getNumberOfTickets());
+			System.out.println(ticket.getNumberOfTickets() + " Available Tickets");
 			// Add any connected client to the server
 			socketList.add(socket);
 			// Will open a new thread to process, once a new client connected.
