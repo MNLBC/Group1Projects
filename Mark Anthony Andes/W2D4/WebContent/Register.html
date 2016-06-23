@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Amazon Register</title>
+<style type="text/css">
+div {
+	
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+header {
+	font-family: Arial;
+	font-weight: bold;
+	text-align: left;
+}
+
+.body-s {
+	max-width: 400px;
+}
+
+button {
+	width: 365px;
+	height: 35px;
+}
+
+input {
+	width: 95%;
+	height: 30px;
+}
+
+p {
+	font-family: Arial;
+	text-align: left;
+}
+
+button {
+	height: 37px;
+	background-color: #EDCA71;
+	border-radius: 3px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+img {
+	margin-bottom: 20px;
+}
+a{
+text-decoration:none;
+}
+</style>
+
+<script>
+document.getElementById('button1').onclick = function() { 
+alert('Click!') 
+}
+</script>
+
+</head>
+<body id="button1">
+
+
+	<center>
+		<div class="body body-s">
+
+			<img alt="amazon" src="logo.jpg" width="150" height="60">
+
+
+			<fieldset>
+				<section>
+					<header>
+						<h1 style="font-family: Arial;"align="left">Create account</h1>
+					</header>
+				</section>
+				<header>Your name</header>
+				<section>
+					<input type="text">
+				</section>
+				<header>Email</header>
+				<section>
+					<input type="email">
+				</section>
+				<header>Password</header>
+				<section>
+					<input type="password" placeholder="at least 6 character">
+				</section>
+				<header>Password again</header>
+				<section>
+					<input type="password">
+				</section>
+
+				<section>
+					<button>Create your Amazon account</button>
+				</section>
+				<section>
+					<p>
+						By creating an account, your agree to Amazon's <br> <a
+							href="www.yahoo.com">Conditions of Use</a> and <a
+							href="www.bing.com">Privacy Notice</a>.
+					</p>
+				</section>
+
+				<footer>
+					<p>
+						Already have an account? <a href="www.yahoo.com">Sign in </a>
+					</p>
+				</footer>
+			</fieldset>
+
+
+		</div>
+		<br>
+		<hr>
+		<table><tr>
+		<td>
+		<a href="">Condition of Use</a>
+		</td>
+		<td>
+		<a href="">Privacy Notice</a>
+		</td>
+		<td>
+		<a href="">Help</a>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="3">
+		<p style="color: gray; font-size:15px "> &copy 1996-2016,Amazon.com.Inc, or its affiliates</p>
+		</td>
+		</tr>
+		</table>
+	</center>
+	
+
+</body>
+	<script>
+	document.getElementById('button1').onclick = function() { 
+	alert('Left Click!') 
+	}
+
+	document.getElementById('button1').oncontextmenu = function() { 
+
+	  alert('Right click!') 
+	  
+	  function printMousePos(event) {
+	alert("ClientX: " + event.clientX
+	+ " - ClientY: " + event.clientY);
+	  }
+	
+	  document.addEventListener("click", printMousePos);
+	  document.addEventListener("contextmenu", printMousePos);
+	}
+
+
+</script>
+</html>
