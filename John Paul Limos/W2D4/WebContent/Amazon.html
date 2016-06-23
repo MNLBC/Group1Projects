@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="Amazon.css" />
+<title>Amazon</title>
+
+</head>
+
+<body id="myBody">
+	<center>
+		<img src="amazon_logo.png" alt="Amazon logo"
+			style="width: 103px; height: 35px;" />
+		<div class="register">
+			<div class="fields">
+				<p style="font-size: 25px; font-weight: bold;">Create account</p>
+				<p style="font-size: 15px; font-weight: bold;">Your Name</p>
+				<input type="text" id="textbox" />
+				<p style="font-size: 15px; font-weight: bold;">Email</p>
+				<input type="text" id="textbox">
+				<p style="font-size: 15px; font-weight: bold;">Password</p>
+				<input type="password" id="textbox"
+					placeholder="atleast 6 characters">
+				<p style="font-size: 15px; font-weight: bold;">Password Again</p>
+				<input type="password" id="textbox"> <br> <br>
+				<button type="button" id="submit">Create your Amazon
+					account</button>
+				<br>
+				<p style="font-size: 13px;">
+					By creating an account, you agree to Amazon's <br> <a
+						href="link here" style="font-size: 13px; text-decoration: none;">Condition's
+						of use</a> and<a href="link here" style="text-decoration: none;">
+						Privacy Notice</a>
+				</p>
+				<hr width="200">
+				<p style="font-size: 13px;">
+					Already have an account? <a href="link here"
+						style="text-decoration: none;"> Sign in &#9658;</a>
+				</p>
+			</div>
+		</div>
+	</center>
+</body>
+<footer>
+	<center>
+		<hr width="600px">
+		<p
+			style="font-family: Tahoma; font-size: 13px; text-decoration: none;">
+			<a href="link here" style="text-decoration: none;">Conditions of
+				Use</a> <a href="link here" style="text-decoration: none;"> Privacy
+				Notice</a> <a href="link here" style="text-decoration: none;"> Help
+			</a>
+		</p>
+		<p style="font-family: Tahoma; color: gray; font-size: 12px;">
+			&copy; 1996-2016, Amazon.com, Inc. or its affiliates</p>
+	</center>
+</footer>
+<script>
+	document.getElementById('myBody').onclick = function() {
+		alert('Left click!')
+	}
+	document.getElementById('myBody').oncontextmenu = function() {
+		alert('Right click!');
+
+	}
+
+	function printMousePos(event) {
+		alert("clientX: " + event.clientX + " - clientY: " + event.clientY);
+	}
+
+	document.addEventListener("click", printMousePos);
+</script>
+
+</html>
