@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amazon</title>
+	<style type="text/css" >
+		body {
+		    font-size: 13px;
+		    line-height: 19px;
+		    color: #111;
+		    font-family: Arial,sans-serif;
+		}
+		label {
+		    display: block;
+		    padding-left: 2px;
+		    padding-bottom: 2px;
+		    font-weight: 700;
+		}
+		.center-div{
+			margin: auto;
+		    width: 26%;
+		    border: 2px solid gray;
+		    padding: 10px;
+		}
+
+		.submit{
+			height: 37px;
+			width: 325px;
+			background-color: #EDCA71;
+			border-radius: 3px;
+			font-size: 14px;
+		}
+		
+		h1 {
+		    font-weight: 400;
+		    font-size: 28px;
+		    line-height: 1.2;
+		    padding: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+
+
+
+<div class="container" id="clicker">
+<center><img src="amazon_logo.png" alt="amazon logo" height="31" width="103"></center>
+	<div class="container-inner center-div">
+			<form name="htmlform" method="post" action="register.html">
+			<h1>Create account</h1>
+			<label for="name">Your Name</label>
+			<input type="text" name="name" size="54"><br>
+			<label for="email">Email</label>
+			<input type="text" name="email" size="54"><br>
+			<label for="password">Password</label>
+			<input type="password" name="password" placeholder="at least 6 characters" size="54"><br>
+			<label for="passwordAgain">Password Again</label>
+			<input type="password" name="passwordAgain" size="54"><br><br>
+
+			<input type="submit" value="Create your Amazon account" class="submit" ></input>
+			</form>
+			<br>
+			By creating an account, you agree to Amazon's <br> <a href="#">Condition of Use</a> and <a href="#">Privacy Notice.</a><br>
+			<br>
+			Already have an account? <a href="#">Sign in</a><br>
+			
+	</div>
+</div>
+
+<center>
+	<br>
+	<a href="#">Condition of Use</a>&nbsp;<a href="#">Privacy Notice </a> &nbsp;<a href="#">Help</a>
+<br>
+
+<br>
+&copy;1996-2016, Amazon.com, Inc. or its affliates
+
+</center>
+
+</body>
+<script type="text/javascript">
+	function detect_button(e)
+	{
+	    e = e || window.event;
+
+	    if (e.which == null)
+	    {
+	        button = (e.button < 2) ? 'Left' :
+	            ((e.button == 4) ? 'Middle' : 'Right');
+	    }
+	    else
+	    {
+	        button = (e.which < 2) ? 'Left' :
+	            ((e.which == 2) ? 'Middle' : 'Right');
+	    }
+
+	    alert(button + " Mouse: ("+e.clientX+","+e.clientY+")");
+	}	
+	document.getElementById('clicker').onmousedown = detect_button;
+	if (document.captureEvents) document.captureEvents(Event.MOUSEDOWN);
+</script>
+
+</html>
