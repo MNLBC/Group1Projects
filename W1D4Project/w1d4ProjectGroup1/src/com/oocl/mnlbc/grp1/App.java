@@ -23,7 +23,7 @@ public class App {
 
 		// CUSTOMER BUY 3 Shampoo
 		if(cust1.hasEnoughStocks(wh,wh.getProducts().get(0), 5))
-			cust1.addToChart(wh.getProducts().get(0), 5);
+			cust1.addToCart(wh.getProducts().get(0), 5);
 		else{
 			System.out.println("Insufficient Stocks.");	
 			System.out.println("Canceling Transaction.");
@@ -32,14 +32,14 @@ public class App {
 			return;
 		}
 		
-		 cust1.addToChart(wh.getProducts().get(1), 5); //Not Successful
+		 cust1.addToCart(wh.getProducts().get(1), 5); //Not Successful
 		
 		//Display Chart
-		cust1.viewChart();
+		cust1.viewCart();
 		
-		cust1.removeToChart(wh.getProducts().get(0), 1); // remove from cart
+		cust1.removeToCart(wh.getProducts().get(0), 1); // remove from cart
 		System.out.println("User Update Cart...");
-		cust1.viewChart();
+		cust1.viewCart();
 		// Click Order
 		cust1.setOrderStatus("Order Comitted");
 		System.out.println("Order is now committed..Displaying order status.. ");
