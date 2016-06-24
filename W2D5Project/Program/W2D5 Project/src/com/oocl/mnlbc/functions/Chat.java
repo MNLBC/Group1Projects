@@ -21,10 +21,14 @@ public class Chat extends Thread {
 	public void run() {
 		BufferedReader reader = null;
 		PrintWriter writer = null;
+		Account acc = new Account(socket);
 
 		try {
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
+			printwriter.println("Enter desired name: ");
+			String name = reader.readLine();
+			acc.setName(name);
 			String message = null;
 			while (true) {
 				// printwriter.println("Enter message: ");
@@ -64,9 +68,10 @@ public class Chat extends Thread {
 					printwriter.flush();
 					continue;
 				}
+				
 				for (int i = 0; i < socketList.size(); i++) {
 					writer = new PrintWriter(socketList.get(i).getOutputStream());
-					writer.println(ctr + ": " + message);
+					writer.println(name + ": " + message);
 					writer.flush();
 				}
 				printwriter.flush();
