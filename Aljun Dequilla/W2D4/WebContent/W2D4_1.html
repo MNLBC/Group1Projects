@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Amazon Registration</title>
+<link rel="stylesheet" type="text/css" href="Amazon.css">
+</head>
+<body id="dabody">
+	<div id="allalign">
+		<form>
+			<div id="outer">
+				<img src="amazon_logo.png" style="width: 130px; height: 50px">
+				<div id="form">
+					<span id="account">Create account</span><br> <span
+						style="font-weight: bold; font-size: 13px;"> Your name <br>
+						<input type="text" name="first_name" id="name" size=50 />
+					</span> <span style="font-weight: bold; font-size: 13px;"><br>
+						Email <br> <input type="email" name="email" id="email"
+						size=50 /> </span> <span style="font-weight: bold; font-size: 13px;"><br>
+						Password <br> <input type="password" name="password"
+						id="password" size=50 placeholder=" at least 6 characters" /> </span> <span
+						style="font-weight: bold; font-size: 13px;"><br>
+						Password again <br> <input type="password"
+						name="confirmpassword" id="repass" size=50 /> </span>
+					<p>
+						<button type="button" id="button">Create your Amazon
+							account</button>
+					</p>
+					<p id="agree" style="font-size: 12px;">
+						By creating an account, you agree to Amazon's <a href=""
+							style="font-size: 13px;">Condition's of use</a> and<a href="">
+							Privacy Notice</a>
+					</p>
+					<hr width=30%>
+					<span id="desc1" style="font-size: 13px;"> Already have an
+						account? <a href=""> Sign in &#9658;</a>
+					</span>
+				</div>
+				<br> <br> <br>
+				<hr width=80%>
+				<span id="down" style="font-family: Tahoma; font-size: 13px;"> <a
+					href="">Conditions of Use</a> <a href=""> Privacy Notice</a> <a
+					href=""> Help </a>
+				</span><br> <span style="font-family: Tahoma; color: gray; font-size: 12px;">
+					&copy; 1996-2016, Amazon.com, Inc. or its affiliates</span>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+	document.getElementById('dabody').onclick = function() {
+		alert('You have click the left button.')
+	}
+	document.getElementById('dabody').oncontextmenu = function() {
+		alert('You have click the right button.');
+	}
+
+	function alertPos(e) {
+		alert("PosX: " + e.clientX + " - PosY: " + e.clientY);
+	}
+
+	document.addEventListener("click", alertPos);
+	document.addEventListener("contextmenu", alertPos);
+</script>
+</html>

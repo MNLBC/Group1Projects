@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+@import url("Styles.css");
+
+ /* same as */
+@import "Styles.css";
+</style>
+
+<meta charset="ISO-8859-1">
+<title>Create Account</title>
+</head>
+<body id="body1">
+	<div id="img">
+		<img id="logo" src="amazon_logo.png" height="31" width="103">
+	</div>
+	<div class="form">
+		<p class="header">Create Account</p>
+
+		<form>
+			Your name<br> <input id="textbox1" type="text" name="name" size="47px"><br>
+			Email<br> <input type="text" name="email" size="47px"><br>
+			Password<br> <input type="password" name="password" size="47px"
+				placeholder="at least 6 character"><br> Password Again<br>
+			<input type="password" name="password" size="47px"><br> <br>
+			<input id="submit" type="button" value="Create your Amazon account">
+			<p>
+				By creating an account, you agree to Amazon's <a href="#">Conditions
+					of Use</a> and <a href="#">Privacy Notice.</a> <br>
+			<hr width="200px">
+			<br>Already have an account? <a href="#">Sign-in &#9658;</a>
+
+			</p>
+		</form>
+
+	</div>
+	<hr>
+	<center>
+		<table>
+			<tr>
+				<td><a href="http://bing.com"
+					style="font-size: 8pt; font-family: Arial; text-decoration: none">Conditions
+						of Use</a></td>
+				<td><a href="http://bing.com"
+					style="font-size: 8pt; font-family: Arial; text-decoration: none">Privacy
+						Notice</a></td>
+				<td><a href="http://bing.com"
+					style="font-size: 8pt; font-family: Arial; text-decoration: none">Help</a></td>
+			</tr>
+			<tr>
+				<td colspan="3"
+					style="font-size: 8pt; font-family: Arial; color: gray">&copy
+					1996-2016, Amazon.com, Inc. or its affiliates</td>
+			</tr>
+		</table>
+	</center>
+</body>
+<script>
+	document.getElementById('body1').onclick = function() {
+		alert('Click!');
+	}
+
+	document.getElementById('body1').oncontextmenu = function() {
+
+		alert('right click!');
+	}
+	function printMousePos(event) {
+		alert("clientX: " + event.clientX + " - clientY: " + event.clientY);
+
+	}
+	document.addEventListener("click", printMousePos);
+</script>
+</html>
