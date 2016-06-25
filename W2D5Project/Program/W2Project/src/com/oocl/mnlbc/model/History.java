@@ -1,8 +1,11 @@
 package com.oocl.mnlbc.model;
 
 import java.sql.Timestamp;
+
 /**
- * This is a History model that includes the id , chatter name message and date created  attributes
+ * This is a History model that includes the id ,chatter name message and date
+ * created attributes
+ * 
  * @author Group 1
  *
  */
@@ -12,7 +15,7 @@ public class History {
 	private String chatterName;
 	private String message;
 	private Timestamp dateCreated;
-	
+
 	/**
 	 * 
 	 * @param id

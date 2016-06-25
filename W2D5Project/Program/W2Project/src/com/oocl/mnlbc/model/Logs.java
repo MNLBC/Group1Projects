@@ -1,8 +1,11 @@
 package com.oocl.mnlbc.model;
 
 import java.sql.Timestamp;
+
 /**
- * This is the Logs model that includes the id, message, and date created attributes.
+ * This is the Logs model that includes the id, message, and date created
+ * attributes.
+ * 
  * @author Group 1
  *
  */
@@ -10,6 +13,7 @@ public class Logs {
 	private int id;
 	private String message;
 	private Timestamp dateCreated;
+
 	/**
 	 * 
 	 * @param id

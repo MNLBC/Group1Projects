@@ -3,9 +3,11 @@ package com.oocl.mnlbc.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /**
- * The purpose of this class is to establish the connection to the database. This includes the
- * driver, url, username, and password.
+ * The purpose of this class is to establish the connection to the database.
+ * This includes the driver, url, username, and password.
+ * 
  * @author Group 1
  *
  */

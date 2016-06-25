@@ -14,26 +14,26 @@ import java.util.List;
 import com.oocl.mnlbc.db.DBConnect;
 import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
+
 /**
  * The purpose of the CommandDAOImpl is where we put all the methods.
+ * 
  * @author Group 1
  *
  */
 public class CommandDAOImpl implements CommandDAO {
 	static DBConnect db = new DBConnect();
-/**
- * <p>The purpose of the following methods is for the insertion and displaying of
- * data for the chat history and chat logs.</p>
- */
+
 	public void insert(History history) throws SQLException {
 		Connection conn = db.getConn();
 		Date date = new Date();
-		String sql = "insert into HISTORY (CHATTER_NAME,MESSAGE) values(?,?)";
+		String sql = "insert into HISTORY (CHATTER_NAME,MESSAGE,DATE_CREATED) values(?,?,?)";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setString(1, history.getChatterName());
 			pstmt.setString(2, history.getMessage());
+			pstmt.setTimestamp(3, new java.sql.Timestamp(date.getTime()));
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -72,6 +72,17 @@ public class CommandDAOImpl implements CommandDAO {
 		return history;
 	}
 
+	/**
+	 * <p>
+	 * There is a need to overload the method for History in order to display
+	 * the History to the user's preferred date.
+	 * </p>
+	 * 
+	 * @param fromDate
+	 * @return
+	 * @throws SQLException
+	 */
+
 	public List<History> getHistory(String fromDate) throws SQLException {
 
 		Connection conn = db.getConn();
@@ -101,6 +112,17 @@ public class CommandDAOImpl implements CommandDAO {
 
 	}
 
+	/**
+	 * <p>
+	 * The purpose of overloading the History method is for the displaying of
+	 * the range of the chosen dates of the user.
+	 * </p>
+	 * 
+	 * @param fromDate
+	 * @param toDate
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<History> getHistory(String fromDate, String toDate) throws SQLException {
 		Connection conn = db.getConn();
 
@@ -133,11 +155,12 @@ public class CommandDAOImpl implements CommandDAO {
 	public void insert(Logs logs) throws SQLException {
 		Connection conn = db.getConn();
 		Date date = new Date();
-		String sql = "insert into LOGS (MESSAGE) values(?)";
+		String sql = "insert into LOGS (MESSAGE,DATE_CREATED) values(?,?)";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setString(1, logs.getMessage());
+			pstmt.setTimestamp(2, new java.sql.Timestamp(date.getTime()));
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -169,6 +192,16 @@ public class CommandDAOImpl implements CommandDAO {
 		return logs;
 	}
 
+	/**
+	 * <p>
+	 * The purpose of overloading the Logs method is for the user that prefers
+	 * to display a certain date.
+	 * </p>
+	 * 
+	 * @param fromDate
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<Logs> getLogs(String fromDate) throws SQLException {
 		Connection conn = db.getConn();
 
@@ -195,6 +228,18 @@ public class CommandDAOImpl implements CommandDAO {
 		return log;
 
 	}
+
+	/**
+	 * <p>
+	 * The purpose of overloading the Logs method is for displaying the user's
+	 * preferred date range.
+	 * </p>
+	 * 
+	 * @param fromDate
+	 * @param toDate
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public List<Logs> getLogs(String fromDate, String toDate) throws SQLException {
 		Connection conn = db.getConn();
