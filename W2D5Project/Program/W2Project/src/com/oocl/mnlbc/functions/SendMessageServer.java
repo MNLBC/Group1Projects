@@ -12,26 +12,25 @@ import com.oocl.mnlbc.model.Account;
 public class SendMessageServer extends Thread {
 	private Socket socket;
 	private List<Account> acc;
-	
 
 	public SendMessageServer(Socket socket, List<Account> acc) {
 		this.socket = socket;
 		this.acc = acc;
 	}
-	
+
 	public void run() {
 		BufferedReader reader = null;
 		try {
 			String message = null;
 			reader = new BufferedReader(new InputStreamReader(System.in));
-			new PrintWriter (socket.getOutputStream());
-			while(true){
+			new PrintWriter(socket.getOutputStream());
+			while (true) {
 				message = reader.readLine();
-				if (message.equalsIgnoreCase("#showactive")){
+				if (message.equalsIgnoreCase("#showactive")) {
 					showActive();
 				}
-//				writer.println("send"+message);
-//				writer.flush();
+				// writer.println("send"+message);
+				// writer.flush();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -45,10 +44,15 @@ public class SendMessageServer extends Thread {
 			}
 		}
 	}
+
 	private void showActive() {
-		System.out.println("Active Users");
-		for (Account account : acc) {
-			System.out.println(account.getName());
+		if (acc.size() > 0) {
+			System.out.println("Active Users");
+			for (Account account : acc) {
+				System.out.println(account.getName());
+			}
+		}else{
+			System.out.println("No active user yet.");
 		}
 	}
 }
