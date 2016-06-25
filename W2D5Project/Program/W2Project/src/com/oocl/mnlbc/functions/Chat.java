@@ -16,6 +16,11 @@ import com.oocl.mnlbc.model.Account;
 import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
 
+/**
+ * 
+ * @author Group 1
+ *
+ */
 public class Chat extends Thread {
 	private Socket socket;
 	private List<Socket> socketList;
@@ -23,6 +28,14 @@ public class Chat extends Thread {
 	private int ctr;
 	private CommandDAOImpl daoImpl;
 
+	/**
+	 * 
+	 * @param socket
+	 * @param socketList
+	 * @param ctr
+	 * @param acc
+	 * @param daoImpl
+	 */
 	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc, CommandDAOImpl daoImpl) {
 		this.daoImpl = daoImpl;
 		this.socket = socket;
@@ -33,16 +46,17 @@ public class Chat extends Thread {
 
 	public void run() {
 		BufferedReader reader = null;
-		BufferedReader readerServer = null;
+		// BufferedReader readerServer = null;
 		PrintWriter writer = null;
 		Account acc = new Account();
 		accList.add(acc);
 		try {
 			PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			readerServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			// readerServer = new BufferedReader(new
+			// InputStreamReader(socket.getInputStream()));
 			String name = showIntro(printwriter, reader);
-//			 this.addLogToDb(joinChatLog);
+			// this.addLogToDb(joinChatLog);
 			// DBConnect.insert(new Logs(joinChatLog));
 
 			acc.setName(name);
@@ -50,12 +64,12 @@ public class Chat extends Thread {
 			while (true) {
 				// String serverInput = sc.nextLine();
 				// System.out.println(serverInput);
-				String msgServer = readerServer.readLine().trim();
+				// String msgServer = readerServer.readLine().trim();
 				String message = reader.readLine().trim();
 				if (message.equalsIgnoreCase("#disconnect")) {
 					String disconnectLog = acc.getName() + " left the group chat";
 					System.out.println(disconnectLog);
-					 addLogToDb(disconnectLog);
+					addLogToDb(disconnectLog);
 					break;
 					// writer = new PrintWriter(socket.getOutputStream());
 					// writer.flush();
@@ -87,6 +101,12 @@ public class Chat extends Thread {
 		}
 	}
 
+	/**
+	 * 
+	 * @param message
+	 * @param acc
+	 * @param printwriter
+	 */
 	private void determineCmd(String message, Account acc, PrintWriter printwriter) {
 		String cmd = message.substring(1);
 		int cmdLen = cmd.split("\\s").length;
@@ -124,9 +144,16 @@ public class Chat extends Thread {
 				}
 			}
 		}
-		 addLogToDb(commandLog);
+		addLogToDb(commandLog);
 	}
 
+	/**
+	 * 
+	 * @param printwriter
+	 * @param reader
+	 * @return
+	 * @throws IOException
+	 */
 	private String showIntro(PrintWriter printwriter, BufferedReader reader) throws IOException {
 		printwriter.println("------------------------");
 		printwriter.println("WELCOME TO THE CHAT ROOM");
@@ -140,6 +167,10 @@ public class Chat extends Thread {
 		return name;
 	}
 
+	/**
+	 * 
+	 * @param logInsert
+	 */
 	private void addLogToDb(String logInsert) {
 		try {
 			this.daoImpl.insert(new Logs(logInsert));
@@ -147,6 +178,12 @@ public class Chat extends Thread {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * 
+	 * @param name
+	 * @param historyInsert
+	 */
 
 	private void addHistoryToDb(String name, String historyInsert) {
 		try {
@@ -156,6 +193,10 @@ public class Chat extends Thread {
 		}
 	}
 
+	/**
+	 * 
+	 * @param printwriter
+	 */
 	private void showActive(PrintWriter printwriter) {
 		printwriter.println("Active Users");
 		for (Account account : accList) {
@@ -163,6 +204,10 @@ public class Chat extends Thread {
 		}
 	}
 
+	/**
+	 * 
+	 * @param printwriter
+	 */
 	private void showHelpList(PrintWriter printwriter) {
 		printwriter.println("All command lines will start with number sign(#).");
 		printwriter.println();

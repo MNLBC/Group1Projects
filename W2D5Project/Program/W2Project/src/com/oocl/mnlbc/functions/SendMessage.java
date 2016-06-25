@@ -6,14 +6,25 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ * 
+ * @author Group 1
+ *
+ */
 public class SendMessage extends Thread {
 	private Socket socket;
-	
 
+	/**
+	 * 
+	 * @param socket
+	 */
 	public SendMessage(Socket socket) {
 		this.socket = socket;
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void run() {
 		BufferedReader reader = null;
 		PrintWriter writer = null;
@@ -21,10 +32,10 @@ public class SendMessage extends Thread {
 		try {
 			String message = null;
 			reader = new BufferedReader(new InputStreamReader(System.in));
-			writer = new PrintWriter (socket.getOutputStream());
-			while(true){
+			writer = new PrintWriter(socket.getOutputStream());
+			while (true) {
 				message = reader.readLine();
-				if (message.equalsIgnoreCase("#disconnect")){
+				if (message.equalsIgnoreCase("#disconnect")) {
 				}
 				writer.println(message);
 				writer.flush();
@@ -40,6 +51,6 @@ public class SendMessage extends Thread {
 				}
 			}
 		}
-		
+
 	}
 }

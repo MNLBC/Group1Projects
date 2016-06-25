@@ -6,22 +6,34 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class ReadMessage extends Thread{
+/**
+ * 
+ * @author Group 1
+ *
+ */
+public class ReadMessage extends Thread {
 	private Socket socket;
 
+	/**
+	 * 
+	 * @param socket
+	 */
 	public ReadMessage(Socket socket) {
 		this.socket = socket;
 	}
-	
+
+	/**
+	 * 
+	 */
 	public void run() {
 		BufferedReader reader = null;
-		
+
 		try {
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String message = null;
-			while(true){
+			while (true) {
 				message = reader.readLine();
-				if (message.equalsIgnoreCase("#disconnect")){
+				if (message.equalsIgnoreCase("#disconnect")) {
 					break;
 				}
 				System.out.println(message);
