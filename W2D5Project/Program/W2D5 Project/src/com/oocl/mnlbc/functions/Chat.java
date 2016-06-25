@@ -10,18 +10,21 @@ import java.util.List;
 public class Chat extends Thread {
 	private Socket socket;
 	private List<Socket> socketList;
+	private List<Account> accList;
 	private int ctr;
 
-	public Chat(Socket socket, List<Socket> socketList, int ctr) {
+	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc) {
 		this.socket = socket;
 		this.socketList = socketList;
 		this.ctr = ctr;
+		this.accList = acc;
 	}
 
 	public void run() {
 		BufferedReader reader = null;
 		PrintWriter writer = null;
-		Account acc = new Account(socket);
+		Account acc = new Account();
+		accList.add(acc);
 
 		try {
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -68,7 +71,7 @@ public class Chat extends Thread {
 					printwriter.flush();
 					continue;
 				}
-				
+
 				for (int i = 0; i < socketList.size(); i++) {
 					writer = new PrintWriter(socketList.get(i).getOutputStream());
 					writer.println(name + ": " + message);
@@ -83,8 +86,10 @@ public class Chat extends Thread {
 	}
 
 	private void showActive(PrintWriter printwriter) {
-		printwriter.println("Show Active Users :D");
-		printwriter.println();
+		printwriter.println("Active Users");
+		for (Account account : accList) {
+			printwriter.println(account.getName());
+		}
 	}
 
 	private void showHelpList(PrintWriter printwriter) {
