@@ -47,6 +47,7 @@ public class App {
 			System.out.println(logs2.getMessage() + " " + logs2.getDateCreated());
 		}
 		
+//		cdao.insert(new Logs("FROM JAVA"));
 	}
 
 }
