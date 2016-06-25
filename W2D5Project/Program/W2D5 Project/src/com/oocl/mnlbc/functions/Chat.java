@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Chat extends Thread {
 	private Socket socket;
 	private List<Socket> socketList;
 	private List<Account> accList;
 	private int ctr;
+//	DBConnect db = new DBConnect();
 
 	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc) {
 		this.socket = socket;
@@ -25,39 +28,64 @@ public class Chat extends Thread {
 		PrintWriter writer = null;
 		Account acc = new Account();
 		accList.add(acc);
-
 		try {
+
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
+			printwriter.println("------------------------");
+			printwriter.println("WELCOME TO THE CHAT ROOM");
+			printwriter.println("------------------------");
 			printwriter.println("Enter desired name: ");
 			String name = reader.readLine();
+			printwriter.println("Start chatting!");
+			String joinChatLog = name + " joined the chat!";
+//			addLogToDb(joinChatLog);
+			//DBConnect.insert(new Logs(joinChatLog));
+			
+			System.out.println(joinChatLog);
+			
 			acc.setName(name);
 			String message = null;
+			//Scanner sc = new Scanner(System.in);
 			while (true) {
-				// printwriter.println("Enter message: ");
+//				String serverInput = sc.nextLine();
+//				System.out.println(serverInput);
 				message = reader.readLine().trim();
 				if (message.equalsIgnoreCase("#disconnect")) {
-					writer = new PrintWriter(socket.getOutputStream());
-					writer.flush();
-					continue;
+					String disconnectLog = acc.getName() + " left the group chat";
+					System.out.println(disconnectLog);
+					//addLogToDb(disconnectLog);
+					break;
+//					writer = new PrintWriter(socket.getOutputStream());
+//					writer.flush();
+//					continue;
 				}
 
 				if (message.startsWith("#")) {
 					String cmd = message.substring(1);
 					int cmdLen = cmd.split("\\s").length;
+					String commandLog ="";
 					if (cmdLen == 1) {
 						if (cmd.equalsIgnoreCase("help")) {
+							commandLog = acc.getName() + " used help command";
+							System.out.println(commandLog);
 							showHelpList(printwriter);
 						} else if (cmd.equalsIgnoreCase("showactive")) {
+							commandLog = acc.getName() + " used show active users command";
+							System.out.println(commandLog);
 							showActive(printwriter);
 						} else if (cmd.equalsIgnoreCase("history")) {
+							commandLog = acc.getName() + " used show history command";
 							printwriter.println("History :}");
+							System.out.println(commandLog);
 						}
 					} else if (cmdLen == 3) {
 						String[] cmdAr = cmd.split("\\s");
 						if (cmdAr[0].equalsIgnoreCase("history")) {
 							if (cmdAr[1].equalsIgnoreCase("from")) {
 								printwriter.println(cmdAr[2]);
+								commandLog = acc.getName() + " used show history command. View from " + cmdAr[2];
+								System.out.println(commandLog);
 							}
 						}
 					} else if (cmdLen == 5) {
@@ -65,9 +93,12 @@ public class Chat extends Thread {
 						if (cmdAr[0].equalsIgnoreCase("history")) {
 							if (cmdAr[1].equalsIgnoreCase("from") && cmdAr[3].equalsIgnoreCase("to")) {
 								printwriter.println(cmdAr[2] + " " + cmdAr[4]);
+								commandLog = acc.getName() + " used history command. View from " + cmdAr[2] + " to " + cmdAr[4];
+								System.out.println(commandLog);
 							}
 						}
 					}
+					//addLogToDb(commandLog);
 					printwriter.flush();
 					continue;
 				}
@@ -75,15 +106,22 @@ public class Chat extends Thread {
 				for (int i = 0; i < socketList.size(); i++) {
 					writer = new PrintWriter(socketList.get(i).getOutputStream());
 					writer.println(name + ": " + message);
+					String sendMessageLog = (name + " sent a message");
+					if(i==0){
+						System.out.println(sendMessageLog);
+					}
 					writer.flush();
 				}
 				printwriter.flush();
-
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+//	private void addLogToDb(String logInsert){
+//		DBConnect.insert(new Logs(logInsert));
+//	}
 
 	private void showActive(PrintWriter printwriter) {
 		printwriter.println("Active Users");

@@ -19,20 +19,12 @@ public class SendMessage extends Thread {
 		PrintWriter writer = null;
 		Chat chat;
 		try {
-			System.out.println("--------------------------------");
-			System.out.println("WELCOME TO THE CHAT ROOM");
-			System.out.println("--------------------------------");
-			System.out.println("Enter message: ");
-
 			String message = null;
-			// Display users
 			reader = new BufferedReader(new InputStreamReader(System.in));
 			writer = new PrintWriter (socket.getOutputStream());
-//			System.out.println("Active users:");
 			while(true){
 				message = reader.readLine();
-				if (message.equalsIgnoreCase("#Disconnect")){
-					break;
+				if (message.equalsIgnoreCase("#disconnect")){
 				}
 				writer.println(message);
 				writer.flush();

@@ -10,6 +10,7 @@ import java.util.List;
 public class ChatServer {
 
 	public void startWork() throws IOException {
+		
 		ServerSocket serverSocket = new ServerSocket(123);
 		List<Socket> socketList = new ArrayList<Socket>();
 		List<Account> acc = new ArrayList<Account>();
@@ -18,7 +19,7 @@ public class ChatServer {
 		while(true){
 			socket = serverSocket.accept();
 			ctr++;
-			System.out.println(ctr + " joined the chat");
+//			System.out.println(ctr + " joined the chat");
 			socketList.add(socket);
 			new Chat(socket, socketList, ctr,acc).start();
 		}
