@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.util.List;
 
 import com.oocl.mnlbc.model.Account;
+import com.oocl.mnlbc.model.FileHistory;
 
 public class SendMessageServer extends Thread {
 	private Socket socket;
@@ -28,6 +29,10 @@ public class SendMessageServer extends Thread {
 				message = reader.readLine();
 				if (message.equalsIgnoreCase("#showactive")) {
 					showActive();
+					continue;
+				}
+				if(message.equalsIgnoreCase("#genfile")){
+					generateFile();
 				}
 				// writer.println("send"+message);
 				// writer.flush();
@@ -43,6 +48,12 @@ public class SendMessageServer extends Thread {
 				}
 			}
 		}
+	}
+
+	private void generateFile() {
+		FileHistory fileHistory = new FileHistory();
+		fileHistory.createFile();
+		fileHistory.importHistory();
 	}
 
 	private void showActive() {

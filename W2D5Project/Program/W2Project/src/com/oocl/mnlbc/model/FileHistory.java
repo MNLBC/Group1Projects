@@ -37,13 +37,16 @@ public class FileHistory {
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(file);
+//			writer.append("TryTRY");
 			List<History> histList = cmd.getHistory();
+			StringBuffer sb = new StringBuffer();
 			for (History history : histList) {
 				String entry = history.getDateCreated() + " - " 
 						+ history.getChatterName() + ": "
 						+ history.getMessage();
-				writer.append(entry);
+				sb.append(entry+"\n");
 			}
+			writer.append(sb.toString());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

@@ -150,12 +150,8 @@ public class Chat extends Thread {
 		return name;
 	}
 
-	private void addLogToDb(String logInsert) {
-		try {
-			this.daoImpl.insert(new Logs(logInsert));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	private void addLogToDb(String logInsert) throws SQLException {
+		this.daoImpl.insert(new Logs(logInsert));
 	}
 
 	private void showActive(PrintWriter printWriter) {
