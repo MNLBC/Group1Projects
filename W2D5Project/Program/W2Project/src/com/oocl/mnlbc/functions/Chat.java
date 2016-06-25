@@ -13,6 +13,7 @@ import java.util.Scanner;
 import com.oocl.mnlbc.dao.CommandDAOImpl;
 import com.oocl.mnlbc.db.DBConnect;
 import com.oocl.mnlbc.model.Account;
+import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
 
 public class Chat extends Thread {
@@ -74,6 +75,8 @@ public class Chat extends Thread {
 					if (i == 0) {
 						System.out.println(sendMessageLog);
 					}
+					addLogToDb(sendMessageLog);
+					addHistoryToDb(name, message);
 					writer.flush();
 				}
 				printwriter.flush();
@@ -140,6 +143,14 @@ public class Chat extends Thread {
 	private void addLogToDb(String logInsert) {
 		try {
 			this.daoImpl.insert(new Logs(logInsert));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void addHistoryToDb(String name, String historyInsert) {
+		try {
+			this.daoImpl.insert(new History(name, historyInsert));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
