@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Amazon</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body id="test">
+<center>
+<form>
+<div id="outer">
+		<img src="amazon_logo.png" style="width:130px;height:50px" >
+		<div id="form">
+		<p id="ca">Create account</p>
+		<p style="font-weight: bold;font-size:13px;">Your name <br><input type="text" name="first_name" id="textbox1" size=50/></p>
+		<p style="font-weight: bold;font-size:13px;">Email <br><input type="email" name="email" id="textbox2" size=50/></p>
+		<p style="font-weight: bold;font-size:13px;" >Password <br><input type="password" name="password" id="textbox3" size=50  placeholder="at least 6 characters"/></p>
+		<p style="font-weight: bold;font-size:13px;">Password again <br><input type="password" name="confirmpassword" id="textbox4" size=50/></p>
+		<button type ="button" id ="submit"> Create your Amazon account </button> <br>
+		<p id="desc" style="font-size: 13px;">By creating an account, you agree to Amazon's <br>
+		<a href="#" style="font-size: 13px;">Condition's of use</a> and<a href="#"> Privacy Notice</a></p>
+		<hr width="200" > 
+		<p id="desc1" style="font-size: 13px;">Already have an account? <a href="#"> Sign in &#9658;</a> </p>
+		</div>
+		<br><br><br>
+		<hr width="600"> 
+		<p style="font-family: Tahoma; font-size: 13px;"><a href="#">Conditions of Use</a>  <a href="#"> Privacy Notice</a> <a href="#"> Help </a></p>
+		<p style="font-family: Tahoma; color: gray; font-size: 12px;"> &copy; 1996-2016, Amazon.com, Inc. or its affiliates </p>
+</div>		
+</form>
+</center>
+</body>	
+<script>
+
+	document.getElementById('test').onclick = function() {
+		alert('Left click!')
+	}
+	document.getElementById('test').oncontextmenu = function() {
+		alert('Right click!');
+		
+	}
+	
+	function printMousePos(event) {
+		alert("clientX: " + event.clientX
+		+ " - clientY: " + event.clientY);
+		}
+
+		document.addEventListener("click", printMousePos);
+		
+	
+	
+</script>
+</html>
