@@ -21,7 +21,7 @@ public class ReadMessage extends Thread{
 			String message = null;
 			while(true){
 				message = reader.readLine();
-				if (message.equalsIgnoreCase("#Disconnect")){
+				if (message.equalsIgnoreCase("#disconnect")){
 					break;
 				}
 				System.out.println(message);
