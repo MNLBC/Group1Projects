@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.oocl.mnlbc.dao.CommandDAOImpl;
 import com.oocl.mnlbc.model.Account;
 
 
@@ -16,6 +17,7 @@ public class ChatServer {
 		ServerSocket serverSocket = new ServerSocket(123);
 		List<Socket> socketList = new ArrayList<Socket>();
 		List<Account> acc = new ArrayList<Account>();
+		CommandDAOImpl daoImpl = new CommandDAOImpl();
 		Socket socket = null;
 		int ctr = 0;
 		while(true){
@@ -23,7 +25,7 @@ public class ChatServer {
 			ctr++;
 //			System.out.println(ctr + " joined the chat");
 			socketList.add(socket);
-			new Chat(socket, socketList, ctr,acc).start();
+			new Chat(socket, socketList, ctr,acc, daoImpl).start();
 		}
 	}
 	public static void main(String[] args) throws IOException {

@@ -5,20 +5,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.oocl.mnlbc.dao.CommandDAOImpl;
+import com.oocl.mnlbc.db.DBConnect;
 import com.oocl.mnlbc.model.Account;
+import com.oocl.mnlbc.model.Logs;
 
 public class Chat extends Thread {
 	private Socket socket;
 	private List<Socket> socketList;
 	private List<Account> accList;
 	private int ctr;
-//	DBConnect db = new DBConnect();
+	private CommandDAOImpl daoImpl ;
 
-	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc) {
+	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc, CommandDAOImpl daoImpl) {
+		this.daoImpl = daoImpl;
 		this.socket = socket;
 		this.socketList = socketList;
 		this.ctr = ctr;
@@ -41,7 +46,7 @@ public class Chat extends Thread {
 			String name = reader.readLine();
 			printwriter.println("Start chatting!");
 			String joinChatLog = name + " joined the chat!";
-//			addLogToDb(joinChatLog);
+//			this.addLogToDb(joinChatLog);
 			//DBConnect.insert(new Logs(joinChatLog));
 			
 			System.out.println(joinChatLog);
@@ -121,9 +126,13 @@ public class Chat extends Thread {
 			e.printStackTrace();
 		}
 	}
-//	private void addLogToDb(String logInsert){
-//		DBConnect.insert(new Logs(logInsert));
-//	}
+	private void addLogToDb(String logInsert){
+		try {
+			this.daoImpl.insert(new Logs(logInsert));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private void showActive(PrintWriter printwriter) {
 		printwriter.println("Active Users");
