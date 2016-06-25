@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import com.oocl.mnlbc.dao.CommandDAOImpl;
 import com.oocl.mnlbc.model.Account;
+import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
 
 public class Chat extends Thread {
@@ -108,23 +109,23 @@ public class Chat extends Thread {
 		String commandLog = "";
 		if (cmdLen == 1) {
 			if (cmd.equalsIgnoreCase("help")) {
+				showHelpList(printWriter);
 				commandLog = acc.getName() + " used help command";
 				System.out.println(commandLog);
-				showHelpList(printWriter);
 			} else if (cmd.equalsIgnoreCase("showactive")) {
+				showActive(printWriter);
 				commandLog = acc.getName() + " used show active users command";
 				System.out.println(commandLog);
-				showActive(printWriter);
 			} else if (cmd.equalsIgnoreCase("history")) {
+				history();
 				commandLog = acc.getName() + " used show history command";
-				printWriter.println("History :}");
 				System.out.println(commandLog);
 			}
 		} else if (cmdLen == 3) {
 			String[] cmdAr = cmd.split("\\s");
 			if (cmdAr[0].equalsIgnoreCase("history")) {
 				if (cmdAr[1].equalsIgnoreCase("from")) {
-					printWriter.println(cmdAr[2]);
+					history(cmdAr[2]);
 					commandLog = acc.getName() + " used show history command. View from " + cmdAr[2];
 					System.out.println(commandLog);
 				}
@@ -133,13 +134,42 @@ public class Chat extends Thread {
 			String[] cmdAr = cmd.split("\\s");
 			if (cmdAr[0].equalsIgnoreCase("history")) {
 				if (cmdAr[1].equalsIgnoreCase("from") && cmdAr[3].equalsIgnoreCase("to")) {
-					printWriter.println(cmdAr[2] + " " + cmdAr[4]);
+					history(cmdAr[2] , cmdAr[4]);
 					commandLog = acc.getName() + " used history command. View from " + cmdAr[2] + " to " + cmdAr[4];
 					System.out.println(commandLog);
 				}
 			}
 		}
 		// addLogToDb(commandLog);
+	}
+
+	private void history(String fromDate, String toDate) {
+		List<History> histList = this.daoImpl.getHistory(fromDate, toDate);
+		for (History history : histList) {
+			String entry = history.getDateCreated() + " - " 
+					+ history.getChatterName() + ": "
+					+ history.getMessage();
+			System.out.println(entry);
+		}
+	}
+
+	private void history(String fromDate) {
+		List<History> histList = this.daoImpl.getHistory(fromDate);
+		for (History history : histList) {
+			String entry = history.getDateCreated() + " - " 
+					+ history.getChatterName() + ": "
+					+ history.getMessage();
+			System.out.println(entry);
+		}
+	}
+
+	private void history() {
+		List<History> histList = this.daoImpl.getHistory();
+		for (History history : histList) {
+			String entry = history.getChatterName() + ": "
+					+ history.getMessage();
+			System.out.println(entry);
+		}
 	}
 
 	private String showIntro(PrintWriter printWriter, BufferedReader reader) throws IOException {
