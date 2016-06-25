@@ -18,7 +18,7 @@ public class ChatClient {
 	}
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		ChatClient client = new ChatClient(args[0]);
+		ChatClient client = new ChatClient("10.222.29.159");
 		client.startWork();
 	}
 

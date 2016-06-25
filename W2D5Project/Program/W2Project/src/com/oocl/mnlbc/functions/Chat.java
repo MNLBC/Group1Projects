@@ -41,7 +41,7 @@ public class Chat extends Thread {
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			readerServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String name = showIntro(printwriter, reader);
-			// this.addLogToDb(joinChatLog);
+//			 this.addLogToDb(joinChatLog);
 			// DBConnect.insert(new Logs(joinChatLog));
 
 			acc.setName(name);
@@ -54,7 +54,7 @@ public class Chat extends Thread {
 				if (message.equalsIgnoreCase("#disconnect")) {
 					String disconnectLog = acc.getName() + " left the group chat";
 					System.out.println(disconnectLog);
-					// addLogToDb(disconnectLog);
+					 addLogToDb(disconnectLog);
 					break;
 					// writer = new PrintWriter(socket.getOutputStream());
 					// writer.flush();
@@ -121,7 +121,7 @@ public class Chat extends Thread {
 				}
 			}
 		}
-		// addLogToDb(commandLog);
+		 addLogToDb(commandLog);
 	}
 
 	private String showIntro(PrintWriter printwriter, BufferedReader reader) throws IOException {
@@ -133,6 +133,7 @@ public class Chat extends Thread {
 		printwriter.println("Start chatting!");
 		String joinChatLog = name + " joined the chat!";
 		System.out.println(joinChatLog);
+		addLogToDb(joinChatLog);
 		return name;
 	}
 

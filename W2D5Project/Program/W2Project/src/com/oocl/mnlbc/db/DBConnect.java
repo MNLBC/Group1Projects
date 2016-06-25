@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public class DBConnect {
 	public Connection getConn() {
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521/xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String username = "system";
-		String password = "admin";
+		String password = "password1";
 		Connection conn = null;
 		try {
 			Class.forName(driver);
