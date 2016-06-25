@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.oocl.mnlbc.model.Account;
+
 
 public class ChatServer {
 

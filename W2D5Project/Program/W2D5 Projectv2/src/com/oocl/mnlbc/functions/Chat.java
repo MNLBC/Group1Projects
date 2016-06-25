@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.oocl.mnlbc.model.Account;
+
 public class Chat extends Thread {
 	private Socket socket;
 	private List<Socket> socketList;
