@@ -1,6 +1,7 @@
 package com.oocl.mnlbc.functions;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -20,10 +21,11 @@ public class ChatServer {
 		CommandDAOImpl daoImpl = new CommandDAOImpl();
 		Socket socket = null;
 		int ctr = 0;
+		Socket server = new Socket(InetAddress.getLocalHost(), 123);
+		new SendMessageServer(server,acc).start();
 		while(true){
 			socket = serverSocket.accept();
 			ctr++;
-//			System.out.println(ctr + " joined the chat");
 			socketList.add(socket);
 			new Chat(socket, socketList, ctr,acc, daoImpl).start();
 		}
