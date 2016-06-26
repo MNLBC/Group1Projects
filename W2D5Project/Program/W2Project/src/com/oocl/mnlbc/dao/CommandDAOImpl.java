@@ -24,7 +24,13 @@ import com.oocl.mnlbc.model.Logs;
 public class CommandDAOImpl implements CommandDAO {
 	static DBConnect db = new DBConnect();
 
-	public void insert(History history) throws SQLException {
+	/**
+	 * <p>
+	 * The purpose of the following methods is for the insertion and displaying
+	 * of data for the chat history and chat logs.
+	 * </p>
+	 */
+	public void insert(History history) {
 		Connection conn = db.getConn();
 		Date date = new Date();
 		String sql = "insert into HISTORY (CHATTER_NAME,MESSAGE,DATE_CREATED) values(?,?,?)";
@@ -42,7 +48,7 @@ public class CommandDAOImpl implements CommandDAO {
 		}
 	}
 
-	public List<History> getHistory() throws SQLException {
+	public List<History> getHistory() {
 		Connection conn = db.getConn();
 		DateFormat df = new SimpleDateFormat("dd-MM-YYYY");
 		Date dateobj = new Date();
@@ -83,7 +89,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * @throws SQLException
 	 */
 
-	public List<History> getHistory(String fromDate) throws SQLException {
+	public List<History> getHistory(String fromDate) {
 
 		Connection conn = db.getConn();
 
@@ -123,7 +129,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<History> getHistory(String fromDate, String toDate) throws SQLException {
+	public List<History> getHistory(String fromDate, String toDate) {
 		Connection conn = db.getConn();
 
 		String sql = "SELECT * FROM HISTORY  WHERE  date_created BETWEEN to_timestamp('" + fromDate
@@ -152,7 +158,7 @@ public class CommandDAOImpl implements CommandDAO {
 
 	}
 
-	public void insert(Logs logs) throws SQLException {
+	public void insert(Logs logs) {
 		Connection conn = db.getConn();
 		Date date = new Date();
 		String sql = "insert into LOGS (MESSAGE,DATE_CREATED) values(?,?)";
@@ -169,7 +175,7 @@ public class CommandDAOImpl implements CommandDAO {
 		}
 	}
 
-	public List<Logs> getLogs() throws SQLException {
+	public List<Logs> getLogs() {
 		Connection conn = db.getConn();
 		String sql = "SELECT * FROM LOGS";
 		PreparedStatement pstmt;
@@ -202,7 +208,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<Logs> getLogs(String fromDate) throws SQLException {
+	public List<Logs> getLogs(String fromDate) {
 		Connection conn = db.getConn();
 
 		String sql = "SELECT * FROM LOGS  WHERE  date_created >= to_timestamp('" + fromDate
@@ -241,7 +247,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * @throws SQLException
 	 */
 
-	public List<Logs> getLogs(String fromDate, String toDate) throws SQLException {
+	public List<Logs> getLogs(String fromDate, String toDate) {
 		Connection conn = db.getConn();
 
 		String sql = "SELECT * FROM LOGS  WHERE  date_created BETWEEN to_timestamp('" + fromDate

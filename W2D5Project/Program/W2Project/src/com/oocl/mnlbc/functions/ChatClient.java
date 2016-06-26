@@ -39,7 +39,7 @@ public class ChatClient {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		ChatClient client = new ChatClient("10.222.29.159");
+		ChatClient client = new ChatClient("10.222.29.162");
 		client.startWork();
 	}
 

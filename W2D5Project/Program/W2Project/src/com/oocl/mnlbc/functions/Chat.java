@@ -50,24 +50,23 @@ public class Chat extends Thread {
 	 */
 	public void run() {
 		BufferedReader reader = null;
-		// BufferedReader readerServer = null;
+		Scanner scanServer = null;
 		PrintWriter writer = null;
-		Account acc = new Account();
+		Account acc = null;
+
 		try {
-			PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
+			PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+
+			PrintWriter printServer = new PrintWriter(System.out, true);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			// readerServer = new BufferedReader(new
-			// InputStreamReader(socket.getInputStream()));
-			String name = showIntro(printwriter, reader);
-			// this.addLogToDb(joinChatLog);
-			// DBConnect.insert(new Logs(joinChatLog));
-			acc.setName(name);
-			accList.add(acc);
-			// Scanner sc = new Scanner(System.in);
+			if (acc == null) {
+				String name = showIntro(printWriter, reader);
+				acc = new Account(name);
+				// this.addLogToDb(joinChatLog);
+				// DBConnect.insert(new Logs(joinChatLog));
+				accList.add(acc);
+			}
 			while (true) {
-				// String serverInput = sc.nextLine();
-				// System.out.println(serverInput);
-				// String msgServer = readerServer.readLine().trim();
 				String message = reader.readLine().trim();
 				if (message.equalsIgnoreCase("#disconnect")) {
 					String disconnectLog = acc.getName() + " left the group chat";
@@ -83,30 +82,29 @@ public class Chat extends Thread {
 					}
 					addLogToDb(disconnectLog);
 					socketList.remove(socket);
-					break;
 					// writer = new PrintWriter(socket.getOutputStream());
 					// writer.flush();
 					// continue;
 				}
 
 				if (message.startsWith("#")) {
-					determineCmd(message, acc, printwriter);
-					printwriter.flush();
+					determineCmd(message, acc, printWriter);
+					printWriter.flush();
 					continue;
 				}
 
 				for (int i = 0; i < socketList.size(); i++) {
 					writer = new PrintWriter(socketList.get(i).getOutputStream());
-					writer.println(name + ": " + message);
-					String sendMessageLog = (name + " sent a message");
+					writer.println(acc.getName() + ": " + message);
+					String sendMessageLog = (acc.getName() + " sent a message");
 					if (i == 0) {
 						System.out.println(sendMessageLog);
 					}
 					addLogToDb(sendMessageLog);
-					addHistoryToDb(name, message);
+					addHistoryToDb(acc.getName(), message);
 					writer.flush();
 				}
-				printwriter.flush();
+				printWriter.flush();
 
 			}
 		} catch (IOException e) {
@@ -118,37 +116,34 @@ public class Chat extends Thread {
 	 * 
 	 * @param message
 	 * @param acc
-	 * @param printwriter
+	 * @param printWriter
 	 */
-	private void determineCmd(String message, Account acc, PrintWriter printwriter) {
+	private void determineCmd(String message, Account acc, PrintWriter printWriter) {
 		String cmd = message.substring(1);
 		int cmdLen = cmd.split("\\s").length;
 		String commandLog = "";
 		if (cmdLen == 1) {
 			if (cmd.equalsIgnoreCase("help")) {
+				showHelpList(printWriter);
 				commandLog = acc.getName() + " used help command";
 				System.out.println(commandLog);
-				showHelpList(printwriter);
 			} else if (cmd.equalsIgnoreCase("showactive")) {
+				showActive(printWriter);
 				commandLog = acc.getName() + " used show active users command";
 				System.out.println(commandLog);
-				showActive(printwriter);
 			} else if (cmd.equalsIgnoreCase("history")) {
+				getHistory(printWriter);
 				commandLog = acc.getName() + " used show history command";
-				printwriter.println("------------------------------------------------------------------------");
-				printwriter.println("\t\t\t\tHISTORY");
-				getHistory(printwriter);
 				System.out.println(commandLog);
 			}
 		} else if (cmdLen == 3) {
 			String[] cmdAr = cmd.split("\\s");
 			if (cmdAr[0].equalsIgnoreCase("history")) {
 				if (cmdAr[1].equalsIgnoreCase("from")) {
-					printwriter.println(cmdAr[2]);
+					getHistory(printWriter, cmdAr[2]);
 					commandLog = acc.getName() + " used show history command. View from " + cmdAr[2];
-					printwriter.println("------------------------------------------------------------------------");
-					printwriter.println("\t\t\t\tHISTORY");
-					getHistory(printwriter, cmdAr[2]);
+					printWriter.println("------------------------------------------------------------------------");
+					printWriter.println("\t\t\t\tHISTORY");
 					System.out.println(commandLog);
 				}
 			}
@@ -156,11 +151,10 @@ public class Chat extends Thread {
 			String[] cmdAr = cmd.split("\\s");
 			if (cmdAr[0].equalsIgnoreCase("history")) {
 				if (cmdAr[1].equalsIgnoreCase("from") && cmdAr[3].equalsIgnoreCase("to")) {
-					printwriter.println(cmdAr[2] + " " + cmdAr[4]);
+					getHistory(printWriter, cmdAr[2], cmdAr[4]);
 					commandLog = acc.getName() + " used history command. View from " + cmdAr[2] + " to " + cmdAr[4];
-					printwriter.println("------------------------------------------------------------------------");
-					printwriter.println("\t\t\t\tHISTORY");
-					getHistory(printwriter, cmdAr[2], cmdAr[4]);
+					printWriter.println("------------------------------------------------------------------------");
+					printWriter.println("\t\t\t\tHISTORY");
 					System.out.println(commandLog);
 				}
 			}
@@ -169,73 +163,64 @@ public class Chat extends Thread {
 	}
 
 	private void getHistory(PrintWriter writer) {
+		writer.println("------------------------------------------------------------------------");
+		writer.println("\t\t\t\tHISTORY");
 		List<History> historyReturn;
-		try {
-			historyReturn = this.daoImpl.getHistory();
-			writer.println("Sender\t\t\tMessage\t\t\tDate and Time");
-			writer.println("------------------------------------------------------------------------");
-			for (History history : historyReturn) {
-				writer.println(history.getChatterName() + "\t\t\t" + history.getMessage() + "\t\t\t"
-						+ history.getDateCreated());
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		historyReturn = this.daoImpl.getHistory();
+		writer.println("Date and Time\t\t\tSender\t\t\tMessage");
+		writer.println("------------------------------------------------------------------------");
+		for (History history : historyReturn) {
+			writer.println(
+					history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t\t" + history.getMessage());
 		}
 	}
 
 	private void getHistory(PrintWriter writer, String fromDate, String toDate) {
+		writer.println("------------------------------------------------------------------------");
+		writer.println("\t\t\t\tHISTORY");
 		List<History> historyReturn = null;
-		try {
-			historyReturn = this.daoImpl.getHistory(fromDate, toDate);
-			writer.println("Sender\t\t\tMessage\t\t\tDate and Time");
-			writer.println("------------------------------------------------------------------------");
-			for (History history : historyReturn) {
-				writer.println(history.getChatterName() + "\t\t\t" + history.getMessage() + "\t\t\t"
-						+ history.getDateCreated());
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		historyReturn = this.daoImpl.getHistory(fromDate, toDate);
+		writer.println("Date and Time\t\t\tSender\t\t\tMessage");
+		writer.println("------------------------------------------------------------------------");
+		for (History history : historyReturn) {
+			writer.println(
+					history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t\t" + history.getMessage());
 		}
 	}
 
 	private void getHistory(PrintWriter writer, String fromDate) {
+		writer.println("------------------------------------------------------------------------");
+		writer.println("\t\t\t\tHISTORY");
 		List<History> historyReturn = null;
-		try {
-			historyReturn = this.daoImpl.getHistory(fromDate);
-			writer.println("Sender\t\t\tMessage\t\t\tDate and Time");
-			writer.println("------------------------------------------------------------------------");
-			for (History history : historyReturn) {
-				writer.println(history.getChatterName() + "\t\t\t" + history.getMessage() + "\t\t\t"
-						+ history.getDateCreated());
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		historyReturn = this.daoImpl.getHistory(fromDate);
+		writer.println("Date and Time\t\t\tSender\t\t\tMessage");
+		writer.println("------------------------------------------------------------------------");
+		for (History history : historyReturn) {
+			writer.println(
+					history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t\t" + history.getMessage());
 		}
 	}
 
 	/**
 	 * 
-	 * @param printwriter
+	 * @param printWriter
 	 * @param reader
 	 * @return
 	 * @throws IOException
 	 */
-	private String showIntro(PrintWriter printwriter, BufferedReader reader) throws IOException {
-		printwriter.println("------------------------");
-		printwriter.println("WELCOME TO THE CHAT ROOM");
-		printwriter.println("------------------------");
+	private String showIntro(PrintWriter printWriter, BufferedReader reader) throws IOException {
+		printWriter.println("------------------------");
+		printWriter.println("WELCOME TO THE CHAT ROOM");
+		printWriter.println("------------------------");
 		String name = null;
 		while (true) {
-			printwriter.println("Enter desired name: ");
+			printWriter.println("Enter desired name: ");
 			name = reader.readLine();
-			boolean userExists = isUserExisting(name, accList, printwriter);
+			boolean userExists = isUserExisting(name, accList, printWriter);
 			if (userExists) {
-				printwriter.println("Name already exists! Please chose a different name!");
+				printWriter.println("Name already exists! Please chose a different name!");
 			} else if (name.equals("")) {
-				printwriter.println("Name can not be empty");
+				printWriter.println("Name can not be empty");
 			} else {
 				socketList.add(socket);
 				break;
@@ -244,20 +229,20 @@ public class Chat extends Thread {
 		String joinChatLog = name + " joined the chat!";
 		System.out.println(joinChatLog);
 		for (int i = 0; i < socketList.size(); i++) {
-			printwriter = new PrintWriter(socketList.get(i).getOutputStream());
+			printWriter = new PrintWriter(socketList.get(i).getOutputStream());
 			if (socket.equals(socketList.get(i))) {
-				printwriter.println("You joined the chat!");
-				printwriter.println("Start chatting!");
+				printWriter.println("You joined the chat!");
+				printWriter.println("Start chatting!");
 			} else {
-				printwriter.println(joinChatLog);
+				printWriter.println(joinChatLog);
 			}
-			printwriter.flush();
+			printWriter.flush();
 		}
 		addLogToDb(joinChatLog);
 		return name;
 	}
 
-	private boolean isUserExisting(String name, List<Account> accList, PrintWriter printwriter) {
+	private boolean isUserExisting(String name, List<Account> accList, PrintWriter printWriter) {
 
 		if (!accList.isEmpty()) {
 			for (int i = 0; i < accList.size(); i++) {
@@ -274,11 +259,7 @@ public class Chat extends Thread {
 	 * @param logInsert
 	 */
 	private void addLogToDb(String logInsert) {
-		try {
-			this.daoImpl.insert(new Logs(logInsert));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		this.daoImpl.insert(new Logs(logInsert));
 	}
 
 	/**
@@ -288,40 +269,37 @@ public class Chat extends Thread {
 	 */
 
 	private void addHistoryToDb(String name, String historyInsert) {
-		try {
-			this.daoImpl.insert(new History(name, historyInsert));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		this.daoImpl.insert(new History(name, historyInsert));
 	}
 
 	/**
 	 * 
-	 * @param printwriter
+	 * @param printWriter
 	 */
-	private void showActive(PrintWriter printwriter) {
-		printwriter.println("Active Users");
+	private void showActive(PrintWriter printWriter) {
+		printWriter.println("Active Users");
 		for (Account account : accList) {
-			printwriter.println(account.getName());
+			printWriter.println(account.getName());
 		}
 	}
 
 	/**
 	 * 
-	 * @param printwriter
+	 * @param printWriter
 	 */
-	private void showHelpList(PrintWriter printwriter) {
-		printwriter.println("------------------------------------------------------------------------");
-		printwriter.println("All command lines will start with number sign(#).");
-		printwriter.println();
-		printwriter.println("#disconnect\t\t\t\t\t\t-leave the chat");
-		printwriter.println("#help\t\t\t\t\t\t\t-shows the list of all commands");
-		printwriter.println("#history\t\t\t\t\t\t-shows the chat history for today");
-		printwriter.println("#history from <date>\t\t\t\t\t-shows the chat history from the date to the current date");
-		printwriter.println(
+
+	private void showHelpList(PrintWriter printWriter) {
+		printWriter.println("------------------------------------------------------------------------");
+		printWriter.println("All command lines will start with number sign(#).");
+		printWriter.println();
+		printWriter.println("#disconnect\t\t\t\t\t\t-leave the chat");
+		printWriter.println("#help\t\t\t\t\t\t\t-shows the list of all commands");
+		printWriter.println("#history\t\t\t\t\t\t-shows the chat history for today");
+		printWriter.println("#history from <date>\t\t\t\t\t-shows the chat history from the date to the current date");
+		printWriter.println(
 				"#history from <start date> to <end date>\t\t-shows the chat history from the start date to end date");
-		printwriter.println("#showactive\t\t\t\t\t\t-shows the current active chat members");
-		printwriter.println();
-		printwriter.println();
+		printWriter.println("#showactive\t\t\t\t\t\t-shows the current active chat members");
+		printWriter.println();
+		printWriter.println();
 	}
 }
