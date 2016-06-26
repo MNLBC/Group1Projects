@@ -34,7 +34,7 @@ public class ChatServer {
 			socket = serverSocket.accept();
 			ctr++;
 			// System.out.println(ctr + " joined the chat");
-			socketList.add(socket);
+			
 			new Chat(socket, socketList, ctr, acc, daoImpl).start();
 		}
 	}
