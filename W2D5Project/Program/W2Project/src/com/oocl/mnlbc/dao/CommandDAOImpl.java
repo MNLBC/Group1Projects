@@ -128,7 +128,7 @@ public class CommandDAOImpl implements CommandDAO {
 
 		String sql = "SELECT * FROM HISTORY  WHERE  date_created BETWEEN to_timestamp('" + fromDate
 				+ " 00:00:00','dd-mm-yyyy hh24:mi:ss') AND to_timestamp('" + toDate
-				+ " 00:00:00','dd-mm-yyyy hh24:mi:ss') ";
+				+ " 23:59:59','dd-mm-yyyy hh24:mi:ss') ";
 
 		PreparedStatement pstmt;
 		List<History> history = new ArrayList<History>();
