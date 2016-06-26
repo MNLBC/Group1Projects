@@ -237,6 +237,7 @@ public class Chat extends Thread {
 			} else if (name.equals("")) {
 				printwriter.println("Name can not be empty");
 			} else {
+				socketList.add(socket);
 				break;
 			}
 		}
