@@ -70,6 +70,7 @@ public class Chat extends Thread {
 						writer = new PrintWriter(socketList.get(i).getOutputStream());
 						if (socket.equals(socketList.get(i))) {
 							writer.println("You left the group chat");
+							accList.remove(accList.get(i));
 						} else {
 							writer.println(disconnectLog);
 						}
@@ -77,6 +78,7 @@ public class Chat extends Thread {
 					}
 					addLogToDb(disconnectLog);
 					socketList.remove(socket);
+					break;
 					// writer = new PrintWriter(socket.getOutputStream());
 					// writer.flush();
 					// continue;
