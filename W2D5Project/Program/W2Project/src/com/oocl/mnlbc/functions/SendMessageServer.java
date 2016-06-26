@@ -28,6 +28,9 @@ public class SendMessageServer extends Thread {
 	public void run() {
 		BufferedReader reader = null;
 		try {
+			
+			System.out.println("Server is started.");
+			System.out.println("Chat Group is created.");
 			String message = null;
 			reader = new BufferedReader(new InputStreamReader(System.in));
 			new PrintWriter(socket.getOutputStream());

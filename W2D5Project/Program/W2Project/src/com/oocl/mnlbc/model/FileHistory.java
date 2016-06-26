@@ -45,6 +45,7 @@ public class FileHistory {
 						+ history.getMessage();
 				sb.append(entry + "\n");
 			}
+			System.out.println("Successfully Generated!");
 			writer.append(sb.toString());
 		} catch (IOException e) {
 			e.printStackTrace();
