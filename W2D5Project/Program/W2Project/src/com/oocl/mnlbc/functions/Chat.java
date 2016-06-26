@@ -5,13 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.oocl.mnlbc.dao.CommandDAOImpl;
-import com.oocl.mnlbc.db.DBConnect;
+import com.oocl.mnlbc.dao.CommandDAO;
 import com.oocl.mnlbc.model.Account;
 import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
@@ -26,7 +23,7 @@ public class Chat extends Thread {
 	private List<Socket> socketList;
 	private List<Account> accList;
 	private int ctr;
-	private CommandDAOImpl daoImpl;
+	private CommandDAO daoImpl;
 
 	/**
 	 * 
@@ -36,7 +33,7 @@ public class Chat extends Thread {
 	 * @param acc
 	 * @param daoImpl
 	 */
-	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc, CommandDAOImpl daoImpl) {
+	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc, CommandDAO daoImpl) {
 		this.daoImpl = daoImpl;
 		this.socket = socket;
 		this.socketList = socketList;
@@ -56,11 +53,9 @@ public class Chat extends Thread {
 
 		try {
 			PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-
-			PrintWriter printServer = new PrintWriter(System.out, true);
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			if (acc == null) {
-				String name = showIntro(printWriter, reader);
+				String name = showIntro(socket);
 				acc = new Account(name);
 				// this.addLogToDb(joinChatLog);
 				// DBConnect.insert(new Logs(joinChatLog));
@@ -203,12 +198,15 @@ public class Chat extends Thread {
 
 	/**
 	 * 
+	 * @param socket 
 	 * @param printWriter
 	 * @param reader
 	 * @return
 	 * @throws IOException
 	 */
-	private String showIntro(PrintWriter printWriter, BufferedReader reader) throws IOException {
+	public String showIntro(Socket socket) throws IOException {
+		PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		printWriter.println("------------------------");
 		printWriter.println("WELCOME TO THE CHAT ROOM");
 		printWriter.println("------------------------");

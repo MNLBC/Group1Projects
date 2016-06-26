@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
 
+import com.oocl.mnlbc.dao.CommandDAO;
 import com.oocl.mnlbc.dao.CommandDAOImpl;
 import com.oocl.mnlbc.model.Account;
 import com.oocl.mnlbc.model.FileHistory;
@@ -16,9 +17,9 @@ import com.oocl.mnlbc.model.Logs;
 public class SendMessageServer extends Thread {
 	private Socket socket;
 	private List<Account> acc;
-	private CommandDAOImpl daoImpl;
+	private CommandDAO daoImpl;
 
-	public SendMessageServer(Socket socket, List<Account> acc, CommandDAOImpl daoImpl) {
+	public SendMessageServer(Socket socket, List<Account> acc, CommandDAO daoImpl) {
 		this.socket = socket;
 		this.acc = acc;
 		this.daoImpl = daoImpl;
