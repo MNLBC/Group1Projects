@@ -30,21 +30,27 @@ public class CommandDAOImpl implements CommandDAO {
 	 * of data for the chat history and chat logs.
 	 * </p>
 	 */
-	public void insert(History history) {
+	public boolean insert(History history) {
 		Connection conn = db.getConn();
 		Date date = new Date();
 		String sql = "insert into HISTORY (CHATTER_NAME,MESSAGE,DATE_CREATED) values(?,?,?)";
 		PreparedStatement pstmt;
+		int success = 0;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setString(1, history.getChatterName());
 			pstmt.setString(2, history.getMessage());
 			pstmt.setTimestamp(3, new java.sql.Timestamp(date.getTime()));
-			pstmt.executeUpdate();
+			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		if (success > 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -158,20 +164,26 @@ public class CommandDAOImpl implements CommandDAO {
 
 	}
 
-	public void insert(Logs logs) {
+	public boolean insert(Logs logs) {
 		Connection conn = db.getConn();
 		Date date = new Date();
 		String sql = "insert into LOGS (MESSAGE,DATE_CREATED) values(?,?)";
 		PreparedStatement pstmt;
+		int success = 0;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setString(1, logs.getMessage());
 			pstmt.setTimestamp(2, new java.sql.Timestamp(date.getTime()));
-			pstmt.executeUpdate();
+			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		if (success > 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 

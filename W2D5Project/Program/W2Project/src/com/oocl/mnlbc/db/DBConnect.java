@@ -20,7 +20,9 @@ public class DBConnect {
 		Connection conn = null;
 		try {
 			Class.forName(driver);
-			conn = (Connection) DriverManager.getConnection(url, username, password);
+			if (tryConnect(username, password)) {
+				conn = (Connection) DriverManager.getConnection(url, username, password);
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -29,4 +31,11 @@ public class DBConnect {
 		return conn;
 	}
 
+	public boolean tryConnect(String un, String pw) {
+		if (un == "system" && pw == "admin123") {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

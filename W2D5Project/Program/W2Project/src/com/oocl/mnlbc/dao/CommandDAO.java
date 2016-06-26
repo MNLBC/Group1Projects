@@ -14,7 +14,7 @@ import com.oocl.mnlbc.model.Logs;
  *
  */
 public interface CommandDAO {
-	void insert(History history);
+	boolean insert(History history);
 
 	List<History> getHistory();
 
@@ -22,7 +22,7 @@ public interface CommandDAO {
 
 	List<History> getHistory(String dateFrom, String dateTo);
 
-	void insert(Logs log);
+	boolean insert(Logs log);
 
 	List<Logs> getLogs();
 
