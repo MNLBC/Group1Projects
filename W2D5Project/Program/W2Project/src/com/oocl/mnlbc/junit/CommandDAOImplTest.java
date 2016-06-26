@@ -44,13 +44,6 @@ public class CommandDAOImplTest {
 		daoImpl.insert(history);
 		assertEquals(0,daoImpl.insert(history));
 	}
-	@Test
-	public void testFailInsertHistory() {
-		CommandDAO daoImpl = new CommandDAOImpl();
-		History history = null;
-		daoImpl.insert(history);
-		assertNotEquals(0, daoImpl.insert(history));
-	}
 
 	/**
 	 * Test method for {@link com.oocl.mnlbc.dao.CommandDAOImpl#insert(com.oocl.mnlbc.model.Logs)}.
@@ -61,11 +54,4 @@ public class CommandDAOImplTest {
 		Logs logs = new Logs("test message");
 		assertEquals(0,daoImpl.insert(logs));
 	}
-	@Test
-	public void testFailInsertLogs() {
-		CommandDAO daoImpl = new CommandDAOImpl();
-		Logs logs = null;
-		assertNotEquals(0, daoImpl.insert(logs));
-	}
-
 }
