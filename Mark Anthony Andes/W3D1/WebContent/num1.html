@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Number 1</title>
+
+<style type="text/css">
+section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.body-s {
+	max-width: 400px;
+}
+
+input {
+	width: 95%;
+	height: 30px;
+}
+
+h1 {
+	text-align: left;
+}
+
+h2 {
+	text-align: left;
+}
+</style>
+
+</head>
+<body>
+
+	<div align="center" class="body body-s">
+		<fieldset>
+			<section>
+				<header>
+					<h1>1.) Email</h1>
+					<input type="text" placeholder="Email address" />
+					<button id="email" onclick="validateEmail();">Option1</button>
+				</header>
+			</section>
+			<section>
+				<header>
+					<h1>2.)Date</h1>
+					<input type="text" placeholder="DD/MM/YYYY" />
+					<button id="date" onclick="validateDate();">Option1</button>
+				</header>
+			</section>
+
+			<section>
+				<header>
+					<h1>3.)</h1>
+					<input type="text" id="text" />
+					<button id="text" onclick="validateText();">Option1</button>
+				</header>
+			</section>
+
+			<section>
+				<header>
+					<h2>4.) Replace *E AND *e to '-'</h2>
+					<input type="text" id="textReplace" />
+					<button id="textReplace" onclick="replaceText();">Option1</button>
+				</header>
+			</section>
+
+			<section>
+				<header>
+					<h1>5.) Removing Space</h1>
+					<input type="text" id="removeSpace" />
+					<button id="textReplace" onclick="removeSpace();">Option1</button>
+				</header>
+			</section>
+
+			<section>
+				<header>
+					<h1>6.) Exchange Places</h1>
+					<input type="text" id="exchangeText" />
+					<button id="textReplace" onclick="exchangeText();">Option1</button>
+					<button id="textReplace2" onclick="exchangeText2();">Option2</button>
+				</header>
+			</section>
+
+		</fieldset>
+
+	</div>
+
+
+	<script type="text/javascript">
+		function validateEmail() {
+			var email = document.getElementById('email');
+			var filter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/m;
+
+			if (!filter.test(email.value)) {
+				alert('Invalid Email address!');
+			} else {
+				alert('This is a Valid Email address!');
+			}
+		};
+
+		function validateDate() {
+			var date = document.getElementById('date');
+			var dateFilter = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/m;
+
+			if (!dateFilter.test(date.value)) {
+				alert('Invalid Date!');
+			} else {
+				alert('This is a Valid date!');
+			}
+		};
+
+		function validateText() {
+			var text = document.getElementById('text');
+
+			if (text.value == "") {
+				alert('Input box is Empty.');
+			} else {
+				alert('You Type ' + text.value);
+			}
+		};
+
+		function replaceText() {
+			var text = document.getElementById("textReplace");
+
+			var replaceText = text.value.replace(/[*](e)|[*](E)/g, '-');
+			document.getElementById("textReplace").value = replaceText;
+
+		};
+
+		function removeSpace() {
+			var text = document.getElementById("removeSpace");
+
+			var replaceText = text.value.replace(/(\s+)/g, '');
+			document.getElementById("removeSpace").value = replaceText;
+
+		};
+		
+		
+
+		function exchangeText() {
+			var text = document.getElementById("exchangeText");
+			var re = /(\w+)(--)(\w+)/g;
+
+			var replaceText = text.value.replace(re, '$3$2$1');
+			document.getElementById("exchangeText").value = replaceText;
+
+		};
+
+		function exchangeText2() {
+			var input = document.getElementById('exchangeText').value;
+			var ind = input.indexOf("--");
+			var firstString = input.substring(0, ind);
+			var lastString = input.substring(ind + 2, input.length);
+			input = input.replace(lastString, firstString);
+			input = input.replace(firstString, lastString);
+			document.getElementById('exchangeText').value = input;
+
+		};
+	</script>
+</body>
+</html>

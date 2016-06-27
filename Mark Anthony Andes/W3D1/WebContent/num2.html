@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Num2</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">s
+		function superClass() {
+			this.first = function() {
+				alert("Super Class");
+			}
+		}
+		function subClass() {
+			this.inheritFrom = superClass;
+			this.inheritFrom();
+			this.second = function() {
+				alert("Sub Class");
+			}
+		}
+
+		var txt = new subClass();
+		txt.first();
+		txt.second();
+	</script>
+</body>
+</html>

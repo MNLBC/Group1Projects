@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Num 3 CLOCK</title>
+<link href='http://fonts.googleapis.com/css?family=Abel'
+	rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	font-family: 'Arial';
+	font-size: 22px;
+}
+
+#bg{
+	line-height: 30px;
+	background-color: #58FA58;
+	height: 170px;
+	width: 200px;
+	float: left;
+	padding: 5px;
+}
+</style>
+</head>
+<body onload="clock(); setInterval('clock()', 1000 )">
+	<div id="bg">
+		<h1>THE Clock</h1>
+		<span id="clock">&nbsp;</span>
+	</div>
+
+	<script>
+		function clock() {
+			var currentTime = new Date();
+			var currentHours = currentTime.getHours();
+			var currentMinutes = currentTime.getMinutes();
+			var currentSeconds = currentTime.getSeconds();
+			currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+			currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+			var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+			currentHours = (currentHours > 12) ? currentHours - 12
+					: currentHours;
+			currentHours = (currentHours == 0) ? 12 : currentHours;
+			var currentTimeString = currentHours + ":" + currentMinutes + ":"
+					+ currentSeconds + " " + timeOfDay;
+			document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+		}
+	</script>
+</body>
+</html>
