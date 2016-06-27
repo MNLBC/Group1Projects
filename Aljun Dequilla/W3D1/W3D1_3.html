@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>
+W3D1_3
+</title>
+</head>
+
+<body onload="clock(); setInterval('clock()', 1000 )">
+
+<center>
+	<font size= "100">
+		<br>
+		<br>
+		<br>
+		<p id="time">
+			time
+		</p>
+	</font>
+</center>
+
+<script type="text/javascript">
+	function clock()
+	{
+		var curTime = new Date ();
+
+		var curHours = curTime.getHours ();
+		var curMinutes = curTime.getMinutes ();
+		var curSeconds = curTime.getSeconds ();
+
+		curMinutes = ( curMinutes < 10 ? "0" : "" ) + curMinutes;
+		curSeconds = ( curSeconds < 10 ? "0" : "" ) + curSeconds;
+
+		var timeOfDay = ( curHours < 12 ) ? "AM" : "PM";
+		
+		curHours = ( curHours == 0 ) ? 12 : curHours;
+
+		var strTime = curHours + ":" + curMinutes + ":" + curSeconds + " " + timeOfDay;
+
+		document.getElementById("time").firstChild.nodeValue = strTime;
+	}
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W3D1 Homework</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body onload="onLoad()">
+
+<div class="container">
+  <div class="jumbotron">
+  	<h2>Peter Barredo - W3D1</h2>
+  </div>
+
+  <table class="table">
+  		<tr>
+  			<td>1.	To check the given email if its format is valid</td>
+  		</tr>
+  		<tr>
+  			<td><input type="text" id="email" name="email"> <input type="button" id="regexValidateEmail" value="Validate using RegEx"><input type="button" id="otherValidateEmail" value="Validate using other"></td>
+  		</tr>
+  		<tr>
+  			<td>2.	To check the given date if its format is valid . <span class="bg-danger">Format - mm/dd/yyyy, mm.dd.yyyy, mm-dd-yyyy </span></td>
+  		</tr>
+  		<tr>
+  			<td><input type="text" id="date" name="date"> <input type="button" id="regexValidateDate" value="Validate using RegEx"><input type="button" id="otherValidateDate" value="Validate using other"></td>
+  		</tr>
+  		<tr>
+  			<td>3.	To check the given string if it is empty</td>
+  		</tr>
+  		<tr>
+  			<td><input type="text" name="string" id="string"> <input type="button" id="regexValidateString" value="Validate using RegEx"><input type="button" id="otherValidateString" value="Validate using other"></td>
+  		</tr>
+
+  		<tr>
+  			<td>4.	For a given string "abc *ec *Eab", to replace the string "*e" with "-", and ignore case</td>
+  		</tr>
+  		<tr>
+  			<td><span id="replace" class="bg-primary"></span> <input type="button" id="regexReplaceString" value="RegExReplace"><input type="button" id="otherReplaceString" value="Other Replace"></td>
+  		</tr>
+
+  		<tr>
+  			<td>5.	To remove spaces on both ends of a string</td>
+  		</tr>
+  		<tr>
+  			<td><input type="text" id = "trim" name="trim"> <input type="button" id="regexRemoveSpace" value="Trim using RegEx"><input type="button" id="otherRemoveSpace" value="Trim using Other"></td>
+  		</tr>
+
+  		<tr>
+  			<td>6.	For a given string "java--script", to exchange the string at the ends of the string "-". To chang "java--script" to “script--java”</td>
+  		</tr>
+  		<tr>
+  			<td><span id="switch" class="bg-primary"></span> <input type="button" id="regexSwitch" value="Switch RegEx"><input type="button" id="otherSwitch" value="Switch Other"></td>
+  		</tr>
+  		
+  </table>
+
+
+</div>
+
+
+<script src="js/num1.js" type="text/javascript"></script>
+</body>
+</html>
