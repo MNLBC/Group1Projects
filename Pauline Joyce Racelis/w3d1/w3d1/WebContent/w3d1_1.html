@@ -17,6 +17,40 @@
 			alert('Please provide a valid email address');
 		}
 	}
+	function validateEmail2(email){
+		 var emailParts = email.split('@');
+		    if(emailParts.length !== 2) {
+		        return false;   
+		    }
+		    var emailName = emailParts[0];
+		    var emailDomain = emailParts[1];
+
+		    if(emailName.length < 1 || emailDomain.length < 3) {
+		        return false;
+		    }
+
+		    var validChars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','.','0','1','2','3','4','5','6','7','8','9','_','-'];
+
+		    for(var i = 0; i < emailName.length; i += 1) {
+		        if(validChars.indexOf(emailName.charAt(i)) < 0 ) {
+		            return false;   
+		        }
+		    }
+		    for(var j = 0; j < emailDomain.length; j += 1) {
+		        if(validChars.indexOf(emailDomain.charAt(j)) < 0) {
+		            return false;   
+		        }
+		    }
+		    if(emailDomain.indexOf('.') <= 0) {
+		        return false;
+		    }
+
+		    var emailDomainParts = emailDomain.split('.');
+		    if(emailDomainParts[emailDomainParts.length - 1].length < 2) {
+		        return false;   
+		    }
+		    return true;
+	}
 	function validateDate() {
 		var date = document.getElementById('date');
 		var regex = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
@@ -109,8 +143,8 @@
 		E-mail: <input type="text" id="email" name="email"
 			placeholder="example@domain.com"> <input type="button"
 			name="validateEmail" value="regex" onclick="validateEmail()">
-		<input type="button" name="email" value="other way" id="email"
-			onclick="validateEmailWithoutRegex()">
+		<input type="button" name="email" value="other way" 
+		onclick="validateEmailWithoutRegex()">
 	</p>
 	<p>
 		Date: <input type="date" id="date" name="date"
