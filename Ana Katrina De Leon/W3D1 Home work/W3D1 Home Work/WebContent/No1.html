@@ -74,12 +74,41 @@ body {
 			var y = email.lastIndexOf(".");
 
 			if (x == -1 || y == -1 || (x + 2) >= y) {
-			alert('Incorrect email format');
+				alert('Incorrect email format');
 			} else {
-			alert('Valid email!');
+				alert('Valid email!');
 			}
 
 		}
+
+		function validateDate() {
+			var date = document.getElementById('date').value;
+			var reg = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+			if (!reg.test(date)) {
+				alert('Incorrect date format!');
+			} else {
+				alert('Valid date!');
+			}
+		}
+
+		function validateDate2() {
+			var date = document.getElementById('date').value;
+			var dateSplit = date.split("/");
+			var testDate = new Date(dateSplit[2], dateSplit[0] - 1,
+					dateSplit[1]);
+
+			var year = testDate.getFullYear();
+			var month = testDate.getMonth() + 1;
+			var day = testDate.getDate();
+
+			if (day != dateSplit[1] || month != dateSplit[0]
+					|| year != dateSplit[2]) {
+				alert('Incorrect date format!');
+			} else {
+				alert('Valid date!');
+			}
+		}
+
 		function validateString() {
 			var string = document.getElementById('string').value;
 			var reg = /^$|^.*@.*\..*$/;
