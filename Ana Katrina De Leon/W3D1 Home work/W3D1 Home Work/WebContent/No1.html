@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>No1</title>
+<link href='http://fonts.googleapis.com/css?family=Abel'
+	rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+	font-family: 'Abel';
+	font-size: 22px;
+}
+
+#nav {
+	line-height: 30px;
+	background-color: #eeeeee;
+	height: 560px;
+	width: 600px;
+	float: left;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+	<form>
+		<div id="nav">
+			<p>
+				1) Enter e-mail: <input type="text" id="email" name="email"
+					placeholder="example@domain.com">
+				<button type="button" onclick="validateEmail()">1st way</button>
+				<button type="button" onclick="validateEmail2()">2nd way</button>
+			</p>
+			<p>
+				2) Enter date: <input type="text" id="date" name="name"
+					placeholder="DD/MM/YYYY">
+				<button type="button" onclick="validateDate()">1st way</button>
+				<button type="button" onclick="validateDate2()">2nd way</button>
+			</p>
+			<p>
+				3) Enter a string: <input type="text" id="string" name="name">
+				<button type="button" onclick="validateString()">1st way</button>
+				<button type="button" onclick="validateString2()">2nd way</button>
+			</p>
+			<p>4)</p>
+			<p id="abc">abc *ec *Eab</p>
+			<button type="button" onclick="validateFormat()">1st way</button>
+			<button type="button" onclick="validateFormat2()">2nd way</button>
+			<p>
+				5) Enter string with spaces: <input type="text" id="space"
+					name="name">
+				<button type="button" onclick="removeSpace()">1st way</button>
+				<button type="button" onclick="removeSpace2()">1st way</button>
+			</p>
+			<p>6)</p>
+			<p id="val">java--script</p>
+			<button type="button" onclick="replaceString()">1st way</button>
+			<button type="button" onclick="replaceString2()">2nd way</button>
+		</div>
+	</form>
+	<script type="text/javascript">
+		function validateEmail() {
+			var email = document.getElementById('email').value;
+			var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+			if (!reg.test(email)) {
+				alert('Incorrect email format');
+			} else {
+				alert('Valid email!');
+			}
+		}
+		function validateEmail2(email) {
+			var email = document.getElementById('email').innerHTML;
+			var x = email.indexOf("@");
+			var y = email.lastIndexOf(".");
+
+			if (x == -1 || y == -1 || (x + 2) >= y) {
+			alert('Incorrect email format');
+			} else {
+			alert('Valid email!');
+			}
+
+		}
+		function validateString() {
+			var string = document.getElementById('string').value;
+			var reg = /^$|^.*@.*\..*$/;
+			if (reg.test(string)) {
+				alert('Textbox is empty! Input any string');
+			}
+		}
+
+		function validateString2() {
+			var string = document.getElementById('string').value;
+			if (string === "") {
+				alert('Textbox is empty! Input any string');
+			}
+		}
+
+		function validateFormat() {
+			var abc = document.getElementById('abc').innerHTML;
+			var reg = /[*](e)|[*](E)/g;
+			var replaceAbc = abc.replace(reg, '-');
+			alert(replaceAbc);
+		}
+
+		function validateFormat2() {
+			var abc = document.getElementById('abc').innerHTML
+					.replace("E", "-");
+			var abcEdit = abc.replace("e", "-");
+			var abcNew = abcEdit.split("*");
+			var finalValue = "";
+			for (var i = 0; i < abcNew.length;) {
+				finalValue += abcNew[i];
+				i++;
+			}
+			alert(finalValue);
+		}
+
+		function removeSpace() {
+			var space = document.getElementById('space').value;
+			space = space.replace(/(^\s*)|(\s*$)/gi, "");
+			space = space.replace(/[ ]{2,}/gi, " ");
+			space = space.replace(/\n /, "\n");
+			document.getElementById('space').value = space;
+		}
+
+		function removeSpace2() {
+			var space = document.getElementById('space').value;
+			document.getElementById('space').value = space.trim();
+		}
+
+		function replaceString() {
+			var val = document.getElementById('val').innerHTML;
+			var valSplit = val.split(/--/);
+			alert(valSplit[1] + "--" + valSplit[0]);
+		}
+		function replaceString2() {
+			var val = document.getElementById('val').innerHTML.split("--");
+			val.push(val.shift());
+			var valFinal = val.join("--");
+			alert(valFinal);
+		}
+	</script>
+</body>
+</html>
