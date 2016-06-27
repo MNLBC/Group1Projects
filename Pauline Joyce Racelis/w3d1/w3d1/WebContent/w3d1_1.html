@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function validateEmail() {
+		var email = document.getElementById('email');
+		var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (!regex.test(email.value)) {
+			alert('Please provide a valid email address');
+			email.focus;
+			return false;
+		}
+	}
+	function validateEmailWithoutRegex(){
+		var validation = validateEmail2(document.getElementById('email').value);
+		if(!validation){
+			alert('Please provide a valid email address');
+		}
+	}
+	function validateDate() {
+		var date = document.getElementById('date');
+		var regex = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+		if (!regex.test(date.value)) {
+			alert('Please check your format: Must be (DD/MM/YYYY)');
+			date.focus;
+			return false;
+		}
+	}
+	function validateDate2() {
+		var input = document.getElementById('date').value.split('/');
+		var valid = false;
+		if (input[1] > 0 && input[1] < 13) {
+			if (input[0] > 0 && input[0] < 31) {
+				if (input[2] < 2017) {
+					valid = true;
+				}
+			}
+		}
+		
+		if(!valid){
+			alert('Please check your format: Must be (DD/MM/YYYY)');
+		}
+
+	}
+	function isEmptyString() {
+		var string = document.getElementById('string');
+		if (string.value === "") {
+			alert('It is empty!');
+			return false;
+		}
+	}
+	function isEmptyString2() {
+		var string = document.getElementById('string').value;
+		var reg = /^$|^.*@.*\..*$/;
+		if (reg.test(string)) {
+			alert('Textbox is empty! Input any string');
+		}
+	}
+	function replaceString() {
+		var reg = /\*[eE]/g;
+		val = document.getElementById('givenString').value;
+		val = val.replace(reg, '-');
+		document.getElementById('givenString').value = val;
+	}
+	function replaceString2() {
+		var input = (document.getElementById('givenString').value)
+				.toUpperCase();
+		var ind = input.indexOf("*E");
+		while (ind != -1) {
+			input = input.replace("*E", "-");
+			ind = input.indexOf("*E");
+		}
+		document.getElementById('givenString').value = input.toLowerCase();
+	}
+	function removeSpace() {
+		var r = document.getElementById('removeSpace').value;
+		r = r.replace(/(^\s*)|(\s*$)/gi, "");
+		r = r.replace(/[ ]{2,}/gi, " ");
+		r = r.replace(/\n /, "\n");
+		document.getElementById('removeSpace').value = r;
+	}
+	function removeSpace2() {
+		var r = document.getElementById('removeSpace').value;
+		var r2 = r.trim();
+		document.getElementById('removeSpace').value = r2;
+	}
+	function changeString() {
+		var reg = new RegExp("--");
+		val = document.getElementById('changeString').value;
+		var result = val.split(/--/);
+		result = result[1] + "--" + result[0];
+		document.getElementById('changeString').value = result;
+	}
+	function changeString2() {
+		var input = document.getElementById('changeString').value;
+		var ind = input.indexOf("--");
+		var firstString = input.substring(0, ind);
+		var lastString = input.substring(ind + 2, input.length);
+		input = input.replace(lastString, firstString);
+		input = input.replace(firstString, lastString);
+		document.getElementById('changeString').value = input;
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>W3D1 Homework number 1</title>
+</head>
+<body>
+	<p>
+		E-mail: <input type="text" id="email" name="email"
+			placeholder="example@domain.com"> <input type="button"
+			name="validateEmail" value="regex" onclick="validateEmail()">
+		<input type="button" name="email" value="other way" id="email"
+			onclick="validateEmailWithoutRegex()">
+	</p>
+	<p>
+		Date: <input type="date" id="date" name="date"
+			placeholder="DD/MM/YYYY"> <input type="button"
+			name="validateDate" value="regex" onclick="validateDate()"> <input
+			type="button" name="date" value="other way" onclick="validateDate2()">
+	</p>
+	<p>
+		String: <input type="text" id="string" name="string"> <input
+			type="button" name="validateDate" value="regex"
+			onclick="isEmptyString2()"> <input type="button"
+			name="isEmpty" value="other way" onclick="isEmptyString()">
+	</p>
+	<p>
+		Replace String: <input type="text" id="givenString" name="givenString"
+			value="abc *ec *Eab"> <input type="button" name="isEmpty"
+			value="regex" onclick="replaceString()"> <input type="button"
+			name="isEmpty" value="other way" onclick="replaceString2()">
+	</p>
+	<p>
+		Remove spaces: <input type="text" id="removeSpace" name="removeSpace">
+		<input type="button" name="removeSpace" value="regex"
+			onclick="removeSpace()"> <input type="button"
+			name="removeSpace" value="other way" onclick="removeSpace2()">
+	</p>
+	<p>
+		Interchange string: <input type="text" id="changeString"
+			name="changeString"> <input type="button" name="changeString"
+			value="regex" onclick="changeString2()"> <input type="button"
+			name="changeString" value="other way" onclick="changeString()">
+	</p>
+</body>
+</html>
