@@ -1,0 +1,31 @@
+
+<html>
+<head>
+	<title>W3D1 Homework</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	
+</head>
+
+<body>
+	
+<script type="text/javascript">
+	function superclass() {
+		this.alert = function() {
+			alert("First alert - method from superclass");
+		}
+	}
+	function subclass() {
+		this.inheritFrom = superclass;
+		this.inheritFrom();
+
+		this.alert2 = function() {
+			alert("Second Alert - method from subclass");
+		}
+	}
+	var c = new subclass();
+	c.alert(); 
+	c.alert2();
+</script>
+
+</body>
+</html>
