@@ -14,7 +14,7 @@ W3D1_1
 <button onclick="numOne()">Validate One</button>
 <hr width=500 align = left>
 
-<p>Date: <input type="text" id="two" name="two" placeholder="dd/mm/yyyy"></p>
+<p>Date: <input type="text" id="two" name="two" placeholder="mm/dd/yyyy"></p>
 <button onclick="numTwo()">Validate Two</button>
 <hr width=500 align = left>
 
@@ -48,19 +48,19 @@ W3D1_1
 	}
 	
 	function numTwo(){
-		var reg = new RegExp("^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$");
+		var reg = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/g;
 			val = document.getElementById("two").value;
 		
 		if(reg.test(val)){
-			alert("Date format is not valid.");	
+			alert("Way one(regex): Date format is valid.");	
 		}else{
-			alert("Date format is valid.");	
+			alert("Way one(regex): Date format is not valid.");	
 		}
 		
 		if(!isNaN(new Date(val).valueOf())){
-			alert("Date format is valid.");	
+			alert("Way two(new Date): Date format is valid.");	
 		}else{
-			alert("Date format is not valid.");	
+			alert("Way two(new Date): Date format is not valid.");	
 		}
 	}
 	
