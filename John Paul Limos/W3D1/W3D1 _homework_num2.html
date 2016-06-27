@@ -1,0 +1,28 @@
+<html>
+<head><title>W3D1 Homework num3</title>
+<script type="text/javascript">
+function superClass() {
+	this.first = function() {
+	alert("super class");
+	}
+}
+function subClass() {
+	this.inheritFrom = superClass;
+	this.inheritFrom();
+	this.second = function() {
+	alert("sub class");
+	}
+}
+
+function display(){
+var message = new subClass();
+message.first();
+message.second();
+}
+
+</script>
+</head>
+<body onload="display()">
+</body>
+</html>
+

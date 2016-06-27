@@ -3,168 +3,219 @@
 <title>W3D1 HomeWork</title>
 </head>
 <body>
-<table border = "1">
-<tr>
-<td>
-Requirements
-</td>
-<td>
-Validation using regex
-</td>
-<td>
-Validation with different approach
-</td>
-</tr>
-<tr>
-<td>
-<p>1. Enter email to be validated</p>
-<input type="text" size="25" id="emailInput"/>
-<input type="button" size="25" id="buttonInput1" value="Validate email" onclick="validateEmail(document.getElementById('emailInput').value); validateEmailWithoutRegex(document.getElementById('emailInput').value);">
-</td>
-<td>
-<p id="r1WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id="r1WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-<tr>
-<td>
-<p>2. Enter date to be validated(MM-DD-YYYY)</p>
-<input type="text" size="25" id="dateInput"/>
-<input type="button" size="25" id="buttonInput2" value="Validate date" onclick="validateDate(document.getElementById('dateInput').value); validateDateWithOutRegex(document.getElementById('dateInput').value);">
-</td>
-<td>
-<p id ="r2WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id ="r2WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-<tr>
-<td>
-<p>3. Enter string to be checked</p>
-<input type="text" size="25" id="stringInput1"/>
-<input type="button" size="25" id="buttonInput3" value="Validate string" onclick="validateEmptyString(document.getElementById('stringInput1').value); validateEmptyStringWithOutRegex(document.getElementById('stringInput1').value);">
-</td>
-<td>
-<p id ="r3WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id ="r3WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-<tr>
-<td>
-<p>4.<span id="stringInput2">abc *ec *Eab</span></p>
-<input type="button" size="25" id="buttonInput4" value="Process" onclick="removeStringParts(document.getElementById('stringInput2').value); removeStringPartsWithOutRegex(document.getElementById('stringInput2').value);">
-</td>
-<td>
-<p id ="r4WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id ="r4WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-<tr>
-<td>
-<p>5. Enter string with spaces</p>
-<input type="text" size="25" id="stringInput3"/>
-<input type="button" size="25" id="buttonInput5" value="Validate string">
-</td>
-<td>
-<p id ="r5WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id ="r5WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-<tr>
-<td>
-<p>6. Enter string to exchange</p>
-<input type="text" size="25" id="stringInput4"/>
-<input type="button" size="25" id="buttonInput6" value="Validate string">
-</td>
-<td>
-<p id ="r6WithRegex" style = "text-align:center;"></p>
-</td>
-<td>
-<p id ="r6WithOutRegex" style = "text-align:center;"></p>
-</td>
-</tr>
-</table>
+	<table border="1">
+		<tr>
+			<td>Requirements</td>
+			<td>Validation using regex</td>
+			<td>Validation with different approach</td>
+		</tr>
+		<tr>
+			<td>
+				<p>1. Enter email to be validated</p> <input type="text" size="25"
+				id="emailInput" /> <input type="button" size="25" id="buttonInput1"
+				value="Validate email"
+				onclick="validateEmail(document.getElementById('emailInput').value); validateEmailWithoutRegex(document.getElementById('emailInput').value);">
+			</td>
+			<td>
+				<p id="r1WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r1WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>2. Enter date to be validated(MM-DD-YYYY)</p> <input type="text"
+				size="25" id="dateInput" /> <input type="button" size="25"
+				id="buttonInput2" value="Validate date"
+				onclick="validateDate(document.getElementById('dateInput').value); validateDateWithOutRegex(document.getElementById('dateInput').value);">
+			</td>
+			<td>
+				<p id="r2WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r2WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>3. Enter string to be checked</p> <input type="text" size="25"
+				id="stringInput1" /> <input type="button" size="25"
+				id="buttonInput3" value="Validate string"
+				onclick="validateEmptyString(document.getElementById('stringInput1').value); validateEmptyStringWithOutRegex(document.getElementById('stringInput1').value);">
+			</td>
+			<td>
+				<p id="r3WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r3WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>4. Please enter abc *ec *Eab</p> <input type="text" size="25"
+				id="stringInput2" />
+				</p> <input type="button" size="25" id="buttonInput4" value="Process"
+				onclick="removeStringParts(document.getElementById('stringInput2').value); removeStringPartsWithOutRegex(document.getElementById('stringInput2').value);">
+			</td>
+			<td>
+				<p id="r4WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r4WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>5. Enter string with spaces</p> <input type="text" size="25"
+				id="stringInput3" /> <input type="button" size="25"
+				id="buttonInput5" value="Remove spaces"
+				onclick="removeSpaces(document.getElementById('stringInput3').value); removeSpacesWithOutRegex(document.getElementById('stringInput3').value);">
+			</td>
+			<td>
+				<p id="r5WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r5WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>6.Input java--script</p> <input type="text" size="25"
+				id="stringInput4" /> <input type="button" size="25"
+				id="buttonInput6" value="Swap strings"
+				onclick="switchWords(document.getElementById('stringInput4').value); switchWordsWithOutRegex(document.getElementById('stringInput4').value);">
+			</td>
+			<td>
+				<p id="r6WithRegex" style="text-align: center;"></p>
+			</td>
+			<td>
+				<p id="r6WithOutRegex" style="text-align: center;"></p>
+			</td>
+		</tr>
+	</table>
 
 
 </body>
 <script type="text/javascript">
+	function validateEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		document.getElementById('r1WithRegex').innerHTML = re.test(email);
+	}
+	function validateEmailWithoutRegex(email) {
+		var validation = isvalidemail(email);
+		document.getElementById('r1WithOutRegex').innerHTML = validation;
+	}
+	function isvalidemail(email) {
+		var emailParts = email.split('@');
+		if (emailParts.length !== 2) {
+			return false;
+		}
+		var emailName = emailParts[0];
+		var emailDomain = emailParts[1];
 
-function validateEmail(email){
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	document.getElementById('r1WithRegex').innerHTML = re.test(email);
-}
-function validateEmailWithoutRegex(email){
-	var validation = isvalidemail(email);
-	document.getElementById('r1WithOutRegex').innerHTML = validation;
-}
-function isvalidemail(email){
-    var emailParts = email.split('@');
-    if(emailParts.length !== 2) {
-        return false;   
-    }
-    var emailName = emailParts[0];
-    var emailDomain = emailParts[1];
+		if (emailName.length < 1 || emailDomain.length < 3) {
+			return false;
+		}
 
-    if(emailName.length < 1 || emailDomain.length < 3) {
-        return false;
-    }
+		var validChars = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+				'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+				'w', 'x', 'y', 'z', '.', '0', '1', '2', '3', '4', '5', '6',
+				'7', '8', '9', '_', '-' ];
 
-    var validChars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','.','0','1','2','3','4','5','6','7','8','9','_','-'];
+		for (var i = 0; i < emailName.length; i += 1) {
+			if (validChars.indexOf(emailName.charAt(i)) < 0) {
+				return false;
+			}
+		}
+		for (var j = 0; j < emailDomain.length; j += 1) {
+			if (validChars.indexOf(emailDomain.charAt(j)) < 0) {
+				return false;
+			}
+		}
+		if (emailDomain.indexOf('.') <= 0) {
+			return false;
+		}
 
-    for(var i = 0; i < emailName.length; i += 1) {
-        if(validChars.indexOf(emailName.charAt(i)) < 0 ) {
-            return false;   
-        }
-    }
-    for(var j = 0; j < emailDomain.length; j += 1) {
-        if(validChars.indexOf(emailDomain.charAt(j)) < 0) {
-            return false;   
-        }
-    }
-    if(emailDomain.indexOf('.') <= 0) {
-        return false;
-    }
+		var emailDomainParts = emailDomain.split('.');
+		if (emailDomainParts[emailDomainParts.length - 1].length < 2) {
+			return false;
+		}
+		return true;
+	}
+	function validateDate(date) {
+		var re = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+		document.getElementById('r2WithRegex').innerHTML = re.test(date);
+	}
+	function validateDateWithOutRegex(date) {
+		var datearr = date.split('/');
+		if (datearr[0] > 0 && datearr[0] < 13) {
+			if (datearr[1] > 0 && datearr[1] < 31) {
+				if (datearr[2] && 2017) {
+					document.getElementById('r2WithOutRegex').innerHTML = "true";
+				} else {
+					document.getElementById('r2WithOutRegex').innerHTML = "false";
+				}
+			} else {
+				document.getElementById('r2WithOutRegex').innerHTML = "false";
+			}
+		} else {
+			document.getElementById('r2WithOutRegex').innerHTML = "false";
+		}
+	}
+	function validateEmptyString(stringInput1) {
+		var re = /^$/;
+		if (re.test(stringInput1)) {
+			document.getElementById('r3WithRegex').innerHTML = "Empty String!";
+		} else {
+			document.getElementById('r3WithRegex').innerHTML = "String has content!";
+		}
+	}
+	function validateEmptyStringWithOutRegex(stringInput1) {
+		if (!stringInput1 || stringInput1.length === 0) {
+			document.getElementById('r3WithOutRegex').innerHTML = "Empty String!";
+		} else {
+			document.getElementById('r3WithOutRegex').innerHTML = "String has content!";
+		}
+	}
+	function removeStringParts(stringInput2) {
+		var reg = /[*](e)|[*](E)/g;
+		var replacedValue = stringInput2.replace(reg, '-');
+		document.getElementById('r4WithRegex').innerHTML = replacedValue;
+	}
 
-    var emailDomainParts = emailDomain.split('.');
-    if(emailDomainParts[emailDomainParts.length - 1].length < 2) {
-        return false;   
-    }
-    return true;
-}
-function validateDate(date){
-    var re = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
-	document.getElementById('r2WithRegex').innerHTML = re.test(date);
-}
-function validateDateWithOutRegex(date){
-	
-}
-function validateEmptyString(stringInput1){
-   var re = /^$/;
-   if(re.test(stringInput1)){
-   	document.getElementById('r3WithRegex').innerHTML = "Empty String!";
-   }else{
-   document.getElementById('r3WithRegex').innerHTML = "String has content!";
-   }
-}
-function validateEmptyStringWithOutRegex(stringInput1){
-	if(!stringInput1 || stringInput1.length=== 0){
-	document.getElementById('r3WithOutRegex').innerHTML = "Empty String!";
-	}else{
-   document.getElementById('r3WithOutRegex').innerHTML = "String has content!";
-   }
-}
-function removeStringParts(stringInput2){
-	var re = /\*[eE]/g;
-	
-}
+	function removeStringPartsWithOutRegex(stringInput2) {
+		var input = stringInput2.replace("E", "-");
+		var inputEdit = input.replace("e", "-");
+		var transformed = inputEdit.split("*");
+		var finalValue = "";
+		for (var i = 0; i < transformed.length;) {
+			finalValue += transformed[i];
+			i++;
+		}
+		document.getElementById('r4WithOutRegex').innerHTML = finalValue;
+	}
+	function removeSpaces(stringInput3) {
+		var reg = /^\s+|\s+$/;
+		var removed = stringInput3.replace(reg, "");
+		console.log(removed);
+		document.getElementById('r5WithRegex').innerHTML = removed;
+	}
+	function removeSpacesWithOutRegex(stringInput3) {
+		var removed = stringInput3;
+		document.getElementById('r5WithOutRegex').innerHTML = removed;
+	}
+
+	function switchWords(stringInput4) {
+		var result = stringInput4.split(/--/);
+		console.log(result[0] + result[1]);
+		endResult = result[1] + "--" + result[0];
+		document.getElementById('r6WithRegex').innerHTML= endResult;
+	}
+	function switchWordsWithOutRegex(stringInput4) {
+		var result = stringInput4.split(/--/);
+		endResult = result[1] + "--" + result[0];
+		document.getElementById('r6WithOutRegex').innerHTML = endResult;
+	}
 </script>
 </html>
