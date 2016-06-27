@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>
+W3D1_1
+</title>
+</head>
+
+<body>
+
+<br><br><br>
+
+<hr width=500 align = left>
+<p>E-mail: <input type="text" id="one" name="one" placeholder="example@example.com"></p>
+<button onclick="numOne()">Validate One</button>
+<hr width=500 align = left>
+
+<p>Date: <input type="text" id="two" name="two" placeholder="dd/mm/yyyy"></p>
+<button onclick="numTwo()">Validate Two</button>
+<hr width=500 align = left>
+
+<p>Enter any string: <input type="text" id="three" name="three"></p>
+<button onclick="numThree()">Validate Three</button>
+<hr width=500 align = left>
+
+<p>String with *e: <input type="text" id="four" name="four"></p>
+<button onclick="numFour()">Validate Four</button>
+<hr width=500 align = left>
+
+<p>String with space: <input type="text" id="five" name="five"></p>
+<button onclick="numFive()">Validate Five</button>
+<hr width=500 align = left>
+
+<p>Exchange string: <input type="text" id="six" name="six"></p>
+<button onclick="numSix()">Validate Six</button>
+<hr width=500 align = left>
+
+
+<script type="text/javascript">
+	var val = "";
+	function numOne(){
+		var reg = new RegExp("^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,}$");
+			val = document.getElementById("one").value;
+		if(reg.test(val)){
+			alert("Email is valid.");	
+		}else{
+			alert("Email is invalid.");	
+		}
+	}
+	
+	function numTwo(){
+		var reg = new RegExp("^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$");
+			val = document.getElementById("two").value;
+		
+		if(reg.test(val)){
+			alert("Date format is not valid.");	
+		}else{
+			alert("Date format is valid.");	
+		}
+		
+		if(!isNaN(new Date(val).valueOf())){
+			alert("Date format is valid.");	
+		}else{
+			alert("Date format is not valid.");	
+		}
+	}
+	
+	function numThree(){
+		val = document.getElementById("three").value;
+		var str1 = "";
+		
+		if(val){
+			str1 = "Way one(if(val)): String is not empty";
+		}else{
+			str1 = "Way one(if(val)): String is empty";
+		}
+		
+		if(val.length===0){
+			str2 = "Way two(if(val)): String is empty";
+		}else{
+			str2 = "Way two(if(val)): String is not empty";
+		}
+		
+		alert(str1+str2);
+	}
+	
+	function numFour(){
+		var reg1 = /\*[eE]/g,
+			reg2 = /(\*e)|(\*E)/g;
+			val = document.getElementById("four").value;
+		
+		var str1 = "Way one(/\*[eE]/g):" + val.replace(reg1,'-');
+		var str2 = "\nWay two(/(\*e)|(\*E)/g):" + val.replace(reg2,'-');
+		
+		alert(str1+str2);
+	}
+	
+	function numFive(){
+		var reg = /(^\s+)|(\s+$)/g;
+			val = document.getElementById("five").value;
+		
+		var str1 = "Way one(trim):" + val.trim();
+		var str2 = "\nWay two(regex):" + val.replace(reg,'');
+		
+		alert(str1+str2);
+	}
+	function numSix(){
+		var reg1 = /--/,
+			reg2 = /(\w+)--(\w+)/g;
+			val = document.getElementById("six").value;
+		var result = val.split(reg1);
+		
+		
+		var str1 = "Way one(split):" + result[1]+"--" +result[0];
+		var str2 = "\nWay two(replace):" + val.replace(reg2,'$2--$1');
+		
+		alert(str1+str2);
+		
+		
+	}
+</script>
+</body>
+</html>

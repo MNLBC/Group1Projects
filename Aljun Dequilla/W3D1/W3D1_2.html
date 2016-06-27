@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>
+W3D1_3
+</title>
+</head>
+
+<body>
+
+<center>
+	<font size= "100">
+		<br>
+		<br>
+		<p id="msg1">
+			Here is the message.
+		</p>
+		<br>
+		<br>
+		<p id="msg2">
+			Here is the message.
+		</p>
+	</font>
+</center>
+
+<script type="text/javascript">
+	function superClass() {
+	
+		this.passMsg = function(myMsg){
+				document.getElementById("msg1").firstChild.nodeValue = myMsg;
+			}	
+		}
+	
+	function subClass() {
+		this.inheritFrom = superClass;
+		this.inheritFrom();
+		
+		
+		this.msg = function(){
+			document.getElementById("msg2").firstChild.nodeValue = "This is from sub class";
+		}
+			
+	}
+	
+	var classes = new subClass();
+	classes.passMsg("Passing to superClass");
+	classes.msg();
+	
+</script>
+</body>
+</html>
