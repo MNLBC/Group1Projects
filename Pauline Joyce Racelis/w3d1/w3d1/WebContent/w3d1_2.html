@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function superClass() {
+		this.first = function() {
+			alert("super class");
+		}
+	}
+	function subClass() {
+		this.inheritFrom = superClass;
+		this.inheritFrom();
+		this.second = function() {
+			alert("sub class");
+		}
+	}
+	var message = new subClass();
+	message.first();
+	message.second();
+</script>
+<meta charset="ISO-8859-1">
+<title>W3D1 Homework number 2</title>
+</head>
+<body>
+
+</body>
+</html>

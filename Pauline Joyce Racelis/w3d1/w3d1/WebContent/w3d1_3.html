@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function clock() {
+		var currentTime = new Date();
+		var currentHours = currentTime.getHours();
+		var currentMinutes = currentTime.getMinutes();
+		var currentSeconds = currentTime.getSeconds();
+		currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+		currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+		var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+		currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+		currentHours = (currentHours == 0) ? 12 : currentHours;
+		var currentTimeString = currentHours + ":" + currentMinutes + ":"
+				+ currentSeconds + " " + timeOfDay;
+		document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+	}
+
+</script>
+<meta charset="ISO-8859-1">
+<title>W3D1 Homework number 3 Clock</title>
+</head>
+<body>
+<body onload="clock(); setInterval('clock()', 1000 )">
+	<div id="design">
+		<h1>CLOCK</h1>
+		<span id="clock">&nbsp;</span>
+	</div>
+</html>
