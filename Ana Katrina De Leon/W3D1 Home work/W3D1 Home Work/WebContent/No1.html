@@ -69,11 +69,11 @@ body {
 			}
 		}
 		function validateEmail2(email) {
-			var email = document.getElementById('email').innerHTML;
+			var email = document.getElementById('email').value;
 			var x = email.indexOf("@");
 			var y = email.lastIndexOf(".");
 
-			if (x == -1 || y == -1 || (x + 2) >= y) {
+			if (x == -1 || y == -1 ) {
 				alert('Incorrect email format');
 			} else {
 				alert('Valid email!');
