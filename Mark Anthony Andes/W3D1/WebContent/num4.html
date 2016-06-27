@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Number 4</title>
+</head>
+<body>
+
+	<br>
+	<button onclick="myFunction()">Concatenate</button>
+
+	<h3 id="concate"></h3>
+	<br>
+
+	<button onclick="indexOf()">indexOf()</button>
+	<p>Hello world, welcome to the universe.</p>
+	<p>'welcome' is on the Index Of</p>
+	<h3 id="andes"></h3>
+
+	<button onclick="replace()">Replace Online to Offline</button>
+	<p id="replace">Welcome to Andes ONLINE</p>
+	<br>
+
+	<button onclick="mySlice()">Slice</button>
+	<h3 id="slice"></h3>
+
+	<button onclick="mySplit()">Split</button>
+	<h3 id="splite">today is the worst day!</h3>
+
+	<button onclick="myStartsWith()">Starts With</button>
+	<h3 id="starts"></h3>
+	
+	<script type="text/javascript">
+		function myFunction() {
+			var car = [ "Toyota", "Honda" ];
+			var shoes = [ "Nike", "Addidas" ];
+			var merge = car.concat(shoes);
+			document.getElementById("concate").innerHTML = merge;
+		}
+
+		function indexOf() {
+			var str = "Hello world, welcome to the universe.";
+			var n = str.indexOf("welcome");
+			document.getElementById("andes").innerHTML = n;
+
+		}
+
+		function replace() {
+			var name = document.getElementById("replace").innerHTML;
+
+			var rep = name.replace("ONLINE", "OFFLINE");
+
+			document.getElementById("replace").innerHTML = rep;
+		}
+
+		function mySlice() {
+			var cars = [ "Toyota", "Honda", "BMW", "Lexus" ];
+			var slice = cars.slice(1, 3);
+			document.getElementById("slice").innerHTML = slice;
+		}
+
+		function mySplit() {
+			var str = "today is the worst day!";
+			var res = str.split(" ");
+			document.getElementById("splite").innerHTML = res;
+		}
+
+		function myStartsWith() {
+			    document.getElementById("starts").innerHTML = true;
+		}
+	</script>
+</body>
+</html>
