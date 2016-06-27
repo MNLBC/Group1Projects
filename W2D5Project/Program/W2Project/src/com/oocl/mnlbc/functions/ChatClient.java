@@ -43,9 +43,7 @@ public class ChatClient {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		ChatClient client = new ChatClient("10.222.29.148"); // Change for
-																// terminal IP
-																// address
+		ChatClient client = new ChatClient("127.0.0.1");
 		client.startWork();
 	}
 

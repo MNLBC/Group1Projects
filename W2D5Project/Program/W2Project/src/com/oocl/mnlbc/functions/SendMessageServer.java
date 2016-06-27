@@ -94,7 +94,6 @@ public class SendMessageServer extends Thread {
 
 		String cmd = message.substring(1);
 		int cmdLen = cmd.split("\\s").length;
-		String commandLog = "";
 		if (cmdLen == 1) {
 			if (cmd.equalsIgnoreCase("history")) {
 				history();
@@ -106,10 +105,10 @@ public class SendMessageServer extends Thread {
 			if (cmdAr[0].equalsIgnoreCase("history")) {
 				if (cmdAr[1].equalsIgnoreCase("from")) {
 					history(cmdAr[2]);
-				} else if (cmdAr[0].equalsIgnoreCase("logs")) {
-					if (cmdAr[1].equalsIgnoreCase("from")) {
-						logs(cmdAr[2]);
-					}
+				}
+			} else if (cmdAr[0].equalsIgnoreCase("logs")) {
+				if (cmdAr[1].equalsIgnoreCase("from")) {
+					logs(cmdAr[2]);
 				}
 			}
 		} else if (cmdLen == 5) {

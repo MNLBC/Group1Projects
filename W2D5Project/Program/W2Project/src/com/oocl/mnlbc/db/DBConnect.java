@@ -16,7 +16,7 @@ public class DBConnect {
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String username = "system";
-		String password = "admin123";
+		String password = "password1";
 		Connection conn = null;
 		try {
 			Class.forName(driver);
@@ -41,7 +41,7 @@ public class DBConnect {
 	 * @return
 	 */
 	public boolean tryConnect(String un, String pw) {
-		if (un == "system" && pw == "admin123") {
+		if (un == "system" && pw == "password1") {
 			return true;
 		} else {
 			return false;

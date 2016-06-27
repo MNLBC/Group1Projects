@@ -52,7 +52,6 @@ public class FileHistory {
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(file);
-			// writer.append("TryTRY");
 			List<History> histList = cmd.getHistory();
 			StringBuffer sb = new StringBuffer();
 			for (History history : histList) {

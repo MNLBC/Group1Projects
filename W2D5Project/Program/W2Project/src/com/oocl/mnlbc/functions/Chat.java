@@ -66,8 +66,6 @@ public class Chat extends Thread {
 			if (acc == null) {
 				String name = showIntro(socket);
 				acc = new Account(name);
-				// this.addLogToDb(joinChatLog);
-				// DBConnect.insert(new Logs(joinChatLog));
 				accList.add(acc);
 			}
 			while (true) {
@@ -88,9 +86,6 @@ public class Chat extends Thread {
 					addLogToDb(disconnectLog);
 					socketList.remove(socket);
 					break;
-					// writer = new PrintWriter(socket.getOutputStream());
-					// writer.flush();
-					// continue;
 				}
 
 				if (message.startsWith("#")) {
@@ -157,8 +152,6 @@ public class Chat extends Thread {
 				if (cmdAr[1].equalsIgnoreCase("from")) {
 					getHistory(printWriter, cmdAr[2]);
 					commandLog = acc.getName() + " used show history command. View from " + cmdAr[2];
-					printWriter.println("------------------------------------------------------------------------");
-					printWriter.println("\t\t\t\tHISTORY");
 					System.out.println(commandLog);
 				}
 			}
@@ -168,8 +161,6 @@ public class Chat extends Thread {
 				if (cmdAr[1].equalsIgnoreCase("from") && cmdAr[3].equalsIgnoreCase("to")) {
 					getHistory(printWriter, cmdAr[2], cmdAr[4]);
 					commandLog = acc.getName() + " used history command. View from " + cmdAr[2] + " to " + cmdAr[4];
-					printWriter.println("------------------------------------------------------------------------");
-					printWriter.println("\t\t\t\tHISTORY");
 					System.out.println(commandLog);
 				}
 			}
@@ -385,9 +376,10 @@ public class Chat extends Thread {
 		printWriter.println("#disconnect\t\t\t\t\t\t-leave the chat");
 		printWriter.println("#help\t\t\t\t\t\t\t-shows the list of all commands");
 		printWriter.println("#history\t\t\t\t\t\t-shows the chat history for today");
-		printWriter.println("#history from <date>\t\t\t\t\t-shows the chat history from the date to the current date");
+		printWriter
+				.println("#history from <dd-mm-yyyy>\t\t\t\t-shows the chat history from the date to the current date");
 		printWriter.println(
-				"#history from <start date> to <end date>\t\t-shows the chat history from the start date to end date");
+				"#history from <dd-mm-yyyy> to <dd-mm-yyyy>\t\t-shows the chat history from the start date to end date");
 		printWriter.println("#showactive\t\t\t\t\t\t-shows the current active chat members");
 		printWriter.println();
 		printWriter.println();

@@ -39,13 +39,13 @@ public class DBConnectTest {
 	@Test
 	public void testSuccessConnectDB() {
 		DBConnect db = new DBConnect();
-		assertTrue(db.tryConnect("system", "admin123"));
+		assertTrue(db.tryConnect("system", "password1"));
 	}
 
 	@Test
 	public void testFailUsernameConnectDB() {
 		DBConnect db = new DBConnect();
-		assertFalse(db.tryConnect("admin", "admin123"));
+		assertFalse(db.tryConnect("admin", "password1"));
 	}
 
 	@Test
