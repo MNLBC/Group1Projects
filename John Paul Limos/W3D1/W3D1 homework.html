@@ -149,9 +149,9 @@
 	}
 	function validateDateWithOutRegex(date) {
 		var datearr = date.split('/');
-		if (datearr[0] > 0 || datearr[0] < 13) {
-			if (datearr[1] > 0 || datearr[1] < 31) {
-				if (datearr[2] < 2017) {
+		if (datearr[0] > 0 && datearr[0] < 13) {
+			if (datearr[1] > 0 && datearr[1] < 31) {
+				if (datearr[2] && 2017) {
 					document.getElementById('r2WithOutRegex').innerHTML = "true";
 				} else {
 					document.getElementById('r2WithOutRegex').innerHTML = "false";
