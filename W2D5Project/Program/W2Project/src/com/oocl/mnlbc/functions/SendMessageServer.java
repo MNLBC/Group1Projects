@@ -14,21 +14,42 @@ import com.oocl.mnlbc.model.FileHistory;
 import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
 
+/**
+ * 
+ * Class that allows the interaction in the server client.
+ * 
+ * @author Group 1
+ *
+ */
 public class SendMessageServer extends Thread {
 	private Socket socket;
 	private List<Account> acc;
 	private CommandDAO daoImpl;
 
+	/**
+	 * Constructor of the SendMessageServer class. Instantiates the class.
+	 * 
+	 * @param socket
+	 *            Connects server and client.
+	 * @param acc
+	 *            Account to be used.
+	 * @param daoImpl
+	 *            Called by the chat class to allow interaction with the
+	 *            database.
+	 */
 	public SendMessageServer(Socket socket, List<Account> acc, CommandDAO daoImpl) {
 		this.socket = socket;
 		this.acc = acc;
 		this.daoImpl = daoImpl;
 	}
 
+	/**
+	 * Runs the SendMessageServer class.
+	 */
 	public void run() {
 		BufferedReader reader = null;
 		try {
-			
+
 			System.out.println("Server is started.");
 			System.out.println("Chat Group is created.");
 			String message = null;
@@ -63,6 +84,12 @@ public class SendMessageServer extends Thread {
 		}
 	}
 
+	/**
+	 * Determines the command entered by the user in the server.
+	 * 
+	 * @param message
+	 *            Command entered by the user.
+	 */
 	private void determindCmd(String message) {
 
 		String cmd = message.substring(1);
@@ -100,16 +127,30 @@ public class SendMessageServer extends Thread {
 
 	}
 
+	/**
+	 * Displays the header for history.
+	 */
 	private void headerHistory() {
 		System.out.println("Date and Time\t\t\tSender\t\t\tMessage");
 		System.out.println("------------------------------------------------------------------------");
 	}
 
+	/**
+	 * Displays the header for logs
+	 */
 	private void headerLogs() {
 		System.out.println("Date and Time\t\t\t\tMessage");
 		System.out.println("------------------------------------------------------------------------");
 	}
 
+	/**
+	 * Gets the logs from the database, asks for start date and end date.
+	 * 
+	 * @param fromDate
+	 *            Start date.
+	 * @param toDate
+	 *            End date.
+	 */
 	private void logs(String fromDate, String toDate) {
 		headerLogs();
 		List<Logs> logsList = this.daoImpl.getLogs(fromDate, toDate);
@@ -119,6 +160,13 @@ public class SendMessageServer extends Thread {
 		}
 	}
 
+	/**
+	 * Gets the logs from the database, asks for start date and end date.
+	 * 
+	 * @param fromDate
+	 *            Start date.
+	 * 
+	 */
 	private void logs(String fromDate) {
 		headerLogs();
 		List<Logs> logsList = this.daoImpl.getLogs(fromDate);
@@ -128,6 +176,9 @@ public class SendMessageServer extends Thread {
 		}
 	}
 
+	/**
+	 * Gets the logs from the database
+	 */
 	private void logs() {
 		headerLogs();
 		List<Logs> logsList = this.daoImpl.getLogs();
@@ -137,42 +188,65 @@ public class SendMessageServer extends Thread {
 		}
 	}
 
+	/**
+	 * 
+	 * Gets the history of the chat, asks for the fromdate and todate.
+	 * 
+	 * @param fromDate
+	 *            Start Date.
+	 * @param toDate
+	 *            End Date.
+	 */
 	private void history(String fromDate, String toDate) {
 		headerHistory();
 		List<History> histList = this.daoImpl.getHistory(fromDate, toDate);
 		for (History history : histList) {
-			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t"
-					+ history.getMessage();
+			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t" + history.getMessage();
 			System.out.println(entry);
 		}
 	}
 
+	/**
+	 * 
+	 * Gets the history of the chat, asks for the fromdate.
+	 * 
+	 * @param fromDate
+	 *            Start Date.
+	 */
 	private void history(String fromDate) {
 		headerHistory();
 		List<History> histList = this.daoImpl.getHistory(fromDate);
 		for (History history : histList) {
-			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t"
-					+ history.getMessage();
+			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t" + history.getMessage();
 			System.out.println(entry);
 		}
 	}
 
+	/**
+	 * 
+	 * Gets the history of the chat.
+	 */
 	private void history() {
 		headerHistory();
 		List<History> histList = this.daoImpl.getHistory();
 		for (History history : histList) {
-			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t"
-					+ history.getMessage();
+			String entry = history.getDateCreated() + "\t\t" + history.getChatterName() + "\t\t" + history.getMessage();
 			System.out.println(entry);
 		}
 	}
 
+	/**
+	 * Generates the history file.
+	 */
 	private void generateFile() {
 		FileHistory fileHistory = new FileHistory();
 		fileHistory.createFile();
 		fileHistory.importHistory();
 	}
 
+	/**
+	 * Show the active users for the current session.
+	 */
 	private void showActive() {
 		if (acc.size() > 0) {
 			System.out.println("Active Users");

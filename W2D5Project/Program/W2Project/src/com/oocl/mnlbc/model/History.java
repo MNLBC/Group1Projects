@@ -17,6 +17,7 @@ public class History {
 	private Timestamp dateCreated;
 
 	/**
+	 * Constructor of the class, instantiates the history.
 	 * 
 	 * @param id
 	 * @param chatterName

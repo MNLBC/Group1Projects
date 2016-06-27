@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
+ * Class that allows clients to read message.
  * 
  * @author Group 1
  *
@@ -15,14 +16,19 @@ public class ReadMessage extends Thread {
 	private Socket socket;
 
 	/**
+	 * Instantiates the ReadMessage class, accepts sockets that will be given
+	 * the read capabilities.
 	 * 
 	 * @param socket
+	 *            Connects server and client.
 	 */
 	public ReadMessage(Socket socket) {
 		this.socket = socket;
 	}
 
 	/**
+	 * 
+	 * Runs the Read Message class.
 	 * 
 	 */
 	public void run() {

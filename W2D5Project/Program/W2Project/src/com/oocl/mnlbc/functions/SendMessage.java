@@ -8,6 +8,8 @@ import java.net.Socket;
 
 /**
  * 
+ * Class that gives sockets capabilities to send messages.
+ * 
  * @author Group 1
  *
  */
@@ -15,14 +17,19 @@ public class SendMessage extends Thread {
 	private Socket socket;
 
 	/**
+	 * Constructor for the Send Message class. Instantiates the socket to be
+	 * used.
 	 * 
 	 * @param socket
+	 *            Connects server and client.
 	 */
 	public SendMessage(Socket socket) {
 		this.socket = socket;
 	}
 
 	/**
+	 * 
+	 * Runs the Send Message class.
 	 * 
 	 */
 	public void run() {

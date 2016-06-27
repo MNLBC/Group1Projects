@@ -8,16 +8,28 @@ import java.util.List;
 
 import com.oocl.mnlbc.dao.CommandDAOImpl;
 
+/**
+ * This class is used to generate the history file.
+ * 
+ * @author Group 1
+ *
+ */
 public class FileHistory {
 
 	FileWriter writer;
 	CommandDAOImpl cmd;
 	File file;
 
+	/*
+	 * Class contructor.
+	 */
 	public FileHistory() {
 		cmd = new CommandDAOImpl();
 	}
 
+	/**
+	 * Method to create the file.
+	 */
 	public void createFile() {
 		try {
 			DateFormat df = new SimpleDateFormat("dd-MM-YYYY");
@@ -33,6 +45,9 @@ public class FileHistory {
 
 	}
 
+	/**
+	 * Puts the history from the database to the file created.
+	 */
 	public void importHistory() {
 		FileWriter writer = null;
 		try {

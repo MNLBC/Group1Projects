@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
+ * The client that will be run to join the chat.
  * 
  * @author Group 1
  *
@@ -22,6 +23,8 @@ public class ChatClient {
 	}
 
 	/**
+	 * Starts the ReadMessage and SendMessage class. Allows the start of the
+	 * chat by giving the connected sockets the read and send abilities.
 	 * 
 	 * @throws UnknownHostException
 	 * @throws IOException
@@ -33,13 +36,16 @@ public class ChatClient {
 	}
 
 	/**
+	 * Main method for the ChatClient class.
 	 * 
 	 * @param args
 	 * @throws UnknownHostException
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		ChatClient client = new ChatClient("10.222.29.148"); //Change for terminal IP address
+		ChatClient client = new ChatClient("10.222.29.148"); // Change for
+																// terminal IP
+																// address
 		client.startWork();
 	}
 

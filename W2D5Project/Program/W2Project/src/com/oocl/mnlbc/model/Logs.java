@@ -15,6 +15,7 @@ public class Logs {
 	private Timestamp dateCreated;
 
 	/**
+	 * Constructor for the logs class. Instantiates the object.
 	 * 
 	 * @param id
 	 * @param message

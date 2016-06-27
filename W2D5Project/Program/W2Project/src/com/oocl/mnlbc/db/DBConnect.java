@@ -31,6 +31,15 @@ public class DBConnect {
 		return conn;
 	}
 
+	/**
+	 * Tries to make the connection.
+	 * 
+	 * @param un
+	 *            UserName
+	 * @param pw
+	 *            Password
+	 * @return
+	 */
 	public boolean tryConnect(String un, String pw) {
 		if (un == "system" && pw == "admin123") {
 			return true;

@@ -29,6 +29,9 @@ public class CommandDAOImpl implements CommandDAO {
 	 * The purpose of the following methods is for the insertion and displaying
 	 * of data for the chat history and chat logs.
 	 * </p>
+	 * 
+	 * @param history
+	 *            The history object that will be inserted.
 	 */
 	public boolean insert(History history) {
 		Connection conn = db.getConn();
@@ -54,6 +57,9 @@ public class CommandDAOImpl implements CommandDAO {
 		}
 	}
 
+	/**
+	 * Returns the query result from the database.
+	 */
 	public List<History> getHistory() {
 		Connection conn = db.getConn();
 		DateFormat df = new SimpleDateFormat("dd-MM-YYYY");
@@ -91,6 +97,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * </p>
 	 * 
 	 * @param fromDate
+	 *            Start Date.
 	 * @return
 	 * @throws SQLException
 	 */
@@ -131,7 +138,9 @@ public class CommandDAOImpl implements CommandDAO {
 	 * </p>
 	 * 
 	 * @param fromDate
+	 *            Start Date.
 	 * @param toDate
+	 *            End Date.
 	 * @return
 	 * @throws SQLException
 	 */
@@ -164,6 +173,12 @@ public class CommandDAOImpl implements CommandDAO {
 
 	}
 
+	/**
+	 * Inserts the logs to the database.
+	 * 
+	 * @param logs
+	 *            Logs object that will be inserted to the database.
+	 */
 	public boolean insert(Logs logs) {
 		Connection conn = db.getConn();
 		Date date = new Date();
@@ -187,6 +202,9 @@ public class CommandDAOImpl implements CommandDAO {
 		}
 	}
 
+	/**
+	 * Retrieves all the logs from the database.
+	 */
 	public List<Logs> getLogs() {
 		Connection conn = db.getConn();
 		String sql = "SELECT * FROM LOGS";
@@ -217,6 +235,7 @@ public class CommandDAOImpl implements CommandDAO {
 	 * </p>
 	 * 
 	 * @param fromDate
+	 *            Start Date.
 	 * @return
 	 * @throws SQLException
 	 */
@@ -254,7 +273,9 @@ public class CommandDAOImpl implements CommandDAO {
 	 * </p>
 	 * 
 	 * @param fromDate
+	 *            Start Date
 	 * @param toDate
+	 *            End Date
 	 * @return
 	 * @throws SQLException
 	 */
