@@ -14,6 +14,7 @@ import com.oocl.mnlbc.model.History;
 import com.oocl.mnlbc.model.Logs;
 
 /**
+ * Handles the interaction of the client with the server.
  * 
  * @author Group 1
  *
@@ -26,12 +27,20 @@ public class Chat extends Thread {
 	private CommandDAO daoImpl;
 
 	/**
+	 * Instantiates the Chat class.
 	 * 
 	 * @param socket
+	 *            Connects server and client.
 	 * @param socketList
+	 *            List of sockets
 	 * @param ctr
+	 *            Used for increment
 	 * @param acc
+	 *            List of accounts
 	 * @param daoImpl
+	 *            Called by the chat class to allow interaction with the
+	 *            database.
+	 * 
 	 */
 	public Chat(Socket socket, List<Socket> socketList, int ctr, List<Account> acc, CommandDAO daoImpl) {
 		this.daoImpl = daoImpl;
@@ -111,9 +120,18 @@ public class Chat extends Thread {
 
 	/**
 	 * 
+	 * This method will identify the command entered by the user. It will
+	 * breakdown the input of the user and determine what will be the program's
+	 * response.
+	 * 
 	 * @param message
+	 *            Object that will be checked for identifying command wanted by
+	 *            the user.
 	 * @param acc
+	 *            Account needed
 	 * @param printWriter
+	 *            prints the response of the server.
+	 * 
 	 */
 	private void determineCmd(String message, Account acc, PrintWriter printWriter) {
 		String cmd = message.substring(1);
@@ -159,6 +177,14 @@ public class Chat extends Thread {
 		addLogToDb(commandLog);
 	}
 
+	/**
+	 * 
+	 * Gets the history of the chat within the day.
+	 * 
+	 * @param writer
+	 *            Prints the response of the server.
+	 * 
+	 */
 	private void getHistory(PrintWriter writer) {
 		writer.println("------------------------------------------------------------------------");
 		writer.println("\t\t\t\tHISTORY");
@@ -172,6 +198,19 @@ public class Chat extends Thread {
 		}
 	}
 
+	/**
+	 * Gets the history of the chat, asks for the fromdate and todate.
+	 * 
+	 * @param writer
+	 *            Prints the response of the server.
+	 * @param fromDate
+	 *            Input of the user, determines the start date user wants to
+	 *            retrieve history from.
+	 * @param toDate
+	 *            Input of the user, determines the end date user wants to
+	 *            retrieve history from.
+	 *
+	 */
 	private void getHistory(PrintWriter writer, String fromDate, String toDate) {
 		writer.println("------------------------------------------------------------------------");
 		writer.println("\t\t\t\tHISTORY");
@@ -185,6 +224,17 @@ public class Chat extends Thread {
 		}
 	}
 
+	/**
+	 * Gets the history of the chat, asks for the fromdate, uses the system's
+	 * current date time as the end time.
+	 * 
+	 * @param writer
+	 *            Prints the response of the server.
+	 * @param fromDate
+	 *            Input of the user, determines the start date user wants to
+	 *            retrieve history from.
+	 * 
+	 */
 	private void getHistory(PrintWriter writer, String fromDate) {
 		writer.println("------------------------------------------------------------------------");
 		writer.println("\t\t\t\tHISTORY");
@@ -199,12 +249,18 @@ public class Chat extends Thread {
 	}
 
 	/**
+	 * Initial display for the program. Asks for name to be used for the chat.
 	 * 
-	 * @param socket 
+	 * @param socket
+	 *            Connects server and client.
 	 * @param printWriter
+	 *            Prints the response of the server.
 	 * @param reader
+	 *            Reads the input by the user.
 	 * @return
 	 * @throws IOException
+	 * 
+	 * 
 	 */
 	public String showIntro(Socket socket) throws IOException {
 		PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
@@ -242,6 +298,20 @@ public class Chat extends Thread {
 		return name;
 	}
 
+	/**
+	 * 
+	 * 
+	 * Checks if the user is existing in the current chat session.
+	 * 
+	 * @param name
+	 *            - name that will be checked if existing.
+	 * @param accList
+	 *            - the list of active users
+	 * @param printWriter
+	 *            - prints the response of the server.
+	 * @return
+	 * 
+	 */
 	private boolean isUserExisting(String name, List<Account> accList, PrintWriter printWriter) {
 
 		if (!accList.isEmpty()) {
@@ -256,7 +326,12 @@ public class Chat extends Thread {
 
 	/**
 	 * 
+	 * Inserts the logs to the database.
+	 * 
 	 * @param logInsert
+	 *            The log inserted to the database.
+	 * 
+	 * 
 	 */
 	private void addLogToDb(String logInsert) {
 		this.daoImpl.insert(new Logs(logInsert));
@@ -264,8 +339,14 @@ public class Chat extends Thread {
 
 	/**
 	 * 
+	 * 
+	 * Adds the message and name to the database
+	 * 
 	 * @param name
+	 *            Name to be inserted in the database
 	 * @param historyInsert
+	 *            Message to be inserted in the database
+	 * 
 	 */
 
 	private void addHistoryToDb(String name, String historyInsert) {
@@ -274,7 +355,14 @@ public class Chat extends Thread {
 
 	/**
 	 * 
+	 * This shows the active users when the user inputs the command
+	 * '#showactive'.
+	 * 
 	 * @param printWriter
+	 *            Prints the response of the server.
+	 * 
+	 * 
+	 * 
 	 */
 	private void showActive(PrintWriter printWriter) {
 		printWriter.println("Active Users");
@@ -284,10 +372,12 @@ public class Chat extends Thread {
 	}
 
 	/**
+	 * This shows the help list to the user when typed '#help'.
 	 * 
 	 * @param printWriter
+	 *            Prints the response of the server.
+	 * 
 	 */
-
 	private void showHelpList(PrintWriter printWriter) {
 		printWriter.println("------------------------------------------------------------------------");
 		printWriter.println("All command lines will start with number sign(#).");

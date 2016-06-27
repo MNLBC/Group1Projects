@@ -12,6 +12,7 @@ import com.oocl.mnlbc.dao.CommandDAOImpl;
 import com.oocl.mnlbc.model.Account;
 
 /**
+ * The server where the sockets will connect.
  * 
  * @author Group 1
  *
@@ -20,10 +21,10 @@ import com.oocl.mnlbc.model.Account;
 public class ChatServer {
 
 	/**
+	 * Starts the ChatServer.
 	 * 
 	 * @throws IOException
 	 */
-
 	public void startWork() throws IOException {
 		ServerSocket serverSocket = new ServerSocket(123);
 		List<Socket> socketList = new ArrayList<Socket>();
@@ -32,7 +33,7 @@ public class ChatServer {
 		Socket socket = null;
 		int ctr = 0;
 		Socket server = new Socket(InetAddress.getLocalHost(), 123);
-		new SendMessageServer(server, acc,daoImpl).start();
+		new SendMessageServer(server, acc, daoImpl).start();
 		while (true) {
 			socket = serverSocket.accept();
 			ctr++;
@@ -41,6 +42,7 @@ public class ChatServer {
 	}
 
 	/**
+	 * The main method for the ChatServer class.
 	 * 
 	 * @param args
 	 * @throws IOException
