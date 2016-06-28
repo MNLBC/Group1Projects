@@ -38,12 +38,20 @@ W3D1_1
 <script type="text/javascript">
 	var val = "";
 	function numOne(){
-		var reg = new RegExp("^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,}$");
+		var reg1 = new RegExp("^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,}$"),
+			reg2 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
 			val = document.getElementById("one").value;
-		if(reg.test(val)){
-			alert("Email is valid.");	
+		
+		if(reg1.test(val)){
+			alert("Way one(new RegExp): Email is valid.");	
 		}else{
-			alert("Email is invalid.");	
+			alert("Way one(new RegExp): Email is invalid.");	
+		}
+		
+		if(reg2.test(val)){
+			alert("Way two(direct): Email is valid.");	
+		}else{
+			alert("Way twp(direct): Email is invalid.");	
 		}
 	}
 	
