@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <style>
+            table, td {
+            border: 1px solid black;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="createTable()"
+            style="font-family: 'Century Gothic'; font-size: 22px;">Create Table</button>
+    </body>
+    <script>
+        function createTable() {
+        var x = document.createElement("TABLE");
+        document.body.appendChild(x);
+        var row = x.insertRow(0);
+        x.setAttribute("id", "myTable");
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "cell1";
+        cell2.innerHTML = "cell2";
+        }
+    </script>
+
+
+</html>
