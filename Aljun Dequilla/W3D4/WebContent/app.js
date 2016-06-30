@@ -1,11 +1,12 @@
 Ext.application({
-    requires: ['Ext.container.Viewport' ],
-    name : 'School',
-    controllers : ['StudentMaster'],
+	requires : [ 'Ext.container.Viewport' ],
+	name : 'School',
+	controllers : [ 'EmployeeMaster' ],
 
-    launch: function () {
-        
-        Ext.create('School.view.StudentTab', 
-        		{renderTo: Ext.getBody()});
-    }
+	launch : function() {
+
+		Ext.create('School.view.EmployeeTab', {
+			renderTo : Ext.getBody()
+		});
+	}
 });

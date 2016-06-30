@@ -1,31 +1,31 @@
-Ext.define('School.controller.StudentMaster',
+Ext.define('School.controller.EmployeeMaster',
 {
     extend: 'Ext.app.Controller',
-    models: ['School.model.Student'],
-    stores: ['School.store.Student'],
-    views: ['School.view.StudentGrid'],
+    models: ['School.model.Employee'],
+    stores: ['School.store.Employee'],
+    views: ['School.view.EmployeeGrid'],
     refs: [{
         ref: 'studentGrid',
-        selector: 'viewport StudentGrid'
+        selector: 'viewport EmployeeGrid'
     }],
 
     init: function () {
 
         this.control({
 
-            'viewport > StudentGrid button[itemId=btnCreate]':
+            'viewport > EmployeeGrid button[itemId=btnCreate]':
             {
                 click: this.onCreateClick
             },
-            'viewport > StudentGrid button[itemId=btnLoad]':
+            'viewport > EmployeeGrid button[itemId=btnLoad]':
             {
                 click: this.onLoadClick
             },
-            'viewport > StudentGrid button[itemId=btnSave]':
+            'viewport > EmployeeGrid button[itemId=btnSave]':
             {
                 click: this.onSaveClick
             },
-            'viewport > StudentGrid button[itemId=btnDelete]':
+            'viewport > EmployeeGrid button[itemId=btnDelete]':
             {
                 click: this.onDeleteClick
             }
@@ -34,10 +34,10 @@ Ext.define('School.controller.StudentMaster',
 
     onCreateClick: function () {
 
-        var studentGrid = this.getStudentGrid();
+        var studentGrid = this.getEmployeeGrid();
         var studentStore = studentGrid.getStore();
 
-        var studentModel = Ext.create('School.model.Student');
+        var studentModel = Ext.create('School.model.Employee');
         studentModel.set("firstName", "New student's first name");
         studentModel.set("middleName", "New student's middle name");
         studentModel.set("lastName", "New student's last name");
@@ -52,7 +52,7 @@ Ext.define('School.controller.StudentMaster',
     },
 
     onSaveClick: function () {
-        var studentGrid = this.getStudentGrid();
+        var studentGrid = this.getEmployeeGrid();
         var studentStore = studentGrid.getStore();
 
         //fires create, update and delete request when calling sync and commit changes in the store when autoSync=false
@@ -66,13 +66,13 @@ Ext.define('School.controller.StudentMaster',
         });
     },
     onLoadClick: function () {
-        var studentStore = Ext.getStore('School.store.Student');
+        var studentStore = Ext.getStore('School.store.Employee');
         studentStore.load();
     },
 
     onDeleteClick: function () {
 
-        var studentGrid = this.getStudentGrid();
+        var studentGrid = this.getEmployeeGrid();
         var studentStore = studentGrid.getStore();
 
         //delete selected rows if selModel is checkboxmodel

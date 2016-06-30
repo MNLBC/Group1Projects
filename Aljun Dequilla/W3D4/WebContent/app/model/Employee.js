@@ -1,4 +1,4 @@
-Ext.define('School.model.Student', 
+Ext.define('School.model.Employee', 
 {
     extend : 'Ext.data.Model',
     idProperty:'Id',
