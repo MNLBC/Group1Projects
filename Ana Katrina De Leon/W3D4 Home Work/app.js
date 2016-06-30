@@ -1,8 +1,8 @@
 Ext.application({
 	requires : [ 'Ext.container.Viewport' ],
 	name : 'Company',
-	controllers : [ 'EmployeeMaster' , 'EmployeeMaster2'],
-	views : [ 'Company.view.EmployeeMaster' ],
+	controllers : [ 'EmployeeController' , 'EmployeeController2'],
+	views : [ 'Company.view.EmployeeView2' ],
 
 	launch : function() {
 		Ext.create('Ext.form.Panel', {
@@ -26,7 +26,7 @@ Ext.application({
 							layout : 'anchor',
 							closable: true,
 							items : [ {
-								xtype : 'EmployeeGrid'
+								xtype : 'EmployeeView'
 							} ]
 						});
 					}
@@ -38,7 +38,7 @@ Ext.application({
 							layout : 'fit',
 							closable: true,
 							items : [ {
-								xtype : 'EmployeeMaster'
+								xtype : 'EmployeeView2'
 							} ]
 						});
 					}

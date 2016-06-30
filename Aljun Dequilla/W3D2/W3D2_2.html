@@ -1,0 +1,52 @@
+<html>
+<head>
+<style>
+table, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body onload="theFunc()">
+
+<table ID="theTable" >
+<tbody ID="theBody"></tbody>
+</table>
+
+<script>
+
+function theFunc()
+{
+  // Declare variables and create the header, footer, and caption.
+  var theHead = theTable.createTHead();
+  var oRow, oCell;
+  var i, j;
+
+  // Create Table Header
+  oRow = theHead.insertRow(-1);
+  theHead.setAttribute("bgColor","lime");
+
+  // Insert cells into the header row.
+  for (i=0; i<4; i++)
+  {
+    oCell = oRow.insertCell(-1);
+    oCell.align = "center";
+    oCell.style.fontWeight = "bold";
+    oCell.innerHTML = i;
+  }
+
+  // Insert rows and cells into bodies.
+  for (i=0; i<4; i++)
+  {
+    oRow = theBody.insertRow(-1);
+    for (j=0; j<4; j++)
+    {
+      oCell = oRow.insertCell(-1);
+      oCell.innerHTML = i + " " + j;
+    }
+  }
+}
+</script>
+
+
+</body>
+</html>

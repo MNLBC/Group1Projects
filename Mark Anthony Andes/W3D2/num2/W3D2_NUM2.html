@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+table {
+	border: 2px solid ;
+	font-family: 'Times new Roman' ';
+	font-size: 20px;
+}
+
+td {
+	border: 2px dashed red;
+	font-family: 'Times new Roman' ';
+	font-size: 20px;
+}
+
+button {
+	font-family: 'Times new Roman';
+	width: 250;
+	height: 85;
+	font-size: 25px;
+}
+</style>
+</head>
+<body>
+
+	<div align="center">
+		<fieldset>
+			<header></header>
+			<section>
+				<button onclick="newTable()">Create Table</button>
+			</section>
+		</fieldset>
+	</div>
+
+	<script>
+		function newTable() {
+			var x = document.createElement("Table");
+			x.setAttribute("id", "addTable");
+			document.body.appendChild(x);
+
+			var y = document.createElement("tr");
+			y.setAttribute("id", "myTr");
+			document.getElementById("addTable").appendChild(y);
+
+			var z = document.createElement("td");
+			var t = document.createTextNode("MyCell");
+			z.appendChild(t);
+			document.getElementById("myTr").appendChild(z);
+		}
+	</script>
+</body>
+
+</html>
