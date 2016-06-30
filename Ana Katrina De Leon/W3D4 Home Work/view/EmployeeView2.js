@@ -1,9 +1,9 @@
 Ext
 		.define(
-				'Company.view.EmployeeMaster',
+				'Company.view.EmployeeView2',
 				{
 					extend : 'Ext.form.Panel',
-					alias : 'widget.EmployeeMaster',
+					alias : 'widget.EmployeeView2',
 					config : {},
 					constructor : function(config) {
 						this.initConfig(config);
