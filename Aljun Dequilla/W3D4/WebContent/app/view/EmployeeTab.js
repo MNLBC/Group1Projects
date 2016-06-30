@@ -5,7 +5,7 @@ Ext.define('School.view.EmployeeTab', {
 
 	alias : 'widget.EmployeeTab',
 	width : '100%',
-	height : '90%',
+	height : 400,
 	activeTab : 0,
 
 	initComponent : function() {
@@ -17,12 +17,11 @@ Ext.define('School.view.EmployeeTab', {
 			}, {
 				xtype : 'EmployeeMaster'
 
-			}, {
-//				xtype : 'EmployeeGrid'
-			} ]
+			}]
 		});
 
 		this.callParent(arguments);
 	}
 
 });
+

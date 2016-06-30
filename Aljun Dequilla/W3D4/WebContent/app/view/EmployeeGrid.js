@@ -10,7 +10,7 @@ Ext.define('School.view.EmployeeGrid', {
 	width : '100%',
 	height : 400,
 	selType : 'checkboxmodel',
-	title : 'Employees Information',
+	title : 'Employees Grid',
 	selModel : {
 		mode : 'MULTI'
 	},

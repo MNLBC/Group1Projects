@@ -24,7 +24,7 @@ Ext
 
 						Ext.apply(this, {
 							id : 'EmployeeMasterId',
-							title : 'Employee Information',
+							title : 'Employee Form',
 							resizable : false,
 							collapsible : true,
 							bodyPadding : '5',
