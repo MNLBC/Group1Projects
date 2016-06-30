@@ -1,4 +1,4 @@
-Ext.define('Company.model.Employee2', {
+Ext.define('Company.model.EmployeeModel2', {
 	extend : 'Ext.data.Model',
 	idProperty : 'Id',
 	fields : [ {

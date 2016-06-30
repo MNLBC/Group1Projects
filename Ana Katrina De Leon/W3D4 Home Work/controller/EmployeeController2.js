@@ -1,36 +1,36 @@
 Ext
 		.define(
-				'Company.controller.EmployeeMaster2',
+				'Company.controller.EmployeeController2',
 				{
 					extend : 'Ext.app.Controller',
-					models : [ 'Company.model.Employee2' ],
-					views : [ 'Company.view.EmployeeMaster' ],
+					models : [ 'Company.model.EmployeeModel2' ],
+					views : [ 'Company.view.EmployeeView2' ],
 
 					refs : [ {
 						ref : 'employeeMasterForm',
-						selector : 'viewport > EmployeeMaster'
+						selector : 'viewport > EmployeeView2'
 					} ],
 
 					init : function() {
 						this
 								.control({
 
-									'viewport > EmployeeMaster button[itemId=btnCreate]' : {
+									'viewport > EmployeeView2 button[itemId=btnCreate]' : {
 										click : this.onCreateClick
 									},
-									'viewport > EmployeeMaster button[itemId=btnLoad]' : {
+									'viewport > EmployeeView2 button[itemId=btnLoad]' : {
 										click : this.onLoadClick
 									},
-									'viewport > EmployeeMaster button[itemId=btnUpdate]' : {
+									'viewport > EmployeeView2 button[itemId=btnUpdate]' : {
 										click : this.onUpdateClick
 									},
-									'viewport > EmployeeMaster button[itemId=btnDelete]' : {
+									'viewport > EmployeeView2 button[itemId=btnDelete]' : {
 										click : this.onDeleteClick
 									},
-									'viewport > EmployeeMaster button[itemId=btnReset]' : {
+									'viewport > EmployeeView2 button[itemId=btnReset]' : {
 										click : this.onResetClick
 									},
-									'viewport > EmployeeMaster button[itemId=btnClear]' : {
+									'viewport > EmployeeView2 button[itemId=btnClear]' : {
 										click : this.onClearClick
 									}
 								});
@@ -50,7 +50,7 @@ Ext
 						}
 
 						var employeeModel = Ext
-								.create('Company.model.Employee2');
+								.create('Company.model.EmployeeModel2');
 
 						employeeModel.set(empMaster.getValues());
 
@@ -72,7 +72,7 @@ Ext
 												// indicate where the student
 												// data in the response
 												var employee = Ext
-														.create('Company.model.Employee2');
+														.create('Company.model.EmployeeModel2');
 												employee.set(resp.data[0]);
 												this.getEmployeeMasterForm()
 														.loadRecord(employee);
@@ -116,7 +116,7 @@ Ext
 					onLoadClick : function() {
 
 						var existingEmployee = Ext.ModelMgr
-								.getModel('Company.model.Employee2');
+								.getModel('Company.model.EmployeeModel2');
 						var empMaster = this.getEmployeeMasterForm();
 						var mask = new Ext.LoadMask(empMaster, {
 							msg : "Loading..."
@@ -129,7 +129,7 @@ Ext
 							failure : function(record, operation) {
 								mask.hide();
 								Ext.Msg.alert('Status',
-										'Service request faild.');
+										'Service request failed.');
 							},
 							success : function(record, operation) { // do
 																	// something
@@ -174,7 +174,7 @@ Ext
 						}
 
 						var employeeModel = Ext
-								.create('Company.model.Employee2');
+								.create('Company.model.EmployeeModel2');
 
 						employeeModel.set(empMaster.getValues());
 
@@ -215,7 +215,7 @@ Ext
 							failure : function(record, operation) {
 								mask.hide();
 								Ext.Msg.alert('Status',
-										'Service request faild.');
+										'Service request failed.');
 							}
 
 						});
@@ -244,7 +244,7 @@ Ext
 									failure : function(record, operation) {
 										mask.hide();
 										Ext.Msg.alert('Status',
-												'Service request faild.');
+												'Service request failed.');
 									},
 									success : function(record, operation) {
 										try {

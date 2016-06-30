@@ -1,27 +1,27 @@
-Ext.define('Company.controller.EmployeeMaster', {
+Ext.define('Company.controller.EmployeeController', {
 	extend : 'Ext.app.Controller',
-	models : [ 'Company.model.Employee' ],
-	stores : [ 'Company.store.Employee' ],
-	views : [ 'Company.view.EmployeeGrid' ],
+	models : [ 'Company.model.EmployeeModel' ],
+	stores : [ 'Company.store.EmployeeStore' ],
+	views : [ 'Company.view.EmployeeView' ],
 	refs : [ {
 		ref : 'employeeGrid',
-		selector : 'viewport EmployeeGrid'
+		selector : 'viewport EmployeeView'
 	} ],
 
 	init : function() {
 
 		this.control({
 
-			'viewport > EmployeeGrid button[itemId=btnCreate]' : {
+			'viewport > EmployeeView button[itemId=btnCreate]' : {
 				click : this.onCreateClick
 			},
-			'viewport > EmployeeGrid button[itemId=btnLoad]' : {
+			'viewport > EmployeeView button[itemId=btnLoad]' : {
 				click : this.onLoadClick
 			},
-			'viewport > EmployeeGrid button[itemId=btnSave]' : {
+			'viewport > EmployeeView button[itemId=btnSave]' : {
 				click : this.onSaveClick
 			},
-			'viewport > EmployeeGrid button[itemId=btnDelete]' : {
+			'viewport > EmployeeView button[itemId=btnDelete]' : {
 				click : this.onDeleteClick
 			}
 		});
@@ -32,7 +32,7 @@ Ext.define('Company.controller.EmployeeMaster', {
 		var employeeGrid = this.getEmployeeGrid();
 		var employeeStore = employeeGrid.getStore();
 
-		var employeeModel = Ext.create('Company.model.Employee');
+		var employeeModel = Ext.create('Company.model.EmployeeModel');
 		employeeModel.set("firstName", "New employee's first name");
 		employeeModel.set("middleName", "New employees's middle name");
 		employeeModel.set("lastName", "New employee's last name");
@@ -62,7 +62,7 @@ Ext.define('Company.controller.EmployeeMaster', {
 		});
 	},
 	onLoadClick : function() {
-		var employeeStore = Ext.getStore('Company.store.Employee');
+		var employeeStore = Ext.getStore('Company.store.EmployeeStore');
 		employeeStore.load();
 	},
 

@@ -1,6 +1,6 @@
-Ext.define('Company.view.EmployeeGrid', {
+Ext.define('Company.view.EmployeeView', {
 	extend : 'Ext.grid.Panel',
-	alias : 'widget.EmployeeGrid',
+	alias : 'widget.EmployeeView',
 	id : 'employeesGrid',
 	config : {},
 	constructor : function(config) {
@@ -19,7 +19,7 @@ Ext.define('Company.view.EmployeeGrid', {
 	},
 	initComponent : function() {
 		Ext.apply(this, {
-			store : 'Company.store.Employee',
+			store : 'Company.store.EmployeeStore',
 
 			plugins : [ Ext.create('Ext.grid.plugin.RowEditing', {
 				clicksToEdit : 2
