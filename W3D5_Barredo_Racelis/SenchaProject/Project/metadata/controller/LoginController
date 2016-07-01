@@ -1,0 +1,121 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "name": "MyController",
+    "designerId": "ffad7ad6-f9f4-4f48-8304-f43ee76ede94",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#login",
+                "designer|targetType": "MyButton4",
+                "fn": "onLoginClick",
+                "implHandler": [
+                    "         var username = this.getUsernameTextField().getValue();",
+                    "         var password = this.getPasswordTextField().getValue();",
+                    "",
+                    "         this.userStore = Ext.create('Project.store.User');",
+                    "",
+                    "        //logic checking if the user exist in the store",
+                    "        console.log('Username' + username);",
+                    "        console.log('Password' + password);",
+                    "",
+                    "        Ext.each(this.userStore.getRange(), function(record){",
+                    "             var data = record.data;",
+                    "            if(data.username === username && data.password === password){",
+                    "                console.log('success');",
+                    "                return false;",
+                    "            }",
+                    "        });",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLoginClick",
+            "designerId": "cc4d02a6-cb94-4dd4-913a-b2f89134e23c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "login",
+                "selector": "#login"
+            },
+            "name": "login",
+            "designerId": "a071c8c5-7c27-4007-9ddf-0ae84beab993"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameTextField",
+                "selector": "#usernameTextField"
+            },
+            "name": "usernameTextField",
+            "designerId": "1871dde2-a037-4f8c-b4df-b04ebfd929d1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordTextField",
+                "selector": "#passwordTextField"
+            },
+            "name": "passwordTextField",
+            "designerId": "b24cae98-2fdd-4bff-969d-c6d285ee7857"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelLogin",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton3",
+                "fn": "onCancelLoginClick",
+                "implHandler": [
+                    "    var window = button.up('window');",
+                    "        window.hide();",
+                    "        this.getUsernameTextField().setValue('');",
+                    "        this.getPasswordTextField().setValue('');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelLoginClick",
+            "designerId": "aabb13ac-96be-4bc5-aeaf-5251aaa31040"
+        }
+    ]
+}

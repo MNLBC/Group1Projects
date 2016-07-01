@@ -1,0 +1,296 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "Home",
+        "layout": "border"
+    },
+    "name": "MyViewport",
+    "designerId": "3d188efd-06bb-4b3f-b5bf-e36a2aeba4d6",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox",
+                "layout|region": "center",
+                "title": "Book Management System"
+            },
+            "name": "MyPanel",
+            "designerId": "ed57619b-2c0f-4b03-a271-2b4ebd2cafaf",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "ea8a4250-59a9-41a9-ad1e-e4325a5b7acc",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "itemId": "homeButton",
+                                "layout|flex": null,
+                                "text": "Home",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "0b6b67dd-849f-4d9a-986e-29fffc82f118"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "itemId": "searchButton",
+                                "layout|flex": null,
+                                "text": "Search",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "8df27ad3-0004-4bb5-bae8-b02b251fc372"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "layout|flex": null,
+                                "text": "Inventory",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "fcbadcb3-603e-4a96-8bb1-955bbf704cb2",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Menu",
+                                    "reference": {
+                                        "name": "menu",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": "subMenu",
+                                        "floating": false,
+                                        "plain": true,
+                                        "width": 120
+                                    },
+                                    "name": "MyMenu",
+                                    "designerId": "721cb308-47d2-49f9-b9cb-7081cceffd08",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.menu.Item",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "try"
+                                            },
+                                            "name": "MyMenuItem",
+                                            "designerId": "53b80510-09e0-484d-a89a-06b7d99c667e"
+                                        },
+                                        {
+                                            "type": "Ext.menu.Item",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Menu Item"
+                                            },
+                                            "name": "MyMenuItem1",
+                                            "designerId": "787d7741-6cac-427e-ac43-2e46c01c5a3f"
+                                        },
+                                        {
+                                            "type": "Ext.menu.Item",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Menu Item"
+                                            },
+                                            "name": "MyMenuItem2",
+                                            "designerId": "cb500641-a458-4d90-b7f9-0e3b97932615"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "HomePanel",
+                        "height": null,
+                        "itemId": "homePanel",
+                        "layout|flex": 1,
+                        "manageHeight": false,
+                        "title": null
+                    },
+                    "name": "MyPanel1",
+                    "designerId": "7c0eded0-ac04-43e8-a7c8-25f7efeedba9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "HOME"
+                            },
+                            "name": "MyLabel",
+                            "designerId": "c81b769e-11fb-4bb6-84c3-eccc8eda4f1a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "itemId": "searchPanel",
+                        "layout|flex": 1,
+                        "title": null
+                    },
+                    "name": "MyPanel2",
+                    "designerId": "c1ffa81d-21d2-49e7-bfb4-0aa7a6c8e775",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "searching"
+                            },
+                            "name": "MyLabel1",
+                            "designerId": "166effde-bf51-43e5-b545-5a3d0092210b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "1ebceaca-88b3-46b5-ac10-9b8b826f12ed",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "8ac72da1-eada-4027-b586-eef1106fd987"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "showLoginWindow",
+                                "layout|flex": null,
+                                "text": "Login"
+                            },
+                            "name": "MyButton",
+                            "designerId": "b7a265ce-13b8-44e8-9265-5f2bbe72a18b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "signupBtn",
+                                "layout|flex": null,
+                                "text": "Signup"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "b718e651-b49c-4358-a9e6-6729242ae923"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "layout|flex": null,
+                                "text": "Logout"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "50865523-afef-4a22-bc1e-d518533c534b"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SignUpController",
+        "views": [
+            "SignUpWindow"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "44cb1058-f93b-4cff-bd94-dd1b68c2e7ed",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signUpForm",
+                "selector": "#signUpForm"
+            },
+            "name": "signUpForm",
+            "designerId": "72994bbb-5084-4195-b609-c6dc6ac50725"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerBttn",
+                "designer|targetType": "MyButton9",
+                "fn": "onRegisterBttnClick",
+                "implHandler": [
+                    "    var form =  this.getSignUpForm().getForm();",
+                    "    ",
+                    "    if(!form.isValid()){",
+                    "        Ext.alert('Valid', 'VALID');",
+                    "    ",
+                    "    }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterBttnClick",
+            "designerId": "1aaec2ae-1aab-43ad-ab0a-199011f3d245"
+        }
+    ]
+}

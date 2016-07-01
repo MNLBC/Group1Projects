@@ -1,0 +1,112 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 15,
+        "closable": false,
+        "container|align": "stretch",
+        "designer|userClassName": "LoginWindow",
+        "height": 161,
+        "itemId": "mywindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": "Log-in",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "ee9f0720-7d46-4d88-a342-37c608abe15f",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Username",
+                "itemId": "usernameTextField"
+            },
+            "name": "MyTextField",
+            "designerId": "b704a8cf-3a12-4083-89be-82f52a9dc0c6"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Password",
+                "inputType": "password",
+                "itemId": "passwordTextField"
+            },
+            "name": "MyTextField1",
+            "designerId": "1527d243-710d-4bd4-a9f8-42183cba6d33"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar2",
+            "designerId": "34c5fbca-91a7-4d92-aa2b-d7280043425f",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill1",
+                    "designerId": "25745c0d-4c10-4176-acc4-100ebf1f312f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "login",
+                        "layout|flex": null,
+                        "text": "Login"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "0c7b1f4d-683b-42eb-8c89-3f1e2fc3f72f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "cancelLogin",
+                        "layout|flex": null,
+                        "text": "Cancel"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "8262dfe9-369e-4cd6-97a3-d96de4e8405f"
+                }
+            ]
+        }
+    ]
+}

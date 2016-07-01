@@ -1,0 +1,122 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "HomeController",
+        "views": [
+            "Home"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "5508615e-35f4-47b5-9e6b-7c6dd5c2e34f",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "showLoginWindow",
+                "selector": "#showLoginWindow"
+            },
+            "name": "showLoginWindow",
+            "designerId": "1b831c0f-4827-4c81-86c4-60437631235d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#showLoginWindow",
+                "designer|targetType": "MyButton",
+                "fn": "onShowLoginWindowClick",
+                "implHandler": [
+                    "Ext.create('Project.view.LoginWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onShowLoginWindowClick",
+            "designerId": "9e4b3282-8490-4656-858c-0b812d0aae3f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "cd94378d-6586-4b95-93a8-0b62c0a54311"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "searchPanel",
+                "selector": "#searchPanel"
+            },
+            "name": "searchPanel",
+            "designerId": "22ac8258-2f04-480c-a75d-afae0bcc20a5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchButton",
+                "designer|targetType": "MyButton7",
+                "fn": "onSearchButtonClick",
+                "implHandler": [
+                    "    this.getHomePanel().hide();",
+                    "    this.getSearchPanel().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSearchButtonClick",
+            "designerId": "b9481465-8974-4a2d-a74c-e2287ea5045f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#homeButton",
+                "designer|targetType": "MyButton2",
+                "fn": "onHomeButtonClick",
+                "implHandler": [
+                    "        this.getHomePanel().show();",
+                    "        this.getSearchPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onHomeButtonClick",
+            "designerId": "46ced8c6-8f07-46dc-91b3-87661321f6de"
+        }
+    ]
+}
