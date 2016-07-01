@@ -1,0 +1,59 @@
+{
+    "name": "W3D5",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "",
+        "exportPath": "C:/Users/limosjo/Desktop/W3D5_LimosAndes/W3D5_publish",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "c696fa79-9e7a-4d9d-82ff-b8674a005f13",
+            "631d0c5f-31f9-4134-9352-54e3692238ca",
+            "9cba53ef-d012-4d29-9864-d23f06ecb1b4"
+        ],
+        "store": [
+            "76c7362a-00d1-4f4b-b81d-5b7a73ed3221",
+            "828837d3-f10e-4dcc-85d5-2871b5b73828"
+        ],
+        "controller": [
+            "2a84f15b-24f9-4dfe-88aa-afb41b86a791",
+            "2f86d913-fa1d-48b4-9a3f-015f0439fd61"
+        ],
+        "model": [
+            "283461f1-84f7-4032-b8c5-10905c14f5e6",
+            "7f8e69a9-e89a-409d-8de1-fb6ad0fc70b3"
+        ],
+        "resource": [
+            "7513bed8-5ae1-43f3-920b-f2ddbfd48210",
+            "0052036f-bd64-416a-8f9c-17a76f1affae"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
