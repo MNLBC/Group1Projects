@@ -1,0 +1,30 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"firstName\": \"Alexander\",",
+            "        \"lastName\": \"Hernandez\",",
+            "        \"userName\": \"nemo\",",
+            "        \"password\": \"nemo\",",
+            "        \"uType\": \"admin\",",
+            "        \"address\": \"04 Kipling Center\",",
+            "        \"contactNo\": \"ad\",",
+            "        \"email\": \"jfrazier@rhynoodle.biz\",",
+            "        \"booksAtHand\": \"eaque\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "userStore",
+        "model": "userModel",
+        "storeId": "userStore"
+    },
+    "name": "MyStore",
+    "designerId": "76c7362a-00d1-4f4b-b81d-5b7a73ed3221"
+}

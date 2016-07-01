@@ -1,0 +1,80 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "bookModel"
+    },
+    "name": "MyModel1",
+    "designerId": "7f8e69a9-e89a-409d-8de1-fb6ad0fc70b3",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "name": "MyField9",
+            "designerId": "b88d3c5d-1f3e-4d7f-9256-6e65646e97d1"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "author"
+            },
+            "name": "MyField10",
+            "designerId": "812af6ea-1370-42af-bf5e-794556e094dd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "name": "MyField11",
+            "designerId": "5d01a73c-7ec1-41d9-a823-1e224f705d12"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "available"
+            },
+            "name": "MyField12",
+            "designerId": "c9957b8a-fc9d-4d61-b935-8771847e065d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "checkoutBy"
+            },
+            "name": "MyField13",
+            "designerId": "4da84241-19a4-4671-963a-98de158e3b2a"
+        }
+    ]
+}

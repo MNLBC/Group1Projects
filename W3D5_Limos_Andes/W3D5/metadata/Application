@@ -1,0 +1,30 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "viewPortControllers",
+            "windowsControllers"
+        ],
+        "models": [
+            "userModel",
+            "bookModel"
+        ],
+        "name": "BookingManagementSystem",
+        "stores": [
+            "userStore",
+            "bookStore"
+        ],
+        "views": [
+            "LoginPage",
+            "MyWindow",
+            "Homepage"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}
