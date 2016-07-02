@@ -12,16 +12,21 @@
             "SignUpController"
         ],
         "models": [
-            "User"
+            "User",
+            "Book"
         ],
         "name": "Project",
         "stores": [
-            "User"
+            "User",
+            "Books"
         ],
         "views": [
             "LoginWindow",
             "SearchPanel",
-            "HomePanel"
+            "HomePanel",
+            "InventoryPanel",
+            "UserPanel",
+            "AddUsers"
         ]
     },
     "name": "Application",

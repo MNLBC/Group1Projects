@@ -19,13 +19,17 @@ Ext.define('Project.view.Home', {
     requires: [
         'Project.view.HomePanel',
         'Project.view.SearchPanel',
+        'Project.view.InventoryPanel',
+        'Project.view.UserPanel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
-        'Ext.toolbar.Fill'
+        'Ext.toolbar.Fill',
+        'Ext.form.Label'
     ],
 
+    itemId: 'homeViewport',
     layout: 'border',
 
     initComponent: function() {
@@ -56,31 +60,25 @@ Ext.define('Project.view.Home', {
                                     xtype: 'button',
                                     itemId: 'searchButton',
                                     ui: 'menubarbtn',
-                                    text: 'Search',
-                                    menu: {
-                                        xtype: 'menu',
-                                        items: [
-                                            {
-                                                xtype: 'menuitem',
-                                                text: 'Menu Item'
-                                            }
-                                        ]
-                                    }
+                                    text: 'Search'
                                 },
                                 {
                                     xtype: 'button',
+                                    itemId: 'inventoryBtn',
                                     ui: 'menubarbtn',
-                                    text: 'Inventory',
+                                    text: 'System',
                                     menu: {
                                         xtype: 'menu',
                                         items: [
                                             {
                                                 xtype: 'menuitem',
-                                                text: 'Menu Item'
+                                                itemId: 'bookMenuBtn',
+                                                text: 'Books'
                                             },
                                             {
                                                 xtype: 'menuitem',
-                                                text: 'Menu Item'
+                                                itemId: 'userMenuBtn',
+                                                text: 'Users'
                                             }
                                         ]
                                     }
@@ -95,6 +93,12 @@ Ext.define('Project.view.Home', {
                                     xtype: 'tbfill'
                                 },
                                 {
+                                    xtype: 'label',
+                                    hidden: true,
+                                    itemId: 'currentUsername',
+                                    text: 'User Name'
+                                },
+                                {
                                     xtype: 'button',
                                     itemId: 'showLoginWindow',
                                     text: 'Login'
@@ -107,6 +111,7 @@ Ext.define('Project.view.Home', {
                                 {
                                     xtype: 'button',
                                     hidden: true,
+                                    itemId: 'logoutbtn',
                                     text: 'Logout'
                                 }
                             ]
@@ -114,14 +119,25 @@ Ext.define('Project.view.Home', {
                     ],
                     items: [
                         {
-                            xtype: 'mypanel1',
-                            flex: 1,
-                            itemId: 'homePanel'
+                            xtype: 'mypanel12',
+                            itemId: 'homePanel',
+                            flex: 1
                         },
                         {
                             xtype: 'mypanel2',
+                            hidden: true,
+                            flex: 1
+                        },
+                        {
+                            xtype: 'inventorypanel1',
                             flex: 1,
-                            itemId: 'searchPanel'
+                            hidden: true
+                        },
+                        {
+                            xtype: 'mypanel13',
+                            flex: 1,
+                            hidden: true,
+                            itemId: 'userPanel'
                         }
                     ]
                 }

@@ -57,6 +57,7 @@ Ext.define('Project.view.SignUpWindow', {
                             itemId: 'passwordSignUp',
                             fieldLabel: 'Password',
                             inputId: 'password',
+                            inputType: 'password',
                             allowBlank: false,
                             allowOnlyWhitespace: false
                         },
@@ -66,6 +67,7 @@ Ext.define('Project.view.SignUpWindow', {
                             itemId: 'passwordReSignUp',
                             fieldLabel: 'Re- Password',
                             inputId: 'password2',
+                            inputType: 'password',
                             allowBlank: false,
                             allowOnlyWhitespace: false
                         },
@@ -104,13 +106,7 @@ Ext.define('Project.view.SignUpWindow', {
                                 {
                                     xtype: 'button',
                                     itemId: 'registerBttn',
-                                    text: 'Register',
-                                    listeners: {
-                                        click: {
-                                            fn: me.onRegisterBttnClick,
-                                            scope: me
-                                        }
-                                    }
+                                    text: 'Register'
                                 }
                             ]
                         }
@@ -120,10 +116,6 @@ Ext.define('Project.view.SignUpWindow', {
         });
 
         me.callParent(arguments);
-    },
-
-    onRegisterBttnClick: function(button, e, eOpts) {
-
     }
 
 });

@@ -18,10 +18,15 @@ Ext.define('Project.view.SearchPanel', {
     alias: 'widget.mypanel2',
 
     requires: [
-        'Ext.form.Label'
+        'Ext.form.Label',
+        'Ext.form.field.Text',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View'
     ],
 
-    hidden: true,
     itemId: 'searchPanel',
 
     initComponent: function() {
@@ -32,6 +37,48 @@ Ext.define('Project.view.SearchPanel', {
                 {
                     xtype: 'label',
                     text: 'searching'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Label'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Label'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Label'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Label'
+                },
+                {
+                    xtype: 'gridpanel',
+                    title: 'My Grid Panel',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'string',
+                            text: 'String'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'number',
+                            text: 'Number'
+                        },
+                        {
+                            xtype: 'datecolumn',
+                            dataIndex: 'date',
+                            text: 'Date'
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            dataIndex: 'bool',
+                            text: 'Boolean'
+                        }
+                    ]
                 }
             ]
         });

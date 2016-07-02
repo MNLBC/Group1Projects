@@ -1,0 +1,16 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AddUsers",
+        "height": 288,
+        "title": "Add Users",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "cdb1d78f-1c82-4098-813a-a19079515fd3"
+}

@@ -36,6 +36,14 @@ Ext.define('Project.controller.HomeController', {
         {
             ref: 'signupBtn',
             selector: '#signupBtn'
+        },
+        {
+            ref: 'inventoryPanel',
+            selector: '#inventoryPanel'
+        },
+        {
+            ref: 'userPanel',
+            selector: '#userPanel'
         }
     ],
 
@@ -46,15 +54,45 @@ Ext.define('Project.controller.HomeController', {
     onSearchButtonClick: function() {
             this.getHomePanel().hide();
             this.getSearchPanel().show();
+            this.getInventoryPanel().hide();
+            this.getUserPanel().hide();
     },
 
     onHomeButtonClick: function() {
                 this.getHomePanel().show();
                 this.getSearchPanel().hide();
+                this.getInventoryPanel().hide();
+                this.getUserPanel().hide();
     },
 
     onSignupBtnClick: function() {
                 Ext.create('Project.view.SignUpWindow').show();
+    },
+
+    onBookMenuBtnClick: function() {
+        this.getHomePanel().hide();
+        this.getSearchPanel().hide();
+        this.getInventoryPanel().show();
+        this.getUserPanel().hide();
+    },
+
+    onUserMenuBtnClick: function() {
+                this.getHomePanel().hide();
+                this.getSearchPanel().hide();
+                this.getInventoryPanel().hide();
+                this.getUserPanel().show();
+    },
+
+    onHomeViewportRender: function(component, eOpts) {
+                userStore = Ext.create('Project.store.User');
+                bookStore = Ext.create('Project.store.Books');
+        console.log('viewport render');
+
+    },
+
+    onInventoryPanelRender: function(component, eOpts) {
+        console.log('activate');
+
     },
 
     init: function(application) {
@@ -70,6 +108,18 @@ Ext.define('Project.controller.HomeController', {
             },
             "#signupBtn": {
                 click: this.onSignupBtnClick
+            },
+            "#bookMenuBtn": {
+                click: this.onBookMenuBtnClick
+            },
+            "#userMenuBtn": {
+                click: this.onUserMenuBtnClick
+            },
+            "#homeViewport": {
+                render: this.onHomeViewportRender
+            },
+            "#inventoryPanel": {
+                render: this.onInventoryPanelRender
             }
         });
     }

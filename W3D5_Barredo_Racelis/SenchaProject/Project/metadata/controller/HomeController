@@ -89,7 +89,9 @@
                 "fn": "onSearchButtonClick",
                 "implHandler": [
                     "    this.getHomePanel().hide();",
-                    "    this.getSearchPanel().show();"
+                    "    this.getSearchPanel().show();",
+                    "    this.getInventoryPanel().hide();",
+                    "    this.getUserPanel().hide();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -110,7 +112,9 @@
                 "fn": "onHomeButtonClick",
                 "implHandler": [
                     "        this.getHomePanel().show();",
-                    "        this.getSearchPanel().hide();"
+                    "        this.getSearchPanel().hide();",
+                    "        this.getInventoryPanel().hide();",
+                    "        this.getUserPanel().hide();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -151,6 +155,124 @@
             },
             "name": "onSignupBtnClick",
             "designerId": "f75cd4fe-915c-4077-8adf-4f14723f5576"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "inventoryPanel",
+                "selector": "#inventoryPanel"
+            },
+            "name": "inventoryPanel",
+            "designerId": "63b04583-e271-4144-a34d-f40006b478a9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userPanel",
+                "selector": "#userPanel"
+            },
+            "name": "userPanel",
+            "designerId": "12329233-5c8e-40b8-bddd-6cfb78012223"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#bookMenuBtn",
+                "designer|targetType": "MyMenuItem",
+                "fn": "onBookMenuBtnClick",
+                "implHandler": [
+                    "this.getHomePanel().hide();",
+                    "this.getSearchPanel().hide();",
+                    "this.getInventoryPanel().show();",
+                    "this.getUserPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBookMenuBtnClick",
+            "designerId": "52c65c54-fce8-4b75-822d-148c26bd6050"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userMenuBtn",
+                "designer|targetType": "MyMenuItem1",
+                "fn": "onUserMenuBtnClick",
+                "implHandler": [
+                    "        this.getHomePanel().hide();",
+                    "        this.getSearchPanel().hide();",
+                    "        this.getInventoryPanel().hide();",
+                    "        this.getUserPanel().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onUserMenuBtnClick",
+            "designerId": "e8c53e79-9a79-46b7-91bf-1cdb7c8d5686"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#homeViewport",
+                "designer|targetType": "Home",
+                "fn": "onHomeViewportRender",
+                "implHandler": [
+                    "        userStore = Ext.create('Project.store.User');",
+                    "        bookStore = Ext.create('Project.store.Books');",
+                    "console.log('viewport render');",
+                    ""
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onHomeViewportRender",
+            "designerId": "22da89cd-480c-4b0f-9a86-bc4af6079431"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#inventoryPanel",
+                "designer|targetType": "InventoryPanel",
+                "fn": "onInventoryPanelRender",
+                "implHandler": [
+                    "console.log('activate');",
+                    ""
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onInventoryPanelRender",
+            "designerId": "ce926c1f-f0a0-4cad-befd-b00e20e3c33e"
         }
     ]
 }

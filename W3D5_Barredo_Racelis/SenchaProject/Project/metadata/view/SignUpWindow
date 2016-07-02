@@ -63,6 +63,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
                         "inputId": "password",
+                        "inputType": "password",
                         "itemId": "passwordSignUp",
                         "layout|anchor": "100%"
                     },
@@ -81,6 +82,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Re- Password",
                         "inputId": "password2",
+                        "inputType": "password",
                         "itemId": "passwordReSignUp",
                         "layout|anchor": "100%"
                     },
@@ -178,24 +180,7 @@
                                 "text": "Register"
                             },
                             "name": "MyButton9",
-                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onRegisterBttnClick",
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onRegisterBttnClick",
-                                    "designerId": "6ca602de-059b-4608-9304-d51d283ebd0a"
-                                }
-                            ]
+                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b"
                         }
                     ]
                 }
