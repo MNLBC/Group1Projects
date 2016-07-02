@@ -109,7 +109,10 @@
                 "fn": "onLaunch",
                 "implHandler": [
                     "        this.loginPage = Ext.getCmp('loginPage');",
-                    "        this.userStore = Ext.getStore('userStore');"
+                    "        this.userStore = Ext.getStore('userStore');",
+                    "        this.booksGrid = Ext.getCmp('booksGrid');",
+                    "        this.bookStore = Ext.getStore('bookStore');",
+                    "        "
                 ]
             },
             "name": "onLaunch",
@@ -234,6 +237,104 @@
             },
             "name": "validateLogin",
             "designerId": "96a2445e-635e-4315-8831-584284e64d33"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookButton",
+                "designer|targetType": "MyButton6",
+                "fn": "onAddBookButtonClick",
+                "implHandler": [
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.addBookWindow',{",
+                    "",
+                    "                }).show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddBookButtonClick",
+            "designerId": "60d9f7c5-7644-4791-b17c-93acd6ed9fc1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#booksGrid",
+                "designer|targetType": "MyGridView",
+                "fn": "onBooksGridItemClick",
+                "implHandler": [
+                    "        Ext.getCmp('viewBookButton').enable();",
+                    "        Ext.getCmp('deleteBookButton').enable();"
+                ],
+                "name": "itemclick",
+                "scope": "me"
+            },
+            "name": "onBooksGridItemClick",
+            "designerId": "387861cb-089b-4756-8b5c-6d2eacdfe3ef"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#deleteBookButton",
+                "designer|targetType": "MyButton8",
+                "fn": "onDeleteBookButtonClick",
+                "implHandler": [
+                    "      var booksGrid = Ext.getCmp('booksGrid');",
+                    "        var selectedModel = booksGrid.getSelectionModel().getSelection()[0];",
+                    "var title = selectedModel.data.title;",
+                    "var bookId = selectedModel.data.bookId;",
+                    "console.log(selectedModel);",
+                    "    Ext.Msg.confirm(\"Confirmation\", \"Do you want to Delete \\\"\"+ title +\"\\\"?\", function(btnText){",
+                    "            if(btnText === \"yes\"){",
+                    "                this.bookStore.remove(selectedModel);",
+                    "            }",
+                    "        }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onDeleteBookButtonClick",
+            "designerId": "82dd0891-3c1e-4b02-9b38-e1cd8db5bc91"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewBookButton",
+                "designer|targetType": "MyButton7",
+                "fn": "onViewBookButtonClick",
+                "implHandler": [
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.viewBookWindow',{",
+                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0]",
+                    "        }).show();",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onViewBookButtonClick",
+            "designerId": "83aab47a-bee0-4e34-b451-ba7cde3310d9"
         }
     ]
 }

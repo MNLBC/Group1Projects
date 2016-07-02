@@ -54,9 +54,46 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                 }
     },
 
+    onAddBookButtonClick: function() {
+                Ext.getBody().mask();
+                Ext.create('BookingManagementSystem.view.addBookWindow',{
+
+                        }).show();
+    },
+
+    onBooksGridItemClick: function() {
+                Ext.getCmp('viewBookButton').enable();
+                Ext.getCmp('deleteBookButton').enable();
+    },
+
+    onDeleteBookButtonClick: function() {
+              var booksGrid = Ext.getCmp('booksGrid');
+                var selectedModel = booksGrid.getSelectionModel().getSelection()[0];
+        var title = selectedModel.data.title;
+        var bookId = selectedModel.data.bookId;
+        console.log(selectedModel);
+            Ext.Msg.confirm("Confirmation", "Do you want to Delete \""+ title +"\"?", function(btnText){
+                    if(btnText === "yes"){
+                        this.bookStore.remove(selectedModel);
+                    }
+                }, this);
+    },
+
+    onViewBookButtonClick: function() {
+                Ext.getBody().mask();
+                Ext.create('BookingManagementSystem.view.viewBookWindow',{
+                    record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0]
+                }).show();
+
+
+    },
+
     onLaunch: function() {
                 this.loginPage = Ext.getCmp('loginPage');
                 this.userStore = Ext.getStore('userStore');
+                this.booksGrid = Ext.getCmp('booksGrid');
+                this.bookStore = Ext.getStore('bookStore');
+
     },
 
     showLoadingMessageMask: function() {
@@ -117,6 +154,18 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#loginButton": {
                 click: this.onLoginButtonClick
+            },
+            "#addBookButton": {
+                click: this.onAddBookButtonClick
+            },
+            "#booksGrid": {
+                itemclick: this.onBooksGridItemClick
+            },
+            "#deleteBookButton": {
+                click: this.onDeleteBookButtonClick
+            },
+            "#viewBookButton": {
+                click: this.onViewBookButtonClick
             }
         });
     }

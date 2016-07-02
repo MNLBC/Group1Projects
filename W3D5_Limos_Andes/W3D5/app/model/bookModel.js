@@ -20,7 +20,13 @@ Ext.define('BookingManagementSystem.model.bookModel', {
         'Ext.data.Field'
     ],
 
+    idProperty: 'bookId',
+
     fields: [
+        {
+            name: 'bookId',
+            type: 'int'
+        },
         {
             name: 'title'
         },
