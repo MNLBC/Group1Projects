@@ -1,0 +1,85 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"title\": \"P.S. I Still Love You\",",
+            "        \"author\": \"Jenny Han\",",
+            "        \"publisher\": \"\"",
+            "    },",
+            "    {",
+            "        \"title\": \"The Geography of You and Me\",",
+            "        \"author\": \"Jennifer E. Smith\",",
+            "        \"publisher\": \"\"",
+            "    },",
+            "    {",
+            "        \"title\": \"Everyday\",",
+            "        \"author\": \"David Levithan\",",
+            "        \"publisher\": \"\"",
+            "    },",
+            "    {",
+            "        \"title\": \"The Statistical Probability of Love and First Sight\",",
+            "        \"author\": \"Jennifer E. Smith\",",
+            "        \"publisher\": \"\"",
+            "    },",
+            "    {",
+            "        \"title\": \"The Crown\",",
+            "        \"author\": \"Kiera Cass\",",
+            "        \"publisher\": \"\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "BookStore",
+        "model": "BookModel",
+        "storeId": "BookStore"
+    },
+    "name": "MyStore",
+    "designerId": "d95c6d3e-b209-424f-a465-3e3065a85453",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "name": "MyField19",
+            "designerId": "ffb9c215-6ef7-4e05-8dea-310d6361cf2a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "author"
+            },
+            "name": "MyField20",
+            "designerId": "253e4e34-e085-471d-baef-4b837e34ff4b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "publisher"
+            },
+            "name": "MyField21",
+            "designerId": "c8bc7134-9c3f-412f-9e19-7d662b2f277a"
+        }
+    ]
+}

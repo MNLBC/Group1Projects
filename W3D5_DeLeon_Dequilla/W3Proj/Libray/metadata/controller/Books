@@ -1,0 +1,66 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Books"
+    },
+    "name": "MyController",
+    "designerId": "90553126-1c8a-4607-864a-46a7cbfe1fdf",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#borrowBtn",
+                "designer|targetType": "MyButton4",
+                "fn": "onBorrowBtnClick",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "    storeBook = gridBook.getStore(),",
+                    "    storeBorrowed = Ext.getStore('BorrowedStore'),",
+                    "    selectModel = gridBook.getSelectionModel(),",
+                    "    selectedBooks = selectModel.getSelection(),",
+                    "    selected = selectedBooks.length;",
+                    "",
+                    "    storeBorrowed.add(selectedBooks);",
+                    "    storeBook.remove(selectedBooks);",
+                    "",
+                    "//     for(var ctr = 0; ctr<selected;ctr++){",
+                    "// //         storeBook.",
+                    "",
+                    "",
+                    "//     }",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBorrowBtnClick",
+            "designerId": "4110cad7-5d7a-4e4b-82ee-af95f2a2a612"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookListView",
+                "selector": "#BookListView"
+            },
+            "name": "bookListView",
+            "designerId": "9e672a3d-cfc3-401d-8051-2a292401a5bf"
+        }
+    ]
+}
