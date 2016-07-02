@@ -30,12 +30,13 @@ Ext.application({
     ],
     views: [
         'LoginPage',
-        'MyWindow',
-        'Homepage'
+        'Homepage',
+        'addBookWindow',
+        'viewBookWindow'
     ],
     controllers: [
         'viewPortControllers',
-        'windowsControllers'
+        'windowControllers'
     ],
     name: 'BookingManagementSystem',
 
