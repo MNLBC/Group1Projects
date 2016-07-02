@@ -117,6 +117,40 @@
             },
             "name": "onHomeButtonClick",
             "designerId": "46ced8c6-8f07-46dc-91b3-87661321f6de"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signupBtn",
+                "selector": "#signupBtn"
+            },
+            "name": "signupBtn",
+            "designerId": "cb614dfa-dbc0-444d-b5fc-ccc1b2119c6a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#signupBtn",
+                "designer|targetType": "MyButton5",
+                "fn": "onSignupBtnClick",
+                "implHandler": [
+                    "        Ext.create('Project.view.SignUpWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSignupBtnClick",
+            "designerId": "f75cd4fe-915c-4077-8adf-4f14723f5576"
         }
     ]
 }

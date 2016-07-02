@@ -1,0 +1,32 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mypanel2",
+        "designer|userClassName": "SearchPanel",
+        "hidden": true,
+        "itemId": "searchPanel",
+        "title": null
+    },
+    "name": "MyPanel2",
+    "designerId": "65c662c7-1707-4fda-8207-b56d09d62ec8",
+    "cn": [
+        {
+            "type": "Ext.form.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "text": "searching"
+            },
+            "name": "MyLabel1",
+            "designerId": "166effde-bf51-43e5-b545-5a3d0092210b"
+        }
+    ]
+}

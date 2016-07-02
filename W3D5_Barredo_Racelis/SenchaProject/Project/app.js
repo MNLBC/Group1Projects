@@ -27,7 +27,9 @@ Ext.application({
         'User'
     ],
     views: [
-        'LoginWindow'
+        'LoginWindow',
+        'SearchPanel',
+        'HomePanel'
     ],
     controllers: [
         'HomeController',

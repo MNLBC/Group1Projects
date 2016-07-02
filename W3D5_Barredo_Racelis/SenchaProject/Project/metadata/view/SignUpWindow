@@ -41,6 +41,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Username",
                         "inputId": "username",
                         "itemId": "usernameSignUp",
@@ -57,6 +59,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
                         "inputId": "password",
                         "itemId": "passwordSignUp",
@@ -73,6 +77,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Re- Password",
                         "inputId": "password2",
                         "itemId": "passwordReSignUp",
@@ -89,6 +95,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Address",
                         "inputId": "address",
                         "itemId": "addressSignUp",
@@ -105,6 +113,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Phone",
                         "inputId": "phone",
                         "itemId": "phoneSignUp",
@@ -168,7 +178,24 @@
                                 "text": "Register"
                             },
                             "name": "MyButton9",
-                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b"
+                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onRegisterBttnClick",
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onRegisterBttnClick",
+                                    "designerId": "6ca602de-059b-4608-9304-d51d283ebd0a"
+                                }
+                            ]
                         }
                     ]
                 }

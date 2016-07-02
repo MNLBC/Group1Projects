@@ -47,35 +47,45 @@ Ext.define('Project.view.SignUpWindow', {
                             anchor: '100%',
                             itemId: 'usernameSignUp',
                             fieldLabel: 'Username',
-                            inputId: 'username'
+                            inputId: 'username',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
                             anchor: '100%',
                             itemId: 'passwordSignUp',
                             fieldLabel: 'Password',
-                            inputId: 'password'
+                            inputId: 'password',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
                             anchor: '100%',
                             itemId: 'passwordReSignUp',
                             fieldLabel: 'Re- Password',
-                            inputId: 'password2'
+                            inputId: 'password2',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textareafield',
                             anchor: '100%',
                             itemId: 'addressSignUp',
                             fieldLabel: 'Address',
-                            inputId: 'address'
+                            inputId: 'address',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
                             anchor: '100%',
                             itemId: 'phoneSignUp',
                             fieldLabel: 'Phone',
-                            inputId: 'phone'
+                            inputId: 'phone',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         }
                     ],
                     dockedItems: [
@@ -94,7 +104,13 @@ Ext.define('Project.view.SignUpWindow', {
                                 {
                                     xtype: 'button',
                                     itemId: 'registerBttn',
-                                    text: 'Register'
+                                    text: 'Register',
+                                    listeners: {
+                                        click: {
+                                            fn: me.onRegisterBttnClick,
+                                            scope: me
+                                        }
+                                    }
                                 }
                             ]
                         }
@@ -104,6 +120,10 @@ Ext.define('Project.view.SignUpWindow', {
         });
 
         me.callParent(arguments);
+    },
+
+    onRegisterBttnClick: function(button, e, eOpts) {
+
     }
 
 });

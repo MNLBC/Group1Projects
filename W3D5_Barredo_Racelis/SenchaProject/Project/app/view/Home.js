@@ -17,11 +17,12 @@ Ext.define('Project.view.Home', {
     extend: 'Ext.container.Viewport',
 
     requires: [
+        'Project.view.HomePanel',
+        'Project.view.SearchPanel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
-        'Ext.form.Label',
         'Ext.toolbar.Fill'
     ],
 
@@ -55,7 +56,16 @@ Ext.define('Project.view.Home', {
                                     xtype: 'button',
                                     itemId: 'searchButton',
                                     ui: 'menubarbtn',
-                                    text: 'Search'
+                                    text: 'Search',
+                                    menu: {
+                                        xtype: 'menu',
+                                        items: [
+                                            {
+                                                xtype: 'menuitem',
+                                                text: 'Menu Item'
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     xtype: 'button',
@@ -63,15 +73,7 @@ Ext.define('Project.view.Home', {
                                     text: 'Inventory',
                                     menu: {
                                         xtype: 'menu',
-                                        cls: 'subMenu',
-                                        floating: false,
-                                        width: 120,
-                                        plain: true,
                                         items: [
-                                            {
-                                                xtype: 'menuitem',
-                                                text: 'try'
-                                            },
                                             {
                                                 xtype: 'menuitem',
                                                 text: 'Menu Item'
@@ -112,28 +114,14 @@ Ext.define('Project.view.Home', {
                     ],
                     items: [
                         {
-                            xtype: 'panel',
+                            xtype: 'mypanel1',
                             flex: 1,
-                            itemId: 'homePanel',
-                            manageHeight: false,
-                            items: [
-                                {
-                                    xtype: 'label',
-                                    text: 'HOME'
-                                }
-                            ]
+                            itemId: 'homePanel'
                         },
                         {
-                            xtype: 'panel',
+                            xtype: 'mypanel2',
                             flex: 1,
-                            hidden: true,
-                            itemId: 'searchPanel',
-                            items: [
-                                {
-                                    xtype: 'label',
-                                    text: 'searching'
-                                }
-                            ]
+                            itemId: 'searchPanel'
                         }
                     ]
                 }

@@ -52,6 +52,51 @@
             },
             "name": "onRegisterBttnClick",
             "designerId": "1aaec2ae-1aab-43ad-ab0a-199011f3d245"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerBttn",
+                "selector": "#registerBttn"
+            },
+            "name": "registerBttn",
+            "designerId": "1f97bf50-949e-4533-ad99-6d3056fca9c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancel",
+                "selector": "#cancelBttn"
+            },
+            "name": "cancel",
+            "designerId": "27710ab5-cdc6-4f0e-83ea-1c297df4c491"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerBttn",
+                "designer|targetType": "MyButton9",
+                "fn": "onRegisterBttnClick",
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterBttnClick",
+            "designerId": "1f9a4ee7-404e-4d0b-808b-fd6ec49fcf23"
         }
     ]
 }

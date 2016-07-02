@@ -32,6 +32,10 @@ Ext.define('Project.controller.HomeController', {
         {
             ref: 'searchPanel',
             selector: '#searchPanel'
+        },
+        {
+            ref: 'signupBtn',
+            selector: '#signupBtn'
         }
     ],
 
@@ -49,6 +53,10 @@ Ext.define('Project.controller.HomeController', {
                 this.getSearchPanel().hide();
     },
 
+    onSignupBtnClick: function() {
+                Ext.create('Project.view.SignUpWindow').show();
+    },
+
     init: function(application) {
         this.control({
             "#showLoginWindow": {
@@ -59,6 +67,9 @@ Ext.define('Project.controller.HomeController', {
             },
             "#homeButton": {
                 click: this.onHomeButtonClick
+            },
+            "#signupBtn": {
+                click: this.onSignupBtnClick
             }
         });
     }

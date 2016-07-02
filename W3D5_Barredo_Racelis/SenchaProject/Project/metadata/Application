@@ -19,7 +19,9 @@
             "User"
         ],
         "views": [
-            "LoginWindow"
+            "LoginWindow",
+            "SearchPanel",
+            "HomePanel"
         ]
     },
     "name": "Application",

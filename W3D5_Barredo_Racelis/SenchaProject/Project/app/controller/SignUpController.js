@@ -24,6 +24,14 @@ Ext.define('Project.controller.SignUpController', {
         {
             ref: 'signUpForm',
             selector: '#signUpForm'
+        },
+        {
+            ref: 'registerBttn',
+            selector: '#registerBttn'
+        },
+        {
+            ref: 'cancel',
+            selector: '#cancelBttn'
         }
     ],
 
@@ -36,9 +44,14 @@ Ext.define('Project.controller.SignUpController', {
             }
     },
 
+    onRegisterBttnClick: function() {
+
+    },
+
     init: function(application) {
         this.control({
             "#registerBttn": {
+                click: this.onRegisterBttnClick,
                 click: this.onRegisterBttnClick
             }
         });
