@@ -87,7 +87,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "First Name",
                         "fieldLabel": "First Name:",
+                        "itemId": "fNameReg",
                         "labelWidth": 110,
                         "width": 330
                     },
@@ -102,7 +104,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "Last Name",
                         "fieldLabel": "Last Name:",
+                        "itemId": "lNameReg",
                         "labelWidth": 110,
                         "width": 331
                     },
@@ -117,7 +121,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "User Name",
                         "fieldLabel": "User name:",
+                        "itemId": "uNameReg",
                         "labelWidth": 110,
                         "width": 330
                     },
@@ -132,8 +138,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "Password",
                         "fieldLabel": "Password:",
                         "inputType": "password",
+                        "itemId": "passswordReg",
                         "labelWidth": 110,
                         "width": 330
                     },
@@ -148,8 +156,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "Confirm Password",
                         "fieldLabel": "Confirm password:",
                         "inputType": "password",
+                        "itemId": "cPasswordReg",
                         "labelWidth": 110,
                         "width": 330
                     },
@@ -178,11 +188,53 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "Submit",
+                                "itemId": "submitBtn",
                                 "layout|flex": null,
                                 "text": "Submit"
                             },
                             "name": "MyButton3",
-                            "designerId": "3a9d7b98-ab10-467a-8d6d-008e088e56b6"
+                            "designerId": "3a9d7b98-ab10-467a-8d6d-008e088e56b6",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSubmitBtnClick",
+                                        "implHandler": [
+                                            "alert('sad');",
+                                            "// var fName = this.getFirstNameReg(),",
+                                            "//     lName = this.getLastNameReg(),",
+                                            "//     uName = this.getUserNameReg(),",
+                                            "//     pWord = this.getPasswordReg(),",
+                                            "//     cPWord = this.getConfirmPassword(),",
+                                            "//     store = Ext.getStore('BorrowersStore');",
+                                            "",
+                                            "// if((!Ext.isEmpty(fName)) &&",
+                                            "//        !Ext.isEmpty(fName) &&",
+                                            "//        !Ext.isEmpty(fName) &&",
+                                            "//        !Ext.isEmpty(fName) &&",
+                                            "//        !Ext.isEmpty(fName)){",
+                                            "//     if(pWord === cPWord){",
+                                            "//         alert('success');",
+                                            "//     }",
+                                            "",
+                                            "// }else {",
+                                            "    Ext.MessageBox.alert ('Warning', 'Please complete all fields');",
+                                            "// }",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSubmitBtnClick",
+                                    "designerId": "88241e50-e47c-4f9d-bca8-f0c196d5f374"
+                                }
+                            ]
                         }
                     ]
                 }

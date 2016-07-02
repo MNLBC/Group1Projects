@@ -12,11 +12,9 @@
                             "cn": [
                                 {
                                     "id": "293ee8c0-cfad-408e-be67-f02ae2331ea0",
-                                    "expanded": false,
                                     "cn": [
                                         {
                                             "id": "9f1d4dd9-6e53-48b5-905e-c30ffc49f485",
-                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "5489aa1c-cb21-4c29-9193-3e757395297e"
@@ -44,6 +42,7 @@
                         },
                         {
                             "id": "6b9d384a-81bb-4d53-8717-42635721f0ea",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "21f9bf9e-8987-4d6c-bf56-c7ddf7dbb82a",
@@ -121,6 +120,9 @@
                                                     "id": "b21b7550-aa50-4861-9ca8-609f9ebed134"
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "id": "5287d10e-0d60-4ffa-b3e3-aa07d9dd9768"
                                         }
                                     ]
                                 }
@@ -161,7 +163,12 @@
                             "id": "43bf6a79-c26f-4414-a38b-952ca767ceef",
                             "cn": [
                                 {
-                                    "id": "3a9d7b98-ab10-467a-8d6d-008e088e56b6"
+                                    "id": "3a9d7b98-ab10-467a-8d6d-008e088e56b6",
+                                    "cn": [
+                                        {
+                                            "id": "88241e50-e47c-4f9d-bca8-f0c196d5f374"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -304,6 +311,24 @@
                 },
                 {
                     "id": "e9eaa87e-33c3-41d6-bac2-609b04edb597"
+                },
+                {
+                    "id": "61efc4ab-5fc1-4f24-8042-19e0cfa57d67"
+                },
+                {
+                    "id": "4cf4da6a-df9c-44c1-943f-221a0c04f0a0"
+                },
+                {
+                    "id": "ce6e8e05-a5d7-43f8-b183-79c7204d126f"
+                },
+                {
+                    "id": "966e1447-e575-471b-9c16-761e4d3b4d70"
+                },
+                {
+                    "id": "cecd28a4-fcb9-4c38-b978-792f4961c9e1"
+                },
+                {
+                    "id": "9607bfbd-0a9b-48b1-b78c-484954f16e75"
                 }
             ]
         },
@@ -315,6 +340,21 @@
                 },
                 {
                     "id": "9e672a3d-cfc3-401d-8051-2a292401a5bf"
+                },
+                {
+                    "id": "d157835a-b863-48bc-a1c3-5ccdc4ec0d58"
+                },
+                {
+                    "id": "46eeaba8-2c4a-4408-8e2d-db5dff5c8c1b"
+                },
+                {
+                    "id": "05b08691-5c78-4abf-a06d-47905a330a92"
+                },
+                {
+                    "id": "18216881-6e1c-4722-8d9f-e545c2b459af"
+                },
+                {
+                    "id": "8c7a22ca-6b92-4c93-9f6d-26f9e03f5c31"
                 }
             ]
         },
@@ -345,8 +385,8 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "90553126-1c8a-4607-864a-46a7cbfe1fdf",
-        "selectedInstance": "4110cad7-5d7a-4e4b-82ee-af95f2a2a612"
+        "topInstance": "5d8c32ec-ae5c-4f50-88bc-2e74e75c7b39",
+        "selectedInstance": "88241e50-e47c-4f9d-bca8-f0c196d5f374"
     },
     "editMode": "code",
     "userSettings": {

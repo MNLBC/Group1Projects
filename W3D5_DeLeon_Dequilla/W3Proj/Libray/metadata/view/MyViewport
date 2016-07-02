@@ -44,7 +44,6 @@
                         "container|align": "middle",
                         "container|pack": "center",
                         "designer|displayName": "LoginRegisterCont",
-                        "hidden": true,
                         "html": [
                             "<link href='http://fonts.googleapis.com/css?family=Abel'",
                             "\trel='stylesheet' type='text/css'>",
@@ -186,6 +185,7 @@
                         "container|align": "stretch",
                         "designer|displayName": "BooksCont",
                         "height": 168,
+                        "hidden": true,
                         "itemId": "mycontainer4",
                         "layout": "vbox",
                         "layout|flex": 1,
@@ -440,6 +440,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "BorrowedGrid",
                                 "header": false,
                                 "height": 425,
                                 "store": "BorrowedStore",
@@ -456,6 +457,10 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "BorrowedView",
+                                        "itemId": "borrowedView"
+                                    },
                                     "name": "MyGridView1",
                                     "designerId": "d3599ff1-23ec-465e-b73b-16d09093f4cc"
                                 },
@@ -540,6 +545,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "designer|displayName": "Return Book",
+                                                "itemId": "returnBookBtn",
                                                 "layout|flex": null,
                                                 "text": "Return Book",
                                                 "width": 100
@@ -555,13 +562,25 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "designer|displayName": "Back",
+                                                "itemId": "backBtn",
                                                 "layout|flex": null,
-                                                "text": "Add New"
+                                                "text": "Back"
                                             },
                                             "name": "MyButton6",
                                             "designerId": "b21b7550-aa50-4861-9ca8-609f9ebed134"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": "Ext.selection.CheckboxModel",
+                                    "name": "MyCheckboxSelectionModel1",
+                                    "designerId": "5287d10e-0d60-4ffa-b3e3-aa07d9dd9768"
                                 }
                             ]
                         }

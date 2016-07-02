@@ -61,6 +61,97 @@
             },
             "name": "bookListView",
             "designerId": "9e672a3d-cfc3-401d-8051-2a292401a5bf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#returnBookBtn",
+                "designer|targetType": "MyButton",
+                "fn": "onReturnBookBtnClick",
+                "implHandler": [
+                    "var gridBorrowed = this.getBorrowedView(),",
+                    "            storeBorrowed = gridBorrowed.getStore(),",
+                    "            storeBook = Ext.getStore('BookStore'),",
+                    "            selectModel = gridBorrowed.getSelectionModel(),",
+                    "            selectedBooks = selectModel.getSelection(),",
+                    "            selected = selectedBooks.length;",
+                    "",
+                    "storeBook.add(selectedBooks);",
+                    "storeBorrowed.remove(selectedBooks);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onReturnBookBtnClick",
+            "designerId": "d157835a-b863-48bc-a1c3-5ccdc4ec0d58"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowedView",
+                "selector": "#borrowedView"
+            },
+            "name": "borrowedView",
+            "designerId": "46eeaba8-2c4a-4408-8e2d-db5dff5c8c1b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#backBtn",
+                "designer|targetType": "MyButton6",
+                "fn": "onBackBtnClick",
+                "implHandler": [
+                    "this.getBooksCont().show();",
+                    "    this.getBorrowedCont().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBackBtnClick",
+            "designerId": "05b08691-5c78-4abf-a06d-47905a330a92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "booksCont",
+                "selector": "#mycontainer4"
+            },
+            "name": "booksCont",
+            "designerId": "18216881-6e1c-4722-8d9f-e545c2b459af"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowedCont",
+                "selector": "#mycontainer5"
+            },
+            "name": "borrowedCont",
+            "designerId": "8c7a22ca-6b92-4c93-9f6d-26f9e03f5c31"
         }
     ]
 }

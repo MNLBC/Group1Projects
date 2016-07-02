@@ -20,6 +20,18 @@ Ext.define('Libray.controller.Books', {
         {
             ref: 'bookListView',
             selector: '#BookListView'
+        },
+        {
+            ref: 'borrowedView',
+            selector: '#borrowedView'
+        },
+        {
+            ref: 'booksCont',
+            selector: '#mycontainer4'
+        },
+        {
+            ref: 'borrowedCont',
+            selector: '#mycontainer5'
         }
     ],
 
@@ -44,10 +56,33 @@ Ext.define('Libray.controller.Books', {
 
     },
 
+    onReturnBookBtnClick: function() {
+        var gridBorrowed = this.getBorrowedView(),
+                    storeBorrowed = gridBorrowed.getStore(),
+                    storeBook = Ext.getStore('BookStore'),
+                    selectModel = gridBorrowed.getSelectionModel(),
+                    selectedBooks = selectModel.getSelection(),
+                    selected = selectedBooks.length;
+
+        storeBook.add(selectedBooks);
+        storeBorrowed.remove(selectedBooks);
+    },
+
+    onBackBtnClick: function() {
+        this.getBooksCont().show();
+            this.getBorrowedCont().hide();
+    },
+
     init: function(application) {
         this.control({
             "#borrowBtn": {
                 click: this.onBorrowBtnClick
+            },
+            "#returnBookBtn": {
+                click: this.onReturnBookBtnClick
+            },
+            "#backBtn": {
+                click: this.onBackBtnClick
             }
         });
     }

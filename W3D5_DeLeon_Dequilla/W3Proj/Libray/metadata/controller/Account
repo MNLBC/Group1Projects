@@ -227,6 +227,119 @@
             },
             "name": "welcome",
             "designerId": "e9eaa87e-33c3-41d6-bac2-609b04edb597"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "firstNameReg",
+                "selector": "#fNameReg"
+            },
+            "name": "firstNameReg",
+            "designerId": "61efc4ab-5fc1-4f24-8042-19e0cfa57d67"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "lastNameReg",
+                "selector": "#lNameReg"
+            },
+            "name": "lastNameReg",
+            "designerId": "4cf4da6a-df9c-44c1-943f-221a0c04f0a0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userNameReg",
+                "selector": "#uNameReg"
+            },
+            "name": "userNameReg",
+            "designerId": "ce6e8e05-a5d7-43f8-b183-79c7204d126f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordReg",
+                "selector": "#passswordReg"
+            },
+            "name": "passwordReg",
+            "designerId": "966e1447-e575-471b-9c16-761e4d3b4d70"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "confirmPassword",
+                "selector": "#cPasswordReg"
+            },
+            "name": "confirmPassword",
+            "designerId": "cecd28a4-fcb9-4c38-b978-792f4961c9e1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#submitBtn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton3",
+                "fn": "onSubmitBtnClick",
+                "implHandler": [
+                    "alert('sad');",
+                    "var fName = this.getFirstNameReg(),",
+                    "    lName = this.getLastNameReg(),",
+                    "    uName = this.getUserNameReg(),",
+                    "    pWord = this.getPasswordReg(),",
+                    "    cPWord = this.getConfirmPassword(),",
+                    "    store = Ext.getStore('BorrowersStore');",
+                    "",
+                    "if((!Ext.isEmpty(fName)) &&",
+                    "       !Ext.isEmpty(fName) &&",
+                    "       !Ext.isEmpty(fName) &&",
+                    "       !Ext.isEmpty(fName) &&",
+                    "       !Ext.isEmpty(fName)){",
+                    "    if(pWord === cPWord){",
+                    "        alert('success');",
+                    "    }",
+                    "",
+                    "}else {",
+                    "    Ext.MessageBox.alert ('Warning', 'Please complete all fields');",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSubmitBtnClick",
+            "designerId": "9607bfbd-0a9b-48b1-b78c-484954f16e75"
         }
     ]
 }

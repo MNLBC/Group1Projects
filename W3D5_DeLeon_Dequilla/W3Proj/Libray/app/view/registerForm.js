@@ -58,24 +58,28 @@ Ext.define('Libray.view.registerForm', {
                     items: [
                         {
                             xtype: 'textfield',
+                            itemId: 'fNameReg',
                             width: 330,
                             fieldLabel: 'First Name:',
                             labelWidth: 110
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'lNameReg',
                             width: 331,
                             fieldLabel: 'Last Name:',
                             labelWidth: 110
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'uNameReg',
                             width: 330,
                             fieldLabel: 'User name:',
                             labelWidth: 110
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'passswordReg',
                             width: 330,
                             fieldLabel: 'Password:',
                             labelWidth: 110,
@@ -83,6 +87,7 @@ Ext.define('Libray.view.registerForm', {
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'cPasswordReg',
                             width: 330,
                             fieldLabel: 'Confirm password:',
                             labelWidth: 110,
@@ -98,7 +103,14 @@ Ext.define('Libray.view.registerForm', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    text: 'Submit'
+                                    itemId: 'submitBtn',
+                                    text: 'Submit',
+                                    listeners: {
+                                        click: {
+                                            fn: me.onSubmitBtnClick,
+                                            scope: me
+                                        }
+                                    }
                                 }
                             ]
                         }
@@ -108,6 +120,30 @@ Ext.define('Libray.view.registerForm', {
         });
 
         me.callParent(arguments);
+    },
+
+    onSubmitBtnClick: function(button, e, eOpts) {
+        alert('sad');
+        // var fName = this.getFirstNameReg(),
+        //     lName = this.getLastNameReg(),
+        //     uName = this.getUserNameReg(),
+        //     pWord = this.getPasswordReg(),
+        //     cPWord = this.getConfirmPassword(),
+        //     store = Ext.getStore('BorrowersStore');
+
+        // if((!Ext.isEmpty(fName)) &&
+        //        !Ext.isEmpty(fName) &&
+        //        !Ext.isEmpty(fName) &&
+        //        !Ext.isEmpty(fName) &&
+        //        !Ext.isEmpty(fName)){
+        //     if(pWord === cPWord){
+        //         alert('success');
+        //     }
+
+        // }else {
+            Ext.MessageBox.alert ('Warning', 'Please complete all fields');
+        // }
+
     }
 
 });

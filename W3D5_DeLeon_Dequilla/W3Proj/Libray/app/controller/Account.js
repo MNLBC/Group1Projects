@@ -44,6 +44,26 @@ Ext.define('Libray.controller.Account', {
         {
             ref: 'welcome',
             selector: '#welcomeLabel'
+        },
+        {
+            ref: 'firstNameReg',
+            selector: '#fNameReg'
+        },
+        {
+            ref: 'lastNameReg',
+            selector: '#lNameReg'
+        },
+        {
+            ref: 'userNameReg',
+            selector: '#uNameReg'
+        },
+        {
+            ref: 'passwordReg',
+            selector: '#passswordReg'
+        },
+        {
+            ref: 'confirmPassword',
+            selector: '#cPasswordReg'
         }
     ],
 
@@ -105,6 +125,30 @@ Ext.define('Libray.controller.Account', {
 
     },
 
+    onSubmitBtnClick: function(button) {
+        alert('sad');
+        var fName = this.getFirstNameReg(),
+            lName = this.getLastNameReg(),
+            uName = this.getUserNameReg(),
+            pWord = this.getPasswordReg(),
+            cPWord = this.getConfirmPassword(),
+            store = Ext.getStore('BorrowersStore');
+
+        if((!Ext.isEmpty(fName)) &&
+               !Ext.isEmpty(fName) &&
+               !Ext.isEmpty(fName) &&
+               !Ext.isEmpty(fName) &&
+               !Ext.isEmpty(fName)){
+            if(pWord === cPWord){
+                alert('success');
+            }
+
+        }else {
+            Ext.MessageBox.alert ('Warning', 'Please complete all fields');
+        }
+
+    },
+
     init: function(application) {
         this.control({
             "#loginBtn": {
@@ -118,6 +162,9 @@ Ext.define('Libray.controller.Account', {
             },
             "#borrowBtn": {
                 click: this.onBorrowBtnClick
+            },
+            "#submitBtn": {
+                click: this.onSubmitBtnClick
             }
         });
     }

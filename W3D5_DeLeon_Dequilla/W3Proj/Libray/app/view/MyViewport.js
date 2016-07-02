@@ -48,7 +48,6 @@ Ext.define('Libray.view.MyViewport', {
                         {
                             xtype: 'container',
                             flex: 1,
-                            hidden: true,
                             html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\n	rel=\'stylesheet\' type=\'text/css\'>\n <center><h1 style = \'font-family: Abel; margin-top: 275px;\'>Book for a Day</h1></center>\n <hr width="550">',
                             itemId: 'mycontainer3',
                             autoScroll: true,
@@ -114,6 +113,7 @@ Ext.define('Libray.view.MyViewport', {
                             xtype: 'container',
                             flex: 1,
                             height: 168,
+                            hidden: true,
                             itemId: 'mycontainer4',
                             width: 381,
                             layout: {
@@ -221,6 +221,9 @@ Ext.define('Libray.view.MyViewport', {
                                     header: false,
                                     title: '',
                                     store: 'BorrowedStore',
+                                    viewConfig: {
+                                        itemId: 'borrowedView'
+                                    },
                                     columns: [
                                         {
                                             xtype: 'checkcolumn',
@@ -257,16 +260,21 @@ Ext.define('Libray.view.MyViewport', {
                                             items: [
                                                 {
                                                     xtype: 'button',
+                                                    itemId: 'returnBookBtn',
                                                     width: 100,
                                                     text: 'Return Book'
                                                 },
                                                 {
                                                     xtype: 'button',
-                                                    text: 'Add New'
+                                                    itemId: 'backBtn',
+                                                    text: 'Back'
                                                 }
                                             ]
                                         }
-                                    ]
+                                    ],
+                                    selModel: Ext.create('Ext.selection.CheckboxModel', {
+
+                                    })
                                 }
                             ]
                         }
