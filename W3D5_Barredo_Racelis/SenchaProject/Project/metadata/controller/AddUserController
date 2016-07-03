@@ -1,0 +1,64 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AddUserController",
+        "views": [
+            "AddUsers"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "42f4b3fc-46ec-4cbf-9cba-af6f41116539",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addUserAdminBtn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton16",
+                "fn": "onAddUserAdminBtnClick",
+                "implHandler": [
+                    "    console.log('add USERS USING ADMIN');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddUserAdminBtnClick",
+            "designerId": "56ab0696-9e02-42f1-8877-52e4aace55f8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelAddUserBtn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton17",
+                "fn": "onCancelAddUserBtnClick",
+                "implHandler": [
+                    "        button.up('window').destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelAddUserBtnClick",
+            "designerId": "daf1b64f-b7d9-4d79-be16-064f46da4db3"
+        }
+    ]
+}

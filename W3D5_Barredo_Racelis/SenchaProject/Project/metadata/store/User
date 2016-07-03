@@ -1,0 +1,31 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"username\": \"admin\",",
+            "        \"password\": \"admin\",",
+            "        \"name\": \"Jacob Wood\",",
+            "        \"type\": \"admin\"",
+            "    },",
+            "    {",
+            "        \"username\": \"client\",",
+            "        \"password\": \"client\",",
+            "        \"name\": \"Clyde Sanchez\",",
+            "        \"type\": \"client\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "User",
+        "model": "User",
+        "storeId": "userStore"
+    },
+    "name": "MyStore",
+    "designerId": "65865f27-a576-4c5c-a94f-e188ee996ec5"
+}

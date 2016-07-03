@@ -1,0 +1,111 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SignUpController",
+        "views": [
+            "SignUpWindow"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "44cb1058-f93b-4cff-bd94-dd1b68c2e7ed",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signUpForm",
+                "selector": "#signUpForm"
+            },
+            "name": "signUpForm",
+            "designerId": "72994bbb-5084-4195-b609-c6dc6ac50725"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerBttn",
+                "designer|targetType": "MyButton9",
+                "fn": "onRegisterBttnClick",
+                "implHandler": [
+                    "        var data = this.getSignUpForm().getForm().getValues();",
+                    "        var record = {",
+                    "            username: data.username,",
+                    "            password: data.password,",
+                    "            name:  'NAME',",
+                    "            type: 'client'",
+                    "        };",
+                    "            console.log(data);",
+                    "        Ext.getStore('userStore');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterBttnClick",
+            "designerId": "1aaec2ae-1aab-43ad-ab0a-199011f3d245"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerBttn",
+                "selector": "#registerBttn"
+            },
+            "name": "registerBttn",
+            "designerId": "1f97bf50-949e-4533-ad99-6d3056fca9c2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancel",
+                "selector": "#cancelBttn"
+            },
+            "name": "cancel",
+            "designerId": "27710ab5-cdc6-4f0e-83ea-1c297df4c491"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelBttn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton8",
+                "fn": "onCancelBttnClick",
+                "implHandler": [
+                    "        button.up('window').hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelBttnClick",
+            "designerId": "ca42da0b-8790-4803-8298-47ee5a6d7c88"
+        }
+    ]
+}

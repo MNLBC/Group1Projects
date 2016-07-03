@@ -1,0 +1,187 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 15,
+        "closable": false,
+        "designer|userClassName": "SignUpWindow",
+        "height": 329,
+        "itemId": "signUpWindow",
+        "modal": true,
+        "title": "Sign Up",
+        "width": 398
+    },
+    "name": "MyWindow1",
+    "designerId": "60e782c4-1dc0-4493-bb6e-cd5829a2433e",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "itemId": "signUpForm",
+                "layout": "vbox",
+                "title": null
+            },
+            "name": "MyForm",
+            "designerId": "c5cd7f7b-2ebf-45da-a270-de3de3fbd73a",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Username",
+                        "inputId": "username",
+                        "itemId": "usernameSignUp"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "4a49248b-2ccf-4fff-a5f6-0bf46a53af9a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Password",
+                        "inputId": "password",
+                        "inputType": "password",
+                        "itemId": "passwordSignUp"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "302c6cdc-080c-40a1-a5db-85ed4e5883ff"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Re- Password",
+                        "inputId": "password2",
+                        "inputType": "password",
+                        "itemId": "passwordReSignUp"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "e1b1bc5b-688d-42e4-979c-3606d5ff3598"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Address",
+                        "inputId": "address",
+                        "itemId": "addressSignUp"
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "96f3642c-3898-460c-a669-a75110d4db30"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Phone",
+                        "inputId": "phone",
+                        "itemId": "phoneSignUp"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "904e943f-6c64-46d5-b35c-41537e8b982c"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "ae7afada-4738-43c2-a388-4e64a67f04c2",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill2",
+                            "designerId": "521b83ff-a883-4282-812d-68c6de636745"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Cancel",
+                                "itemId": "cancelBttn",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "d0e139e4-1b04-4fa5-b52f-b83aa7a736aa"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "registerBttn",
+                                "layout|flex": null,
+                                "text": "Register"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

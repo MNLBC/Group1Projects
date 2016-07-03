@@ -1,0 +1,239 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "viewPortControllers"
+    },
+    "name": "MyController",
+    "designerId": "2a84f15b-24f9-4dfe-88aa-afb41b86a791",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerButton",
+                "selector": "#registerButton"
+            },
+            "name": "registerButton",
+            "designerId": "1aff1f11-44ed-4b90-b838-c5992ef6a9ad"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginButton",
+                "selector": "#loginButton"
+            },
+            "name": "loginButton",
+            "designerId": "b147ba62-570c-4ae4-93b2-0940d7ff4b1e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerButton",
+                "designer|targetType": "MyButton1",
+                "fn": "onRegisterButtonClick",
+                "implHandler": [
+                    "Ext.getBody().mask();",
+                    "Ext.create('BookingManagementSystem.view.MyWindow',{",
+                    "    ",
+                    "",
+                    "}).show();",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterButtonClick",
+            "designerId": "33526959-a051-475a-b8d1-4a0039e60d35"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#loginButton",
+                "designer|targetType": "MyButton",
+                "fn": "onLoginButtonClick",
+                "implHandler": [
+                    "        var form = this.loginPage.getForm();",
+                    "        if(form.isValid()){",
+                    "            if(this.validateLogin(form) === -1){",
+                    "                this.showErrorMessage('User does not exist');",
+                    "            }else if(this.validateLogin(form) === 0){",
+                    "                this.showErrorMessage('Wrong Password!');",
+                    "            }else{",
+                    "                Ext.create('BookingManagementSystem.view.Homepage',{",
+                    "                           ",
+                    "                           }).show();",
+                    "            }",
+                    "",
+                    "        }else{",
+                    "            this.showErrorMessage('All fields must have a value');",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLoginButtonClick",
+            "designerId": "2202d1c2-dc69-4644-b57c-dc20ba194d4d"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "        this.loginPage = Ext.getCmp('loginPage');",
+                    "        this.userStore = Ext.getStore('userStore');"
+                ]
+            },
+            "name": "onLaunch",
+            "designerId": "8a6ebe52-2c9a-4f00-88cd-a6f75bb198c0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showLoadingMessageMask",
+                "implHandler": [
+                    "            if (!this.oLoadingMessageMask) {",
+                    "               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
+                    "                  msg : \"Processing, please wait...\"",
+                    "               });",
+                    "            }",
+                    "            this.oLoadingMessageMask.show();"
+                ]
+            },
+            "name": "showLoadingMessageMask",
+            "designerId": "0ebf3399-0a34-4297-8335-f2f69653bf72"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideLoadingMessageMask",
+                "implHandler": [
+                    "            if (this.oLoadingMessageMask) {",
+                    "               this.oLoadingMessageMask.hide();",
+                    "            }",
+                    ""
+                ]
+            },
+            "name": "hideLoadingMessageMask",
+            "designerId": "3d9a68b6-cb4d-49ac-a57d-31330815e63c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "message"
+                ],
+                "fn": "showErrorMessage",
+                "implHandler": [
+                    "        Ext.MessageBox.show({",
+                    "            title:document.title,",
+                    "            msg: message,",
+                    "            buttons: Ext.MessageBox.OK,",
+                    "            icon:Ext.MessageBox.ERROR",
+                    "        });"
+                ]
+            },
+            "name": "showErrorMessage",
+            "designerId": "7d65a017-ac3e-4b2e-b5d3-774b53e546fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "message"
+                ],
+                "fn": "showSuccessMessage",
+                "implHandler": [
+                    "        Ext.MessageBox.show({",
+                    "            title:document.title,",
+                    "            msg: message,",
+                    "            buttons: Ext.MessageBox.OK,",
+                    "            icon:Ext.MessageBox.SUCCESS",
+                    "        });"
+                ]
+            },
+            "name": "showSuccessMessage",
+            "designerId": "a0d71e08-82a2-4eae-9bd3-abb136ded282"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "form"
+                ],
+                "fn": "validateLogin",
+                "implHandler": [
+                    "        var userStore = this.userStore;",
+                    "        var userName = form.getValues().userName;",
+                    "        var password = form.getValues().password;",
+                    "        var index = userStore.find(\"userName\", userName);",
+                    "        if(index === -1){",
+                    "            return -1;",
+                    "        }else{",
+                    "            var storePassword = userStore.getAt(index).data.password;",
+                    "            if(password == storePassword){",
+                    "                return 1;",
+                    "            }else{",
+                    "                return 0;",
+                    "            }",
+                    "        }"
+                ]
+            },
+            "name": "validateLogin",
+            "designerId": "96a2445e-635e-4315-8831-584284e64d33"
+        }
+    ]
+}

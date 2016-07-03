@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="homework3.xsl" ?>
+<rpc-reply-converter-input>
+
+<device-specific-rpc-reply-list>
+<device-specific-rpc-reply>
+<satellite-information>
+<satellite>
+<satellite-alias>QFX5100</satellite-alias>
+<slot-id>100</slot-id>
+<operation-state>Online</operation-state>
+<product-model>QFX5100-48S-6Q</product-model>
+<product-family>i386</product-family>
+<serial-number>TA3713430071</serial-number>
+<reachability>Local</reachability>
+<system-id>4c:96:14:f2:91:60</system-id>
+<version>15.1-20150921_s3_linux_v44.0</version>
+<host-sw-version>2.2.0</host-sw-version>
+<management-address>172.16.0.100/32</management-address>
+<connectivity>
+<cascade-port>xe-0/0/0</cascade-port>
+<interface-state>online</interface-state>
+<uplink-interface-name>xe-100/0/10</uplink-interface-name>
+<adjacency-state>Two-Way</adjacency-state>
+<last-transition>
+1d 10:24:28
+</last-transition>
+<up-down-transition-count>0</up-down-transition-count>
+<message-received-count>12392</message-received-count>
+<last-recv-packet-time>
+00:00:07
+</last-recv-packet-time>
+<peer-adjacency>
+<peer-adj-elapsed-time>
+1d 10:24:28
+</peer-adj-elapsed-time>
+<peer-up-down-transition-count>8</peer-up-down-transition-count>
+<peer-down-cause>TTL is 0</peer-down-cause>
+<peer-restart-count>4</peer-restart-count>
+</peer-adjacency>
+</connectivity>
+<process>
+<process-name>Provisioning</process-name>
+<process-id>2444</process-id>
+<process-state>Running</process-state>
+<restart-count>0</restart-count>
+<uptime>
+1d 10:24:28
+</uptime>
+</process>
+<process>
+<process-name>PFE</process-name>
+<process-id>2460</process-id>
+<process-state>Running</process-state>
+<restart-count>0</restart-count>
+<uptime>
+1d 10:24:28
+</uptime>
+</process>
+</satellite>
+</satellite-information>
+</device-specific-rpc-reply>
+
+<device-specific-rpc-reply>
+
+	<upgrade-group-information>
+	<upgrade-group>
+	<group-name>grp_mojito</group-name>
+	<version>15.1-20150920_s3_linux_v44.0</version>
+	<state>out-of-sync</state>
+	</upgrade-group>
+	</upgrade-group-information>
+</device-specific-rpc-reply>
+
+</device-specific-rpc-reply-list>
+
+</rpc-reply-converter-input>

@@ -1,0 +1,435 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "HomeController",
+        "views": [
+            "Home"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "5508615e-35f4-47b5-9e6b-7c6dd5c2e34f",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "showLoginWindow",
+                "selector": "#showLoginWindow"
+            },
+            "name": "showLoginWindow",
+            "designerId": "1b831c0f-4827-4c81-86c4-60437631235d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#showLoginWindow",
+                "designer|targetType": "MyButton",
+                "fn": "onShowLoginWindowClick",
+                "implHandler": [
+                    "Ext.create('Project.view.LoginWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onShowLoginWindowClick",
+            "designerId": "9e4b3282-8490-4656-858c-0b812d0aae3f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "cd94378d-6586-4b95-93a8-0b62c0a54311"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "searchPanel",
+                "selector": "#searchPanel"
+            },
+            "name": "searchPanel",
+            "designerId": "22ac8258-2f04-480c-a75d-afae0bcc20a5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchButton",
+                "designer|targetType": "MyButton7",
+                "fn": "onSearchButtonClick",
+                "implHandler": [
+                    "    this.getHomePanel().hide();",
+                    "    this.getSearchPanel().show();",
+                    "    this.getInventoryPanel().hide();",
+                    "    this.getUserPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSearchButtonClick",
+            "designerId": "b9481465-8974-4a2d-a74c-e2287ea5045f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#homeButton",
+                "designer|targetType": "MyButton2",
+                "fn": "onHomeButtonClick",
+                "implHandler": [
+                    "        this.getHomePanel().show();",
+                    "        this.getSearchPanel().hide();",
+                    "        this.getInventoryPanel().hide();",
+                    "        this.getUserPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onHomeButtonClick",
+            "designerId": "46ced8c6-8f07-46dc-91b3-87661321f6de"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signupBtn",
+                "selector": "#signupBtn"
+            },
+            "name": "signupBtn",
+            "designerId": "cb614dfa-dbc0-444d-b5fc-ccc1b2119c6a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#signupBtn",
+                "designer|targetType": "MyButton5",
+                "fn": "onSignupBtnClick",
+                "implHandler": [
+                    "        Ext.create('Project.view.SignUpWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSignupBtnClick",
+            "designerId": "f75cd4fe-915c-4077-8adf-4f14723f5576"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "inventoryPanel",
+                "selector": "#inventoryPanel"
+            },
+            "name": "inventoryPanel",
+            "designerId": "63b04583-e271-4144-a34d-f40006b478a9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userPanel",
+                "selector": "#userPanel"
+            },
+            "name": "userPanel",
+            "designerId": "12329233-5c8e-40b8-bddd-6cfb78012223"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#bookMenuBtn",
+                "designer|targetType": "MyMenuItem",
+                "fn": "onBookMenuBtnClick",
+                "implHandler": [
+                    "this.getHomePanel().hide();",
+                    "this.getSearchPanel().hide();",
+                    "this.getInventoryPanel().show();",
+                    "this.getUserPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBookMenuBtnClick",
+            "designerId": "52c65c54-fce8-4b75-822d-148c26bd6050"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userMenuBtn",
+                "designer|targetType": "MyMenuItem1",
+                "fn": "onUserMenuBtnClick",
+                "implHandler": [
+                    "        this.getHomePanel().hide();",
+                    "        this.getSearchPanel().hide();",
+                    "        this.getInventoryPanel().hide();",
+                    "        this.getUserPanel().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onUserMenuBtnClick",
+            "designerId": "e8c53e79-9a79-46b7-91bf-1cdb7c8d5686"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#homeViewport",
+                "designer|targetType": "Home",
+                "fn": "onHomeViewportRender",
+                "implHandler": [
+                    "        userStore = Ext.create('Project.store.User');",
+                    "        bookStore = Ext.create('Project.store.Books');",
+                    "console.log('viewport render');",
+                    ""
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onHomeViewportRender",
+            "designerId": "22da89cd-480c-4b0f-9a86-bc4af6079431"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#inventoryPanel",
+                "designer|targetType": "InventoryPanel",
+                "fn": "onInventoryPanelRender",
+                "implHandler": [
+                    "console.log('activate');",
+                    ""
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onInventoryPanelRender",
+            "designerId": "ce926c1f-f0a0-4cad-befd-b00e20e3c33e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeBooksBtn",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOptions"
+                ],
+                "designer|targetType": "MyButton13",
+                "fn": "onRemoveBooksBtnClick",
+                "implHandler": [
+                    "",
+                    "var grid = this.getBookGrid();",
+                    "        console.log(grid);",
+                    "var sel = grid.getSelectionModel();",
+                    "",
+                    "if (Ext.isEmpty(sel.getSelection())){",
+                    "    Ext.Msg.alert('No Selected','You have to select on grid');",
+                    "}",
+                    "else{",
+                    "    ",
+                    "    ",
+                    "    ",
+                    "    Ext.Msg.confirm(\"Confirmation\", \"Do you want to delete the record?\", function(btnText){",
+                    "        if(btnText === \"no\"){",
+                    "            return;",
+                    "        }",
+                    "        else if(btnText === \"yes\"){",
+                    "            grid.getStore().remove(sel.getSelection());",
+                    "            grid.getView().refresh();",
+                    "            Ext.Msg.alert('Selected','You have successfully deleted record on grid');",
+                    "        }",
+                    "    }, this);",
+                    "    ",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRemoveBooksBtnClick",
+            "designerId": "bdc7df1c-b708-450f-b3d2-3a8478cc69f5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookGrid",
+                "selector": "#bookGrid"
+            },
+            "name": "bookGrid",
+            "designerId": "83608a3d-0028-4e74-8744-93b286783700"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBooksBtn",
+                "designer|targetType": "MyButton12",
+                "fn": "onAddBooksBtnClick",
+                "implHandler": [
+                    "      var grid = this.getBookGrid();",
+                    "      var bookStore = grid.getStore();",
+                    "      var newBook = {",
+                    "          title: '',",
+                    "          author: '',",
+                    "          description: '',",
+                    "          datePublished: ''",
+                    "      };",
+                    "",
+                    "      bookStore.add(newBook);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddBooksBtnClick",
+            "designerId": "a338823c-3b92-488f-8cdf-b95b91d95c47"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addUsersBtn",
+                "designer|targetType": "MyButton10",
+                "fn": "onAddUsersBtnClick",
+                "implHandler": [
+                    "        Ext.create('Project.view.AddUsers').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddUsersBtnClick",
+            "designerId": "6316c316-43d7-4756-aa0c-7e8d6d909fcb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeUserBtn",
+                "designer|targetType": "MyButton11",
+                "fn": "onRemoveUserBtnClick",
+                "implHandler": [
+                    "    "
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRemoveUserBtnClick",
+            "designerId": "c539f527-884b-4786-8b8f-087e09018606"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#inventorySearchBttn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton14",
+                "fn": "onInventorySearchBttnClick",
+                "implHandler": [
+                    "        var gridStore = this.getBookGrid().getStore();",
+                    "console.log(gridStore);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onInventorySearchBttnClick",
+            "designerId": "f8318ecf-fab2-4ce9-ad12-08c0307ad8ef"
+        }
+    ]
+}

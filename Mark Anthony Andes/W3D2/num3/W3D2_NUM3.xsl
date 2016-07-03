@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2006-2007, Juniper Networks, Inc. -->
-<!-- All rights reserved -->
 
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,14 +8,13 @@
 	<xsl:template match="/rpc-reply-converter-input">
 		<rpc-reply-converter-output>
 			<dmi-specific-rpc-reply>
-
 				<chassis-satellites>
-					<xsl:for-each
-						select="device-specific-rpc-reply-list/device-specific-rpc-reply">
-						<xsl:choose>
-							<xsl:when test="position() = 1">
-								<xsl:for-each select="satellite-information/satellite">
-									<chassis-satellite>
+					<chassis-satellite>
+						<xsl:for-each
+							select="device-specific-rpc-reply-list/device-specific-rpc-reply">
+							<xsl:choose>
+								<xsl:when test="position() = 1">
+									<xsl:for-each select="satellite-information/satellite">
 										<xsl:if test="satellite-alias">
 											<satelliteName>
 												<xsl:value-of select="satellite-alias" />
@@ -43,19 +40,31 @@
 												<xsl:value-of select="management-address" />
 											</managementAddress>
 										</xsl:if>
+									</xsl:for-each>
+								</xsl:when>
 
-										<xsl:if test="//group-name">
+								<xsl:when test="position() = 2">
+									<xsl:for-each select="upgrade-group-information/upgrade-group">
+										<xsl:if test="group-name">
 											<groupName>
-												<xsl:value-of select="//group-name" />
+												<xsl:value-of select="group-name" />
 											</groupName>
 										</xsl:if>
-
-										<xsl:if test="//version">
+										<xsl:if test="version">
 											<groupVersion>
-												<xsl:value-of select="//version" />
+												<xsl:value-of select="version" />
 											</groupVersion>
 										</xsl:if>
+									</xsl:for-each>
+								</xsl:when>
+							</xsl:choose>
+						</xsl:for-each>
 
+						<xsl:for-each
+							select="device-specific-rpc-reply-list/device-specific-rpc-reply">
+							<xsl:choose>
+								<xsl:when test="position() = 1">
+									<xsl:for-each select="satellite-information/satellite">
 										<xsl:for-each select="connectivity">
 											<connectivity>
 												<xsl:if test="cascade-port">
@@ -75,14 +84,11 @@
 												</xsl:if>
 											</connectivity>
 										</xsl:for-each>
-
-									</chassis-satellite>
-
-								</xsl:for-each>
-
-							</xsl:when>
-						</xsl:choose>
-					</xsl:for-each>
+									</xsl:for-each>
+								</xsl:when>
+							</xsl:choose>
+						</xsl:for-each>
+					</chassis-satellite>
 				</chassis-satellites>
 			</dmi-specific-rpc-reply>
 		</rpc-reply-converter-output>

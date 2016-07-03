@@ -1,0 +1,181 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "LoginPage",
+        "layout": "fit"
+    },
+    "name": "MyViewport",
+    "designerId": "c696fa79-9e7a-4d9d-82ff-b8674a005f13",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "id": null,
+                "itemId": null,
+                "layout": "fit",
+                "title": "My Panel"
+            },
+            "name": "MyPanel",
+            "designerId": "15cc72c4-5664-41c7-8d8e-b638ee53b593",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": "",
+                        "container|align": "middle",
+                        "container|pack": "center",
+                        "header": false,
+                        "height": null,
+                        "id": "loginPage",
+                        "layout": "hbox",
+                        "title": "My Form"
+                    },
+                    "name": "MyForm",
+                    "designerId": "06719501-3372-42db-b359-158038377b0c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "center",
+                                "container|pack": "center",
+                                "height": 300,
+                                "itemId": "",
+                                "layout": "vbox",
+                                "layout|flex": 1,
+                                "title": "",
+                                "width": 1024
+                            },
+                            "name": "MyFieldSet",
+                            "designerId": "4eb89085-cf6b-4701-9e38-018d8bcb6c65",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "layout|margins": "",
+                                        "margin": "-50, 0, 0, 0",
+                                        "padding": "",
+                                        "text": "Welcome to Book Management System"
+                                    },
+                                    "name": "MyLabel",
+                                    "designerId": "2792a043-2858-470e-81ec-9764f58300c9"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "allowOnlyWhitespace": false,
+                                        "fieldLabel": "Username",
+                                        "margin": 25,
+                                        "name": "userName"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "ba20c270-311f-498f-93ac-463ee94e1342"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "allowOnlyWhitespace": false,
+                                        "fieldLabel": "Password",
+                                        "inputType": "password",
+                                        "name": "password"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "011039d3-31a4-4dd7-a9d8-9bf35cfaedc0"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|pack": "center",
+                                        "container|padding": "",
+                                        "layout|flex": null,
+                                        "layout|margins": "",
+                                        "margin": ""
+                                    },
+                                    "name": "MyToolbar",
+                                    "designerId": "d89441d8-87a1-4946-8dee-76f138cadde8",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "loginButton",
+                                                "layout|flex": null,
+                                                "text": "Login"
+                                            },
+                                            "name": "MyButton",
+                                            "designerId": "989f61f5-b7e9-4aeb-96e7-ff3b096d4628"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "id": null,
+                                                "itemId": "registerButton",
+                                                "layout|flex": null,
+                                                "text": "Register"
+                                            },
+                                            "name": "MyButton1",
+                                            "designerId": "0994c9fe-98bf-487b-ac79-4e69423c6831"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
