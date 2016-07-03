@@ -1,0 +1,499 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Account"
+    },
+    "name": "MyController",
+    "designerId": "d227c547-ef63-4a69-b05a-6105cc658130",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#loginBtn",
+                "designer|targetType": "MyButton1",
+                "fn": "onLoginClick",
+                "implHandler": [
+                    "var userName = this.getUsername().getValue(),",
+                    "    password = this.getPassword().getValue(),",
+                    "    borrowerStore = Ext.getStore('BorrowersStore'),",
+                    "    isExisting = false,",
+                    "    type = 'user';",
+                    "if (!(Ext.isEmpty(userName)) && !Ext.isEmpty(password)) {",
+                    "    borrowerStore.each(function(record){",
+                    "        var bUserName = record.get('uname'),",
+                    "            bPassword = record.get('password');",
+                    "",
+                    "        if ( userName == bUserName && password == bPassword){",
+                    "            isExisting = true;",
+                    "            type = record.get('type');",
+                    "        }",
+                    "",
+                    "",
+                    "    });",
+                    "    if (!isExisting) {",
+                    "        Ext.MessageBox.alert ('Warning', 'Incorrect user name/password');",
+                    "    } else {",
+                    "",
+                    "        if(type==='user'){",
+                    "            this.getBorrowManageBtns().show();",
+                    "            this.getAdminManageBtn().hide();",
+                    "        }else if( type==='admin'){",
+                    "            this.getBorrowManageBtns().hide();",
+                    "            this.getAdminManageBtn().show();",
+                    "        }",
+                    "        this.getBooksCont().show();",
+                    "        this.getLoginRegisterCont().hide();",
+                    "        this.getWelcome().setValue(userName);",
+                    "        this.getWelcome2().setValue(userName);",
+                    "    }",
+                    "",
+                    "} else {",
+                    "    Ext.MessageBox.alert ('Warning', 'Please complete all fields');",
+                    "}",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLoginClick",
+            "designerId": "382da0b9-c271-4f9f-89e2-3b6f454df01c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerBtn",
+                "designer|targetType": "MyButton2",
+                "fn": "onRegisterClick",
+                "implHandler": [
+                    "Ext.create('Libray.view.registerWin').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterClick",
+            "designerId": "21329f3d-80a4-42eb-b49b-2cfcfb1b43cf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "username",
+                "selector": "#userName"
+            },
+            "name": "username",
+            "designerId": "7a7c9b8f-a784-48b0-8554-f3609e22ab0a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "password",
+                "selector": "#password"
+            },
+            "name": "password",
+            "designerId": "d70f1b65-6d48-4d5e-8887-dd7c7bacc10c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "booksCont",
+                "selector": "#mycontainer4"
+            },
+            "name": "booksCont",
+            "designerId": "a702d4b9-2e17-4884-9e08-7884d048c357"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginRegisterCont",
+                "selector": "#mycontainer3"
+            },
+            "name": "loginRegisterCont",
+            "designerId": "6318a04e-9449-4e7f-ae43-f63ff6291cbc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowedCont",
+                "selector": "#mycontainer5"
+            },
+            "name": "borrowedCont",
+            "designerId": "49a97296-a077-45ac-a928-46d8847fa0e5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#manageBtn",
+                "designer|targetType": "MyButton5",
+                "fn": "onManageBtnClick",
+                "implHandler": [
+                    "    this.getBooksCont().hide();",
+                    "    this.getBorrowedCont().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onManageBtnClick",
+            "designerId": "b2a35938-f96d-4721-9431-961012cd129d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#borrowBtn",
+                "designer|targetType": "MyButton4",
+                "fn": "onBorrowBtnClick",
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBorrowBtnClick",
+            "designerId": "d5911167-13aa-45ca-87f0-0bb7bde020f4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "welcome",
+                "selector": "#welcomeLabel"
+            },
+            "name": "welcome",
+            "designerId": "e9eaa87e-33c3-41d6-bac2-609b04edb597"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerForm",
+                "selector": "#registerForm"
+            },
+            "name": "registerForm",
+            "designerId": "be96942f-d118-4cf1-98db-54b4a4d90e78"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "welcome2",
+                "selector": "#welcome"
+            },
+            "name": "welcome2",
+            "designerId": "b273b12c-fdbe-4161-8943-1a5cc0864d4c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#logout",
+                "designer|targetType": "MyButton7",
+                "fn": "onLogoutClick",
+                "implHandler": [
+                    "    this.getBooksCont().hide();",
+                    "this.getBorrowedCont().hide();",
+                    "    this.getLoginRegisterCont().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLogoutClick",
+            "designerId": "d7dbfe68-9006-44a1-b2e3-695578d84a25"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#logoutBtn",
+                "designer|targetType": "MyButton8",
+                "fn": "onLogoutBtnClick",
+                "implHandler": [
+                    "    this.getBooksCont().hide();",
+                    "this.getBorrowedCont().hide();",
+                    "    this.getLoginRegisterCont().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLogoutBtnClick",
+            "designerId": "77054c6e-26eb-4b31-805b-2463844d71a2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerWindow",
+                "selector": "#registerWindow"
+            },
+            "name": "registerWindow",
+            "designerId": "6a81b5c7-fc8d-4546-9ce1-83c73ecd9fdd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#submitBtn",
+                "designer|targetType": "MyButton3",
+                "fn": "onSubmitBtnClick",
+                "implHandler": [
+                    "var fName = this.getFirstNameReg().getValue(),",
+                    "    lName = this.getLastNameReg().getValue(),",
+                    "    uName = this.getUserNameReg().getValue(),",
+                    "    pWord = this.getPasswordReg().getValue(),",
+                    "    cPWord = this.getConfirmPasswordReg().getValue(),",
+                    "    store = Ext.getStore('BorrowersStore');",
+                    "",
+                    "if((!Ext.isEmpty(fName)) &&",
+                    "       !Ext.isEmpty(lName) &&",
+                    "       !Ext.isEmpty(uName) &&",
+                    "       !Ext.isEmpty(pWord) &&",
+                    "       !Ext.isEmpty(cPWord)){",
+                    "    if(pWord === cPWord){",
+                    "        var user = {",
+                    "            fname: fName,",
+                    "            lname:lName,",
+                    "            uname: uName,",
+                    "            password:pWord,",
+                    "            type:'user'",
+                    "",
+                    "        };",
+                    "        store.add(user);",
+                    "        Ext.MessageBox.alert ('Information', 'User registration successful!');",
+                    "        this.getRegisterWin().destroy();",
+                    "",
+                    "    }else{",
+                    "        Ext.MessageBox.alert ('Warning', 'Password mismatched!');",
+                    "    }",
+                    "",
+                    "}else {",
+                    "    Ext.MessageBox.alert ('Warning', 'Please complete all fields!');",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSubmitBtnClick",
+            "designerId": "63414ea7-93c5-4235-b5d0-8d047fadf376"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "firstNameReg",
+                "selector": "#fNameReg"
+            },
+            "name": "firstNameReg",
+            "designerId": "6fc897c6-39e2-4d70-82fa-5c5f194ea751"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "lastNameReg",
+                "selector": "#lNameReg"
+            },
+            "name": "lastNameReg",
+            "designerId": "04dd10c1-0872-4688-a6a8-79e440651db4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userNameReg",
+                "selector": "#uNameReg"
+            },
+            "name": "userNameReg",
+            "designerId": "32cb5465-f5db-4e06-8dcd-9b6a156aedec"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordReg",
+                "selector": "#passswordReg"
+            },
+            "name": "passwordReg",
+            "designerId": "83e9c226-8673-45b9-95eb-5d0220f17edd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "confirmPasswordReg",
+                "selector": "#cPasswordReg"
+            },
+            "name": "confirmPasswordReg",
+            "designerId": "d4873f3b-e7f2-4d07-b585-436696df4741"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerWin",
+                "selector": "#registerWin"
+            },
+            "name": "registerWin",
+            "designerId": "7351363c-fa37-41d2-a19a-c6268b059fb3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminManageBtn",
+                "selector": "#mytoolbar1"
+            },
+            "name": "adminManageBtn",
+            "designerId": "e145f7eb-9bdf-484c-bdae-955464e9d0a9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowManageBtns",
+                "selector": "#mytoolbar5"
+            },
+            "name": "borrowManageBtns",
+            "designerId": "abb74f08-4566-405a-b2f2-5a194985724a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelBtn",
+                "designer|targetType": "MyButton12",
+                "fn": "onCancelBtnClick",
+                "implHandler": [
+                    "this.getRegisterWin().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelBtnClick",
+            "designerId": "fd97f701-a1a4-4e16-8d5a-79f122e3dea8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookList",
+                "selector": "#bookListGrid"
+            },
+            "name": "bookList",
+            "designerId": "475f34b3-1b47-4f79-bb57-bb09ede66a85"
+        }
+    ]
+}

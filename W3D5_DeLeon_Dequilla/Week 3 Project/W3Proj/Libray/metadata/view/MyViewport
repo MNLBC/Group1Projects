@@ -1,0 +1,727 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport"
+    },
+    "name": "MyViewport",
+    "designerId": "36bff53c-762f-4427-8f3c-4e4be6f9235e",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "container|align": "stretch",
+                "container|pack": "center",
+                "header": false,
+                "height": 807,
+                "layout": "vbox",
+                "overlapHeader": false,
+                "title": ""
+            },
+            "name": "MyPanel",
+            "designerId": "ff6cd937-307a-455f-8ffd-bdcb1ae0b69f",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "border": null,
+                        "container|align": "middle",
+                        "container|pack": "center",
+                        "designer|displayName": "LoginRegisterCont",
+                        "html": [
+                            "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                            "\trel='stylesheet' type='text/css'>",
+                            " <center><h1 style = 'font-family: Abel;margin-top: 245px; '>Book for a Day</h1></center>",
+                            " <hr width=\"550\"> "
+                        ],
+                        "itemId": "mycontainer3",
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "66e515b7-af5c-4ded-beef-7d08885301ff",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "LoginCont",
+                                "height": 98,
+                                "layout|flex": 1
+                            },
+                            "name": "MyFieldContainer1",
+                            "designerId": "293ee8c0-cfad-408e-be67-f02ae2331ea0",
+                            "cn": [
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|align": "center",
+                                        "container|pack": "center",
+                                        "height": null,
+                                        "layout": "vbox"
+                                    },
+                                    "name": "MyContainer",
+                                    "designerId": "9f1d4dd9-6e53-48b5-905e-c30ffc49f485",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "User name:",
+                                                "fieldLabel": "User name:",
+                                                "itemId": "userName"
+                                            },
+                                            "name": "MyTextField",
+                                            "designerId": "5489aa1c-cb21-4c29-9193-3e757395297e"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Password:",
+                                                "fieldLabel": "Password:",
+                                                "inputType": "password",
+                                                "itemId": "password"
+                                            },
+                                            "name": "MyTextField1",
+                                            "designerId": "4c0379a3-eaf0-47bc-948c-6e01592d2780"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Toolbar",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "border": "",
+                                                "container|pack": "center",
+                                                "designer|uiInterfaceName": "untitled-ui-3",
+                                                "height": 48,
+                                                "layout|flex": 1,
+                                                "ui": "untitled-ui-3"
+                                            },
+                                            "name": "MyToolbar3",
+                                            "designerId": "cb8d04b3-c9c1-4030-bbec-de7c2d249407",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "loginBtn",
+                                                        "layout|flex": null,
+                                                        "text": "Login"
+                                                    },
+                                                    "name": "MyButton1",
+                                                    "designerId": "bf1dc117-2087-490b-b644-79caafc40a86"
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "registerBtn",
+                                                        "layout|flex": null,
+                                                        "text": "Register"
+                                                    },
+                                                    "name": "MyButton2",
+                                                    "designerId": "3e0cd1a2-b98f-4d36-beb1-a90c1917efe6"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "designer|displayName": "BooksCont",
+                        "height": 168,
+                        "hidden": true,
+                        "itemId": "mycontainer4",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": 381
+                    },
+                    "name": "MyContainer4",
+                    "designerId": "6b9d384a-81bb-4d53-8717-42635721f0ea",
+                    "cn": [
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "bottom",
+                                "height": 146,
+                                "html": [
+                                    "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                                    "\trel='stylesheet' type='text/css'>",
+                                    " <center><div id=\"header\"><h2 style = 'font-family: Abel;'>Select & Borrow!</h2></div></center>",
+                                    " <hr width=\"550\"> "
+                                ],
+                                "layout": "hbox",
+                                "style": [
+                                    "#nav {",
+                                    "line-height: 30px;",
+                                    "background-color: #D4F5C9;",
+                                    "height: 460px;",
+                                    "width: 180px;",
+                                    "float: left;",
+                                    "padding: 5px;",
+                                    "}"
+                                ],
+                                "width": 575
+                            },
+                            "name": "MyContainer6",
+                            "designerId": "21f9bf9e-8987-4d6c-bf56-c7ddf7dbb82a",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "Welcome",
+                                        "fieldLabel": "Welcome",
+                                        "itemId": "welcomeLabel",
+                                        "layout|flex": 1,
+                                        "value": ""
+                                    },
+                                    "name": "MyDisplayField1",
+                                    "designerId": "c06905dc-6ec0-4336-b0a2-4dee2a58ecf6"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "logout",
+                                        "layout|flex": null,
+                                        "text": "Logout"
+                                    },
+                                    "name": "MyButton7",
+                                    "designerId": "b6b9c8ea-d2c3-4e9f-afbb-919ca93ce17e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "BookList",
+                                "header": false,
+                                "height": 300,
+                                "itemId": "bookListGrid",
+                                "store": "BookStore",
+                                "title": "My Grid Panel",
+                                "width": 1447
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "d8b2b4fa-6c85-4322-9eec-108039b1513b",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "title",
+                                        "designer|displayName": "Title",
+                                        "itemId": "title",
+                                        "text": "Title",
+                                        "width": 364
+                                    },
+                                    "name": "MyColumn",
+                                    "designerId": "d92beeb2-347a-4a31-becf-2671e920a6ca"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "author",
+                                        "text": "Author",
+                                        "width": 360
+                                    },
+                                    "name": "MyColumn1",
+                                    "designerId": "236062bb-8111-4270-afa4-f50996ce7f5a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "publisher",
+                                        "flex": 1,
+                                        "text": "Publisher",
+                                        "width": 374
+                                    },
+                                    "name": "MyColumn2",
+                                    "designerId": "a2a5d713-bf8a-44e3-8daf-b6e845a0a34a"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "id": "BookListView"
+                                    },
+                                    "name": "MyGridView",
+                                    "designerId": "58361473-33d7-4a0c-8f40-66206e92f40f"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": "Ext.selection.CheckboxModel",
+                                    "name": "MyCheckboxSelectionModel",
+                                    "designerId": "817cb890-8cd7-457f-b9e5-c623886e1db0"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 285,
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer2",
+                            "designerId": "79a73269-ba58-4257-9686-0bd1bf4038ab",
+                            "cn": [
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|pack": "center",
+                                        "designer|displayName": "AdminManageBtn",
+                                        "height": 80,
+                                        "hidden": true,
+                                        "itemId": "mytoolbar1"
+                                    },
+                                    "name": "MyToolbar1",
+                                    "designerId": "6f806110-49d8-47a6-87a0-612c00b5d34d",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Add Book",
+                                                "itemId": "addBookWinShowBtn",
+                                                "layout|flex": null,
+                                                "text": "Add Book"
+                                            },
+                                            "name": "MyButton9",
+                                            "designerId": "0b92b6ea-61b3-45d6-8392-a848c328b74b"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Remove Book",
+                                                "itemId": "removeBookBtn",
+                                                "layout|flex": null,
+                                                "text": "Remove Book"
+                                            },
+                                            "name": "MyButton10",
+                                            "designerId": "dcacdba2-3a13-457f-8df0-e5eae3311b55"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Edit Book Details",
+                                                "disabled": true,
+                                                "itemId": "editBookBtn",
+                                                "layout|flex": null,
+                                                "text": "Edit Book Details"
+                                            },
+                                            "name": "MyButton11",
+                                            "designerId": "b2e22703-6604-49fd-a96f-47d9cb6a039a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|pack": "center",
+                                        "designer|displayName": "BorrowManageBtns",
+                                        "height": 118,
+                                        "itemId": "mytoolbar5"
+                                    },
+                                    "name": "MyToolbar5",
+                                    "designerId": "c360b3cb-42dc-4524-a478-c0c06de24b8f",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Borrow Book",
+                                                "itemId": "borrowBtn",
+                                                "layout|flex": null,
+                                                "text": " Borrow"
+                                            },
+                                            "name": "MyButton4",
+                                            "designerId": "c0151641-77c8-43c7-9da8-d9d35d3f472f"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Manage Books",
+                                                "itemId": "manageBtn",
+                                                "layout|flex": null,
+                                                "text": "Manage Borrowed Books"
+                                            },
+                                            "name": "MyButton5",
+                                            "designerId": "669aa9bf-cb3e-4c06-a0d9-64dd0255546d"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "designer|displayName": "BorrowedCont",
+                        "hidden": true,
+                        "itemId": "mycontainer5",
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "658dfaf1-6304-4f02-9782-92e31905b2d2",
+                    "cn": [
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "bottom",
+                                "height": 146,
+                                "html": [
+                                    "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                                    "\trel='stylesheet' type='text/css'>",
+                                    " <center><div id=\"header\"><h2 style = 'font-family: Abel;'>Checked out Book/s</h3></div></center>",
+                                    " <hr width=\"400\"> "
+                                ],
+                                "itemId": "logout",
+                                "layout": "hbox",
+                                "style": [
+                                    "#nav {",
+                                    "line-height: 30px;",
+                                    "background-color: #D4F5C9;",
+                                    "height: 460px;",
+                                    "width: 180px;",
+                                    "float: left;",
+                                    "padding: 5px;",
+                                    "}"
+                                ],
+                                "width": 515
+                            },
+                            "name": "MyContainer1",
+                            "designerId": "28e58abe-4c67-4034-bf59-2cb9cb9da2c9",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Welcome",
+                                        "itemId": "welcome",
+                                        "layout|flex": 1,
+                                        "value": "",
+                                        "width": null
+                                    },
+                                    "name": "MyDisplayField2",
+                                    "designerId": "48e08285-d67e-4378-82d2-de3fa098f5d9"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "Logout",
+                                        "itemId": "logoutBtn",
+                                        "layout|flex": null,
+                                        "text": "Logout"
+                                    },
+                                    "name": "MyButton8",
+                                    "designerId": "4f038e78-8d51-4e2a-ad5c-b7f10a7044d2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "BorrowedGrid",
+                                "header": false,
+                                "height": 425,
+                                "store": "BorrowedStore",
+                                "title": "",
+                                "width": 1447
+                            },
+                            "name": "MyGridPanel1",
+                            "designerId": "1792c74c-d59f-4397-a30f-82e291fae4e2",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "BorrowedView",
+                                        "itemId": "borrowedView"
+                                    },
+                                    "name": "MyGridView1",
+                                    "designerId": "d3599ff1-23ec-465e-b73b-16d09093f4cc"
+                                },
+                                {
+                                    "type": "Ext.grid.column.CheckColumn",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "",
+                                        "width": 83
+                                    },
+                                    "name": "MyCheckColumn1",
+                                    "designerId": "46c0f011-264d-4afd-ac13-377a650d4935"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "title",
+                                        "text": "Title",
+                                        "width": 142
+                                    },
+                                    "name": "MyColumn4",
+                                    "designerId": "ae2d8e67-3cea-4ade-9452-018657d43554"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "author",
+                                        "text": "Author",
+                                        "width": 206
+                                    },
+                                    "name": "MyColumn3",
+                                    "designerId": "0fe2420c-bcf5-4a1c-bdc8-f8adcf08aed5"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "publisher",
+                                        "flex": 1,
+                                        "text": "Publisher"
+                                    },
+                                    "name": "MyColumn5",
+                                    "designerId": "7c4c403b-2a80-4c5a-b25f-0676f35bfda8"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|pack": "center",
+                                        "dock": "bottom"
+                                    },
+                                    "name": "MyToolbar",
+                                    "designerId": "72e6bbe3-f581-4079-941d-2467c7ee7301",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Return Book",
+                                                "itemId": "returnBookBtn",
+                                                "layout|flex": null,
+                                                "text": "Return Book",
+                                                "width": 100
+                                            },
+                                            "name": "MyButton",
+                                            "designerId": "b192533b-03bb-48e3-9f9c-ec896be0bd92"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "Back",
+                                                "itemId": "backBtn",
+                                                "layout|flex": null,
+                                                "text": "Back"
+                                            },
+                                            "name": "MyButton6",
+                                            "designerId": "b21b7550-aa50-4861-9ca8-609f9ebed134"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
