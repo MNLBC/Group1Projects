@@ -25,7 +25,25 @@ Ext.define('BookingManagementSystem.store.bookStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BookingManagementSystem.model.bookModel',
-            storeId: 'bookStore'
+            storeId: 'bookStore',
+            data: [
+                {
+                    bookId: 1,
+                    title: 'Diary of a Wimpy Kid',
+                    author: 'Jeffrey Kinning',
+                    description: 'Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.',
+                    available: '20',
+                    checkoutBy: 'iusto'
+                },
+                {
+                    bookId: 2,
+                    title: 'I Am Number Four',
+                    author: 'Pittacus Lore',
+                    description: 'Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
+                    available: '20',
+                    checkoutBy: 'accusamus'
+                }
+            ]
         }, cfg)]);
     }
 });

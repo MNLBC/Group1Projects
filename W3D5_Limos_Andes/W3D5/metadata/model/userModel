@@ -6,11 +6,26 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "userModel"
+        "designer|userClassName": "userModel",
+        "idProperty": "userId"
     },
     "name": "MyModel",
     "designerId": "283461f1-84f7-4032-b8c5-10905c14f5e6",
     "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "userId",
+                "type": "int"
+            },
+            "name": "MyField14",
+            "designerId": "1bd959b5-6b97-4233-9217-e60da104febe"
+        },
         {
             "type": "Ext.data.Field",
             "reference": {
@@ -123,7 +138,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "booksAtHand"
+                "name": "booksAtHand",
+                "type": "string"
             },
             "name": "MyField8",
             "designerId": "b4f441c7-bc92-49ee-864a-f96f832d55c1"

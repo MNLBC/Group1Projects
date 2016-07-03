@@ -8,7 +8,7 @@
     "userConfig": {
         "controllers": [
             "viewPortControllers",
-            "windowsControllers"
+            "windowControllers"
         ],
         "models": [
             "userModel",
@@ -21,8 +21,9 @@
         ],
         "views": [
             "LoginPage",
-            "MyWindow",
-            "Homepage"
+            "Homepage",
+            "addBookWindow",
+            "viewBook"
         ]
     },
     "name": "Application",

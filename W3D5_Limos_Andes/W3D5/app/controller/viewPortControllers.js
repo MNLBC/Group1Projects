@@ -44,9 +44,12 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                     }else if(this.validateLogin(form) === 0){
                         this.showErrorMessage('Wrong Password!');
                     }else{
+                        this.userStore.getById();
+                        var index = this.userStore.find("userName", form.getValues().userName);
+                        var userInfo = this.userStore.getAt(index);
                         Ext.create('BookingManagementSystem.view.Homepage',{
-
-                                   }).show();
+                            userInfo: userInfo
+                         }).show();
                     }
 
                 }else{
@@ -54,9 +57,55 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                 }
     },
 
+    onAddBookButtonClick: function() {
+                Ext.getBody().mask();
+                Ext.create('BookingManagementSystem.view.addBookWindow',{
+
+                        }).show();
+    },
+
+    onBooksGridItemClick: function() {
+                Ext.getCmp('viewBookButton').enable();
+                Ext.getCmp('deleteBookButton').enable();
+    },
+
+    onDeleteBookButtonClick: function() {
+              var booksGrid = Ext.getCmp('booksGrid');
+                var selectedModel = booksGrid.getSelectionModel().getSelection()[0];
+        var title = selectedModel.data.title;
+        var bookId = selectedModel.data.bookId;
+        console.log(selectedModel);
+            Ext.Msg.confirm("Confirmation", "Do you want to Delete \""+ title +"\"?", function(btnText){
+                    if(btnText === "yes"){
+                        this.bookStore.remove(selectedModel);
+                    }
+                }, this);
+    },
+
+    onViewBookButtonClick: function() {
+                Ext.getBody().mask();
+                Ext.create('BookingManagementSystem.view.viewBookWindow',{
+                    record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0]
+                }).show();
+
+
+    },
+
+    onHomePageAfterRender: function(component, eOpts) {
+                this.userInformation = component.userInfo;
+                var firstName = this.userInformation.data.firstName;
+                var lastName = this.userInformation.data.lastName;
+                Ext.getCmp('welcomeUserLabel').getEl().update('Welcome ' + firstName + ' ' + lastName);
+        //         .setValue('Welcome ' + firstName + ' ' + lastName);
+    },
+
     onLaunch: function() {
                 this.loginPage = Ext.getCmp('loginPage');
                 this.userStore = Ext.getStore('userStore');
+                this.booksGrid = Ext.getCmp('booksGrid');
+                this.bookStore = Ext.getStore('bookStore');
+        //         var wholeName = this.bookStore.
+        //         Ext.getCmp('welcomeUserId').setValue() += ' '
     },
 
     showLoadingMessageMask: function() {
@@ -117,6 +166,21 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#loginButton": {
                 click: this.onLoginButtonClick
+            },
+            "#addBookButton": {
+                click: this.onAddBookButtonClick
+            },
+            "#booksGrid": {
+                itemclick: this.onBooksGridItemClick
+            },
+            "#deleteBookButton": {
+                click: this.onDeleteBookButtonClick
+            },
+            "#viewBookButton": {
+                click: this.onViewBookButtonClick
+            },
+            "#homePage": {
+                afterrender: this.onHomePageAfterRender
             }
         });
     }

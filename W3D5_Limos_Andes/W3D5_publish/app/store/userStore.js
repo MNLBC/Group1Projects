@@ -36,7 +36,7 @@ Ext.define('BookingManagementSystem.store.userStore', {
                     address: '04 Kipling Center',
                     contactNo: 'ad',
                     email: 'jfrazier@rhynoodle.biz',
-                    booksAtHand: 'eaque'
+                    booksAtHand: '1'
                 }
             ]
         }, cfg)]);

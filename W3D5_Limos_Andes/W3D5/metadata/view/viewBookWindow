@@ -1,0 +1,254 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "viewBookWindow",
+        "height": 533,
+        "id": "viewBookWindow",
+        "layout": "fit",
+        "title": "View/Edit Book",
+        "width": 684
+    },
+    "name": "addBookWindow1",
+    "designerId": "4fd2752b-bca7-41fe-ae30-9a0c3a42b2a0",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "header": false,
+                "height": 276,
+                "id": "viewBookPanel",
+                "layout": "auto",
+                "title": "My Form",
+                "width": 810
+            },
+            "name": "MyForm2",
+            "designerId": "ff9efe74-1c76-471f-be13-2bc16b65f554",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 700,
+                        "id": "viewBookInformationContainer",
+                        "title": "Book Information",
+                        "width": 652
+                    },
+                    "name": "MyFieldSet2",
+                    "designerId": "c570682a-9776-4331-8654-bc302711e576",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Title",
+                                "id": "titleView",
+                                "layout|anchor": "100%",
+                                "name": "title"
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "5bde1a91-128b-405b-90ff-a7190cc1873a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Author",
+                                "id": "authorView",
+                                "layout|anchor": "100%",
+                                "name": "author"
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "2e414b3d-d56d-4585-81b6-f39686389210"
+                        },
+                        {
+                            "type": "Ext.form.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Description",
+                                "id": "descriptionView",
+                                "layout|anchor": "100%",
+                                "name": "description"
+                            },
+                            "name": "MyTextArea1",
+                            "designerId": "c660cd7c-4ad0-4b6b-9285-9d1d177547ee"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "allowExponential": false,
+                                "allowOnlyWhitespace": false,
+                                "decimalPrecision": 0,
+                                "fieldLabel": "Available for rental",
+                                "id": "availableView",
+                                "layout|anchor": "100%",
+                                "minValue": 1,
+                                "name": "available"
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "272243b5-e4f3-4a7c-a85e-a6fa17d2459c"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 311,
+                                "store": "userStore",
+                                "title": "Users Who Currently Have A Copy"
+                            },
+                            "name": "MyGridPanel2",
+                            "designerId": "7a09bc6a-573d-4c55-9d0b-8aebbbb639a2",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView2",
+                                    "designerId": "002f5d10-e8c4-48d4-9ec5-887f4f2be079"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "userId",
+                                        "flex": 1,
+                                        "format": "00",
+                                        "text": "UserId"
+                                    },
+                                    "name": "MyNumberColumn1",
+                                    "designerId": "725a2726-4128-4a2c-a437-f778aeb422ce"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "firstName",
+                                        "flex": 1,
+                                        "text": "FirstName"
+                                    },
+                                    "name": "MyColumn12",
+                                    "designerId": "947284b0-748a-40da-b486-71c8d49901fa"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "lastName",
+                                        "flex": 1,
+                                        "text": "LastName"
+                                    },
+                                    "name": "MyColumn13",
+                                    "designerId": "9a9b1572-370b-4956-bf79-9b5ccb1107df"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar5",
+            "designerId": "94ec11b6-ad93-497b-a3c9-d3a07a6fec70",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "viewSaveBookButton",
+                        "layout|flex": null,
+                        "text": "Save"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "9c4a5d90-f8e5-4d5d-b7f2-1c6e77043cfa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "viewCancelSaveBookButton",
+                        "layout|flex": null,
+                        "text": "Cancel"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "683431e3-c242-4a8a-a4c8-1317a4ecd689"
+                }
+            ]
+        }
+    ]
+}

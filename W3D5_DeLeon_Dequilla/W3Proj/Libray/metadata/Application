@@ -1,0 +1,31 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "Account",
+            "Books"
+        ],
+        "models": [
+            "BorrowedModel",
+            "BorrowersModel",
+            "BookModel"
+        ],
+        "name": "Libray",
+        "stores": [
+            "BorrowedStore",
+            "BorrowersStore",
+            "BookStore"
+        ],
+        "views": [
+            "MyViewport",
+            "Register"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

@@ -24,9 +24,11 @@ Ext.define('BookingManagementSystem.view.Homepage', {
         'Ext.form.field.Text',
         'Ext.grid.Panel',
         'Ext.grid.View',
-        'Ext.grid.column.Number'
+        'Ext.grid.column.Number',
+        'Ext.selection.RowModel'
     ],
 
+    id: 'homePage',
     layout: 'fit',
 
     initComponent: function() {
@@ -36,6 +38,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
             items: [
                 {
                     xtype: 'panel',
+                    layout: 'fit',
                     frameHeader: false,
                     header: false,
                     overlapHeader: false,
@@ -51,6 +54,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                             items: [
                                 {
                                     xtype: 'label',
+                                    id: 'welcomeUserLabel',
                                     text: 'Welcome '
                                 },
                                 {
@@ -67,6 +71,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                             items: [
                                 {
                                     xtype: 'panel',
+                                    layout: 'fit',
                                     title: 'Books',
                                     tabConfig: {
                                         xtype: 'tab',
@@ -86,41 +91,73 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                     text: 'Search'
                                                 }
                                             ]
+                                        },
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'bottom',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    id: 'addBookButton',
+                                                    text: 'Add Book'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    disabled: true,
+                                                    id: 'viewBookButton',
+                                                    text: 'View/Edit Book'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    disabled: true,
+                                                    id: 'deleteBookButton',
+                                                    text: 'Delete Book'
+                                                }
+                                            ]
                                         }
                                     ],
                                     items: [
                                         {
                                             xtype: 'gridpanel',
+                                            id: 'booksGrid',
                                             title: 'All books',
                                             store: 'bookStore',
                                             columns: [
                                                 {
                                                     xtype: 'gridcolumn',
-                                                    dataIndex: 'string',
+                                                    dataIndex: 'title',
                                                     text: 'Title',
                                                     flex: 1
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    dataIndex: 'author',
                                                     text: 'Author',
                                                     flex: 1
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    dataIndex: 'description',
                                                     text: 'Description',
                                                     flex: 1
                                                 },
                                                 {
                                                     xtype: 'numbercolumn',
+                                                    dataIndex: 'available',
                                                     text: 'Available for rental',
-                                                    flex: 1
+                                                    flex: 1,
+                                                    format: '00'
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    dataIndex: 'checkoutBy',
                                                     text: 'CheckoutBy',
                                                     flex: 1
                                                 }
-                                            ]
+                                            ],
+                                            selModel: Ext.create('Ext.selection.RowModel', {
+
+                                            })
                                         }
                                     ]
                                 },
@@ -134,11 +171,99 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                 },
                                 {
                                     xtype: 'panel',
+                                    layout: 'fit',
                                     title: 'Users',
                                     tabConfig: {
                                         xtype: 'tab',
                                         flex: 1
-                                    }
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'gridpanel',
+                                            title: 'All Users',
+                                            store: 'userStore',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'firstName',
+                                                    text: 'First Name',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'lastName',
+                                                    text: 'Last Name',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'userName',
+                                                    text: 'User Name',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'password',
+                                                    text: 'Password',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'address',
+                                                    text: 'Address',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'contactNo',
+                                                    text: 'Contact No',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'email',
+                                                    text: 'Email',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'booksAtHand',
+                                                    text: 'Books at hand',
+                                                    flex: 1
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'bottom',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'MyButton'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'MyButton'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            items: [
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: 'Enter UserName'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Search'
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }
