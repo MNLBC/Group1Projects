@@ -13,7 +13,7 @@
             }
         },
         "urlPrefix": "",
-        "exportPath": "C:/Users/limosjo/Desktop/W3D5_LimosAndes/W3D5_publish",
+        "exportPath": "C:/Users/andesma/Desktop/3rd Project",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "buildShouldOverwriteIndex": true,
@@ -23,7 +23,8 @@
         "genTimestamps": false,
         "cacheBust": false,
         "installStatus": "Not Installed",
-        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1184-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.1.0",
     "xdsBuild": 1943,
@@ -52,7 +53,8 @@
         ],
         "resource": [
             "7513bed8-5ae1-43f3-920b-f2ddbfd48210",
-            "0052036f-bd64-416a-8f9c-17a76f1affae"
+            "0052036f-bd64-416a-8f9c-17a76f1affae",
+            "9bec80b3-7067-49f6-bfc3-e4ba20399c29"
         ],
         "app": [
             "application"
