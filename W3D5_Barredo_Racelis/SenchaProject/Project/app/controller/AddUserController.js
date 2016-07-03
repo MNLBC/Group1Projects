@@ -20,8 +20,69 @@ Ext.define('Project.controller.AddUserController', {
         'AddUsers'
     ],
 
+    refs: [
+        {
+            ref: 'nameAddUser',
+            selector: '#nameAddUser'
+        },
+        {
+            ref: 'usernameAddUser',
+            selector: '#usernameAddUser'
+        },
+        {
+            ref: 'passwordAddUser',
+            selector: '#passwordAddUser'
+        },
+        {
+            ref: 'addressAddUser',
+            selector: '#addressAddUser'
+        },
+        {
+            ref: 'type',
+            selector: '#typeAddUser'
+        },
+        {
+            ref: 'contactAddUser',
+            selector: '#contactAddUser'
+        },
+        {
+            ref: 'userGrid',
+            selector: '#userGrid'
+        }
+    ],
+
     onAddUserAdminBtnClick: function(button) {
-            console.log('add USERS USING ADMIN');
+               var name = this.getNameAddUser().getValue(),
+                   username = this.getUsernameAddUser().getValue(),
+                   password = this.getPasswordAddUser().getValue(),
+                   type = this.getType().getValue(),
+                   contact = this.getContactAddUser().getValue(),
+                   address = this.getAddressAddUser().getValue();
+
+               if(Ext.isEmpty(name) || Ext.isEmpty(username) || Ext.isEmpty(password) || Ext.isEmpty(type)){
+                   Ext.Msg.alert('Error', 'Some fields are empty');
+                   return;
+               }
+
+                var newUser = {
+                    username : username,
+                    password : password,
+                    name : name,
+                    type : type,
+                    contact: contact,
+                    address: address
+                };
+
+              var store = this.getUserGrid().getStore();
+
+
+                store.add(newUser);
+                button.up('window').destroy();
+
+
+
+
+
     },
 
     onCancelAddUserBtnClick: function(button) {

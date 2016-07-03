@@ -8,7 +8,7 @@
     "userConfig": {
         "bodyPadding": 20,
         "designer|userClassName": "AddUsers",
-        "height": 331,
+        "height": 368,
         "hidden": false,
         "modal": true,
         "title": "Add Users",
@@ -41,8 +41,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Name:",
-                        "inputId": "nameAdd"
+                        "inputId": "nameAdd",
+                        "itemId": "nameAddUser"
                     },
                     "name": "MyTextField14",
                     "designerId": "a0d36920-6b16-42a2-b5f6-77b62a082bd0"
@@ -55,8 +58,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Username",
-                        "inputId": "usernameAdd"
+                        "inputId": "usernameAdd",
+                        "itemId": "usernameAddUser"
                     },
                     "name": "MyTextField15",
                     "designerId": "f4ef59e9-4a4d-47d4-aae3-a0c274d69103"
@@ -69,8 +75,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
-                        "inputId": "passwordAdd"
+                        "inputId": "passwordAdd",
+                        "inputType": "password",
+                        "itemId": "passwordAddUser"
                     },
                     "name": "MyTextField16",
                     "designerId": "577a3f9e-788a-4dcc-9a0b-7976ac4bcbec"
@@ -83,10 +93,28 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "Address"
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Address",
+                        "itemId": "addressAddUser"
                     },
                     "name": "MyTextArea1",
                     "designerId": "8256c299-ec68-4561-a26e-d54308a2684f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Contact",
+                        "itemId": "contactAddUser",
+                        "layout|flex": 1
+                    },
+                    "name": "MyTextField12",
+                    "designerId": "61c86ee3-5155-4973-b6d7-7a59d62d4e69"
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -96,8 +124,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Type",
+                        "forceSelection": true,
                         "id": "type",
+                        "itemId": "typeAddUser",
                         "store": [
                             "['admin','client']"
                         ]

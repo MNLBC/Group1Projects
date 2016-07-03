@@ -39,7 +39,7 @@
                     "userConfig": {
                         "fieldLabel": "Title",
                         "inputId": "title",
-                        "itemId": "title"
+                        "itemId": "titleInventoryPage"
                     },
                     "name": "MyTextField10",
                     "designerId": "0ac1e4b5-db6c-4a65-a57e-1486d4e3145a"
@@ -53,76 +53,11 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Author:",
-                        "inputId": "author"
+                        "inputId": "author",
+                        "itemId": "authorInventoryPage"
                     },
                     "name": "MyTextField11",
                     "designerId": "5450486c-ac2c-42bb-838e-26b0d5cb7ea3"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Published Date:",
-                        "inputId": "publishedDate"
-                    },
-                    "name": "MyTextField12",
-                    "designerId": "3989f29e-bbd2-46bd-a5f2-9b212243d974"
-                },
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Category",
-                        "layout|flex": 1,
-                        "store": [
-                            "[",
-                            "'Science fiction',",
-                            "'Satire',",
-                            "'Drama',",
-                            "'Action and Adventure',",
-                            "'Romance',",
-                            "'Mystery',",
-                            "'Horror',",
-                            "'Self help',",
-                            "'Health',",
-                            "'Guide',",
-                            "'Travel',",
-                            "'Children',",
-                            "'Religion, Spirituality & New Age',",
-                            "'Science',",
-                            "'History',",
-                            "'Math',",
-                            "'Anthology',",
-                            "'Poetry',",
-                            "'Encyclopedias',",
-                            "'Dictionaries',",
-                            "'Comics',",
-                            "'Art',",
-                            "'Cookbooks',",
-                            "'Diaries',",
-                            "'Journals',",
-                            "'Prayer books',",
-                            "'Series',",
-                            "'Trilogy',",
-                            "'Biographies',",
-                            "'Autobiographies',",
-                            "'Fantasy'",
-                            "]"
-                        ]
-                    },
-                    "name": "MyComboBox2",
-                    "configAlternates": {
-                        "store": "array"
-                    },
-                    "designerId": "4400e489-4deb-475d-afe7-107c34c62394"
                 }
             ]
         },
@@ -160,7 +95,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|displayName": "Search",
+                        "designer|displayName": "Filter",
                         "itemId": "inventorySearchBttn",
                         "layout|flex": null,
                         "text": "Filter",

@@ -64,6 +64,7 @@ Ext.define('Project.view.Home', {
                                 },
                                 {
                                     xtype: 'button',
+                                    hidden: true,
                                     itemId: 'inventoryBtn',
                                     ui: 'menubarbtn',
                                     text: 'System',
@@ -120,6 +121,7 @@ Ext.define('Project.view.Home', {
                     items: [
                         {
                             xtype: 'mypanel12',
+                            height: 20,
                             itemId: 'homePanel',
                             flex: 1
                         },
