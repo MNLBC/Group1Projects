@@ -12,12 +12,16 @@
         ],
         "models": [
             "userModel",
-            "bookModel"
+            "bookModel",
+            "bookHistoryModel",
+            "userBookModel"
         ],
         "name": "BookingManagementSystem",
         "stores": [
             "userStore",
-            "bookStore"
+            "bookStore",
+            "bookHistoryStore",
+            "userBookStore"
         ],
         "views": [
             "LoginPage",

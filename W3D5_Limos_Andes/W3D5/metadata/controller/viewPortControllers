@@ -115,8 +115,8 @@
                     "        this.userStore = Ext.getStore('userStore');",
                     "        this.booksGrid = Ext.getCmp('booksGrid');",
                     "        this.bookStore = Ext.getStore('bookStore');",
-                    "//         var wholeName = this.bookStore.",
-                    "//         Ext.getCmp('welcomeUserId').setValue() += ' '"
+                    "        this.bookHistoryStore=Ext.getStore('bookHistoryStore');",
+                    "        this.userBookStore=Ext.getStore('userBookStore');"
                 ]
             },
             "name": "onLaunch",
@@ -278,7 +278,9 @@
                 "fn": "onBooksGridItemClick",
                 "implHandler": [
                     "        Ext.getCmp('viewBookButton').enable();",
-                    "        Ext.getCmp('deleteBookButton').enable();"
+                    "        Ext.getCmp('deleteBookButton').enable();",
+                    "        Ext.getCmp('userViewBookButton').enable();",
+                    "        Ext.getCmp('userCheckoutBookButton').enable();"
                 ],
                 "name": "itemclick",
                 "scope": "me"
@@ -329,7 +331,8 @@
                 "implHandler": [
                     "        Ext.getBody().mask();",
                     "        Ext.create('BookingManagementSystem.view.viewBookWindow',{",
-                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0]",
+                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],",
+                    "            uType: this.uType",
                     "        }).show();",
                     "",
                     ""
@@ -355,8 +358,22 @@
                     "        this.userInformation = component.userInfo;",
                     "        var firstName = this.userInformation.data.firstName;",
                     "        var lastName = this.userInformation.data.lastName;",
+                    "        this.userName = this.userInformation.data.userName;",
+                    "        this.uType = this.userInformation.data.uType;",
+                    "        this.userBookStore=Ext.getStore('userBookStore');",
                     "        Ext.getCmp('welcomeUserLabel').getEl().update('Welcome ' + firstName + ' ' + lastName);",
-                    "//         .setValue('Welcome ' + firstName + ' ' + lastName);"
+                    "        console.log(this.uType);",
+                    "        if(this.uType == 'admin'){",
+                    "            Ext.getCmp('userBooksToolbar').hide();",
+                    "",
+                    "//             Ext.getCmp('usersTab').show();",
+                    "        }else{",
+                    "            Ext.getCmp('adminBooksToolbar').hide();",
+                    "            Ext.getCmp('checkoutByColumn').hide();",
+                    "            Ext.getCmp('homePageTab').child('#usersTab').tab.hide();",
+                    "//             Ext.getCmp('usersTab').hide();",
+                    "",
+                    "        }"
                 ],
                 "name": "afterrender",
                 "scope": "me"
@@ -372,25 +389,23 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#titleSearch",
-                "designer|targetType": "MyTextField6",
-                "fn": "onTitleSearchChange",
+                "designer|controlQuery": "#logoutButton",
+                "designer|targetType": "MyButton4",
+                "fn": "onLogoutButtonClick",
                 "implHandler": [
-                    "     titleName = Ext.getCmp('titleSearch').getValue();",
-                    "                store = Ext.getStore('bookStore');",
-                    "",
-                    "                if(Ext.isEmpty(titleName)){",
-                    "                    store.clearFilter();",
-                    "                }else{",
-                    "                store.filter('title', titleName);",
-                    "                }",
-                    ""
+                    "Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to logout?\", function(btnText){",
+                    "            if(btnText === \"yes\"){",
+                    "                    Ext.getCmp('homePage').destroy();",
+                    "                    Ext.getCmp('userName').setValue('');",
+                    "                    Ext.getCmp('password').setValue('');",
+                    "            }",
+                    "        }, this);"
                 ],
-                "name": "change",
+                "name": "click",
                 "scope": "me"
             },
-            "name": "onTitleSearchChange",
-            "designerId": "85cda350-c545-4280-a738-1385b89bf52f"
+            "name": "onLogoutButtonClick",
+            "designerId": "928655e7-d903-4387-b24c-3846aab6f36d"
         },
         {
             "type": "controlleraction",
@@ -400,24 +415,69 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#searchUser",
-                "designer|targetType": "MyTextField11",
-                "fn": "onSearchUserChange",
+                "designer|controlQuery": "#userViewBookButton",
+                "designer|targetType": "MyButton14",
+                "fn": "onUserViewBookButtonClick",
                 "implHandler": [
-                    "        userTxt = Ext.getCmp('searchUser').getValue();",
-                    "                        store = Ext.getStore('userStore');",
-                    "",
-                    "                        if(Ext.isEmpty(userTxt)){",
-                    "                            store.clearFilter();",
-                    "                        }else{",
-                    "                        store.filter('userName', userTxt);",
-                    "                        }"
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.viewBookWindow',{",
+                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],",
+                    "            uType: this.uType,",
+                    "            userName:this.userName,",
+                    "            userId:this.userId",
+                    "        }).show();"
                 ],
-                "name": "change",
+                "name": "click",
                 "scope": "me"
             },
-            "name": "onSearchUserChange",
-            "designerId": "b04708f1-39b8-43fe-8999-70c9572c4982"
+            "name": "onUserViewBookButtonClick",
+            "designerId": "4e8b7edc-be3e-4686-bf8e-f3a134375703"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userCheckoutBookButton",
+                "designer|targetType": "MyButton15",
+                "fn": "onUserCheckoutBookButtonClick",
+                "implHandler": [
+                    "        Ext.Msg.confirm(\"Confirmation\", \"CheckOut this book?\", function(btnText){",
+                    "            var record = Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0];",
+                    "            if(btnText === \"yes\"){",
+                    "",
+                    "                var currentAvailable = record.data.available - 1;",
+                    "                var bookHistoryStore = this.bookHistoryStore;",
+                    "",
+                    "                var historyLog = {",
+                    "                    bookId:record.data.bookId,",
+                    "                    action:\"Checked out book\",",
+                    "                    date: new Date(),",
+                    "                    userName: this.userName",
+                    "                };",
+                    "                var userBook = {",
+                    "                    title: record.data.title,",
+                    "                    description:record.data.description,",
+                    "                    checkoutDate:new Date(),",
+                    "                    userId:this.userId",
+                    "                };",
+                    "                ",
+                    "            this.userBookStore.add(userBook);   ",
+                    "            bookHistoryStore.add(historyLog);",
+                    "            record.set('available', currentAvailable);",
+                    "                }",
+                    "",
+                    "                ",
+                    "            }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onUserCheckoutBookButtonClick",
+            "designerId": "47de2861-4dd5-49d8-a26d-c80bd58f5deb"
         }
     ]
 }

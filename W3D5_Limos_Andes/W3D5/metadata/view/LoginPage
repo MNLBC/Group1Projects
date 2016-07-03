@@ -98,6 +98,7 @@
                                         "allowBlank": false,
                                         "allowOnlyWhitespace": false,
                                         "fieldLabel": "Username",
+                                        "id": "userName",
                                         "margin": 25,
                                         "name": "userName"
                                     },
@@ -115,6 +116,7 @@
                                         "allowBlank": false,
                                         "allowOnlyWhitespace": false,
                                         "fieldLabel": "Password",
+                                        "id": "password",
                                         "inputType": "password",
                                         "name": "password"
                                     },
