@@ -167,13 +167,6 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                     text: 'Available for rental',
                                                     flex: 1,
                                                     format: '00'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    id: 'checkoutByColumn',
-                                                    dataIndex: 'checkoutBy',
-                                                    text: 'CheckoutBy',
-                                                    flex: 1
                                                 }
                                             ],
                                             selModel: Ext.create('Ext.selection.RowModel', {
@@ -184,6 +177,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                 },
                                 {
                                     xtype: 'panel',
+                                    id: 'userProfile',
                                     title: 'User Profile',
                                     tabConfig: {
                                         xtype: 'tab',
@@ -278,20 +272,6 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                         }
                                     ],
                                     dockedItems: [
-                                        {
-                                            xtype: 'toolbar',
-                                            dock: 'bottom',
-                                            items: [
-                                                {
-                                                    xtype: 'button',
-                                                    text: 'MyButton'
-                                                },
-                                                {
-                                                    xtype: 'button',
-                                                    text: 'MyButton'
-                                                }
-                                            ]
-                                        },
                                         {
                                             xtype: 'toolbar',
                                             dock: 'top',

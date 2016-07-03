@@ -178,8 +178,13 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                 Ext.getCmp('authorView').setValue(this.author);
                 Ext.getCmp('descriptionView').setValue(this.description);
                 Ext.getCmp('availableView').setValue(this.available);
+
+        //              titleName = Ext.getCmp('bookHistoryStore').getValue();
+                        store = Ext.getStore('bookHistoryStore');
+                        store.filter('bookId', this.bookId);
+                        console.log(this.bookId);
+
                 var form = Ext.getCmp('viewBookPanel');
-                console.log('pangalawa besh ' + uType);
                 if(uType !== 'admin'){
                     Ext.getCmp('titleView').setReadOnly(true);
                     Ext.getCmp('authorView').setReadOnly(true);
@@ -231,15 +236,15 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
             Ext.getBody().unmask();
             Ext.getCmp('viewBookButton').disable();
             Ext.getCmp('deleteBookButton').disable();
+             Ext.getStore('bookHistoryStore').clearFilter();
     },
 
     onCheckOutThisBookClick: function() {
-                Ext.Msg.confirm("Confirmation", "CheckOut this book?", function(btnText){
+                Ext.Msg.confirm("Confirmation", "Checkout this book?", function(btnText){
                     var record = Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0];
                     if(btnText === "yes"){
 
                         var currentAvailable = record.data.available - 1;
-                        var bookHistoryStore = this.bookHistoryStore;
 
                         var historyLog = {
                             bookId:record.data.bookId,
@@ -256,7 +261,7 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                         Ext.getCmp('viewBookWindow').close();
                         Ext.getBody().unmask();
                     this.userBookStore.add(userBook);
-                    bookHistoryStore.add(historyLog);
+                    this.bookHistoryStore.add(historyLog);
                     record.set('available', currentAvailable);
                         }
 

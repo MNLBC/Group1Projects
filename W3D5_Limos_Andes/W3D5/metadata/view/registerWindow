@@ -143,8 +143,10 @@
                                 "allowOnlyWhitespace": false,
                                 "fieldLabel": "Contact No.",
                                 "id": null,
+                                "inputType": "number",
                                 "itemId": "contactNo",
                                 "layout|anchor": "100%",
+                                "maxLength": 11,
                                 "name": "contactNo"
                             },
                             "name": "MyTextField7",
@@ -164,7 +166,12 @@
                                 "id": null,
                                 "itemId": "email",
                                 "layout|anchor": "100%",
-                                "name": "email"
+                                "maskRe": "/^([A-Za-z0-9_.]+)@([A-Za-z0-9]+).([A-Za-z0-9]+)$/",
+                                "name": "email",
+                                "regex": null,
+                                "regexText": null,
+                                "vtype": "email",
+                                "vtypeText": "Invalid email format"
                             },
                             "name": "MyTextField8",
                             "designerId": "996ab303-915d-4ad3-9f2e-6d8cd47a1662"
