@@ -32,6 +32,9 @@ Ext.define('Project.model.Book', {
         },
         {
             name: 'datePublished'
+        },
+        {
+            name: 'category'
         }
     ]
 });

@@ -48,7 +48,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "name",
-                        "text": "Name"
+                        "text": "Name",
+                        "width": 150
                     },
                     "name": "MyColumn4",
                     "designerId": "220f5bc3-72e9-45cb-b8d8-263ad5af33b9"
@@ -80,6 +81,21 @@
                     },
                     "name": "MyColumn6",
                     "designerId": "632eac61-75c9-4af2-8656-0b35d9b11662"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "flex": 1,
+                        "text": "Address",
+                        "width": null
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "4dc884f4-c1e2-4bf9-87b5-d16a1802f550"
                 },
                 {
                     "type": "Ext.grid.View",
@@ -114,6 +130,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "addUsersBtn",
                         "layout|flex": null,
                         "text": "Add Users"
                     },
@@ -128,6 +145,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "removeUserBtn",
                         "layout|flex": null,
                         "text": "Remove User"
                     },

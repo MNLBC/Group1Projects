@@ -18,16 +18,20 @@ Ext.define('Project.view.InventoryPanel', {
     alias: 'widget.inventorypanel1',
 
     requires: [
+        'Ext.form.field.ComboBox',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.RowNumberer',
         'Ext.grid.View',
-        'Ext.grid.plugin.CellEditing',
         'Ext.grid.column.Date',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.form.field.Date',
+        'Ext.grid.plugin.RowEditing'
     ],
 
     itemId: 'inventoryPanel',
+    bodyPadding: 5,
 
     initComponent: function() {
         var me = this;
@@ -35,7 +39,85 @@ Ext.define('Project.view.InventoryPanel', {
         Ext.applyIf(me, {
             items: [
                 {
+                    xtype: 'container',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            itemId: 'title',
+                            fieldLabel: 'Title',
+                            inputId: 'title'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Author:',
+                            inputId: 'author'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Published Date:',
+                            inputId: 'publishedDate'
+                        },
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            fieldLabel: 'Category',
+                            store: [
+                                'Science fiction',
+                                'Satire',
+                                'Drama',
+                                'Action and Adventure',
+                                'Romance',
+                                'Mystery',
+                                'Horror',
+                                'Self help',
+                                'Health',
+                                'Guide',
+                                'Travel',
+                                'Children',
+                                'Religion, Spirituality & New Age',
+                                'Science',
+                                'History',
+                                'Math',
+                                'Anthology',
+                                'Poetry',
+                                'Encyclopedias',
+                                'Dictionaries',
+                                'Comics',
+                                'Art',
+                                'Cookbooks',
+                                'Diaries',
+                                'Journals',
+                                'Prayer books',
+                                'Series',
+                                'Trilogy',
+                                'Biographies',
+                                'Autobiographies',
+                                'Fantasy'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'inventorySearchBttn',
+                            width: '',
+                            text: 'Filter'
+                        }
+                    ]
+                },
+                {
                     xtype: 'gridpanel',
+                    itemId: 'bookGrid',
                     autoScroll: true,
                     title: 'Book Records',
                     store: 'Books',
@@ -47,28 +129,94 @@ Ext.define('Project.view.InventoryPanel', {
                             xtype: 'gridcolumn',
                             width: 200,
                             dataIndex: 'title',
-                            text: 'Ttitle'
+                            text: 'Ttitle',
+                            editor: {
+                                xtype: 'textfield',
+                                itemId: 'titleColumnTextField',
+                                width: 100,
+                                hideLabel: true
+                            }
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'author',
-                            text: 'Author'
+                            text: 'Author',
+                            editor: {
+                                xtype: 'textfield',
+                                itemId: 'authorColumnTextField',
+                                width: 100,
+                                hideLabel: true
+                            }
                         },
                         {
                             xtype: 'datecolumn',
                             width: 119,
                             dataIndex: 'datePublished',
-                            text: 'Date Published'
+                            text: 'Date Published',
+                            editor: {
+                                xtype: 'datefield',
+                                itemId: 'dateColumnDateField'
+                            }
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'description',
                             text: 'Description',
-                            flex: 1
+                            flex: 1,
+                            editor: {
+                                xtype: 'textfield',
+                                itemId: 'descriptionColumnTextField'
+                            }
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            itemId: 'category',
+                            dataIndex: 'category',
+                            text: 'Category',
+                            flex: 1,
+                            editor: {
+                                xtype: 'combobox',
+                                itemId: 'categoryColumnComboBox',
+                                forceSelection: true,
+                                multiSelect: true,
+                                store: [
+                                    'Science fiction',
+                                    'Satire',
+                                    'Drama',
+                                    'Action and Adventure',
+                                    'Romance',
+                                    'Mystery',
+                                    'Horror',
+                                    'Self help',
+                                    'Health',
+                                    'Guide',
+                                    'Travel',
+                                    'Children',
+                                    'Religion, Spirituality & New Age',
+                                    'Science',
+                                    'History',
+                                    'Math',
+                                    'Anthology',
+                                    'Poetry',
+                                    'Encyclopedias',
+                                    'Dictionaries',
+                                    'Comics',
+                                    'Art',
+                                    'Cookbooks',
+                                    'Diaries',
+                                    'Journals',
+                                    'Prayer books',
+                                    'Series',
+                                    'Trilogy',
+                                    'Biographies',
+                                    'Autobiographies',
+                                    'Fantasy'
+                                ]
+                            }
                         }
                     ],
                     plugins: [
-                        Ext.create('Ext.grid.plugin.CellEditing', {
+                        Ext.create('Ext.grid.plugin.RowEditing', {
 
                         })
                     ]
@@ -80,14 +228,17 @@ Ext.define('Project.view.InventoryPanel', {
                     dock: 'bottom',
                     items: [
                         {
-                            xtype: 'button',
-                            itemId: 'addBooksBtn',
-                            text: 'Add'
+                            xtype: 'tbfill'
                         },
                         {
                             xtype: 'button',
                             itemId: 'removeBooksBtn',
                             text: 'Remove'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'addBooksBtn',
+                            text: 'Add'
                         }
                     ]
                 }

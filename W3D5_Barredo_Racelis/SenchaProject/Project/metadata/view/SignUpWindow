@@ -27,7 +27,9 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
+                "container|align": "stretch",
                 "itemId": "signUpForm",
+                "layout": "vbox",
                 "title": null
             },
             "name": "MyForm",
@@ -45,8 +47,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Username",
                         "inputId": "username",
-                        "itemId": "usernameSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "usernameSignUp"
                     },
                     "name": "MyTextField2",
                     "designerId": "4a49248b-2ccf-4fff-a5f6-0bf46a53af9a"
@@ -64,8 +65,7 @@
                         "fieldLabel": "Password",
                         "inputId": "password",
                         "inputType": "password",
-                        "itemId": "passwordSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "passwordSignUp"
                     },
                     "name": "MyTextField3",
                     "designerId": "302c6cdc-080c-40a1-a5db-85ed4e5883ff"
@@ -83,8 +83,7 @@
                         "fieldLabel": "Re- Password",
                         "inputId": "password2",
                         "inputType": "password",
-                        "itemId": "passwordReSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "passwordReSignUp"
                     },
                     "name": "MyTextField4",
                     "designerId": "e1b1bc5b-688d-42e4-979c-3606d5ff3598"
@@ -101,8 +100,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Address",
                         "inputId": "address",
-                        "itemId": "addressSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "addressSignUp"
                     },
                     "name": "MyTextArea",
                     "designerId": "96f3642c-3898-460c-a669-a75110d4db30"
@@ -119,8 +117,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Phone",
                         "inputId": "phone",
-                        "itemId": "phoneSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "phoneSignUp"
                     },
                     "name": "MyTextField5",
                     "designerId": "904e943f-6c64-46d5-b35c-41537e8b982c"

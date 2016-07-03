@@ -16,12 +16,88 @@
 Ext.define('Project.view.AddUsers', {
     extend: 'Ext.window.Window',
 
-    height: 288,
+    requires: [
+        'Ext.form.Panel',
+        'Ext.form.field.TextArea',
+        'Ext.form.field.ComboBox',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button'
+    ],
+
+    height: 331,
+    hidden: false,
     width: 400,
+    bodyPadding: 20,
     title: 'Add Users',
+    modal: true,
 
     initComponent: function() {
         var me = this;
+
+        Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'form',
+                    bodyPadding: 10,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Name:',
+                            inputId: 'nameAdd'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Username',
+                            inputId: 'usernameAdd'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Password',
+                            inputId: 'passwordAdd'
+                        },
+                        {
+                            xtype: 'textareafield',
+                            fieldLabel: 'Address'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'type',
+                            fieldLabel: 'Type',
+                            store: [
+                                'admin',
+                                'client'
+                            ]
+                        }
+                    ],
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'bottom',
+                            items: [
+                                {
+                                    xtype: 'tbfill'
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'addUserAdminBtn',
+                                    text: 'Add'
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'cancelAddUserBtn',
+                                    text: 'Cancel'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        });
 
         me.callParent(arguments);
     }

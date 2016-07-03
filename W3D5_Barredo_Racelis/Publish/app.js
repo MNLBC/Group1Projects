@@ -22,7 +22,8 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'User',
-        'Book'
+        'Book',
+        'Category'
     ],
     stores: [
         'User',
@@ -33,13 +34,13 @@ Ext.application({
         'SearchPanel',
         'HomePanel',
         'InventoryPanel',
-        'UserPanel',
-        'AddUsers'
+        'UserPanel'
     ],
     controllers: [
         'HomeController',
         'LoginController',
-        'SignUpController'
+        'SignUpController',
+        'AddUserController'
     ],
     name: 'Project',
 

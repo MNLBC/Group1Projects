@@ -43,6 +43,7 @@ Ext.define('Project.view.UserPanel', {
                         },
                         {
                             xtype: 'gridcolumn',
+                            width: 150,
                             dataIndex: 'name',
                             text: 'Name'
                         },
@@ -55,6 +56,11 @@ Ext.define('Project.view.UserPanel', {
                             xtype: 'gridcolumn',
                             dataIndex: 'type',
                             text: 'Type'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            text: 'Address',
+                            flex: 1
                         }
                     ]
                 }
@@ -66,10 +72,12 @@ Ext.define('Project.view.UserPanel', {
                     items: [
                         {
                             xtype: 'button',
+                            itemId: 'addUsersBtn',
                             text: 'Add Users'
                         },
                         {
                             xtype: 'button',
+                            itemId: 'removeUserBtn',
                             text: 'Remove User'
                         }
                     ]

@@ -130,14 +130,14 @@ Ext.define('Project.view.Home', {
                         },
                         {
                             xtype: 'inventorypanel1',
-                            flex: 1,
-                            hidden: true
+                            hidden: true,
+                            flex: 1
                         },
                         {
                             xtype: 'mypanel13',
-                            flex: 1,
                             hidden: true,
-                            itemId: 'userPanel'
+                            itemId: 'userPanel',
+                            flex: 1
                         }
                     ]
                 }

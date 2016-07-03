@@ -41,10 +41,13 @@ Ext.define('Project.view.SignUpWindow', {
                     xtype: 'form',
                     itemId: 'signUpForm',
                     bodyPadding: 10,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'usernameSignUp',
                             fieldLabel: 'Username',
                             inputId: 'username',
@@ -53,7 +56,6 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'passwordSignUp',
                             fieldLabel: 'Password',
                             inputId: 'password',
@@ -63,7 +65,6 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'passwordReSignUp',
                             fieldLabel: 'Re- Password',
                             inputId: 'password2',
@@ -73,7 +74,6 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textareafield',
-                            anchor: '100%',
                             itemId: 'addressSignUp',
                             fieldLabel: 'Address',
                             inputId: 'address',
@@ -82,7 +82,6 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'phoneSignUp',
                             fieldLabel: 'Phone',
                             inputId: 'phone',

@@ -9,11 +9,13 @@
         "controllers": [
             "HomeController",
             "LoginController",
-            "SignUpController"
+            "SignUpController",
+            "AddUserController"
         ],
         "models": [
             "User",
-            "Book"
+            "Book",
+            "Category"
         ],
         "name": "Project",
         "stores": [
@@ -25,8 +27,7 @@
             "SearchPanel",
             "HomePanel",
             "InventoryPanel",
-            "UserPanel",
-            "AddUsers"
+            "UserPanel"
         ]
     },
     "name": "Application",

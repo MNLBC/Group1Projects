@@ -28,34 +28,59 @@ Ext.define('Project.store.Books', {
             storeId: 'bookStore',
             data: [
                 {
-                    title: 'Vero Nisi Earum Sed Repellat',
-                    author: 'Mamie Hernandez',
-                    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
-                    datePublished: '6/2/2005'
+                    title: 'Illo Et Consequuntur Mollitia Sit',
+                    author: 'Luther Sanchez',
+                    description: 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
+                    datePublished: '10/10/2002',
+                    category: [
+                        'Science fiction',
+                        'Satire',
+                        'Children'
+                    ]
                 },
                 {
-                    title: 'Consequatur Dolor Neque',
-                    author: 'Dorothy Harris',
-                    description: 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.',
-                    datePublished: '12/17/2011'
+                    title: 'Sed Animi',
+                    author: 'Archie Phillips',
+                    description: 'Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
+                    datePublished: '10/24/2010',
+                    category: [
+                        'Science fiction',
+                        'Satire',
+                        'Children'
+                    ]
                 },
                 {
-                    title: 'Qui Earum',
-                    author: 'Hugh Adams',
-                    description: 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.',
-                    datePublished: '4/17/2012'
+                    title: 'Fuga Dolores Dolorum Cum',
+                    author: 'Dorothy Miller',
+                    description: 'Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
+                    datePublished: '10/6/2002',
+                    category: [
+                        'Science fiction',
+                        'Satire',
+                        'Children'
+                    ]
                 },
                 {
-                    title: 'Rerum Omnis Quia Hic',
-                    author: 'Viola Cooper',
-                    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.',
-                    datePublished: '4/23/2002'
+                    title: 'Voluptatem Culpa Harum Et',
+                    author: 'Kathryn Adams',
+                    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.',
+                    datePublished: '1/21/2012',
+                    category: [
+                        'Science fiction',
+                        'Satire',
+                        'Children'
+                    ]
                 },
                 {
-                    title: 'Perspiciatis Sunt',
-                    author: 'Marion Scott',
-                    description: 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.',
-                    datePublished: '5/24/2012'
+                    title: 'Molestiae Molestiae Sunt',
+                    author: 'Homer Gomez',
+                    description: 'Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.',
+                    datePublished: '11/1/2006',
+                    category: [
+                        'Science fiction',
+                        'Satire',
+                        'Children'
+                    ]
                 }
             ]
         }, cfg)]);

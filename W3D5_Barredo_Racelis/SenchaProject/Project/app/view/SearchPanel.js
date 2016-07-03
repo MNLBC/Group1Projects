@@ -18,8 +18,10 @@ Ext.define('Project.view.SearchPanel', {
     alias: 'widget.mypanel2',
 
     requires: [
-        'Ext.form.Label',
         'Ext.form.field.Text',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
         'Ext.grid.column.Date',
@@ -28,6 +30,7 @@ Ext.define('Project.view.SearchPanel', {
     ],
 
     itemId: 'searchPanel',
+    bodyPadding: 5,
 
     initComponent: function() {
         var me = this;
@@ -35,24 +38,47 @@ Ext.define('Project.view.SearchPanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',
-                    text: 'searching'
+                    xtype: 'container',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            width: 255,
+                            fieldLabel: 'Title',
+                            inputId: 'titleSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Author',
+                            inputId: 'authorSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Published Date',
+                            inputId: 'publishedDateSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Category',
+                            inputId: 'categorySearch'
+                        }
+                    ]
                 },
                 {
-                    xtype: 'textfield',
-                    fieldLabel: 'Label'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Label'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Label'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Label'
+                    xtype: 'toolbar',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'searchBttn',
+                            text: 'Search'
+                        }
+                    ]
                 },
                 {
                     xtype: 'gridpanel',
@@ -61,7 +87,7 @@ Ext.define('Project.view.SearchPanel', {
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'string',
-                            text: 'String'
+                            text: 'Title'
                         },
                         {
                             xtype: 'numbercolumn',

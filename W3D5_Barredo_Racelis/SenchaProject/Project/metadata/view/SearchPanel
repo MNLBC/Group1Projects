@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bodyPadding": 5,
         "designer|userAlias": "mypanel2",
         "designer|userClassName": "SearchPanel",
         "itemId": "searchPanel",
@@ -15,69 +16,121 @@
     "designerId": "65c662c7-1707-4fda-8207-b56d09d62ec8",
     "cn": [
         {
-            "type": "Ext.form.Label",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "text": "searching"
+                "container|align": "stretch",
+                "container|padding": null,
+                "layout": "vbox"
             },
-            "name": "MyLabel1",
-            "designerId": "166effde-bf51-43e5-b545-5a3d0092210b"
+            "name": "MyContainer2",
+            "designerId": "c01f6c03-b353-440f-985c-f8ad4aea4589",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Title",
+                        "inputId": "titleSearch",
+                        "width": 255
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "a431975e-1b9d-4cd8-b97d-433648578202"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Author",
+                        "inputId": "authorSearch"
+                    },
+                    "name": "MyTextField7",
+                    "designerId": "1fcb335b-01d9-461d-90ed-f25377ef4f41"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Published Date",
+                        "inputId": "publishedDateSearch"
+                    },
+                    "name": "MyTextField8",
+                    "designerId": "e4b0c1ac-3ff1-45fb-b93f-4688ee3dae39"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Category",
+                        "inputId": "categorySearch"
+                    },
+                    "name": "MyTextField9",
+                    "designerId": "4ecc9882-bb0e-4c55-bbc7-5d01bfbc3aa6"
+                }
+            ]
         },
         {
-            "type": "Ext.form.field.Text",
+            "type": "Ext.toolbar.Toolbar",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fieldLabel": "Label"
+                "dock": null
             },
-            "name": "MyTextField6",
-            "designerId": "a431975e-1b9d-4cd8-b97d-433648578202"
-        },
-        {
-            "type": "Ext.form.field.Text",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fieldLabel": "Label"
-            },
-            "name": "MyTextField7",
-            "designerId": "1fcb335b-01d9-461d-90ed-f25377ef4f41"
-        },
-        {
-            "type": "Ext.form.field.Text",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fieldLabel": "Label"
-            },
-            "name": "MyTextField8",
-            "designerId": "e4b0c1ac-3ff1-45fb-b93f-4688ee3dae39"
-        },
-        {
-            "type": "Ext.form.field.Text",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fieldLabel": "Label"
-            },
-            "name": "MyTextField9",
-            "designerId": "4ecc9882-bb0e-4c55-bbc7-5d01bfbc3aa6"
+            "name": "MyToolbar7",
+            "designerId": "c8257bf4-7270-44e8-a09b-ddfebf3678e2",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill5",
+                    "designerId": "d5b6fb18-fdc9-48df-a5d5-f6477cc91a1b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "searchBttn",
+                        "layout|flex": null,
+                        "text": "Search"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "c91db4f2-7c93-4573-a293-cee43b03ec0f"
+                }
+            ]
         },
         {
             "type": "Ext.grid.Panel",
@@ -101,7 +154,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "string",
-                        "text": "String"
+                        "text": "Title"
                     },
                     "name": "MyColumn3",
                     "designerId": "01add69e-6618-4123-adc2-19f1f912e5e3"
