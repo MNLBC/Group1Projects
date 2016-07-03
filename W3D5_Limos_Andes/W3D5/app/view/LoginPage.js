@@ -68,6 +68,7 @@ Ext.define('BookingManagementSystem.view.LoginPage', {
                                             margins: '',
                                             margin: '-50, 0, 0, 0',
                                             padding: '',
+                                            style: 'font-size:20px;',
                                             text: 'Welcome to Book Management System'
                                         },
                                         {

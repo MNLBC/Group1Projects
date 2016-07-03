@@ -140,6 +140,7 @@
                                             "userConfig": {
                                                 "fieldLabel": "Enter Title",
                                                 "id": "titleSearch",
+                                                "inputType": "search",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField6",
@@ -645,6 +646,7 @@
                                             "userConfig": {
                                                 "fieldLabel": "Enter UserName",
                                                 "id": "searchUser",
+                                                "inputType": "search",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField11",
