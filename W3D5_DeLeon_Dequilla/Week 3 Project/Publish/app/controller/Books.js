@@ -152,6 +152,7 @@ Ext.define('Libray.controller.Books', {
         selectedBooks[0].data.title = editTitle;
         selectedBooks[0].data.author = editAuthor;
         selectedBooks[0].data.publisher = editPublisher;
+        gridBook.refresh();
 
          Ext.MessageBox.alert ('Information', 'Bookd details updated!');
         this.getAddEditWin().destroy();
