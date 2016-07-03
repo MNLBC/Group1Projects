@@ -86,7 +86,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "checkoutBy"
+                "name": "checkoutBy",
+                "type": "string"
             },
             "name": "MyField13",
             "designerId": "4da84241-19a4-4671-963a-98de158e3b2a"

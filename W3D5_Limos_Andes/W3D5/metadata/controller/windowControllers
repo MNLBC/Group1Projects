@@ -384,7 +384,7 @@
                     "        if(form.isValid()){",
                     "            if(!this.isBookExist(title)){",
                     "                var book = {",
-                    "                    bookId: this.bookStore.length,",
+                    "                    bookId: this.bookStore.getCount() + 1,",
                     "                    title: title,",
                     "                    author: author,",
                     "                    description: description,",
@@ -522,7 +522,9 @@
                     "        Ext.getCmp('titleView').setValue(this.title);",
                     "        Ext.getCmp('authorView').setValue(this.author);",
                     "        Ext.getCmp('descriptionView').setValue(this.description);",
-                    "        Ext.getCmp('availableView').setValue(this.available);"
+                    "        Ext.getCmp('availableView').setValue(this.available);",
+                    "",
+                    "        "
                 ],
                 "name": "activate",
                 "scope": "me"
@@ -572,6 +574,26 @@
             },
             "name": "onViewSaveBookButtonClick",
             "designerId": "45aaed3a-1f9c-4515-a210-e36e8f68af03"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewBookWindow",
+                "designer|targetType": "viewBookWindow",
+                "fn": "onViewBookWindowDestroy",
+                "implHandler": [
+                    "    Ext.getBody().unmask();"
+                ],
+                "name": "destroy",
+                "scope": "me"
+            },
+            "name": "onViewBookWindowDestroy",
+            "designerId": "d641c19f-28ce-45e3-8937-cc40d5e0bf63"
         }
     ]
 }

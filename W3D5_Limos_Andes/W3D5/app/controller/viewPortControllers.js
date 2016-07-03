@@ -44,9 +44,12 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                     }else if(this.validateLogin(form) === 0){
                         this.showErrorMessage('Wrong Password!');
                     }else{
+                        this.userStore.getById();
+                        var index = this.userStore.find("userName", form.getValues().userName);
+                        var userInfo = this.userStore.getAt(index);
                         Ext.create('BookingManagementSystem.view.Homepage',{
-
-                                   }).show();
+                            userInfo: userInfo
+                         }).show();
                     }
 
                 }else{
@@ -88,12 +91,21 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
 
     },
 
+    onHomePageAfterRender: function(component, eOpts) {
+                this.userInformation = component.userInfo;
+                var firstName = this.userInformation.data.firstName;
+                var lastName = this.userInformation.data.lastName;
+                Ext.getCmp('welcomeUserLabel').getEl().update('Welcome ' + firstName + ' ' + lastName);
+        //         .setValue('Welcome ' + firstName + ' ' + lastName);
+    },
+
     onLaunch: function() {
                 this.loginPage = Ext.getCmp('loginPage');
                 this.userStore = Ext.getStore('userStore');
                 this.booksGrid = Ext.getCmp('booksGrid');
                 this.bookStore = Ext.getStore('bookStore');
-
+        //         var wholeName = this.bookStore.
+        //         Ext.getCmp('welcomeUserId').setValue() += ' '
     },
 
     showLoadingMessageMask: function() {
@@ -166,6 +178,9 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#viewBookButton": {
                 click: this.onViewBookButtonClick
+            },
+            "#homePage": {
+                afterrender: this.onHomePageAfterRender
             }
         });
     }

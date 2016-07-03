@@ -40,7 +40,8 @@ Ext.define('BookingManagementSystem.model.bookModel', {
             name: 'available'
         },
         {
-            name: 'checkoutBy'
+            name: 'checkoutBy',
+            type: 'string'
         }
     ]
 });

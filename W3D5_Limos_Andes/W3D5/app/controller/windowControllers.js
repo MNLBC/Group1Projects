@@ -112,7 +112,7 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                 if(form.isValid()){
                     if(!this.isBookExist(title)){
                         var book = {
-                            bookId: this.bookStore.length,
+                            bookId: this.bookStore.getCount() + 1,
                             title: title,
                             author: author,
                             description: description,
@@ -171,6 +171,8 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                 Ext.getCmp('authorView').setValue(this.author);
                 Ext.getCmp('descriptionView').setValue(this.description);
                 Ext.getCmp('availableView').setValue(this.available);
+
+
     },
 
     onViewSaveBookButtonClick: function() {
@@ -198,6 +200,10 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                     }else{
                         this.showErrorMessage('All fields must have a value');
                     }
+    },
+
+    onViewBookWindowDestroy: function(component, eOpts) {
+            Ext.getBody().unmask();
     },
 
     showLoadingMessageMask: function() {
@@ -280,7 +286,8 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                 click: this.onViewCancelSaveBookButtonClick
             },
             "#viewBookWindow": {
-                activate: this.onViewBookWindowActivate
+                activate: this.onViewBookWindowActivate,
+                destroy: this.onViewBookWindowDestroy
             },
             "#viewSaveBookButton": {
                 click: this.onViewSaveBookButtonClick

@@ -7,11 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "viewBookWindow",
-        "height": 680,
+        "height": 533,
         "id": "viewBookWindow",
-        "layout": "vbox",
+        "layout": "fit",
         "title": "View/Edit Book",
-        "width": 810
+        "width": 684
     },
     "name": "addBookWindow1",
     "designerId": "4fd2752b-bca7-41fe-ae30-9a0c3a42b2a0",
@@ -25,13 +25,10 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
-                "container|align": "stretch",
-                "container|pack": "center",
                 "header": false,
                 "height": 276,
                 "id": "viewBookPanel",
-                "layout": "hbox",
-                "layout|flex": null,
+                "layout": "auto",
                 "title": "My Form",
                 "width": 810
             },
@@ -46,9 +43,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "height": 700,
                         "id": "viewBookInformationContainer",
                         "title": "Book Information",
-                        "width": 600
+                        "width": 652
                     },
                     "name": "MyFieldSet2",
                     "designerId": "c570682a-9776-4331-8654-bc302711e576",
@@ -128,6 +126,79 @@
                             },
                             "name": "MyNumberField",
                             "designerId": "272243b5-e4f3-4a7c-a85e-a6fa17d2459c"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 311,
+                                "store": "userStore",
+                                "title": "Users Who Currently Have A Copy"
+                            },
+                            "name": "MyGridPanel2",
+                            "designerId": "7a09bc6a-573d-4c55-9d0b-8aebbbb639a2",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView2",
+                                    "designerId": "002f5d10-e8c4-48d4-9ec5-887f4f2be079"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "userId",
+                                        "flex": 1,
+                                        "format": "00",
+                                        "text": "UserId"
+                                    },
+                                    "name": "MyNumberColumn1",
+                                    "designerId": "725a2726-4128-4a2c-a437-f778aeb422ce"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "firstName",
+                                        "flex": 1,
+                                        "text": "FirstName"
+                                    },
+                                    "name": "MyColumn12",
+                                    "designerId": "947284b0-748a-40da-b486-71c8d49901fa"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "lastName",
+                                        "flex": 1,
+                                        "text": "LastName"
+                                    },
+                                    "name": "MyColumn13",
+                                    "designerId": "9a9b1572-370b-4956-bf79-9b5ccb1107df"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -142,8 +213,7 @@
             "codeClass": null,
             "userConfig": {
                 "container|pack": "end",
-                "dock": "bottom",
-                "layout|flex": 1
+                "dock": "bottom"
             },
             "name": "MyToolbar5",
             "designerId": "94ec11b6-ad93-497b-a3c9-d3a07a6fec70",
