@@ -101,8 +101,10 @@ Ext.define('BookingManagementSystem.view.registerWindow', {
                                     itemId: 'contactNo',
                                     fieldLabel: 'Contact No.',
                                     name: 'contactNo',
+                                    inputType: 'tel',
                                     allowBlank: false,
-                                    allowOnlyWhitespace: false
+                                    allowOnlyWhitespace: false,
+                                    maxLength: 11
                                 },
                                 {
                                     xtype: 'textfield',
@@ -111,7 +113,9 @@ Ext.define('BookingManagementSystem.view.registerWindow', {
                                     fieldLabel: 'Email',
                                     name: 'email',
                                     allowBlank: false,
-                                    allowOnlyWhitespace: false
+                                    allowOnlyWhitespace: false,
+                                    vtype: 'email',
+                                    vtypeText: 'Invalid email format'
                                 },
                                 {
                                     xtype: 'textareafield',

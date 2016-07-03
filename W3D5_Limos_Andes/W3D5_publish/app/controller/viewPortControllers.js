@@ -67,6 +67,8 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
     onBooksGridItemClick: function() {
                 Ext.getCmp('viewBookButton').enable();
                 Ext.getCmp('deleteBookButton').enable();
+                Ext.getCmp('userViewBookButton').enable();
+                Ext.getCmp('userCheckoutBookButton').enable();
     },
 
     onDeleteBookButtonClick: function() {
@@ -85,7 +87,8 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
     onViewBookButtonClick: function() {
                 Ext.getBody().mask();
                 Ext.create('BookingManagementSystem.view.viewBookWindow',{
-                    record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0]
+                    record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],
+                    uType: this.uType
                 }).show();
 
 
@@ -95,8 +98,73 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                 this.userInformation = component.userInfo;
                 var firstName = this.userInformation.data.firstName;
                 var lastName = this.userInformation.data.lastName;
+                this.userName = this.userInformation.data.userName;
+                this.uType = this.userInformation.data.uType;
+                this.userBookStore=Ext.getStore('userBookStore');
                 Ext.getCmp('welcomeUserLabel').getEl().update('Welcome ' + firstName + ' ' + lastName);
-        //         .setValue('Welcome ' + firstName + ' ' + lastName);
+                console.log(this.uType);
+                if(this.uType == 'admin'){
+                    Ext.getCmp('userBooksToolbar').hide();
+
+                    Ext.getCmp('homePageTab').child('#userProfile').tab.hide();
+
+        //             Ext.getCmp('usersTab').show();
+                }else{
+                    Ext.getCmp('adminBooksToolbar').hide();
+                    Ext.getCmp('homePageTab').child('#usersTab').tab.hide();
+        //             Ext.getCmp('usersTab').hide();
+
+                }
+    },
+
+    onLogoutButtonClick: function() {
+        Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
+                    if(btnText === "yes"){
+                            Ext.getCmp('homePage').destroy();
+                            Ext.getCmp('userName').setValue('');
+                            Ext.getCmp('password').setValue('');
+                    }
+                }, this);
+    },
+
+    onUserViewBookButtonClick: function() {
+                Ext.getBody().mask();
+                Ext.create('BookingManagementSystem.view.viewBookWindow',{
+                    record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],
+                    uType: this.uType,
+                    userName:this.userName,
+                    userId:this.userId
+                }).show();
+    },
+
+    onUserCheckoutBookButtonClick: function() {
+                Ext.Msg.confirm("Confirmation", "CheckOut this book?", function(btnText){
+                    var record = Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0];
+                    if(btnText === "yes"){
+
+                        var currentAvailable = record.data.available - 1;
+                        var bookHistoryStore = this.bookHistoryStore;
+
+                        var historyLog = {
+                            bookId:record.data.bookId,
+                            action:"Checked out book",
+                            date: new Date(),
+                            userName: this.userName
+                        };
+                        var userBook = {
+                            title: record.data.title,
+                            description:record.data.description,
+                            checkoutDate:new Date(),
+                            userId:this.userId
+                        };
+
+                    this.userBookStore.add(userBook);
+                    bookHistoryStore.add(historyLog);
+                    record.set('available', currentAvailable);
+                        }
+
+
+                    }, this);
     },
 
     onTitleSearchChange: function() {
@@ -120,6 +188,7 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                                 }else{
                                 store.filter('userName', userTxt);
                                 }
+
     },
 
     onLaunch: function() {
@@ -127,8 +196,8 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                 this.userStore = Ext.getStore('userStore');
                 this.booksGrid = Ext.getCmp('booksGrid');
                 this.bookStore = Ext.getStore('bookStore');
-        //         var wholeName = this.bookStore.
-        //         Ext.getCmp('welcomeUserId').setValue() += ' '
+                this.bookHistoryStore=Ext.getStore('bookHistoryStore');
+                this.userBookStore=Ext.getStore('userBookStore');
     },
 
     showLoadingMessageMask: function() {
@@ -204,6 +273,15 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#homePage": {
                 afterrender: this.onHomePageAfterRender
+            },
+            "#logoutButton": {
+                click: this.onLogoutButtonClick
+            },
+            "#userViewBookButton": {
+                click: this.onUserViewBookButtonClick
+            },
+            "#userCheckoutBookButton": {
+                click: this.onUserCheckoutBookButtonClick
             },
             "#titleSearch": {
                 change: this.onTitleSearchChange

@@ -1,0 +1,37 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "",
+        "designer|userClassName": "addWin",
+        "header": false,
+        "height": 227,
+        "hidden": false,
+        "itemId": "addWin",
+        "layout": "fit",
+        "resizable": [
+            "false"
+        ],
+        "title": "My Window",
+        "width": 359
+    },
+    "name": "MyWindow",
+    "designerId": "550ca2f4-f444-4e0a-b47b-d8a40b6542d4",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "addform1",
+            "designerId": "172581fb-d565-43a6-8619-4dc3178b59e2",
+            "masterInstanceId": "6c2dc0fd-4a5c-4570-8fdf-86de2d7be3d2"
+        }
+    ]
+}
