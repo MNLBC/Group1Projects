@@ -363,6 +363,34 @@
             },
             "name": "onHomePageAfterRender",
             "designerId": "722a9757-4ebd-42a9-a221-a3d94bd3630c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#titleSearch",
+                "designer|targetType": "MyTextField6",
+                "fn": "onTitleSearchChange",
+                "implHandler": [
+                    "     titleName = Ext.getCmp('titleSearch').getValue();",
+                    "                store = Ext.getStore('bookStore');",
+                    "",
+                    "                if(Ext.isEmpty(titleName)){",
+                    "                    store.clearFilter();",
+                    "                }else{",
+                    "                store.filter('title', titleName);",
+                    "                }",
+                    ""
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "name": "onTitleSearchChange",
+            "designerId": "85cda350-c545-4280-a738-1385b89bf52f"
         }
     ]
 }

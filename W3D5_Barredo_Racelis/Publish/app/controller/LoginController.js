@@ -28,28 +28,64 @@ Ext.define('Project.controller.LoginController', {
         {
             ref: 'passwordTextField',
             selector: '#passwordTextField'
+        },
+        {
+            ref: 'currentUsername',
+            selector: '#currentUsername'
+        },
+        {
+            ref: 'signupBtn',
+            selector: '#signupBtn'
+        },
+        {
+            ref: 'showLoginWindow',
+            selector: '#showLoginWindow'
+        },
+        {
+            ref: 'logoutbtn',
+            selector: '#logoutbtn'
+        },
+        {
+            ref: 'showLoginWindow2',
+            selector: '#showLoginWindow'
         }
     ],
 
-    onLoginClick: function() {
-                 var username = this.getUsernameTextField().getValue();
-                 var password = this.getPasswordTextField().getValue();
+    onLoginClick: function(button) {
+                 var username = this.getUsernameTextField().getValue(),
+                     password = this.getPasswordTextField().getValue(),
+                     window = button.up('window');
 
-                 this.userStore = Ext.create('Project.store.User');
+                 var gridUserStore = userStore;
 
                 //logic checking if the user exist in the store
-                console.log('Username' + username);
-                console.log('Password' + password);
 
-                Ext.each(this.userStore.getRange(), function(record){
+                var success= false,
+                    name ;
+                Ext.each(gridUserStore.getRange(), function(record){
                      var data = record.data;
                     if(data.username === username && data.password === password){
-                        console.log('success');
+                        success = true;
+                        Ext.Msg.alert('Successfully Login', 'You have successfully login');
+                        name = data.name;
                         return false;
                     }
                 });
 
+                if(success){
+                    //show hide panels
+                    this.getCurrentUsername().setText('Welcome , '+ name);
 
+                    window.hide();
+                    this.getSignupBtn().hide();
+                    this.getLogoutbtn().show();
+                    this.getCurrentUsername().show();
+                    this.getShowLoginWindow().hide();
+
+                }else{
+                    Ext.Msg.alert('Login Failed', 'User does not exists');
+
+                }
 
     },
 

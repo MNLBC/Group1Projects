@@ -18,11 +18,19 @@ Ext.define('Project.view.SearchPanel', {
     alias: 'widget.mypanel2',
 
     requires: [
-        'Ext.form.Label'
+        'Ext.form.field.Text',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View'
     ],
 
-    hidden: true,
     itemId: 'searchPanel',
+    bodyPadding: 5,
 
     initComponent: function() {
         var me = this;
@@ -30,8 +38,73 @@ Ext.define('Project.view.SearchPanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',
-                    text: 'searching'
+                    xtype: 'container',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            width: 255,
+                            fieldLabel: 'Title',
+                            inputId: 'titleSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Author',
+                            inputId: 'authorSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Published Date',
+                            inputId: 'publishedDateSearch'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Category',
+                            inputId: 'categorySearch'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'searchBttn',
+                            text: 'Search'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'gridpanel',
+                    title: 'My Grid Panel',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'string',
+                            text: 'Title'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'number',
+                            text: 'Number'
+                        },
+                        {
+                            xtype: 'datecolumn',
+                            dataIndex: 'date',
+                            text: 'Date'
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            dataIndex: 'bool',
+                            text: 'Boolean'
+                        }
+                    ]
                 }
             ]
         });

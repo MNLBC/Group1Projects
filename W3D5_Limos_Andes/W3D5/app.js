@@ -32,7 +32,7 @@ Ext.application({
         'LoginPage',
         'Homepage',
         'addBookWindow',
-        'viewBookWindow'
+        'viewBook'
     ],
     controllers: [
         'viewPortControllers',

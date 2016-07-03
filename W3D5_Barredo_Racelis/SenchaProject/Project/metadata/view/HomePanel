@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "mypanel1",
+        "designer|userAlias": "mypanel12",
         "designer|userClassName": "HomePanel",
         "height": null,
         "itemId": null,
@@ -17,17 +17,34 @@
     "designerId": "22404f63-9ca9-45f3-9bee-9f1c8a844940",
     "cn": [
         {
-            "type": "Ext.form.Label",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "text": "HOME"
+                "container|align": "center",
+                "container|pack": "center",
+                "layout": "vbox"
             },
-            "name": "MyLabel",
-            "designerId": "c81b769e-11fb-4bb6-84c3-eccc8eda4f1a"
+            "name": "MyContainer",
+            "designerId": "2b4b6460-63a9-49fb-922d-fbdb8d8b9619",
+            "cn": [
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "HOME"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "c81b769e-11fb-4bb6-84c3-eccc8eda4f1a"
+                }
+            ]
         }
     ]
 }

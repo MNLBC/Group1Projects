@@ -41,10 +41,13 @@ Ext.define('Project.view.SignUpWindow', {
                     xtype: 'form',
                     itemId: 'signUpForm',
                     bodyPadding: 10,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'usernameSignUp',
                             fieldLabel: 'Username',
                             inputId: 'username',
@@ -53,25 +56,24 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'passwordSignUp',
                             fieldLabel: 'Password',
                             inputId: 'password',
+                            inputType: 'password',
                             allowBlank: false,
                             allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'passwordReSignUp',
                             fieldLabel: 'Re- Password',
                             inputId: 'password2',
+                            inputType: 'password',
                             allowBlank: false,
                             allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textareafield',
-                            anchor: '100%',
                             itemId: 'addressSignUp',
                             fieldLabel: 'Address',
                             inputId: 'address',
@@ -80,7 +82,6 @@ Ext.define('Project.view.SignUpWindow', {
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             itemId: 'phoneSignUp',
                             fieldLabel: 'Phone',
                             inputId: 'phone',
@@ -104,13 +105,7 @@ Ext.define('Project.view.SignUpWindow', {
                                 {
                                     xtype: 'button',
                                     itemId: 'registerBttn',
-                                    text: 'Register',
-                                    listeners: {
-                                        click: {
-                                            fn: me.onRegisterBttnClick,
-                                            scope: me
-                                        }
-                                    }
+                                    text: 'Register'
                                 }
                             ]
                         }
@@ -120,10 +115,6 @@ Ext.define('Project.view.SignUpWindow', {
         });
 
         me.callParent(arguments);
-    },
-
-    onRegisterBttnClick: function(button, e, eOpts) {
-
     }
 
 });

@@ -137,24 +137,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "Enter Title",
+                                                "id": "titleSearch",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField6",
                                             "designerId": "ee75b3e7-1e24-47b1-9128-7fc747eab891"
-                                        },
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null,
-                                                "text": "Search"
-                                            },
-                                            "name": "MyButton5",
-                                            "designerId": "28c9afad-c036-4258-93d1-86d6b6b6f95f"
                                         }
                                     ]
                                 },

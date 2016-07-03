@@ -9,19 +9,25 @@
         "controllers": [
             "HomeController",
             "LoginController",
-            "SignUpController"
+            "SignUpController",
+            "AddUserController"
         ],
         "models": [
-            "User"
+            "User",
+            "Book",
+            "Category"
         ],
         "name": "Project",
         "stores": [
-            "User"
+            "User",
+            "Books"
         ],
         "views": [
             "LoginWindow",
             "SearchPanel",
-            "HomePanel"
+            "HomePanel",
+            "InventoryPanel",
+            "UserPanel"
         ]
     },
     "name": "Application",

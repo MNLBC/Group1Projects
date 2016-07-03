@@ -36,6 +36,18 @@ Ext.define('Project.controller.HomeController', {
         {
             ref: 'signupBtn',
             selector: '#signupBtn'
+        },
+        {
+            ref: 'inventoryPanel',
+            selector: '#inventoryPanel'
+        },
+        {
+            ref: 'userPanel',
+            selector: '#userPanel'
+        },
+        {
+            ref: 'bookGrid',
+            selector: '#bookGrid'
         }
     ],
 
@@ -46,15 +58,100 @@ Ext.define('Project.controller.HomeController', {
     onSearchButtonClick: function() {
             this.getHomePanel().hide();
             this.getSearchPanel().show();
+            this.getInventoryPanel().hide();
+            this.getUserPanel().hide();
     },
 
     onHomeButtonClick: function() {
                 this.getHomePanel().show();
                 this.getSearchPanel().hide();
+                this.getInventoryPanel().hide();
+                this.getUserPanel().hide();
     },
 
     onSignupBtnClick: function() {
                 Ext.create('Project.view.SignUpWindow').show();
+    },
+
+    onBookMenuBtnClick: function() {
+        this.getHomePanel().hide();
+        this.getSearchPanel().hide();
+        this.getInventoryPanel().show();
+        this.getUserPanel().hide();
+    },
+
+    onUserMenuBtnClick: function() {
+                this.getHomePanel().hide();
+                this.getSearchPanel().hide();
+                this.getInventoryPanel().hide();
+                this.getUserPanel().show();
+    },
+
+    onHomeViewportRender: function(component, eOpts) {
+                userStore = Ext.create('Project.store.User');
+                bookStore = Ext.create('Project.store.Books');
+        console.log('viewport render');
+
+    },
+
+    onInventoryPanelRender: function(component, eOpts) {
+        console.log('activate');
+
+    },
+
+    onRemoveBooksBtnClick: function(button, e, eOptions) {
+
+        var grid = this.getBookGrid();
+                console.log(grid);
+        var sel = grid.getSelectionModel();
+
+        if (Ext.isEmpty(sel.getSelection())){
+            Ext.Msg.alert('No Selected','You have to select on grid');
+        }
+        else{
+
+
+
+            Ext.Msg.confirm("Confirmation", "Do you want to delete the record?", function(btnText){
+                if(btnText === "no"){
+                    return;
+                }
+                else if(btnText === "yes"){
+                    grid.getStore().remove(sel.getSelection());
+                    grid.getView().refresh();
+                    Ext.Msg.alert('Selected','You have successfully deleted record on grid');
+                }
+            }, this);
+
+        }
+
+    },
+
+    onAddBooksBtnClick: function() {
+              var grid = this.getBookGrid();
+              var bookStore = grid.getStore();
+              var newBook = {
+                  title: '',
+                  author: '',
+                  description: '',
+                  datePublished: ''
+              };
+
+              bookStore.add(newBook);
+
+    },
+
+    onAddUsersBtnClick: function() {
+                Ext.create('Project.view.AddUsers').show();
+    },
+
+    onRemoveUserBtnClick: function() {
+    
+    },
+
+    onInventorySearchBttnClick: function(button) {
+                var gridStore = this.getBookGrid().getStore();
+        console.log(gridStore);
     },
 
     init: function(application) {
@@ -70,6 +167,33 @@ Ext.define('Project.controller.HomeController', {
             },
             "#signupBtn": {
                 click: this.onSignupBtnClick
+            },
+            "#bookMenuBtn": {
+                click: this.onBookMenuBtnClick
+            },
+            "#userMenuBtn": {
+                click: this.onUserMenuBtnClick
+            },
+            "#homeViewport": {
+                render: this.onHomeViewportRender
+            },
+            "#inventoryPanel": {
+                render: this.onInventoryPanelRender
+            },
+            "#removeBooksBtn": {
+                click: this.onRemoveBooksBtnClick
+            },
+            "#addBooksBtn": {
+                click: this.onAddBooksBtnClick
+            },
+            "#addUsersBtn": {
+                click: this.onAddUsersBtnClick
+            },
+            "#removeUserBtn": {
+                click: this.onRemoveUserBtnClick
+            },
+            "#inventorySearchBttn": {
+                click: this.onInventorySearchBttnClick
             }
         });
     }

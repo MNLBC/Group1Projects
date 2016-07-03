@@ -36,23 +36,28 @@ Ext.define('Project.controller.SignUpController', {
     ],
 
     onRegisterBttnClick: function() {
-            var form =  this.getSignUpForm().getForm();
-
-            if(!form.isValid()){
-                Ext.alert('Valid', 'VALID');
-
-            }
+                var data = this.getSignUpForm().getForm().getValues();
+                var record = {
+                    username: data.username,
+                    password: data.password,
+                    name:  'NAME',
+                    type: 'client'
+                };
+                    console.log(data);
+                Ext.getStore('userStore');
     },
 
-    onRegisterBttnClick: function() {
-
+    onCancelBttnClick: function(button) {
+                button.up('window').hide();
     },
 
     init: function(application) {
         this.control({
             "#registerBttn": {
-                click: this.onRegisterBttnClick,
                 click: this.onRegisterBttnClick
+            },
+            "#cancelBttn": {
+                click: this.onCancelBttnClick
             }
         });
     }

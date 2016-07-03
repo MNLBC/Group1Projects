@@ -40,12 +40,15 @@
                 "designer|targetType": "MyButton9",
                 "fn": "onRegisterBttnClick",
                 "implHandler": [
-                    "    var form =  this.getSignUpForm().getForm();",
-                    "    ",
-                    "    if(!form.isValid()){",
-                    "        Ext.alert('Valid', 'VALID');",
-                    "    ",
-                    "    }"
+                    "        var data = this.getSignUpForm().getForm().getValues();",
+                    "        var record = {",
+                    "            username: data.username,",
+                    "            password: data.password,",
+                    "            name:  'NAME',",
+                    "            type: 'client'",
+                    "        };",
+                    "            console.log(data);",
+                    "        Ext.getStore('userStore');"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -89,14 +92,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#registerBttn",
-                "designer|targetType": "MyButton9",
-                "fn": "onRegisterBttnClick",
+                "designer|controlQuery": "#cancelBttn",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton8",
+                "fn": "onCancelBttnClick",
+                "implHandler": [
+                    "        button.up('window').hide();"
+                ],
                 "name": "click",
                 "scope": "me"
             },
-            "name": "onRegisterBttnClick",
-            "designerId": "1f9a4ee7-404e-4d0b-808b-fd6ec49fcf23"
+            "name": "onCancelBttnClick",
+            "designerId": "ca42da0b-8790-4803-8298-47ee5a6d7c88"
         }
     ]
 }

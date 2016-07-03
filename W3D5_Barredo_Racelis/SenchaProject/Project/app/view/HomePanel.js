@@ -15,9 +15,10 @@
 
 Ext.define('Project.view.HomePanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mypanel1',
+    alias: 'widget.mypanel12',
 
     requires: [
+        'Ext.container.Container',
         'Ext.form.Label'
     ],
 
@@ -29,8 +30,18 @@ Ext.define('Project.view.HomePanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',
-                    text: 'HOME'
+                    xtype: 'container',
+                    layout: {
+                        type: 'vbox',
+                        align: 'center',
+                        pack: 'center'
+                    },
+                    items: [
+                        {
+                            xtype: 'label',
+                            text: 'HOME'
+                        }
+                    ]
                 }
             ]
         });

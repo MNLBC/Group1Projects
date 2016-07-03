@@ -99,6 +99,18 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
         //         .setValue('Welcome ' + firstName + ' ' + lastName);
     },
 
+    onTitleSearchChange: function() {
+             titleName = Ext.getCmp('titleSearch').getValue();
+                        store = Ext.getStore('bookStore');
+
+                        if(Ext.isEmpty(titleName)){
+                            store.clearFilter();
+                        }else{
+                        store.filter('title', titleName);
+                        }
+
+    },
+
     onLaunch: function() {
                 this.loginPage = Ext.getCmp('loginPage');
                 this.userStore = Ext.getStore('userStore');
@@ -181,6 +193,9 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#homePage": {
                 afterrender: this.onHomePageAfterRender
+            },
+            "#titleSearch": {
+                change: this.onTitleSearchChange
             }
         });
     }

@@ -27,7 +27,9 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
+                "container|align": "stretch",
                 "itemId": "signUpForm",
+                "layout": "vbox",
                 "title": null
             },
             "name": "MyForm",
@@ -45,8 +47,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Username",
                         "inputId": "username",
-                        "itemId": "usernameSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "usernameSignUp"
                     },
                     "name": "MyTextField2",
                     "designerId": "4a49248b-2ccf-4fff-a5f6-0bf46a53af9a"
@@ -63,8 +64,8 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
                         "inputId": "password",
-                        "itemId": "passwordSignUp",
-                        "layout|anchor": "100%"
+                        "inputType": "password",
+                        "itemId": "passwordSignUp"
                     },
                     "name": "MyTextField3",
                     "designerId": "302c6cdc-080c-40a1-a5db-85ed4e5883ff"
@@ -81,8 +82,8 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Re- Password",
                         "inputId": "password2",
-                        "itemId": "passwordReSignUp",
-                        "layout|anchor": "100%"
+                        "inputType": "password",
+                        "itemId": "passwordReSignUp"
                     },
                     "name": "MyTextField4",
                     "designerId": "e1b1bc5b-688d-42e4-979c-3606d5ff3598"
@@ -99,8 +100,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Address",
                         "inputId": "address",
-                        "itemId": "addressSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "addressSignUp"
                     },
                     "name": "MyTextArea",
                     "designerId": "96f3642c-3898-460c-a669-a75110d4db30"
@@ -117,8 +117,7 @@
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "Phone",
                         "inputId": "phone",
-                        "itemId": "phoneSignUp",
-                        "layout|anchor": "100%"
+                        "itemId": "phoneSignUp"
                     },
                     "name": "MyTextField5",
                     "designerId": "904e943f-6c64-46d5-b35c-41537e8b982c"
@@ -178,24 +177,7 @@
                                 "text": "Register"
                             },
                             "name": "MyButton9",
-                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onRegisterBttnClick",
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onRegisterBttnClick",
-                                    "designerId": "6ca602de-059b-4608-9304-d51d283ebd0a"
-                                }
-                            ]
+                            "designerId": "72238403-2e6e-4e0b-a9b6-496f259faf9b"
                         }
                     ]
                 }
