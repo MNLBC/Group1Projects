@@ -106,10 +106,11 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
                 if(this.uType == 'admin'){
                     Ext.getCmp('userBooksToolbar').hide();
 
+                    Ext.getCmp('homePageTab').child('#userProfile').tab.hide();
+
         //             Ext.getCmp('usersTab').show();
                 }else{
                     Ext.getCmp('adminBooksToolbar').hide();
-                    Ext.getCmp('checkoutByColumn').hide();
                     Ext.getCmp('homePageTab').child('#usersTab').tab.hide();
         //             Ext.getCmp('usersTab').hide();
 
@@ -164,6 +165,30 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
 
 
                     }, this);
+    },
+
+    onTitleSearchChange: function() {
+             titleName = Ext.getCmp('titleSearch').getValue();
+                        store = Ext.getStore('bookStore');
+
+                        if(Ext.isEmpty(titleName)){
+                            store.clearFilter();
+                        }else{
+                        store.filter('title', titleName);
+                        }
+
+    },
+
+    onSearchUserChange: function() {
+                userTxt = Ext.getCmp('searchUser').getValue();
+                                store = Ext.getStore('userStore');
+
+                                if(Ext.isEmpty(userTxt)){
+                                    store.clearFilter();
+                                }else{
+                                store.filter('userName', userTxt);
+                                }
+
     },
 
     onLaunch: function() {
@@ -257,6 +282,12 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#userCheckoutBookButton": {
                 click: this.onUserCheckoutBookButtonClick
+            },
+            "#titleSearch": {
+                change: this.onTitleSearchChange
+            },
+            "#searchUser": {
+                change: this.onSearchUserChange
             }
         });
     }

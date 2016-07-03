@@ -139,24 +139,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "Enter Title",
+                                                "id": "titleSearch",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField6",
                                             "designerId": "ee75b3e7-1e24-47b1-9128-7fc747eab891"
-                                        },
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null,
-                                                "text": "Search"
-                                            },
-                                            "name": "MyButton5",
-                                            "designerId": "28c9afad-c036-4258-93d1-86d6b6b6f95f"
                                         }
                                     ]
                                 },
@@ -249,22 +236,6 @@
                                             },
                                             "name": "MyNumberColumn",
                                             "designerId": "2adf4226-8067-4592-b45e-26e9160698ea"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "checkoutBy",
-                                                "flex": 1,
-                                                "id": "checkoutByColumn",
-                                                "text": "CheckoutBy"
-                                            },
-                                            "name": "MyColumn3",
-                                            "designerId": "5197fe57-27cb-46d5-a3bd-fe266a173287"
                                         },
                                         {
                                             "type": "Ext.selection.RowModel",
@@ -399,6 +370,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "userProfile",
                                 "title": "User Profile"
                             },
                             "name": "MyPanel3",
@@ -658,49 +630,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dock": "bottom"
-                                    },
-                                    "name": "MyToolbar6",
-                                    "designerId": "5814fcbc-bc85-4f41-9194-e8766580b43a",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null,
-                                                "text": "MyButton"
-                                            },
-                                            "name": "MyButton11",
-                                            "designerId": "948735a3-4ba8-4c74-ba7c-09f5d21ed4e2"
-                                        },
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null,
-                                                "text": "MyButton"
-                                            },
-                                            "name": "MyButton12",
-                                            "designerId": "b8bc646e-8e5d-47fc-b1b7-41e2f0c2da40"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.toolbar.Toolbar",
-                                    "reference": {
-                                        "name": "dockedItems",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
                                         "dock": "top"
                                     },
                                     "name": "MyToolbar7",
@@ -715,24 +644,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "Enter UserName",
+                                                "id": "searchUser",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField11",
                                             "designerId": "346c0a64-8216-4fcb-b731-2731cdf5a6e4"
-                                        },
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": null,
-                                                "text": "Search"
-                                            },
-                                            "name": "MyButton13",
-                                            "designerId": "b792d7b2-c0af-4028-b037-61e35c6acddb"
                                         }
                                     ]
                                 }

@@ -366,10 +366,11 @@
                     "        if(this.uType == 'admin'){",
                     "            Ext.getCmp('userBooksToolbar').hide();",
                     "",
+                    "            Ext.getCmp('homePageTab').child('#userProfile').tab.hide();",
+                    "",
                     "//             Ext.getCmp('usersTab').show();",
                     "        }else{",
                     "            Ext.getCmp('adminBooksToolbar').hide();",
-                    "            Ext.getCmp('checkoutByColumn').hide();",
                     "            Ext.getCmp('homePageTab').child('#usersTab').tab.hide();",
                     "//             Ext.getCmp('usersTab').hide();",
                     "",
@@ -478,6 +479,62 @@
             },
             "name": "onUserCheckoutBookButtonClick",
             "designerId": "47de2861-4dd5-49d8-a26d-c80bd58f5deb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#titleSearch",
+                "designer|targetType": "MyTextField6",
+                "fn": "onTitleSearchChange",
+                "implHandler": [
+                    "     titleName = Ext.getCmp('titleSearch').getValue();",
+                    "                store = Ext.getStore('bookStore');",
+                    "",
+                    "                if(Ext.isEmpty(titleName)){",
+                    "                    store.clearFilter();",
+                    "                }else{",
+                    "                store.filter('title', titleName);",
+                    "                }",
+                    ""
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "name": "onTitleSearchChange",
+            "designerId": "de08118e-340e-4a7d-b0e1-b0bcf44589a2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchUser",
+                "designer|targetType": "MyTextField11",
+                "fn": "onSearchUserChange",
+                "implHandler": [
+                    "        userTxt = Ext.getCmp('searchUser').getValue();",
+                    "                        store = Ext.getStore('userStore');",
+                    "",
+                    "                        if(Ext.isEmpty(userTxt)){",
+                    "                            store.clearFilter();",
+                    "                        }else{",
+                    "                        store.filter('userName', userTxt);",
+                    "                        }",
+                    ""
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "name": "onSearchUserChange",
+            "designerId": "66653f4c-4ae6-4740-93f1-fe7913bf9a6a"
         }
     ]
 }
