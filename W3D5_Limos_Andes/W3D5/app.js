@@ -22,17 +22,21 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'userModel',
-        'bookModel'
+        'bookModel',
+        'bookHistoryModel',
+        'userBookModel'
     ],
     stores: [
         'userStore',
-        'bookStore'
+        'bookStore',
+        'bookHistoryStore',
+        'userBookStore'
     ],
     views: [
         'LoginPage',
         'Homepage',
         'addBookWindow',
-        'viewBookWindow'
+        'viewBook'
     ],
     controllers: [
         'viewPortControllers',

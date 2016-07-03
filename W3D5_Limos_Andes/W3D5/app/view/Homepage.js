@@ -25,7 +25,8 @@ Ext.define('BookingManagementSystem.view.Homepage', {
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.Number',
-        'Ext.selection.RowModel'
+        'Ext.selection.RowModel',
+        'Ext.grid.column.Date'
     ],
 
     id: 'homePage',
@@ -59,6 +60,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                 },
                                 {
                                     xtype: 'button',
+                                    id: 'logoutButton',
                                     text: 'Logout'
                                 }
                             ]
@@ -67,6 +69,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                     items: [
                         {
                             xtype: 'tabpanel',
+                            id: 'homePageTab',
                             activeTab: 0,
                             items: [
                                 {
@@ -95,6 +98,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                         {
                                             xtype: 'toolbar',
                                             dock: 'bottom',
+                                            id: 'adminBooksToolbar',
                                             items: [
                                                 {
                                                     xtype: 'button',
@@ -112,6 +116,25 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                     disabled: true,
                                                     id: 'deleteBookButton',
                                                     text: 'Delete Book'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'bottom',
+                                            id: 'userBooksToolbar',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    disabled: true,
+                                                    id: 'userViewBookButton',
+                                                    text: 'View Book Info'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    disabled: true,
+                                                    id: 'userCheckoutBookButton',
+                                                    text: 'Checkout Book'
                                                 }
                                             ]
                                         }
@@ -150,6 +173,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                 },
                                                 {
                                                     xtype: 'gridcolumn',
+                                                    id: 'checkoutByColumn',
                                                     dataIndex: 'checkoutBy',
                                                     text: 'CheckoutBy',
                                                     flex: 1
@@ -167,10 +191,38 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                     tabConfig: {
                                         xtype: 'tab',
                                         flex: 1
-                                    }
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'gridpanel',
+                                            title: 'Book At Hand',
+                                            store: 'userBookStore',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'title',
+                                                    text: 'Book Title',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'description',
+                                                    text: 'Book Description',
+                                                    flex: 1
+                                                },
+                                                {
+                                                    xtype: 'datecolumn',
+                                                    dataIndex: 'checkoutDate',
+                                                    text: 'Date Checked Out',
+                                                    flex: 1
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     xtype: 'panel',
+                                    id: 'usersTab',
                                     layout: 'fit',
                                     title: 'Users',
                                     tabConfig: {
@@ -223,12 +275,6 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                     xtype: 'gridcolumn',
                                                     dataIndex: 'email',
                                                     text: 'Email',
-                                                    flex: 1
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'booksAtHand',
-                                                    text: 'Books at hand',
                                                     flex: 1
                                                 }
                                             ]

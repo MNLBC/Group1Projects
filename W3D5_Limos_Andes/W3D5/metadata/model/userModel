@@ -129,20 +129,6 @@
             },
             "name": "MyField7",
             "designerId": "30b33c26-90e7-4374-be82-6c61d5e2cf76"
-        },
-        {
-            "type": "Ext.data.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "booksAtHand",
-                "type": "string"
-            },
-            "name": "MyField8",
-            "designerId": "b4f441c7-bc92-49ee-864a-f96f832d55c1"
         }
     ]
 }

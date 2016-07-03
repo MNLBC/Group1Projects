@@ -136,8 +136,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "height": 311,
-                                "store": "userStore",
-                                "title": "Users Who Currently Have A Copy"
+                                "id": "bookHistoryGrid",
+                                "store": "bookHistoryStore",
+                                "title": "Book History"
                             },
                             "name": "MyGridPanel2",
                             "designerId": "7a09bc6a-573d-4c55-9d0b-8aebbbb639a2",
@@ -153,20 +154,19 @@
                                     "designerId": "002f5d10-e8c4-48d4-9ec5-887f4f2be079"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Number",
+                                    "type": "Ext.grid.column.Column",
                                     "reference": {
                                         "name": "columns",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "userId",
+                                        "dataIndex": "userName",
                                         "flex": 1,
-                                        "format": "00",
-                                        "text": "UserId"
+                                        "text": "User"
                                     },
-                                    "name": "MyNumberColumn1",
-                                    "designerId": "725a2726-4128-4a2c-a437-f778aeb422ce"
+                                    "name": "MyColumn14",
+                                    "designerId": "81f0bb4a-30ef-4e19-9c95-95feb3ecb0c0"
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -176,27 +176,27 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "firstName",
+                                        "dataIndex": "action",
                                         "flex": 1,
-                                        "text": "FirstName"
+                                        "text": "Action"
                                     },
                                     "name": "MyColumn12",
                                     "designerId": "947284b0-748a-40da-b486-71c8d49901fa"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Column",
+                                    "type": "Ext.grid.column.Date",
                                     "reference": {
                                         "name": "columns",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "lastName",
+                                        "dataIndex": "date",
                                         "flex": 1,
-                                        "text": "LastName"
+                                        "text": "Date"
                                     },
-                                    "name": "MyColumn13",
-                                    "designerId": "9a9b1572-370b-4956-bf79-9b5ccb1107df"
+                                    "name": "MyDateColumn",
+                                    "designerId": "b974c3ff-1c91-4b2e-bc5c-88b56a9d9100"
                                 }
                             ]
                         }
@@ -212,8 +212,41 @@
             },
             "codeClass": null,
             "userConfig": {
+                "container|pack": "center",
+                "dock": "bottom",
+                "id": "userViewBookToolbar"
+            },
+            "name": "MyToolbar9",
+            "designerId": "05c63ace-59c8-4614-8e74-2b32f6462cfc",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "checkOutThisBook",
+                        "layout|flex": null,
+                        "text": "Checkout this book"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "e1c379a9-8e5a-470c-a74b-0606816964d9"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "container|pack": "end",
-                "dock": "bottom"
+                "dock": "bottom",
+                "id": "adminViewBookToolbar"
             },
             "name": "MyToolbar5",
             "designerId": "94ec11b6-ad93-497b-a3c9-d3a07a6fec70",
