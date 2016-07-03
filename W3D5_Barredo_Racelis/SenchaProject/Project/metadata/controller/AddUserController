@@ -29,7 +29,37 @@
                 "designer|targetType": "MyButton16",
                 "fn": "onAddUserAdminBtnClick",
                 "implHandler": [
-                    "    console.log('add USERS USING ADMIN');"
+                    "       var name = this.getNameAddUser().getValue(),",
+                    "           username = this.getUsernameAddUser().getValue(),",
+                    "           password = this.getPasswordAddUser().getValue(),",
+                    "           type = this.getType().getValue(),",
+                    "           contact = this.getContactAddUser().getValue(),",
+                    "           address = this.getAddressAddUser().getValue();",
+                    "",
+                    "       if(Ext.isEmpty(name) || Ext.isEmpty(username) || Ext.isEmpty(password) || Ext.isEmpty(type)){",
+                    "           Ext.Msg.alert('Error', 'Some fields are empty');",
+                    "           return;",
+                    "       }",
+                    "",
+                    "        var newUser = {",
+                    "            username : username,",
+                    "            password : password,",
+                    "            name : name,",
+                    "            type : type,",
+                    "            contact: contact,",
+                    "            address: address",
+                    "        };",
+                    "",
+                    "      var store = this.getUserGrid().getStore();",
+                    "",
+                    "",
+                    "        store.add(newUser);",
+                    "        button.up('window').destroy();",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
                 ],
                 "name": "click",
                 "scope": "me"
@@ -59,6 +89,104 @@
             },
             "name": "onCancelAddUserBtnClick",
             "designerId": "daf1b64f-b7d9-4d79-be16-064f46da4db3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nameAddUser",
+                "selector": "#nameAddUser"
+            },
+            "name": "nameAddUser",
+            "designerId": "07ba2e0e-84fe-48df-b7e2-dcac1dd95915"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameAddUser",
+                "selector": "#usernameAddUser"
+            },
+            "name": "usernameAddUser",
+            "designerId": "f5ae9e7b-8b5e-4e74-be46-943fc24e0441"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordAddUser",
+                "selector": "#passwordAddUser"
+            },
+            "name": "passwordAddUser",
+            "designerId": "95b31dee-f99f-44ff-bdc5-7fef24558e77"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addressAddUser",
+                "selector": "#addressAddUser"
+            },
+            "name": "addressAddUser",
+            "designerId": "caec4702-f7e6-4dbd-b5af-52b71e1c71bc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "type",
+                "selector": "#typeAddUser"
+            },
+            "name": "type",
+            "designerId": "0449ce89-90b1-4a12-ae9b-40708171d64f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactAddUser",
+                "selector": "#contactAddUser"
+            },
+            "name": "contactAddUser",
+            "designerId": "35a30043-7d79-49f6-93b9-a0c96cd9dbd4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userGrid",
+                "selector": "#userGrid"
+            },
+            "name": "userGrid",
+            "designerId": "eae0dda0-14f7-4918-a8c9-bc578ff9ca5d"
         }
     ]
 }

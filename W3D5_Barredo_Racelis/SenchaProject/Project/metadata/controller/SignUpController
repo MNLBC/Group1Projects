@@ -41,10 +41,21 @@
                 "fn": "onRegisterBttnClick",
                 "implHandler": [
                     "        var data = this.getSignUpForm().getForm().getValues();",
+                    "",
+                    "        console.log(data);",
+                    "",
+                    "        if(Ext.isEmpty(data.username) || Ext.isEmpty(data.phone) || Ext.isEmpty(data.password) || Ext.isEmpty(data.password2) || Ext.isEmpty(data.address) || Ext.isEmpty(data.name)){",
+                    "            Ext.Msg.alert('Register Failed', 'Please complete all the fields');",
+                    "            return;",
+                    "        }",
+                    "        if(data.password !== data.password2){",
+                    "            Ext.Msg.alert('Password Failed', 'Password do not match!');",
+                    "            return;",
+                    "        }",
                     "        var record = {",
                     "            username: data.username,",
                     "            password: data.password,",
-                    "            name:  'NAME',",
+                    "            name:  data.name,",
                     "            type: 'client'",
                     "        };",
                     "            console.log(data);",
@@ -99,13 +110,27 @@
                 "designer|targetType": "MyButton8",
                 "fn": "onCancelBttnClick",
                 "implHandler": [
-                    "        button.up('window').hide();"
+                    "        button.up('window').destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
             },
             "name": "onCancelBttnClick",
             "designerId": "ca42da0b-8790-4803-8298-47ee5a6d7c88"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nameSignup",
+                "selector": "#nameSignup"
+            },
+            "name": "nameSignup",
+            "designerId": "1c8ffc80-4c03-4c89-be90-a2cb0dbde388"
         }
     ]
 }

@@ -25,7 +25,7 @@ Ext.define('Project.view.AddUsers', {
         'Ext.button.Button'
     ],
 
-    height: 331,
+    height: 368,
     hidden: false,
     width: 400,
     bodyPadding: 20,
@@ -47,27 +47,50 @@ Ext.define('Project.view.AddUsers', {
                     items: [
                         {
                             xtype: 'textfield',
+                            itemId: 'nameAddUser',
                             fieldLabel: 'Name:',
-                            inputId: 'nameAdd'
+                            inputId: 'nameAdd',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'usernameAddUser',
                             fieldLabel: 'Username',
-                            inputId: 'usernameAdd'
+                            inputId: 'usernameAdd',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'passwordAddUser',
                             fieldLabel: 'Password',
-                            inputId: 'passwordAdd'
+                            inputId: 'passwordAdd',
+                            inputType: 'password',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textareafield',
-                            fieldLabel: 'Address'
+                            itemId: 'addressAddUser',
+                            fieldLabel: 'Address',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
+                        },
+                        {
+                            xtype: 'textfield',
+                            flex: 1,
+                            itemId: 'contactAddUser',
+                            fieldLabel: 'Contact'
                         },
                         {
                             xtype: 'combobox',
                             id: 'type',
+                            itemId: 'typeAddUser',
                             fieldLabel: 'Type',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
+                            forceSelection: true,
                             store: [
                                 'admin',
                                 'client'

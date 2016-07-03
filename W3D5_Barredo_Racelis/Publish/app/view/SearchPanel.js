@@ -23,9 +23,7 @@ Ext.define('Project.view.SearchPanel', {
         'Ext.toolbar.Fill',
         'Ext.button.Button',
         'Ext.grid.Panel',
-        'Ext.grid.column.Number',
-        'Ext.grid.column.Date',
-        'Ext.grid.column.Boolean',
+        'Ext.grid.RowNumberer',
         'Ext.grid.View'
     ],
 
@@ -46,24 +44,16 @@ Ext.define('Project.view.SearchPanel', {
                     items: [
                         {
                             xtype: 'textfield',
+                            itemId: 'titleSearchPage',
                             width: 255,
                             fieldLabel: 'Title',
                             inputId: 'titleSearch'
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'authorSearchPage',
                             fieldLabel: 'Author',
                             inputId: 'authorSearch'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Published Date',
-                            inputId: 'publishedDateSearch'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Category',
-                            inputId: 'categorySearch'
                         }
                     ]
                 },
@@ -75,34 +65,46 @@ Ext.define('Project.view.SearchPanel', {
                         },
                         {
                             xtype: 'button',
-                            itemId: 'searchBttn',
+                            itemId: 'searchBtnSearchPage',
                             text: 'Search'
                         }
                     ]
                 },
                 {
                     xtype: 'gridpanel',
-                    title: 'My Grid Panel',
+                    itemId: 'bookGridSearchPanel',
+                    title: 'Book',
+                    store: 'Books',
                     columns: [
                         {
+                            xtype: 'rownumberer'
+                        },
+                        {
                             xtype: 'gridcolumn',
-                            dataIndex: 'string',
+                            width: 154,
+                            dataIndex: 'title',
                             text: 'Title'
                         },
                         {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'number',
-                            text: 'Number'
+                            xtype: 'gridcolumn',
+                            dataIndex: 'author',
+                            text: 'Author'
                         },
                         {
-                            xtype: 'datecolumn',
-                            dataIndex: 'date',
-                            text: 'Date'
+                            xtype: 'gridcolumn',
+                            dataIndex: 'datePublished',
+                            text: 'Date Published'
                         },
                         {
-                            xtype: 'booleancolumn',
-                            dataIndex: 'bool',
-                            text: 'Boolean'
+                            xtype: 'gridcolumn',
+                            dataIndex: 'category',
+                            text: 'Category'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'description',
+                            text: 'Description',
+                            flex: 1
                         }
                     ]
                 }

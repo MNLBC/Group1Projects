@@ -32,6 +32,12 @@ Ext.define('Project.model.User', {
         },
         {
             name: 'type'
+        },
+        {
+            name: 'address'
+        },
+        {
+            name: 'contact'
         }
     ]
 });

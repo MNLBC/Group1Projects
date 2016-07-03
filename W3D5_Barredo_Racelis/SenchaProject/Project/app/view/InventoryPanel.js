@@ -18,7 +18,6 @@ Ext.define('Project.view.InventoryPanel', {
     alias: 'widget.inventorypanel1',
 
     requires: [
-        'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
@@ -27,6 +26,7 @@ Ext.define('Project.view.InventoryPanel', {
         'Ext.grid.View',
         'Ext.grid.column.Date',
         'Ext.form.field.Date',
+        'Ext.form.field.ComboBox',
         'Ext.grid.plugin.RowEditing'
     ],
 
@@ -47,57 +47,15 @@ Ext.define('Project.view.InventoryPanel', {
                     items: [
                         {
                             xtype: 'textfield',
-                            itemId: 'title',
+                            itemId: 'titleInventoryPage',
                             fieldLabel: 'Title',
                             inputId: 'title'
                         },
                         {
                             xtype: 'textfield',
+                            itemId: 'authorInventoryPage',
                             fieldLabel: 'Author:',
                             inputId: 'author'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Published Date:',
-                            inputId: 'publishedDate'
-                        },
-                        {
-                            xtype: 'combobox',
-                            flex: 1,
-                            fieldLabel: 'Category',
-                            store: [
-                                'Science fiction',
-                                'Satire',
-                                'Drama',
-                                'Action and Adventure',
-                                'Romance',
-                                'Mystery',
-                                'Horror',
-                                'Self help',
-                                'Health',
-                                'Guide',
-                                'Travel',
-                                'Children',
-                                'Religion, Spirituality & New Age',
-                                'Science',
-                                'History',
-                                'Math',
-                                'Anthology',
-                                'Poetry',
-                                'Encyclopedias',
-                                'Dictionaries',
-                                'Comics',
-                                'Art',
-                                'Cookbooks',
-                                'Diaries',
-                                'Journals',
-                                'Prayer books',
-                                'Series',
-                                'Trilogy',
-                                'Biographies',
-                                'Autobiographies',
-                                'Fantasy'
-                            ]
                         }
                     ]
                 },
