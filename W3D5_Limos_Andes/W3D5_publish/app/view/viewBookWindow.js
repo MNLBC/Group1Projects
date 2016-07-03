@@ -21,14 +21,17 @@ Ext.define('BookingManagementSystem.view.viewBookWindow', {
         'Ext.form.FieldSet',
         'Ext.form.field.TextArea',
         'Ext.form.field.Number',
+        'Ext.grid.Panel',
+        'Ext.grid.View',
+        'Ext.grid.column.Number',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
 
-    height: 680,
+    height: 533,
     id: 'viewBookWindow',
-    width: 810,
-    layout: 'vbox',
+    width: 684,
+    layout: 'fit',
     title: 'View/Edit Book',
 
     initComponent: function() {
@@ -41,19 +44,16 @@ Ext.define('BookingManagementSystem.view.viewBookWindow', {
                     height: 276,
                     id: 'viewBookPanel',
                     width: 810,
+                    layout: 'auto',
                     bodyPadding: 10,
                     header: false,
                     title: 'My Form',
-                    layout: {
-                        type: 'hbox',
-                        align: 'stretch',
-                        pack: 'center'
-                    },
                     items: [
                         {
                             xtype: 'fieldset',
+                            height: 700,
                             id: 'viewBookInformationContainer',
-                            width: 600,
+                            width: 652,
                             title: 'Book Information',
                             items: [
                                 {
@@ -95,6 +95,33 @@ Ext.define('BookingManagementSystem.view.viewBookWindow', {
                                     allowExponential: false,
                                     decimalPrecision: 0,
                                     minValue: 1
+                                },
+                                {
+                                    xtype: 'gridpanel',
+                                    height: 311,
+                                    title: 'Users Who Currently Have A Copy',
+                                    store: 'userStore',
+                                    columns: [
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'userId',
+                                            text: 'UserId',
+                                            flex: 1,
+                                            format: '00'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'firstName',
+                                            text: 'FirstName',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'lastName',
+                                            text: 'LastName',
+                                            flex: 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -104,7 +131,6 @@ Ext.define('BookingManagementSystem.view.viewBookWindow', {
             dockedItems: [
                 {
                     xtype: 'toolbar',
-                    flex: 1,
                     dock: 'bottom',
                     layout: {
                         type: 'hbox',

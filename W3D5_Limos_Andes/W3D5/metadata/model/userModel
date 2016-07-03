@@ -138,7 +138,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "booksAtHand"
+                "name": "booksAtHand",
+                "type": "string"
             },
             "name": "MyField8",
             "designerId": "b4f441c7-bc92-49ee-864a-f96f832d55c1"

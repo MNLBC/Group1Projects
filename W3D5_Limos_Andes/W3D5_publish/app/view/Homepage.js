@@ -28,6 +28,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
         'Ext.selection.RowModel'
     ],
 
+    id: 'homePage',
     layout: 'fit',
 
     initComponent: function() {
@@ -53,6 +54,7 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                             items: [
                                 {
                                     xtype: 'label',
+                                    id: 'welcomeUserLabel',
                                     text: 'Welcome '
                                 },
                                 {

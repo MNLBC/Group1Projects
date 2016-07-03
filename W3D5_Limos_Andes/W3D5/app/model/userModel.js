@@ -52,7 +52,8 @@ Ext.define('BookingManagementSystem.model.userModel', {
             name: 'email'
         },
         {
-            name: 'booksAtHand'
+            name: 'booksAtHand',
+            type: 'string'
         }
     ]
 });
