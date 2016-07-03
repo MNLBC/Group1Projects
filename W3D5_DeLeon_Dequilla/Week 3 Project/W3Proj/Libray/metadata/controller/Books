@@ -1,0 +1,537 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Books"
+    },
+    "name": "MyController",
+    "designerId": "90553126-1c8a-4607-864a-46a7cbfe1fdf",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#borrowBtn",
+                "designer|targetType": "MyButton4",
+                "fn": "onBorrowBtnClick",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "    storeBook = gridBook.getStore(),",
+                    "    storeBorrowed = Ext.getStore('BorrowedStore'),",
+                    "    selectModel = gridBook.getSelectionModel(),",
+                    "    selectedBooks = selectModel.getSelection(),",
+                    "    selected = selectedBooks.length;",
+                    "",
+                    "    storeBorrowed.add(selectedBooks);",
+                    "    storeBook.remove(selectedBooks);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBorrowBtnClick",
+            "designerId": "4110cad7-5d7a-4e4b-82ee-af95f2a2a612"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookListView",
+                "selector": "#BookListView"
+            },
+            "name": "bookListView",
+            "designerId": "9e672a3d-cfc3-401d-8051-2a292401a5bf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#returnBookBtn",
+                "designer|targetType": "MyButton",
+                "fn": "onReturnBookBtnClick",
+                "implHandler": [
+                    "var gridBorrowed = this.getBorrowedView(),",
+                    "            storeBorrowed = gridBorrowed.getStore(),",
+                    "            storeBook = Ext.getStore('BookStore'),",
+                    "            selectModel = gridBorrowed.getSelectionModel(),",
+                    "            selectedBooks = selectModel.getSelection(),",
+                    "            selected = selectedBooks.length;",
+                    "",
+                    "storeBook.add(selectedBooks);",
+                    "storeBorrowed.remove(selectedBooks);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onReturnBookBtnClick",
+            "designerId": "d157835a-b863-48bc-a1c3-5ccdc4ec0d58"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowedView",
+                "selector": "#borrowedView"
+            },
+            "name": "borrowedView",
+            "designerId": "46eeaba8-2c4a-4408-8e2d-db5dff5c8c1b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#backBtn",
+                "designer|targetType": "MyButton6",
+                "fn": "onBackBtnClick",
+                "implHandler": [
+                    "this.getBooksCont().show();",
+                    "    this.getBorrowedCont().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBackBtnClick",
+            "designerId": "05b08691-5c78-4abf-a06d-47905a330a92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "booksCont",
+                "selector": "#mycontainer4"
+            },
+            "name": "booksCont",
+            "designerId": "18216881-6e1c-4722-8d9f-e545c2b459af"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "borrowedCont",
+                "selector": "#mycontainer5"
+            },
+            "name": "borrowedCont",
+            "designerId": "8c7a22ca-6b92-4c93-9f6d-26f9e03f5c31"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeBookBtn",
+                "designer|targetType": "MyButton10",
+                "fn": "onRemoveBookBtnClick",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "    storeBook = gridBook.getStore(),",
+                    "    selectModel = gridBook.getSelectionModel(),",
+                    "    selectedBooks = selectModel.getSelection(),",
+                    "    selected = selectedBooks.length;",
+                    "",
+                    "    storeBook.remove(selectedBooks);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRemoveBookBtnClick",
+            "designerId": "a6f553c7-efad-4254-8c18-94026969fcc4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#editBookBtn",
+                "designer|targetType": "MyButton11",
+                "fn": "onEditBookBtnClick",
+                "implHandler": [
+                    "var bkWin = Ext.create('Libray.view.addEditWin');",
+                    "    bkWin.show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onEditBookBtnClick",
+            "designerId": "7e4f6671-9861-4356-81dc-d6cd7c61e66b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editBookDetails",
+                "selector": "#editBookBtn"
+            },
+            "name": "editBookDetails",
+            "designerId": "5c28a3b6-251d-47e1-8dec-33d036f63f6a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#bookListGrid",
+                "designer|targetType": "MyGridPanel",
+                "fn": "onGridpanelSelectionChange",
+                "implHandler": [
+                    "        var gridBook = this.getBookListView(),",
+                    "            storeBook = gridBook.getStore(),",
+                    "            selectModel = gridBook.getSelectionModel(),",
+                    "            selectedBooks = selectModel.getSelection(),",
+                    "            selected = selectedBooks.length;",
+                    "",
+                    "",
+                    "if (selected < 1 || selected > 1) {",
+                    "    this.getEditBookDetails().disable();",
+                    "} else {",
+                    "    this.getEditBookDetails().enable();",
+                    "}",
+                    ""
+                ],
+                "name": "selectionchange",
+                "scope": "me"
+            },
+            "name": "onGridpanelSelectionChange",
+            "designerId": "d7483845-9218-45ef-8479-763643e6ed5d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addEditWin",
+                "selector": "#addEditWin"
+            },
+            "name": "addEditWin",
+            "designerId": "ef1a9c7c-8bc7-4d16-ac1a-9f7da15b8d26"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#submitBookBtn",
+                "designer|targetType": "MyButton3",
+                "fn": "onSubmitBookBtnClick",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "    storeBook = gridBook.getStore(),",
+                    "    selectModel = gridBook.getSelectionModel(),",
+                    "    selectedBooks = selectModel.getSelection(),",
+                    "    selected = selectedBooks.length;",
+                    "",
+                    "// this.setTitle()",
+                    "// selectedBooks[0].data.title;",
+                    "var editTitle = this.getTitle().getValue(),",
+                    "    editAuthor = this.getAuthor().getValue(),",
+                    "    editPublisher = this.getPublisher().getValue();",
+                    "",
+                    "selectedBooks[0].data.title = editTitle;",
+                    "selectedBooks[0].data.author = editAuthor;",
+                    "selectedBooks[0].data.publisher = editPublisher;",
+                    "gridBook.refresh();",
+                    "",
+                    " Ext.MessageBox.alert ('Information', 'Bookd details updated!');",
+                    "this.getAddEditWin().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSubmitBookBtnClick",
+            "designerId": "c3945486-d152-491e-a711-e5f2c35b66c6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelBookBtn",
+                "designer|targetType": "MyButton12",
+                "fn": "onCancelBookBtnClick",
+                "implHandler": [
+                    "this.getAddEditWin().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelBookBtnClick",
+            "designerId": "0c0bfedf-e3ec-47f0-b706-87c6b4481470"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookList",
+                "selector": "#bookListGrid"
+            },
+            "name": "bookList",
+            "designerId": "70861fe1-93d7-4d24-b17f-72276e806c36"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "title",
+                "selector": "#titleBook"
+            },
+            "name": "title",
+            "designerId": "7edcde60-e186-454f-9952-3c8fbaff5f7f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "author",
+                "selector": "#authorBook"
+            },
+            "name": "author",
+            "designerId": "f5b98e0a-a244-47a8-9d0b-feb176278e8d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "publisher",
+                "selector": "#publisherBook"
+            },
+            "name": "publisher",
+            "designerId": "54a72fda-3377-4fb3-a460-17924c5acad7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "titleAdd",
+                "selector": "#titleBookAdd"
+            },
+            "name": "titleAdd",
+            "designerId": "dc684908-9b71-4cbd-8205-bf09d6124a6f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "authorAdd",
+                "selector": "#authorBookAdd"
+            },
+            "name": "authorAdd",
+            "designerId": "4741518e-cad3-49cc-9a3c-00c9fc30d2c6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "publisherAdd",
+                "selector": "#publisherBookAdd"
+            },
+            "name": "publisherAdd",
+            "designerId": "5068331e-5fbe-45dc-b7de-808e85beb5c9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookWinShowBtn",
+                "designer|targetType": "MyButton9",
+                "fn": "onAddBookWinShowBtnClick",
+                "implHandler": [
+                    "Ext.create('Libray.view.addWin').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddBookWinShowBtnClick",
+            "designerId": "c9a78d64-1c79-4be9-b2d4-2c2ec126c80e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookBtn",
+                "designer|targetType": "MyButton3",
+                "fn": "onAddBookBtnClick",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "                            storeBook = gridBook.getStore(),",
+                    "                            selectModel = gridBook.getSelectionModel(),",
+                    "                            selectedBooks = selectModel.getSelection(),",
+                    "titleA = this.getTitleAdd().getValue(),",
+                    "    authorA = this.getAuthorAdd().getValue(),",
+                    "    publisherA = this.getPublisherAdd().getValue();",
+                    "if(!(Ext.isEmpty(titleA))&&!Ext.isEmpty(authorA) && !Ext.isEmpty(publisherA)){",
+                    "",
+                    "    var book = {",
+                    "        title: this.getTitleAdd().getValue(),",
+                    "        author: this.getAuthorAdd().getValue(),",
+                    "        publisher: this.getPublisherAdd().getValue()",
+                    "    };",
+                    "    storeBook.add(book);",
+                    "    Ext.MessageBox.alert ('Information', 'New book has been stored!');",
+                    "    this.getAddWin().destroy();",
+                    "} else {",
+                    "    Ext.MessageBox.alert ('Warning', 'Please complete all fields!');",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddBookBtnClick",
+            "designerId": "e07d39b6-e492-4ead-b2da-f3e8d7a9f4f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelBookAddBtn",
+                "designer|targetType": "MyButton12",
+                "fn": "onCancelBookAddBtnClick",
+                "implHandler": [
+                    "this.getAddWin().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelBookAddBtnClick",
+            "designerId": "eb42ca91-17ac-4bfa-afff-471fd4943f34"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addWin",
+                "selector": "#addWin"
+            },
+            "name": "addWin",
+            "designerId": "19e5c2b4-fa9c-41dc-956d-52c29e94e9b7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addEditWin",
+                "designer|targetType": "addEditWin",
+                "fn": "onAddEditWinShow",
+                "implHandler": [
+                    "var gridBook = this.getBookListView(),",
+                    "                    storeBook = gridBook.getStore(),",
+                    "                    selectModel = gridBook.getSelectionModel(),",
+                    "                    selectedBooks = selectModel.getSelection(),",
+                    "                    selected = selectedBooks.length,",
+                    "    title = selectedBooks[0].data.title,",
+                    "    author = selectedBooks[0].data.author,",
+                    "    publisher = selectedBooks[0].data.publisher;",
+                    "",
+                    "this.getTitle().setValue(title);",
+                    "this.getAuthor().setValue(author);",
+                    "this.getPublisher().setValue(publisher);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onAddEditWinShow",
+            "designerId": "8bf86ad5-8c98-40cd-830f-0e7eec9639da"
+        }
+    ]
+}

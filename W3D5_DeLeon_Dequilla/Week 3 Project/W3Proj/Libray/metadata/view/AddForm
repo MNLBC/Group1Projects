@@ -1,0 +1,184 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "addform",
+        "designer|userClassName": "AddForm",
+        "header": false,
+        "height": 219,
+        "itemId": "addForm",
+        "title": "Register Account",
+        "width": 352
+    },
+    "name": "AddEditForm1",
+    "designerId": "6c2dc0fd-4a5c-4570-8fdf-86de2d7be3d2",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 62,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                    "\trel='stylesheet' type='text/css'>",
+                    " <center><div id=\"header\"><h3 style = 'font-family: Abel;'>Add Book</h3></div></center>",
+                    " "
+                ],
+                "style": [
+                    "#nav {",
+                    "line-height: 30px;",
+                    "background-color: #D4F5C9;",
+                    "height: 460px;",
+                    "width: 180px;",
+                    "float: left;",
+                    "padding: 5px;",
+                    "}"
+                ]
+            },
+            "name": "MyContainer7",
+            "designerId": "a4127c52-437b-4ad7-8c39-091d820837a0"
+        },
+        {
+            "type": "Ext.toolbar.Spacer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 75,
+                "maxHeight": 75,
+                "maxWidth": 20,
+                "minHeight": 75,
+                "minWidth": 20,
+                "width": 20
+            },
+            "name": "MySpacer1",
+            "designerId": "c2e88325-aee6-4d83-a4d3-80e58da8faf7"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "height": 130
+            },
+            "name": "MyFieldContainer4",
+            "designerId": "ac0a2877-89b5-4ce3-834d-0dbff2833cf1",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Title",
+                        "fieldLabel": "Title:",
+                        "itemId": "titleBookAdd",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "8d4cb6b8-ef84-47eb-91a7-ddd314f3170e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Author",
+                        "fieldLabel": "Author:",
+                        "itemId": "authorBookAdd",
+                        "labelWidth": 110,
+                        "width": 331
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "d70d4e17-743a-404d-8064-762af7419ee5"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Publisher",
+                        "fieldLabel": "Publisher:",
+                        "itemId": "publisherBookAdd",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "b1cde9d3-8797-43e5-8201-4d23dba82347"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "width": 330
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "4ffe70f7-103f-4838-9539-26383e50769b",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Submit",
+                                "itemId": "addBookBtn",
+                                "layout|flex": null,
+                                "text": "Submit"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "8d91b3f4-0b81-4c8d-afed-9935dca75d40"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Cancel",
+                                "itemId": "cancelBookAddBtn",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "9962d535-9757-461c-b4b0-ec146d96f43e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

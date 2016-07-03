@@ -1,0 +1,220 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "registerForm",
+        "designer|userClassName": "RegisterForm",
+        "header": false,
+        "height": 276,
+        "itemId": "registerForm",
+        "title": "Register Account",
+        "width": 352
+    },
+    "name": "MyForm",
+    "designerId": "86bbcf2a-532e-4a01-8e29-911ed949c461",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 62,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                    "\trel='stylesheet' type='text/css'>",
+                    " <center><div id=\"header\"><h3 style = 'font-family: Abel;'>Register Account!</h3></div></center>",
+                    " "
+                ],
+                "style": [
+                    "#nav {",
+                    "line-height: 30px;",
+                    "background-color: #D4F5C9;",
+                    "height: 460px;",
+                    "width: 180px;",
+                    "float: left;",
+                    "padding: 5px;",
+                    "}"
+                ]
+            },
+            "name": "MyContainer7",
+            "designerId": "dda4ad18-556f-47a4-94e2-e8b1402c1f8f"
+        },
+        {
+            "type": "Ext.toolbar.Spacer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 75,
+                "maxHeight": 75,
+                "maxWidth": 20,
+                "minHeight": 75,
+                "minWidth": 20,
+                "width": 20
+            },
+            "name": "MySpacer1",
+            "designerId": "d2b3291f-3c4a-4110-83df-424998c1d241"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "height": 200
+            },
+            "name": "MyFieldContainer4",
+            "designerId": "b6fb39d8-f633-4a61-9914-a6d1767e2096",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "First Name",
+                        "fieldLabel": "First Name:",
+                        "itemId": "fNameReg",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "d324531c-ab20-419e-a7ab-157aba933360"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Last Name",
+                        "fieldLabel": "Last Name:",
+                        "itemId": "lNameReg",
+                        "labelWidth": 110,
+                        "width": 331
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "48d1439b-0c4d-4f73-8c5a-cae818ee74db"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "User Name",
+                        "fieldLabel": "User name:",
+                        "itemId": "uNameReg",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "74a75d4e-f8eb-41eb-9fe6-41ed1b798519"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Password",
+                        "fieldLabel": "Password:",
+                        "inputType": "password",
+                        "itemId": "passswordReg",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "82f4c32f-fcbf-4956-b61f-049adc3bcd46"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Confirm Password",
+                        "fieldLabel": "Confirm password:",
+                        "inputType": "password",
+                        "itemId": "cPasswordReg",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "e95bf085-14e0-4aae-8f09-9b2aa2b6e922"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "width": 330
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "43bf6a79-c26f-4414-a38b-952ca767ceef",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Submit",
+                                "itemId": "submitBtn",
+                                "layout|flex": null,
+                                "text": "Submit"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "3a9d7b98-ab10-467a-8d6d-008e088e56b6"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Cancel",
+                                "itemId": "cancelBtn",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "6065f02e-9b22-4653-9479-93bbcf52f5f0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
