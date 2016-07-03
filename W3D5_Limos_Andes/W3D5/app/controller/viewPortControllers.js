@@ -111,6 +111,17 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
 
     },
 
+    onSearchUserChange: function() {
+                userTxt = Ext.getCmp('searchUser').getValue();
+                                store = Ext.getStore('userStore');
+
+                                if(Ext.isEmpty(userTxt)){
+                                    store.clearFilter();
+                                }else{
+                                store.filter('userName', userTxt);
+                                }
+    },
+
     onLaunch: function() {
                 this.loginPage = Ext.getCmp('loginPage');
                 this.userStore = Ext.getStore('userStore');
@@ -196,6 +207,9 @@ Ext.define('BookingManagementSystem.controller.viewPortControllers', {
             },
             "#titleSearch": {
                 change: this.onTitleSearchChange
+            },
+            "#searchUser": {
+                change: this.onSearchUserChange
             }
         });
     }

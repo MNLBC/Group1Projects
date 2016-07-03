@@ -252,11 +252,8 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                             items: [
                                                 {
                                                     xtype: 'textfield',
+                                                    id: 'searchUser',
                                                     fieldLabel: 'Enter UserName'
-                                                },
-                                                {
-                                                    xtype: 'button',
-                                                    text: 'Search'
                                                 }
                                             ]
                                         }
