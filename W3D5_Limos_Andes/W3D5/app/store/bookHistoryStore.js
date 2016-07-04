@@ -13,18 +13,18 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.store.bookHistoryStore', {
+Ext.define('MyApp.store.bookHistoryStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'BookingManagementSystem.model.bookHistoryModel'
+        'MyApp.model.bookHistoryModel'
     ],
 
     constructor: function(cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            model: 'BookingManagementSystem.model.bookHistoryModel',
+            model: 'MyApp.model.bookHistoryModel',
             storeId: 'bookHistoryStore'
         }, cfg)]);
     }

@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.view.Homepage', {
+Ext.define('MyApp.view.Homepage', {
     extend: 'Ext.container.Viewport',
 
     requires: [
