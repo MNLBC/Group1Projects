@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "name": "MyApp"
+    },
+    "name": "Application1",
+    "designerId": "application"
+}

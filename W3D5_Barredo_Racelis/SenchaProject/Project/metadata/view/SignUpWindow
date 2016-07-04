@@ -9,7 +9,7 @@
         "bodyPadding": 15,
         "closable": false,
         "designer|userClassName": "SignUpWindow",
-        "height": 329,
+        "height": 354,
         "itemId": "signUpWindow",
         "modal": true,
         "title": "Sign Up",
@@ -35,6 +35,22 @@
             "name": "MyForm",
             "designerId": "c5cd7f7b-2ebf-45da-a270-de3de3fbd73a",
             "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Name",
+                        "inputId": "name",
+                        "itemId": "nameSignup",
+                        "layout|flex": 1
+                    },
+                    "name": "MyTextField28",
+                    "designerId": "e147c228-583e-4c43-81ec-92a2b803f351"
+                },
                 {
                     "type": "Ext.form.field.Text",
                     "reference": {

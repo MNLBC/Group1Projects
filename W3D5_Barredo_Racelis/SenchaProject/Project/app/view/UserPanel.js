@@ -18,10 +18,13 @@ Ext.define('Project.view.UserPanel', {
     alias: 'widget.mypanel13',
 
     requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
         'Ext.grid.Panel',
         'Ext.grid.RowNumberer',
+        'Ext.form.field.ComboBox',
         'Ext.grid.View',
-        'Ext.toolbar.Toolbar',
+        'Ext.grid.plugin.RowEditing',
         'Ext.button.Button'
     ],
 
@@ -32,6 +35,14 @@ Ext.define('Project.view.UserPanel', {
 
         Ext.applyIf(me, {
             items: [
+                {
+                    xtype: 'toolbar',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        }
+                    ]
+                },
                 {
                     xtype: 'gridpanel',
                     itemId: 'userGrid',
@@ -45,23 +56,54 @@ Ext.define('Project.view.UserPanel', {
                             xtype: 'gridcolumn',
                             width: 150,
                             dataIndex: 'name',
-                            text: 'Name'
+                            text: 'Name',
+                            editor: {
+                                xtype: 'textfield'
+                            }
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'username',
-                            text: 'Username'
+                            text: 'Username',
+                            editor: {
+                                xtype: 'textfield'
+                            }
                         },
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'type',
-                            text: 'Type'
+                            text: 'Type',
+                            editor: {
+                                xtype: 'combobox',
+                                forceSelection: true,
+                                store: [
+                                    'admin',
+                                    'client'
+                                ]
+                            }
                         },
                         {
                             xtype: 'gridcolumn',
+                            dataIndex: 'contact',
+                            text: 'Contact',
+                            editor: {
+                                xtype: 'textfield'
+                            }
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'address',
                             text: 'Address',
-                            flex: 1
+                            flex: 1,
+                            editor: {
+                                xtype: 'textfield'
+                            }
                         }
+                    ],
+                    plugins: [
+                        Ext.create('Ext.grid.plugin.RowEditing', {
+
+                        })
                     ]
                 }
             ],
@@ -70,6 +112,9 @@ Ext.define('Project.view.UserPanel', {
                     xtype: 'toolbar',
                     dock: 'bottom',
                     items: [
+                        {
+                            xtype: 'tbfill'
+                        },
                         {
                             xtype: 'button',
                             itemId: 'addUsersBtn',

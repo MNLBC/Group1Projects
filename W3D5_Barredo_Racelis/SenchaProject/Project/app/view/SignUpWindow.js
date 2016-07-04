@@ -24,7 +24,7 @@ Ext.define('Project.view.SignUpWindow', {
         'Ext.button.Button'
     ],
 
-    height: 329,
+    height: 354,
     itemId: 'signUpWindow',
     width: 398,
     bodyPadding: 15,
@@ -46,6 +46,13 @@ Ext.define('Project.view.SignUpWindow', {
                         align: 'stretch'
                     },
                     items: [
+                        {
+                            xtype: 'textfield',
+                            flex: 1,
+                            itemId: 'nameSignup',
+                            fieldLabel: 'Name',
+                            inputId: 'name'
+                        },
                         {
                             xtype: 'textfield',
                             itemId: 'usernameSignUp',

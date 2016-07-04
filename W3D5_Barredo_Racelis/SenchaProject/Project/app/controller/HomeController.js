@@ -48,11 +48,75 @@ Ext.define('Project.controller.HomeController', {
         {
             ref: 'bookGrid',
             selector: '#bookGrid'
+        },
+        {
+            ref: 'nameUserPanel',
+            selector: '#nameUserPanel'
+        },
+        {
+            ref: 'usernameUserPanel',
+            selector: '#usernameUserPanel'
+        },
+        {
+            ref: 'typeUserPanel',
+            selector: '#typeUserPanel'
+        },
+        {
+            ref: 'contactUserPanel',
+            selector: '#contactUserPanel'
+        },
+        {
+            ref: 'addressUserPanel',
+            selector: '#addressUserPanel'
+        },
+        {
+            ref: 'userGrid',
+            selector: '#userGrid'
+        },
+        {
+            ref: 'inventoryBtn',
+            selector: '#inventoryBtn'
+        },
+        {
+            ref: 'currentUsername',
+            selector: '#currentUsername'
+        },
+        {
+            ref: 'logoutbtn',
+            selector: '#logoutbtn'
+        },
+        {
+            ref: 'titleSearchPage',
+            selector: '#titleSearchPage'
+        },
+        {
+            ref: 'authorSearchPage',
+            selector: '#authorSearchPage'
+        },
+        {
+            ref: 'searchBtnSearchPage',
+            selector: '#searchBtnSearchPage'
+        },
+        {
+            ref: 'bookGridSearchPanel',
+            selector: '#bookGridSearchPanel'
+        },
+        {
+            ref: 'filter',
+            selector: '#inventorySearchBttn'
+        },
+        {
+            ref: 'titleInventoryPage',
+            selector: '#titleInventoryPage'
+        },
+        {
+            ref: 'authorInventoryPage',
+            selector: '#authorInventoryPage'
         }
     ],
 
     onShowLoginWindowClick: function() {
-        Ext.create('Project.view.LoginWindow').show();
+                Ext.create('Project.view.LoginWindow').show();
     },
 
     onSearchButtonClick: function() {
@@ -95,7 +159,7 @@ Ext.define('Project.controller.HomeController', {
     },
 
     onInventoryPanelRender: function(component, eOpts) {
-        console.log('activate');
+   
 
     },
 
@@ -146,12 +210,106 @@ Ext.define('Project.controller.HomeController', {
     },
 
     onRemoveUserBtnClick: function() {
-    
+                var grid = this.getUserGrid();
+                    console.log(grid);
+                var sel = grid.getSelectionModel();
+
+                if (Ext.isEmpty(sel.getSelection())){
+                    Ext.Msg.alert('No Selected','You have to select on grid');
+                }
+                else{
+                    Ext.Msg.confirm("Confirmation", "Do you want to delete the record?", function(btnText){
+                if(btnText === "no"){
+                    return;
+                }
+                else if(btnText === "yes"){
+                    grid.getStore().remove(sel.getSelection());
+                    grid.getView().refresh();
+                    Ext.Msg.alert('Selected','You have successfully deleted record on grid');
+                }
+
+                });
+                                    }
+
+
+
     },
 
     onInventorySearchBttnClick: function(button) {
                 var gridStore = this.getBookGrid().getStore();
-        console.log(gridStore);
+                gridStore.clearFilter();
+                gridStore.filterBy(function(record,id){
+
+
+                    if(record.data.author.search('Kathryn') !== -1){
+                       return true;
+                    }
+
+
+                });
+    },
+
+    onFilterClick: function() {
+
+    },
+
+    onLogoutbtnClick: function() {
+                   this.getShowLoginWindow().show();
+                   this.getSignupBtn().show();
+                   this.getCurrentUsername().hide();
+                    this.getLogoutbtn().hide();
+
+                    this.getInventoryBtn().hide();
+    },
+
+    onSearchBtnSearchPageClick: function(button) {
+            var store = this.getBookGridSearchPanel().getStore(),
+                title = this.getTitleSearchPage().getValue(),
+                author = this.getAuthorSearchPage().getValue();
+
+            store.clearFilter();
+            if(!Ext.isEmpty(title)){
+                store.filterBy(function(record){
+                    if(record.data.title.toLowerCase().search(title.toLowerCase()) !== -1){
+                        return true;
+                    }
+                });
+            }
+
+            if(!Ext.isEmpty(author)){
+                store.filterBy(function(record){
+                    if(record.data.author.toLowerCase().search(author.toLowerCase()) !== -1){
+                        return true;
+                    }
+                });
+            }
+    },
+
+    onInventorySearchBttnClick: function() {
+        var store = this.getBookGrid().getStore(),
+                title = this.getTitleInventoryPage().getValue(),
+                author = this.getAuthorInventoryPage().getValue();
+
+            store.clearFilter();
+            if(!Ext.isEmpty(title)){
+                store.filterBy(function(record){
+                    if(record.data.title.toLowerCase().search(title.toLowerCase()) !== -1){
+                        return true;
+                    }
+                });
+            }
+
+            if(!Ext.isEmpty(author)){
+                store.filterBy(function(record){
+                    if(record.data.author.toLowerCase().search(author.toLowerCase()) !== -1){
+                        return true;
+                    }
+                });
+            }
+    },
+
+    onUserGridRender: function(grid) {
+    
     },
 
     init: function(application) {
@@ -193,7 +351,20 @@ Ext.define('Project.controller.HomeController', {
                 click: this.onRemoveUserBtnClick
             },
             "#inventorySearchBttn": {
+                click: this.onInventorySearchBttnClick,
                 click: this.onInventorySearchBttnClick
+            },
+            "#Filter": {
+                click: this.onFilterClick
+            },
+            "#logoutbtn": {
+                click: this.onLogoutbtnClick
+            },
+            "#searchBtnSearchPage": {
+                click: this.onSearchBtnSearchPageClick
+            },
+            "#userGrid": {
+                render: this.onUserGridRender
             }
         });
     }

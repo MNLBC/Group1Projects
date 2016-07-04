@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.controller.windowControllers', {
+Ext.define('MyApp.controller.windowControllers', {
     extend: 'Ext.app.Controller',
 
     oLoadingMessageMask: null,

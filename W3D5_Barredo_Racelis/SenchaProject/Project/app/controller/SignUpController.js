@@ -32,15 +32,30 @@ Ext.define('Project.controller.SignUpController', {
         {
             ref: 'cancel',
             selector: '#cancelBttn'
+        },
+        {
+            ref: 'nameSignup',
+            selector: '#nameSignup'
         }
     ],
 
     onRegisterBttnClick: function() {
                 var data = this.getSignUpForm().getForm().getValues();
+
+                console.log(data);
+
+                if(Ext.isEmpty(data.username) || Ext.isEmpty(data.phone) || Ext.isEmpty(data.password) || Ext.isEmpty(data.password2) || Ext.isEmpty(data.address) || Ext.isEmpty(data.name)){
+                    Ext.Msg.alert('Register Failed', 'Please complete all the fields');
+                    return;
+                }
+                if(data.password !== data.password2){
+                    Ext.Msg.alert('Password Failed', 'Password do not match!');
+                    return;
+                }
                 var record = {
                     username: data.username,
                     password: data.password,
-                    name:  'NAME',
+                    name:  data.name,
                     type: 'client'
                 };
                     console.log(data);
@@ -48,7 +63,7 @@ Ext.define('Project.controller.SignUpController', {
     },
 
     onCancelBttnClick: function(button) {
-                button.up('window').hide();
+                button.up('window').destroy();
     },
 
     init: function(application) {

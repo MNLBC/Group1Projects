@@ -86,6 +86,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "hidden": true,
                                 "itemId": "inventoryBtn",
                                 "layout|flex": null,
                                 "text": "System",
@@ -146,6 +147,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "height": 20,
                         "itemId": "homePanel",
                         "layout|flex": 1
                     },

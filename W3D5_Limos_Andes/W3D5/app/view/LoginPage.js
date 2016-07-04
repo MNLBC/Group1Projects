@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.view.LoginPage', {
+Ext.define('MyApp.view.LoginPage', {
     extend: 'Ext.container.Viewport',
 
     requires: [
@@ -68,7 +68,7 @@ Ext.define('BookingManagementSystem.view.LoginPage', {
                                             margins: '',
                                             margin: '-50, 0, 0, 0',
                                             padding: '',
-                                            style: 'font-size:20px;',
+                                            style: 'font-size:20px; font-family:',
                                             text: 'Welcome to Book Management System'
                                         },
                                         {
