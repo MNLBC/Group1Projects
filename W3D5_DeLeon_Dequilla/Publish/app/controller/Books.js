@@ -179,7 +179,7 @@ Ext.define('Libray.controller.Books', {
             publisherA = this.getPublisherAdd().getValue();
 
         // Checks if fields is/are empty
-        if(!(Ext.isEmpty(titleA))&&!Ext.isEmpty(authorA) && !Ext.isEmpty(publisherA)){
+        if (!Ext.isEmpty(titleA) && !Ext.isEmpty(authorA) && !Ext.isEmpty(publisherA)) {
 
             var book = {
                 title: this.getTitleAdd().getValue(),

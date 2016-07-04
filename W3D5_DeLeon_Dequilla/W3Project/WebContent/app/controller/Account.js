@@ -99,7 +99,7 @@ Ext.define('Libray.controller.Account', {
             type = 'user';
 
         // validation when fields is/are empty
-        if (!(Ext.isEmpty(userName)) && !Ext.isEmpty(password)) {
+        if (!Ext.isEmpty(userName) && !Ext.isEmpty(password)) {
             borrowerStore.each(function(record){
                 var bUserName = record.get('uname'),
                     bPassword = record.get('password');
@@ -173,11 +173,11 @@ Ext.define('Libray.controller.Account', {
             store = Ext.getStore('BorrowersStore');
 
         // Checks if fields is/are not empty
-        if((!Ext.isEmpty(fName)) &&
+        if (!Ext.isEmpty(fName) &&
                !Ext.isEmpty(lName) &&
                !Ext.isEmpty(uName) &&
                !Ext.isEmpty(pWord) &&
-               !Ext.isEmpty(cPWord)){
+               !Ext.isEmpty(cPWord)) {
 
             // checks if password and cofirm password are the same
             if(pWord === cPWord){
