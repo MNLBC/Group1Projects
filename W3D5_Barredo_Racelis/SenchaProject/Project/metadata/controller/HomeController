@@ -40,7 +40,7 @@
                 "designer|targetType": "MyButton",
                 "fn": "onShowLoginWindowClick",
                 "implHandler": [
-                    "Ext.create('Project.view.LoginWindow').show();"
+                    "        Ext.create('Project.view.LoginWindow').show();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -265,7 +265,7 @@
                 "designer|targetType": "InventoryPanel",
                 "fn": "onInventoryPanelRender",
                 "implHandler": [
-                    "console.log('activate');",
+                    "   ",
                     ""
                 ],
                 "name": "render",
@@ -399,7 +399,29 @@
                 "designer|targetType": "MyButton11",
                 "fn": "onRemoveUserBtnClick",
                 "implHandler": [
-                    "    "
+                    "        var grid = this.getUserGrid();",
+                    "            console.log(grid);",
+                    "        var sel = grid.getSelectionModel();",
+                    "        ",
+                    "        if (Ext.isEmpty(sel.getSelection())){",
+                    "            Ext.Msg.alert('No Selected','You have to select on grid');",
+                    "        }",
+                    "        else{",
+                    "            Ext.Msg.confirm(\"Confirmation\", \"Do you want to delete the record?\", function(btnText){",
+                    "        if(btnText === \"no\"){",
+                    "            return;",
+                    "        }",
+                    "        else if(btnText === \"yes\"){",
+                    "            grid.getStore().remove(sel.getSelection());",
+                    "            grid.getView().refresh();",
+                    "            Ext.Msg.alert('Selected','You have successfully deleted record on grid');",
+                    "        }",
+                    "",
+                    "        });",
+                    "                            }",
+                    "                            ",
+                    "                            ",
+                    "            "
                 ],
                 "name": "click",
                 "scope": "me"
@@ -423,13 +445,392 @@
                 "fn": "onInventorySearchBttnClick",
                 "implHandler": [
                     "        var gridStore = this.getBookGrid().getStore();",
-                    "console.log(gridStore);"
+                    "        gridStore.clearFilter();",
+                    "        gridStore.filterBy(function(record,id){",
+                    "               ",
+                    "            ",
+                    "            if(record.data.author.search('Kathryn') !== -1){",
+                    "               return true; ",
+                    "            }",
+                    "            ",
+                    "            ",
+                    "        });"
                 ],
                 "name": "click",
                 "scope": "me"
             },
             "name": "onInventorySearchBttnClick",
             "designerId": "f8318ecf-fab2-4ce9-ad12-08c0307ad8ef"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nameUserPanel",
+                "selector": "#nameUserPanel"
+            },
+            "name": "nameUserPanel",
+            "designerId": "a590e4be-2d01-4a0f-b374-9346894359b9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameUserPanel",
+                "selector": "#usernameUserPanel"
+            },
+            "name": "usernameUserPanel",
+            "designerId": "c11f5bd5-0e12-4763-9881-620d7170156c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "typeUserPanel",
+                "selector": "#typeUserPanel"
+            },
+            "name": "typeUserPanel",
+            "designerId": "101d61c5-e8fe-4e03-9ad1-4449280e3d04"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactUserPanel",
+                "selector": "#contactUserPanel"
+            },
+            "name": "contactUserPanel",
+            "designerId": "b34960a3-4605-4328-b432-f854ed17b08c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addressUserPanel",
+                "selector": "#addressUserPanel"
+            },
+            "name": "addressUserPanel",
+            "designerId": "24f93359-32f1-4d6d-b009-5491e79773f0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#Filter",
+                "designer|targetType": "MyButton18",
+                "fn": "onFilterClick",
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onFilterClick",
+            "designerId": "4725b406-dbb4-49ad-a4dc-c078d0c61f75"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userGrid",
+                "selector": "#userGrid"
+            },
+            "name": "userGrid",
+            "designerId": "62b8de68-ee74-4ef4-a267-c6252a847539"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "inventoryBtn",
+                "selector": "#inventoryBtn"
+            },
+            "name": "inventoryBtn",
+            "designerId": "988a4e8f-a44f-4874-b845-5f294a3d9aa7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#logoutbtn",
+                "designer|targetType": "MyButton6",
+                "fn": "onLogoutbtnClick",
+                "implHandler": [
+                    "           this.getShowLoginWindow().show();",
+                    "           this.getSignupBtn().show();",
+                    "           this.getCurrentUsername().hide();",
+                    "            this.getLogoutbtn().hide();",
+                    "",
+                    "            this.getInventoryBtn().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLogoutbtnClick",
+            "designerId": "45ef8929-c8e9-479c-987b-88907f70111f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "currentUsername",
+                "selector": "#currentUsername"
+            },
+            "name": "currentUsername",
+            "designerId": "e6f4e045-a6bf-4684-8c7f-7a4418a08877"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "logoutbtn",
+                "selector": "#logoutbtn"
+            },
+            "name": "logoutbtn",
+            "designerId": "d70a17ec-f090-43b3-a961-06b41498a823"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "titleSearchPage",
+                "selector": "#titleSearchPage"
+            },
+            "name": "titleSearchPage",
+            "designerId": "f0843ede-509f-434f-a29b-a9fc013d7cfe"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "authorSearchPage",
+                "selector": "#authorSearchPage"
+            },
+            "name": "authorSearchPage",
+            "designerId": "9e154128-7175-4bed-bd8d-062897d0592a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "searchBtnSearchPage",
+                "selector": "#searchBtnSearchPage"
+            },
+            "name": "searchBtnSearchPage",
+            "designerId": "8ae87c24-38cc-438f-98b8-c5fd35f5e057"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchBtnSearchPage",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton15",
+                "fn": "onSearchBtnSearchPageClick",
+                "implHandler": [
+                    "    var store = this.getBookGridSearchPanel().getStore(),",
+                    "        title = this.getTitleSearchPage().getValue(),",
+                    "        author = this.getAuthorSearchPage().getValue();",
+                    "    ",
+                    "    store.clearFilter();",
+                    "    if(!Ext.isEmpty(title)){",
+                    "        store.filterBy(function(record){",
+                    "            if(record.data.title.toLowerCase().search(title.toLowerCase()) !== -1){",
+                    "                return true;",
+                    "            }",
+                    "        });",
+                    "    }",
+                    "    ",
+                    "    if(!Ext.isEmpty(author)){",
+                    "        store.filterBy(function(record){",
+                    "            if(record.data.author.toLowerCase().search(author.toLowerCase()) !== -1){",
+                    "                return true;",
+                    "            }",
+                    "        });",
+                    "    }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSearchBtnSearchPageClick",
+            "designerId": "ef793c05-48f8-4613-a10c-2c9d06954b35"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bookGridSearchPanel",
+                "selector": "#bookGridSearchPanel"
+            },
+            "name": "bookGridSearchPanel",
+            "designerId": "d19dec30-3f9d-4b9b-94cb-fbde6b56138c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "filter",
+                "selector": "#inventorySearchBttn"
+            },
+            "name": "filter",
+            "designerId": "d65e7ecc-e044-4c64-a6ed-2181f452a110"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#inventorySearchBttn",
+                "designer|targetType": "MyButton14",
+                "fn": "onInventorySearchBttnClick",
+                "implHandler": [
+                    "var store = this.getBookGrid().getStore(),",
+                    "        title = this.getTitleInventoryPage().getValue(),",
+                    "        author = this.getAuthorInventoryPage().getValue();",
+                    "",
+                    "    store.clearFilter();",
+                    "    if(!Ext.isEmpty(title)){",
+                    "        store.filterBy(function(record){",
+                    "            if(record.data.title.toLowerCase().search(title.toLowerCase()) !== -1){",
+                    "                return true;",
+                    "            }",
+                    "        });",
+                    "    }",
+                    "",
+                    "    if(!Ext.isEmpty(author)){",
+                    "        store.filterBy(function(record){",
+                    "            if(record.data.author.toLowerCase().search(author.toLowerCase()) !== -1){",
+                    "                return true;",
+                    "            }",
+                    "        });",
+                    "    }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onInventorySearchBttnClick",
+            "designerId": "0ed54ff2-e1a1-4fbb-83ad-7d00f971393d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "titleInventoryPage",
+                "selector": "#titleInventoryPage"
+            },
+            "name": "titleInventoryPage",
+            "designerId": "239f5f8f-10eb-4ebe-b58b-b88e88dd8044"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "authorInventoryPage",
+                "selector": "#authorInventoryPage"
+            },
+            "name": "authorInventoryPage",
+            "designerId": "9bcf9764-1cac-4362-a08b-ef73fa92c1e0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userGrid",
+                "designer|params": [
+                    "grid"
+                ],
+                "designer|targetType": "MyGridPanel2",
+                "fn": "onUserGridRender",
+                "implHandler": [
+                    "    "
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onUserGridRender",
+            "designerId": "1b72c2bf-5228-4a27-b244-7116464446e4"
         }
     ]
 }

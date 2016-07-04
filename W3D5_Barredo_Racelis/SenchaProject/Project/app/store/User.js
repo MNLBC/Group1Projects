@@ -30,14 +30,26 @@ Ext.define('Project.store.User', {
                 {
                     username: 'admin',
                     password: 'admin',
-                    name: 'Jacob Wood',
-                    type: 'admin'
+                    name: 'Ed Mitchell',
+                    type: 'admin',
+                    address: '08 Dexter Crossing',
+                    contact: 185
                 },
                 {
                     username: 'client',
                     password: 'client',
-                    name: 'Clyde Sanchez',
-                    type: 'client'
+                    name: 'Hugh Wood',
+                    type: 'client',
+                    address: '67 Sachtjen Way',
+                    contact: 646
+                },
+                {
+                    username: 'client1',
+                    password: 'client1',
+                    name: 'Beulah Wilson',
+                    type: 'client',
+                    address: '00 Surrey Drive',
+                    contact: 934
                 }
             ]
         }, cfg)]);

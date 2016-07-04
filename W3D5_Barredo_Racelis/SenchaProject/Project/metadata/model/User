@@ -62,6 +62,32 @@
             },
             "name": "MyField3",
             "designerId": "9b32946b-7793-4059-9534-873208f50a40"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "address"
+            },
+            "name": "MyField10",
+            "designerId": "f9151e0e-11ec-43db-a1bb-738f9fba7b37"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "contact"
+            },
+            "name": "MyField11",
+            "designerId": "41bef083-97a1-43a7-aec6-d8873e3aba80"
         }
     ]
 }

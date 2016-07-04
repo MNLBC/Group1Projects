@@ -48,6 +48,10 @@ Ext.define('Project.controller.LoginController', {
         {
             ref: 'showLoginWindow2',
             selector: '#showLoginWindow'
+        },
+        {
+            ref: 'inventoryBtn',
+            selector: '#inventoryBtn'
         }
     ],
 
@@ -55,19 +59,22 @@ Ext.define('Project.controller.LoginController', {
                  var username = this.getUsernameTextField().getValue(),
                      password = this.getPasswordTextField().getValue(),
                      window = button.up('window');
-
+                    console.log(username + " " + password);
                  var gridUserStore = userStore;
 
                 //logic checking if the user exist in the store
-
+                console.log();
                 var success= false,
-                    name ;
+                    name ,
+                    type = 'client';
                 Ext.each(gridUserStore.getRange(), function(record){
                      var data = record.data;
                     if(data.username === username && data.password === password){
                         success = true;
                         Ext.Msg.alert('Successfully Login', 'You have successfully login');
                         name = data.name;
+                        type = data.type;
+
                         return false;
                     }
                 });
@@ -82,6 +89,10 @@ Ext.define('Project.controller.LoginController', {
                     this.getCurrentUsername().show();
                     this.getShowLoginWindow().hide();
 
+                    if(type === 'admin'){
+                        this.getInventoryBtn().show();
+                    }
+                    button.up('window').destroy();
                 }else{
                     Ext.Msg.alert('Login Failed', 'User does not exists');
 
@@ -91,9 +102,8 @@ Ext.define('Project.controller.LoginController', {
 
     onCancelLoginClick: function(button) {
             var window = button.up('window');
-                window.hide();
-                this.getUsernameTextField().setValue('');
-                this.getPasswordTextField().setValue('');
+                window.destroy();
+
     },
 
     init: function(application) {
