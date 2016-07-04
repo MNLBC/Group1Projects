@@ -97,11 +97,14 @@ Ext.define('Libray.controller.Account', {
             borrowerStore = Ext.getStore('BorrowersStore'),
             isExisting = false,
             type = 'user';
+
+        // validation when fields is/are empty
         if (!(Ext.isEmpty(userName)) && !Ext.isEmpty(password)) {
             borrowerStore.each(function(record){
                 var bUserName = record.get('uname'),
                     bPassword = record.get('password');
 
+        // checking if user is existing
                 if ( userName == bUserName && password == bPassword){
                     isExisting = true;
                     type = record.get('type');
@@ -109,10 +112,13 @@ Ext.define('Libray.controller.Account', {
 
 
             });
+
+        // user existing, will check if inputed username and password is correct
             if (!isExisting) {
                 Ext.MessageBox.alert ('Warning', 'Incorrect user name/password');
             } else {
 
+        // show and hide specific functionalities depending on the type user
                 if(type==='user'){
                     this.getBorrowManageBtns().show();
                     this.getAdminManageBtn().hide();
@@ -135,26 +141,25 @@ Ext.define('Libray.controller.Account', {
     },
 
     onRegisterClick: function() {
-        Ext.create('Libray.view.registerWin').show();
+        Ext.create('Libray.view.registerWin').show(); // show registration window
     },
 
     onManageBtnClick: function() {
+        // show borrowed books page
             this.getBooksCont().hide();
             this.getBorrowedCont().show();
     },
 
-    onBorrowBtnClick: function() {
-
-    },
-
     onLogoutClick: function() {
-            this.getBooksCont().hide();
+        // Logout (Book list page)
+        this.getBooksCont().hide();
         this.getBorrowedCont().hide();
             this.getLoginRegisterCont().show();
     },
 
     onLogoutBtnClick: function() {
-            this.getBooksCont().hide();
+        // Logout (Borrowed books page)
+        this.getBooksCont().hide();
         this.getBorrowedCont().hide();
             this.getLoginRegisterCont().show();
     },
@@ -167,11 +172,14 @@ Ext.define('Libray.controller.Account', {
             cPWord = this.getConfirmPasswordReg().getValue(),
             store = Ext.getStore('BorrowersStore');
 
+        // Checks if fields is/are not empty
         if((!Ext.isEmpty(fName)) &&
                !Ext.isEmpty(lName) &&
                !Ext.isEmpty(uName) &&
                !Ext.isEmpty(pWord) &&
                !Ext.isEmpty(cPWord)){
+
+            // checks if password and cofirm password are the same
             if(pWord === cPWord){
                 var user = {
                     fname: fName,
@@ -195,6 +203,7 @@ Ext.define('Libray.controller.Account', {
     },
 
     onCancelBtnClick: function() {
+        // Close registration window
         this.getRegisterWin().destroy();
     },
 
@@ -208,9 +217,6 @@ Ext.define('Libray.controller.Account', {
             },
             "#manageBtn": {
                 click: this.onManageBtnClick
-            },
-            "#borrowBtn": {
-                click: this.onBorrowBtnClick
             },
             "#logout": {
                 click: this.onLogoutClick

@@ -27,9 +27,9 @@
                     "    storeBook = gridBook.getStore(),",
                     "    storeBorrowed = Ext.getStore('BorrowedStore'),",
                     "    selectModel = gridBook.getSelectionModel(),",
-                    "    selectedBooks = selectModel.getSelection(),",
-                    "    selected = selectedBooks.length;",
+                    "    selectedBooks = selectModel.getSelection();",
                     "",
+                    "// Add borrowed books to store",
                     "    storeBorrowed.add(selectedBooks);",
                     "    storeBook.remove(selectedBooks);",
                     ""
@@ -70,9 +70,9 @@
                     "            storeBorrowed = gridBorrowed.getStore(),",
                     "            storeBook = Ext.getStore('BookStore'),",
                     "            selectModel = gridBorrowed.getSelectionModel(),",
-                    "            selectedBooks = selectModel.getSelection(),",
-                    "            selected = selectedBooks.length;",
+                    "            selectedBooks = selectModel.getSelection();",
                     "",
+                    "// Return borrowed book/s",
                     "storeBook.add(selectedBooks);",
                     "storeBorrowed.remove(selectedBooks);"
                 ],
@@ -108,6 +108,7 @@
                 "designer|targetType": "MyButton6",
                 "fn": "onBackBtnClick",
                 "implHandler": [
+                    "// Return to list of books page",
                     "this.getBooksCont().show();",
                     "    this.getBorrowedCont().hide();"
                 ],
@@ -160,9 +161,9 @@
                     "var gridBook = this.getBookListView(),",
                     "    storeBook = gridBook.getStore(),",
                     "    selectModel = gridBook.getSelectionModel(),",
-                    "    selectedBooks = selectModel.getSelection(),",
-                    "    selected = selectedBooks.length;",
+                    "    selectedBooks = selectModel.getSelection();",
                     "",
+                    "// Removing books from store and grid",
                     "    storeBook.remove(selectedBooks);"
                 ],
                 "name": "click",
@@ -183,6 +184,7 @@
                 "designer|targetType": "MyButton11",
                 "fn": "onEditBookBtnClick",
                 "implHandler": [
+                    "// Show edit book window",
                     "var bkWin = Ext.create('Libray.view.addEditWin');",
                     "    bkWin.show();"
                 ],
@@ -218,7 +220,8 @@
                 "designer|targetType": "MyGridPanel",
                 "fn": "onGridpanelSelectionChange",
                 "implHandler": [
-                    "        var gridBook = this.getBookListView(),",
+                    "// Disabling and enabling edit book details depending to the count selected book/s        ",
+                    "var gridBook = this.getBookListView(),",
                     "            storeBook = gridBook.getStore(),",
                     "            selectModel = gridBook.getSelectionModel(),",
                     "            selectedBooks = selectModel.getSelection(),",
@@ -267,15 +270,13 @@
                     "var gridBook = this.getBookListView(),",
                     "    storeBook = gridBook.getStore(),",
                     "    selectModel = gridBook.getSelectionModel(),",
-                    "    selectedBooks = selectModel.getSelection(),",
-                    "    selected = selectedBooks.length;",
+                    "    selectedBooks = selectModel.getSelection();",
                     "",
-                    "// this.setTitle()",
-                    "// selectedBooks[0].data.title;",
                     "var editTitle = this.getTitle().getValue(),",
                     "    editAuthor = this.getAuthor().getValue(),",
                     "    editPublisher = this.getPublisher().getValue();",
                     "",
+                    "// Saving edited book details",
                     "selectedBooks[0].data.title = editTitle;",
                     "selectedBooks[0].data.author = editAuthor;",
                     "selectedBooks[0].data.publisher = editPublisher;",
@@ -302,6 +303,7 @@
                 "designer|targetType": "MyButton12",
                 "fn": "onCancelBookBtnClick",
                 "implHandler": [
+                    "// Closing of edit details window",
                     "this.getAddEditWin().destroy();"
                 ],
                 "name": "click",
@@ -420,6 +422,7 @@
                 "designer|targetType": "MyButton9",
                 "fn": "onAddBookWinShowBtnClick",
                 "implHandler": [
+                    "// Show add book window",
                     "Ext.create('Libray.view.addWin').show();"
                 ],
                 "name": "click",
@@ -447,6 +450,8 @@
                     "titleA = this.getTitleAdd().getValue(),",
                     "    authorA = this.getAuthorAdd().getValue(),",
                     "    publisherA = this.getPublisherAdd().getValue();",
+                    "",
+                    "// Checks if fields is/are empty",
                     "if(!(Ext.isEmpty(titleA))&&!Ext.isEmpty(authorA) && !Ext.isEmpty(publisherA)){",
                     "",
                     "    var book = {",
@@ -454,6 +459,8 @@
                     "        author: this.getAuthorAdd().getValue(),",
                     "        publisher: this.getPublisherAdd().getValue()",
                     "    };",
+                    "    ",
+                    "// Add book to store/grid    ",
                     "    storeBook.add(book);",
                     "    Ext.MessageBox.alert ('Information', 'New book has been stored!');",
                     "    this.getAddWin().destroy();",
@@ -480,6 +487,7 @@
                 "designer|targetType": "MyButton12",
                 "fn": "onCancelBookAddBtnClick",
                 "implHandler": [
+                    "// Close add window page",
                     "this.getAddWin().destroy();"
                 ],
                 "name": "click",
@@ -514,11 +522,11 @@
                 "designer|targetType": "addEditWin",
                 "fn": "onAddEditWinShow",
                 "implHandler": [
+                    "// Set value to edit book details depending on selected book",
                     "var gridBook = this.getBookListView(),",
                     "                    storeBook = gridBook.getStore(),",
                     "                    selectModel = gridBook.getSelectionModel(),",
                     "                    selectedBooks = selectModel.getSelection(),",
-                    "                    selected = selectedBooks.length,",
                     "    title = selectedBooks[0].data.title,",
                     "    author = selectedBooks[0].data.author,",
                     "    publisher = selectedBooks[0].data.publisher;",

@@ -49,7 +49,7 @@
                         "html": [
                             "<link href='http://fonts.googleapis.com/css?family=Abel'",
                             "\trel='stylesheet' type='text/css'>",
-                            " <center><h1 style = 'font-family: Abel;margin-top: 300px; '>Book for a Day</h1></center>",
+                            " <center><h1 style = 'font-family: Abel;margin-top: 325px; '>Book for a Day</h1></center>",
                             " <hr width=\"550\"> "
                         ],
                         "itemId": "mycontainer3",

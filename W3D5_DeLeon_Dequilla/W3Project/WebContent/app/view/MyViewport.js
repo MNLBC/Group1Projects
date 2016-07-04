@@ -51,8 +51,7 @@ Ext.define('Libray.view.MyViewport', {
                         {
                             xtype: 'container',
                             flex: 1,
-                            hidden: true,
-                            html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\n	rel=\'stylesheet\' type=\'text/css\'>\n <center><h1 style = \'font-family: Abel;margin-top: 300px; \'>Book for a Day</h1></center>\n <hr width="550">',
+                            html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\n	rel=\'stylesheet\' type=\'text/css\'>\n <center><h1 style = \'font-family: Abel;margin-top: 310px; \'>Book for a Day</h1></center>\n <hr width="550">',
                             itemId: 'mycontainer3',
                             autoScroll: true,
                             layout: {
@@ -250,6 +249,7 @@ Ext.define('Libray.view.MyViewport', {
                         {
                             xtype: 'container',
                             flex: 1,
+                            hidden: true,
                             itemId: 'mycontainer5',
                             layout: {
                                 type: 'vbox',

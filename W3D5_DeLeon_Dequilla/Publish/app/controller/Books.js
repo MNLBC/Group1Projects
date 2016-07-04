@@ -80,9 +80,9 @@ Ext.define('Libray.controller.Books', {
             storeBook = gridBook.getStore(),
             storeBorrowed = Ext.getStore('BorrowedStore'),
             selectModel = gridBook.getSelectionModel(),
-            selectedBooks = selectModel.getSelection(),
-            selected = selectedBooks.length;
+            selectedBooks = selectModel.getSelection();
 
+        // Add borrowed books to store
             storeBorrowed.add(selectedBooks);
             storeBook.remove(selectedBooks);
 
@@ -93,14 +93,15 @@ Ext.define('Libray.controller.Books', {
                     storeBorrowed = gridBorrowed.getStore(),
                     storeBook = Ext.getStore('BookStore'),
                     selectModel = gridBorrowed.getSelectionModel(),
-                    selectedBooks = selectModel.getSelection(),
-                    selected = selectedBooks.length;
+                    selectedBooks = selectModel.getSelection();
 
+        // Return borrowed book/s
         storeBook.add(selectedBooks);
         storeBorrowed.remove(selectedBooks);
     },
 
     onBackBtnClick: function() {
+        // Return to list of books page
         this.getBooksCont().show();
             this.getBorrowedCont().hide();
     },
@@ -109,19 +110,21 @@ Ext.define('Libray.controller.Books', {
         var gridBook = this.getBookListView(),
             storeBook = gridBook.getStore(),
             selectModel = gridBook.getSelectionModel(),
-            selectedBooks = selectModel.getSelection(),
-            selected = selectedBooks.length;
+            selectedBooks = selectModel.getSelection();
 
+        // Removing books from store and grid
             storeBook.remove(selectedBooks);
     },
 
     onEditBookBtnClick: function() {
+        // Show edit book window
         var bkWin = Ext.create('Libray.view.addEditWin');
             bkWin.show();
     },
 
     onGridpanelSelectionChange: function() {
-                var gridBook = this.getBookListView(),
+        // Disabling and enabling edit book details depending to the count selected book/s
+        var gridBook = this.getBookListView(),
                     storeBook = gridBook.getStore(),
                     selectModel = gridBook.getSelectionModel(),
                     selectedBooks = selectModel.getSelection(),
@@ -140,15 +143,13 @@ Ext.define('Libray.controller.Books', {
         var gridBook = this.getBookListView(),
             storeBook = gridBook.getStore(),
             selectModel = gridBook.getSelectionModel(),
-            selectedBooks = selectModel.getSelection(),
-            selected = selectedBooks.length;
+            selectedBooks = selectModel.getSelection();
 
-        // this.setTitle()
-        // selectedBooks[0].data.title;
         var editTitle = this.getTitle().getValue(),
             editAuthor = this.getAuthor().getValue(),
             editPublisher = this.getPublisher().getValue();
 
+        // Saving edited book details
         selectedBooks[0].data.title = editTitle;
         selectedBooks[0].data.author = editAuthor;
         selectedBooks[0].data.publisher = editPublisher;
@@ -159,10 +160,12 @@ Ext.define('Libray.controller.Books', {
     },
 
     onCancelBookBtnClick: function() {
+        // Closing of edit details window
         this.getAddEditWin().destroy();
     },
 
     onAddBookWinShowBtnClick: function() {
+        // Show add book window
         Ext.create('Libray.view.addWin').show();
     },
 
@@ -174,6 +177,8 @@ Ext.define('Libray.controller.Books', {
         titleA = this.getTitleAdd().getValue(),
             authorA = this.getAuthorAdd().getValue(),
             publisherA = this.getPublisherAdd().getValue();
+
+        // Checks if fields is/are empty
         if(!(Ext.isEmpty(titleA))&&!Ext.isEmpty(authorA) && !Ext.isEmpty(publisherA)){
 
             var book = {
@@ -181,6 +186,8 @@ Ext.define('Libray.controller.Books', {
                 author: this.getAuthorAdd().getValue(),
                 publisher: this.getPublisherAdd().getValue()
             };
+
+        // Add book to store/grid
             storeBook.add(book);
             Ext.MessageBox.alert ('Information', 'New book has been stored!');
             this.getAddWin().destroy();
@@ -191,15 +198,16 @@ Ext.define('Libray.controller.Books', {
     },
 
     onCancelBookAddBtnClick: function() {
+        // Close add window page
         this.getAddWin().destroy();
     },
 
     onAddEditWinShow: function(component, eOpts) {
+        // Set value to edit book details depending on selected book
         var gridBook = this.getBookListView(),
                             storeBook = gridBook.getStore(),
                             selectModel = gridBook.getSelectionModel(),
                             selectedBooks = selectModel.getSelection(),
-                            selected = selectedBooks.length,
             title = selectedBooks[0].data.title,
             author = selectedBooks[0].data.author,
             publisher = selectedBooks[0].data.publisher;
