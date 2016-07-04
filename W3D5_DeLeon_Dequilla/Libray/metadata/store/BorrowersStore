@@ -1,0 +1,120 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"fname\": \"Admin\",",
+            "        \"lname\": \"istrator\",",
+            "        \"uname\": \"admin\",",
+            "        \"password\": \"password\",",
+            "        \"type\": \"admin\"",
+            "    },",
+            "    {",
+            "        \"fname\": \"Ed\",",
+            "        \"lname\": \"Reed\",",
+            "        \"uname\": \"randerson\",",
+            "        \"password\": \"test1\",",
+            "        \"type\": \"user\"",
+            "    },",
+            "    {",
+            "        \"fname\": \"Sadie\",",
+            "        \"lname\": \"Baker\",",
+            "        \"uname\": \"cbaker\",",
+            "        \"password\": \"test\",",
+            "        \"type\": \"user\"",
+            "    },",
+            "    {",
+            "        \"fname\": \"Fannie\",",
+            "        \"lname\": \"Wright\",",
+            "        \"uname\": \"sbarnes\",",
+            "        \"password\": \"test\",",
+            "        \"type\": \"user\"",
+            "    },",
+            "    {",
+            "        \"fname\": \"Leon\",",
+            "        \"lname\": \"Brown\",",
+            "        \"uname\": \"cgreen\",",
+            "        \"password\": \"test\",",
+            "        \"type\": \"user\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "BorrowersStore",
+        "storeId": "BorrowersStore"
+    },
+    "name": "MyStore",
+    "designerId": "253f1c64-1fb1-445e-ba02-8ae3a1342df0",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fname"
+            },
+            "name": "MyField6",
+            "designerId": "c45f4eee-ce4f-48e4-ab48-567fd8a88ab4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lname"
+            },
+            "name": "MyField7",
+            "designerId": "e0a5e523-edce-475b-9b7c-9072ee765431"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "uname"
+            },
+            "name": "MyField8",
+            "designerId": "4a8280bb-9710-4c86-a463-ffc7dc6fddfd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "password"
+            },
+            "name": "MyField9",
+            "designerId": "243926ff-4632-4da4-a8cd-691cf922a8ef"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "type"
+            },
+            "name": "MyField10",
+            "designerId": "9bae6a73-c2a5-4beb-bc45-cf6b8bfb730a"
+        }
+    ]
+}

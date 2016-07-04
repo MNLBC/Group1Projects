@@ -13,14 +13,20 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.model.userModel', {
+Ext.define('MyApp.model.userModel', {
     extend: 'Ext.data.Model',
 
     requires: [
         'Ext.data.Field'
     ],
 
+    idProperty: 'userId',
+
     fields: [
+        {
+            name: 'userId',
+            type: 'int'
+        },
         {
             name: 'firstName'
         },
@@ -44,9 +50,6 @@ Ext.define('BookingManagementSystem.model.userModel', {
         },
         {
             name: 'email'
-        },
-        {
-            name: 'booksAtHand'
         }
     ]
 });

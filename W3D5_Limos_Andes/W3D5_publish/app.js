@@ -22,20 +22,25 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'userModel',
-        'bookModel'
+        'bookModel',
+        'bookHistoryModel',
+        'userBookModel'
     ],
     stores: [
         'userStore',
-        'bookStore'
+        'bookStore',
+        'bookHistoryStore',
+        'userBookStore'
     ],
     views: [
         'LoginPage',
-        'MyWindow',
-        'Homepage'
+        'Homepage',
+        'addBookWindow',
+        'viewBook'
     ],
     controllers: [
         'viewPortControllers',
-        'windowsControllers'
+        'windowControllers'
     ],
     name: 'BookingManagementSystem',
 

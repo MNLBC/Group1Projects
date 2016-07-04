@@ -68,10 +68,12 @@ Ext.define('BookingManagementSystem.view.LoginPage', {
                                             margins: '',
                                             margin: '-50, 0, 0, 0',
                                             padding: '',
+                                            style: 'font-size:30px; font-family:\'Monotype Corsiva\';',
                                             text: 'Welcome to Book Management System'
                                         },
                                         {
                                             xtype: 'textfield',
+                                            id: 'userName',
                                             margin: 25,
                                             fieldLabel: 'Username',
                                             name: 'userName',
@@ -80,6 +82,7 @@ Ext.define('BookingManagementSystem.view.LoginPage', {
                                         },
                                         {
                                             xtype: 'textfield',
+                                            id: 'password',
                                             fieldLabel: 'Password',
                                             name: 'password',
                                             inputType: 'password',

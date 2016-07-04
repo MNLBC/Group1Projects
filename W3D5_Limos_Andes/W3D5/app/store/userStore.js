@@ -13,30 +13,43 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.store.userStore', {
+Ext.define('MyApp.store.userStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'BookingManagementSystem.model.userModel'
+        'MyApp.model.userModel'
     ],
 
     constructor: function(cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            model: 'BookingManagementSystem.model.userModel',
+            model: 'MyApp.model.userModel',
             storeId: 'userStore',
             data: [
                 {
-                    firstName: 'Alexander',
-                    lastName: 'Hernandez',
+                    userId: 1,
+                    firstName: 'Theodore',
+                    lastName: 'James',
                     userName: 'nemo',
                     password: 'nemo',
                     uType: 'admin',
-                    address: '04 Kipling Center',
-                    contactNo: 'ad',
-                    email: 'jfrazier@rhynoodle.biz',
-                    booksAtHand: 'eaque'
+                    address: '70664 Twin Pines Street',
+                    contactNo: 'tenetur',
+                    email: 'foliver@twitterbeat.org',
+                    booksAtHand: 'ad'
+                },
+                {
+                    userId: 2,
+                    firstName: 'Maude',
+                    lastName: 'Mitchell',
+                    userName: 'dory',
+                    password: 'dory',
+                    uType: 'user',
+                    address: '1 Jenifer Way',
+                    contactNo: 'saepe',
+                    email: 'ewatkins@dazzlesphere.biz',
+                    booksAtHand: 'nemo'
                 }
             ]
         }, cfg)]);

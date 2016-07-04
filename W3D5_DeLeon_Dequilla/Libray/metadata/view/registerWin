@@ -1,0 +1,36 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": null,
+        "designer|userClassName": "registerWin",
+        "header": false,
+        "height": 292,
+        "itemId": "registerWin",
+        "layout": "fit",
+        "resizable": [
+            "false"
+        ],
+        "title": "My Window",
+        "width": 361
+    },
+    "name": "MyWindow",
+    "designerId": "5d250dea-d146-4cdb-9514-0dbdca901f81",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "registerform",
+            "designerId": "4c4c976a-63d8-4ef7-8035-c0361870dbee",
+            "masterInstanceId": "86bbcf2a-532e-4a01-8e29-911ed949c461"
+        }
+    ]
+}

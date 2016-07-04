@@ -83,9 +83,12 @@
                     "            }else if(this.validateLogin(form) === 0){",
                     "                this.showErrorMessage('Wrong Password!');",
                     "            }else{",
+                    "                this.userStore.getById();",
+                    "                var index = this.userStore.find(\"userName\", form.getValues().userName);",
+                    "                var userInfo = this.userStore.getAt(index);",
                     "                Ext.create('BookingManagementSystem.view.Homepage',{",
-                    "                           ",
-                    "                           }).show();",
+                    "                    userInfo: userInfo",
+                    "                 }).show();",
                     "            }",
                     "",
                     "        }else{",
@@ -109,7 +112,11 @@
                 "fn": "onLaunch",
                 "implHandler": [
                     "        this.loginPage = Ext.getCmp('loginPage');",
-                    "        this.userStore = Ext.getStore('userStore');"
+                    "        this.userStore = Ext.getStore('userStore');",
+                    "        this.booksGrid = Ext.getCmp('booksGrid');",
+                    "        this.bookStore = Ext.getStore('bookStore');",
+                    "        this.bookHistoryStore=Ext.getStore('bookHistoryStore');",
+                    "        this.userBookStore=Ext.getStore('userBookStore');"
                 ]
             },
             "name": "onLaunch",
@@ -234,6 +241,300 @@
             },
             "name": "validateLogin",
             "designerId": "96a2445e-635e-4315-8831-584284e64d33"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookButton",
+                "designer|targetType": "MyButton6",
+                "fn": "onAddBookButtonClick",
+                "implHandler": [
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.addBookWindow',{",
+                    "",
+                    "                }).show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddBookButtonClick",
+            "designerId": "60d9f7c5-7644-4791-b17c-93acd6ed9fc1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#booksGrid",
+                "designer|targetType": "MyGridView",
+                "fn": "onBooksGridItemClick",
+                "implHandler": [
+                    "        Ext.getCmp('viewBookButton').enable();",
+                    "        Ext.getCmp('deleteBookButton').enable();",
+                    "        Ext.getCmp('userViewBookButton').enable();",
+                    "        Ext.getCmp('userCheckoutBookButton').enable();"
+                ],
+                "name": "itemclick",
+                "scope": "me"
+            },
+            "name": "onBooksGridItemClick",
+            "designerId": "387861cb-089b-4756-8b5c-6d2eacdfe3ef"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#deleteBookButton",
+                "designer|targetType": "MyButton8",
+                "fn": "onDeleteBookButtonClick",
+                "implHandler": [
+                    "      var booksGrid = Ext.getCmp('booksGrid');",
+                    "        var selectedModel = booksGrid.getSelectionModel().getSelection()[0];",
+                    "var title = selectedModel.data.title;",
+                    "var bookId = selectedModel.data.bookId;",
+                    "console.log(selectedModel);",
+                    "    Ext.Msg.confirm(\"Confirmation\", \"Do you want to Delete \\\"\"+ title +\"\\\"?\", function(btnText){",
+                    "            if(btnText === \"yes\"){",
+                    "                this.bookStore.remove(selectedModel);",
+                    "            }",
+                    "        }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onDeleteBookButtonClick",
+            "designerId": "82dd0891-3c1e-4b02-9b38-e1cd8db5bc91"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewBookButton",
+                "designer|targetType": "MyButton7",
+                "fn": "onViewBookButtonClick",
+                "implHandler": [
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.viewBookWindow',{",
+                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],",
+                    "            uType: this.uType",
+                    "        }).show();",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onViewBookButtonClick",
+            "designerId": "83aab47a-bee0-4e34-b451-ba7cde3310d9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#homePage",
+                "designer|targetType": "Homepage",
+                "fn": "onHomePageAfterRender",
+                "implHandler": [
+                    "        this.userInformation = component.userInfo;",
+                    "        var firstName = this.userInformation.data.firstName;",
+                    "        var lastName = this.userInformation.data.lastName;",
+                    "        this.userName = this.userInformation.data.userName;",
+                    "        this.uType = this.userInformation.data.uType;",
+                    "        this.userBookStore=Ext.getStore('userBookStore');",
+                    "        Ext.getCmp('welcomeUserLabel').getEl().update('Welcome ' + firstName + ' ' + lastName);",
+                    "        console.log(this.uType);",
+                    "        if(this.uType == 'admin'){",
+                    "            Ext.getCmp('userBooksToolbar').hide();",
+                    "",
+                    "            Ext.getCmp('homePageTab').child('#userProfile').tab.hide();",
+                    "",
+                    "//             Ext.getCmp('usersTab').show();",
+                    "        }else{",
+                    "            Ext.getCmp('adminBooksToolbar').hide();",
+                    "            Ext.getCmp('homePageTab').child('#usersTab').tab.hide();",
+                    "//             Ext.getCmp('usersTab').hide();",
+                    "",
+                    "        }"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onHomePageAfterRender",
+            "designerId": "722a9757-4ebd-42a9-a221-a3d94bd3630c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#logoutButton",
+                "designer|targetType": "MyButton4",
+                "fn": "onLogoutButtonClick",
+                "implHandler": [
+                    "Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to logout?\", function(btnText){",
+                    "            if(btnText === \"yes\"){",
+                    "                    Ext.getCmp('homePage').destroy();",
+                    "                    Ext.getCmp('userName').setValue('');",
+                    "                    Ext.getCmp('password').setValue('');",
+                    "            }",
+                    "        }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLogoutButtonClick",
+            "designerId": "928655e7-d903-4387-b24c-3846aab6f36d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userViewBookButton",
+                "designer|targetType": "MyButton14",
+                "fn": "onUserViewBookButtonClick",
+                "implHandler": [
+                    "        Ext.getBody().mask();",
+                    "        Ext.create('BookingManagementSystem.view.viewBookWindow',{",
+                    "            record:Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0],",
+                    "            uType: this.uType,",
+                    "            userName:this.userName,",
+                    "            userId:this.userId",
+                    "        }).show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onUserViewBookButtonClick",
+            "designerId": "4e8b7edc-be3e-4686-bf8e-f3a134375703"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userCheckoutBookButton",
+                "designer|targetType": "MyButton15",
+                "fn": "onUserCheckoutBookButtonClick",
+                "implHandler": [
+                    "        Ext.Msg.confirm(\"Confirmation\", \"CheckOut this book?\", function(btnText){",
+                    "            var record = Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0];",
+                    "            if(btnText === \"yes\"){",
+                    "",
+                    "                var currentAvailable = record.data.available - 1;",
+                    "                var bookHistoryStore = this.bookHistoryStore;",
+                    "",
+                    "                var historyLog = {",
+                    "                    bookId:record.data.bookId,",
+                    "                    action:\"Checked out book\",",
+                    "                    date: new Date(),",
+                    "                    userName: this.userName",
+                    "                };",
+                    "                var userBook = {",
+                    "                    title: record.data.title,",
+                    "                    description:record.data.description,",
+                    "                    checkoutDate:new Date(),",
+                    "                    userId:this.userId",
+                    "                };",
+                    "                ",
+                    "            this.userBookStore.add(userBook);   ",
+                    "            bookHistoryStore.add(historyLog);",
+                    "            record.set('available', currentAvailable);",
+                    "                }",
+                    "",
+                    "                ",
+                    "            }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onUserCheckoutBookButtonClick",
+            "designerId": "47de2861-4dd5-49d8-a26d-c80bd58f5deb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#titleSearch",
+                "designer|targetType": "MyTextField6",
+                "fn": "onTitleSearchChange",
+                "implHandler": [
+                    "     titleName = Ext.getCmp('titleSearch').getValue();",
+                    "                store = Ext.getStore('bookStore');",
+                    "",
+                    "                if(Ext.isEmpty(titleName)){",
+                    "                    store.clearFilter();",
+                    "                }else{",
+                    "                store.filter('title', titleName);",
+                    "                }",
+                    ""
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "name": "onTitleSearchChange",
+            "designerId": "de08118e-340e-4a7d-b0e1-b0bcf44589a2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchUser",
+                "designer|targetType": "MyTextField11",
+                "fn": "onSearchUserChange",
+                "implHandler": [
+                    "        userTxt = Ext.getCmp('searchUser').getValue();",
+                    "                        store = Ext.getStore('userStore');",
+                    "",
+                    "                        if(Ext.isEmpty(userTxt)){",
+                    "                            store.clearFilter();",
+                    "                        }else{",
+                    "                        store.filter('userName', userTxt);",
+                    "                        }",
+                    ""
+                ],
+                "name": "change",
+                "scope": "me"
+            },
+            "name": "onSearchUserChange",
+            "designerId": "66653f4c-4ae6-4740-93f1-fe7913bf9a6a"
         }
     ]
 }

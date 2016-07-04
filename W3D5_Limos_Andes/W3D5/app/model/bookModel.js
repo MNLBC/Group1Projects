@@ -13,14 +13,20 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.model.bookModel', {
+Ext.define('MyApp.model.bookModel', {
     extend: 'Ext.data.Model',
 
     requires: [
         'Ext.data.Field'
     ],
 
+    idProperty: 'bookId',
+
     fields: [
+        {
+            name: 'bookId',
+            type: 'int'
+        },
         {
             name: 'title'
         },
@@ -34,7 +40,8 @@ Ext.define('BookingManagementSystem.model.bookModel', {
             name: 'available'
         },
         {
-            name: 'checkoutBy'
+            name: 'checkoutBy',
+            type: 'string'
         }
     ]
 });

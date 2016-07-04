@@ -39,7 +39,7 @@ Ext.define('Project.view.HomePanel', {
                     items: [
                         {
                             xtype: 'label',
-                            text: 'HOME'
+                            text: 'WELCOME TO BMS'
                         }
                     ]
                 }

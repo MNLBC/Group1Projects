@@ -18,7 +18,7 @@ Ext.define('Project.view.SearchPanel', {
     alias: 'widget.mypanel2',
 
     requires: [
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
@@ -35,6 +35,10 @@ Ext.define('Project.view.SearchPanel', {
 
         Ext.applyIf(me, {
             items: [
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Label'
+                },
                 {
                     xtype: 'container',
                     layout: {

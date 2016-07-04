@@ -1,0 +1,683 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "windowControllers",
+        "oLoadingMessageMask": [
+            "null",
+            ""
+        ]
+    },
+    "name": "MyController",
+    "configAlternates": {
+        "oLoadingMessageMask": "object"
+    },
+    "designerId": "2f86d913-fa1d-48b4-9a3f-015f0439fd61",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "oLoadingMessageMask",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "firstName",
+                "selector": "#firstName"
+            },
+            "name": "firstName",
+            "designerId": "e200a28d-a146-4c40-898f-2835b2b94a56"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "lastName",
+                "selector": "#lastName"
+            },
+            "name": "lastName",
+            "designerId": "4e68db13-2389-464a-a7b6-fb4d88e67d26"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userName",
+                "selector": "#userName"
+            },
+            "name": "userName",
+            "designerId": "d5e2538c-5607-421f-9580-013a614e03f1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "password",
+                "selector": "#password"
+            },
+            "name": "password",
+            "designerId": "06b6945d-e9c5-455b-9b88-0460540f30af"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactNo",
+                "selector": "#contactNo"
+            },
+            "name": "contactNo",
+            "designerId": "bf323b41-d51e-4d69-8575-9ba80ba416fd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "email",
+                "selector": "#email"
+            },
+            "name": "email",
+            "designerId": "41ff6eb0-e85b-44ab-ac23-28bdc0d8222b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "address",
+                "selector": "#address"
+            },
+            "name": "address",
+            "designerId": "500bc074-a371-4c48-a497-3415733235ff"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelButton",
+                "designer|targetType": "MyButton3",
+                "fn": "onCancelButtonClick",
+                "implHandler": [
+                    "    this.registerWindow.close();",
+                    "    Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelButtonClick",
+            "designerId": "1a4fbb46-f996-4270-8267-38c4c92521a7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#submitButton",
+                "designer|targetType": "MyButton2",
+                "fn": "onSubmitButtonClick",
+                "implHandler": [
+                    "    this.showLoadingMessageMask();",
+                    "    var form = this.registerPanel.getForm();",
+                    "        if(form.isValid()){",
+                    "",
+                    "                var firstName = form.getValues().firstName;",
+                    "                var lastName = form.getValues().lastName;",
+                    "                var userName = form.getValues().userName;",
+                    "                var password = form.getValues().password;",
+                    "                var contactNo = form.getValues().contactNo;",
+                    "                var email = form.getValues().email;",
+                    "                var address = form.getValues().address;",
+                    "                var userStore = this.userStore;",
+                    "                console.log(userName);",
+                    "                var regexemail = new RegExp(/^([A-Za-z0-9_.]+)@([A-Za-z0-9]+).([A-Za-z0-9]+)$/);",
+                    "           ",
+                    "            if(!regexemail.test(email)){",
+                    "",
+                    "            this.hideLoadingMessageMask();",
+                    "                this.showErrorMessage('Invalid Email address!');",
+                    "            }else if(!this.isUserExist(userName)){",
+                    "                       var users = {",
+                    "                           userId: this.userStore.getCount()+1,",
+                    "                            firstName:firstName,",
+                    "                            lastName: lastName,",
+                    "                            userName: userName,",
+                    "                            password:password,",
+                    "                            contactNo:contactNo,",
+                    "                            email:email,",
+                    "                            address:address",
+                    "                        };",
+                    "                        console.log(users);",
+                    "                            userStore.add(users);",
+                    "                        this.hideLoadingMessageMask();",
+                    "                        this.showSuccessMessage('User has been created');",
+                    "                        this.registerWindow.close();",
+                    "                        Ext.getBody().unmask();",
+                    "            }else{",
+                    "                this.hideLoadingMessageMask();",
+                    "                this.showErrorMessage('Username already exists!');",
+                    "            }",
+                    "",
+                    "",
+                    "        }else{",
+                    "            this.hideLoadingMessageMask();",
+                    "            this.showErrorMessage('All fields must have a value');",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSubmitButtonClick",
+            "designerId": "eeff4a32-ce66-4900-82ed-8ad1c702c79f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerWindow",
+                "designer|targetType": "registerWindow",
+                "fn": "onRegisterWindowActivate",
+                "implHandler": [
+                    "",
+                    "          this.registerPanel = Ext.getCmp('registerPanel');",
+                    "          this.registerWindow = Ext.getCmp('registerWindow');",
+                    "          this.userStore = Ext.getStore('userStore');"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onRegisterWindowActivate",
+            "designerId": "8a7803d0-ae5a-44df-963c-20e6e9986edf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showLoadingMessageMask",
+                "implHandler": [
+                    "            if (!this.oLoadingMessageMask) {",
+                    "               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
+                    "                  msg : \"Processing, please wait...\"",
+                    "               });",
+                    "            }",
+                    "            this.oLoadingMessageMask.show();"
+                ]
+            },
+            "name": "showLoadingMessageMask",
+            "designerId": "9436ba1a-dde4-4152-84c7-d60b7d4a1d8a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideLoadingMessageMask",
+                "implHandler": [
+                    "            if (this.oLoadingMessageMask) {",
+                    "               this.oLoadingMessageMask.hide();",
+                    "            }",
+                    ""
+                ]
+            },
+            "name": "hideLoadingMessageMask",
+            "designerId": "ec6c79a2-bc62-45fe-b02f-583e4894853e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "message"
+                ],
+                "fn": "showErrorMessage",
+                "implHandler": [
+                    "        Ext.MessageBox.show({",
+                    "            title:document.title,",
+                    "            msg: message,",
+                    "            buttons: Ext.MessageBox.OK,",
+                    "            icon:Ext.MessageBox.ERROR",
+                    "        });"
+                ]
+            },
+            "name": "showErrorMessage",
+            "designerId": "29bdc8f4-9968-4a16-99a6-97b5465ce6cb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "message"
+                ],
+                "fn": "showSuccessMessage",
+                "implHandler": [
+                    "        Ext.MessageBox.show({",
+                    "            title:document.title,",
+                    "            msg: message,",
+                    "            buttons: Ext.MessageBox.OK,",
+                    "            icon:Ext.MessageBox.SUCCESS",
+                    "        });"
+                ]
+            },
+            "name": "showSuccessMessage",
+            "designerId": "4d752b99-3739-49a1-bfaf-ab0531282876"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "userName"
+                ],
+                "fn": "isUserExist",
+                "implHandler": [
+                    "            var userStore = this.userStore;",
+                    "            var exist = userStore.find(\"userName\",userName);",
+                    "            if(exist === -1){",
+                    "                return false;",
+                    "            }else{",
+                    "                return true;",
+                    "            }",
+                    ""
+                ]
+            },
+            "name": "isUserExist",
+            "designerId": "47c15f19-842a-4d00-b098-9f365ccc092f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "title"
+                ],
+                "fn": "isBookExist",
+                "implHandler": [
+                    "        var exist = this.bookStore.find(\"title\",title);",
+                    "        if(exist === -1){",
+                    "            return false;",
+                    "        }",
+                    "        else{",
+                    "            return true;",
+                    "        }"
+                ]
+            },
+            "name": "isBookExist",
+            "designerId": "b730e6d9-a801-41b2-b5c5-4a232dc9fea8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#saveBookButton",
+                "designer|targetType": "MyButton9",
+                "fn": "onSaveBookButtonClick",
+                "implHandler": [
+                    "        var form = this.addBookPanel.getForm();",
+                    "        var author = form.getValues().author;",
+                    "        var description = form.getValues().description;",
+                    "        var available = form.getValues().available;",
+                    "        var title = form.getValues().title;",
+                    "        if(form.isValid()){",
+                    "            if(!this.isBookExist(title)){",
+                    "                var book = {",
+                    "                    bookId: this.bookStore.getCount() + 1,",
+                    "                    title: title,",
+                    "                    author: author,",
+                    "                    description: description,",
+                    "                    available: available",
+                    "                };",
+                    "",
+                    "                this.bookStore.add(book);",
+                    "                this.showSuccessMessage('Book has been successfully added!');",
+                    "                this.addBookWindow.close();",
+                    "                Ext.getBody().unmask();",
+                    "",
+                    "",
+                    "            }else{",
+                    "                this.showErrorMessage('Book with title \\\"'+title+'\\\" already exists');",
+                    "            }",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onSaveBookButtonClick",
+            "designerId": "ef7f6761-fd4a-4016-bbf1-c1de563201c5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookWindow",
+                "designer|targetType": "addBookWindow",
+                "fn": "onAddBookWindowActivate",
+                "implHandler": [
+                    "         this.addBookPanel = Ext.getCmp('addBookPanel');",
+                    "          this.addBookWindow = Ext.getCmp('addBookWindow');",
+                    "          this.bookStore = Ext.getStore('bookStore');"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onAddBookWindowActivate",
+            "designerId": "17e5d37d-5164-4ced-b994-ea19901e7aed"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelSaveBookButton",
+                "designer|targetType": "MyButton10",
+                "fn": "onCancelSaveBookButtonClick",
+                "implHandler": [
+                    "    this.addBookWindow.close();",
+                    "    Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelSaveBookButtonClick",
+            "designerId": "58a32b7e-ac02-4d4d-88b8-7808479fe686"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addBookWindow",
+                "designer|targetType": "addBookWindow",
+                "fn": "onAddBookWindowDestroy",
+                "implHandler": [
+                    "    Ext.getBody().unmask();"
+                ],
+                "name": "destroy",
+                "scope": "me"
+            },
+            "name": "onAddBookWindowDestroy",
+            "designerId": "01b483f3-bcaf-4ba1-aabe-f3a080a47edd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewCancelSaveBookButton",
+                "designer|targetType": "MyButton10",
+                "fn": "onViewCancelSaveBookButtonClick",
+                "implHandler": [
+                    "    Ext.getCmp('viewBookWindow').close();",
+                    "    Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onViewCancelSaveBookButtonClick",
+            "designerId": "e0b04f15-156c-4bdf-9732-376c8a5ceb35"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewBookWindow",
+                "designer|targetType": "viewBookWindow",
+                "fn": "onViewBookWindowActivate",
+                "implHandler": [
+                    "        var bookInformation = window.record;",
+                    "        var uType = window.uType;",
+                    "        this.userName = window.userName;",
+                    "        this.bookStore = Ext.getStore('bookStore');",
+                    "        this.userBookStore = Ext.getStore('userBookStore');",
+                    "        this.author = bookInformation.data.author;",
+                    "        this.title = bookInformation.data.title;",
+                    "        this.description = bookInformation.data.description;",
+                    "        this.available = bookInformation.data.available;",
+                    "        this.checkoutBy = bookInformation.data.checkoutBy;",
+                    "        this.bookId = bookInformation.data.bookId;",
+                    "        this.userId\t= window.userId;",
+                    "        this.viewBookPanel = Ext.getCmp('viewBookPanel');",
+                    "",
+                    "        this.titleView = Ext.getCmp('titleView');",
+                    "        this.authorView = Ext.getCmp('authorView');",
+                    "        this.descriptionView = Ext.getCmp('descriptionView');",
+                    "        this.availableView = Ext.getCmp('availableView');",
+                    "        this.bookHistoryStore = Ext.getStore('bookHistoryStore');",
+                    "",
+                    "        Ext.getCmp('titleView').setValue(this.title);",
+                    "        Ext.getCmp('authorView').setValue(this.author);",
+                    "        Ext.getCmp('descriptionView').setValue(this.description);",
+                    "        Ext.getCmp('availableView').setValue(this.available);",
+                    "",
+                    "//              titleName = Ext.getCmp('bookHistoryStore').getValue();",
+                    "                store = Ext.getStore('bookHistoryStore');",
+                    "                store.filter('bookId', this.bookId);",
+                    "                console.log(this.bookId);",
+                    "",
+                    "        var form = Ext.getCmp('viewBookPanel');",
+                    "        if(uType !== 'admin'){",
+                    "            Ext.getCmp('titleView').setReadOnly(true);",
+                    "            Ext.getCmp('authorView').setReadOnly(true);",
+                    "            Ext.getCmp('descriptionView').setReadOnly(true);",
+                    "            Ext.getCmp('availableView').setReadOnly(true);",
+                    "            Ext.getCmp('bookHistoryGrid').hide();",
+                    "            Ext.getCmp('adminViewBookToolbar').hide();",
+                    "            Ext.getCmp('userViewBookToolbar').show();",
+                    "        }else{",
+                    "             Ext.getCmp('userViewBookToolbar').hide();",
+                    "             Ext.getCmp('adminViewBookToolbar').show();",
+                    "             Ext.getCmp('bookHistoryGrid').show();",
+                    "        }",
+                    "",
+                    ""
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onViewBookWindowActivate",
+            "designerId": "6ba6ba90-5004-409e-b3db-f842d0d165ea"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewSaveBookButton",
+                "designer|targetType": "MyButton9",
+                "fn": "onViewSaveBookButtonClick",
+                "implHandler": [
+                    "            var form = this.viewBookPanel.getForm();",
+                    "            var bookStore = this.bookStore;",
+                    "            var storeTitle = this.bookStore.getById(this.bookId).data.title;",
+                    "            var title = form.getValues().title;",
+                    "",
+                    "            var storeId = this.bookStore.getById(this.bookId).data.id;",
+                    "            var storeAuthor = this.bookStore.getById(this.bookId).data.author;",
+                    "            if(form.isValid()){",
+                    "                if(this.isBookExist(title) && storeTitle !== title && storeId !== this.bookId){",
+                    "                    this.showErrorMessage('Book already exists');",
+                    "                }else{",
+                    "                    bookStore.remove(bookStore.getById(this.bookId));",
+                    "                    var book = {",
+                    "                        id:this.bookId,",
+                    "                        title:this.titleView.getValue(),",
+                    "                        author:this.authorView.getValue(),",
+                    "                        description:this.descriptionView.getValue(),",
+                    "                        available:this.availableView.getValue()",
+                    "                    };",
+                    "                    bookStore.add(book);",
+                    "                    this.showSuccessMessage('Book has been updated');",
+                    "                    Ext.getCmp('viewBookWindow').close();",
+                    "                    Ext.getBody().unmask();",
+                    "                }",
+                    "            }else{",
+                    "                this.showErrorMessage('All fields must have a value');",
+                    "            }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onViewSaveBookButtonClick",
+            "designerId": "45aaed3a-1f9c-4515-a210-e36e8f68af03"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#viewBookWindow",
+                "designer|targetType": "viewBookWindow",
+                "fn": "onViewBookWindowDestroy",
+                "implHandler": [
+                    "    Ext.getBody().unmask();",
+                    "    Ext.getCmp('viewBookButton').disable();",
+                    "    Ext.getCmp('deleteBookButton').disable();",
+                    "     Ext.getStore('bookHistoryStore').clearFilter();"
+                ],
+                "name": "destroy",
+                "scope": "me"
+            },
+            "name": "onViewBookWindowDestroy",
+            "designerId": "d641c19f-28ce-45e3-8937-cc40d5e0bf63"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#checkOutThisBook",
+                "designer|targetType": "MyButton16",
+                "fn": "onCheckOutThisBookClick",
+                "implHandler": [
+                    "        Ext.Msg.confirm(\"Confirmation\", \"Checkout this book?\", function(btnText){",
+                    "            var record = Ext.getCmp('booksGrid').getSelectionModel().getSelection()[0];",
+                    "            if(btnText === \"yes\"){",
+                    "",
+                    "                var currentAvailable = record.data.available - 1;",
+                    "",
+                    "                var historyLog = {",
+                    "                    bookId:record.data.bookId,",
+                    "                    action:\"Checked out book\",",
+                    "                    date: new Date(),",
+                    "                    userName: this.userName",
+                    "                };",
+                    "                var userBook = {",
+                    "                    title: record.data.title,",
+                    "                    description:record.data.description,",
+                    "                    checkoutDate:new Date(),",
+                    "                    userId:this.userId",
+                    "                };",
+                    "                Ext.getCmp('viewBookWindow').close();",
+                    "                Ext.getBody().unmask();",
+                    "            this.userBookStore.add(userBook);",
+                    "            this.bookHistoryStore.add(historyLog);",
+                    "            record.set('available', currentAvailable);",
+                    "                }",
+                    "",
+                    "",
+                    "            }, this);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCheckOutThisBookClick",
+            "designerId": "1268a6f3-d038-47b9-a274-5e44d30b0578"
+        }
+    ]
+}

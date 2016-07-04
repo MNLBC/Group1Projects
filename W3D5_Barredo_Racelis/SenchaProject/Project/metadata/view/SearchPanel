@@ -16,6 +16,19 @@
     "designerId": "65c662c7-1707-4fda-8207-b56d09d62ec8",
     "cn": [
         {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label"
+            },
+            "name": "MyComboBox4",
+            "designerId": "f365d17e-806f-4e08-8838-440d3999df7b"
+        },
+        {
             "type": "Ext.container.Container",
             "reference": {
                 "name": "items",

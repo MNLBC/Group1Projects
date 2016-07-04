@@ -52,32 +52,48 @@ Ext.define('Project.controller.AddUserController', {
     ],
 
     onAddUserAdminBtnClick: function(button) {
-               var name = this.getNameAddUser().getValue(),
-                   username = this.getUsernameAddUser().getValue(),
-                   password = this.getPasswordAddUser().getValue(),
-                   type = this.getType().getValue(),
-                   contact = this.getContactAddUser().getValue(),
-                   address = this.getAddressAddUser().getValue();
+        var name = this.getNameAddUser().getValue(),
+            username = this.getUsernameAddUser().getValue(),
+            password = this.getPasswordAddUser().getValue(),
+            type = this.getType().getValue(),
+            contact = this.getContactAddUser().getValue(),
+            address = this.getAddressAddUser().getValue();
 
-               if(Ext.isEmpty(name) || Ext.isEmpty(username) || Ext.isEmpty(password) || Ext.isEmpty(type)){
-                   Ext.Msg.alert('Error', 'Some fields are empty');
-                   return;
-               }
+        var store = this.getUserGrid().getStore();
 
-                var newUser = {
-                    username : username,
-                    password : password,
-                    name : name,
-                    type : type,
-                    contact: contact,
-                    address: address
-                };
+        var isUserExist = false;
+        Ext.each(store.getRange(),function(record){
+            if(record.data.username === username){
 
-              var store = this.getUserGrid().getStore();
+                isUserExist = true;
+                return false;
+            }
+        });
+
+        if(isUserExist){
+            Ext.Msg.alert('Error', 'Username already exists');
+            return;
+        }
+        if(Ext.isEmpty(name) || Ext.isEmpty(username) || Ext.isEmpty(password) || Ext.isEmpty(type)){
+            Ext.Msg.alert('Error', 'Some fields are empty');
+            return;
+        }
+
+        var newUser = {
+            username : username,
+            password : password,
+            name : name,
+            type : type,
+            contact: contact,
+            address: address
+        };
+
+        var store = this.getUserGrid().getStore();
 
 
-                store.add(newUser);
-                button.up('window').destroy();
+        store.add(newUser);
+        userStore.add(newUser);
+        button.up('window').destroy();
 
 
 

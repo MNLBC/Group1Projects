@@ -25,7 +25,50 @@ Ext.define('BookingManagementSystem.store.bookStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BookingManagementSystem.model.bookModel',
-            storeId: 'bookStore'
+            storeId: 'bookStore',
+            data: [
+                {
+                    bookId: 1,
+                    title: 'Diary of a Wimpy Kid',
+                    author: 'Jeffrey Kinning',
+                    description: 'Diary of a Wimpy Kid is a satirical realistic fiction comedy novel for young adults written and illustrated by Jeff Kinney. It is the first book in the Diary of a Wimpy Kid series. The book is about a boy named Greg Heffley and his struggles to fit in as he begins middle school.',
+                    available: '20',
+                    checkoutBy: 'iusto'
+                },
+                {
+                    bookId: 2,
+                    title: 'I Am Number Four',
+                    author: 'Pittacus Lore',
+                    description: 'The Mogadorians, led by the Commander, learn about the nine children and come to Earth to find them. The Loric Garde can only be killed in sequence; Number One through Number Nine. Three of them have already been killed. John becomes aware that he is next while swimming in the ocean with a girl. He suffers sharp pain, his leg begins to glow, and he sees a vision of Number Three warning him of the coming danger. The girl and the other people on the beach, who record the event happening in the ocean, run from John.',
+                    available: '20',
+                    checkoutBy: 'accusamus'
+                },
+                {
+                    bookId: 3,
+                    title: 'The Hunger Games',
+                    author: 'Suzanne Collins',
+                    description: 'The Hunger Games is a series of three adventure novels written by the American novelist Suzanne Collins. The series is set in The Hunger Games universe, and follows young characters Katniss Everdeen and Peeta Mellark.',
+                    available: '20',
+                    checkoutBy: 'accusamus'
+                },
+                {
+                    bookId: 4,
+                    title: 'The Hunger Games',
+                    author: 'José Rizal',
+                    description: 'Noli Me Tángere (Latin for Touch Me Not) is a novel written by José Rizal, one of the national heroes of the Philippines, during the colonization of the country by Spain to expose the inequities of the Spanish Catholic priests and the ruling government.',
+                    available: '20',
+                    checkoutBy: 'accusamus'
+                },
+                {
+                    bookId: 5,
+                    title: 'El filibusterismo',
+                    author: 'José Rizal',
+                    description: 'Thirteen years after the events of Noli Me Tangere, Crisostomo Ibarra returns to the Philippines under the guise of Simoun, a wealthy bearded jewelry tycoon sporting blue-tinted glasses, and a confidant of the Captain-General. Abandoning his idealism, he becomes a cynical saboteur, seeking revenge against the Spanish Philippine system responsible for his misfortunes by plotting a revolution. ',
+                    available: '20',
+                    checkoutBy: 'accusamus'
+                }
+                
+            ]
         }, cfg)]);
     }
 });

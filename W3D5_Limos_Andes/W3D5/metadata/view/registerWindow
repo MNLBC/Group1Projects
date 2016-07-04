@@ -1,0 +1,251 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "center",
+        "container|pack": "center",
+        "designer|userClassName": "registerWindow",
+        "draggable": false,
+        "height": 500,
+        "id": "registerWindow",
+        "layout": "vbox",
+        "title": "Register",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "631d0c5f-31f9-4134-9352-54e3692238ca",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "header": false,
+                "id": "registerPanel",
+                "layout|flex": 1,
+                "title": "My Form"
+            },
+            "name": "MyForm1",
+            "designerId": "397fc46e-cb78-4226-b691-b1058d10fdf8",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 370,
+                        "id": "RegisterWindow",
+                        "padding": 40,
+                        "title": "Enter Credentials",
+                        "width": 345
+                    },
+                    "name": "MyFieldSet1",
+                    "designerId": "cea272ab-861e-4e3e-929d-c33d53c7ddf2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "First Name",
+                                "id": "",
+                                "itemId": "firstName",
+                                "layout|anchor": "100%",
+                                "name": "firstName"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "0039787f-123d-42ed-a086-311b58edcfe2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Last Name",
+                                "id": null,
+                                "itemId": "lastName",
+                                "layout|anchor": "100%",
+                                "name": "lastName"
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "e1e49bca-cb70-4947-bb90-838890869ad2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "UserName",
+                                "id": null,
+                                "itemId": "userName",
+                                "layout|anchor": "100%",
+                                "name": "userName"
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "c09af92d-a133-43d9-9cda-afe8b7b27f83"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Password",
+                                "id": null,
+                                "inputType": "password",
+                                "itemId": "password",
+                                "layout|anchor": "100%",
+                                "name": "password"
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "4ec0afc0-bfa9-44e6-ab17-1414ef4c5625"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Contact No.",
+                                "id": null,
+                                "inputType": "tel",
+                                "itemId": "contactNo",
+                                "layout|anchor": "100%",
+                                "maxLength": 11,
+                                "name": "contactNo"
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "80737746-1bdd-4629-b085-874eb596943e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Email",
+                                "id": null,
+                                "itemId": "email",
+                                "layout|anchor": "100%",
+                                "name": "email",
+                                "regex": null,
+                                "regexText": null,
+                                "vtype": "email",
+                                "vtypeText": "Invalid email format"
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "996ab303-915d-4ad3-9f2e-6d8cd47a1662"
+                        },
+                        {
+                            "type": "Ext.form.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Address",
+                                "id": null,
+                                "itemId": "address",
+                                "layout|anchor": "100%",
+                                "name": "address"
+                            },
+                            "name": "MyTextArea",
+                            "designerId": "54ebf4e0-8384-40e9-914e-5a929f9cb976"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "dock": "bottom",
+                        "margin": 10,
+                        "shadow": true
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "b976bf19-090c-4a2b-a56a-9d10f2d811e8",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "submitButton",
+                                "itemId": null,
+                                "layout|flex": null,
+                                "text": "Submit"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "386e128c-d8b5-43cb-a102-a1f96868acb1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "cancelButton",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "7745006c-85fd-421a-803c-b789cabf9c6a"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

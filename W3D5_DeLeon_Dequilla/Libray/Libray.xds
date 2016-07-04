@@ -1,0 +1,69 @@
+{
+    "name": "Libray",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Medium",
+                "builtIn": true,
+                "height": 768,
+                "width": 1024
+            }
+        },
+        "urlPrefix": "http://localhost/Libray/",
+        "exportPath": "C:/Users/deleoan/Desktop/Week 3 Project/Publish",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": true,
+        "lockUrlPrefix": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1171-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1184-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "36bff53c-762f-4427-8f3c-4e4be6f9235e",
+            "5d250dea-d146-4cdb-9514-0dbdca901f81",
+            "86bbcf2a-532e-4a01-8e29-911ed949c461",
+            "d3fa2d5d-b452-4942-8667-41cb407c1397",
+            "6c2dc0fd-4a5c-4570-8fdf-86de2d7be3d2",
+            "550ca2f4-f444-4e0a-b47b-d8a40b6542d4",
+            "c1772605-964b-45dd-85cf-0acafb27a522"
+        ],
+        "store": [
+            "40e0a5f3-a3e5-4d12-a56b-5ed29d72243d",
+            "253f1c64-1fb1-445e-ba02-8ae3a1342df0",
+            "d95c6d3e-b209-424f-a465-3e3065a85453"
+        ],
+        "controller": [
+            "d227c547-ef63-4a69-b05a-6105cc658130",
+            "90553126-1c8a-4607-864a-46a7cbfe1fdf"
+        ],
+        "model": [
+            "43974a12-c288-4a38-a54b-74d4c9d94483",
+            "4d67257a-caa9-4cd3-8abb-9e73e1c0ad4b",
+            "94f3dc77-6d91-41f0-986b-9657bdc6f28a"
+        ],
+        "resource": [
+            "3a7ae9f1-81d5-4d51-a27f-89507a1f600a",
+            "eda518e9-b769-475c-8c87-2e20344682d6"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

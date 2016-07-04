@@ -56,47 +56,54 @@ Ext.define('Project.controller.LoginController', {
     ],
 
     onLoginClick: function(button) {
-                 var username = this.getUsernameTextField().getValue(),
-                     password = this.getPasswordTextField().getValue(),
-                     window = button.up('window');
-                    console.log(username + " " + password);
-                 var gridUserStore = userStore;
+        var username = this.getUsernameTextField().getValue(),
+            password = this.getPasswordTextField().getValue(),
+            window = button.up('window');
+        console.log(username + " " + password);
 
-                //logic checking if the user exist in the store
-                console.log();
-                var success= false,
-                    name ,
-                    type = 'client';
-                Ext.each(gridUserStore.getRange(), function(record){
-                     var data = record.data;
-                    if(data.username === username && data.password === password){
-                        success = true;
-                        Ext.Msg.alert('Successfully Login', 'You have successfully login');
-                        name = data.name;
-                        type = data.type;
 
-                        return false;
-                    }
-                });
+        var gridUserStore = Ext.getStore('userStore');
 
-                if(success){
-                    //show hide panels
-                    this.getCurrentUsername().setText('Welcome , '+ name);
+        if(Ext.isEmpty(gridUserStore)){
+             gridUserStore = userStore;
+        }
 
-                    window.hide();
-                    this.getSignupBtn().hide();
-                    this.getLogoutbtn().show();
-                    this.getCurrentUsername().show();
-                    this.getShowLoginWindow().hide();
 
-                    if(type === 'admin'){
-                        this.getInventoryBtn().show();
-                    }
-                    button.up('window').destroy();
-                }else{
-                    Ext.Msg.alert('Login Failed', 'User does not exists');
+        //logic checking if the user exist in the store
+        console.log();
+        var success= false,
+            name ,
+            type = 'client';
+        Ext.each(gridUserStore.getRange(), function(record){
+            var data = record.data;
+            if(data.username === username && data.password === password){
+                success = true;
+                Ext.Msg.alert('Successfully Login', 'You have successfully login');
+                name = data.name;
+                type = data.type;
 
-                }
+                return false;
+            }
+        });
+
+        if(success){
+            //show hide panels
+            this.getCurrentUsername().setText('Welcome , '+ name);
+
+            window.hide();
+            this.getSignupBtn().hide();
+            this.getLogoutbtn().show();
+            this.getCurrentUsername().show();
+            this.getShowLoginWindow().hide();
+
+            if(type === 'admin'){
+                this.getInventoryBtn().show();
+            }
+            button.up('window').destroy();
+        }else{
+            Ext.Msg.alert('Login Failed', 'User does not exists');
+
+        }
 
     },
 
