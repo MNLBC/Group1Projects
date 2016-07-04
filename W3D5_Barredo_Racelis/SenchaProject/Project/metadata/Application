@@ -27,7 +27,8 @@
             "SearchPanel",
             "HomePanel",
             "InventoryPanel",
-            "UserPanel"
+            "UserPanel",
+            "MyComboBox2"
         ]
     },
     "name": "Application",

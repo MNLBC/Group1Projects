@@ -34,7 +34,8 @@ Ext.application({
         'SearchPanel',
         'HomePanel',
         'InventoryPanel',
-        'UserPanel'
+        'UserPanel',
+        'MyComboBox2'
     ],
     controllers: [
         'HomeController',

@@ -1,0 +1,15 @@
+{
+    "type": "Ext.form.field.ComboBox",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mycombobox2",
+        "designer|userClassName": "MyComboBox2",
+        "fieldLabel": "Label"
+    },
+    "name": "MyComboBox2",
+    "designerId": "9bb1da71-1923-4234-8c94-8c1b5bc2cd27"
+}
