@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Form</title>
+
+<script>
+	function validateForm() {
+		var pwd = document.getElementById("pwd").value;
+		var cpwd = document.getElementById("cpwd").value;
+		if (!(pwd === cpwd)) {
+			document.getElementById("error").innerHTML = "Password are not the same!"
+			return false;
+		} else {
+			document.getElementById("error").innerHTML = "";
+			return true;
+		}
+	}
+</script>
+
+</head>
+<body bgcolor="lightblue">
+
+	<center>
+		<br>
+		<h1>Registration Form</h1>
+		<hr width="500">
+		<br>
+		<form action="RegisterServlet" name="registerForm"
+			onsubmit="return validateForm()" method="POST">
+			<h3>
+				<table>
+
+					<tr>
+						<td>First Name:</td>
+						<td><input type="text" name="fname" required></td>
+					</tr>
+
+					<tr>
+						<td>Last Name:</td>
+						<td><input type="text" name="lname" required></td>
+					</tr>
+
+					<tr>
+						<td>User ID:</td>
+						<td><input type="text" name="uid" required></td>
+					</tr>
+
+					<tr>
+						<td>Password:</td>
+						<td><input type="password" name="pwd" id="pwd" required></td>
+					</tr>
+
+					<tr>
+						<td>Confirm Password:</td>
+						<td><input type="password" name="cpwd" id="cpwd" required>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2" align="center"><p id="error"></p></td>
+					</tr>
+
+					<tr>
+						<td colspan="2" align="center"><input type="submit"></td>
+					</tr>
+				</table>
+			</h3>
+		</form>
+	</center>
+</body>
+</html>
