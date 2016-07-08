@@ -10,20 +10,19 @@ import java.util.List;
 
 public class ComboMeal {
 	private int id;
-	private String comboMealCode;
+	private String code;
 	private String name;
 	private String description;
 	private double price;
 	private String image;
 	private List<Meal> mealList;
 
-	public ComboMeal(String comboMealCode, String name, String description, double price, String image, List<Meal> mealList) {
-		this.comboMealCode = comboMealCode;
+	public ComboMeal(String code, String name, String description, double price, String image) {
+		this.code = code;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.image = image;
-		this.mealList = mealList;
 	}
 
 	public int getId() {
@@ -31,7 +30,7 @@ public class ComboMeal {
 	}
 
 	public String getComboMealCode() {
-		return comboMealCode;
+		return code;
 	}
 
 	public String getName() {
@@ -58,8 +57,8 @@ public class ComboMeal {
 		this.id = id;
 	}
 
-	public void setComboMealCode(String comboMealCode) {
-		this.comboMealCode = comboMealCode;
+	public void setComboMealCode(String code) {
+		this.code = code;
 	}
 
 	public void setName(String name) {

@@ -175,7 +175,8 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<Meal> getMealsByName(String qName) {
 		Connection conn = db.getConn();
-		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName + "%' ORDER BY CODE";
+		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName
+				+ "%' ORDER BY CODE";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -189,20 +190,24 @@ public class TransactionDAOImpl implements TransactionDAO {
 				String category = rs.getString("CATEGORY");
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
-				
+
 				Meal meal = new Meal(code, name, description, category, price, image);
 				meal.setId(id);
-				mealList.add(meal);		
+				mealList.add(meal);
 			}
+			rs.close();
+			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return mealList;
 	}
-	
+
 	public List<Meal> getMealsByCategory(String qCategory) {
 		Connection conn = db.getConn();
-		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%" + qCategory + "%' ORDER BY CODE";
+		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%"
+				+ qCategory + "%' ORDER BY CODE";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -216,11 +221,45 @@ public class TransactionDAOImpl implements TransactionDAO {
 				String category = rs.getString("CATEGORY");
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
-				
+
 				Meal meal = new Meal(code, name, description, category, price, image);
 				meal.setId(id);
-				mealList.add(meal);		
+				mealList.add(meal);
 			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mealList;
+	}
+
+	public List<Meal> getMealsById(int qId) {
+		Connection conn = db.getConn();
+		String sql = "SELECT ML.* FROM PRODUCT_GROUP PG " + "JOIN COMBO_MEAL CM ON PG.COMBO_MEAL_ID = CM.ID "
+				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId;
+		PreparedStatement pstmt;
+		List<Meal> mealList = new ArrayList<Meal>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				Meal meal = new Meal(code, name, description, category, price, image);
+				meal.setId(id);
+				mealList.add(meal);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -229,8 +268,32 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public List<ComboMeal> getComboMeals() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY CODE";
+		PreparedStatement pstmt;
+		List<ComboMeal> comboMealList = new ArrayList<ComboMeal>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				String code = rs.getString("CODE");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				ComboMeal comboMeal = new ComboMeal(code, name, description, price, image);
+				comboMeal.setId(id);
+				comboMealList.add(comboMeal);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return comboMealList;
 	}
 
 	@Override

@@ -30,6 +30,8 @@ public interface TransactionDAO {
 	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
 
 	List<User> getUsers();
+	
+	List<Meal> getMealsById(int qId);
 
 	List<Meal> getMealsByName(String qName);
 
