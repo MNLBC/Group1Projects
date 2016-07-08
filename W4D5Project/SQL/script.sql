@@ -32,6 +32,11 @@ ALTER TABLE order_items ADD CONSTRAINT meal_id FOREIGN KEY (id) REFERENCES meal(
 
 ALTER TABLE orders ADD CONSTRAINT users_id FOREIGN KEY (id) REFERENCES users(id);
 
+ALTER TABLE orders ADD CONSTRAINT users_id FOREIGN KEY (id) REFERENCES users(id);
+
+CREATE INDEX index_name
+ON table_name (column_name)
+
 /*
 DATA LOADING
 */
@@ -89,11 +94,38 @@ INSERT INTO product_group (MEAL_ID,COMBO_MEAL_ID,DATE_CREATED,DATE_UPDATED)
 VALUES (2,1,sysdate,sysdate);
 
 
+CREATE TRIGGER pt
+  AFTER UPDATE ON p
+  FOR EACH ROW
+BEGIN
+  UPDATE f SET f1 = :NEW.p1 WHERE f1 = :OLD.p1;
+END;
+
+CREATE OR REPLACE TRIGGER product_group_update_date
+AFTER UPDATE ON product_group
+FOR EACH ROW
+BEGIN
+IF :new.PRODUCT_ID IS NULL THEN
+SELECT PRODUCT_ID_SEQ.nextval INTO :new.PRODUCT_ID FROM DUAL;
+END IF;
+END;
+
+
+SELECT * FROM USERS;
+
+CREATE OR REPLACE TRIGGER update_user 
+   AFTER UPDATE ON users 
+   BEGIN
+      RAISE_APPLICATION_ERROR (
+         num => -20000,
+         msg => 'Cannot drop object');
+   END;
+/
 
 
 
-
-
+DBMS_OUTPUT.PUT_LINE('TRY'); 
+dbms_output.put_line('TRY');
 
 
 
