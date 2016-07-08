@@ -29,8 +29,8 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertUser(User user) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO MEAL "
-				+ "(FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED,DATE_CREATED,DATE_UPDATED) "
+		String sql = "INSERT INTO USERS " + "(FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED, DATE_CREATED, DATE_UPDATED) "
 				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstmt;
@@ -254,11 +254,13 @@ public class TransactionDAOImpl implements TransactionDAO {
 				String image = rs.getString("IMAGE");
 				int disabled = rs.getInt("IS_DISABLED");
 				boolean isDisabled = false;
-				if(disabled==0){
+				if (disabled == 0) {
 					isDisabled = true;
 				}
 
-				User user =new User(firstName, lastName, middleName, address, contact, type, email, userName, password, gender, image, isDisabled);
+				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password,
+						gender, image, isDisabled);
+				user.setId(id);
 				userList.add(user);
 			}
 			rs.close();
@@ -471,8 +473,43 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public User getUserByUserName(String qUserName) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS WHERE USERNAME = '" + qUserName
+				+ "' ORDER BY ID";
+		PreparedStatement pstmt;
+		User user = null;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				String firstName = rs.getString("FIRSTNAME");
+				String middleName = rs.getString("MIDDLENAME");
+				String lastName = rs.getString("LASTNAME");
+				String address = rs.getString("ADDRESS");
+				String contact = rs.getString("CONTACTS");
+				String email = rs.getString("EMAIL");
+				String gender = rs.getString("GENDER");
+				String userName = rs.getString("USERNAME");
+				String password = rs.getString("PASSWORD");
+				String type = rs.getString("TYPE");
+				String image = rs.getString("IMAGE");
+				boolean isDisable = false;
+				if (rs.getInt("IS_DISABLED") == 1) {
+					isDisable = true;
+				}
+				user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password,
+						gender, image, isDisable);
+				user.setId(id);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 	@Override
