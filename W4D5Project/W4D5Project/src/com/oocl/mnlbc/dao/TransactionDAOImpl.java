@@ -308,17 +308,32 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return null;
 	}
 
-	public boolean checkIfExists(User user) {
+	public boolean checkIfUserExists(User user) {
 		Connection conn = db.getConn();
-		String sql = "SELECT USERNAME FROM USERS WHERE  USERNAME='"+user.getUserName()+"'";
+		String sql = "SELECT USERNAME FROM USERS WHERE USERNAME='"+user.getUserName()+"'";
 		PreparedStatement pstmt;
 		try {
-
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
+	@Override
+	public boolean checkIfEmailExists(User user) {
+		Connection conn = db.getConn();
+		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL='"+user.getEmail()+"'";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

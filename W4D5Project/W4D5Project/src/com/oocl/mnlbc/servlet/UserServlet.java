@@ -56,16 +56,25 @@ public class UserServlet extends HttpServlet {
 
 		if(isUserExist(userName)){
 			out.println("Username already exists!");
+		} else if(ifEmailExist(userName,email)){
+			out.println("Email already exists!");
 		}else{
 			String hashPass = passwordHash(password);
 			out.print(hashPass);
-			 userRegister(firstName,lastName,middleName,address,contactNum,email,userName,password,gender);
+			out.println("Success!");
+//			 userRegister(firstName,lastName,middleName,address,contactNum,email,userName,password,gender);
 		}
+	}
+
+	private boolean ifEmailExist(String userName, String email) {
+		boolean emailExist;
+		emailExist = transactionDAOImpl.checkIfEmailExists(new User(userName,email));
+		return emailExist;
 	}
 
 	private boolean isUserExist(String userName) {
 		boolean ifExist;
-		ifExist = transactionDAOImpl.checkIfExists(new User(userName));
+		ifExist = transactionDAOImpl.checkIfUserExists(new User(userName));
 		return ifExist;
 	}
 
@@ -86,11 +95,11 @@ public class UserServlet extends HttpServlet {
 		return md5;
 	}
 
-	private void userRegister(String firstName, String lastName, String middleName, String address
-			, String contactNum, String email, String userName, String password, String gender) {
-		transactionDAOImpl.insertUser(new User(firstName,lastName,middleName,address,contactNum,email,userName,password,gender));
-		logger.info("Requesting to /UserServlet Success!!, User Succesfully Created.");
-	}
+//	private void userRegister(String firstName, String lastName, String middleName, String address
+//			, String contactNum, String email, String userName, String password, String gender) {
+//		transactionDAOImpl.insertUser(new User(firstName,lastName,middleName,address,contactNum,email,userName,password,gender));
+//		logger.info("Requesting to /UserServlet Success!!, User Succesfully Created.");
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
