@@ -48,9 +48,9 @@
 			</div>
 
 			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-				<a class="thumbnail" href="#"> <img class="img-responsive"
-					height="256px" width="256px" src="http://placehold.it/400x300"
-					alt="">
+				<a class="thumbnail" href="#foodModal" data-toggle="modal"
+					data-target="#foodModal"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/default.png">
 				</a>
 			</div>
 			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -120,7 +120,7 @@
 				</a>
 			</div>
 
-			<!-- Modal view burger details -->
+			<!-- Modal view chicken details -->
 			<div class="modal fade" id="foodModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
@@ -135,7 +135,7 @@
 						<div class="modal-body">
 							<div class="media">
 								<div class="media-left">
-									<a href="#"> <img src="resource/img/baconandcheese.png"
+									<a href="#"> <img src="resource/img/default.png"
 										data-toggle="modal" data-target="#foodModal"
 										class="img-circle" height="200px" width="200px">
 									</a>
