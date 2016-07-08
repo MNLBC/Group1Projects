@@ -181,6 +181,7 @@
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+				<form>
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -189,7 +190,6 @@
 					<h4 class="modal-title" id="myModalLabel">Login Account</h4>
 				</div>
 				<div class="modal-body">
-					<form>
 						<table class="table">
 							<tr>
 								<td>User Name:</td>
@@ -207,6 +207,7 @@
 						value="Cancel"> <input type="submit"
 						onClick="validateLogin()" class="btn btn-primary" value="Login">
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

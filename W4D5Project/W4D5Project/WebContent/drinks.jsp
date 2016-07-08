@@ -79,7 +79,7 @@
 			</div>
 		</div>
 
-		<!-- Modal -->
+		<!-- Modal view drink details -->
 		<div class="modal fade" id="foodModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -92,12 +92,6 @@
 						<h4 class="modal-title" id="myModalLabel">View Product</h4>
 					</div>
 					<div class="modal-body">
-						<!-- 					<table class="table">
-							<tr>
-								<td><img src="resource/img/coke.png" class="img-circle" height="200px" width="200px">Product Name</td>
-							</tr> 
-						</table> -->
-
 						<div class="media">
 							<div class="media-left">
 								<a href="#"> <img src="resource/img/coke.png"
@@ -111,8 +105,8 @@
 									<br>
 									<h4 class="media-heading">Price:</h4>
 									<h4 class="media-heading">
-										Quantity: &nbsp; <input type="number" name="quantity" min="1"
-											max="5">
+										Quantity: &nbsp; <input type="number" name="quantity" min="0"
+											max="5"  style="width:50px">
 									</h4>
 									<h4 class="media-heading">Description:</h4>
 							</div>
