@@ -41,4 +41,6 @@ public interface TransactionDAO {
 
 	List<OrderItems> getOrderItems();
 
+	boolean checkIfExists(User user);
+
 }

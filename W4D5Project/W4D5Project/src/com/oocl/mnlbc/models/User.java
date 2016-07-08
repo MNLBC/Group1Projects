@@ -39,6 +39,23 @@ public class User {
 		this.isDisable = isDisable;
 	}
 
+	public User(String firstName, String lastName, String middleName, String address, String contact, String email,
+			String userName, String password, String gender) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleName = middleName;
+		this.address = address;
+		this.contact = contact;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.gender = gender;
+	}
+
+	public User(String userName) {
+		this.userName = userName;
+	}
+
 	public int getId() {
 		return id;
 	}

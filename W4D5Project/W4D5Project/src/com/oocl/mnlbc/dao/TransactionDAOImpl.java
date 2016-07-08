@@ -245,4 +245,22 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return null;
 	}
 
+	public boolean checkIfExists(User user) {
+		Connection conn = db.getConn();
+		String sql = "SELECT USERNAME FROM REGISTER WHERE  USERNAME='"+user.getUserName()+"'";
+		PreparedStatement pstmt;
+		try {
+
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }
