@@ -1,7 +1,5 @@
 package com.oocl.mnlbc.models;
 
-import com.sun.jmx.snmp.Timestamp;
-
 /**
  * 
  * @author Group 1
@@ -31,7 +29,7 @@ public class Meal {
 		return id;
 	}
 
-	public String getMealCode() {
+	public String getCode() {
 		return code;
 	}
 
@@ -59,7 +57,7 @@ public class Meal {
 		this.id = id;
 	}
 
-	public void setMealCode(String code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

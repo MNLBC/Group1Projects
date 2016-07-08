@@ -29,7 +29,7 @@ public class ComboMeal {
 		return id;
 	}
 
-	public String getComboMealCode() {
+	public String getCode() {
 		return code;
 	}
 
@@ -57,7 +57,7 @@ public class ComboMeal {
 		this.id = id;
 	}
 
-	public void setComboMealCode(String code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
