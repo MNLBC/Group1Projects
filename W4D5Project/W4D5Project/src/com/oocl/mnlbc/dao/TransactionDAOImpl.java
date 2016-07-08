@@ -187,6 +187,39 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return false;
 	}
 
+	public boolean checkIfUserExists(User user) {
+		Connection conn = db.getConn();
+		String sql = "SELECT USERNAME FROM USERS WHERE  USERNAME='" + user.getUserName() + "'";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkIfEmailExists(User user) {
+		Connection conn = db.getConn();
+		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL='" + user.getEmail() + "'";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	@Override
 	public List<User> getUsers() {
 		// TODO Auto-generated method stub
@@ -397,7 +430,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public List<ComboMeal> getComboMeals() {
 		Connection conn = db.getConn();
@@ -438,39 +471,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<OrderItems> getOrderItems() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public boolean checkIfUserExists(User user) {
-		Connection conn = db.getConn();
-		String sql = "SELECT USERNAME FROM USERS WHERE  USERNAME='" + user.getUserName() + "'";
-		PreparedStatement pstmt;
-		try {
-			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean checkIfEmailExists(User user) {
-		Connection conn = db.getConn();
-		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL='"+user.getEmail()+"'";
-		PreparedStatement pstmt;
-		try {
-			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
 	}
 
 }
