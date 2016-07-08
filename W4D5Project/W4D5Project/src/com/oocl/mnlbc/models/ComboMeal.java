@@ -12,16 +12,16 @@ public class ComboMeal {
 	private int id;
 	private String comboMealCode;
 	private String name;
-	private String desc;
+	private String description;
 	private double price;
 	private String image;
 	private List<Meal> mealList;
 
-	public ComboMeal(String comboMealCode, String name, String desc, double price, String image, List<Meal> mealList) {
+	public ComboMeal(String comboMealCode, String name, String description, double price, String image, List<Meal> mealList) {
 		super();
 		this.comboMealCode = comboMealCode;
 		this.name = name;
-		this.desc = desc;
+		this.description = description;
 		this.price = price;
 		this.image = image;
 		this.mealList = mealList;
@@ -39,8 +39,8 @@ public class ComboMeal {
 		return name;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
 	public double getPrice() {
@@ -67,8 +67,8 @@ public class ComboMeal {
 		this.name = name;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setPrice(double price) {

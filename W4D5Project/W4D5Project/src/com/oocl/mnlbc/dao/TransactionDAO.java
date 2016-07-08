@@ -22,6 +22,8 @@ public interface TransactionDAO {
 	boolean insertMeal(Meal meal);
 
 	boolean insertComboMeal(ComboMeal comboMeal);
+	
+	boolean insertProductGroup(String comboMealCode, List<Meal> listMeal);
 
 	boolean insertOrder(Order order);
 

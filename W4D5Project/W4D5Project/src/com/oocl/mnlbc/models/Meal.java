@@ -12,16 +12,16 @@ public class Meal {
 	private int id;
 	private String mealCode;
 	private String name;
-	private String desc;
+	private String description;
 	private String category;
 	private double price;
 	private String image;
 
-	public Meal(String mealCode, String name, String desc, String category, double price, String image) {
+	public Meal(String mealCode, String name, String description, String category, double price, String image) {
 		super();
 		this.mealCode = mealCode;
 		this.name = name;
-		this.desc = desc;
+		this.description = description;
 		this.category = category;
 		this.price = price;
 		this.image = image;
@@ -39,8 +39,8 @@ public class Meal {
 		return name;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
 	public String getCategory() {
@@ -67,8 +67,8 @@ public class Meal {
 		this.name = name;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setCategory(String category) {
