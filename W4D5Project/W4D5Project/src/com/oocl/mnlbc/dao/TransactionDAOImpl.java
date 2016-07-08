@@ -152,7 +152,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				pstmt.setString(1, orderItem.getType());
 				pstmt.setInt(2, orderId);
 				pstmt.setInt(3, orderItem.getMealId());
-				pstmt.setDouble(4, orderItem.getQuantity());
+				pstmt.setInt(4, orderItem.getQuantity());
 				pstmt.setTimestamp(5, time);
 				pstmt.setTimestamp(6, time);
 				pstmt.executeUpdate();
