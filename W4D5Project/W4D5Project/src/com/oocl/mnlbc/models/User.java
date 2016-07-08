@@ -18,13 +18,13 @@ public class User {
 	private String userName;
 	private String password;
 	private String gender;
-	private String picture;
+	private String image;
 	private boolean isDisable;
 	private String dateCreated;
 	private String dateUpdated;
 
 	public User(String firstName, String lastName, String middleName, String address, String contact, String type,
-			String email, String userName, String password, String gender, String picture, boolean isDisable) {
+			String email, String userName, String password, String gender, String image, boolean isDisable) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.middleName = middleName;
@@ -35,7 +35,7 @@ public class User {
 		this.userName = userName;
 		this.password = password;
 		this.gender = gender;
-		this.picture = picture;
+		this.image = image;
 		this.isDisable = isDisable;
 	}
 
@@ -148,12 +148,12 @@ public class User {
 		this.gender = gender;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getImage() {
+		return image;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public boolean isDisable() {
