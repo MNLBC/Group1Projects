@@ -56,7 +56,7 @@ public class User {
 		this.userName = userName;
 	}
 
-	public User(String userName , String email) {
+	public User(String userName, String email) {
 		this.email = email;
 	}
 

@@ -28,35 +28,39 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public boolean insertUser(User user) {
-		return false;
-		// Connection conn = db.getConn();
-		// String sql = "INSERT INTO
-		// MEAL(CODE,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED)
-		// values(?,?,?,?,?,?,?,?)";
-		//
-		// PreparedStatement pstmt;
-		// int success = 0;
-		// try {
-		// pstmt = (PreparedStatement) conn.prepareStatement(sql);
-		// pstmt.setString(1, meal.getMealCode());
-		// pstmt.setString(2, meal.getName());
-		// pstmt.setString(3, meal.getDescription());
-		// pstmt.setString(4, meal.getCategory());
-		// pstmt.setDouble(5, meal.getPrice());
-		// pstmt.setString(6, meal.getImage());
-		// pstmt.setTimestamp(7, time);
-		// pstmt.setTimestamp(8, time);
-		// success = pstmt.executeUpdate();
-		// pstmt.close();
-		// conn.close();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-		// if (success > 0) {
-		// return true;
-		// } else {
-		// return false;
-		// }
+		Connection conn = db.getConn();
+		String sql = "INSERT INTO MEAL " 
+				+ "(FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED,DATE_CREATED,DATE_UPDATED) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		PreparedStatement pstmt;
+		int success = 0;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.setString(1, user.getFirstName());
+			pstmt.setString(2, user.getMiddleName());
+			pstmt.setString(3, user.getLastName());
+			pstmt.setString(4, user.getAddress());
+			pstmt.setString(5, user.getContact());
+			pstmt.setString(6, user.getEmail());
+			pstmt.setString(6, user.getGender());
+			pstmt.setString(6, user.getUserName());
+			pstmt.setString(6, user.getPassword());
+			pstmt.setString(6, user.getType());
+			pstmt.setString(6, user.getPicture());
+			pstmt.setTimestamp(7, time);
+			pstmt.setTimestamp(8, time);
+			success = pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (success > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override

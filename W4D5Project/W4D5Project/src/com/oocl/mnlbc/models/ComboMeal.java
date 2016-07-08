@@ -80,5 +80,4 @@ public class ComboMeal {
 	public void setMealList(List<Meal> mealList) {
 		this.mealList = mealList;
 	}
-
 }

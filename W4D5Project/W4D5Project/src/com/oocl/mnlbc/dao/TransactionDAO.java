@@ -17,7 +17,7 @@ import com.oocl.mnlbc.models.User;
  */
 public interface TransactionDAO {
 
-	//Insert
+	// Insert
 	boolean insertUser(User user);
 
 	boolean insertMeal(Meal meal);
@@ -30,20 +30,24 @@ public interface TransactionDAO {
 
 	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
 	
-	//Per Object
+	boolean checkIfUserExists(User user);
+
+	boolean checkIfEmailExists(User user);
+
+	// Per Object
 	Meal getMealByMealCode(String qCode);
-	
+
 	ComboMeal getComboMealByComboCode(String qCode);
-	
+
 	int getMealIdByMealCode(String qCode);
-	
+
 	int getComboMealIdByComboCode(String qCode);
-	
+
 	User getUserByUserName(String qUserName);
 
-	//Collection
+	// Collection
 	List<User> getUsers();
-	
+
 	List<Meal> getMealsByComboId(int qId);
 
 	List<Meal> getMealsByName(String qName);
@@ -55,6 +59,6 @@ public interface TransactionDAO {
 	List<Order> getOrders();
 
 	List<OrderItems> getOrderItems();
-	boolean checkIfUserExists(User user);
-	boolean checkIfEmailExists(User user);
+
+
 }
