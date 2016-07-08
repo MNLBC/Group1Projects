@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class UserServlet
  */
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(UserServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -28,6 +31,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		logger.info("Requesting to /UserServlet Success!!");
 	}
 
 	/**

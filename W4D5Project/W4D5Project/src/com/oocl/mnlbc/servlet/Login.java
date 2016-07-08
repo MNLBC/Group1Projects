@@ -1,11 +1,14 @@
 package com.oocl.mnlbc.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 /**
  * Servlet implementation class Login
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
+	final static Logger logger = Logger.getLogger(Login.class);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -34,8 +38,25 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		
+		String username = request.getParameter("username");
+		String pwd = request.getParameter("pwd");
+		String safe = request.getParameter("safe");
+
+		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
+			if (username.equals(pwd)) {
+				response.getWriter().println(username + " OK");
+				logger.info("User: " +username +" Request to /Login success...");
+			} else {
+				response.getWriter().println(username + " PASSWORD ERROR");
+				logger.warn("User: " +username +" Request to /Login failed because Password is incorrect...");
+			}
+		} else {
+			response.getWriter().println(username + " SAFE CODE ERROR");
+			logger.error("User: " +username +" Request to /Login but captcha is incorrect...");
+		}
+	
 	}
 
 	/**
