@@ -10,13 +10,16 @@ import com.sun.jmx.snmp.Timestamp;
 public class Meal {
 
 	private int id;
+	private String mealCode;
 	private String name;
 	private String desc;
 	private String category;
 	private double price;
 	private String image;
 
-	public Meal(String name, String desc, String category, double price, String image) {
+	public Meal(String mealCode, String name, String desc, String category, double price, String image) {
+		super();
+		this.mealCode = mealCode;
 		this.name = name;
 		this.desc = desc;
 		this.category = category;
@@ -26,6 +29,10 @@ public class Meal {
 
 	public int getId() {
 		return id;
+	}
+
+	public String getMealCode() {
+		return mealCode;
 	}
 
 	public String getName() {
@@ -50,6 +57,10 @@ public class Meal {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public void setMealCode(String mealCode) {
+		this.mealCode = mealCode;
 	}
 
 	public void setName(String name) {
