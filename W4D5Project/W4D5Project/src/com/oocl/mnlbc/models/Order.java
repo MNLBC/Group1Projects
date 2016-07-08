@@ -1,5 +1,7 @@
 package com.oocl.mnlbc.models;
 
+import java.util.List;
+
 /**
  * 
  * @author Group 1
@@ -9,15 +11,13 @@ public class Order {
 
 	private int id;
 	private int userId;
-	private String dateCreated;
-	private String dateUpdated;
 	private String status;
+	private List<OrderItems> orderItemList;
 
-	public Order(int userId, String dateCreated, String dateUpdated, String status) {
+	public Order(int userId, List<OrderItems> orderItemList) {
 		this.userId = userId;
-		this.dateCreated = dateCreated;
-		this.dateUpdated = dateUpdated;
-		this.status = status;
+		this.status = "WAITING";
+		this.orderItemList = orderItemList;
 	}
 
 	public int getId() {
@@ -28,16 +28,12 @@ public class Order {
 		return userId;
 	}
 
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public String getDateUpdated() {
-		return dateUpdated;
-	}
-
 	public String getStatus() {
 		return status;
+	}
+
+	public List<OrderItems> getOrderItemList() {
+		return orderItemList;
 	}
 
 	public void setId(int id) {
@@ -48,16 +44,12 @@ public class Order {
 		this.userId = userId;
 	}
 
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public void setDateUpdated(String dateUpdated) {
-		this.dateUpdated = dateUpdated;
-	}
-
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public void setOrderItemList(List<OrderItems> orderItemList) {
+		this.orderItemList = orderItemList;
 	}
 
 }

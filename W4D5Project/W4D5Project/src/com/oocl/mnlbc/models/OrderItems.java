@@ -9,19 +9,13 @@ public class OrderItems {
 
 	private int id;
 	private String type;
-	private int orderId;
-	private int qty;
+	private int quantity;
 	private int mealId;
-	private String dateCreated;
-	private String dateUpdated;
 
-	public OrderItems(String type, int orderId, int qty, int mealId, String dateCreated, String dateUpdated) {
+	public OrderItems(String type, int quantity, int mealId) {
 		this.type = type;
-		this.orderId = orderId;
-		this.qty = qty;
+		this.quantity = quantity;
 		this.mealId = mealId;
-		this.dateCreated = dateCreated;
-		this.dateUpdated = dateUpdated;
 	}
 
 	public int getId() {
@@ -32,24 +26,12 @@ public class OrderItems {
 		return type;
 	}
 
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public int getQty() {
-		return qty;
+	public int getQuantity() {
+		return quantity;
 	}
 
 	public int getMealId() {
 		return mealId;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public String getDateUpdated() {
-		return dateUpdated;
 	}
 
 	public void setId(int id) {
@@ -60,24 +42,12 @@ public class OrderItems {
 		this.type = type;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
-	public void setQty(int qty) {
-		this.qty = qty;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public void setMealId(int mealId) {
 		this.mealId = mealId;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public void setDateUpdated(String dateUpdated) {
-		this.dateUpdated = dateUpdated;
 	}
 
 }

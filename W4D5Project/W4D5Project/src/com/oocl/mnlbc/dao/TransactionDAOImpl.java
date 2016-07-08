@@ -2,8 +2,10 @@ package com.oocl.mnlbc.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import com.oocl.mnlbc.models.User;
  */
 public class TransactionDAOImpl implements TransactionDAO {
 	private static DBConnect db = new DBConnect();
+	private static Date date = new Date();
 
 	@Override
 	public boolean insertUser(User user) {
@@ -32,7 +35,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public boolean insertMeal(Meal meal) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO MEAL(CODE,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?,?)";
-		Date date = new Date();
 		Timestamp time = new Timestamp(date.getTime());
 		PreparedStatement pstmt;
 		int success = 0;
@@ -63,7 +65,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public boolean insertComboMeal(ComboMeal comboMeal) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO COMBOMEAL(CODE,NAME,DESCRIPTION,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?,?)";
-		Date date = new Date();
 		Timestamp time = new Timestamp(date.getTime());
 		PreparedStatement pstmt;
 		int success = 0;
@@ -90,17 +91,16 @@ public class TransactionDAOImpl implements TransactionDAO {
 	}
 
 	@Override
-	public boolean insertProductGroup(String comboMealCode, List<Meal> listMeal) {
+	public boolean insertProductGroup(int comboMealId, List<Meal> listMeal) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO PRODUCT_GROUP(COMBOMEALCODE,MEALCODE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
-		Date date = new Date();
 		Timestamp time = new Timestamp(date.getTime());
 		PreparedStatement pstmt;
 		try {
 			for (Meal meal : listMeal) {
 				pstmt = (PreparedStatement) conn.prepareStatement(sql);
-				pstmt.setString(1, comboMealCode);
-				pstmt.setString(2, meal.getMealCode());
+				pstmt.setInt(1, comboMealId);
+				pstmt.setInt(2, meal.getId());
 				pstmt.setTimestamp(3, time);
 				pstmt.setTimestamp(4, time);
 				pstmt.executeUpdate();
@@ -116,13 +116,53 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public boolean insertOrder(Order order) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = db.getConn();
+		String sql = "INSERT INTO ORDERS(USER_ID,STATUS,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
+		Timestamp time = new Timestamp(date.getTime());
+		PreparedStatement pstmt;
+		int success = 0;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.setInt(1, order.getUserId());
+			pstmt.setString(2, order.getStatus());
+			pstmt.setTimestamp(3, time);
+			pstmt.setTimestamp(4, time);
+			success = pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (success > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean insertOrderItem(OrderItems orderItems) {
-		// TODO Auto-generated method stub
+	public boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList) {
+		Connection conn = db.getConn();
+		String sql = "INSERT INTO ORDER_ITEMS(TYPE,ORDER_ID,MEAL_ID,QUANTITY,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?)";
+		Timestamp time = new Timestamp(date.getTime());
+		PreparedStatement pstmt;
+		try {
+			for (OrderItems orderItem : orderItemsList) {
+				pstmt = (PreparedStatement) conn.prepareStatement(sql);
+				pstmt.setString(1, orderItem.getType());
+				pstmt.setInt(2, orderId);
+				pstmt.setInt(3, orderItem.getMealId());
+				pstmt.setDouble(4, orderItem.getQuantity());
+				pstmt.setTimestamp(5, time);
+				pstmt.setTimestamp(6, time);
+				pstmt.executeUpdate();
+				pstmt.close();
+				conn.close();
+			}
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
@@ -133,9 +173,58 @@ public class TransactionDAOImpl implements TransactionDAO {
 	}
 
 	@Override
-	public List<Meal> getMeals() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Meal> getMealsByName(String qName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName + "%' ORDER BY CODE";
+		PreparedStatement pstmt;
+		List<Meal> mealList = new ArrayList<Meal>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+				
+				Meal meal = new Meal(code, name, description, category, price, image);
+				meal.setId(id);
+				mealList.add(meal);		
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mealList;
+	}
+	
+	public List<Meal> getMealsByCategory(String qCategory) {
+		Connection conn = db.getConn();
+		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%" + qCategory + "%' ORDER BY CODE";
+		PreparedStatement pstmt;
+		List<Meal> mealList = new ArrayList<Meal>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+				
+				Meal meal = new Meal(code, name, description, category, price, image);
+				meal.setId(id);
+				mealList.add(meal);		
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mealList;
 	}
 
 	@Override

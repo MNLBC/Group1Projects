@@ -22,16 +22,18 @@ public interface TransactionDAO {
 	boolean insertMeal(Meal meal);
 
 	boolean insertComboMeal(ComboMeal comboMeal);
-	
-	boolean insertProductGroup(String comboMealCode, List<Meal> listMeal);
+
+	boolean insertProductGroup(int comboMealId, List<Meal> listMeal);
 
 	boolean insertOrder(Order order);
 
-	boolean insertOrderItem(OrderItems orderItems);
+	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
 
 	List<User> getUsers();
 
-	List<Meal> getMeals();
+	List<Meal> getMealsByName(String qName);
+
+	List<Meal> getMealsByCategory(String qCategory);
 
 	List<ComboMeal> getComboMeals();
 

@@ -18,7 +18,6 @@ public class ComboMeal {
 	private List<Meal> mealList;
 
 	public ComboMeal(String comboMealCode, String name, String description, double price, String image, List<Meal> mealList) {
-		super();
 		this.comboMealCode = comboMealCode;
 		this.name = name;
 		this.description = description;
