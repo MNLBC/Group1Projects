@@ -8,14 +8,37 @@
 <style type="text/css">
     <%@include file="resource/css/bootstrap.min.css" %>
 </style>
-<script type="text/javascript" src="resource/js/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 	$("document").ready(function() {
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
-	});
+		
+		$("#burgers").click(function() {
+			$('#container').load('burger.jsp');
+		});
+		
+		$("#comboMeals").click(function() {
+			$('#container').load('comboMeal.jsp');
+		});
+		
+		$("#chicken").click(function() {
+			$('#container').load('chicken.jsp');
+		});
+
+		$("#desserts").click(function() {
+			$('#container').load('desserts.jsp');
+		});
+		
+		$("#sides").click(function() {
+			$('#container').load('sides.jsp');
+		});
+
+	}); 
+
 </script>
+
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -35,23 +58,23 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav" id="nav">
 				<li class="active">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Category<span class="caret"></span></a>
+					aria-expanded="false" id="drop">Category<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#" >Combo Meals</a></li>
+						<li><a href="#" id="comboMeals">Combo Meals</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#" id="drinks" >Drinks</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Burgers</a></li>
+						<li><a href="#" id="burgers">Burgers</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Chickens</a></li>
+						<li><a href="#" id="chicken">Chickens</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Desserts</a></li>
+						<li><a href="#" id="desserts">Desserts</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">Sides</a></li>
+						<li><a href="#" id="sides">Sides</a></li>
 					</ul></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">

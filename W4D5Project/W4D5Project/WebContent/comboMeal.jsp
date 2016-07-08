@@ -31,11 +31,10 @@
 			$('#container').load('sides.jsp');
 		});
 
-
 	});
 </script>
-<title>Drinks</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Combo Meals</title>
 </head>
 <body>
 <div class="container">
@@ -43,37 +42,37 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Drinks</h1>
+                <h1 class="page-header">Combo Meals</h1>
             </div>
 
-             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/coke.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/cokezero.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/fanta.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" height="256px" width="256px" src="resource/img/sprite.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" height="256px" width="256px" src="resource/img/sprite.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive"  height="256px" width="256px" src="resource/img/drpepper.png" alt="">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -106,6 +105,7 @@
                     <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
             </div>
+        </div>
         
 </body>
 </html>
