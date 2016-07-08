@@ -52,7 +52,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Brand</a>
+			<a class="navbar-brand" href="home.jsp">Brand</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -107,6 +107,7 @@
 					<h4 class="modal-title" id="myModalLabel">Register Account</h4>
 				</div>
 				<div class="modal-body">
+				<form>
 					<table class="table">
 						<tr>
 							<td>User Name:</td>
@@ -150,10 +151,11 @@
 								&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male">Male</td>
 						</tr>
 					</table>
+					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Register</button>
+					<input type="submit" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-primary" value="Register">
 				</div>
 			</div>
 		</div>
@@ -172,6 +174,7 @@
 					<h4 class="modal-title" id="myModalLabel">Login Account</h4>
 				</div>
 				<div class="modal-body">
+				<form>
 					<table class="table">
 						<tr>
 							<td>User Name:</td>
@@ -181,12 +184,12 @@
 							<td>Password:</td>
 							<td><input type="password" name="pass"></td>
 						</tr>
-
 					</table>
+					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Login</button>
+					<input type="submit" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-primary" value="Login">
 				</div>
 			</div>
 		</div>

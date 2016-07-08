@@ -34,7 +34,9 @@
 	});
 </script>
 <title>Burgers</title>
-
+<style type="text/css">
+    <%@include file="resource/css/bootstrap.min.css" %>
+</style>
 </head>
 <body>
 <div class="container">
