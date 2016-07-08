@@ -53,16 +53,22 @@ public class UserServlet extends HttpServlet {
 		String contactNum = request.getParameter("cnum");
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
+		String safe = request.getParameter("safe");
 
-		if (isUserExist(userName)) {
-			out.println("Username already exists!");
-		} else if (ifEmailExist(userName, email)) {
-			out.println("Email already exists!");
+		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
+			if (isUserExist(userName)) {
+				out.println("Username already exists!");
+			} else if (ifEmailExist(userName, email)) {
+				out.println("Email already exists!");
+			} else {
+				String hashPass = passwordHash(password);
+				out.print(hashPass);
+				out.println("Success!");
+				// userRegister(firstName,lastName,middleName,address,contactNum,email,userName,password,gender);
+			}
 		} else {
-			String hashPass = passwordHash(password);
-			out.print(hashPass);
-			out.println("Success!");
-			// userRegister(firstName,lastName,middleName,address,contactNum,email,userName,password,gender);
+			out.println(userName + " SAFE CODE ERROR");
+			logger.error("User: " +userName +" Request to /Login but captcha is incorrect...");
 		}
 	}
 

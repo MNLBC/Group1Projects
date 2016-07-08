@@ -105,6 +105,7 @@
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+			<form action="UserServlet">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -113,7 +114,7 @@
 					<h4 class="modal-title" id="myModalLabel">Register Account</h4>
 				</div>
 				<div class="modal-body">
-					<form>
+					
 						<table class="table">
 							<tr>
 								<td>User Name:</td>
@@ -157,8 +158,12 @@
 									&nbsp;&nbsp;&nbsp;<input type="radio" name="gender"
 									value="male">Male</td>
 							</tr>
+							<tr>
+							<td>Captcha</td>
+							<td><input name="safe"><img id="safe" src=""></td>
+							</tr>
 						</table>
-					</form>
+					
 				</div>
 				<div class="modal-footer">
 					<input type="submit" class="btn btn-default"
@@ -166,6 +171,7 @@
 					<input type="submit" class="btn btn-primary"
 						onClick="validateRegFields()" value="Register">
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -251,6 +257,8 @@
 				alert("Please complete all fields!");
 			}
 		}
+		
+		document.getElementById("safe").setAttribute("src", "safe.jpg?" + new Date().getMilliseconds());
 	</script>
 </body>
 </html>
