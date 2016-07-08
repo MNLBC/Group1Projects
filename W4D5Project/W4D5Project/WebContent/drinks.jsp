@@ -40,74 +40,91 @@
 </style>
 </head>
 <body>
-<div class="container">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Drinks</h1>
+			</div>
 
-        <div class="row">
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#foodModal" data-toggle="modal"
+					data-target="#foodModal"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/coke.png" alt="">
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/cokezero.png" alt="">
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/fanta.png" alt="">
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/sprite.png" alt="">
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/sprite.png" alt="">
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="#"> <img class="img-responsive"
+					height="256px" width="256px" src="resource/img/drpepper.png" alt="">
+				</a>
+			</div>
+		</div>
 
-            <div class="col-lg-12">
-                <h1 class="page-header">Drinks</h1>
-            </div>
+		<!-- Modal -->
+		<div class="modal fade" id="foodModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">View Product</h4>
+					</div>
+					<div class="modal-body">
+						<!-- 					<table class="table">
+							<tr>
+								<td><img src="resource/img/coke.png" class="img-circle" height="200px" width="200px">Product Name</td>
+							</tr> 
+						</table> -->
 
-             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/coke.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/cokezero.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="resource/img/fanta.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" height="256px" width="256px" src="resource/img/sprite.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" height="256px" width="256px" src="resource/img/sprite.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive"  height="256px" width="256px" src="resource/img/drpepper.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-        
+						<div class="media">
+							<div class="media-left">
+								<a href="#"> <img src="resource/img/coke.png"
+									class="img-circle" height="200px" width="200px">
+								</a>
+							</div>
+							<div class="media-body">
+								<h2 class="media-heading">
+									Product Name
+									</h4>
+									<br>
+									<h4 class="media-heading">Price:</h4>
+									<h4 class="media-heading">
+										Quantity: &nbsp; <input type="number" name="quantity" min="1"
+											max="5">
+									</h4>
+									<h4 class="media-heading">Description:</h4>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> <input type="submit"
+							class="btn btn-primary" value="Add to tray">
+					</div>
+				</div>
+			</div>
+		</div>
 </body>
 </html>

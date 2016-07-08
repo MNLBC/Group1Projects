@@ -34,9 +34,18 @@
 	});
 </script>
 <title>My Profile</title>
-
+<style type="text/css">
+    <%@include file="resource/css/bootstrap.min.css" %>
+</style>
 </head>
 <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">My Profile</h1>
+			</div>
 
+		</div>
+	</div>
 </body>
 </html>

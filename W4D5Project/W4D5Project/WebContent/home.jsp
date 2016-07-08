@@ -34,6 +34,10 @@
 		$("#sides").click(function() {
 			$('#container').load('sides.jsp');
 		});
+		
+		$("#myProfile").click(function() {
+			$('#container').load('customerProfile.jsp');
+		});
 
 	}); 
 
@@ -66,7 +70,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="#" id="comboMeals">Combo Meals</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#" id="drinks" >Drinks</a></li>
+						<li><a href="#" id="drinks">Drinks</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#" id="burgers">Burgers</a></li>
 						<li role="separator" class="divider"></li>
@@ -88,6 +92,8 @@
 					data-toggle="modal" data-target="#login">Login</a></li>
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#register">Register</a></li>
+				<li><a href="#" class="btn btn-primary btn-lg"
+					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, User!</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -107,55 +113,58 @@
 					<h4 class="modal-title" id="myModalLabel">Register Account</h4>
 				</div>
 				<div class="modal-body">
-				<form>
-					<table class="table">
-						<tr>
-							<td>User Name:</td>
-							<td><input type="text" name="uname"></td>
-						</tr>
-						<tr>
-							<td>Password:</td>
-							<td><input type="password" name="pass"></td>
-						</tr>
-						<tr>
-							<td>Confirm Password:</td>
-							<td><input type="password" name="cpass"></td>
-						</tr>
-						<tr>
-							<td>First Name:</td>
-							<td><input type="text" name="fname"></td>
-						</tr>
-						<tr>
-							<td>Middle Name:</td>
-							<td><input type="text" name="mname"></td>
-						</tr>
-						<tr>
-							<td>Last Name:</td>
-							<td><input type="text" name="lname"></td>
-						</tr>
-						<tr>
-							<td>Address:</td>
-							<td><input type="text" name="address"></td>
-						</tr>
-						<tr>
-							<td>Contact No.:</td>
-							<td><input type="text" name="cnum"></td>
-						</tr>
-						<tr>
-							<td>E-mail:</td>
-							<td><input type="email" name="email"></td>
-						</tr>
-						<tr>
-							<td>Gender:</td>
-							<td><input type="radio" name="gender" value="female">Female
-								&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male">Male</td>
-						</tr>
-					</table>
+					<form>
+						<table class="table">
+							<tr>
+								<td>User Name:</td>
+								<td><input type="text" name="uname"></td>
+							</tr>
+							<tr>
+								<td>Password:</td>
+								<td><input type="password" name="pass"></td>
+							</tr>
+							<tr>
+								<td>Confirm Password:</td>
+								<td><input type="password" name="cpass"></td>
+							</tr>
+							<tr>
+								<td>First Name:</td>
+								<td><input type="text" name="fname"></td>
+							</tr>
+							<tr>
+								<td>Middle Name:</td>
+								<td><input type="text" name="mname"></td>
+							</tr>
+							<tr>
+								<td>Last Name:</td>
+								<td><input type="text" name="lname"></td>
+							</tr>
+							<tr>
+								<td>Address:</td>
+								<td><input type="text" name="address"></td>
+							</tr>
+							<tr>
+								<td>Contact No.:</td>
+								<td><input type="text" name="cnum"></td>
+							</tr>
+							<tr>
+								<td>E-mail:</td>
+								<td><input type="email" name="email"></td>
+							</tr>
+							<tr>
+								<td>Gender:</td>
+								<td><input type="radio" name="gender" value="female">Female
+									&nbsp;&nbsp;&nbsp;<input type="radio" name="gender"
+									value="male">Male</td>
+							</tr>
+						</table>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-primary" value="Register">
+					<input type="submit" class="btn btn-default"
+						 data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-primary"
+						onClick="validateRegFields()" value="Register">
 				</div>
 			</div>
 		</div>
@@ -174,31 +183,74 @@
 					<h4 class="modal-title" id="myModalLabel">Login Account</h4>
 				</div>
 				<div class="modal-body">
-				<form>
-					<table class="table">
-						<tr>
-							<td>User Name:</td>
-							<td><input type="text" name="uname"></td>
-						</tr>
-						<tr>
-							<td>Password:</td>
-							<td><input type="password" name="pass"></td>
-						</tr>
-					</table>
+					<form>
+						<table class="table">
+							<tr>
+								<td>User Name:</td>
+								<td><input type="text" name="loginUsername"></td>
+							</tr>
+							<tr>
+								<td>Password:</td>
+								<td><input type="password" name="loginPass"></td>
+							</tr>
+						</table>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-primary" value="Login">
+					<input type="submit" class="btn btn-default" data-dismiss="modal"
+						value="Cancel"> <input type="submit"
+						onClick="validateLogin()" class="btn btn-primary" value="Login">
 				</div>
 			</div>
 		</div>
 	</div>
-<div id="container"></div>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<div id="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Hello, world!</h1>
+				<p>
+					<a class="btn btn-primary btn-lg" href="#" role="button">Learn
+						more</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
 
-<script src="resource/js/bootstrap.min.js"></script>
+	<script src="resource/js/bootstrap.min.js"></script>
+	<script>
+		function validateRegFields() {
+			var pass = $('[name="pass"]').val(), 
+			confirmPass = $('[name="cpass"]').val(), 
+			userName = $('[name="uname"]').val(), 
+			firstName = $('[name="fname"]').val(), 
+			lastName = $('[name="lname"]').val(), 
+			email = $('[name="email"]').val(), 
+			address = $('[name="address"]').val(), 
+			contactNo = $('[name="cnum"]').val();
+
+			if (pass == "" || confirmPass == "" || userName == ""
+					|| firstName == "" || lastName == "" || email == ""
+					|| address == "" || contactNo == "") {
+				alert("Please complete all fields!")
+			} else {
+				if (pass != confirmPass) {
+					alert("Password Mismatched!");
+				}
+			}
+		}
+		
+		function validateLogin() {
+			var pass = $('[name="loginPass"]').val(), 
+			confirmPass = $('[name="loginUsername"]').val();
+			
+			if (pass == "" || confirmPass == "") {
+				alert("Please complete all fields!");
+			}
+		}
+	</script>
+</body>
 </html>
