@@ -15,19 +15,13 @@ public class Meal {
 	private String category;
 	private double price;
 	private String image;
-	private Timestamp date_created;
-	private Timestamp date_updated;
 
-	public Meal(int id, String name, String desc, String category, double price, String image, Timestamp date_created,
-			Timestamp date_updated) {
-		this.id = id;
+	public Meal(String name, String desc, String category, double price, String image) {
 		this.name = name;
 		this.desc = desc;
 		this.category = category;
 		this.price = price;
 		this.image = image;
-		this.date_created = date_created;
-		this.date_updated = date_updated;
 	}
 
 	public int getId() {
@@ -54,14 +48,6 @@ public class Meal {
 		return image;
 	}
 
-	public Timestamp getDate_created() {
-		return date_created;
-	}
-
-	public Timestamp getDate_updated() {
-		return date_updated;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -84,14 +70,6 @@ public class Meal {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public void setDate_created(Timestamp date_created) {
-		this.date_created = date_created;
-	}
-
-	public void setDate_updated(Timestamp date_updated) {
-		this.date_updated = date_updated;
 	}
 
 }

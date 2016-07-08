@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class DBConnect {
 
 	private final static String driver = "oracle.jdbc.driver.OracleDriver";
-	private final static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private final static String url = "jdbc:oracle:thin:@ZHA-ITA098-W7:1521:xe";
 	private final static String username = "system";
-	private final static String password = "Password";
+	private final static String password = "admin123";
 
 	public Connection getConn() {
 
