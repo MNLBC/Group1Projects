@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.Gson;
 import com.oocl.mnlbc.dao.TransactionDAO;
 import com.oocl.mnlbc.dao.TransactionDAOImpl;
 import com.oocl.mnlbc.models.Meal;
@@ -41,14 +42,17 @@ public class MealServlet extends HttpServlet {
 		TransactionDAO transaction = new TransactionDAOImpl();
 		String category = request.getParameter("category");
 		List<Meal> meals = transaction.getMealsByCategory(category);
+		
     	request.setAttribute("mealsReturn", meals);
-    	RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-		rd.forward(request, response);
-		logger.info("Requesting to /MealServlet Success!!");
-		return;
     	
 		
 		
+		Gson gson = new Gson();
+		String json = gson.toJson(meals);
+		
+		logger.info("Requesting to /MealServlet Success!!");
+		
+		response.getWriter().write(json);
 	}
 
 	/**
