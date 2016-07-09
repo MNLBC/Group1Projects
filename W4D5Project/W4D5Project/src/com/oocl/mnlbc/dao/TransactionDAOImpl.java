@@ -291,8 +291,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -323,8 +322,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -355,8 +353,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -387,8 +384,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				meal = new Meal(id, code, name, description, category, price, image);
 			}
 			rs.close();
 			pstmt.close();
@@ -399,6 +395,37 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return meal;
 	}
 
+	@Override
+	public Meal getMealByMealName(String qName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE NAME = '" + qName
+				+ "'";
+		PreparedStatement pstmt;
+		Meal meal = null;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				meal = new Meal(id,code, name, description, category, price, image);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return meal;
+	}
+	
+	
 	@Override
 	public ComboMeal getComboMealByComboCode(String qCode) {
 		Connection conn = db.getConn();
@@ -417,8 +444,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				comboMeal = new ComboMeal(code, name, description, price, image);
-				comboMeal.setId(id);
+				comboMeal = new ComboMeal(id, code, name, description, price, image);
 			}
 			rs.close();
 			pstmt.close();
@@ -529,8 +555,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				ComboMeal comboMeal = new ComboMeal(code, name, description, price, image);
-				comboMeal.setId(id);
+				ComboMeal comboMeal = new ComboMeal(id, code, name, description, price, image);
 				comboMealList.add(comboMeal);
 			}
 			rs.close();
@@ -553,5 +578,4 @@ public class TransactionDAOImpl implements TransactionDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

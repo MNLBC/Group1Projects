@@ -16,7 +16,16 @@ public class Meal {
 	private String image;
 
 	public Meal(String code, String name, String description, String category, double price, String image) {
-		super();
+		this.code = code;
+		this.name = name;
+		this.description = description;
+		this.category = category;
+		this.price = price;
+		this.image = image;
+	}
+
+	public Meal(int id, String code, String name, String description, String category, double price, String image) {
+		this.id = id;
 		this.code = code;
 		this.name = name;
 		this.description = description;
