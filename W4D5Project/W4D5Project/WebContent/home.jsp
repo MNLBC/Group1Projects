@@ -159,7 +159,7 @@
 									value="male">Male</td>
 							</tr>
 							<tr>
-							<td>Captcha</td>
+							<td>Captcha:</td>
 							<td><input name="safe"><img id="safe" src=""></td>
 							</tr>
 						</table>
