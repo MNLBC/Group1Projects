@@ -40,6 +40,8 @@ public interface TransactionDAO {
 	Meal getMealByMealName(String qName);
 	
 	ComboMeal getComboMealByComboCode(String qCode);
+	
+	ComboMeal getComboMealByComboMealName(String qName);
 
 	int getMealIdByMealCode(String qCode);
 
