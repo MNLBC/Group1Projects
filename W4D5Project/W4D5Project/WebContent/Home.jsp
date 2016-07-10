@@ -5,9 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
+  <style>
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 90%;
+	margin: auto;
+	
+}
+</style>
 <style type="text/css">
     <%@include file="resource/css/bootstrap.min.css" %>
 </style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("#myCarousel").carousel({
+
+			interval : 3000,
+
+			pause : false
+
+		});
+
+	});
+</script>
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
@@ -18,7 +41,7 @@
 		$("#drinks").click(function() {
 			$('#container').load('Drinks.jsp');
 		});
-		
+
 		$("#burgers").click(function() {
 			$('#container').load('Burger.jsp');
 		});
@@ -218,17 +241,27 @@
 		</div>
 	</div>
 	</div>
-
-
 	<div id="container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Hello, world!</h1>
-				<p>
-					<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-						more</a>
-				</p>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img src="resource/img/doublewhopper.png">
+				</div>
+
+				<div class="item">
+					<img src="resource/img/whopper.png">
+				</div>
 			</div>
+
 		</div>
 	</div>
 	<script

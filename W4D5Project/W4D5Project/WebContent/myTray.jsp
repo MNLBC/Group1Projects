@@ -10,7 +10,7 @@
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$("document").ready(function() {
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
@@ -34,6 +34,10 @@
 		$("#sides").click(function() {
 			$('#container').load('sides.jsp');
 		});
+		
+		$("#myProfile").click(function() {
+			$('#container').load('customerProfile.jsp');
+		});
 
 	}); 
 
@@ -43,7 +47,7 @@
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
+		<div class="navbar-header" >
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				aria-expanded="false">
@@ -51,21 +55,21 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Brand</a>
+			<a class="navbar-brand" href="home.jsp">Brand</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
+			id="bs-example-navbar-collapse-1" >
 			<ul class="nav navbar-nav" id="nav">
 				<li class="active">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false" id="drop">Category<span class="caret"></span></a>
+					aria-expanded="false" id="drop" >Category<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#" id="comboMeals">Combo Meals</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#" id="drinks" >Drinks</a></li>
+						<li><a href="#" id="drinks">Drinks</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#" id="burgers">Burgers</a></li>
 						<li role="separator" class="divider"></li>
@@ -87,6 +91,8 @@
 					data-toggle="modal" data-target="#login">Login</a></li>
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#register">Register</a></li>
+				<li><a href="#" class="btn btn-primary btn-lg"
+					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, User!</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
