@@ -70,7 +70,7 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", userName);
 			session.setAttribute("userObject", userObject);
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("Home.jsp");
 		}
 
 	}
