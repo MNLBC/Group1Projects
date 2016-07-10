@@ -118,19 +118,19 @@
 						<table class="table">
 							<tr>
 								<td>User Name:</td>
-								<td><input type="text" name="uname"></td>
+								<td><input type="text" name="uname" required></td>
 							</tr>
 							<tr>
 								<td>Password:</td>
-								<td><input type="password" name="pass"></td>
+								<td><input type="password" name="pass" required></td>
 							</tr>
 							<tr>
 								<td>Confirm Password:</td>
-								<td><input type="password" name="cpass"></td>
+								<td><input type="password" name="cpass" required></td>
 							</tr>
 							<tr>
 								<td>First Name:</td>
-								<td><input type="text" name="fname"></td>
+								<td><input type="text" name="fname" required></td>
 							</tr>
 							<tr>
 								<td>Middle Name:</td>
@@ -138,19 +138,19 @@
 							</tr>
 							<tr>
 								<td>Last Name:</td>
-								<td><input type="text" name="lname"></td>
+								<td><input type="text" name="lname" required></td>
 							</tr>
 							<tr>
 								<td>Address:</td>
-								<td><input type="text" name="address"></td>
+								<td><input type="text" name="address" required></td>
 							</tr>
 							<tr>
 								<td>Contact No.:</td>
-								<td><input type="text" name="cnum"></td>
+								<td><input type="text" name="cnum" required></td>
 							</tr>
 							<tr>
 								<td>E-mail:</td>
-								<td><input type="email" name="email"></td>
+								<td><input type="email" name="email" required></td>
 							</tr>
 							<tr>
 								<td>Gender:</td>
@@ -160,7 +160,7 @@
 							</tr>
 							<tr>
 							<td>Captcha:</td>
-							<td><input name="safe"><img id="safe" src=""></td>
+							<td><input name="safe" required>&nbsp;<img id="safe" src=""></td>
 							</tr>
 						</table>
 					
@@ -168,8 +168,7 @@
 				<div class="modal-footer">
 					<input type="submit" class="btn btn-default"
 						 data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-primary"
-						onClick="validateRegFields()" value="Register">
+					<input type="submit" class="btn btn-primary" value="Register">
 				</div>
 				</form>
 			</div>
@@ -182,35 +181,36 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<form action="Login" method="post">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Login Account</h4>
-				</div>
-				<div class="modal-body">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Login Account</h4>
+					</div>
+					<div class="modal-body">
 						<table class="table">
 							<tr>
 								<td>User Name:</td>
-								<td><input type="text" name="loginUsername"></td>
+								<td><input type="text" name="loginUsername" required></td>
 							</tr>
 							<tr>
 								<td>Password:</td>
-								<td><input type="password" name="loginPass"></td>
+								<td><input type="password" name="loginPass" required></td>
 							</tr>
 						</table>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<input type="submit" class="btn btn-default" data-dismiss="modal"
-						value="Cancel"> <input type="submit"
-						onClick="validateLogin()" class="btn btn-primary" value="Login">
-				</div>
-				</form>
 			</div>
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-default" data-dismiss="modal"
+					value="Cancel"> <input type="submit"
+					class="btn btn-primary" value="Login">
+			</div>
+			</form>
 		</div>
 	</div>
+	</div>
+
+
 	<div id="container">
 		<div class="jumbotron">
 			<div class="container">
@@ -229,7 +229,7 @@
 
 	<script src="resource/js/bootstrap.min.js"></script>
 	<script>
-		function validateRegFields() {
+		/* function validateRegFields() {
 			var pass = $('[name="pass"]').val(), 
 			confirmPass = $('[name="cpass"]').val(), 
 			userName = $('[name="uname"]').val(), 
@@ -249,16 +249,7 @@
 				}
 			}
 		}
-		
-		function validateLogin() {
-			var pass = $('[name="loginPass"]').val(), 
-			confirmPass = $('[name="loginUsername"]').val();
-			
-			if (pass == "" || confirmPass == "") {
-				alert("Please complete all fields!");
-			}
-		}
-		
+		 */
 		document.getElementById("safe").setAttribute("src", "safe.jpg?" + new Date().getMilliseconds());
 	</script>
 </body>
