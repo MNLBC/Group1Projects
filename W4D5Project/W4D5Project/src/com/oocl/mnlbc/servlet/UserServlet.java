@@ -64,12 +64,12 @@ public class UserServlet extends HttpServlet {
 			if (password.equals(confPassword)) {
 				if (isExisting == 1) {
 					request.setAttribute("alertMessages","Username already exists!");
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 					rd.forward(request, response);
 //					out.println("Username already exists!");
 				} else if (isExisting == 2) {
 					request.setAttribute("alertMessages","Email already exists!");
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 					rd.forward(request, response);
 //					out.println("Email already exists!");
 				} else {
@@ -77,18 +77,18 @@ public class UserServlet extends HttpServlet {
 					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
 							hashPass, gender, image, isDisabled);
 					userRegister(user);
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 					rd.forward(request, response);
 				}
 			} else {
 				request.setAttribute("alertMessages","Password did not match!");
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 				rd.forward(request, response);
 //				out.println("Password did not match!");
 			}
 		} else {
 			request.setAttribute("alertMessages"," SAFE CODE ERROR");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 //			out.println(userName + " SAFE CODE ERROR");
 			logger.error("User: " + userName + " Request to /Login but capt;cha is incorrect...");

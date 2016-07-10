@@ -55,15 +55,15 @@ public class Login extends HttpServlet {
 
 		if (isActive == 1) {
 			request.setAttribute("alertMessages","Invalid Username/Password");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		} else if (isActive == 2) {
 			request.setAttribute("alertMessages","User is blocked.");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		} else {
 			request.setAttribute("success",userName);
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		}
 
