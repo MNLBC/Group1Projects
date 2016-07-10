@@ -36,6 +36,8 @@ public interface TransactionDAO {
 
 	// Per Object
 	Meal getMealByMealCode(String qCode);
+	
+	Meal getMealByMealId(int id);
 
 	Meal getMealByMealName(String qName);
 

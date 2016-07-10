@@ -736,4 +736,34 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	}
 
+	@Override
+	public Meal getMealByMealId(int qId) {
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE ID = " + qId
+				+ " ORDER BY NAME";
+		PreparedStatement pstmt;
+		Meal meal = null;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				meal = new Meal(id, code, name, description, category, price, image);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return meal;
+	}
+
 }

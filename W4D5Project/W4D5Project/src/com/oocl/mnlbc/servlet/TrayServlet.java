@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oocl.mnlbc.models.Order;
 import com.oocl.mnlbc.models.OrderItems;
 
 /**
@@ -33,7 +34,41 @@ public class TrayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		String strAction = request.getParameter("action");
+//		   
+//		  if(strAction!=null && !strAction.equals("")) {
+//		   if(strAction.equals("add")) {
+//			   addToCart(request);
+//		   } else if (strAction.equals("Update")) {
+//		    updateCart(request);
+//		   } else if (strAction.equals("Delete")) {
+//		    deleteCart(request);
+//		   }
+//		  }
+//		  response.sendRedirect("ShoppingCart.jsp");
+		
+		String product_id = request.getParameter("productId");
+		String product_qty = request.getParameter("productQuantity");
+		String product_cat = request.getParameter("productCategory");
+		
+		OrderItems orderItem = new OrderItems();
+		orderItem.setMealId(Integer.parseInt(product_id));
+		orderItem.setQuantity(Integer.parseInt(product_qty));
+		orderItem.setType(product_cat);
+		
+		Order order = new Order();
+		
+		HttpSession session = request.getSession();
+		List<OrderItems> orderItems = null;
+		
+		if(session.getAttribute("cartItems") == null){
+			orderItems= new ArrayList<OrderItems>();
+		}else{
+			orderItems = (List<OrderItems>) session.getAttribute("cartItems");
+		}
+		
+		orderItems.add(orderItem);
+		session.setAttribute("cartItems", orderItems);
 	}
 
 	/**
@@ -41,18 +76,8 @@ public class TrayServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String strAction = request.getParameter("action");
-		   
-		  if(strAction!=null && !strAction.equals("")) {
-		   if(strAction.equals("add")) {
-		    addToCart(request);
-		   } else if (strAction.equals("Update")) {
-		    updateCart(request);
-		   } else if (strAction.equals("Delete")) {
-		    deleteCart(request);
-		   }
-		  }
-		  response.sendRedirect("../ShoppingCart.jsp");
+		doGet(request, response);
+		
 	}
 
 	private void deleteCart(HttpServletRequest request) {
@@ -95,7 +120,7 @@ public class TrayServlet extends HttpServlet {
 			orderItems.add(orderItem);
 		}
 		
-		session.setAttribute("trayItems", orderItems);
+		session.setAttribute("cartItems", orderItems);
 	}
 
 }

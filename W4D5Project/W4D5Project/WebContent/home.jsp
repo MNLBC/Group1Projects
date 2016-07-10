@@ -65,6 +65,10 @@
 		$("#myProfile").click(function() {
 			$('#container').load('customerProfile.jsp');
 		});
+		
+		$("#myTray").click(function() {
+			$('#container').load('myTray.jsp');
+		});
 
 	});
 </script>
@@ -127,6 +131,7 @@
 			
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, <% out.println(username);  %></a></li>
+					<li><a href="#" class="btn btn-primary btn-lg" id="myTray">My Tray</a></li>
 					<li><a href="Logout" class="btn btn-primary btn-lg">Logout</a></li>
 					<% } %>
 			</ul>
