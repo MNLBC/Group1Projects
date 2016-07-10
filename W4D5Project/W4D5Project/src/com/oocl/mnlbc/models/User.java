@@ -19,12 +19,13 @@ public class User {
 	private String password;
 	private String gender;
 	private String image;
-	private boolean isDisable;
+	private boolean isDisabled;
 	private String dateCreated;
 	private String dateUpdated;
 
+	// Constructor for retrieving
 	public User(String firstName, String lastName, String middleName, String address, String contact, String type,
-			String email, String userName, String password, String gender, String image, boolean isDisable) {
+			String email, String userName, String password, String gender, String image, boolean isDisabled) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.middleName = middleName;
@@ -36,9 +37,10 @@ public class User {
 		this.password = password;
 		this.gender = gender;
 		this.image = image;
-		this.isDisable = isDisable;
+		this.isDisabled = isDisabled;
 	}
 
+	// Constructor for inserting
 	public User(String firstName, String lastName, String middleName, String address, String contact, String email,
 			String userName, String password, String gender) {
 		this.firstName = firstName;
@@ -46,10 +48,12 @@ public class User {
 		this.middleName = middleName;
 		this.address = address;
 		this.contact = contact;
+		this.type = "customer";
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
 		this.gender = gender;
+		this.isDisabled = false;
 	}
 
 	public User(String userName) {
@@ -156,12 +160,12 @@ public class User {
 		this.image = image;
 	}
 
-	public boolean isDisable() {
-		return isDisable;
+	public boolean isDisabled() {
+		return isDisabled;
 	}
 
-	public void setDisable(boolean isDisable) {
-		this.isDisable = isDisable;
+	public void setDisable(boolean isDisabled) {
+		this.isDisabled = isDisabled;
 	}
 
 	public String getDateCreated() {
