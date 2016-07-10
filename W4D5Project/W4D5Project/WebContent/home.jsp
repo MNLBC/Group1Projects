@@ -88,7 +88,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.jsp">Brand</a>
+			<a class="navbar-brand" href="home.jsp">Burger Queen</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -249,6 +249,9 @@
 		</div>
 	</div>
 	</div>
+	<hr>	
+	<h3>Welcome to Burger Queen!</h3>
+	<hr>
 	<div id="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
