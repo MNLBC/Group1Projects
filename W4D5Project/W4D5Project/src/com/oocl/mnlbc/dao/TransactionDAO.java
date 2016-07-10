@@ -67,4 +67,8 @@ public interface TransactionDAO {
 	// Delete
 
 	boolean removeUser(int qId);
+	
+	// Update
+	
+	boolean updateUser(User user);
 }

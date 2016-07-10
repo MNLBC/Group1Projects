@@ -644,8 +644,8 @@ public class TransactionDAOImpl implements TransactionDAO {
 		boolean isSuccess = false;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-		    pstmt.setInt(1,qId);
-		    pstmt.executeUpdate(); 
+			pstmt.setInt(1, qId);
+			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
 			isSuccess = true;
@@ -654,4 +654,42 @@ public class TransactionDAOImpl implements TransactionDAO {
 		}
 		return isSuccess;
 	}
+
+	@Override
+	public boolean updateUser(User user) {
+		Connection conn = db.getConn();
+		String sql = "UPDATE FROM USERS SET " + " FIRSTNAME = ?, MIDDLENAME = ?, LASTNAME = ?, "
+				+ " ADDRESS = ?, CONTACTS = ?, EMAIL = ?, GENDER = ?, "
+				+ " USERNAME = ?, PASSWORD = ?, TYPE = ?, IMAGE = ?, IS_DISABLED = ? " + "WHERE ID = ?";
+		PreparedStatement pstmt;
+		boolean isSuccess = false;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.setString(1, user.getFirstName());
+			pstmt.setString(2, user.getMiddleName());
+			pstmt.setString(3, user.getLastName());
+			pstmt.setString(4, user.getAddress());
+			pstmt.setString(5, user.getContact());
+			pstmt.setString(6, user.getEmail());
+			pstmt.setString(7, user.getGender());
+			pstmt.setString(8, user.getUserName());
+			pstmt.setString(9, user.getPassword());
+			pstmt.setString(10, user.getType());
+			pstmt.setString(11, user.getImage());
+			if (user.isDisabled()) {
+				pstmt.setInt(12, 1);
+			} else {
+				pstmt.setInt(12, 0);
+			}
+			pstmt.setInt(13, 1);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+			isSuccess = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return isSuccess;
+	}
+
 }
