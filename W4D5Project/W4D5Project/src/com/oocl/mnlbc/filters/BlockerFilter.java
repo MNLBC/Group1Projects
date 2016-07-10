@@ -40,7 +40,7 @@ public class BlockerFilter implements Filter{
 		}else{
 			if(user.getFirstName().equalsIgnoreCase("Johns") || user.getFirstName().equalsIgnoreCase("Scott")){
 				session.invalidate();
-				res.sendRedirect(req.getContextPath() + "/Home.jsp");
+				res.sendRedirect(req.getContextPath() + "/home.jsp");
 			}else{
 				chain.doFilter(request, response);
 			}

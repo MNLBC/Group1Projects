@@ -46,27 +46,27 @@ function loadData(){
 	$(document).ready(function() {
 		loadData();
 		$("#drinks").click(function() {
-			$('#container').load('Drinks.jsp');
+			$('#container').load('drinks.jsp');
 		});
 		
 		$("#burgers").click(function() {
-			$('#container').load('Burger.jsp');
+			$('#container').load('burger.jsp');
 		});
 		
 		$("#comboMeals").click(function() {
-			$('#container').load('ComboMeal.jsp');
+			$('#container').load('comboMeal.jsp');
 		});
 		
 		$("#chicken").click(function() {
-			$('#container').load('Chicken.jsp');
+			$('#container').load('chicken.jsp');
 		});
 
 		$("#desserts").click(function() {
-			$('#container').load('Desserts.jsp');
+			$('#container').load('desserts.jsp');
 		});
 		
 		$("#sides").click(function() {
-			$('#container').load('Sides.jsp');
+			$('#container').load('sides.jsp');
 		});
 
 	});

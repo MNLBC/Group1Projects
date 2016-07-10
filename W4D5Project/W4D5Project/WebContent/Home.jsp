@@ -39,27 +39,27 @@
 			console.log("naks");
 		});
 		$("#drinks").click(function() {
-			$('#container').load('Drinks.jsp');
+			$('#container').load('drinks.jsp');
 		});
 
 		$("#burgers").click(function() {
-			$('#container').load('Burger.jsp');
+			$('#container').load('burger.jsp');
 		});
 		
 		$("#comboMeals").click(function() {
-			$('#container').load('ComboMeal.jsp');
+			$('#container').load('comboMeal.jsp');
 		});
 		
 		$("#chicken").click(function() {
-			$('#container').load('Chicken.jsp');
+			$('#container').load('chicken.jsp');
 		});
 
 		$("#desserts").click(function() {
-			$('#container').load('Desserts.jsp');
+			$('#container').load('desserts.jsp');
 		});
 		
 		$("#sides").click(function() {
-			$('#container').load('Sides.jsp');
+			$('#container').load('sides.jsp');
 		});
 
 	});
@@ -80,7 +80,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="Home.jsp">Brand</a>
+			<a class="navbar-brand" href="home.jsp">Brand</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -112,7 +112,7 @@
 				<button class="btn btn-default" id="searchButton" type="submit">Search</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-			<%  String username = (String) request.getAttribute("success");
+			<%  String username = (String) session.getAttribute("user");
 			if(username == null) {
 			%>
 				<li><a href="#" class="btn btn-primary btn-lg"

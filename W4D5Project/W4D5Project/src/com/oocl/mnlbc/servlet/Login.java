@@ -57,11 +57,11 @@ public class Login extends HttpServlet {
 
 		if (isActive == 1) {
 			request.setAttribute("alertMessages","Invalid Username/Password");
-			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 			rd.forward(request, response);
 		} else if (isActive == 2) {
 			request.setAttribute("alertMessages","User is blocked.");
-			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 			rd.forward(request, response);
 		} else {
 			User userObject = transactionDAOImpl.getUserByUserName(userName);
@@ -70,7 +70,7 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", userName);
 			session.setAttribute("userObject", userObject);
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("home.jsp");
 		}
 
 	}

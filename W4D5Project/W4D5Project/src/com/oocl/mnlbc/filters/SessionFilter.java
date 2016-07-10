@@ -53,7 +53,7 @@ public class SessionFilter implements Filter {
 		
 		if(session == null && !(uri.startsWith("home") || !uri.startsWith("login"))){
 			this.context.log("Unauthorized access request");
-			res.sendRedirect("Home.jsp");
+			res.sendRedirect("home.jsp");
 		}else{
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
