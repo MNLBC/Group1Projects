@@ -21,7 +21,6 @@ public class User {
 	private String image;
 	private boolean isDisabled;
 
-	// Constructor for retrieving
 	public User(String firstName, String lastName, String middleName, String address, String contact, String type,
 			String email, String userName, String password, String gender, String image, boolean isDisabled) {
 		this.firstName = firstName;
@@ -36,31 +35,6 @@ public class User {
 		this.gender = gender;
 		this.image = image;
 		this.isDisabled = isDisabled;
-	}
-
-	// Constructor for inserting
-	public User(String firstName, String lastName, String middleName, String address, String contact, String email,
-			String userName, String password, String gender) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.middleName = middleName;
-		this.address = address;
-		this.contact = contact;
-		this.type = "customer";
-		this.email = email;
-		this.userName = userName;
-		this.password = password;
-		this.gender = gender;
-		this.image = "default.jpg";
-		this.isDisabled = false;
-	}
-
-	public User(String userName) {
-		this.userName = userName;
-	}
-
-	public User(String userName, String email) {
-		this.email = email;
 	}
 
 	public int getId() {

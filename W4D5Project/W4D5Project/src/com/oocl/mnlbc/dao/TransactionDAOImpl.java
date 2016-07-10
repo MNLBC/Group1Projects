@@ -635,4 +635,10 @@ public class TransactionDAOImpl implements TransactionDAO {
 		}
 		return orderItemList;
 	}
+
+	@Override
+	public boolean removeUser(int qId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

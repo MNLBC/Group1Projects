@@ -29,18 +29,18 @@ public interface TransactionDAO {
 	boolean insertOrder(Order order);
 
 	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
-	
+
 	boolean isUsernameExisting(String qUsername);
 
 	boolean isEmailExisting(String qEmail);
 
 	// Per Object
 	Meal getMealByMealCode(String qCode);
-	
+
 	Meal getMealByMealName(String qName);
-	
+
 	ComboMeal getComboMealByComboCode(String qCode);
-	
+
 	ComboMeal getComboMealByComboMealName(String qName);
 
 	int getMealIdByMealCode(String qCode);
@@ -64,5 +64,7 @@ public interface TransactionDAO {
 
 	List<OrderItems> getOrderItems();
 
+	// Delete
 
+	boolean removeUser(int qId);
 }

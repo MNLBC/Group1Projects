@@ -51,9 +51,12 @@ public class UserServlet extends HttpServlet {
 		String lastName = request.getParameter("lname");
 		String address = request.getParameter("address");
 		String contact = request.getParameter("cnum");
+		String type = "customer";
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
+		String image = "default.jpg";
 		String safe = request.getParameter("safe");
+		boolean isDisabled = false;
 
 		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
 			int isExisting = isUsernameEmailExist(userName, email);
@@ -65,8 +68,9 @@ public class UserServlet extends HttpServlet {
 				String hashPass = passwordHash(password);
 				out.print(hashPass);
 				out.println("Success!");
-				
-				User user = new User(firstName, lastName, middleName, address, contact, email, userName, password, gender);
+
+				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
+						confPassword, gender, image, isDisabled);
 				userRegister(user);
 			}
 		} else {
