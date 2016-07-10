@@ -123,8 +123,7 @@
 			
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, <% out.println(username);  %></a></li>
-					<li><a href="#" class="btn btn-primary btn-lg"
-					data-toggle="modal" data-target="#logout">Logout</a></li>
+					<li><a href="Logout" class="btn btn-primary btn-lg">Logout</a></li>
 					<% } %>
 			</ul>
 		</div>
