@@ -61,6 +61,10 @@
 		$("#sides").click(function() {
 			$('#container').load('sides.jsp');
 		});
+		
+		$("#myProfile").click(function() {
+			$('#container').load('customerProfile.jsp');
+		});
 
 	});
 </script>
