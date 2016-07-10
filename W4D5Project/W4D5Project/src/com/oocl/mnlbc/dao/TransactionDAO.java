@@ -30,9 +30,9 @@ public interface TransactionDAO {
 
 	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
 	
-	boolean checkIfUserExists(User user);
+	boolean isUsernameExisting(String qUsername);
 
-	boolean checkIfEmailExists(User user);
+	boolean isEmailExisting(String qEmail);
 
 	// Per Object
 	Meal getMealByMealCode(String qCode);

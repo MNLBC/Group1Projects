@@ -47,7 +47,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(9, user.getPassword());
 			pstmt.setString(10, user.getType());
 			pstmt.setString(11, user.getImage());
-			if (user.isDisable()) {
+			if (user.isDisabled()) {
 				pstmt.setInt(12, 1);
 			} else {
 				pstmt.setInt(12, 0);
@@ -183,9 +183,9 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return false;
 	}
 
-	public boolean checkIfUserExists(User user) {
+	public boolean isUsernameExisting(String userName) {
 		Connection conn = db.getConn();
-		String sql = "SELECT USERNAME FROM USERS WHERE  USERNAME='" + user.getUserName() + "'";
+		String sql = "SELECT USERNAME FROM USERS WHERE USERNAME = '" + userName + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -200,9 +200,9 @@ public class TransactionDAOImpl implements TransactionDAO {
 	}
 
 	@Override
-	public boolean checkIfEmailExists(User user) {
+	public boolean isEmailExisting(String email) {
 		Connection conn = db.getConn();
-		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL='" + user.getEmail() + "'";
+		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -245,7 +245,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 					isDisabled = true;
 				}
 
-				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password, 
+				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password,
 						gender, image, isDisabled);
 				user.setId(id);
 				userList.add(user);
@@ -540,7 +540,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				if (rs.getInt("IS_DISABLED") == 1) {
 					isDisable = true;
 				}
-				user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password, 
+				user = new User(firstName, lastName, middleName, address, contact, type, email, userName, password,
 						gender, image, isDisable);
 				user.setId(id);
 			}
