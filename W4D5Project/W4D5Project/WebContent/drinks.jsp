@@ -120,11 +120,15 @@ function loadData(){
 						</div>
 					</div>
 				</div>
+				<% String username = (String) session.getAttribute("user");
+				if(username != null){
+				%>
 				<div class="modal-footer">
 					<input type="submit" class="btn btn-default" data-dismiss="modal"
 						value="Cancel"> <input type="submit"
 						class="btn btn-primary" value="Add to tray">
 				</div>
+				<% } %>
 			</div>
 		</div>
 	</div>
