@@ -12,11 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
 import com.oocl.mnlbc.dao.TransactionDAO;
 import com.oocl.mnlbc.dao.TransactionDAOImpl;
+import com.oocl.mnlbc.models.User;
 
 /**
  * Servlet implementation class Login
@@ -62,9 +64,13 @@ public class Login extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 			rd.forward(request, response);
 		} else {
+			User userObject = transactionDAOImpl.getUserByUserName(userName);
 			request.setAttribute("success",userName);
-			RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
-			rd.forward(request, response);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("user", userName);
+			session.setAttribute("userObject", userObject);
+			response.sendRedirect("home.jsp");
 		}
 
 	}
