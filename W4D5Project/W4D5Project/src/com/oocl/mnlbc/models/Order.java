@@ -13,11 +13,6 @@ public class Order {
 	private int userId;
 	private String status;
 	private List<OrderItems> orderItemList;
-	
-	
-	
-	public Order() {
-	}
 
 	public Order(int userId) {
 		this.userId = userId;

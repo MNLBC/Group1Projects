@@ -33,7 +33,8 @@ function loadData(){
 				 var sel = $(this);
 				 sel.attr("data-index");
 				 var index = sel.data("index");
-				
+				$('#product-id').val(data[index].id);
+				$('#product-category').val(data[index].category);
 				$('#product-name').html(data[index].name)
 				$('#product-picture').attr("src",data[index].image)
 				$('#product-price').html("Price: " + data[index].price)
@@ -45,6 +46,20 @@ function loadData(){
 }
 	$(document).ready(function() {
 		loadData();
+		$("#addTray").click(function() {
+			$.ajax({
+				type : "GET",
+				data : {
+					productId : $('#product-id').val(),
+					productQuantity : $('#product-quantity').val(),
+					productCategory : $('#product-category').val()
+				},
+				url : "TrayServlet",
+				success : function(response) {
+					
+				}
+			});
+		});
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
@@ -105,6 +120,8 @@ function loadData(){
 								</a>
 							</div>
 							<div class="media-body">
+														<input type = "hidden" id = "product-category">
+							<input type = "hidden" id = "product-id">
 								<h2 class="media-heading" id="product-name">
 									</h4>
 									<br>
@@ -113,7 +130,7 @@ function loadData(){
 									if(username != null){
 									%>
 									<h4 class="media-heading">
-										Quantity: &nbsp; <input type="number" name="quantity" min="0"
+										Quantity: &nbsp; <input id="product-quantity" type="number" name="quantity" min="0"
 											max="5" style="width: 50px">
 									</h4>
 									<% } %>
@@ -125,7 +142,7 @@ function loadData(){
 					<div class="modal-footer">
 						<input type="submit" class="btn btn-default" data-dismiss="modal"
 							value="Cancel"> <input type="submit"
-							class="btn btn-primary" value="Add to tray">
+							class="btn btn-primary" value="Add to tray" id="addTray">
 					</div>
 					<%} %>
 				</div>
