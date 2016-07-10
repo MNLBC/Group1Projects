@@ -50,38 +50,46 @@ public class UserServlet extends HttpServlet {
 		String middleName = request.getParameter("mname");
 		String lastName = request.getParameter("lname");
 		String address = request.getParameter("address");
-		String contactNum = request.getParameter("cnum");
+		String contact = request.getParameter("cnum");
+		String type = "customer";
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
+		String image = "default.jpg";
 		String safe = request.getParameter("safe");
+		boolean isDisabled = false;
 
 		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
-			if (isUserExist(userName)) {
+			int isExisting = isUsernameEmailExist(userName, email);
+			if (isExisting == 1) {
 				out.println("Username already exists!");
-			} else if (ifEmailExist(userName, email)) {
+			} else if (isExisting == 2) {
 				out.println("Email already exists!");
 			} else {
 				String hashPass = passwordHash(password);
 				out.print(hashPass);
 				out.println("Success!");
-				// userRegister(firstName,lastName,middleName,address,contactNum,email,userName,password,gender);
+
+				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
+						confPassword, gender, image, isDisabled);
+				userRegister(user);
 			}
 		} else {
 			out.println(userName + " SAFE CODE ERROR");
-			logger.error("User: " +userName +" Request to /Login but captcha is incorrect...");
+			logger.error("User: " + userName + " Request to /Login but capt;cha is incorrect...");
 		}
 	}
 
-	private boolean ifEmailExist(String userName, String email) {
-		boolean emailExist;
-		emailExist = transactionDAOImpl.checkIfEmailExists(new User(userName, email));
-		return emailExist;
-	}
+	private int isUsernameEmailExist(String userName, String email) {
+		boolean isUserNameExist = transactionDAOImpl.isUsernameExisting(userName);
+		boolean isEmailAlreadyInUse = transactionDAOImpl.isEmailExisting(email);
 
-	private boolean isUserExist(String userName) {
-		boolean ifExist;
-		ifExist = transactionDAOImpl.checkIfUserExists(new User(userName));
-		return ifExist;
+		if (isUserNameExist) {
+			return 1;
+		} else if (!isUserNameExist && isEmailAlreadyInUse) {
+			return 2;
+		} else {
+			return 0;
+		}
 	}
 
 	private String passwordHash(String password) {
@@ -101,15 +109,10 @@ public class UserServlet extends HttpServlet {
 		return md5;
 	}
 
-	// private void userRegister(String firstName, String lastName, String
-	// middleName, String address
-	// , String contactNum, String email, String userName, String password,
-	// String gender) {
-	// transactionDAOImpl.insertUser(new
-	// User(firstName,lastName,middleName,address,contactNum,email,userName,password,gender));
-	// logger.info("Requesting to /UserServlet Success!!, User Succesfully
-	// Created.");
-	// }
+	private void userRegister(User user) {
+		transactionDAOImpl.insertUser(user);
+		logger.info("Requesting to /UserServlet Success!!, User Succesfully Created.");
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

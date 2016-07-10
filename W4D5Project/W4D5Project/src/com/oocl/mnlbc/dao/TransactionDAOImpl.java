@@ -30,8 +30,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public boolean insertUser(User user) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO USERS " + "(FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
-				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED, DATE_CREATED, DATE_UPDATED) "
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED) " + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement pstmt;
 		int success = 0;
@@ -48,13 +47,11 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(9, user.getPassword());
 			pstmt.setString(10, user.getType());
 			pstmt.setString(11, user.getImage());
-			if (user.isDisable()) {
+			if (user.isDisabled()) {
 				pstmt.setInt(12, 1);
 			} else {
 				pstmt.setInt(12, 0);
 			}
-			pstmt.setTimestamp(13, time);
-			pstmt.setTimestamp(14, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -71,7 +68,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertMeal(Meal meal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO MEAL(CODE,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO MEAL(CODE, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE) values(?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
@@ -82,8 +79,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(4, meal.getCategory());
 			pstmt.setDouble(5, meal.getPrice());
 			pstmt.setString(6, meal.getImage());
-			pstmt.setTimestamp(7, time);
-			pstmt.setTimestamp(8, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -100,7 +95,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertComboMeal(ComboMeal comboMeal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO COMBO_MEAL(CODE,NAME,DESCRIPTION,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO COMBO_MEAL(CODE, NAME, DESCRIPTION, PRICE, IMAGE) values(?, ?, ?, ?, ?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
@@ -110,8 +105,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(3, comboMeal.getDescription());
 			pstmt.setDouble(4, comboMeal.getPrice());
 			pstmt.setString(5, comboMeal.getImage());
-			pstmt.setTimestamp(6, time);
-			pstmt.setTimestamp(7, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -128,14 +121,12 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertProductGroup(int comboMealId, Meal meal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO PRODUCT_GROUP(COMBO_MEAL_ID,MEAL_ID,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
+		String sql = "INSERT INTO PRODUCT_GROUP(COMBO_MEAL_ID, MEAL_ID) values(?, ?)";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setInt(1, comboMealId);
 			pstmt.setInt(2, meal.getId());
-			pstmt.setTimestamp(3, time);
-			pstmt.setTimestamp(4, time);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -149,15 +140,13 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertOrder(Order order) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO ORDERS(USER_ID,STATUS,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
+		String sql = "INSERT INTO ORDERS(USER_ID, STATUS) values(?, ?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setInt(1, order.getUserId());
 			pstmt.setString(2, order.getStatus());
-			pstmt.setTimestamp(3, time);
-			pstmt.setTimestamp(4, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -174,7 +163,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO ORDER_ITEMS(TYPE,ORDER_ID,MEAL_ID,QUANTITY,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO ORDER_ITEMS(TYPE, ORDER_ID, MEAL_ID, QUANTITY) values(?, ?, ?, ?)";
 		PreparedStatement pstmt;
 		try {
 			for (OrderItems orderItem : orderItemsList) {
@@ -183,8 +172,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 				pstmt.setInt(2, orderId);
 				pstmt.setInt(3, orderItem.getMealId());
 				pstmt.setInt(4, orderItem.getQuantity());
-				pstmt.setTimestamp(5, time);
-				pstmt.setTimestamp(6, time);
 				pstmt.executeUpdate();
 				pstmt.close();
 				conn.close();
@@ -196,9 +183,10 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return false;
 	}
 
-	public boolean checkIfUserExists(User user) {
+	@Override
+	public boolean isUsernameExisting(String userName) {
 		Connection conn = db.getConn();
-		String sql = "SELECT USERNAME FROM USERS WHERE  USERNAME='" + user.getUserName() + "'";
+		String sql = "SELECT USERNAME FROM USERS WHERE USERNAME = '" + userName + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -213,9 +201,9 @@ public class TransactionDAOImpl implements TransactionDAO {
 	}
 
 	@Override
-	public boolean checkIfEmailExists(User user) {
+	public boolean isEmailExisting(String email) {
 		Connection conn = db.getConn();
-		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL='" + user.getEmail() + "'";
+		String sql = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -233,7 +221,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<User> getUsers() {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
-				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED  FROM USERS";
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS ORDER BY ID";
 		PreparedStatement pstmt;
 		List<User> userList = new ArrayList<User>();
 		try {
@@ -254,7 +242,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				String image = rs.getString("IMAGE");
 				int disabled = rs.getInt("IS_DISABLED");
 				boolean isDisabled = false;
-				if (disabled == 0) {
+				if (disabled == 1) {
 					isDisabled = true;
 				}
 
@@ -276,7 +264,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName
-				+ "%' ORDER BY CODE";
+				+ "%' ORDER BY ID";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -291,8 +279,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -308,7 +295,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByCategory(String qCategory) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%"
-				+ qCategory + "%' ORDER BY CODE";
+				+ qCategory + "%' ORDER BY ID";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -323,8 +310,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -340,7 +326,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByComboId(int qId) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ML.* FROM PRODUCT_GROUP PG " + "JOIN COMBO_MEAL CM ON PG.COMBO_MEAL_ID = CM.ID "
-				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId;
+				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId + "  ORDER BY ID";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -355,8 +341,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				Meal meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				Meal meal = new Meal(id, code, name, description, category, price, image);
 				mealList.add(meal);
 			}
 			rs.close();
@@ -372,7 +357,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public Meal getMealByMealCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE CODE = '" + qCode
-				+ "'";
+				+ "' ORDER BY ID";
 		PreparedStatement pstmt;
 		Meal meal = null;
 		try {
@@ -387,8 +372,37 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				meal = new Meal(code, name, description, category, price, image);
-				meal.setId(id);
+				meal = new Meal(id, code, name, description, category, price, image);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return meal;
+	}
+
+	@Override
+	public Meal getMealByMealName(String qName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE NAME = '" + qName
+				+ "' ORDER BY ID";
+		PreparedStatement pstmt;
+		Meal meal = null;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String code = rs.getString("CODE");
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				String category = rs.getString("CATEGORY");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				meal = new Meal(id, code, name, description, category, price, image);
 			}
 			rs.close();
 			pstmt.close();
@@ -403,7 +417,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public ComboMeal getComboMealByComboCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE CODE = '" + qCode
-				+ "' ORDER BY CODE";
+				+ "' ORDER BY ID";
 		PreparedStatement pstmt;
 		ComboMeal comboMeal = null;
 		try {
@@ -417,8 +431,36 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				comboMeal = new ComboMeal(code, name, description, price, image);
-				comboMeal.setId(id);
+				comboMeal = new ComboMeal(id, code, name, description, price, image);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return comboMeal;
+	}
+
+	@Override
+	public ComboMeal getComboMealByComboMealName(String qName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE NAME = '" + qName
+				+ "' ORDER BY ID";
+		PreparedStatement pstmt;
+		ComboMeal comboMeal = null;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				String code = rs.getString("CODE");
+				String name = rs.getString("NAME");
+				String description = rs.getString("DESCRIPTION");
+				Double price = rs.getDouble("PRICE");
+				String image = rs.getString("IMAGE");
+
+				comboMeal = new ComboMeal(id, code, name, description, price, image);
 			}
 			rs.close();
 			pstmt.close();
@@ -432,7 +474,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getMealIdByMealCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'";
+		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'  ORDER BY ID";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -453,7 +495,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getComboMealIdByComboCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY CODE";
+		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY ID";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -515,7 +557,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<ComboMeal> getComboMeals() {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY CODE";
+		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY ID";
 		PreparedStatement pstmt;
 		List<ComboMeal> comboMealList = new ArrayList<ComboMeal>();
 		try {
@@ -529,8 +571,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				Double price = rs.getDouble("PRICE");
 				String image = rs.getString("IMAGE");
 
-				ComboMeal comboMeal = new ComboMeal(code, name, description, price, image);
-				comboMeal.setId(id);
+				ComboMeal comboMeal = new ComboMeal(id, code, name, description, price, image);
 				comboMealList.add(comboMeal);
 			}
 			rs.close();
@@ -544,14 +585,60 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public List<Order> getOrders() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, USER_ID, STATUS FROM ORDERS ORDER BY ID";
+		PreparedStatement pstmt;
+		List<Order> orderList = new ArrayList<Order>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				int userId = rs.getInt("USER_ID");
+				String status = rs.getString("STATUS");
+
+				Order order = new Order(userId, status);
+				orderList.add(order);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orderList;
 	}
 
 	@Override
 	public List<OrderItems> getOrderItems() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = db.getConn();
+		String sql = "SELECT ID, TYPE, QUANTITY, MEAL_ID FROM ORDER ORDER BY ID";
+		PreparedStatement pstmt;
+		List<OrderItems> orderItemList = new ArrayList<OrderItems>();
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				int mealId = rs.getInt("MEAL_ID");
+				String type = rs.getString("TYPE");
+				int quantity = rs.getInt("QUANTITY");
+
+				OrderItems orderItem = new OrderItems(id, type, quantity, mealId);
+				orderItemList.add(orderItem);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orderItemList;
 	}
 
+	@Override
+	public boolean removeUser(int qId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

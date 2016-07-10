@@ -19,12 +19,10 @@ public class User {
 	private String password;
 	private String gender;
 	private String image;
-	private boolean isDisable;
-	private String dateCreated;
-	private String dateUpdated;
+	private boolean isDisabled;
 
 	public User(String firstName, String lastName, String middleName, String address, String contact, String type,
-			String email, String userName, String password, String gender, String image, boolean isDisable) {
+			String email, String userName, String password, String gender, String image, boolean isDisabled) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.middleName = middleName;
@@ -36,28 +34,7 @@ public class User {
 		this.password = password;
 		this.gender = gender;
 		this.image = image;
-		this.isDisable = isDisable;
-	}
-
-	public User(String firstName, String lastName, String middleName, String address, String contact, String email,
-			String userName, String password, String gender) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.middleName = middleName;
-		this.address = address;
-		this.contact = contact;
-		this.email = email;
-		this.userName = userName;
-		this.password = password;
-		this.gender = gender;
-	}
-
-	public User(String userName) {
-		this.userName = userName;
-	}
-
-	public User(String userName, String email) {
-		this.email = email;
+		this.isDisabled = isDisabled;
 	}
 
 	public int getId() {
@@ -156,28 +133,11 @@ public class User {
 		this.image = image;
 	}
 
-	public boolean isDisable() {
-		return isDisable;
+	public boolean isDisabled() {
+		return isDisabled;
 	}
 
-	public void setDisable(boolean isDisable) {
-		this.isDisable = isDisable;
+	public void setDisable(boolean isDisabled) {
+		this.isDisabled = isDisabled;
 	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public String getDateUpdated() {
-		return dateUpdated;
-	}
-
-	public void setDateUpdated(String dateUpdated) {
-		this.dateUpdated = dateUpdated;
-	}
-
 }

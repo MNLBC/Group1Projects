@@ -18,6 +18,14 @@ public class OrderItems {
 		this.mealId = mealId;
 	}
 
+	public OrderItems(int id, String type, int quantity, int mealId) {
+		super();
+		this.id = id;
+		this.type = type;
+		this.quantity = quantity;
+		this.mealId = mealId;
+	}
+
 	public int getId() {
 		return id;
 	}
