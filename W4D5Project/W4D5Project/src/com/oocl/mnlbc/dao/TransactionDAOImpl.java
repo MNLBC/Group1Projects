@@ -30,8 +30,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public boolean insertUser(User user) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO USERS " + "(FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
-				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED, DATE_CREATED, DATE_UPDATED) "
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED) " + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstmt;
 		int success = 0;
@@ -53,8 +52,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 			} else {
 				pstmt.setInt(12, 0);
 			}
-			pstmt.setTimestamp(13, time);
-			pstmt.setTimestamp(14, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -71,7 +68,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertMeal(Meal meal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO MEAL(CODE,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO MEAL(CODE,NAME,DESCRIPTION,CATEGORY,PRICE,IMAGE) values(?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
@@ -82,8 +79,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(4, meal.getCategory());
 			pstmt.setDouble(5, meal.getPrice());
 			pstmt.setString(6, meal.getImage());
-			pstmt.setTimestamp(7, time);
-			pstmt.setTimestamp(8, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -100,7 +95,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertComboMeal(ComboMeal comboMeal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO COMBO_MEAL(CODE,NAME,DESCRIPTION,PRICE,IMAGE,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO COMBO_MEAL(CODE,NAME,DESCRIPTION,PRICE,IMAGE) values(?,?,?,?,?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
@@ -110,8 +105,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 			pstmt.setString(3, comboMeal.getDescription());
 			pstmt.setDouble(4, comboMeal.getPrice());
 			pstmt.setString(5, comboMeal.getImage());
-			pstmt.setTimestamp(6, time);
-			pstmt.setTimestamp(7, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -128,14 +121,12 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertProductGroup(int comboMealId, Meal meal) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO PRODUCT_GROUP(COMBO_MEAL_ID,MEAL_ID,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
+		String sql = "INSERT INTO PRODUCT_GROUP(COMBO_MEAL_ID,MEAL_ID) values(?,?)";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setInt(1, comboMealId);
 			pstmt.setInt(2, meal.getId());
-			pstmt.setTimestamp(3, time);
-			pstmt.setTimestamp(4, time);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -149,15 +140,13 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertOrder(Order order) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO ORDERS(USER_ID,STATUS,DATE_CREATED,DATE_UPDATED) values(?,?,?,?)";
+		String sql = "INSERT INTO ORDERS(USER_ID,STATUS) values(?,?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setInt(1, order.getUserId());
 			pstmt.setString(2, order.getStatus());
-			pstmt.setTimestamp(3, time);
-			pstmt.setTimestamp(4, time);
 			success = pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
@@ -174,7 +163,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO ORDER_ITEMS(TYPE,ORDER_ID,MEAL_ID,QUANTITY,DATE_CREATED,DATE_UPDATED) values(?,?,?,?,?,?)";
+		String sql = "INSERT INTO ORDER_ITEMS(TYPE,ORDER_ID,MEAL_ID,QUANTITY) values(?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
 			for (OrderItems orderItem : orderItemsList) {
@@ -183,8 +172,6 @@ public class TransactionDAOImpl implements TransactionDAO {
 				pstmt.setInt(2, orderId);
 				pstmt.setInt(3, orderItem.getMealId());
 				pstmt.setInt(4, orderItem.getQuantity());
-				pstmt.setTimestamp(5, time);
-				pstmt.setTimestamp(6, time);
 				pstmt.executeUpdate();
 				pstmt.close();
 				conn.close();
