@@ -14,10 +14,14 @@ public class Order {
 	private String status;
 	private List<OrderItems> orderItemList;
 
-	public Order(int userId, List<OrderItems> orderItemList) {
+	public Order(int userId) {
 		this.userId = userId;
 		this.status = "WAITING";
-		this.orderItemList = orderItemList;
+	}
+
+	public Order(int userId, String status) {
+		this.userId = userId;
+		this.status = status;
 	}
 
 	public int getId() {
