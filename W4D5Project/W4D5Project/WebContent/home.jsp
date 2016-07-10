@@ -10,19 +10,26 @@
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
 	$(document).ready(function() {
-		$("#drinks").click(function() {
+
+	$("#drinks").click(function() {
+
 			$('#container').load('drinks.jsp');
+
 		});
-		
+	
+
+
 		$("#burgers").click(function() {
 			$('#container').load('burger.jsp');
 		});
+
 		
 		$("#comboMeals").click(function() {
 			$('#container').load('comboMeal.jsp');
 		});
-		
+
 		$("#chicken").click(function() {
 			$('#container').load('chicken.jsp');
 		});
@@ -30,7 +37,7 @@
 		$("#desserts").click(function() {
 			$('#container').load('desserts.jsp');
 		});
-		
+
 		$("#sides").click(function() {
 			$('#container').load('sides.jsp');
 		});
@@ -39,8 +46,7 @@
 			$('#container').load('customerProfile.jsp');
 		});
 
-	}); 
-
+	});
 </script>
 
 </head>
@@ -66,7 +72,7 @@
 				<li class="active">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false" id="drop">Category<span class="caret"></span></a>
+					aria-expanded="false" id="drop" action="MealServlet">Category<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#" id="comboMeals">Combo Meals</a></li>
 						<li role="separator" class="divider"></li>
