@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,22 +63,34 @@ public class UserServlet extends HttpServlet {
 			int isExisting = isUsernameEmailExist(userName, email);
 			if (password.equals(confPassword)) {
 				if (isExisting == 1) {
-					out.println("Username already exists!");
+					request.setAttribute("alertMessages","Username already exists!");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+//					out.println("Username already exists!");
 				} else if (isExisting == 2) {
-					out.println("Email already exists!");
+					request.setAttribute("alertMessages","Email already exists!");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+//					out.println("Email already exists!");
 				} else {
 					String hashPass = passwordHash(password);
-					out.println("Success!");
-
 					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
 							hashPass, gender, image, isDisabled);
 					userRegister(user);
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
 				}
 			} else {
-				out.println("Password did not match!");
+				request.setAttribute("alertMessages","Password did not match!");
+				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+				rd.forward(request, response);
+//				out.println("Password did not match!");
 			}
 		} else {
-			out.println(userName + " SAFE CODE ERROR");
+			request.setAttribute("alertMessages"," SAFE CODE ERROR");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
+//			out.println(userName + " SAFE CODE ERROR");
 			logger.error("User: " + userName + " Request to /Login but capt;cha is incorrect...");
 		}
 	}

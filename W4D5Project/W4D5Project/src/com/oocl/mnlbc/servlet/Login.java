@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,6 @@ import org.apache.log4j.Logger;
 
 import com.oocl.mnlbc.dao.TransactionDAO;
 import com.oocl.mnlbc.dao.TransactionDAOImpl;
-import com.oocl.mnlbc.models.User;
 
 /**
  * Servlet implementation class Login
@@ -54,11 +54,17 @@ public class Login extends HttpServlet {
 		int isActive = isUsernameEmailExist(userName, hashPass);
 
 		if (isActive == 1) {
-			out.println("Invalid Username/Password");
+			request.setAttribute("alertMessages","Invalid Username/Password");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		} else if (isActive == 2) {
-			out.println("User is blocked.");
+			request.setAttribute("alertMessages","User is blocked.");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		} else {
-			out.println("Welcome!");
+			request.setAttribute("success",userName);
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		}
 
 	}
