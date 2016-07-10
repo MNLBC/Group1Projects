@@ -20,8 +20,6 @@ public class User {
 	private String gender;
 	private String image;
 	private boolean isDisabled;
-	private String dateCreated;
-	private String dateUpdated;
 
 	// Constructor for retrieving
 	public User(String firstName, String lastName, String middleName, String address, String contact, String type,
@@ -167,21 +165,4 @@ public class User {
 	public void setDisable(boolean isDisabled) {
 		this.isDisabled = isDisabled;
 	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public String getDateUpdated() {
-		return dateUpdated;
-	}
-
-	public void setDateUpdated(String dateUpdated) {
-		this.dateUpdated = dateUpdated;
-	}
-
 }

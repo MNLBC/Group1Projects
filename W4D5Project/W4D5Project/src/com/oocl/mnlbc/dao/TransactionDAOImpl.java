@@ -183,6 +183,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return false;
 	}
 
+	@Override
 	public boolean isUsernameExisting(String userName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT USERNAME FROM USERS WHERE USERNAME = '" + userName + "'";

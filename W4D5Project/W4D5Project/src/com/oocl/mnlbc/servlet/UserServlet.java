@@ -81,7 +81,7 @@ public class UserServlet extends HttpServlet {
 
 		if (isUserNameExist) {
 			return 1;
-		} else if (isEmailAlreadyInUse) {
+		} else if (!isUserNameExist && isEmailAlreadyInUse) {
 			return 2;
 		} else {
 			return 0;
