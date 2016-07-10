@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="resource/js/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	$("document").ready(function() {
+	$(document).ready(function() {
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
@@ -41,9 +41,7 @@
 </head>
 <body>
 <div class="container">
-
         <div class="row">
-
             <div class="col-lg-12">
                 <h1 class="page-header">Desserts</h1>
             </div>

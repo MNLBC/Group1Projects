@@ -10,7 +10,7 @@
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	$("document").ready(function() {
+	$(document).ready(function() {
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
@@ -181,7 +181,7 @@
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<form>
+				<form action="Login" method="post">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
