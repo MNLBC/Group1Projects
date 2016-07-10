@@ -638,7 +638,20 @@ public class TransactionDAOImpl implements TransactionDAO {
 
 	@Override
 	public boolean removeUser(int qId) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = db.getConn();
+		String sql = "DELETE FROM USERS WHERE ID = ?";
+		PreparedStatement pstmt;
+		boolean isSuccess = false;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+		    pstmt.setInt(1,qId);
+		    pstmt.executeUpdate(); 
+			pstmt.close();
+			conn.close();
+			isSuccess = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return isSuccess;
 	}
 }
