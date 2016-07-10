@@ -60,18 +60,21 @@ public class UserServlet extends HttpServlet {
 
 		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
 			int isExisting = isUsernameEmailExist(userName, email);
-			if (isExisting == 1) {
-				out.println("Username already exists!");
-			} else if (isExisting == 2) {
-				out.println("Email already exists!");
-			} else {
-				String hashPass = passwordHash(password);
-				out.print(hashPass);
-				out.println("Success!");
+			if (password.equals(confPassword)) {
+				if (isExisting == 1) {
+					out.println("Username already exists!");
+				} else if (isExisting == 2) {
+					out.println("Email already exists!");
+				} else {
+					String hashPass = passwordHash(password);
+					out.println("Success!");
 
-				User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
-						confPassword, gender, image, isDisabled);
-				userRegister(user);
+					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
+							hashPass, gender, image, isDisabled);
+					userRegister(user);
+				}
+			} else {
+				out.println("Password did not match!");
 			}
 		} else {
 			out.println(userName + " SAFE CODE ERROR");

@@ -692,4 +692,49 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return isSuccess;
 	}
 
+
+	@Override
+	public boolean checkUserandPass(String userName, String password) {
+		Connection conn = db.getConn();
+		String sql = "SELECT USERNAME,PASSWORD FROM USERS WHERE USERNAME = '" + userName + "' AND PASSWORD ='"+password+"'";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	
+	}
+
+	@Override
+	public boolean checkUserIfActive(String userName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT IS_DISABLED FROM USERS WHERE USERNAME = '" + userName + "'";
+		int isDisabled;
+		PreparedStatement pstmt;
+		try {
+			
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				isDisabled = rs.getInt("IS_DISABLED");
+				if(isDisabled == 1){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
 }
