@@ -88,7 +88,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.jsp">Brand</a>
+			<a class="navbar-brand" href="home.jsp">Burger Queen</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -249,14 +249,15 @@
 		</div>
 	</div>
 	</div>
+	<hr>	
+	<h3>Welcome to Burger Queen!</h3>
+	<hr>
 	<div id="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
@@ -271,6 +272,7 @@
 			</div>
 
 		</div>
+		Total Visitors <%= session.getServletContext().getAttribute("counter")  %>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
