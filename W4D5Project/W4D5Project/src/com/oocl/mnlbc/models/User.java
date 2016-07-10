@@ -40,7 +40,6 @@ public class User {
 	public User(int id, String firstName, String lastName, String middleName, String address, String contact,
 			String type, String email, String userName, String password, String gender, String image,
 			boolean isDisabled) {
-		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

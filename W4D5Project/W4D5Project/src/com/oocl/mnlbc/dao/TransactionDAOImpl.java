@@ -221,7 +221,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<User> getUsers() {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
-				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS ORDER BY ID";
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<User> userList = new ArrayList<User>();
 		try {
@@ -264,7 +264,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName
-				+ "%' ORDER BY ID";
+				+ "%' ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -295,7 +295,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByCategory(String qCategory) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%"
-				+ qCategory + "%' ORDER BY ID";
+				+ qCategory + "%' ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -326,7 +326,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByComboId(int qId) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ML.* FROM PRODUCT_GROUP PG " + "JOIN COMBO_MEAL CM ON PG.COMBO_MEAL_ID = CM.ID "
-				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId + "  ORDER BY ID";
+				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId + "  ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -357,7 +357,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public Meal getMealByMealCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE CODE = '" + qCode
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		Meal meal = null;
 		try {
@@ -387,7 +387,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public Meal getMealByMealName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE NAME = '" + qName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		Meal meal = null;
 		try {
@@ -417,7 +417,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public ComboMeal getComboMealByComboCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE CODE = '" + qCode
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		ComboMeal comboMeal = null;
 		try {
@@ -446,7 +446,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public ComboMeal getComboMealByComboMealName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE NAME = '" + qName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		ComboMeal comboMeal = null;
 		try {
@@ -474,7 +474,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getMealIdByMealCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'  ORDER BY ID";
+		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'  ORDER BY NAME";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -495,7 +495,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getComboMealIdByComboCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY ID";
+		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -518,7 +518,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
 				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS WHERE USERNAME = '" + qUserName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY FIRSTNAME";
 		PreparedStatement pstmt;
 		User user = null;
 		try {
@@ -557,7 +557,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<ComboMeal> getComboMeals() {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY ID";
+		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<ComboMeal> comboMealList = new ArrayList<ComboMeal>();
 		try {
@@ -612,7 +612,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<OrderItems> getOrderItems() {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID, TYPE, QUANTITY, MEAL_ID FROM ORDER ORDER BY ID";
+		String sql = "SELECT ID, TYPE, QUANTITY, MEAL_ID FROM ORDERS ORDER BY ID";
 		PreparedStatement pstmt;
 		List<OrderItems> orderItemList = new ArrayList<OrderItems>();
 		try {
@@ -692,11 +692,11 @@ public class TransactionDAOImpl implements TransactionDAO {
 		return isSuccess;
 	}
 
-
 	@Override
 	public boolean checkUserandPass(String userName, String password) {
 		Connection conn = db.getConn();
-		String sql = "SELECT USERNAME,PASSWORD FROM USERS WHERE USERNAME = '" + userName + "' AND PASSWORD ='"+password+"'";
+		String sql = "SELECT USERNAME,PASSWORD FROM USERS WHERE USERNAME = '" + userName + "' AND PASSWORD ='"
+				+ password + "'";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
@@ -708,8 +708,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 			e.printStackTrace();
 		}
 		return false;
-		
-	
+
 	}
 
 	@Override
@@ -719,14 +718,14 @@ public class TransactionDAOImpl implements TransactionDAO {
 		int isDisabled;
 		PreparedStatement pstmt;
 		try {
-			
+
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				isDisabled = rs.getInt("IS_DISABLED");
-				if(isDisabled == 1){
+				if (isDisabled == 1) {
 					return true;
-				}else{
+				} else {
 					return false;
 				}
 			}
@@ -734,7 +733,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 			e.printStackTrace();
 		}
 		return false;
-		
+
 	}
 
 }
