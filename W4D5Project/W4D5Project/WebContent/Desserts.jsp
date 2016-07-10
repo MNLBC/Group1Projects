@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,7 +11,7 @@ function loadData(){
 	$.ajax({
 		type : "GET",
 		data : {
-			category : "Drinks"	
+			category : "Desserts"	
 			},
 		url : "MealServlet",
 		success : function(response) {
@@ -46,89 +45,85 @@ function loadData(){
 }
 	$(document).ready(function() {
 		loadData();
-	
 		$("#drinks").click(function() {
-			$('#container').load('drinks.jsp');
+			$('#container').load('Drinks.jsp');
 		});
 		
 		$("#burgers").click(function() {
-			$('#container').load('burger.jsp');
+			$('#container').load('Burger.jsp');
 		});
 		
 		$("#comboMeals").click(function() {
-			$('#container').load('comboMeal.jsp');
+			$('#container').load('ComboMeal.jsp');
 		});
 		
 		$("#chicken").click(function() {
-			$('#container').load('chicken.jsp');
+			$('#container').load('Chicken.jsp');
 		});
 
 		$("#desserts").click(function() {
-			$('#container').load('desserts.jsp');
+			$('#container').load('Desserts.jsp');
 		});
 		
 		$("#sides").click(function() {
-			$('#container').load('sides.jsp');
+			$('#container').load('Sides.jsp');
 		});
 
-		
+
 	});
 </script>
-<title>Drinks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Desserts</title>
 <style type="text/css">
     <%@include file="resource/css/bootstrap.min.css" %>
 </style>
 </head>
 <body>
-	<div class="container">
-
-		<div class="row">
-
-			<div class="col-lg-12">
-				<h1 class="page-header">Drinks</h1>
-			</div>
-		</div>
-	</div>
-	<!-- Modal view drink details -->
-	<div class="modal fade" id="foodModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">View Product</h4>
-				</div>
-				<div class="modal-body">
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img id = "product-picture" src=""
-								class="img-circle" height="200px" width="200px">
-							</a>
-						</div>
-						<div class="media-body">
-							<h2 class="media-heading" id="product-name">
-								Product Name
-								</h4>
-								<br>
-								<h4 class="media-heading" id="product-price"></h4>
-								<h4 class="media-heading">
-									Quantity: &nbsp; <input type="number" name="quantity" min="0"
-										max="5" style="width: 50px">
-								</h4>
-								<h4 class="media-heading" id="product-description">Description:</h4>
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Desserts</h1>
+            </div>
+        		<!-- Modal view dessert details -->
+		<div class="modal fade" id="foodModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">View Product</h4>
+					</div>
+					<div class="modal-body">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"> <img id="product-picture" src=""
+									data-toggle="modal" data-target="#foodModal"
+									class="img-circle" height="200px" width="200px">
+								</a>
+							</div>
+							<div class="media-body">
+								<h2 class="media-heading" id="product-name">
+									</h4>
+									<br>
+									<h4 class="media-heading" id="product-price"></h4>
+									<h4 class="media-heading">
+										Quantity: &nbsp; <input type="number" name="quantity" min="0"
+											max="5" style="width: 50px">
+									</h4>
+									<h4 class="media-heading" id="product-description"></h4>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<input type="submit" class="btn btn-default" data-dismiss="modal"
-						value="Cancel"> <input type="submit"
-						class="btn btn-primary" value="Add to tray">
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> <input type="submit"
+							class="btn btn-primary" value="Add to tray">
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
+        </body>
 </html>

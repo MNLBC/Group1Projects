@@ -12,38 +12,31 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-
-	$("#drinks").click(function() {
-
-			$('#container').load('drinks.jsp');
-
+		$("#searchForm").submit(function(){
+			console.log("naks");
 		});
-	
-
-
+		$("#drinks").click(function() {
+			$('#container').load('Drinks.jsp');
+		});
+		
 		$("#burgers").click(function() {
-			$('#container').load('burger.jsp');
+			$('#container').load('Burger.jsp');
 		});
-
 		
 		$("#comboMeals").click(function() {
-			$('#container').load('comboMeal.jsp');
+			$('#container').load('ComboMeal.jsp');
 		});
-
+		
 		$("#chicken").click(function() {
-			$('#container').load('chicken.jsp');
+			$('#container').load('Chicken.jsp');
 		});
 
 		$("#desserts").click(function() {
-			$('#container').load('desserts.jsp');
-		});
-
-		$("#sides").click(function() {
-			$('#container').load('sides.jsp');
+			$('#container').load('Desserts.jsp');
 		});
 		
-		$("#myProfile").click(function() {
-			$('#container').load('customerProfile.jsp');
+		$("#sides").click(function() {
+			$('#container').load('Sides.jsp');
 		});
 
 	});
@@ -64,7 +57,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.jsp">Brand</a>
+			<a class="navbar-brand" href="Home.jsp">Brand</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,11 +82,11 @@
 						<li><a href="#" id="sides">Sides</a></li>
 					</ul></li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+			<form class="navbar-form navbar-left" id="searchForm" >
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search">
 				</div>
-				<button type="submit" class="btn btn-default">Search</button>
+				<button class="btn btn-default" id="searchButton" type="submit">Search</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 			<%  String username = (String) request.getAttribute("success");

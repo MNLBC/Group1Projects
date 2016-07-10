@@ -9,31 +9,27 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
   <filter>
     <filter-name>SessionFilter</filter-name>
     <filter-class>com.oocl.mnlbc.filters.SessionFilter</filter-class>
   </filter>
-  
   <filter-mapping>
     <filter-name>SessionFilter</filter-name>
     <url-pattern>/session/*</url-pattern>
   </filter-mapping>
-  
-  	<servlet>
-		<description></description>
-		<display-name>safe</display-name>
-		<servlet-name>safe</servlet-name>
-		<servlet-class>com.oocl.mnlbc.servlet.CaptchaServlet</servlet-class>
-		<init-param>
-			<description>description1</description>
-			<param-name>name1</param-name>
-			<param-value>value1</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>safe</servlet-name>
-		<url-pattern>/safe.jpg</url-pattern>
-	</servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>safe</display-name>
+    <servlet-name>safe</servlet-name>
+    <servlet-class>com.oocl.mnlbc.servlet.CaptchaServlet</servlet-class>
+    <init-param>
+      <description>description1</description>
+      <param-name>name1</param-name>
+      <param-value>value1</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>safe</servlet-name>
+    <url-pattern>/safe.jpg</url-pattern>
+  </servlet-mapping>
 </web-app>
