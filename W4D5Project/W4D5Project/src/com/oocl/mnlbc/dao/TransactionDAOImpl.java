@@ -658,7 +658,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean updateUser(User user) {
 		Connection conn = db.getConn();
-		String sql = "UPDATE FROM USERS SET " + " FIRSTNAME = ?, MIDDLENAME = ?, LASTNAME = ?, "
+		String sql = "UPDATE USERS SET " + " FIRSTNAME = ?, MIDDLENAME = ?, LASTNAME = ?, "
 				+ " ADDRESS = ?, CONTACTS = ?, EMAIL = ?, GENDER = ?, "
 				+ " USERNAME = ?, PASSWORD = ?, TYPE = ?, IMAGE = ?, IS_DISABLED = ? " + "WHERE ID = ?";
 		PreparedStatement pstmt;
@@ -681,7 +681,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 			} else {
 				pstmt.setInt(12, 0);
 			}
-			pstmt.setInt(13, 1);
+			pstmt.setInt(13, user.getId());
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
