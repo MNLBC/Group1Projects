@@ -109,19 +109,25 @@ function loadData(){
 									</h4>
 									<br>
 									<h4 class="media-heading" id="product-price"></h4>
+									<% String username = (String) session.getAttribute("user");
+									if(username != null){
+									%>
 									<h4 class="media-heading">
 										Quantity: &nbsp; <input type="number" name="quantity" min="0"
 											max="5" style="width: 50px">
 									</h4>
+									<% } %>
 									<h4 class="media-heading" id="product-description"></h4>
 							</div>
 						</div>
 					</div>
+					<%if(username != null){ %>
 					<div class="modal-footer">
 						<input type="submit" class="btn btn-default" data-dismiss="modal"
 							value="Cancel"> <input type="submit"
 							class="btn btn-primary" value="Add to tray">
 					</div>
+					<%} %>
 				</div>
 			</div>
 		</div>
