@@ -69,6 +69,8 @@
 	});
 </script>
 
+
+
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -114,12 +116,20 @@
 				<button type="submit" class="btn btn-default">Search</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
+			<%  String username = (String) request.getAttribute("success");
+			if(username == null) {
+			%>
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#login">Login</a></li>
 				<li><a href="#" class="btn btn-primary btn-lg"
 					data-toggle="modal" data-target="#register">Register</a></li>
+			<%  }else { %>		
+			
 				<li><a href="#" class="btn btn-primary btn-lg"
-					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, User!</a></li>
+					data-toggle="modal" data-target="#profile" id="myProfile">Welcome, <% out.println(username);  %></a></li>
+					<li><a href="#" class="btn btn-primary btn-lg"
+					data-toggle="modal" data-target="#logout">Logout</a></li>
+					<% } %>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -264,29 +274,18 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 
 	<script src="resource/js/bootstrap.min.js"></script>
-	<script>
-		/* function validateRegFields() {
-			var pass = $('[name="pass"]').val(), 
-			confirmPass = $('[name="cpass"]').val(), 
-			userName = $('[name="uname"]').val(), 
-			firstName = $('[name="fname"]').val(), 
-			lastName = $('[name="lname"]').val(), 
-			email = $('[name="email"]').val(), 
-			address = $('[name="address"]').val(), 
-			contactNo = $('[name="cnum"]').val();
+<script type="text/javascript">
+<%
 
-			if (pass == "" || confirmPass == "" || userName == ""
-					|| firstName == "" || lastName == "" || email == ""
-					|| address == "" || contactNo == "") {
-				alert("Please complete all fields!")
-			} else {
-				if (pass != confirmPass) {
-					alert("Password Mismatched!");
-				}
-			}
-		}
-		 */
-		document.getElementById("safe").setAttribute("src", "safe.jpg?" + new Date().getMilliseconds());
-	</script>
+String alertMessages = (String) request.getAttribute("alertMessages");
+if (alertMessages == null) {
+out.println("");
+} else {
+out.println("alert('"+alertMessages+"');");
+
+}%>
+
+document.getElementById("safe").setAttribute("src", "safe.jpg?" + new Date().getMilliseconds());
+</script>
 </body>
 </html>

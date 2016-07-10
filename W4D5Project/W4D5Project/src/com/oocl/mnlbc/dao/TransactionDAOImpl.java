@@ -221,7 +221,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<User> getUsers() {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
-				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS ORDER BY ID";
+				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<User> userList = new ArrayList<User>();
 		try {
@@ -264,7 +264,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE NAME LIKE '%" + qName
-				+ "%' ORDER BY ID";
+				+ "%' ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -295,7 +295,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByCategory(String qCategory) {
 		Connection conn = db.getConn();
 		String sql = "SELECT CODE, ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE FROM MEAL WHERE CATEGORY LIKE '%"
-				+ qCategory + "%' ORDER BY ID";
+				+ qCategory + "%' ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -326,7 +326,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public List<Meal> getMealsByComboId(int qId) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ML.* FROM PRODUCT_GROUP PG " + "JOIN COMBO_MEAL CM ON PG.COMBO_MEAL_ID = CM.ID "
-				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId + "  ORDER BY ID";
+				+ "JOIN MEAL ML ON PG.MEAL_ID = ML.ID" + " WHERE CM.ID = " + qId + "  ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<Meal> mealList = new ArrayList<Meal>();
 		try {
@@ -357,7 +357,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public Meal getMealByMealCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE CODE = '" + qCode
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		Meal meal = null;
 		try {
@@ -387,7 +387,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public Meal getMealByMealName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, CATEGORY, PRICE, IMAGE, CODE FROM MEAL WHERE NAME = '" + qName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		Meal meal = null;
 		try {
@@ -417,7 +417,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public ComboMeal getComboMealByComboCode(String qCode) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE CODE = '" + qCode
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		ComboMeal comboMeal = null;
 		try {
@@ -446,7 +446,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	public ComboMeal getComboMealByComboMealName(String qName) {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL WHERE NAME = '" + qName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		ComboMeal comboMeal = null;
 		try {
@@ -474,7 +474,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getMealIdByMealCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'  ORDER BY ID";
+		String sql = "SELECT ID FROM MEAL WHERE CODE = '" + qCode + "'  ORDER BY NAME";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -495,7 +495,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public int getComboMealIdByComboCode(String qCode) {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY ID";
+		String sql = "SELECT ID FROM COMBO_MEAL WHERE CODE = '" + qCode + "' ORDER BY NAME";
 		PreparedStatement pstmt;
 		int id = 0;
 		try {
@@ -518,7 +518,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 		Connection conn = db.getConn();
 		String sql = "SELECT ID, FIRSTNAME, MIDDLENAME, LASTNAME, ADDRESS, CONTACTS, EMAIL, GENDER, "
 				+ " USERNAME, PASSWORD, TYPE, IMAGE, IS_DISABLED FROM USERS WHERE USERNAME = '" + qUserName
-				+ "' ORDER BY ID";
+				+ "' ORDER BY FIRSTNAME";
 		PreparedStatement pstmt;
 		User user = null;
 		try {
@@ -557,7 +557,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<ComboMeal> getComboMeals() {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY ID";
+		String sql = "SELECT ID, NAME, DESCRIPTION, PRICE, IMAGE, CODE FROM COMBO_MEAL ORDER BY NAME";
 		PreparedStatement pstmt;
 		List<ComboMeal> comboMealList = new ArrayList<ComboMeal>();
 		try {
@@ -612,7 +612,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public List<OrderItems> getOrderItems() {
 		Connection conn = db.getConn();
-		String sql = "SELECT ID, TYPE, QUANTITY, MEAL_ID FROM ORDER ORDER BY ID";
+		String sql = "SELECT ID, TYPE, QUANTITY, MEAL_ID FROM ORDERS ORDER BY ID";
 		PreparedStatement pstmt;
 		List<OrderItems> orderItemList = new ArrayList<OrderItems>();
 		try {
@@ -644,8 +644,8 @@ public class TransactionDAOImpl implements TransactionDAO {
 		boolean isSuccess = false;
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
-		    pstmt.setInt(1,qId);
-		    pstmt.executeUpdate(); 
+			pstmt.setInt(1, qId);
+			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
 			isSuccess = true;
@@ -654,4 +654,86 @@ public class TransactionDAOImpl implements TransactionDAO {
 		}
 		return isSuccess;
 	}
+
+	@Override
+	public boolean updateUser(User user) {
+		Connection conn = db.getConn();
+		String sql = "UPDATE USERS SET " + " FIRSTNAME = ?, MIDDLENAME = ?, LASTNAME = ?, "
+				+ " ADDRESS = ?, CONTACTS = ?, EMAIL = ?, GENDER = ?, "
+				+ " USERNAME = ?, PASSWORD = ?, TYPE = ?, IMAGE = ?, IS_DISABLED = ? " + "WHERE ID = ?";
+		PreparedStatement pstmt;
+		boolean isSuccess = false;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.setString(1, user.getFirstName());
+			pstmt.setString(2, user.getMiddleName());
+			pstmt.setString(3, user.getLastName());
+			pstmt.setString(4, user.getAddress());
+			pstmt.setString(5, user.getContact());
+			pstmt.setString(6, user.getEmail());
+			pstmt.setString(7, user.getGender());
+			pstmt.setString(8, user.getUserName());
+			pstmt.setString(9, user.getPassword());
+			pstmt.setString(10, user.getType());
+			pstmt.setString(11, user.getImage());
+			if (user.isDisabled()) {
+				pstmt.setInt(12, 1);
+			} else {
+				pstmt.setInt(12, 0);
+			}
+			pstmt.setInt(13, user.getId());
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+			isSuccess = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return isSuccess;
+	}
+
+	@Override
+	public boolean checkUserandPass(String userName, String password) {
+		Connection conn = db.getConn();
+		String sql = "SELECT USERNAME,PASSWORD FROM USERS WHERE USERNAME = '" + userName + "' AND PASSWORD ='"
+				+ password + "'";
+		PreparedStatement pstmt;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+
+	@Override
+	public boolean checkUserIfActive(String userName) {
+		Connection conn = db.getConn();
+		String sql = "SELECT IS_DISABLED FROM USERS WHERE USERNAME = '" + userName + "'";
+		int isDisabled;
+		PreparedStatement pstmt;
+		try {
+
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				isDisabled = rs.getInt("IS_DISABLED");
+				if (isDisabled == 1) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+
 }

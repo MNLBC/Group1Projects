@@ -1,7 +1,12 @@
 package com.oocl.mnlbc.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import com.oocl.mnlbc.dao.TransactionDAO;
+import com.oocl.mnlbc.dao.TransactionDAOImpl;
 
 /**
  * Servlet implementation class Login
@@ -23,6 +31,7 @@ import org.apache.log4j.Logger;
 public class Login extends HttpServlet {
 	final static Logger logger = Logger.getLogger(Login.class);
 	private static final long serialVersionUID = 1L;
+	private TransactionDAO transactionDAOImpl = new TransactionDAOImpl();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -38,25 +47,56 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
-		
-		String username = request.getParameter("username");
-		String pwd = request.getParameter("pwd");
-		String safe = request.getParameter("safe");
+		PrintWriter out = response.getWriter();
+		String userName = request.getParameter("loginUsername");
+		String password = request.getParameter("loginPass");
+		String hashPass = passwordHash(password);
+		int isActive = isUsernameEmailExist(userName, hashPass);
 
-		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
-			if (username.equals(pwd)) {
-				response.getWriter().println(username + " OK");
-				logger.info("User: " +username +" Request to /Login success...");
-			} else {
-				response.getWriter().println(username + " PASSWORD ERROR");
-				logger.warn("User: " +username +" Request to /Login failed because Password is incorrect...");
-			}
+		if (isActive == 1) {
+			request.setAttribute("alertMessages","Invalid Username/Password");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
+		} else if (isActive == 2) {
+			request.setAttribute("alertMessages","User is blocked.");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		} else {
-			response.getWriter().println(username + " SAFE CODE ERROR");
-			logger.error("User: " +username +" Request to /Login but captcha is incorrect...");
+			request.setAttribute("success",userName);
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		}
-	
+
+	}
+
+	private int isUsernameEmailExist(String userName, String hashPass) {
+		boolean isUserCorrect = transactionDAOImpl.checkUserandPass(userName, hashPass);
+		boolean isUserDisable = transactionDAOImpl.checkUserIfActive(userName);
+
+		if (!isUserCorrect) {
+			return 1;
+		} else if (isUserCorrect && isUserDisable) {
+			return 2;
+		} else {
+			return 0;
+		}
+	}
+
+	private String passwordHash(String password) {
+		String md5 = null;
+
+		try {
+			// Create MessageDigest object for MD5
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			// Update input string in message digest
+			digest.update(password.getBytes(), 0, password.length());
+			// Converts message digest value in base 16 (hex)
+			md5 = new BigInteger(1, digest.digest()).toString(16);
+
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return md5;
 	}
 
 	/**

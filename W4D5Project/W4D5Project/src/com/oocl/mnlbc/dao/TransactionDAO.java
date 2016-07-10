@@ -67,4 +67,13 @@ public interface TransactionDAO {
 	// Delete
 
 	boolean removeUser(int qId);
+
+	// Update
+
+	boolean updateUser(User user);
+
+	// Login
+	boolean checkUserandPass(String userName, String password);
+
+	boolean checkUserIfActive(String userName);
 }
