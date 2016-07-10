@@ -54,7 +54,7 @@
 <%
 	TransactionDAO dao = new TransactionDAOImpl();
 	List<OrderItems> cartItems = (List<OrderItems>) session.getAttribute("cartItems");
-	out.print(cartItems);
+
 %>
 	<!-- /.container-fluid --> </nav>
 <div class="container">
@@ -71,15 +71,16 @@
     </thead>
     <tbody>
     <%
+    double Total = 0.00;
     	for (OrderItems orderItem : cartItems){
     	Meal meal = dao.getMealByMealId(orderItem.getMealId());
-    		
+    	
     %>
     
 				<tr>
 					<td><%= meal.getName() %></td>
-					<td>1</td>
-					<td><%= meal.getPrice()  %>></td>
+					<td><%= orderItem.getQuantity() %></td>
+					<td><%= meal.getPrice()  %></td>
 					<td>
 							<span class="glyphicon glyphicon-pencil" aria-hidden="true">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true">
@@ -89,11 +90,12 @@
 				</tr>
 				
       <%
+     Total += ( orderItem.getQuantity() * meal.getPrice());
     	}
    		 %>
     </tbody>
   </table>
-  <h2>Subtotal: <span class="label label-default">RMB </span></h2>
+  <h2>Total: <span class="label label-default"><%= Total %>RMB </span></h2>
   <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-primary btn-sm">Purchase Order</button>
   <button type="button" class="btn btn-primary btn-sm">Cancel</button>

@@ -20,7 +20,7 @@ import com.oocl.mnlbc.models.OrderItems;
 @WebServlet("/TrayServlet")
 public class TrayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	List<OrderItems> orderItm = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -46,7 +46,7 @@ public class TrayServlet extends HttpServlet {
 //		   }
 //		  }
 //		  response.sendRedirect("ShoppingCart.jsp");
-		
+		HttpSession session = request.getSession();
 		String product_id = request.getParameter("productId");
 		String product_qty = request.getParameter("productQuantity");
 		String product_cat = request.getParameter("productCategory");
@@ -56,19 +56,17 @@ public class TrayServlet extends HttpServlet {
 		orderItem.setQuantity(Integer.parseInt(product_qty));
 		orderItem.setType(product_cat);
 		
-		Order order = new Order();
-		
-		HttpSession session = request.getSession();
-		List<OrderItems> orderItems = null;
 		
 		if(session.getAttribute("cartItems") == null){
-			orderItems= new ArrayList<OrderItems>();
+			orderItm= new ArrayList<OrderItems>();
+			
 		}else{
-			orderItems = (List<OrderItems>) session.getAttribute("cartItems");
+			orderItm = (List<OrderItems>) session.getAttribute("cartItems");
+			
 		}
 		
-		orderItems.add(orderItem);
-		session.setAttribute("cartItems", orderItems);
+		orderItm.add(orderItem);
+		session.setAttribute("cartItems", orderItm);
 	}
 
 	/**
