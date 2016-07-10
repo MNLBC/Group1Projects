@@ -51,6 +51,7 @@ public class User {
 		this.userName = userName;
 		this.password = password;
 		this.gender = gender;
+		this.image = "default.jpg";
 		this.isDisabled = false;
 	}
 

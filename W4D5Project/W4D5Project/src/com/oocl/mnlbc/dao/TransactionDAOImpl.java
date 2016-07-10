@@ -242,7 +242,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 				String image = rs.getString("IMAGE");
 				int disabled = rs.getInt("IS_DISABLED");
 				boolean isDisabled = false;
-				if (disabled == 0) {
+				if (disabled == 1) {
 					isDisabled = true;
 				}
 
