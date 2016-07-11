@@ -7,6 +7,9 @@ import java.util.List;
  * @author Group 1
  *
  */
+
+// Use as the backbone for Table Orders
+
 public class Order {
 
 	private int id;

@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import com.oocl.mnlbc.models.User;
 
-public class BlockerFilter implements Filter{
+public class BlockerFilter implements Filter {
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -27,32 +27,27 @@ public class BlockerFilter implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
-		String uri = req.getRequestURI();
-		
-		HttpSession session = req.getSession();	
-		
-		User user=  (User) session.getAttribute("userObject");
-		
-		
-		if(user == null ){
+		HttpSession session = req.getSession();
+		User user = (User) session.getAttribute("userObject");
+
+		// A user has logged-in
+		if (user == null) {
 			chain.doFilter(request, response);
-		}else{
-			if(user.getFirstName().equalsIgnoreCase("Johns") || user.getFirstName().equalsIgnoreCase("Scott")){
+		} else {
+			// Blocking User with the name Johns or Scott
+			if (user.getFirstName().equalsIgnoreCase("Johns") || user.getFirstName().equalsIgnoreCase("Scott")) {
 				session.invalidate();
 				res.sendRedirect(req.getContextPath() + "/home.jsp");
-			}else{
+			} else {
 				chain.doFilter(request, response);
 			}
-			
 		}
-		
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

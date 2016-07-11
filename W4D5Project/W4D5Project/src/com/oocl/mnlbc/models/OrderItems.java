@@ -5,6 +5,9 @@ package com.oocl.mnlbc.models;
  * @author Group 1
  *
  */
+
+// Use as the backbone for Table OrderItems
+
 public class OrderItems {
 
 	private int id;
@@ -25,9 +28,6 @@ public class OrderItems {
 		this.mealId = mealId;
 	}
 
-	public OrderItems() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getId() {
 		return id;

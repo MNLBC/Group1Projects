@@ -140,7 +140,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 	@Override
 	public boolean insertOrder(Order order) {
 		Connection conn = db.getConn();
-		String sql = "INSERT INTO ORDERS(USER_ID, STATUS) values(?, ?)";
+		String sql = "INSERT INTO ORDERS(USERS_ID, STATUS) values(?, ?)";
 		PreparedStatement pstmt;
 		int success = 0;
 		try {

@@ -43,14 +43,16 @@ public class PurchaseServlet extends HttpServlet {
 		User user = (User) session.getAttribute("userObject");
 		int id = user.getId();
 		String status = "Done";
-		Order order = new Order(id,status);
+		Order order = new Order(id, status);
 		TransactionDAO trans = new TransactionDAOImpl();
-		
+
+		// Inserting user's order to database
 		if (session.getAttribute("cartItems") != null) {
 			orderItm = (List<OrderItems>) session.getAttribute("cartItems");
 			trans.insertOrder(order);
-			trans.insertOrderItem(id, orderItm);
-			//
+			trans.insertOrderItem(order.getId(), orderItm);
+
+			// Emptying tray after ordering
 			session.setAttribute("cartItems", new ArrayList<OrderItems>());
 		}
 	}

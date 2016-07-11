@@ -45,16 +45,16 @@ public class SessionFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
 		String uri = req.getRequestURI();
-		this.context.log("Requested Resource::"+uri);
-		
+		this.context.log("Requested Resource::" + uri);
+
 		HttpSession session = req.getSession(false);
-		
-		if(session == null && !(uri.startsWith("home") || !uri.startsWith("login"))){
+
+		// Determining unauthorized request
+		if (session == null && !(uri.startsWith("home") || !uri.startsWith("login"))) {
 			this.context.log("Unauthorized access request");
 			res.sendRedirect("home.jsp");
-		}else{
+		} else {
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
 		}

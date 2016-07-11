@@ -43,7 +43,6 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
 		String userName = request.getParameter("uname");
 		String password = request.getParameter("pass");
 		String confPassword = request.getParameter("cpass");
@@ -59,39 +58,57 @@ public class UserServlet extends HttpServlet {
 		String safe = request.getParameter("safe");
 		boolean isDisabled = false;
 
+		// Captcha is right
 		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
+
+			// User already exist
 			int isExisting = isUsernameEmailExist(userName, email);
+
+			// Password and confirm password are not the same
 			if (password.equals(confPassword)) {
 				if (isExisting == 1) {
-					request.setAttribute("alertMessages","Username already exists!");
+
+					// Username is already in use
+					request.setAttribute("alertMessages", "Username already exists!");
 					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 					rd.forward(request, response);
-//					out.println("Username already exists!");
+
 				} else if (isExisting == 2) {
-					request.setAttribute("alertMessages","Email already exists!");
+
+					// Email is already in use
+					request.setAttribute("alertMessages", "Email already exists!");
 					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 					rd.forward(request, response);
-//					out.println("Email already exists!");
+
 				} else {
+					// Registration validation successful
+
+					// Password Hashing
 					String hashPass = passwordHash(password);
 					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
 							hashPass, gender, image, isDisabled);
+
+					// Registering User in Database
 					userRegister(user);
 					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 					rd.forward(request, response);
+
 				}
 			} else {
-				request.setAttribute("alertMessages","Password did not match!");
+
+				// Password does not match
+				request.setAttribute("alertMessages", "Password did not match!");
 				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 				rd.forward(request, response);
-//				out.println("Password did not match!");
+
 			}
 		} else {
-			request.setAttribute("alertMessages"," SAFE CODE ERROR");
+
+			// Wrong Safe code
+			request.setAttribute("alertMessages", " SAFE CODE ERROR");
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 			rd.forward(request, response);
 			response.sendRedirect("home.jsp");
-//			out.println(userName + " SAFE CODE ERROR");
 			logger.error("User: " + userName + " Request to /Login but captcha is incorrect...");
 		}
 	}
@@ -111,6 +128,8 @@ public class UserServlet extends HttpServlet {
 
 	private String passwordHash(String password) {
 		String md5 = null;
+
+		// Password Hashing
 
 		try {
 			// Create MessageDigest object for MD5

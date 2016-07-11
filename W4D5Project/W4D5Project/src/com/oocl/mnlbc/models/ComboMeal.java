@@ -8,6 +8,8 @@ import java.util.List;
  *
  */
 
+// Use as the backbone for Table Combo_Meal
+
 public class ComboMeal {
 	private int id;
 	private String code;

@@ -16,18 +16,18 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");  
 
-          
-        HttpSession session=request.getSession();  
-        if ( session != null ) {
-            session.invalidate(); 
-            response.sendRedirect("home.jsp");  
-        }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html");
+
+		// Invalidation session when logging out
+
+		HttpSession session = request.getSession();
+		if (session != null) {
+			session.invalidate();
+			response.sendRedirect("home.jsp");
+		}
 	}
-
 
 }

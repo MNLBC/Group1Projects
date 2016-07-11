@@ -24,41 +24,46 @@ import com.oocl.mnlbc.models.Meal;
 public class MealServlet extends HttpServlet {
 	final static Logger logger = Logger.getLogger(MealServlet.class);
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MealServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MealServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		TransactionDAO transaction = new TransactionDAOImpl();
 		String category = request.getParameter("category");
+
+		// Getting list of meals by Category
 		List<Meal> meals = transaction.getMealsByCategory(category);
-		
-    	request.setAttribute("mealsReturn", meals);
-    	
-		
-		
+
+		request.setAttribute("mealsReturn", meals);
+
+		// Converting Objects to Gson
 		Gson gson = new Gson();
 		String json = gson.toJson(meals);
-		
+
 		logger.info("Requesting to /MealServlet Success!!");
-		
+
 		response.getWriter().write(json);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

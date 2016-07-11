@@ -16,6 +16,7 @@ public class DBConnect {
 	private final static String username = "SYSTEM";
 	private final static String password = "admin123";
 
+	// Connection to the Database
 	public Connection getConn() {
 
 		Connection conn = null;

@@ -33,6 +33,8 @@ public class ActiveUsersListeners implements HttpSessionListener {
 		HttpSession session = paramHttpSessionEvent.getSession();
 		ServletContext context = session.getServletContext();
 		Integer counter = (Integer) context.getAttribute("counter");
+
+		// Counting of Active Users
 		if (counter == null)
 			counter = new Integer(1);
 		else
@@ -40,6 +42,7 @@ public class ActiveUsersListeners implements HttpSessionListener {
 
 		context.setAttribute("counter", counter);
 
+		// Session Timeout
 		session.setMaxInactiveInterval(60);
 
 		System.out.println("A new session is created.");
@@ -52,6 +55,8 @@ public class ActiveUsersListeners implements HttpSessionListener {
 		HttpSession session = paramHttpSessionEvent.getSession();
 		ServletContext context = session.getServletContext();
 		Integer counter = (Integer) context.getAttribute("counter");
+
+		// Updating the counter after user has logout
 		if (counter == null)
 			counter = new Integer(1);
 		else

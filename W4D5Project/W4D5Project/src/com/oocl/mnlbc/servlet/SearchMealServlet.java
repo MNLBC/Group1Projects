@@ -23,40 +23,45 @@ import com.oocl.mnlbc.models.Meal;
 public class SearchMealServlet extends HttpServlet {
 	final static Logger logger = Logger.getLogger(MealServlet.class);
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchMealServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public SearchMealServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		TransactionDAO transaction = new TransactionDAOImpl();
 		String name = request.getParameter("name");
+
+		// Getting List of meals by name
 		List<Meal> meals = transaction.getMealsByName(name);
-		
-    	request.setAttribute("mealsReturn", meals);
-    	
-		
-		
+
+		request.setAttribute("mealsReturn", meals);
+
+		// Converting List Object meals to Gson
 		Gson gson = new Gson();
 		String json = gson.toJson(meals);
-		
+
 		logger.info("Requesting to /MealServlet Success!!");
-		
+
 		response.getWriter().write(json);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -36,7 +36,7 @@ public interface TransactionDAO {
 
 	// Per Object
 	Meal getMealByMealCode(String qCode);
-	
+
 	Meal getMealByMealId(int id);
 
 	Meal getMealByMealName(String qName);
@@ -75,6 +75,7 @@ public interface TransactionDAO {
 	boolean updateUser(User user);
 
 	// Login
+
 	boolean checkUserandPass(String userName, String password);
 
 	boolean checkUserIfActive(String userName);

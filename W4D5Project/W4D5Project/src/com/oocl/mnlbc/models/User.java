@@ -5,6 +5,9 @@ package com.oocl.mnlbc.models;
  * @author Group 1
  *
  */
+
+//Use as the backbone for Table Users
+
 public class User {
 
 	private int id;
