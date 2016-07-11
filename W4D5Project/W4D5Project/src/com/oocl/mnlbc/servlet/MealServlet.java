@@ -30,7 +30,6 @@ public class MealServlet extends HttpServlet {
 	 */
 	public MealServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -39,8 +38,6 @@ public class MealServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
 		TransactionDAO transaction = new TransactionDAOImpl();
 		String category = request.getParameter("category");
 
@@ -64,7 +61,6 @@ public class MealServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

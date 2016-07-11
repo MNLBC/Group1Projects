@@ -27,7 +27,6 @@ public class TrayServlet extends HttpServlet {
 	 */
 	public TrayServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -36,7 +35,6 @@ public class TrayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		int product_id = Integer.parseInt(request.getParameter("productId"));
 		int product_qty = Integer.parseInt(request.getParameter("productQuantity"));
@@ -62,18 +60,13 @@ public class TrayServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 
 	}
 
 	private void deleteCart(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-
 	}
 
 	private void updateCart(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-
 	}
 }

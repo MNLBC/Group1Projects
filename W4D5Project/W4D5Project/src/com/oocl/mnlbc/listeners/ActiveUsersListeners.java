@@ -23,7 +23,6 @@ public class ActiveUsersListeners implements HttpSessionListener {
 	 * Default constructor.
 	 */
 	public ActiveUsersListeners() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
