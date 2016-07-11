@@ -51,21 +51,17 @@ public class ActiveUsersListeners implements HttpSessionListener {
 	 * @see HttpSessionListener#sessionDestroyed(HttpSessionEvent)
 	 */
 	public void sessionDestroyed(HttpSessionEvent paramHttpSessionEvent) {
-		HttpSession session = paramHttpSessionEvent.getSession();
-		ServletContext context = session.getServletContext();
-		Integer counter = (Integer) context.getAttribute("counter");
+		HttpSession session=paramHttpSessionEvent.getSession();
+	    ServletContext context=session.getServletContext();
+	    Integer counter=(Integer)context.getAttribute("counter"); 
+	    if(counter==null)
+	      return;
+	    else
+	      counter=new Integer(counter-1);
 
-		// Updating the counter after user has logout
-		if (counter == null)
-			counter = new Integer(1);
-		else
-			counter = new Integer(counter + 1);
+	    context.setAttribute("counter",counter);
 
-		context.setAttribute("counter", counter);
-
-		session.setMaxInactiveInterval(1000);
-
-		System.out.println("A new session is created.");
-	}
+	    System.out.println("A new session is to be destroyed.");
+	  } 
 
 }
