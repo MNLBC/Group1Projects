@@ -35,9 +35,6 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		$("#searchForm").submit(function(){
-			console.log("naks");
-		});
 		$("#drinks").click(function() {
 			$('#container').load('drinks.jsp');
 		});
@@ -76,7 +73,7 @@
 
 
 </head>
-<body id="test">
+<body id="home">
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -157,19 +154,19 @@
 					
 						<table class="table">
 							<tr>
-								<td>User Name:</td>
+								<td>User Name:<span style ="color: red">*</span> </td>
 								<td><input type="text" name="uname" required></td>
 							</tr>
 							<tr>
-								<td>Password:</td>
+								<td>Password:<span style ="color: red">*</span></td>
 								<td><input type="password" name="pass" required></td>
 							</tr>
 							<tr>
-								<td>Confirm Password:</td>
+								<td>Confirm Password:<span style ="color: red">*</span></td>
 								<td><input type="password" name="cpass" required></td>
 							</tr>
 							<tr>
-								<td>First Name:</td>
+								<td>First Name:<span style ="color: red">*</span></td>
 								<td><input type="text" name="fname" required></td>
 							</tr>
 							<tr>
@@ -177,19 +174,19 @@
 								<td><input type="text" name="mname"></td>
 							</tr>
 							<tr>
-								<td>Last Name:</td>
+								<td>Last Name:<span style ="color: red">*</span></td>
 								<td><input type="text" name="lname" required></td>
 							</tr>
 							<tr>
-								<td>Address:</td>
+								<td>Address:<span style ="color: red">*</span></td>
 								<td><input type="text" name="address" required></td>
 							</tr>
 							<tr>
-								<td>Contact No.:</td>
+								<td>Contact No.:<span style ="color: red">*</span></td>
 								<td><input type="text" name="cnum" required></td>
 							</tr>
 							<tr>
-								<td>E-mail:</td>
+								<td>E-mail:<span style ="color: red">*</span></td>
 								<td><input type="email" name="email" required></td>
 							</tr>
 							<tr>
@@ -199,9 +196,10 @@
 									value="male">Male</td>
 							</tr>
 							<tr>
-							<td>Captcha:</td>
+							<td>Captcha:<span style ="color: red">*</span></td>
 							<td><input name="safe" required>&nbsp;<img id="safe" src=""></td>
 							</tr>
+							<p> Required Fields (<span style ="color: red">*</span>)</p>
 						</table>
 					
 				</div>
