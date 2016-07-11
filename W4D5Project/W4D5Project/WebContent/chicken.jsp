@@ -133,8 +133,8 @@ function loadData(){
 									if(username != null){
 									%>
 										<h4 class="media-heading">
-											Quantity: &nbsp; <input id="product-quantity" type="number" name="quantity" min="0"
-												max="5" style="width: 50px">
+											Quantity: &nbsp; <input id="product-quantity" type="number" name="quantity" min="1"
+											value = "1"  style="width: 50px">
 										</h4>
 										<% } %>
 										<h4 class="media-heading" id="product-description"></h4>

@@ -100,8 +100,8 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false" id="drop" action="MealServlet">Category<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#" id="comboMeals">Combo Meals</a></li>
-						<li role="separator" class="divider"></li>
+						<!-- <li><a href="#" id="comboMeals">Combo Meals</a></li> -->
+						<!-- <li role="separator" class="divider"></li> -->
 						<li><a href="#" id="drinks">Drinks</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#" id="burgers">Burgers</a></li>
@@ -113,12 +113,12 @@
 						<li><a href="#" id="sides">Sides</a></li>
 					</ul></li>
 			</ul>
-			<form class="navbar-form navbar-left" id="searchForm" >
+<!-- 			<form class="navbar-form navbar-left" id="searchForm" >
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search">
 				</div>
 				<button class="btn btn-default" id="searchButton" type="submit">Search</button>
-			</form>
+			</form> -->
 			<ul class="nav navbar-nav navbar-right">
 			<%  String username = (String) session.getAttribute("user");
 			if(username == null) {
