@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -144,7 +145,7 @@ public class TransactionDAOImpl implements TransactionDAO {
 		PreparedStatement pstmt;
 		int success = 0;
 		try {
-			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt = (PreparedStatement) conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setInt(1, order.getUserId());
 			pstmt.setString(2, order.getStatus());
 			success = pstmt.executeUpdate();
@@ -160,22 +161,40 @@ public class TransactionDAOImpl implements TransactionDAO {
 		}
 	}
 
+	public int getCurrSeqFromOrder() {
+		Connection conn = db.getConn();
+		String sql = "SELECT ID FROM ORDERS WHERE ID = ( SELECT MAX(ID) FROM ORDERS )";
+		PreparedStatement pstmt;
+		int id = 0;
+		try {
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				id = rs.getInt("ID");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+
 	@Override
-	public boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList) {
+	public boolean insertOrderItem(int orderId, OrderItems orderItem) {
 		Connection conn = db.getConn();
 		String sql = "INSERT INTO ORDER_ITEMS(TYPE, ORDER_ID, MEAL_ID, QUANTITY) values(?, ?, ?, ?)";
 		PreparedStatement pstmt;
 		try {
-			for (OrderItems orderItem : orderItemsList) {
-				pstmt = (PreparedStatement) conn.prepareStatement(sql);
-				pstmt.setString(1, orderItem.getType());
-				pstmt.setInt(2, orderId);
-				pstmt.setInt(3, orderItem.getMealId());
-				pstmt.setInt(4, orderItem.getQuantity());
-				pstmt.executeUpdate();
-				pstmt.close();
-				conn.close();
-			}
+			pstmt = (PreparedStatement) conn.prepareStatement(sql);
+			pstmt.setString(1, orderItem.getType());
+			pstmt.setInt(2, orderId);
+			pstmt.setInt(3, orderItem.getMealId());
+			pstmt.setInt(4, orderItem.getQuantity());
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -28,13 +28,15 @@ public interface TransactionDAO {
 
 	boolean insertOrder(Order order);
 
-	boolean insertOrderItem(int orderId, List<OrderItems> orderItemsList);
+	boolean insertOrderItem(int orderId, OrderItems orderItem);
 
 	boolean isUsernameExisting(String qUsername);
 
 	boolean isEmailExisting(String qEmail);
 
 	// Per Object
+	int getCurrSeqFromOrder();
+	
 	Meal getMealByMealCode(String qCode);
 
 	Meal getMealByMealId(int id);

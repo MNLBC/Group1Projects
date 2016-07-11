@@ -23,7 +23,7 @@ import com.oocl.mnlbc.models.User;
 @WebServlet("/PurchaseServlet")
 public class PurchaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	List<OrderItems> orderItm = null;
+	List<OrderItems> orderItems = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -47,10 +47,13 @@ public class PurchaseServlet extends HttpServlet {
 
 		// Inserting user's order to database
 		if (session.getAttribute("cartItems") != null) {
-			orderItm = (List<OrderItems>) session.getAttribute("cartItems");
+			orderItems = (List<OrderItems>) session.getAttribute("cartItems");
 			trans.insertOrder(order);
-			trans.insertOrderItem(order.getId(), orderItm);
-
+			order.setId(trans.getCurrSeqFromOrder());
+			for (OrderItems orderItem : orderItems) {
+				trans.insertOrderItem(order.getId(), orderItem);
+			}
+			
 			// Emptying tray after ordering
 			session.setAttribute("cartItems", new ArrayList<OrderItems>());
 		}
