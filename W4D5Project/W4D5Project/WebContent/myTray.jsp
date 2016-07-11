@@ -48,18 +48,8 @@
 		});
 		
 		$("#cancel").click(function() {
-			$.ajax({
-				type : "GET",
-				data : {
-					name : ''
-					
-				},
-				url : "PurchaseServlet",
-				success : function(response) {
-					alert("Order Canceled!")
-					$('#test').load('home.jsp')
-				}
-			});
+			alert("Order Canceled!");
+			window.location.href = "home.jsp";
 		});
 
 		$("#desserts").click(function() {

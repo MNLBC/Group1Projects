@@ -58,7 +58,7 @@ function loadData(){
 				},
 				url : "TrayServlet",
 				success : function(response) {
-					
+					alert('Successfully Added to cart!');
 				}
 			});
 		});
@@ -143,7 +143,7 @@ function loadData(){
 					<% if(username != null){ %>
 					<div class="modal-footer">
 						<input type="submit" class="btn btn-default" data-dismiss="modal"
-							value="Cancel"> <input type="submit"
+							value="Cancel"> <input type="submit" data-dismiss="modal"
 							class="btn btn-primary" value="Add to tray" id="addTray">
 					</div>
 					<% } %>
