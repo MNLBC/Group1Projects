@@ -47,6 +47,20 @@
 			});
 		});
 		
+		$("#cancel").click(function() {
+			$.ajax({
+				type : "GET",
+				data : {
+					name : ''
+					
+				},
+				url : "PurchaseServlet",
+				success : function(response) {
+					alert("Order Canceled!")
+					$('#test').load('home.jsp')
+				}
+			});
+		});
 
 		$("#desserts").click(function() {
 			$('#container').load('desserts.jsp');
@@ -113,7 +127,7 @@
   <h2>Total: <span class="label label-default"><%= Total %>RMB </span></h2>
   <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-primary btn-sm" id="purchase">Purchase Order</button>
-  <button type="button" class="btn btn-primary btn-sm">Cancel</button>
+  <button type="button" class="btn btn-primary btn-sm" id="cancel">Cancel</button>
 </div>
 </div>
 
