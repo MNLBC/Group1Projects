@@ -42,7 +42,7 @@ public class ActiveUsersListeners implements HttpSessionListener {
 		context.setAttribute("counter", counter);
 
 		// Session Timeout
-		session.setMaxInactiveInterval(60);
+		// session.setMaxInactiveInterval(60);
 
 		System.out.println("A new session is created.");
 	}

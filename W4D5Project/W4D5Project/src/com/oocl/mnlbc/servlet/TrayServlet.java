@@ -52,7 +52,7 @@ public class TrayServlet extends HttpServlet {
 		}
 
 		for (OrderItems orderItem : orderItems) {
-			if (orderItem.getId() == newOrderItem.getId()) {
+			if (orderItem.getMealId() == newOrderItem.getMealId()) {
 				int newQty = orderItem.getQuantity() + newOrderItem.getQuantity();
 				orderItem.setQuantity(newQty);
 				update = true;
@@ -72,13 +72,8 @@ public class TrayServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		// doGet(request, response);
 
 	}
 
-	private void deleteCart(HttpServletRequest request) {
-	}
-
-	private void updateCart(HttpServletRequest request) {
-	}
 }
