@@ -4,3 +4,5 @@ W4D5Project/W4D5Project/build/*
 class
 
 *.class
+W4D5Project/W4D5Project/src/com/oocl/mnlbc/app/AppTest.java
+W4D5Project/W4D5Project/build/classes/com/oocl/mnlbc/*/*.class
