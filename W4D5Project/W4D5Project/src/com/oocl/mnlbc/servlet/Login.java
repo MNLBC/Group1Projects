@@ -93,31 +93,35 @@ public class Login extends HttpServlet {
 		String userName = request.getParameter("loginUsername");
 		String password = request.getParameter("loginPass");
 		String hashPass = passwordHash(password);
+			try {
+				// Determine if username is correct and user account is disabled
+				int isActive = isUserCorrectDisabled(userName, hashPass);
 
-		// Determine if username is correct and user account is disabled
-		int isActive = isUserCorrectDisabled(userName, hashPass);
+				if (isActive == 1) {
 
-		if (isActive == 1) {
+					// Incorrect username and password
+					request.setAttribute("alertMessages", "Invalid Username/Password");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+				} else if (isActive == 2) {
 
-			// Incorrect username and password
-			request.setAttribute("alertMessages", "Invalid Username/Password");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-		} else if (isActive == 2) {
+					// User is disabled
+					request.setAttribute("alertMessages", "User is blocked.");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+				} else {
+					// Login Successful
+					User userObject = transactionDAOImpl.getUserByUserName(userName);
+					request.setAttribute("success", userName);
 
-			// User is disabled
-			request.setAttribute("alertMessages", "User is blocked.");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-		} else {
-			// Login Successful
-			User userObject = transactionDAOImpl.getUserByUserName(userName);
-			request.setAttribute("success", userName);
-
-			HttpSession session = request.getSession();
-			session.setAttribute("user", userName);
-			session.setAttribute("userObject", userObject);
-			response.sendRedirect("home.jsp");
-		}
+					HttpSession session = request.getSession();
+					session.setAttribute("user", userName);
+					session.setAttribute("userObject", userObject);
+					response.sendRedirect("home.jsp");
+				}
+			} catch (Exception e) {
+				response.sendRedirect("error.jsp");
+			}
+		
 	}
 }
