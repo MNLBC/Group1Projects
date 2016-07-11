@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class Logout. Used to control the logout implementation.
+ * Destroys the session after the user logs out.
+ * 
+ * @author Group 1
  */
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {

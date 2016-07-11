@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 /**
- * Servlet implementation class ComboMealServlet
+ * Servlet implementation class ComboMealServlet. Used to control the combo meal implementation
+ * 
+ * 
+ * @author Group 1
  */
 @WebServlet("/ComboMealServlet")
 public class ComboMealServlet extends HttpServlet {

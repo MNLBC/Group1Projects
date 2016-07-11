@@ -18,7 +18,10 @@ import com.oocl.mnlbc.dao.TransactionDAOImpl;
 import com.oocl.mnlbc.models.Meal;
 
 /**
- * Servlet implementation class MealServlet
+ * Servlet implementation class MealServlet. Used to control the meal implementation.
+ * Formats the meals returned after querying from the database before throwing the data to the front-end.
+ * 
+ * @author Group 1
  */
 @WebServlet("/MealServlet")
 public class MealServlet extends HttpServlet {

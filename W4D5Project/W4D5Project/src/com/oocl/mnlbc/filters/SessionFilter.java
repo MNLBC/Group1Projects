@@ -18,6 +18,8 @@ import javax.servlet.http.HttpSession;
  */
 
 /**
+ * Filter class. Used to filter the session. Checks whether an existing session is active
+ * and verifies if the current session user is given the correct capabilities.
  * 
  * @author Group 1
  *

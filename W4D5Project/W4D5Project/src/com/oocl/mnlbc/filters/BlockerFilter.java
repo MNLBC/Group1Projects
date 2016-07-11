@@ -13,7 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.oocl.mnlbc.models.User;
-
+/**
+ * Filter Class. Used to filter certain limitations to users. Includes filtering for blocked users
+ * based on the project requirement.
+ * 
+ * @author Group 1
+ *
+ */
 public class BlockerFilter implements Filter {
 
 	@Override

@@ -2,6 +2,8 @@ package com.oocl.mnlbc.models;
 
 /**
  * 
+ * Model Class. Used as backbone/pattern for the user attributes (based on the database table Users)
+ * 
  * @author Group 1
  *
  */

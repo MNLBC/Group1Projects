@@ -16,7 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CaptchaServlet
+ * 
+ * Servlet implementation class CaptchaServlet. Used to control the captcha implementation of the 
+ * register interface.
+ * 
+ * @author Group 1
  */
 @WebServlet("/CaptchaServlet")
 public class CaptchaServlet extends HttpServlet {

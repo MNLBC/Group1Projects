@@ -3,6 +3,7 @@ package com.oocl.mnlbc.models;
 import java.util.List;
 
 /**
+ * Model Class. Used as backbone/pattern for the order attributes (based on the database table Order)
  * 
  * @author Group 1
  *

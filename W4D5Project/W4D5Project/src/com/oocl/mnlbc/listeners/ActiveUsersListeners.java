@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSessionListener;
  */
 
 /**
+ * Listener Class. Used to count the current active users of the web application.
+ * Counts the sessions that are made and are not yet destroyed.
  * 
  * @author Group 1
  *

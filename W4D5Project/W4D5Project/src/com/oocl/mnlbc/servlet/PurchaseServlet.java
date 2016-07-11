@@ -18,7 +18,10 @@ import com.oocl.mnlbc.models.OrderItems;
 import com.oocl.mnlbc.models.User;
 
 /**
- * Servlet implementation class PurchaseServlet
+ * Servlet implementation class PurchaseServlet. Used to control the purchase implementation.
+ * Handles the purchasing of the items from the tray.
+ * 
+ * @author Group 1
  */
 @WebServlet("/PurchaseServlet")
 public class PurchaseServlet extends HttpServlet {

@@ -20,7 +20,10 @@ import com.oocl.mnlbc.dao.TransactionDAOImpl;
 import com.oocl.mnlbc.models.User;
 
 /**
- * Servlet implementation class UserServlet
+ * Servlet implementation class UserServlet. Used to control the user implementation.
+ * Controls the validations when creating a new user (involves the hashing of the user password)
+ * 
+ * @author Group 1
  */
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {

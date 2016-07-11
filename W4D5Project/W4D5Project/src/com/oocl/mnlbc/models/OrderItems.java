@@ -1,6 +1,7 @@
 package com.oocl.mnlbc.models;
 
 /**
+ * Model Class. Used as backbone/pattern for the order items attributes (based on the database table orderItems)
  * 
  * @author Group 1
  *

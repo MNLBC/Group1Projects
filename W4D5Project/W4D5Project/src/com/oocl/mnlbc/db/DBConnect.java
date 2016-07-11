@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * DBConnect Class
+ * DBConnect Class. Creates the connection to the database.
  * 
  * @author Group 1
  * 

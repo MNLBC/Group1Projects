@@ -20,12 +20,12 @@ import com.oocl.mnlbc.dao.TransactionDAO;
 import com.oocl.mnlbc.dao.TransactionDAOImpl;
 import com.oocl.mnlbc.models.User;
 
+ 
 /**
- * Servlet implementation class Login
- */
-
-/**
- * 
+ *  Servlet implementation class Login. Used to control the login implementation.
+ *  Handles the validations for each user login.
+ *  
+ *  
  * @author Group 1
  *
  */

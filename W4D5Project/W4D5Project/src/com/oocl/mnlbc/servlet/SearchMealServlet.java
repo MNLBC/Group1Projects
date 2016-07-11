@@ -17,7 +17,10 @@ import com.oocl.mnlbc.dao.TransactionDAOImpl;
 import com.oocl.mnlbc.models.Meal;
 
 /**
- * Servlet implementation class SearchMealServlet
+ * Servlet implementation class SearchMealServlet. Used to control the search meal implementation.
+ * Controls the parameters passed to the TransactionDAOImpl and the returned data from the query.
+ * 
+ * @author Group 1
  */
 @WebServlet("/SearchMealServlet")
 public class SearchMealServlet extends HttpServlet {

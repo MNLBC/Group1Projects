@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Config Class
+ * 
+ * Config Class. Gets the necessary config.properties file for the database connection
+ * requirements.
  * 
  * @author Group 1
  * 

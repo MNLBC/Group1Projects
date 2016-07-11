@@ -12,6 +12,9 @@ import com.oocl.mnlbc.models.OrderItems;
 import com.oocl.mnlbc.models.User;
 
 /**
+ * Serves as an interface for the implementation. Shows the functions
+ * related when using the database.
+ * 
  * @author Group1
  *
  */

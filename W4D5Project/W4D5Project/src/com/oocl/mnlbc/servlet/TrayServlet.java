@@ -15,7 +15,10 @@ import com.oocl.mnlbc.models.Order;
 import com.oocl.mnlbc.models.OrderItems;
 
 /**
- * Servlet implementation class TrayServlet
+ * Servlet implementation class TrayServlet. Used to control the tray implementation.
+ * Controls the tray contents - products added, quantity, amount and total amount all made by the user.
+ * 
+ * @author Group 1
  */
 @WebServlet("/TrayServlet")
 public class TrayServlet extends HttpServlet {

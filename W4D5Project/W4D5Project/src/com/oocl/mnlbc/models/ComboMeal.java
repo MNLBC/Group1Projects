@@ -3,6 +3,7 @@ package com.oocl.mnlbc.models;
 import java.util.List;
 
 /**
+ * Model Class. Used as backbone/pattern for the combo meal attributes (based on the database table Combo_Meal)
  * 
  * @author Group 1
  *

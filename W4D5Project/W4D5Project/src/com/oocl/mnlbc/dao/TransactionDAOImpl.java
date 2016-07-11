@@ -19,6 +19,9 @@ import com.oocl.mnlbc.models.User;
 
 /**
  * 
+ * Implements the TransactionDAO to specify the actions that will be done by each methods.
+ * 
+ * 
  * @author Group 1
  *
  */
