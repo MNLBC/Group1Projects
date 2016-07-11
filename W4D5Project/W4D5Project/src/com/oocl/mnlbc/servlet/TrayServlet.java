@@ -20,7 +20,7 @@ import com.oocl.mnlbc.models.OrderItems;
 @WebServlet("/TrayServlet")
 public class TrayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	List<OrderItems> orderItm = null;
+	List<OrderItems> orderItems = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -39,19 +39,31 @@ public class TrayServlet extends HttpServlet {
 		int product_id = Integer.parseInt(request.getParameter("productId"));
 		int product_qty = Integer.parseInt(request.getParameter("productQuantity"));
 		String product_cat = request.getParameter("productCategory");
+		boolean update = false;
 
 		// Adding meals to tray
-		OrderItems orderItem = new OrderItems(product_cat, product_qty, product_id);
+		OrderItems newOrderItem = new OrderItems(product_cat, product_qty, product_id);
 
 		// Getting the tray to the session
-		orderItm = (List<OrderItems>) session.getAttribute("cartItems");
+		orderItems = (List<OrderItems>) session.getAttribute("cartItems");
 
-		if (orderItm == null) {
-			orderItm = new ArrayList<OrderItems>();
+		if (orderItems == null) {
+			orderItems = new ArrayList<OrderItems>();
 		}
 
-		orderItm.add(orderItem);
-		session.setAttribute("cartItems", orderItm);
+		for (OrderItems orderItem : orderItems) {
+			if (orderItem.getId() == newOrderItem.getId()) {
+				int newQty = orderItem.getQuantity() + newOrderItem.getQuantity();
+				orderItem.setQuantity(newQty);
+				update = true;
+			}
+		}
+
+		if (!update) {
+			orderItems.add(newOrderItem);
+		}
+
+		session.setAttribute("cartItems", orderItems);
 	}
 
 	/**

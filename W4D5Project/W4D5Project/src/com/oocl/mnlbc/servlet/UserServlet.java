@@ -41,74 +41,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String userName = request.getParameter("uname");
-		String password = request.getParameter("pass");
-		String confPassword = request.getParameter("cpass");
-		String firstName = request.getParameter("fname");
-		String middleName = request.getParameter("mname");
-		String lastName = request.getParameter("lname");
-		String address = request.getParameter("address");
-		String contact = request.getParameter("cnum");
-		String type = "customer";
-		String email = request.getParameter("email");
-		String gender = request.getParameter("gender");
-		String image = "default.jpg";
-		String safe = request.getParameter("safe");
-		boolean isDisabled = false;
 
-		// Captcha is right
-		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
-
-			// User already exist
-			int isExisting = isUsernameEmailExist(userName, email);
-
-			// Password and confirm password are not the same
-			if (password.equals(confPassword)) {
-				if (isExisting == 1) {
-
-					// Username is already in use
-					request.setAttribute("alertMessages", "Username already exists!");
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-					rd.forward(request, response);
-
-				} else if (isExisting == 2) {
-
-					// Email is already in use
-					request.setAttribute("alertMessages", "Email already exists!");
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-					rd.forward(request, response);
-
-				} else {
-					// Registration validation successful
-
-					// Password Hashing
-					String hashPass = passwordHash(password);
-					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
-							hashPass, gender, image, isDisabled);
-
-					// Registering User in Database
-					userRegister(user);
-					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-					rd.forward(request, response);
-
-				}
-			} else {
-
-				// Password does not match
-				request.setAttribute("alertMessages", "Password did not match!");
-				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-				rd.forward(request, response);
-
-			}
-		} else {
-
-			// Wrong Safe code
-			request.setAttribute("alertMessages", " SAFE CODE ERROR");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-			response.sendRedirect("home.jsp");
-			logger.error("User: " + userName + " Request to /Login but captcha is incorrect...");
-		}
 	}
 
 	private int isUsernameEmailExist(String userName, String email) {
@@ -154,7 +87,72 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		String userName = request.getParameter("uname");
+		String password = passwordHash(request.getParameter("pass"));
+		String confPassword = passwordHash(request.getParameter("cpass"));
+		String firstName = request.getParameter("fname");
+		String middleName = request.getParameter("mname");
+		String lastName = request.getParameter("lname");
+		String address = request.getParameter("address");
+		String contact = request.getParameter("cnum");
+		String type = "customer";
+		String email = request.getParameter("email");
+		String gender = request.getParameter("gender");
+		String image = "default.jpg";
+		String safe = request.getParameter("safe");
+		boolean isDisabled = false;
+
+		// Captcha is right
+		if (safe.equalsIgnoreCase(request.getSession().getAttribute("safecode").toString())) {
+
+			// User already exist
+			int isExisting = isUsernameEmailExist(userName, email);
+
+			// Password and confirm password are not the same
+			if (password.equals(confPassword)) {
+				if (isExisting == 1) {
+
+					// Username is already in use
+					request.setAttribute("alertMessages", "Username already exists!");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+
+				} else if (isExisting == 2) {
+
+					// Email is already in use
+					request.setAttribute("alertMessages", "Email already exists!");
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+
+				} else {
+					// Registration validation successful
+
+					User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
+							password, gender, image, isDisabled);
+
+					// Registering User in Database
+					userRegister(user);
+					RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+					rd.forward(request, response);
+
+				}
+			} else {
+
+				// Password does not match
+				request.setAttribute("alertMessages", "Password did not match!");
+				RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+				rd.forward(request, response);
+
+			}
+		} else {
+
+			// Wrong Safe code
+			request.setAttribute("alertMessages", " SAFE CODE ERROR");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
+			response.sendRedirect("home.jsp");
+			logger.error("User: " + userName + " Request to /Login but captcha is incorrect...");
+		}
 	}
 
 }

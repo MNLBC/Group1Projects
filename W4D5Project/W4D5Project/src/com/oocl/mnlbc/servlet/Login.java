@@ -49,37 +49,6 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
-		String userName = request.getParameter("loginUsername");
-		String password = request.getParameter("loginPass");
-		String hashPass = passwordHash(password);
-
-		// Determine if username is correct and user account is disabled
-		int isActive = isUserCorrectDisabled(userName, hashPass);
-
-		if (isActive == 1) {
-
-			// Incorrect username and password
-			request.setAttribute("alertMessages", "Invalid Username/Password");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-		} else if (isActive == 2) {
-
-			// User is disabled
-			request.setAttribute("alertMessages", "User is blocked.");
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-		} else {
-			// Login Successful
-			User userObject = transactionDAOImpl.getUserByUserName(userName);
-			request.setAttribute("success", userName);
-
-			HttpSession session = request.getSession();
-			session.setAttribute("user", userName);
-			session.setAttribute("userObject", userObject);
-			response.sendRedirect("home.jsp");
-		}
-
 	}
 
 	private int isUserCorrectDisabled(String userName, String hashPass) {
@@ -120,7 +89,35 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
-	}
+		
+		String userName = request.getParameter("loginUsername");
+		String password = request.getParameter("loginPass");
+		String hashPass = passwordHash(password);
 
+		// Determine if username is correct and user account is disabled
+		int isActive = isUserCorrectDisabled(userName, hashPass);
+
+		if (isActive == 1) {
+
+			// Incorrect username and password
+			request.setAttribute("alertMessages", "Invalid Username/Password");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
+		} else if (isActive == 2) {
+
+			// User is disabled
+			request.setAttribute("alertMessages", "User is blocked.");
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
+		} else {
+			// Login Successful
+			User userObject = transactionDAOImpl.getUserByUserName(userName);
+			request.setAttribute("success", userName);
+
+			HttpSession session = request.getSession();
+			session.setAttribute("user", userName);
+			session.setAttribute("userObject", userObject);
+			response.sendRedirect("home.jsp");
+		}
+	}
 }
