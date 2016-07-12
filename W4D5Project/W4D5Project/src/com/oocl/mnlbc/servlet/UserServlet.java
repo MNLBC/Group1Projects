@@ -130,12 +130,12 @@ public class UserServlet extends HttpServlet {
 
 					} else {
 						// Registration validation successful
-
 						User user = new User(firstName, lastName, middleName, address, contact, type, email, userName,
 								password, gender, image, isDisabled);
 
 						// Registering User in Database
 						userRegister(user);
+						request.setAttribute("alertMessages", "Successfully Registered! ");
 						RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 						rd.forward(request, response);
 

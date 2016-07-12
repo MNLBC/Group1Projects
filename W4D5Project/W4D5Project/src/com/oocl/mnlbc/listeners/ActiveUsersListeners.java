@@ -43,10 +43,6 @@ public class ActiveUsersListeners implements HttpSessionListener {
 
 		context.setAttribute("counter", counter);
 
-		// Session Timeout
-		// session.setMaxInactiveInterval(60);
-
-		System.out.println("A new session is created.");
 	}
 
 	/**
@@ -63,7 +59,6 @@ public class ActiveUsersListeners implements HttpSessionListener {
 
 	    context.setAttribute("counter",counter);
 
-	    System.out.println("A new session is to be destroyed.");
 	  } 
 
 }
