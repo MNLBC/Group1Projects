@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/cglib-2.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/cglib-docs-2.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/cglib-nodep-2.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/cglib-src-2.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-aop-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-asm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-beans-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-context-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-context-support-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-expression-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-web-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-webmvc-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-dao-2.0.6.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-jdbc-4.3.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Installer/SpringLib/spring-tx-4.3.1.RELEASE.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
