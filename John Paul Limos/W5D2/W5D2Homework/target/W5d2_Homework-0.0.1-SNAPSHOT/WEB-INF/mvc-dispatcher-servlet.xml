@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<bean class="com.oocl.mnlbc.controller.WelcomeController" />
+	
+
+	<!-- Register User.properties for validation error message -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="User" />
+	</bean>
+	<bean class="com.oocl.mnlbc.controller.UserController" >
+    	   <property name="pages">
+		<list>
+		<!-- follow sequence -->
+		<value>Page1Form</value> <!-- page1, _target0 -->
+		<value>Page2Form</value> <!-- page2, _target1 -->
+		<value>Page3Form</value> <!-- page3, _target2 -->
+		<value>Page4Form</value> <!-- page4, _target3 -->
+		</list>
+	   </property>
+	   <property name="validator">
+		<bean class="com.oocl.mnlbc.validator.UserValidator" />
+	   </property>
+       </bean>
+       <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+</beans>
