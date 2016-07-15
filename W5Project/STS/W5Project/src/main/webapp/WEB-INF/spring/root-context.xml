@@ -26,4 +26,31 @@
 			<ref local="transactionManager" />
 		</property>
 	</bean>
+	
+	<bean id="MealDAOImpl" class="com.oocl.mnlbc.impl.MealDAOImpl">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+	</bean>
+	
+	<bean id="OrderItemsDAOImpl" class="com.oocl.mnlbc.impl.OrderItemsDAOImpl">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+	</bean>
+	
+	<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+	</bean>
 </beans>

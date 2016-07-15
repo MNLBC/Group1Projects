@@ -11,6 +11,7 @@ import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.oocl.mnlbc.dao.UserDAO;
+import com.oocl.mnlbc.mapper.UserMapper;
 import com.oocl.mnlbc.model.User;
 
 public class UserDAOImpl implements UserDAO {
@@ -19,7 +20,9 @@ public class UserDAOImpl implements UserDAO {
 	private JdbcTemplate jdbcTemplateObject;
 
 	public List<User> getAllUsers() {
-		return null;
+		String query = "SELECT * FROM users";
+		List<User> users = jdbcTemplateObject.query(query, new UserMapper());
+		return users;
 	}
 
 	public DataSource getDataSource() {
@@ -44,17 +47,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT * FROM users WHERE ID = " + id;
+		User users = jdbcTemplateObject.queryForObject(query, new UserMapper());
+		return users;
 	}
 
 	public User getUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT * FROM users WHERE USERNAME = " + username;
+		User users = jdbcTemplateObject.queryForObject(query, new UserMapper());
+		return users;
 	}
 
-	public String addUser(final User user) {
-		
+	public User addUser(final User user) {
 		
 		TransactionTemplate tt = new TransactionTemplate(getTransactionManager());
 		tt.execute(new TransactionCallback() {
@@ -74,11 +78,12 @@ public class UserDAOImpl implements UserDAO {
 				query.append( user.isDisabled() ? "0": "1" + ",");
 				query.append("'"+ user.getType() + "')");
 				jt.update(query.toString());
+				
 				return null;
 			}
 		});
 		
-		return "DONE";
+		return user;
 	}
 
 	public boolean checkUsernameExistence(String username) {

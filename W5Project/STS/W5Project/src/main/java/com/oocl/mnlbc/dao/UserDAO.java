@@ -16,7 +16,7 @@ public interface UserDAO {
 
 	public User getUserByUsername(String username);
 	
-	public String addUser(User user);
+	public User addUser(User user);
 	
 	public boolean checkUsernameExistence(String username);
 	
