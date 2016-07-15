@@ -1,0 +1,241 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userClassName": "TrayWindow",
+        "header": false,
+        "height": 399,
+        "id": "TrayWindow",
+        "itemId": "TrayWindow",
+        "layout": "vbox",
+        "title": "",
+        "width": 619
+    },
+    "name": "MyWindow",
+    "designerId": "a193880b-da66-4706-93f0-f105e99918fc",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "id": "trayGrid",
+                "itemId": "trayGrid",
+                "store": "TrayStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel1",
+            "designerId": "8fa37acd-930a-47ac-92ee-81a12e846898",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "trayGridView",
+                        "itemId": "trayGrid"
+                    },
+                    "name": "MyGridView1",
+                    "designerId": "760ea726-fed7-4053-8ec4-0f8d68cb0584"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "flex": 0.8,
+                        "id": "orderName",
+                        "itemId": "orderName",
+                        "text": "Name"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "45600e24-bbdb-4d26-86b4-94ba855aa044"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Quantity",
+                        "flex": 0.5,
+                        "id": "orderQty",
+                        "itemId": "orderQty",
+                        "text": "Quantity"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "51355ccb-98f4-4467-8106-f84ac87c4b0e"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Price",
+                        "flex": 0.5,
+                        "id": "orderPrice",
+                        "itemId": "orderPrice",
+                        "text": "Price"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "d8e563ad-b0d9-4d21-9dd4-c0258b705246"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Total",
+                        "flex": 0.5,
+                        "id": "orderTotal",
+                        "itemId": "orderTotal",
+                        "text": "Total"
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "1874073b-858d-4522-a059-25553897156a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "dock": null,
+                "layout|flex": null
+            },
+            "name": "MyToolbar4",
+            "designerId": "0efc5dcd-52bb-486b-b1d7-620967e1de5b",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "removeItemBtn",
+                        "itemId": "removeItemBtn",
+                        "layout|flex": null,
+                        "text": "Remove Item"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "57f29d81-7748-47eb-bf66-d712f7b89ae0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "fieldLabel": "Total Number of Items in Tray",
+                "id": "totalItems",
+                "itemId": "totalItems",
+                "value": "",
+                "width": 150
+            },
+            "name": "MyDisplayField3",
+            "designerId": "fed579b0-a215-4ed4-ad8a-24da193ec6e6"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "dock": "bottom",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar5",
+            "designerId": "3db50de8-7b9a-417d-ade5-1da44f145021",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "checkoutBtn",
+                        "itemId": "checkoutBtn",
+                        "layout|flex": null,
+                        "text": "CheckOut"
+                    },
+                    "name": "MyButton14",
+                    "designerId": "57195fb4-e164-4253-8ef0-45da9a298449"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "cancelCheckoutBtn",
+                        "itemId": "cancelCheckoutBtn",
+                        "layout|flex": null,
+                        "text": "Cancel"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "cf2ec02d-7383-443c-9280-b1a54dced4aa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Total Amount in RMB",
+                "id": "totalAmount",
+                "itemId": "totalAmount",
+                "layout|flex": 1,
+                "value": ""
+            },
+            "name": "MyDisplayField4",
+            "designerId": "c81c177b-b0d8-4413-8265-151738d92fb6"
+        }
+    ]
+}

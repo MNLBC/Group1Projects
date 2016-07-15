@@ -1,0 +1,113 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginWindow",
+        "header": false,
+        "height": 250,
+        "layout": "fit",
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "384e8a9e-8962-41f9-aa5a-f5eafb480c6a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "container|pack": "center",
+                "header": false,
+                "layout": "vbox",
+                "title": "My Form"
+            },
+            "name": "MyForm1",
+            "designerId": "6679965d-9458-4fa1-9325-8e679618e180",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "User Name",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField8",
+                    "designerId": "b67948ff-9183-4614-8686-9cce69ef1da0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Password",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField9",
+                    "designerId": "5576c7db-0e6a-4ee8-a2ec-9a8005b0c838"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "dock": null,
+                        "layout|flex": null
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "9aa09605-6992-4a5a-9596-bececa40bad5",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Login"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "a2cd2411-f9a4-48f5-8eed-c832919784af"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton10",
+                            "designerId": "a2b4e5e0-ed4a-446f-940c-2e0017aac57c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

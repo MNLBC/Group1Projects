@@ -1,0 +1,320 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Windows"
+    },
+    "name": "MyController",
+    "designerId": "a7aa32de-c51e-4381-8f6d-51a5345c3a54",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productName",
+                "selector": "#ProductName"
+            },
+            "name": "productName",
+            "designerId": "57ad7885-3622-4e69-9493-0cc8e2b70ea9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productPrice",
+                "selector": "#ProductPrice"
+            },
+            "name": "productPrice",
+            "designerId": "1fbe6506-7d4a-464d-8ff6-d868b9209821"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productDescription",
+                "selector": "#ProductDescription"
+            },
+            "name": "productDescription",
+            "designerId": "4824c5fc-1a98-4db2-97d4-92740040e7d4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productQuantity",
+                "selector": "#ProductQuantity"
+            },
+            "name": "productQuantity",
+            "designerId": "14a6cca4-0dc6-4e6c-9316-53aa66442b2a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productImage",
+                "selector": "#ProductImage"
+            },
+            "name": "productImage",
+            "designerId": "f58da8ee-d204-4d95-a30b-d1913eafba0b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productViewWindow",
+                "selector": "#ProductView"
+            },
+            "name": "productViewWindow",
+            "designerId": "d5ccbb61-2d42-4ddc-a6fe-9c8c5bcd2396"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "totalItems",
+                "selector": "#totalItems"
+            },
+            "name": "totalItems",
+            "designerId": "425beba7-a7fb-48ee-b5d1-40030edac356"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "trayWindow",
+                "selector": "#TrayWindow"
+            },
+            "name": "trayWindow",
+            "designerId": "4fa1df45-24e7-448c-a118-a7eb8fe52341"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "trayGrid",
+                "selector": "#trayGrid"
+            },
+            "name": "trayGrid",
+            "designerId": "9feb6271-673d-421a-b8da-82b3054414ac"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "totalAmount",
+                "selector": "#totalAmount"
+            },
+            "name": "totalAmount",
+            "designerId": "77cfe088-1cf7-43e0-b1a3-54c7cd7393db"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#ProductView",
+                "designer|targetType": "ProductViewWindow",
+                "fn": "onProductViewActivate",
+                "implHandler": [
+                    "    var data = window.selectedProduct,",
+                    "        img = this.getProductImage(),",
+                    "        productName = this.getProductName(),",
+                    "        productDescription = this.getProductDescription(),",
+                    "        productPrice = this.getProductPrice();",
+                    "",
+                    "        img.setSrc(data.Image);",
+                    "        productName.setValue(data.Name);",
+                    "        productDescription.setValue(data.Description);",
+                    "        productPrice.setValue(data.Price);",
+                    ""
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onProductViewActivate",
+            "designerId": "6440f0c7-ce60-41b1-baf3-8c2d9aea8da5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#CancelCartButton",
+                "designer|targetType": "MyButton12",
+                "fn": "onCancelCartButtonClick",
+                "implHandler": [
+                    "        this.getProductViewWindow().destroy();",
+                    "        Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelCartButtonClick",
+            "designerId": "700cca1f-9c22-4013-8a30-5c15e58c8aa9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#AddCartButton",
+                "designer|targetType": "MyButton11",
+                "fn": "onAddCartButtonClick",
+                "implHandler": [
+                    "",
+                    "var trayStore = Ext.getStore('TrayStore'),",
+                    "    productName = this.getProductName().getValue(),",
+                    "    productQuantity = this.getProductQuantity().getValue(),",
+                    "    productPrice = this.getProductPrice().getValue();",
+                    "",
+                    "var tray = {",
+                    "    Name: productName,",
+                    "    Quantity: productQuantity,",
+                    "    Price: productPrice,",
+                    "    Total: productQuantity * productPrice",
+                    "};",
+                    "",
+                    "",
+                    "trayStore.add(tray);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAddCartButtonClick",
+            "designerId": "62d82126-3b6c-4170-abdb-73cb88d89992"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelCheckoutBtn",
+                "designer|targetType": "MyButton15",
+                "fn": "onCancelCheckoutBtnClick",
+                "implHandler": [
+                    "this.getTrayWindow().destroy();",
+                    "Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelCheckoutBtnClick",
+            "designerId": "f068b776-9ca7-4699-b9e3-4fdf0e02a1b0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#removeItemBtn",
+                "designer|targetType": "MyButton13",
+                "fn": "onRemoveItemBtnClick",
+                "implHandler": [
+                    "                 var trayStore = Ext.getStore('TrayStore');",
+                    "",
+                    "                var trayGrid = this.getTrayGrid(),",
+                    "                    selectModel = trayGrid.getSelectionModel(),",
+                    "                    selectedProduct = selectModel.getSelection();",
+                    "trayStore.remove(selectedProduct);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRemoveItemBtnClick",
+            "designerId": "3cd710d8-4b9c-4207-9787-cc99779c9128"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#TrayWindow",
+                "designer|targetType": "TrayWindow",
+                "fn": "onTrayWindowShow",
+                "implHandler": [
+                    "var trayStore = Ext.getStore('TrayStore');",
+                    "",
+                    "var totalItems = 0,",
+                    "    totalAmount = 0;",
+                    "trayStore.findBy(function(record){",
+                    "        var id = record.get('Id'),",
+                    "            total = record.get('Total');",
+                    "           totalItems += quantity;",
+                    "            totalAmount += total;",
+                    "",
+                    "this.getTotalItems().setValue(totalItems);",
+                    "this.getTotalAmount().setValue(totalAmount);",
+                    " });"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onTrayWindowShow",
+            "designerId": "084d651f-b6b7-4748-aa05-a79bc6105ea2"
+        }
+    ]
+}

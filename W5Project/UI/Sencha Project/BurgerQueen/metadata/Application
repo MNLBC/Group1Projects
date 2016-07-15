@@ -1,0 +1,35 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "HomePage",
+            "Windows"
+        ],
+        "models": [
+            "ProductModel",
+            "TrayModel"
+        ],
+        "name": "BurgerQueen",
+        "stores": [
+            "ProductStore",
+            "TrayStore"
+        ],
+        "views": [
+            "MyViewport",
+            "RegisterWindow",
+            "LoginWindow",
+            "Beverages",
+            "Sides",
+            "TrayWindow",
+            "ProductViewWindow",
+            "UserProfile"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

@@ -1,0 +1,194 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "fit"
+    },
+    "name": "MyViewport",
+    "designerId": "9ba1ba59-a4fe-45fc-a890-6b8455864d00",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "layout": "fit",
+                "margin": null,
+                "title": "My Panel"
+            },
+            "name": "MyPanel",
+            "designerId": "eabd810b-e4b6-4099-94d4-8bfd4fbabf13",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "a908f591-d0d4-4cdb-b0bc-f6ebe85e5a8a",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "beveragesButton",
+                                "layout|flex": null,
+                                "text": "Beverages"
+                            },
+                            "name": "MyButton",
+                            "designerId": "f5b783de-187a-47b3-a6a1-0af9906e633d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "burgersButton",
+                                "layout|flex": null,
+                                "text": "Burgers"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "362cafdd-cb76-4213-9bb4-feb4bd06ff97"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "chickensButton",
+                                "layout|flex": null,
+                                "text": "Chickens"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "5c272620-b729-4b93-a7bc-87716570aa09"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "dessertsButton",
+                                "layout|flex": null,
+                                "text": "Desserts"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "2feaf1f0-bb16-4141-8b35-72f83d2bc576"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "sidesButton",
+                                "layout|flex": null,
+                                "text": "Sides"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "91f2ca81-217c-491d-b9bd-1c53b07769b7"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "loginButton",
+                                "layout|flex": null,
+                                "text": "Login"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "72e36b48-8e49-45be-9006-cba3e4f97ede"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "logoutButton",
+                                "layout|flex": null,
+                                "text": "Logout"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "38932cfd-8b56-406f-89ee-e83d8a096c67"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "trayBtn",
+                                "itemId": "trayBtn",
+                                "layout|flex": null,
+                                "text": "My Tray"
+                            },
+                            "name": "MyButton16",
+                            "designerId": "d8d774cf-0211-45dd-bfdb-e4eafddc5cb8"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "products",
+                    "designerId": "4a095eef-eb41-4f7f-b72a-47b69b93b403",
+                    "masterInstanceId": "159d9e1f-cdeb-4919-bd06-7f3f430d7893"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "sides",
+                    "designerId": "8abcf30a-1fa2-4c14-8aba-006425069c23",
+                    "masterInstanceId": "79739176-6192-4bc6-b027-52a436048026"
+                }
+            ]
+        }
+    ]
+}

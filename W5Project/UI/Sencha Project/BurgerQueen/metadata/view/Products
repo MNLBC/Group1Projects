@@ -1,0 +1,113 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": null,
+        "designer|userAlias": "Products",
+        "designer|userClassName": "Products",
+        "header": false,
+        "height": 559,
+        "itemId": "Products",
+        "title": "Products",
+        "width": 1309
+    },
+    "name": "MyPanel1",
+    "designerId": "159d9e1f-cdeb-4919-bd06-7f3f430d7893",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": false,
+                "designer|uiInterfaceName": "menubarbtn",
+                "header": false,
+                "hideHeaders": true,
+                "id": "ProductGrid",
+                "itemId": "ProductGrid",
+                "store": "ProductStore",
+                "title": "My Grid Panel",
+                "ui": "menubarbtn"
+            },
+            "name": "MyGridPanel",
+            "designerId": "b8eed07c-d301-4fb6-8e4e-c42891bdb2b6",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "6a59c452-ce49-45d2-aa02-8c9fb70bfa3d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Image",
+                        "flex": 1,
+                        "text": "Image"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "99bb6763-201a-41a0-9059-941c20e0f014",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "                        return '<img src=\"'+value+'\" width=\"150\" height=\"150\" border=\"0\" />';"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "d81de1ea-1583-4f74-b2db-1363e1d99467"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "flex": 1,
+                        "text": "Name"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "ec2f2233-6c66-489b-9e96-1509167a51a5"
+                }
+            ]
+        }
+    ]
+}
