@@ -16,6 +16,12 @@
 Ext.define('BurgerQueen.controller.Windows', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        GlobalUtill: 'com.oocl.mnlbc.GlobalMessage'
+    },
+
+    oLoadingMessageMask: null,
+
     refs: [
         {
             ref: 'productName',
@@ -60,10 +66,27 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'productId',
             selector: '#productId'
+        },
+        {
+            ref: 'registerForm',
+            selector: '#registerForm'
+        },
+        {
+            ref: 'loginForm',
+            selector: '#loginForm'
+        },
+        {
+            ref: 'registerWindow',
+            selector: '#registerWindow'
+        },
+        {
+            ref: 'loginWindow',
+            selector: '#loginWindow'
         }
     ],
 
     onProductViewActivate: function(window, eOpts) {
+        Ext.getBody().mask();
         var data = window.selectedProduct,
             img = this.getProductImage(),
             productName = this.getProductName(),
@@ -113,6 +136,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         //      this.getTotalItems().setValue(totalItems);
             }
         //     Ext.create('ProductViewWindow').hide();
+        Ext.Msg.alert('Status', this.added_to_cart);
+        console.log(this.invalid_login);
+        this.getProductViewWindow().destroy();
+        Ext.getBody().unmask();
     },
 
     onCancelCheckoutBtnClick: function() {
@@ -162,6 +189,85 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     },
 
+    onRegisterWindowButtonClick: function() {
+                var form = this.getRegisterForm(),
+                username = form.getValues().username,
+                    password = form.getValues().password,
+                    firstname = form.getValues().firstname,
+                    middlename = form.getValues().middlename,
+                    lastname = form.getValues().lastname,
+                    address = form.getValues().address,
+                    contactno = form.getValues().contactno,
+                    email = form.getValues().email,
+                    gender = form.getValues().gender;
+                if(form.isValid()){
+                     Ext.Ajax.request({
+                             url : 'user/addUser',
+                             params : {
+                                 'username':username,
+                                 'password':password,
+                                 'firstname':firstname,
+                                 'middlename':middlename,
+                                 'lastname':lastname,
+                                 'address':address,
+                                 'contactno':contactno,
+                                 'email':email,
+                                 'gender':gender
+                             },
+                             scope : this,
+                             success : function(response) {
+                                 close();
+                             }
+                        });
+                }
+    },
+
+    onLoginWindowButtonClick: function() {
+                var form = this.getLoginForm(),
+                            username = form.getValues().username,
+                            password = form.getValues().password;
+
+                    if(form.isValid()){
+                        Ext.Ajax.request({
+                             url : 'login',
+                             params : {
+                                 'username':username,
+                                 'password':password
+                             },
+                             scope : this,
+                             success : function(response) {
+                                 close();
+                             }
+                        });
+                    }
+    },
+
+    onCancelRegisterButtonClick: function() {
+                this.getRegisterWindow().destroy();
+                Ext.getBody().unmask();
+    },
+
+    onCancelLoginButtonClick: function() {
+                this.getLoginWindow().destroy();
+                Ext.getBody().unmask();
+    },
+
+    showLoadingMessageMask: function() {
+                            if (!this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
+                                  msg : "Loading, please wait..."
+                               });
+                            }
+                            this.oLoadingMessageMask.show();
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
+    },
+
     init: function(application) {
         this.control({
             "#ProductView": {
@@ -181,6 +287,18 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#TrayWindow": {
                 show: this.onTrayWindowShow
+            },
+            "#registerWindowButton": {
+                click: this.onRegisterWindowButtonClick
+            },
+            "#loginWindowButton": {
+                click: this.onLoginWindowButtonClick
+            },
+            "#cancelRegisterButton": {
+                click: this.onCancelRegisterButtonClick
+            },
+            "#cancelLoginButton": {
+                click: this.onCancelLoginButtonClick
             }
         });
     }

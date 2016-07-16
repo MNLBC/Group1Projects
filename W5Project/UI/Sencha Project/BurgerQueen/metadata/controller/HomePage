@@ -23,7 +23,8 @@
                 "designer|targetType": "MyButton5",
                 "fn": "onLoginButtonClick",
                 "implHandler": [
-                    "        Ext.create('BurgerQueen.view.LoginWindow').show();"
+                    "        Ext.create('BurgerQueen.view.LoginWindow').show();",
+                    "Ext.getBody().mask();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -133,29 +134,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#sidesButton",
-                "designer|targetType": "MyButton4",
-                "fn": "onSidesButtonClick",
-                "implHandler": [
-                    " var productStore = this.productStore;",
-                    "",
-                    "                productStore.clearFilter();",
-                    "                productStore.filter('Category','Sides');"
-                ],
-                "name": "click",
-                "scope": "me"
-            },
-            "name": "onSidesButtonClick",
-            "designerId": "95efa14f-0394-4a8a-9b9a-eaff4099909e"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "designer|controlQuery": "#logoutButton",
                 "designer|targetType": "MyButton6",
                 "fn": "onLogoutButtonClick",
@@ -205,6 +183,67 @@
             "designerId": "37567bca-e84f-46c3-a92c-6a0e2c20f5f2"
         },
         {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#trayBtn",
+                "designer|targetType": "MyButton16",
+                "fn": "onTrayBtnClick",
+                "implHandler": [
+                    " Ext.create('BurgerQueen.view.TrayWindow').show();",
+                    "Ext.getBody().mask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onTrayBtnClick",
+            "designerId": "62e7350c-11d7-46ec-aa63-1d207fbbdf43"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#myProfile",
+                "designer|targetType": "MyButton17",
+                "fn": "onMyProfileClick",
+                "implHandler": [
+                    "this.getProducts().hide();",
+                    "this.getUserProfile().show();",
+                    "",
+                    "//var userStore = Ext.getStore('UserStore');",
+                    "",
+                    "// Ext.each(userStore, function(record){",
+                    "//     var userName = record.get('userName'),",
+                    "//         firstName = record.get('firstName'),",
+                    "//         middleName =  record.get('middleName'),",
+                    "//         lastName = record.get('lastName'),",
+                    "//         address = record.get('address'),",
+                    "//         email = record.get('email'),",
+                    "//         contactNum = record.get('contactNum');",
+                    "",
+                    "//     this.getUserNameField().setValue(userName);",
+                    "//     this.getFirstNameField().setValue(firstName);",
+                    "//     this.getMiddleNameField().setValue(middleName);",
+                    "//     this.getLastNameField().setValue(lastName);",
+                    "//     this.getAddressField().setValue(address);",
+                    "//     this.getEmailField().setValue(email);",
+                    "// });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onMyProfileClick",
+            "designerId": "6fc07001-49a0-4aad-b67c-8e7b81afe6e5"
+        },
+        {
             "type": "fixedfunction",
             "reference": {
                 "name": "items",
@@ -243,20 +282,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "burgersButton",
-                "selector": "#burgersButton"
-            },
-            "name": "burgersButton",
-            "designerId": "0f957326-e326-4672-94f2-fb2d02fe7804"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "ref": "chickensButton",
                 "selector": "#chickensButton"
             },
@@ -276,20 +301,6 @@
             },
             "name": "dessertsButton",
             "designerId": "f68ebc0d-7525-4890-a455-ab910ba51ec1"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "sidesButton",
-                "selector": "#sidesButton"
-            },
-            "name": "sidesButton",
-            "designerId": "37feb3b7-41cf-46cf-8107-8efe5b912b44"
         },
         {
             "type": "controllerref",
@@ -348,6 +359,34 @@
             "designerId": "20490771-2a66-4034-aa41-b00812bc9f09"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "products",
+                "selector": "#Products"
+            },
+            "name": "products",
+            "designerId": "c937ad75-0e4a-4bc4-8ce9-b1757de2b996"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userProfile",
+                "selector": "#UserProfile"
+            },
+            "name": "userProfile",
+            "designerId": "c2e8dfbf-f1be-4b65-b3b5-6b74e6342e27"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -355,17 +394,57 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#trayBtn",
-                "designer|targetType": "MyButton16",
-                "fn": "onTrayBtnClick",
+                "designer|controlQuery": "#registerButton",
+                "designer|targetType": "MyButton18",
+                "fn": "onRegisterButtonClick",
                 "implHandler": [
-                    " Ext.create('BurgerQueen.view.TrayWindow').show();"
+                    "       Ext.create('BurgerQueen.view.RegisterWindow').show();"
                 ],
                 "name": "click",
                 "scope": "me"
             },
-            "name": "onTrayBtnClick",
-            "designerId": "62e7350c-11d7-46ec-aa63-1d207fbbdf43"
+            "name": "onRegisterButtonClick",
+            "designerId": "51167536-f1bd-461c-a716-026039e1dbf3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showLoadingMessageMask",
+                "implHandler": [
+                    "                    if (!this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
+                    "                          msg : \"Loading, please wait...\"",
+                    "                       });",
+                    "                    }",
+                    "                    this.oLoadingMessageMask.show();"
+                ]
+            },
+            "name": "showLoadingMessageMask",
+            "designerId": "1d06a592-7207-4807-a23e-f1dc5826e99f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideLoadingMessageMask",
+                "implHandler": [
+                    "",
+                    "                    if (this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask.hide();",
+                    "                    }"
+                ]
+            },
+            "name": "hideLoadingMessageMask",
+            "designerId": "37820377-df0d-4106-8238-68d7527ecd1b"
         }
     ]
 }

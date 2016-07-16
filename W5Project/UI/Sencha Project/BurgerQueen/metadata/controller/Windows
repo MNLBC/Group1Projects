@@ -6,10 +6,28 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Windows"
+        "designer|userClassName": "Windows",
+        "mixins": [
+            "{",
+            "GlobalUtill : 'com.oocl.mnlbc.GlobalMessage'",
+            "}"
+        ],
+        "oLoadingMessageMask": [
+            "null"
+        ]
     },
     "name": "MyController",
+    "configAlternates": {
+        "oLoadingMessageMask": "object"
+    },
     "designerId": "a7aa32de-c51e-4381-8f6d-51a5345c3a54",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "oLoadingMessageMask",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "controllerref",
@@ -163,6 +181,7 @@
                 "designer|targetType": "ProductViewWindow",
                 "fn": "onProductViewActivate",
                 "implHandler": [
+                    "Ext.getBody().mask();",
                     "var data = window.selectedProduct,",
                     "    img = this.getProductImage(),",
                     "    productName = this.getProductName(),",
@@ -243,7 +262,11 @@
                     "//         totalItems += replaceQuantity;",
                     "//      this.getTotalItems().setValue(totalItems);",
                     "    }",
-                    "//     Ext.create('ProductViewWindow').hide();"
+                    "//     Ext.create('ProductViewWindow').hide();",
+                    "Ext.Msg.alert('Status', this.added_to_cart);",
+                    "console.log(this.invalid_login);",
+                    "this.getProductViewWindow().destroy();",
+                    "Ext.getBody().unmask();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -359,6 +382,229 @@
             },
             "name": "productId",
             "designerId": "6242d23f-abe8-4d4b-a56b-81f9295c929e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#registerWindowButton",
+                "designer|targetType": "MyButton7",
+                "fn": "onRegisterWindowButtonClick",
+                "implHandler": [
+                    "        var form = this.getRegisterForm(),",
+                    "        username = form.getValues().username,",
+                    "            password = form.getValues().password,",
+                    "            firstname = form.getValues().firstname,",
+                    "            middlename = form.getValues().middlename,",
+                    "            lastname = form.getValues().lastname,",
+                    "            address = form.getValues().address,",
+                    "            contactno = form.getValues().contactno,",
+                    "            email = form.getValues().email,",
+                    "            gender = form.getValues().gender;",
+                    "        if(form.isValid()){",
+                    "             Ext.Ajax.request({",
+                    "                     url : 'user/addUser',",
+                    "                     params : {",
+                    "                         'username':username,",
+                    "                         'password':password,",
+                    "                         'firstname':firstname,",
+                    "                         'middlename':middlename,",
+                    "                         'lastname':lastname,",
+                    "                         'address':address,",
+                    "                         'contactno':contactno,",
+                    "                         'email':email,",
+                    "                         'gender':gender",
+                    "                     },",
+                    "                     scope : this,",
+                    "                     success : function(response) {",
+                    "                         close();",
+                    "                     }",
+                    "                });",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onRegisterWindowButtonClick",
+            "designerId": "72d77a22-9256-4bc3-8823-52a739f8798e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerForm",
+                "selector": "#registerForm"
+            },
+            "name": "registerForm",
+            "designerId": "236e1667-4add-459f-8f16-8142df7f9650"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginForm",
+                "selector": "#loginForm"
+            },
+            "name": "loginForm",
+            "designerId": "e0359952-58b1-4a3c-b260-f23b52269e8d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#loginWindowButton",
+                "designer|targetType": "MyButton9",
+                "fn": "onLoginWindowButtonClick",
+                "implHandler": [
+                    "        var form = this.getLoginForm(),",
+                    "                    username = form.getValues().username,",
+                    "                    password = form.getValues().password;",
+                    "",
+                    "            if(form.isValid()){",
+                    "                Ext.Ajax.request({",
+                    "                     url : 'login',",
+                    "                     params : {",
+                    "                         'username':username,",
+                    "                         'password':password",
+                    "                     },",
+                    "                     scope : this,",
+                    "                     success : function(response) {",
+                    "                         close();",
+                    "                     }",
+                    "                });",
+                    "            }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLoginWindowButtonClick",
+            "designerId": "3e96936b-9662-4979-a024-c56c8e4cd84c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelRegisterButton",
+                "designer|targetType": "MyButton8",
+                "fn": "onCancelRegisterButtonClick",
+                "implHandler": [
+                    "        this.getRegisterWindow().destroy();",
+                    "        Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelRegisterButtonClick",
+            "designerId": "f41ed9a2-58cc-4a10-9c10-2f3f77badcdb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerWindow",
+                "selector": "#registerWindow"
+            },
+            "name": "registerWindow",
+            "designerId": "c1b3c6ac-99db-4c73-aba3-7377c375c794"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginWindow",
+                "selector": "#loginWindow"
+            },
+            "name": "loginWindow",
+            "designerId": "0b99aa7c-21a9-4c0b-9228-1a0d07c81766"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelLoginButton",
+                "designer|targetType": "MyButton10",
+                "fn": "onCancelLoginButtonClick",
+                "implHandler": [
+                    "        this.getLoginWindow().destroy();",
+                    "        Ext.getBody().unmask();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelLoginButtonClick",
+            "designerId": "361a2e2f-09e3-4c7a-868e-60aea2b979ca"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showLoadingMessageMask",
+                "implHandler": [
+                    "                    if (!this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
+                    "                          msg : \"Loading, please wait...\"",
+                    "                       });",
+                    "                    }",
+                    "                    this.oLoadingMessageMask.show();"
+                ]
+            },
+            "name": "showLoadingMessageMask",
+            "designerId": "7b3757cd-32d2-4a23-be48-919e836a82bb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideLoadingMessageMask",
+                "implHandler": [
+                    "",
+                    "                    if (this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask.hide();",
+                    "                    }"
+                ]
+            },
+            "name": "hideLoadingMessageMask",
+            "designerId": "9ea85473-2551-4ec4-9502-3ffacd596c77"
         }
     ]
 }

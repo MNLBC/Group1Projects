@@ -22,20 +22,12 @@ Ext.define('BurgerQueen.controller.HomePage', {
             selector: '#beveragesButton'
         },
         {
-            ref: 'burgersButton',
-            selector: '#burgersButton'
-        },
-        {
             ref: 'chickensButton',
             selector: '#chickensButton'
         },
         {
             ref: 'dessertsButton',
             selector: '#dessertsButton'
-        },
-        {
-            ref: 'sidesButton',
-            selector: '#sidesButton'
         },
         {
             ref: 'loginButton',
@@ -52,11 +44,20 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'productViewWindow',
             selector: '#ProductView'
+        },
+        {
+            ref: 'products',
+            selector: '#Products'
+        },
+        {
+            ref: 'userProfile',
+            selector: '#UserProfile'
         }
     ],
 
     onLoginButtonClick: function() {
                 Ext.create('BurgerQueen.view.LoginWindow').show();
+        Ext.getBody().mask();
     },
 
     onBeveragesButtonClick: function() {
@@ -89,13 +90,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         productStore.filter('Category','Desserts');
     },
 
-    onSidesButtonClick: function() {
-         var productStore = this.productStore;
-
-                        productStore.clearFilter();
-                        productStore.filter('Category','Sides');
-    },
-
     onLogoutButtonClick: function() {
 
     },
@@ -122,11 +116,56 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
     onTrayBtnClick: function() {
          Ext.create('BurgerQueen.view.TrayWindow').show();
+        Ext.getBody().mask();
+    },
+
+    onMyProfileClick: function() {
+        this.getProducts().hide();
+        this.getUserProfile().show();
+
+        //var userStore = Ext.getStore('UserStore');
+
+        // Ext.each(userStore, function(record){
+        //     var userName = record.get('userName'),
+        //         firstName = record.get('firstName'),
+        //         middleName =  record.get('middleName'),
+        //         lastName = record.get('lastName'),
+        //         address = record.get('address'),
+        //         email = record.get('email'),
+        //         contactNum = record.get('contactNum');
+
+        //     this.getUserNameField().setValue(userName);
+        //     this.getFirstNameField().setValue(firstName);
+        //     this.getMiddleNameField().setValue(middleName);
+        //     this.getLastNameField().setValue(lastName);
+        //     this.getAddressField().setValue(address);
+        //     this.getEmailField().setValue(email);
+        // });
+    },
+
+    onRegisterButtonClick: function() {
+               Ext.create('BurgerQueen.view.RegisterWindow').show();
     },
 
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
 
+    },
+
+    showLoadingMessageMask: function() {
+                            if (!this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
+                                  msg : "Loading, please wait..."
+                               });
+                            }
+                            this.oLoadingMessageMask.show();
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
     },
 
     init: function(application) {
@@ -146,9 +185,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
             "#dessertsButton": {
                 click: this.onDessertsButtonClick
             },
-            "#sidesButton": {
-                click: this.onSidesButtonClick
-            },
             "#logoutButton": {
                 click: this.onLogoutButtonClick
             },
@@ -157,6 +193,12 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#trayBtn": {
                 click: this.onTrayBtnClick
+            },
+            "#myProfile": {
+                click: this.onMyProfileClick
+            },
+            "#registerButton": {
+                click: this.onRegisterButtonClick
             }
         });
     }

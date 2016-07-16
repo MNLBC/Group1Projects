@@ -35,10 +35,10 @@ Ext.application({
         'RegisterWindow',
         'LoginWindow',
         'Beverages',
-        'Sides',
         'TrayWindow',
         'ProductViewWindow',
-        'UserProfile'
+        'UserProfile',
+        'MyGridPanel2'
     ],
     controllers: [
         'HomePage',

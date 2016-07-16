@@ -18,7 +18,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
 
     requires: [
         'BurgerQueen.view.Products',
-        'BurgerQueen.view.Sides',
+        'BurgerQueen.view.UserProfile',
         'Ext.panel.Panel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
@@ -33,6 +33,8 @@ Ext.define('BurgerQueen.view.MyViewport', {
             items: [
                 {
                     xtype: 'panel',
+                    id: 'BurgerQueen',
+                    itemId: 'BurgerQueen',
                     layout: 'fit',
                     header: false,
                     title: 'My Panel',
@@ -85,6 +87,16 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     id: 'trayBtn',
                                     itemId: 'trayBtn',
                                     text: 'My Tray'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'myProfile',
+                                    text: 'My Profile'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'registerButton',
+                                    text: 'Register'
                                 }
                             ]
                         }
@@ -94,7 +106,8 @@ Ext.define('BurgerQueen.view.MyViewport', {
                             xtype: 'Products'
                         },
                         {
-                            xtype: 'Sides'
+                            xtype: 'userprofile',
+                            hidden: true
                         }
                     ]
                 }

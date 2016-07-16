@@ -22,6 +22,8 @@
             "codeClass": null,
             "userConfig": {
                 "header": false,
+                "id": "BurgerQueen",
+                "itemId": "BurgerQueen",
                 "layout": "fit",
                 "margin": null,
                 "title": "My Panel"
@@ -163,6 +165,37 @@
                             },
                             "name": "MyButton16",
                             "designerId": "d8d774cf-0211-45dd-bfdb-e4eafddc5cb8"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "myProfileButton",
+                                "id": "myProfile",
+                                "layout|flex": null,
+                                "text": "My Profile"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "67abd236-96fc-41e6-bf59-07b90409bbbd"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "registerButton",
+                                "layout|flex": null,
+                                "text": "Register"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "0113da08-0a91-40d3-9536-2d850000d872"
                         }
                     ]
                 },
@@ -184,9 +217,12 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "sides",
-                    "designerId": "8abcf30a-1fa2-4c14-8aba-006425069c23",
-                    "masterInstanceId": "79739176-6192-4bc6-b027-52a436048026"
+                    "userConfig": {
+                        "hidden": true
+                    },
+                    "name": "userprofile",
+                    "designerId": "368e6e97-f8fa-4903-a297-e4be8f345299",
+                    "masterInstanceId": "feaacf15-cc23-43de-947d-74cac5110f34"
                 }
             ]
         }

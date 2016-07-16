@@ -9,6 +9,7 @@
         "designer|userClassName": "RegisterWindow",
         "header": false,
         "height": 501,
+        "itemId": "registerWindow",
         "layout": "fit",
         "title": "My Window",
         "width": 463
@@ -27,6 +28,7 @@
                 "bodyPadding": 10,
                 "container|align": "stretch",
                 "header": false,
+                "itemId": "registerForm",
                 "layout": "vbox",
                 "title": "My Form"
             },
@@ -41,8 +43,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "User Name",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "name": "username"
                     },
                     "name": "MyTextField",
                     "designerId": "3549f444-4f8e-4584-81dd-23532a5ca54d"
@@ -55,8 +60,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Password",
-                        "layout|flex": 1
+                        "id": "password",
+                        "inputType": "password",
+                        "itemId": "",
+                        "layout|flex": 1,
+                        "name": "password"
                     },
                     "name": "MyTextField1",
                     "designerId": "338510a7-b70e-43f2-96ef-b9f5549b0870"
@@ -69,11 +79,40 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Confirm Password",
-                        "layout|flex": 1
+                        "inputType": "password",
+                        "itemId": "confirmpassword",
+                        "layout|flex": 1,
+                        "name": "confirmpassword"
                     },
                     "name": "MyTextField2",
-                    "designerId": "aeab76c1-32e3-41d6-81c0-b4b0472143f8"
+                    "designerId": "aeab76c1-32e3-41d6-81c0-b4b0472143f8",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "                        if(Ext.getCmp('password').getValue() !== value){",
+                                    "                                    return \"Password not match\";",
+                                    "                                }else{",
+                                    "                                    return true;",
+                                    "                                }"
+                                ]
+                            },
+                            "name": "validator",
+                            "designerId": "fb00b05c-dd95-40c6-802b-68a45225230c"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -83,8 +122,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "First Name",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "name": "firstname"
                     },
                     "name": "MyTextField3",
                     "designerId": "2e2eb8cc-70dc-4999-a4d5-3d65124dc580"
@@ -98,7 +140,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Middle Name",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "name": "middlename"
                     },
                     "name": "MyTextField4",
                     "designerId": "df8889ad-ec2d-4b9e-8fe3-4b6999da8c4d"
@@ -111,8 +155,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Last Name",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "name": "lastname"
                     },
                     "name": "MyTextField5",
                     "designerId": "23b6aa84-3e79-435c-98d0-62384a7eb01e"
@@ -125,8 +172,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Address",
-                        "layout|flex": 1
+                        "itemId": null,
+                        "layout|flex": 1,
+                        "name": "address"
                     },
                     "name": "MyTextArea",
                     "designerId": "e614d0d0-1854-4604-b13f-6b4c9dc4794f"
@@ -139,8 +189,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Contact No.",
-                        "layout|flex": 1
+                        "inputType": "tel",
+                        "layout|flex": 1,
+                        "maskRe": "/^[0-9]*$/",
+                        "name": "contactno"
                     },
                     "name": "MyTextField6",
                     "designerId": "446d1641-c9f5-4110-9125-da2363637d36"
@@ -153,8 +207,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "Email",
-                        "layout|flex": 1
+                        "inputType": "email",
+                        "layout|flex": 1,
+                        "name": "email"
                     },
                     "name": "MyTextField7",
                     "designerId": "8d1ed384-4c0c-4f6b-a6b6-165608e27909"
@@ -183,7 +240,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "boxLabel": "Male",
-                                "fieldLabel": null
+                                "fieldLabel": null,
+                                "inputValue": "Male",
+                                "name": "gender"
                             },
                             "name": "MyRadio",
                             "designerId": "f18b24f7-a641-4a5d-9980-029c00b55066"
@@ -197,7 +256,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "boxLabel": "Female",
-                                "fieldLabel": null
+                                "fieldLabel": null,
+                                "inputValue": "Female",
+                                "name": "gender"
                             },
                             "name": "MyRadio1",
                             "designerId": "a0a8b55f-c3d5-4162-9dc1-8283246d481d"
@@ -228,6 +289,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "registerWindowButton",
                         "layout|flex": null,
                         "text": "Register"
                     },
@@ -242,6 +304,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "cancelRegisterButton",
                         "layout|flex": null,
                         "text": "Cancel"
                     },
@@ -249,6 +312,24 @@
                     "designerId": "8fcd226a-0219-4ba2-8b01-d5b9a24d1202"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowActivate",
+                "implHandler": [
+                    "Ext.getBody().mask();"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onWindowActivate",
+            "designerId": "a2a45624-88f2-4cde-b4b5-5189a48bd9cd"
         }
     ]
 }

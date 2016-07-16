@@ -9,6 +9,7 @@
         "designer|userClassName": "LoginWindow",
         "header": false,
         "height": 250,
+        "itemId": "loginWindow",
         "layout": "fit",
         "title": "My Window",
         "width": 400
@@ -28,6 +29,7 @@
                 "container|align": "stretch",
                 "container|pack": "center",
                 "header": false,
+                "itemId": "loginForm",
                 "layout": "vbox",
                 "title": "My Form"
             },
@@ -43,7 +45,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "User Name",
-                        "layout|flex": null
+                        "layout|flex": null,
+                        "name": "username"
                     },
                     "name": "MyTextField8",
                     "designerId": "b67948ff-9183-4614-8686-9cce69ef1da0"
@@ -57,7 +60,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Password",
-                        "layout|flex": null
+                        "layout|flex": null,
+                        "name": "password"
                     },
                     "name": "MyTextField9",
                     "designerId": "5576c7db-0e6a-4ee8-a2ec-9a8005b0c838"
@@ -85,6 +89,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "loginWindowButton",
                                 "layout|flex": null,
                                 "text": "Login"
                             },
@@ -99,6 +104,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "cancelLoginButton",
                                 "layout|flex": null,
                                 "text": "Cancel"
                             },

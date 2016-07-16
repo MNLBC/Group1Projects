@@ -26,6 +26,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
     ],
 
     height: 501,
+    itemId: 'registerWindow',
     width: 463,
     layout: 'fit',
     header: false,
@@ -38,6 +39,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
             items: [
                 {
                     xtype: 'form',
+                    itemId: 'registerForm',
                     bodyPadding: 10,
                     header: false,
                     title: 'My Form',
@@ -49,47 +51,79 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'User Name'
+                            fieldLabel: 'User Name',
+                            name: 'username',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'Password'
+                            id: 'password',
+                            itemId: '',
+                            fieldLabel: 'Password',
+                            name: 'password',
+                            inputType: 'password',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'textfield',
+                            validator: function(value) {
+                                if(Ext.getCmp('password').getValue() !== value){
+                                    return "Password not match";
+                                }else{
+                                    return true;
+                                }
+                            },
+                            flex: 1,
+                            itemId: 'confirmpassword',
+                            fieldLabel: 'Confirm Password',
+                            name: 'confirmpassword',
+                            inputType: 'password',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'Confirm Password'
+                            fieldLabel: 'First Name',
+                            name: 'firstname',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'First Name'
+                            fieldLabel: 'Middle Name',
+                            name: 'middlename'
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'Middle Name'
-                        },
-                        {
-                            xtype: 'textfield',
-                            flex: 1,
-                            fieldLabel: 'Last Name'
+                            fieldLabel: 'Last Name',
+                            name: 'lastname',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textareafield',
                             flex: 1,
-                            fieldLabel: 'Address'
+                            fieldLabel: 'Address',
+                            name: 'address',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'Contact No.'
+                            fieldLabel: 'Contact No.',
+                            name: 'contactno',
+                            inputType: 'tel',
+                            allowBlank: false,
+                            maskRe: /^[0-9]*$/
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
-                            fieldLabel: 'Email'
+                            fieldLabel: 'Email',
+                            name: 'email',
+                            inputType: 'email',
+                            allowBlank: false
                         },
                         {
                             xtype: 'radiogroup',
@@ -99,11 +133,15 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             items: [
                                 {
                                     xtype: 'radiofield',
-                                    boxLabel: 'Male'
+                                    name: 'gender',
+                                    boxLabel: 'Male',
+                                    inputValue: 'Male'
                                 },
                                 {
                                     xtype: 'radiofield',
-                                    boxLabel: 'Female'
+                                    name: 'gender',
+                                    boxLabel: 'Female',
+                                    inputValue: 'Female'
                                 }
                             ]
                         }
@@ -121,18 +159,30 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                     items: [
                         {
                             xtype: 'button',
+                            id: 'registerWindowButton',
                             text: 'Register'
                         },
                         {
                             xtype: 'button',
+                            id: 'cancelRegisterButton',
                             text: 'Cancel'
                         }
                     ]
                 }
-            ]
+            ],
+            listeners: {
+                activate: {
+                    fn: me.onWindowActivate,
+                    scope: me
+                }
+            }
         });
 
         me.callParent(arguments);
+    },
+
+    onWindowActivate: function(window, eOpts) {
+        Ext.getBody().mask();
     }
 
 });

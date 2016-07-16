@@ -6,14 +6,143 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": null,
+        "designer|userAlias": "userprofile",
         "designer|userClassName": "UserProfile",
+        "header": false,
         "height": 250,
         "id": "UserProfile",
         "itemId": "UserProfile",
-        "title": "My Panel",
+        "title": "My Profile",
         "width": 400
     },
     "name": "MyPanel1",
-    "designerId": "feaacf15-cc23-43de-947d-74cac5110f34"
+    "designerId": "feaacf15-cc23-43de-947d-74cac5110f34",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 54
+            },
+            "name": "MyContainer2",
+            "designerId": "1fc8550d-e506-4158-8cd1-0f0956922ac2"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "username",
+                "fieldLabel": "Username",
+                "inputId": "userName",
+                "value": "Display Field",
+                "width": 404
+            },
+            "name": "MyDisplayField5",
+            "designerId": "1db9119c-9f56-4ac2-8277-30320f38ff5b"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "firstName",
+                "fieldLabel": "First name",
+                "inputId": "firstName",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField6",
+            "designerId": "d6abf0be-009d-427e-9d9c-6abaa78620ec"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "middleName",
+                "fieldLabel": "Middle name:",
+                "inputId": "middleName",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField7",
+            "designerId": "9c926979-ff01-4e3b-8065-a6583043e54b"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "lastName",
+                "fieldLabel": "Last name",
+                "inputId": "lastName",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField8",
+            "designerId": "a66a3fae-ec2b-41bc-a6dd-d76f2441ca88"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "address",
+                "fieldLabel": "Address",
+                "inputId": "address",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField9",
+            "designerId": "d61ccbbb-745f-47c7-b3d8-266f16fa5ba3"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "email",
+                "fieldLabel": "E-mail",
+                "inputId": "email",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField10",
+            "designerId": "ebd84591-78da-41dd-b26a-ae96c55c48b1"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "contactNum",
+                "fieldLabel": "Contact:",
+                "inputId": "userProfileWindow",
+                "value": "Display Field"
+            },
+            "name": "MyDisplayField11",
+            "designerId": "42f6459b-2289-45b1-9285-26b1bde8cadf"
+        }
+    ]
 }

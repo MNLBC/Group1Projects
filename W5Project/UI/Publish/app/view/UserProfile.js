@@ -15,15 +15,74 @@
 
 Ext.define('BurgerQueen.view.UserProfile', {
     extend: 'Ext.panel.Panel',
+    alias: 'widget.userprofile',
+
+    requires: [
+        'Ext.container.Container',
+        'Ext.form.field.Display'
+    ],
 
     height: 250,
     id: 'UserProfile',
     itemId: 'UserProfile',
     width: 400,
-    title: 'My Panel',
+    header: false,
+    title: 'My Profile',
 
     initComponent: function() {
         var me = this;
+
+        Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'container',
+                    height: 54
+                },
+                {
+                    xtype: 'displayfield',
+                    width: 404,
+                    fieldLabel: 'Username',
+                    value: 'Display Field',
+                    inputId: 'userName'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'First name',
+                    value: 'Display Field',
+                    inputId: 'firstName'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Middle name:',
+                    value: 'Display Field',
+                    inputId: 'middleName'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Last name',
+                    value: 'Display Field',
+                    inputId: 'lastName'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Address',
+                    value: 'Display Field',
+                    inputId: 'address'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'E-mail',
+                    value: 'Display Field',
+                    inputId: 'email'
+                },
+                {
+                    xtype: 'displayfield',
+                    fieldLabel: 'Contact:',
+                    value: 'Display Field',
+                    inputId: 'userProfileWindow'
+                }
+            ]
+        });
 
         me.callParent(arguments);
     }
