@@ -23,6 +23,9 @@ public class MealMapper implements RowMapper<Meal> {
 		meal.setCode(rs.getString("Code"));
 		meal.setName(rs.getString("Name"));
 		meal.setDescription(rs.getString("Description"));
+		meal.setCategory(rs.getString("CATEGORY"));
+		meal.setImage(rs.getString("IMAGE"));
+		meal.setPrice(rs.getDouble("PRICE"));
 		return meal;
 	}
 
