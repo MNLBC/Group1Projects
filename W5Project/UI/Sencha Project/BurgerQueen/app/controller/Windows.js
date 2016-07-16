@@ -100,7 +100,7 @@ Ext.define('BurgerQueen.controller.Windows', {
         };
 
 
-
+        var totalItems = 0;
             var index = trayStore.find('Id', productId);
             if(index === -1){
                 trayStore.add(tray);
@@ -108,8 +108,11 @@ Ext.define('BurgerQueen.controller.Windows', {
                 var currentQuantity = trayStore.getAt(index).data.Quantity,
                     replaceQuantity = currentQuantity + productQuantity;
                     trayStore.getAt(index).data.Quantity = replaceQuantity;
-            }
 
+        //         totalItems += replaceQuantity;
+        //      this.getTotalItems().setValue(totalItems);
+            }
+        //     Ext.create('ProductViewWindow').hide();
     },
 
     onCancelCheckoutBtnClick: function() {
@@ -118,28 +121,45 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onRemoveItemBtnClick: function() {
-                         var trayStore = Ext.getStore('TrayStore');
+        var trayStore = Ext.getStore('TrayStore');
 
-                        var trayGrid = this.getTrayGrid(),
-                            selectModel = trayGrid.getSelectionModel(),
-                            selectedProduct = selectModel.getSelection();
+        var trayGrid = this.getTrayGrid(),
+            selectModel = trayGrid.getSelectionModel(),
+            selectedProduct = selectModel.getSelection(),
+            selectedQty = selectedProduct[0].data.Quantity,
+            selectedPrice = selectedProduct[0].data.Price;
+
+        var currentQty = this.getTotalItems().getValue(),
+            currentAmount = this.getTotalAmount().getValue();
+
+        var updatedQty = currentQty - selectedQty,
+            updatedAmount = currentAmount - selectedPrice;
+
         trayStore.remove(selectedProduct);
+        this.getTotalItems().setValue(updatedQty);
+        this.getTotalAmount().setValue(updatedAmount);
+
+
 
     },
 
     onTrayWindowShow: function(component, eOpts) {
-        var trayStore = Ext.getStore('TrayStore');
+            var grid = this.getTrayGrid(),
+                store = grid.getStore(),
+                totalQuantity = 0,
+                totalAmount = 0,
+                records = store.getRange();
 
-        var totalItems = 0,
-            totalAmount = 0;
-        trayStore.each(function(record){
-            var quantity = record.get('Quantity'),
-                total = record.get('Total');
-            totalItems += quantity;
-            totalAmount += total;
-            this.getTotalItems().setValue(totalItems);
+            Ext.each(records,function(record){
+                   totalQuantity += record.data.Quantity;
+                    totalAmount += record.data.Total;
+            });
+
+            console.log(totalQuantity, totalAmount);
+
+            this.getTotalItems().setValue(totalQuantity);
             this.getTotalAmount().setValue(totalAmount);
-        });
+
     },
 
     init: function(application) {

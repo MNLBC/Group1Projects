@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "OrderModel"
+    },
+    "name": "MyModel",
+    "designerId": "847fc6a1-040b-4bb4-ab5c-4fc15225c485",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "orderName"
+            },
+            "name": "MyField12",
+            "designerId": "ff7ff4ec-9b6e-4057-883b-7b23015f4525"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "orderQty"
+            },
+            "name": "MyField13",
+            "designerId": "bead2051-eb8f-4c5a-bce5-ba9023bbb7a3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "orderPrice"
+            },
+            "name": "MyField14",
+            "designerId": "5c5abee2-e4b8-4b5d-847e-31ef4ad8e638"
+        }
+    ]
+}

@@ -28,7 +28,9 @@
         "installStatus": "Not Installed",
         "displayfield-ExtBox1-1167-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-1379-inputEl": "a new version of the framework is available",
-        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1185-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1188-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.1.0",
     "xdsBuild": 1943,
@@ -48,7 +50,8 @@
         ],
         "store": [
             "2583dd27-d23f-434c-aad6-a1f7a440c827",
-            "a50727e3-1fa2-4d09-a572-a06bb7a2095a"
+            "a50727e3-1fa2-4d09-a572-a06bb7a2095a",
+            "f3c3bb46-c3f7-40c6-bdc8-047b2400ac7d"
         ],
         "controller": [
             "f79b1324-e313-43db-b83b-7825ec247cf6",
@@ -56,7 +59,8 @@
         ],
         "model": [
             "2bda7658-2d01-4e94-bd8e-5715a1235be9",
-            "5a0b5ca8-58fc-459d-ba3f-cb978f091d52"
+            "5a0b5ca8-58fc-459d-ba3f-cb978f091d52",
+            "847fc6a1-040b-4bb4-ab5c-4fc15225c485"
         ],
         "resource": [
             "17688caf-6df4-44b2-9bf1-02f77bc4c0f5",

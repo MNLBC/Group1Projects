@@ -151,7 +151,10 @@
                                 "id": "ProductQuantity",
                                 "itemId": "ProductQuantity",
                                 "layout|anchor": "100%",
-                                "minValue": 1
+                                "minValue": 1,
+                                "value": [
+                                    "1"
+                                ]
                             },
                             "name": "MyNumberField",
                             "designerId": "00d1d19c-db3e-4683-94b3-b4cb3dd6ea98"

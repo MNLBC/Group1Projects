@@ -106,6 +106,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     id: 'ProductQuantity',
                                     itemId: 'ProductQuantity',
                                     fieldLabel: 'Quantity',
+                                    value: 1,
                                     minValue: 1
                                 }
                             ],

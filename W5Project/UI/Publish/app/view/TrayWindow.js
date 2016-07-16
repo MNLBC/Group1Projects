@@ -19,6 +19,8 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     requires: [
         'Ext.grid.Panel',
         'Ext.grid.View',
+        'Ext.grid.plugin.CellEditing',
+        'Ext.form.field.Text',
         'Ext.grid.column.Number',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
@@ -68,7 +70,13 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             itemId: 'orderQty',
                             dataIndex: 'Quantity',
                             text: 'Quantity',
-                            flex: 0.5
+                            flex: 0.5,
+                            editor: {
+                                xtype: 'textfield',
+                                id: 'orderQtyField',
+                                itemId: 'orderQtyField',
+                                inputId: 'orderQtyId'
+                            }
                         },
                         {
                             xtype: 'numbercolumn',
@@ -95,15 +103,18 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             itemId: 'total',
                             dataIndex: 'Total',
                             text: 'Total'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            id: 'orderTotal',
-                            itemId: 'orderTotal',
-                            dataIndex: 'Quantity',
-                            text: 'Yung Dating total',
-                            flex: 0.5
                         }
+                    ],
+                    plugins: [
+                        Ext.create('Ext.grid.plugin.CellEditing', {
+                            pluginId: 'cellEdit',
+                            listeners: {
+                                edit: {
+                                    fn: me.onCellEditingEdit,
+                                    scope: me
+                                }
+                            }
+                        })
                     ]
                 },
                 {
@@ -166,6 +177,25 @@ Ext.define('BurgerQueen.view.TrayWindow', {
         });
 
         me.callParent(arguments);
+    },
+
+    onCellEditingEdit: function(editor, e, eOpts) {
+        var grid = Ext.getCmp('trayGrid'),
+            store = grid.getStore(),
+            totalQuantity = 0,
+            totalAmount = 0,
+            records = store.getRange();
+
+        Ext.each(records,function(record){
+            totalQuantity += record.data.Quantity;
+            totalAmount += record.data.Total;
+        });
+
+        console.log(totalQuantity, totalAmount);
+
+        Ext.getCmp('totalItems').setValue(totalQuantity);
+        Ext.getCmp('totalAmount').setValue(totalAmount);
+        console.log('test');
     }
 
 });

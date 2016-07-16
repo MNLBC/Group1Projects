@@ -68,6 +68,54 @@
                     "designerId": "45600e24-bbdb-4d26-86b4-94ba855aa044"
                 },
                 {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": "Ext.grid.plugin.CellEditing",
+                    "userConfig": {
+                        "pluginId": "cellEdit"
+                    },
+                    "name": "MyCellEditingPlugin",
+                    "designerId": "a93cbe6e-7f6c-4044-bbf4-f80779eb4201",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingEdit",
+                                "implHandler": [
+                                    "var grid = Ext.getCmp('trayGrid'),",
+                                    "    store = grid.getStore(),",
+                                    "    totalQuantity = 0,",
+                                    "    totalAmount = 0,",
+                                    "    records = store.getRange();",
+                                    "",
+                                    "Ext.each(records,function(record){",
+                                    "    totalQuantity += record.data.Quantity;",
+                                    "    totalAmount += record.data.Total;",
+                                    "});",
+                                    "",
+                                    "console.log(totalQuantity, totalAmount);",
+                                    "",
+                                    "Ext.getCmp('totalItems').setValue(totalQuantity);",
+                                    "Ext.getCmp('totalAmount').setValue(totalAmount);",
+                                    "console.log('test');"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingEdit",
+                            "designerId": "5c6155a1-b866-449d-8dae-ef59d69f88f5"
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.grid.column.Column",
                     "reference": {
                         "name": "columns",
@@ -82,7 +130,25 @@
                         "text": "Quantity"
                     },
                     "name": "MyColumn4",
-                    "designerId": "51355ccb-98f4-4467-8106-f84ac87c4b0e"
+                    "designerId": "51355ccb-98f4-4467-8106-f84ac87c4b0e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "orderQtyId",
+                                "id": "orderQtyField",
+                                "inputId": "orderQtyId",
+                                "itemId": "orderQtyField"
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "4f4a837d-bdcf-4e13-a27d-d22f792b98f1"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Number",
@@ -151,23 +217,6 @@
                             "designerId": "dcdfd1f5-c732-4b2e-9cf8-479ddd02c407"
                         }
                     ]
-                },
-                {
-                    "type": "Ext.grid.column.Number",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "Quantity",
-                        "flex": 0.5,
-                        "id": "orderTotal",
-                        "itemId": "orderTotal",
-                        "text": "Yung Dating total"
-                    },
-                    "name": "MyNumberColumn1",
-                    "designerId": "1874073b-858d-4522-a059-25553897156a"
                 }
             ]
         },

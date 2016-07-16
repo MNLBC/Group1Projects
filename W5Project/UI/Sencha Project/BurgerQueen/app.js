@@ -22,11 +22,13 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'ProductModel',
-        'TrayModel'
+        'TrayModel',
+        'OrderModel'
     ],
     stores: [
         'ProductStore',
-        'TrayStore'
+        'TrayStore',
+        'OrderStore'
     ],
     views: [
         'MyViewport',

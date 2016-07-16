@@ -12,12 +12,14 @@
         ],
         "models": [
             "ProductModel",
-            "TrayModel"
+            "TrayModel",
+            "OrderModel"
         ],
         "name": "BurgerQueen",
         "stores": [
             "ProductStore",
-            "TrayStore"
+            "TrayStore",
+            "OrderStore"
         ],
         "views": [
             "MyViewport",
