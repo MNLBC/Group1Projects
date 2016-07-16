@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import com.oocl.mnlbc.model.User;
 @Controller
 // @RequestMapping("/login")
 public class LoginController {
+	final static Logger logger = Logger.getLogger(LoginController.class);
 	@Autowired
 	UserDAO userDAO;
 
@@ -55,6 +57,9 @@ public class LoginController {
 
 					context.setAttribute("logged", logged);
 					session.setAttribute("user", user);
+					logger.info("Client" +user.getUsername() +" is successfully logged in.");
+				}else{
+					logger.info("Client" +user.getUsername() +" is blocked.");
 				}
 				return user;
 			}
@@ -77,6 +82,7 @@ public class LoginController {
 		logged.remove(user);
 		context.setAttribute("logged", logged);
 
+		logger.info("Client" +user.getUsername() +" was logged out.");
 		return "logged" + String.valueOf(logged.size());
 	}
 

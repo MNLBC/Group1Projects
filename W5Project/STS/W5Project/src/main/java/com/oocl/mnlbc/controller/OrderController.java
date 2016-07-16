@@ -5,6 +5,7 @@ package com.oocl.mnlbc.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,8 @@ import com.oocl.mnlbc.model.Order;
 @Controller
 @RequestMapping("/order")
 public class OrderController {
+	final static Logger logger = Logger.getLogger(OrderController.class);
+	
 	@Autowired
 	OrderDAO orderDAO;
 
@@ -33,6 +36,7 @@ public class OrderController {
 		for (Order orderItem : orderItems) {
 			buffer.append(orderItem).append("\n");
 		}
+		logger.info("Getting all list of Order");
 		return buffer.toString();
 	}
 	
@@ -44,6 +48,7 @@ public class OrderController {
 		for (Order orderItem : orderItems) {
 			buffer.append(orderItem).append("\n");
 		}
+		logger.info("Getting all order of user by ID");
 		return buffer.toString();
 	}
 
@@ -57,6 +62,7 @@ public class OrderController {
 				orderItem = orderItemL;
 			}
 		}
+		logger.info("Getting all order by ID");
 		return orderItem;
 	}
 }

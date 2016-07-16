@@ -76,7 +76,7 @@ public class UserDAOImpl implements UserDAO {
 				query.append("'" + user.getEmail() + "',");
 				query.append("'" + user.getAddress() + "',");
 				query.append("'" + user.getContact() + "',");
-				query.append(user.isDisabled() ? "0" : "1" + ",");
+				query.append(user.isDisabled() ? "1" : "0" + ",");
 				query.append("'" + user.getType() + "')");
 				jt.update(query.toString());
 

@@ -1,9 +1,13 @@
 package com.oocl.mnlbc.filter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -11,12 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
+import com.oocl.mnlbc.controller.UserController;
 import com.oocl.mnlbc.model.User;
 
 /**
  * Servlet Filter implementation class BlockerFilter
  */
 public class BlockerFilter implements Filter {
+
+	final static Logger logger = Logger.getLogger(BlockerFilter.class);
 
 	/**
 	 * Default constructor.
@@ -48,7 +57,15 @@ public class BlockerFilter implements Filter {
 		} else {
 			// Blocking User with the name Johns or Scott
 			if (user.getFirstname().equalsIgnoreCase("Johns") || user.getFirstname().equalsIgnoreCase("Scott")) {
+				
+				ServletContext context = session.getServletContext();
+				List<User> logged = (List<User>) context.getAttribute("logged");
+				if (logged == null) {
+					logged = new ArrayList<User>();
+				}
+				logged.remove(user);
 				session.invalidate();
+				logger.info("User " + user + " is blocked.");
 				res.sendRedirect(req.getContextPath() + "/");
 			} else {
 				chain.doFilter(request, response);

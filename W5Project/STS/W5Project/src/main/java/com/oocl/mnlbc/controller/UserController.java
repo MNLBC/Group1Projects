@@ -23,7 +23,7 @@ import com.oocl.mnlbc.model.User;
 @RequestMapping("/user")
 public class UserController {
 
-//	final static Logger logger = Logger.getLogger(UserController.class);
+	final static Logger logger = Logger.getLogger(UserController.class);
 	
 	@Autowired
 	UserDAO userDAO;
@@ -64,8 +64,10 @@ public class UserController {
 
 		switch (isUsernameEmailExist(user.getUsername(), user.getEmail())) {
 		case 1:
+			logger.info("Client try to register Username: " + username + " is already in used.");
 			return "username";
 		case 2:
+			logger.info("Client try to register Email: " + email + " is already in used.");
 			return "email";
 		default:
 			userDAO.addUser(user);
@@ -83,6 +85,7 @@ public class UserController {
 				user = userL;
 			}
 		}
+		logger.info("Client search for ID: " + id );
 		return user;
 	}
 
@@ -97,7 +100,7 @@ public class UserController {
 			}
 		}
 		
-//		logger.info("Username: " + username + " information: " + user);
+		logger.info("Client search for Username: " + username);
 		return user;
 	}
 
