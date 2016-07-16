@@ -22,7 +22,8 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
         'Ext.form.field.Display',
         'Ext.form.field.Number',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Hidden'
     ],
 
     height: 405,
@@ -132,6 +133,13 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            xtype: 'hiddenfield',
+                            flex: 1,
+                            id: 'productId',
+                            itemId: 'productId',
+                            fieldLabel: 'Label'
                         }
                     ]
                 }

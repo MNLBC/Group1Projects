@@ -205,6 +205,22 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "productId",
+                        "itemId": "productId",
+                        "layout|flex": 1
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "02be5f15-d54b-4736-8817-6024689aac89"
                 }
             ]
         }

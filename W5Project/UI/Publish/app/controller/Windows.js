@@ -56,21 +56,26 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'totalAmount',
             selector: '#totalAmount'
+        },
+        {
+            ref: 'productId',
+            selector: '#productId'
         }
     ],
 
     onProductViewActivate: function(window, eOpts) {
-            var data = window.selectedProduct,
-                img = this.getProductImage(),
-                productName = this.getProductName(),
-                productDescription = this.getProductDescription(),
-                productPrice = this.getProductPrice();
+        var data = window.selectedProduct,
+            img = this.getProductImage(),
+            productName = this.getProductName(),
+            productDescription = this.getProductDescription(),
+            productPrice = this.getProductPrice(),
+            productId = this.getProductId();
 
-                img.setSrc(data.Image);
-                productName.setValue(data.Name);
-                productDescription.setValue(data.Description);
-                productPrice.setValue(data.Price);
-
+        img.setSrc(data.Image);
+        productName.setValue(data.Name);
+        productDescription.setValue(data.Description);
+        productPrice.setValue(data.Price);
+        productId.setValue(data.Id);
     },
 
     onCancelCartButtonClick: function() {
@@ -83,9 +88,11 @@ Ext.define('BurgerQueen.controller.Windows', {
         var trayStore = Ext.getStore('TrayStore'),
             productName = this.getProductName().getValue(),
             productQuantity = this.getProductQuantity().getValue(),
-            productPrice = this.getProductPrice().getValue();
+            productPrice = this.getProductPrice().getValue(),
+            productId= this.getProductId().getValue();
 
         var tray = {
+            Id: productId,
             Name: productName,
             Quantity: productQuantity,
             Price: productPrice,
@@ -93,7 +100,15 @@ Ext.define('BurgerQueen.controller.Windows', {
         };
 
 
-        trayStore.add(tray);
+
+            var index = trayStore.find('Id', productId);
+            if(index === -1){
+                trayStore.add(tray);
+            }else{
+                var currentQuantity = trayStore.getAt(index).data.Quantity,
+                    replaceQuantity = currentQuantity + productQuantity;
+                    trayStore.getAt(index).data.Quantity = replaceQuantity;
+            }
 
     },
 
@@ -117,15 +132,14 @@ Ext.define('BurgerQueen.controller.Windows', {
 
         var totalItems = 0,
             totalAmount = 0;
-        trayStore.findBy(function(record){
-                var id = record.get('Id'),
-                    total = record.get('Total');
-                   totalItems += quantity;
-                    totalAmount += total;
-
-        this.getTotalItems().setValue(totalItems);
-        this.getTotalAmount().setValue(totalAmount);
-         });
+        trayStore.each(function(record){
+            var quantity = record.get('Quantity'),
+                total = record.get('Total');
+            totalItems += quantity;
+            totalAmount += total;
+            this.getTotalItems().setValue(totalItems);
+            this.getTotalAmount().setValue(totalAmount);
+        });
     },
 
     init: function(application) {

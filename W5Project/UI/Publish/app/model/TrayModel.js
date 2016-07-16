@@ -20,11 +20,11 @@ Ext.define('BurgerQueen.model.TrayModel', {
         'Ext.data.Field'
     ],
 
-    idProperty: 'ProductId',
+    idProperty: 'Id',
 
     fields: [
         {
-            name: 'id',
+            name: 'Id',
             type: 'int'
         },
         {

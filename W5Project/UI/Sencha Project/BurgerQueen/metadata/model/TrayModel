@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "TrayModel",
-        "idProperty": "ProductId"
+        "idProperty": "Id"
     },
     "name": "MyModel",
     "designerId": "5a0b5ca8-58fc-459d-ba3f-cb978f091d52",
@@ -20,7 +20,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "id",
+                "name": "Id",
                 "type": "int"
             },
             "name": "MyField10",

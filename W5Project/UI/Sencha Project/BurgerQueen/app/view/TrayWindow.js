@@ -79,11 +79,29 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             flex: 0.5
                         },
                         {
+                            xtype: 'gridcolumn',
+                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                var price = record.data.Price,
+                                    quantity = record.data.Quantity,
+                                    trayStore = Ext.getStore('TrayStore'),
+                                    idEdit = record.data.Id;
+                                record = trayStore.getById(idEdit);
+                                var newTotal = price * quantity;
+                                record.set('Total', newTotal);
+                                return newTotal;
+
+                            },
+                            id: 'total',
+                            itemId: 'total',
+                            dataIndex: 'Total',
+                            text: 'Total'
+                        },
+                        {
                             xtype: 'numbercolumn',
                             id: 'orderTotal',
                             itemId: 'orderTotal',
-                            dataIndex: 'Total',
-                            text: 'Total',
+                            dataIndex: 'Quantity',
+                            text: 'Yung Dating total',
                             flex: 0.5
                         }
                     ]

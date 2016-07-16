@@ -15,7 +15,7 @@
             }
         },
         "urlPrefix": "http://localhost/BurgerQueen/",
-        "exportPath": "D:/Group1Projects/W5Project/UI/Publish",
+        "exportPath": "D:/My Documents/BurgerQueenProject/BurgerQueenPublish",
         "spacesToIndent": 4,
         "sdkPath": "",
         "lineEnding": "CRLF",
@@ -27,7 +27,8 @@
         "lockUrlPrefix": true,
         "installStatus": "Not Installed",
         "displayfield-ExtBox1-1167-inputEl": "a new version of the framework is available",
-        "displayfield-ExtBox1-1379-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1379-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.1.0",
     "xdsBuild": 1943,

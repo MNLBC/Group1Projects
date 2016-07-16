@@ -102,7 +102,7 @@
                     "designerId": "d8e563ad-b0d9-4d21-9dd4-c0258b705246"
                 },
                 {
-                    "type": "Ext.grid.column.Number",
+                    "type": "Ext.grid.column.Column",
                     "reference": {
                         "name": "columns",
                         "type": "array"
@@ -110,10 +110,61 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "Total",
+                        "id": "total",
+                        "itemId": "total",
+                        "text": "Total"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "debaf207-cd88-41c0-9060-aa1cceba33d8",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "                           var price = record.data.Price,",
+                                    "                            quantity = record.data.Quantity,",
+                                    "                           trayStore = Ext.getStore('TrayStore'),",
+                                    "                            idEdit = record.data.Id;",
+                                    "                            record = trayStore.getById(idEdit);",
+                                    "                            var newTotal = price * quantity;",
+                                    "                            record.set('Total', newTotal);",
+                                    "                            return newTotal;",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "dcdfd1f5-c732-4b2e-9cf8-479ddd02c407"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Quantity",
                         "flex": 0.5,
                         "id": "orderTotal",
                         "itemId": "orderTotal",
-                        "text": "Total"
+                        "text": "Yung Dating total"
                     },
                     "name": "MyNumberColumn1",
                     "designerId": "1874073b-858d-4522-a059-25553897156a"
