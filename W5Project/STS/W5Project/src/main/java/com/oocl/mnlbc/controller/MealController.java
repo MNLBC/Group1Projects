@@ -27,13 +27,9 @@ public class MealController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllMeals" })
-	public String getAllMeals() {
+	public List<Meal>  getAllMeals() {
 		List<Meal> meals = mealDAO.getAllMeals();
-		StringBuffer buffer = new StringBuffer();
-		for (Meal meal : meals) {
-			buffer.append(meal.getName());
-		}
-		return buffer.toString();
+		return meals;
 	}
 
 	@RequestMapping(value = "/mealId/{id}", method = RequestMethod.GET)
