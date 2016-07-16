@@ -192,7 +192,27 @@
                     "productName.setValue(data.Name);",
                     "productDescription.setValue(data.Description);",
                     "productPrice.setValue(data.Price);",
-                    "productId.setValue(data.Id);"
+                    "productId.setValue(data.Id);",
+                    "",
+                    "Ext.Ajax.request({",
+                    "                url : 'hasLogged',",
+                    "                params : {",
+                    "",
+                    "                },",
+                    "                scope : this,",
+                    "                success : function(response) {",
+                    "                    ",
+                    "                    if(response.responseText === 'false'){",
+                    "                        this.getProductQuantity().hide();",
+                    "                        this.getAddCartButton().hide();",
+                    "                    }else{",
+                    "                        this.getProductQuantity().show();",
+                    "                        this.getAddCartButton().show();",
+                    "                    }",
+                    "                }",
+                    "});",
+                    "",
+                    ""
                 ],
                 "name": "activate",
                 "scope": "me"
@@ -769,6 +789,64 @@
             },
             "name": "myProfileButton",
             "designerId": "d07b0a5f-dd3d-4a18-a12c-9a61da9405e0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addCartButton",
+                "selector": "#AddCartButton"
+            },
+            "name": "addCartButton",
+            "designerId": "d1c7af5f-0c79-425f-943f-378cfbd4abe2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#checkoutBtn",
+                "designer|targetType": "MyButton14",
+                "fn": "onCheckoutBtnClick",
+                "implHandler": [
+                    "var store = Ext.getStore('TrayStore');",
+                    "",
+                    "var orderItems = [];",
+                    "store.each(function(record){",
+                    "    var recordId = record.data.Id,",
+                    "        recordQuantity = record.data.Quantity;",
+                    "",
+                    "    var orderItem = {",
+                    "        mealId: recordId,",
+                    "        quantity:recordQuantity,",
+                    "    };",
+                    "    orderItems.push(orderItem);",
+                    "});",
+                    "",
+                    "           Ext.Ajax.request({",
+                    "                     url : '',",
+                    "                     params : {",
+                    "                         orderItems:orderItems",
+                    "                     },",
+                    "                     scope : this,",
+                    "                    success : function(response) {",
+                    "                        console.log('ok na');",
+                    "                    }",
+                    "});",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCheckoutBtnClick",
+            "designerId": "ac81b750-9987-4c6b-828c-b7ac7ae83b04"
         }
     ]
 }

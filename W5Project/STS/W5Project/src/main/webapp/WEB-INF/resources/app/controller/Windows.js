@@ -122,6 +122,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'myProfileButton',
             selector: '#myProfileButton'
+        },
+        {
+            ref: 'addCartButton',
+            selector: '#AddCartButton'
         }
     ],
 
@@ -138,6 +142,26 @@ Ext.define('BurgerQueen.controller.Windows', {
         productDescription.setValue(data.Description);
         productPrice.setValue(data.Price);
         productId.setValue(data.Id);
+
+        Ext.Ajax.request({
+                        url : 'hasLogged',
+                        params : {
+
+                        },
+                        scope : this,
+                        success : function(response) {
+
+                            if(response.responseText === 'false'){
+                                this.getProductQuantity().hide();
+                                this.getAddCartButton().hide();
+                            }else{
+                                this.getProductQuantity().show();
+                                this.getAddCartButton().show();
+                            }
+                        }
+        });
+
+
     },
 
     onAddCartButtonClick: function() {
@@ -316,6 +340,34 @@ Ext.define('BurgerQueen.controller.Windows', {
          this.getProductViewWindow().destroy();
     },
 
+    onCheckoutBtnClick: function() {
+        var store = Ext.getStore('TrayStore');
+
+        var orderItems = [];
+        store.each(function(record){
+            var recordId = record.data.Id,
+                recordQuantity = record.data.Quantity;
+
+            var orderItem = {
+                mealId: recordId,
+                quantity:recordQuantity,
+            };
+            orderItems.push(orderItem);
+        });
+
+                   Ext.Ajax.request({
+                             url : '',
+                             params : {
+                                 orderItems:orderItems
+                             },
+                             scope : this,
+                            success : function(response) {
+                                console.log('ok na');
+                            }
+        });
+
+    },
+
     showLoadingMessageMask: function() {
                             if (!this.oLoadingMessageMask) {
                                this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
@@ -363,6 +415,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#productViewClose": {
                 click: this.onProductViewCloseClick
+            },
+            "#checkoutBtn": {
+                click: this.onCheckoutBtnClick
             }
         });
     }
