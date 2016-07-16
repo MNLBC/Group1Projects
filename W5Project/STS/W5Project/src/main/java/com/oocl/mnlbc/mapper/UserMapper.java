@@ -19,6 +19,10 @@ public class UserMapper implements RowMapper<User> {
 		user.setUsername(rs.getString("username"));
 		user.setPassword(rs.getString("password"));
 		user.setEmail(rs.getString("EMAIL"));
+		user.setContact(rs.getString("CONTACTS"));
+		user.setType(rs.getString("TYPE"));
+		user.setGender(rs.getString("GENDER"));
+		user.setAddress(rs.getString("ADDRESS"));
 		if (rs.getInt("IS_DISABLED") == 1) {
 			user.setDisabled(true);
 		} else {

@@ -30,13 +30,9 @@ public class UserController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllUsers" })
-	public String login() {
+	public List<User> getAllUsers() {
 		List<User> users = userDAO.getAllUsers();
-		StringBuffer buffer = new StringBuffer();
-		for (User user : users) {
-			buffer.append(user.getFirstname());
-		}
-		return buffer.toString();
+		return users;
 	}
 
 	@ResponseBody
