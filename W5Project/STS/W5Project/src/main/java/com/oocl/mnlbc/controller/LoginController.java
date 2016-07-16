@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.UserDAO;
+import com.oocl.mnlbc.model.Order;
+import com.oocl.mnlbc.model.OrderItems;
 import com.oocl.mnlbc.model.User;
 
 @Controller
@@ -57,9 +59,9 @@ public class LoginController {
 
 					context.setAttribute("logged", logged);
 					session.setAttribute("user", user);
-					logger.info("Client" +user.getUsername() +" is successfully logged in.");
-				}else{
-					logger.info("Client" +user.getUsername() +" is blocked.");
+					logger.info("Client" + user.getUsername() + " is successfully logged in.");
+				} else {
+					logger.info("Client" + user.getUsername() + " is blocked.");
 				}
 				return user;
 			}
@@ -82,7 +84,7 @@ public class LoginController {
 		logged.remove(user);
 		context.setAttribute("logged", logged);
 
-		logger.info("Client" +user.getUsername() +" was logged out.");
+		logger.info("Client" + user.getUsername() + " was logged out.");
 		return "logged" + String.valueOf(logged.size());
 	}
 

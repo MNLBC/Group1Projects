@@ -3,7 +3,10 @@
  */
 package com.oocl.mnlbc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderItemsDAO;
@@ -29,16 +33,12 @@ public class OrderItemController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrderItems" })
-	public String getAllOrderItems() {
+	public List<OrderItems> getAllOrderItems() {
 		List<OrderItems> orderItems = orderItemDAO.getAllOrderItems();
-		StringBuffer buffer = new StringBuffer();
-		for (OrderItems orderItem : orderItems) {
-			buffer.append(orderItem).append("\n");
-		}
 		logger.info("Getting all order items");
-		return buffer.toString();
+		return orderItems;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrderItems/{orderId}" })
 	public String getAllOrderItemsByOrderID(@PathVariable("orderId") int orderId) {
@@ -65,16 +65,15 @@ public class OrderItemController {
 		return orderItem;
 	}
 
-//	@RequestMapping(value = "/orderItem/", method = RequestMethod.GET)
-//	@ResponseBody
-//	public OrderItems addOrderItem(@PathVariable("code") String code) {
-////		List<OrderItems> orderItems = orderItemDAO.getAllOrderItems();
-////		OrderItems orderItem = null;
-////		for (OrderItems orderItemL : orderItems) {
-////			if (orderItemL.getCode().equals(code)) {
-////				orderItem = orderItemL;
-////			}
-////		}
-//		return null;
-//	}
+	@RequestMapping(value = { "/orderItem" }, method = RequestMethod.POST)
+	@ResponseBody
+	public List<OrderItems> addOrderItem(@RequestParam(required = true) List<OrderItems> orderItems, HttpSession session) {
+
+		// for (OrderItems orderItem : orderItems) {
+		// if (orderItemL.getCode().equals(code)) {
+		// orderItem = orderItemL;
+		// }
+		// }
+		return orderItems;
+	}
 }
