@@ -13,6 +13,7 @@
         "id": "TrayWindow",
         "itemId": "TrayWindow",
         "layout": "vbox",
+        "modal": true,
         "title": "",
         "width": 619
     },

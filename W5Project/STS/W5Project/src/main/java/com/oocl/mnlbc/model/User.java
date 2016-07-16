@@ -1,5 +1,7 @@
 package com.oocl.mnlbc.model;
 
+import javax.validation.constraints.Size;
+
 /**
  * 
  * Model Class. Used as backbone/pattern for the user attributes (based on the
@@ -14,6 +16,8 @@ package com.oocl.mnlbc.model;
 public class User {
 
 	private int id;
+	
+	@Size(min=2, max=5)
 	private String firstname;
 	private String lastname;
 	private String middlename;

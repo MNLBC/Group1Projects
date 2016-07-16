@@ -33,6 +33,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     width: 619,
     header: false,
     title: '',
+    modal: true,
 
     layout: {
         type: 'vbox',

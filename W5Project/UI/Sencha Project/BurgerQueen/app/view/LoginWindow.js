@@ -29,6 +29,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
     layout: 'fit',
     header: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -55,7 +56,8 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'Password',
-                            name: 'password'
+                            name: 'password',
+                            inputType: 'password'
                         },
                         {
                             xtype: 'toolbar',

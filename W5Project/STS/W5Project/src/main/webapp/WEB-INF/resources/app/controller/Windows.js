@@ -16,6 +16,12 @@
 Ext.define('BurgerQueen.controller.Windows', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        GlobalUtil: 'com.oocl.mnlbc.GlobalMessage'
+    },
+
+    oLoadingMessageMask: null,
+
     refs: [
         {
             ref: 'productName',
@@ -62,12 +68,60 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#productId'
         },
         {
+            ref: 'registerForm',
+            selector: '#registerForm'
+        },
+        {
             ref: 'loginForm',
             selector: '#loginForm'
         },
         {
-            ref: 'registerForm',
-            selector: '#registerForm'
+            ref: 'registerWindow',
+            selector: '#registerWindow'
+        },
+        {
+            ref: 'loginWindow',
+            selector: '#loginWindow'
+        },
+        {
+            ref: 'beveragesButton',
+            selector: '#beveragesButton'
+        },
+        {
+            ref: 'burgersButton',
+            selector: '#burgersButton'
+        },
+        {
+            ref: 'chickensButton',
+            selector: '#chickensButton'
+        },
+        {
+            ref: 'dessertsButton',
+            selector: '#dessertsButton'
+        },
+        {
+            ref: 'sidesButton',
+            selector: '#sidesButton'
+        },
+        {
+            ref: 'loginButton',
+            selector: '#loginButton'
+        },
+        {
+            ref: 'logoutButton',
+            selector: '#logoutButton'
+        },
+        {
+            ref: 'registerButton',
+            selector: '#registerButton'
+        },
+        {
+            ref: 'trayButton',
+            selector: '#trayButton'
+        },
+        {
+            ref: 'myProfileButton',
+            selector: '#myProfileButton'
         }
     ],
 
@@ -84,11 +138,6 @@ Ext.define('BurgerQueen.controller.Windows', {
         productDescription.setValue(data.Description);
         productPrice.setValue(data.Price);
         productId.setValue(data.Id);
-    },
-
-    onCancelCartButtonClick: function() {
-                this.getProductViewWindow().destroy();
-                Ext.getBody().unmask();
     },
 
     onAddCartButtonClick: function() {
@@ -108,7 +157,7 @@ Ext.define('BurgerQueen.controller.Windows', {
         };
 
 
-
+        var totalItems = 0;
             var index = trayStore.find('Id', productId);
             if(index === -1){
                 trayStore.add(tray);
@@ -116,42 +165,109 @@ Ext.define('BurgerQueen.controller.Windows', {
                 var currentQuantity = trayStore.getAt(index).data.Quantity,
                     replaceQuantity = currentQuantity + productQuantity;
                     trayStore.getAt(index).data.Quantity = replaceQuantity;
-            }
 
+        //         totalItems += replaceQuantity;
+        //      this.getTotalItems().setValue(totalItems);
+            }
+        //     Ext.create('ProductViewWindow').hide();
+        Ext.Msg.alert('Status', this.added_to_cart);
+        console.log(this.invalid_login);
+        this.getProductViewWindow().destroy();
     },
 
     onCancelCheckoutBtnClick: function() {
         this.getTrayWindow().destroy();
-        Ext.getBody().unmask();
     },
 
     onRemoveItemBtnClick: function() {
-                         var trayStore = Ext.getStore('TrayStore');
+        var trayStore = Ext.getStore('TrayStore');
 
-                        var trayGrid = this.getTrayGrid(),
-                            selectModel = trayGrid.getSelectionModel(),
-                            selectedProduct = selectModel.getSelection();
+        var trayGrid = this.getTrayGrid(),
+            selectModel = trayGrid.getSelectionModel(),
+            selectedProduct = selectModel.getSelection(),
+            selectedQty = selectedProduct[0].data.Quantity,
+            selectedPrice = selectedProduct[0].data.Price;
+
+        var currentQty = this.getTotalItems().getValue(),
+            currentAmount = this.getTotalAmount().getValue();
+
+        var updatedQty = currentQty - selectedQty,
+            updatedAmount = currentAmount - selectedPrice;
+
         trayStore.remove(selectedProduct);
+        this.getTotalItems().setValue(updatedQty);
+        this.getTotalAmount().setValue(updatedAmount);
+
+
 
     },
 
     onTrayWindowShow: function(component, eOpts) {
-        var trayStore = Ext.getStore('TrayStore');
+            var grid = this.getTrayGrid(),
+                store = grid.getStore(),
+                totalQuantity = 0,
+                totalAmount = 0,
+                records = store.getRange();
 
-        var totalItems = 0,
-            totalAmount = 0;
-        trayStore.each(function(record){
-            var quantity = record.get('Quantity'),
-                total = record.get('Total');
-            totalItems += quantity;
-            totalAmount += total;
-            this.getTotalItems().setValue(totalItems);
+            Ext.each(records,function(record){
+                   totalQuantity += record.data.Quantity;
+                    totalAmount += record.data.Total;
+            });
+
+            console.log(totalQuantity, totalAmount);
+
+            this.getTotalItems().setValue(totalQuantity);
             this.getTotalAmount().setValue(totalAmount);
-        });
+
+    },
+
+    onRegisterWindowButtonClick: function() {
+        var form = this.getRegisterForm(),
+            username = form.getValues().username,
+            password = form.getValues().password,
+            firstname = form.getValues().firstname,
+            middlename = form.getValues().middlename,
+            lastname = form.getValues().lastname,
+            address = form.getValues().address,
+            contactno = form.getValues().contactno,
+            email = form.getValues().email,
+            gender = form.getValues().gender;
+        if(form.isValid()){
+            Ext.Ajax.request({
+                url : 'user/addUser',
+                params : {
+                    'username':username,
+                    'password':password,
+                    'firstname':firstname,
+                    'middlename':middlename,
+                    'lastname':lastname,
+                    'address':address,
+                    'contactno':contactno,
+                    'email':email,
+                    'gender':gender
+                },
+                scope : this,
+                success : function(response) {
+                    var data = response.responseText;
+                    if(data ==='success'){
+                        Ext.MessageBox.alert('Sucess', this.success_registration);
+                        this.getRegisterWindow().destroy();
+                    }
+                    if(data === 'username'){
+                        Ext.MessageBox.alert('Error', this.existing_username);
+                    }
+                    if(data === 'email'){
+                        Ext.MessageBox.alert('Error', this.existing_email);
+                    }
+                }
+            });
+        }else{
+            Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');
+        }
     },
 
     onLoginWindowButtonClick: function() {
-                        var form = this.getLoginForm(),
+                var form = this.getLoginForm(),
                             username = form.getValues().username,
                             password = form.getValues().password;
 
@@ -164,53 +280,62 @@ Ext.define('BurgerQueen.controller.Windows', {
                              },
                              scope : this,
                              success : function(response) {
-                                 close();
+                                 var data = response.responseText;
+                                 if(!Ext.isEmpty(data)){
+                                     var decodedData = Ext.decode(data);
+                                     if(decodedData.disabled){
+                                         Ext.MessageBox.alert('Error','Blocked');
+                                     }else{
+                                         Ext.MessageBox.alert('Success','Welcome!');
+                                         this.getLoginButton().hide();
+                                         this.getLogoutButton().show();
+                                         this.getRegisterButton().hide();
+                                         this.getMyProfileButton().show();
+                                         this.getTrayButton().show();
+                                         this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
+
+                                     }
+                                 }else{
+                                     Ext.MessageBox.alert('Error','Invalid Username/Password');
+                                 }
+                                 this.getLoginWindow().destroy();
                              }
                         });
                     }
     },
 
-    onRegisterButtonClick: function() {
-                var form = this.getRegisterForm(),
-                username = form.getValues().username,
-                    password = form.getValues().password,
-                    firstname = form.getValues().firstname,
-                    middlename = form.getValues().middlename,
-                    lastname = form.getValues().lastname,
-                    address = form.getValues().address,
-                    contactno = form.getValues().contactno,
-                    email = form.getValues().email,
-                    gender = form.getValues().gender;
-                console.log(form);
-                if(form.isValid()){
-                     Ext.Ajax.request({
-                             url : 'user/addUser',
-                             params : {
-                                 'username':username,
-                                 'password':password,
-                                 'firstname':firstname,
-                                 'middlename':middlename,
-                                 'lastname':lastname,
-                                 'address':address,
-                                 'contactno':contactno,
-                                 'email':email,
-                                 'gender':gender
-                             },
-                             scope : this,
-                             success : function(response) {
-                                 close();
-                             }
-                        });
-                }
+    onCancelRegisterButtonClick: function() {
+                this.getRegisterWindow().destroy();
+    },
+
+    onCancelLoginButtonClick: function() {
+                this.getLoginWindow().destroy();
+    },
+
+    onProductViewCloseClick: function() {
+         this.getProductViewWindow().destroy();
+    },
+
+    showLoadingMessageMask: function() {
+                            if (!this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
+                                  msg : "Loading, please wait..."
+                               });
+                            }
+                            this.oLoadingMessageMask.show();
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
     },
 
     init: function(application) {
         this.control({
             "#ProductView": {
                 activate: this.onProductViewActivate
-            },
-            "#CancelCartButton": {
-                click: this.onCancelCartButtonClick
             },
             "#AddCartButton": {
                 click: this.onAddCartButtonClick
@@ -224,11 +349,20 @@ Ext.define('BurgerQueen.controller.Windows', {
             "#TrayWindow": {
                 show: this.onTrayWindowShow
             },
+            "#registerWindowButton": {
+                click: this.onRegisterWindowButtonClick
+            },
             "#loginWindowButton": {
                 click: this.onLoginWindowButtonClick
             },
-            "#registerButton": {
-                click: this.onRegisterButtonClick
+            "#cancelRegisterButton": {
+                click: this.onCancelRegisterButtonClick
+            },
+            "#cancelLoginButton": {
+                click: this.onCancelLoginButtonClick
+            },
+            "#productViewClose": {
+                click: this.onProductViewCloseClick
             }
         });
     }

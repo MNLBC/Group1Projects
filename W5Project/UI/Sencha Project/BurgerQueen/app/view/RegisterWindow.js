@@ -31,6 +31,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
     layout: 'fit',
     header: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -52,6 +53,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'User Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'username',
                             allowBlank: false
                         },
@@ -61,6 +63,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             id: 'password',
                             itemId: '',
                             fieldLabel: 'Password',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'password',
                             inputType: 'password',
                             allowBlank: false
@@ -69,14 +72,17 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             validator: function(value) {
                                 if(Ext.getCmp('password').getValue() !== value){
-                                    return "Password not match";
+                                    Ext.getCmp('confirmpassword').markInvalid('Password does not match');
+                                    return "Password does not match";
                                 }else{
                                     return true;
                                 }
                             },
                             flex: 1,
+                            id: 'confirmpassword',
                             itemId: 'confirmpassword',
                             fieldLabel: 'Confirm Password',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'confirmpassword',
                             inputType: 'password',
                             allowBlank: false
@@ -85,6 +91,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'First Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'firstname',
                             allowBlank: false
                         },
@@ -98,6 +105,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Last Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'lastname',
                             allowBlank: false
                         },
@@ -105,6 +113,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textareafield',
                             flex: 1,
                             fieldLabel: 'Address',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'address',
                             allowBlank: false
                         },
@@ -112,6 +121,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Contact No.',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'contactno',
                             inputType: 'tel',
                             allowBlank: false,
@@ -121,9 +131,11 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Email',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'email',
-                            inputType: 'email',
-                            allowBlank: false
+                            invalidText: 'Email is invalid',
+                            allowBlank: false,
+                            regex: /^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}/
                         },
                         {
                             xtype: 'radiogroup',
@@ -135,6 +147,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                                     xtype: 'radiofield',
                                     name: 'gender',
                                     boxLabel: 'Male',
+                                    checked: true,
                                     inputValue: 'Male'
                                 },
                                 {
@@ -169,20 +182,10 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                         }
                     ]
                 }
-            ],
-            listeners: {
-                activate: {
-                    fn: me.onWindowActivate,
-                    scope: me
-                }
-            }
+            ]
         });
 
         me.callParent(arguments);
-    },
-
-    onWindowActivate: function(window, eOpts) {
-        Ext.getBody().mask();
     }
 
 });

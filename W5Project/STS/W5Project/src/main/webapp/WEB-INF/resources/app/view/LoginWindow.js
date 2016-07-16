@@ -24,10 +24,12 @@ Ext.define('BurgerQueen.view.LoginWindow', {
     ],
 
     height: 250,
+    itemId: 'loginWindow',
     width: 400,
     layout: 'fit',
     header: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -49,16 +51,13 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'User Name',
-                            name: 'username',
-                            allowBlank: false,
-                            allowOnlyWhitespace: false
+                            name: 'username'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'Password',
                             name: 'password',
-                            allowBlank: false,
-                            allowOnlyWhitespace: false
+                            inputType: 'password'
                         },
                         {
                             xtype: 'toolbar',
@@ -69,11 +68,12 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    itemId: 'loginWindowButton',
+                                    id: 'loginWindowButton',
                                     text: 'Login'
                                 },
                                 {
                                     xtype: 'button',
+                                    id: 'cancelLoginButton',
                                     text: 'Cancel'
                                 }
                             ]

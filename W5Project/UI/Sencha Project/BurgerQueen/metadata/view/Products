@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoScroll": true,
         "bodyPadding": null,
         "designer|userAlias": "Products",
         "designer|userClassName": "Products",
@@ -26,6 +27,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": null,
                 "columnLines": false,
                 "designer|uiInterfaceName": "menubarbtn",
                 "header": false,

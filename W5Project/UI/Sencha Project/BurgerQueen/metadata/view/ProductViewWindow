@@ -15,6 +15,7 @@
         "layout": "fit",
         "manageHeight": false,
         "maxHeight": null,
+        "modal": true,
         "title": "My Window",
         "width": 665
     },
@@ -197,8 +198,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "CancelCartButton",
-                                        "itemId": "CancelCartButton",
+                                        "id": "productViewClose",
+                                        "itemId": "productViewClose",
                                         "layout|flex": null,
                                         "text": "Cancel"
                                     },

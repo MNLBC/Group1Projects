@@ -26,10 +26,12 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
     ],
 
     height: 501,
+    itemId: 'registerWindow',
     width: 463,
     layout: 'fit',
     header: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -51,27 +53,45 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'User Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'username',
                             allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
+                            id: 'password',
+                            itemId: '',
                             fieldLabel: 'Password',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'password',
+                            inputType: 'password',
                             allowBlank: false
                         },
                         {
                             xtype: 'textfield',
+                            validator: function(value) {
+                                if(Ext.getCmp('password').getValue() !== value){
+                                    Ext.getCmp('confirmpassword').markInvalid('Password does not match');
+                                    return "Password does not match";
+                                }else{
+                                    return true;
+                                }
+                            },
                             flex: 1,
+                            id: 'confirmpassword',
+                            itemId: 'confirmpassword',
                             fieldLabel: 'Confirm Password',
-                            name: 'confirmPassword',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            name: 'confirmpassword',
+                            inputType: 'password',
                             allowBlank: false
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'First Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'firstname',
                             allowBlank: false
                         },
@@ -85,6 +105,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Last Name',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'lastname',
                             allowBlank: false
                         },
@@ -92,6 +113,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textareafield',
                             flex: 1,
                             fieldLabel: 'Address',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'address',
                             allowBlank: false
                         },
@@ -99,28 +121,33 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Contact No.',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'contactno',
-                            allowBlank: false
+                            inputType: 'tel',
+                            allowBlank: false,
+                            maskRe: /^[0-9]*$/
                         },
                         {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Email',
+                            labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                             name: 'email',
-                            allowBlank: false
+                            invalidText: 'Email is invalid',
+                            allowBlank: false,
+                            regex: /^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}/
                         },
                         {
                             xtype: 'radiogroup',
                             flex: 1,
-                            itemId: 'gender',
                             width: 400,
                             fieldLabel: 'Gender',
-                            allowBlank: false,
                             items: [
                                 {
                                     xtype: 'radiofield',
                                     name: 'gender',
                                     boxLabel: 'Male',
+                                    checked: true,
                                     inputValue: 'Male'
                                 },
                                 {
@@ -145,12 +172,12 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                     items: [
                         {
                             xtype: 'button',
-                            id: 'registerButton',
-                            itemId: 'registerButton',
+                            id: 'registerWindowButton',
                             text: 'Register'
                         },
                         {
                             xtype: 'button',
+                            id: 'cancelRegisterButton',
                             text: 'Cancel'
                         }
                     ]

@@ -35,6 +35,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
     header: false,
     manageHeight: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -106,6 +107,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     id: 'ProductQuantity',
                                     itemId: 'ProductQuantity',
                                     fieldLabel: 'Quantity',
+                                    value: 1,
                                     minValue: 1
                                 }
                             ],
@@ -126,8 +128,8 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                         },
                                         {
                                             xtype: 'button',
-                                            id: 'CancelCartButton',
-                                            itemId: 'CancelCartButton',
+                                            id: 'productViewClose',
+                                            itemId: 'productViewClose',
                                             text: 'Cancel'
                                         }
                                     ]

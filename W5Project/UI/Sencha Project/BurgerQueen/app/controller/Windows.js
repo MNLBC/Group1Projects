@@ -17,7 +17,7 @@ Ext.define('BurgerQueen.controller.Windows', {
     extend: 'Ext.app.Controller',
 
     mixins: {
-        GlobalUtill: 'com.oocl.mnlbc.GlobalMessage'
+        GlobalUtil: 'com.oocl.mnlbc.GlobalMessage'
     },
 
     oLoadingMessageMask: null,
@@ -82,11 +82,50 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'loginWindow',
             selector: '#loginWindow'
+        },
+        {
+            ref: 'beveragesButton',
+            selector: '#beveragesButton'
+        },
+        {
+            ref: 'burgersButton',
+            selector: '#burgersButton'
+        },
+        {
+            ref: 'chickensButton',
+            selector: '#chickensButton'
+        },
+        {
+            ref: 'dessertsButton',
+            selector: '#dessertsButton'
+        },
+        {
+            ref: 'sidesButton',
+            selector: '#sidesButton'
+        },
+        {
+            ref: 'loginButton',
+            selector: '#loginButton'
+        },
+        {
+            ref: 'logoutButton',
+            selector: '#logoutButton'
+        },
+        {
+            ref: 'registerButton',
+            selector: '#registerButton'
+        },
+        {
+            ref: 'trayButton',
+            selector: '#trayButton'
+        },
+        {
+            ref: 'myProfileButton',
+            selector: '#myProfileButton'
         }
     ],
 
     onProductViewActivate: function(window, eOpts) {
-        Ext.getBody().mask();
         var data = window.selectedProduct,
             img = this.getProductImage(),
             productName = this.getProductName(),
@@ -99,11 +138,6 @@ Ext.define('BurgerQueen.controller.Windows', {
         productDescription.setValue(data.Description);
         productPrice.setValue(data.Price);
         productId.setValue(data.Id);
-    },
-
-    onCancelCartButtonClick: function() {
-                this.getProductViewWindow().destroy();
-                Ext.getBody().unmask();
     },
 
     onAddCartButtonClick: function() {
@@ -139,12 +173,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         Ext.Msg.alert('Status', this.added_to_cart);
         console.log(this.invalid_login);
         this.getProductViewWindow().destroy();
-        Ext.getBody().unmask();
     },
 
     onCancelCheckoutBtnClick: function() {
         this.getTrayWindow().destroy();
-        Ext.getBody().unmask();
     },
 
     onRemoveItemBtnClick: function() {
@@ -190,36 +222,48 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onRegisterWindowButtonClick: function() {
-                var form = this.getRegisterForm(),
-                username = form.getValues().username,
-                    password = form.getValues().password,
-                    firstname = form.getValues().firstname,
-                    middlename = form.getValues().middlename,
-                    lastname = form.getValues().lastname,
-                    address = form.getValues().address,
-                    contactno = form.getValues().contactno,
-                    email = form.getValues().email,
-                    gender = form.getValues().gender;
-                if(form.isValid()){
-                     Ext.Ajax.request({
-                             url : 'user/addUser',
-                             params : {
-                                 'username':username,
-                                 'password':password,
-                                 'firstname':firstname,
-                                 'middlename':middlename,
-                                 'lastname':lastname,
-                                 'address':address,
-                                 'contactno':contactno,
-                                 'email':email,
-                                 'gender':gender
-                             },
-                             scope : this,
-                             success : function(response) {
-                                 close();
-                             }
-                        });
+        var form = this.getRegisterForm(),
+            username = form.getValues().username,
+            password = form.getValues().password,
+            firstname = form.getValues().firstname,
+            middlename = form.getValues().middlename,
+            lastname = form.getValues().lastname,
+            address = form.getValues().address,
+            contactno = form.getValues().contactno,
+            email = form.getValues().email,
+            gender = form.getValues().gender;
+        if(form.isValid()){
+            Ext.Ajax.request({
+                url : 'user/addUser',
+                params : {
+                    'username':username,
+                    'password':password,
+                    'firstname':firstname,
+                    'middlename':middlename,
+                    'lastname':lastname,
+                    'address':address,
+                    'contactno':contactno,
+                    'email':email,
+                    'gender':gender
+                },
+                scope : this,
+                success : function(response) {
+                    var data = response.responseText;
+                    if(data ==='success'){
+                        Ext.MessageBox.alert('Sucess', this.success_registration);
+                        this.getRegisterWindow().destroy();
+                    }
+                    if(data === 'username'){
+                        Ext.MessageBox.alert('Error', this.existing_username);
+                    }
+                    if(data === 'email'){
+                        Ext.MessageBox.alert('Error', this.existing_email);
+                    }
                 }
+            });
+        }else{
+            Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');
+        }
     },
 
     onLoginWindowButtonClick: function() {
@@ -236,7 +280,25 @@ Ext.define('BurgerQueen.controller.Windows', {
                              },
                              scope : this,
                              success : function(response) {
-                                 close();
+                                 var data = response.responseText;
+                                 if(!Ext.isEmpty(data)){
+                                     var decodedData = Ext.decode(data);
+                                     if(decodedData.disabled){
+                                         Ext.MessageBox.alert('Error','Blocked');
+                                     }else{
+                                         Ext.MessageBox.alert('Success','Welcome!');
+                                         this.getLoginButton().hide();
+                                         this.getLogoutButton().show();
+                                         this.getRegisterButton().hide();
+                                         this.getMyProfileButton().show();
+                                         this.getTrayButton().show();
+                                         this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
+
+                                     }
+                                 }else{
+                                     Ext.MessageBox.alert('Error','Invalid Username/Password');
+                                 }
+                                 this.getLoginWindow().destroy();
                              }
                         });
                     }
@@ -244,12 +306,14 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     onCancelRegisterButtonClick: function() {
                 this.getRegisterWindow().destroy();
-                Ext.getBody().unmask();
     },
 
     onCancelLoginButtonClick: function() {
                 this.getLoginWindow().destroy();
-                Ext.getBody().unmask();
+    },
+
+    onProductViewCloseClick: function() {
+         this.getProductViewWindow().destroy();
     },
 
     showLoadingMessageMask: function() {
@@ -272,9 +336,6 @@ Ext.define('BurgerQueen.controller.Windows', {
         this.control({
             "#ProductView": {
                 activate: this.onProductViewActivate
-            },
-            "#CancelCartButton": {
-                click: this.onCancelCartButtonClick
             },
             "#AddCartButton": {
                 click: this.onAddCartButtonClick
@@ -299,6 +360,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#cancelLoginButton": {
                 click: this.onCancelLoginButtonClick
+            },
+            "#productViewClose": {
+                click: this.onProductViewCloseClick
             }
         });
     }

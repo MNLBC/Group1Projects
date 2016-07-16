@@ -26,6 +26,7 @@ Ext.define('BurgerQueen.view.Products', {
     height: 559,
     itemId: 'Products',
     width: 1309,
+    autoScroll: true,
     header: false,
     title: 'Products',
 

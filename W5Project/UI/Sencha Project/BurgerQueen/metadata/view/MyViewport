@@ -39,6 +39,114 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "container|pack": "end",
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar6",
+                    "designerId": "ab83ffd3-81c9-4b32-912b-a72a403d0d15",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "itemId": "loginButton",
+                                "layout|flex": null,
+                                "text": "Login",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "72e36b48-8e49-45be-9006-cba3e4f97ede"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "id": "registerButton",
+                                "itemId": "registerButton",
+                                "layout|flex": null,
+                                "text": "Register",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "0113da08-0a91-40d3-9536-2d850000d872"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "myProfileButton",
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "hidden": true,
+                                "id": "myProfileButton",
+                                "itemId": "myProfileButton",
+                                "layout|flex": null,
+                                "text": "My Profile",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "67abd236-96fc-41e6-bf59-07b90409bbbd"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "hidden": true,
+                                "id": "trayButton",
+                                "itemId": "trayButton",
+                                "layout|flex": null,
+                                "text": "My Tray",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton16",
+                            "designerId": "d8d774cf-0211-45dd-bfdb-e4eafddc5cb8"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
+                                "hidden": true,
+                                "itemId": "logoutButton",
+                                "layout|flex": null,
+                                "text": "Logout",
+                                "ui": "menubarbtn"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "38932cfd-8b56-406f-89ee-e83d8a096c67"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "container|pack": "center",
                         "dock": "top"
                     },
@@ -53,9 +161,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "beveragesButton",
                                 "layout|flex": null,
-                                "text": "Beverages"
+                                "text": "Beverages",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton",
                             "designerId": "f5b783de-187a-47b3-a6a1-0af9906e633d"
@@ -68,9 +178,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "burgersButton",
                                 "layout|flex": null,
-                                "text": "Burgers"
+                                "text": "Burgers",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton1",
                             "designerId": "362cafdd-cb76-4213-9bb4-feb4bd06ff97"
@@ -83,9 +195,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "chickensButton",
                                 "layout|flex": null,
-                                "text": "Chickens"
+                                "text": "Chickens",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton2",
                             "designerId": "5c272620-b729-4b93-a7bc-87716570aa09"
@@ -98,9 +212,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "dessertsButton",
                                 "layout|flex": null,
-                                "text": "Desserts"
+                                "text": "Desserts",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton3",
                             "designerId": "2feaf1f0-bb16-4141-8b35-72f83d2bc576"
@@ -113,89 +229,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "sidesButton",
                                 "layout|flex": null,
-                                "text": "Sides"
+                                "text": "Sides",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton4",
                             "designerId": "91f2ca81-217c-491d-b9bd-1c53b07769b7"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "loginButton",
-                                "layout|flex": null,
-                                "text": "Login"
-                            },
-                            "name": "MyButton5",
-                            "designerId": "72e36b48-8e49-45be-9006-cba3e4f97ede"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "logoutButton",
-                                "layout|flex": null,
-                                "text": "Logout"
-                            },
-                            "name": "MyButton6",
-                            "designerId": "38932cfd-8b56-406f-89ee-e83d8a096c67"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "id": "trayBtn",
-                                "itemId": "trayBtn",
-                                "layout|flex": null,
-                                "text": "My Tray"
-                            },
-                            "name": "MyButton16",
-                            "designerId": "d8d774cf-0211-45dd-bfdb-e4eafddc5cb8"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|displayName": "myProfileButton",
-                                "id": "myProfile",
-                                "layout|flex": null,
-                                "text": "My Profile"
-                            },
-                            "name": "MyButton17",
-                            "designerId": "67abd236-96fc-41e6-bf59-07b90409bbbd"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "id": "registerButton",
-                                "layout|flex": null,
-                                "text": "Register"
-                            },
-                            "name": "MyButton18",
-                            "designerId": "0113da08-0a91-40d3-9536-2d850000d872"
                         }
                     ]
                 },

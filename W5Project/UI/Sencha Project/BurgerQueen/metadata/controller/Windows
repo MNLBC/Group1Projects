@@ -9,7 +9,7 @@
         "designer|userClassName": "Windows",
         "mixins": [
             "{",
-            "GlobalUtill : 'com.oocl.mnlbc.GlobalMessage'",
+            "GlobalUtil : 'com.oocl.mnlbc.GlobalMessage'",
             "}"
         ],
         "oLoadingMessageMask": [
@@ -181,7 +181,6 @@
                 "designer|targetType": "ProductViewWindow",
                 "fn": "onProductViewActivate",
                 "implHandler": [
-                    "Ext.getBody().mask();",
                     "var data = window.selectedProduct,",
                     "    img = this.getProductImage(),",
                     "    productName = this.getProductName(),",
@@ -200,27 +199,6 @@
             },
             "name": "onProductViewActivate",
             "designerId": "6440f0c7-ce60-41b1-baf3-8c2d9aea8da5"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#CancelCartButton",
-                "designer|targetType": "MyButton12",
-                "fn": "onCancelCartButtonClick",
-                "implHandler": [
-                    "        this.getProductViewWindow().destroy();",
-                    "        Ext.getBody().unmask();"
-                ],
-                "name": "click",
-                "scope": "me"
-            },
-            "name": "onCancelCartButtonClick",
-            "designerId": "700cca1f-9c22-4013-8a30-5c15e58c8aa9"
         },
         {
             "type": "controlleraction",
@@ -265,8 +243,7 @@
                     "//     Ext.create('ProductViewWindow').hide();",
                     "Ext.Msg.alert('Status', this.added_to_cart);",
                     "console.log(this.invalid_login);",
-                    "this.getProductViewWindow().destroy();",
-                    "Ext.getBody().unmask();"
+                    "this.getProductViewWindow().destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -286,8 +263,7 @@
                 "designer|targetType": "MyButton15",
                 "fn": "onCancelCheckoutBtnClick",
                 "implHandler": [
-                    "this.getTrayWindow().destroy();",
-                    "Ext.getBody().unmask();"
+                    "this.getTrayWindow().destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -395,36 +371,48 @@
                 "designer|targetType": "MyButton7",
                 "fn": "onRegisterWindowButtonClick",
                 "implHandler": [
-                    "        var form = this.getRegisterForm(),",
-                    "        username = form.getValues().username,",
-                    "            password = form.getValues().password,",
-                    "            firstname = form.getValues().firstname,",
-                    "            middlename = form.getValues().middlename,",
-                    "            lastname = form.getValues().lastname,",
-                    "            address = form.getValues().address,",
-                    "            contactno = form.getValues().contactno,",
-                    "            email = form.getValues().email,",
-                    "            gender = form.getValues().gender;",
-                    "        if(form.isValid()){",
-                    "             Ext.Ajax.request({",
-                    "                     url : 'user/addUser',",
-                    "                     params : {",
-                    "                         'username':username,",
-                    "                         'password':password,",
-                    "                         'firstname':firstname,",
-                    "                         'middlename':middlename,",
-                    "                         'lastname':lastname,",
-                    "                         'address':address,",
-                    "                         'contactno':contactno,",
-                    "                         'email':email,",
-                    "                         'gender':gender",
-                    "                     },",
-                    "                     scope : this,",
-                    "                     success : function(response) {",
-                    "                         close();",
-                    "                     }",
-                    "                });",
-                    "        }"
+                    "var form = this.getRegisterForm(),",
+                    "    username = form.getValues().username,",
+                    "    password = form.getValues().password,",
+                    "    firstname = form.getValues().firstname,",
+                    "    middlename = form.getValues().middlename,",
+                    "    lastname = form.getValues().lastname,",
+                    "    address = form.getValues().address,",
+                    "    contactno = form.getValues().contactno,",
+                    "    email = form.getValues().email,",
+                    "    gender = form.getValues().gender;",
+                    "if(form.isValid()){",
+                    "    Ext.Ajax.request({",
+                    "        url : 'user/addUser',",
+                    "        params : {",
+                    "            'username':username,",
+                    "            'password':password,",
+                    "            'firstname':firstname,",
+                    "            'middlename':middlename,",
+                    "            'lastname':lastname,",
+                    "            'address':address,",
+                    "            'contactno':contactno,",
+                    "            'email':email,",
+                    "            'gender':gender",
+                    "        },",
+                    "        scope : this,",
+                    "        success : function(response) {",
+                    "            var data = response.responseText;",
+                    "            if(data ==='success'){",
+                    "                Ext.MessageBox.alert('Sucess', this.success_registration);",
+                    "                this.getRegisterWindow().destroy();",
+                    "            }",
+                    "            if(data === 'username'){",
+                    "                Ext.MessageBox.alert('Error', this.existing_username);",
+                    "            }",
+                    "            if(data === 'email'){",
+                    "                Ext.MessageBox.alert('Error', this.existing_email);",
+                    "            }",
+                    "        }",
+                    "    });",
+                    "}else{",
+                    "    Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');",
+                    "}"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -485,7 +473,25 @@
                     "                     },",
                     "                     scope : this,",
                     "                     success : function(response) {",
-                    "                         close();",
+                    "                         var data = response.responseText;",
+                    "                         if(!Ext.isEmpty(data)){",
+                    "                             var decodedData = Ext.decode(data);",
+                    "                             if(decodedData.disabled){",
+                    "                                 Ext.MessageBox.alert('Error','Blocked');",
+                    "                             }else{",
+                    "                                 Ext.MessageBox.alert('Success','Welcome!');",
+                    "                                 this.getLoginButton().hide();",
+                    "                                 this.getLogoutButton().show();",
+                    "                                 this.getRegisterButton().hide();",
+                    "                                 this.getMyProfileButton().show();",
+                    "                                 this.getTrayButton().show();",
+                    "                                 this.getMyProfileButton().setText('Welcome, '+ decodedData.username);",
+                    "",
+                    "                             }",
+                    "                         }else{",
+                    "                             Ext.MessageBox.alert('Error','Invalid Username/Password');",
+                    "                         }",
+                    "                         this.getLoginWindow().destroy();",
                     "                     }",
                     "                });",
                     "            }"
@@ -508,8 +514,7 @@
                 "designer|targetType": "MyButton8",
                 "fn": "onCancelRegisterButtonClick",
                 "implHandler": [
-                    "        this.getRegisterWindow().destroy();",
-                    "        Ext.getBody().unmask();"
+                    "        this.getRegisterWindow().destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -557,8 +562,7 @@
                 "designer|targetType": "MyButton10",
                 "fn": "onCancelLoginButtonClick",
                 "implHandler": [
-                    "        this.getLoginWindow().destroy();",
-                    "        Ext.getBody().unmask();"
+                    "        this.getLoginWindow().destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -605,6 +609,166 @@
             },
             "name": "hideLoadingMessageMask",
             "designerId": "9ea85473-2551-4ec4-9502-3ffacd596c77"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "beveragesButton",
+                "selector": "#beveragesButton"
+            },
+            "name": "beveragesButton",
+            "designerId": "112c3b01-026a-4c7d-85e0-bfcef25cdd78"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "burgersButton",
+                "selector": "#burgersButton"
+            },
+            "name": "burgersButton",
+            "designerId": "5aaea91c-0c64-4c3e-b834-1b84a414bc9c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "chickensButton",
+                "selector": "#chickensButton"
+            },
+            "name": "chickensButton",
+            "designerId": "fd888056-ba81-4805-9447-9a969609a298"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dessertsButton",
+                "selector": "#dessertsButton"
+            },
+            "name": "dessertsButton",
+            "designerId": "973b9fc8-3664-4702-8b1c-81124fb7db28"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sidesButton",
+                "selector": "#sidesButton"
+            },
+            "name": "sidesButton",
+            "designerId": "7dec68b9-bbc4-4ef0-a431-9f831171d302"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginButton",
+                "selector": "#loginButton"
+            },
+            "name": "loginButton",
+            "designerId": "08ea9aab-e84e-48ce-b8ac-1873f2d82a06"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "logoutButton",
+                "selector": "#logoutButton"
+            },
+            "name": "logoutButton",
+            "designerId": "88c8e7f2-8792-42fc-90e5-f625a9db2b2f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerButton",
+                "selector": "#registerButton"
+            },
+            "name": "registerButton",
+            "designerId": "2b833ee2-ec1f-4291-a61a-e886ec78437c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "trayButton",
+                "selector": "#trayButton"
+            },
+            "name": "trayButton",
+            "designerId": "642382ea-484b-4cde-b896-e13cf1dccbe3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#productViewClose",
+                "designer|targetType": "MyButton12",
+                "fn": "onProductViewCloseClick",
+                "implHandler": [
+                    " this.getProductViewWindow().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onProductViewCloseClick",
+            "designerId": "02f30a4d-790e-4e45-8e17-2ebf10960d7c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "myProfileButton",
+                "selector": "#myProfileButton"
+            },
+            "name": "myProfileButton",
+            "designerId": "d07b0a5f-dd3d-4a18-a12c-9a61da9405e0"
         }
     ]
 }

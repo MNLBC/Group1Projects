@@ -16,14 +16,14 @@
 Ext.define('BurgerQueen.controller.HomePage', {
     extend: 'Ext.app.Controller',
 
+    mixins: {
+        GlobalUtil: 'com.oocl.mnlbc.GlobalMessage'
+    },
+
     refs: [
         {
             ref: 'beveragesButton',
             selector: '#beveragesButton'
-        },
-        {
-            ref: 'burgersButton',
-            selector: '#burgersButton'
         },
         {
             ref: 'chickensButton',
@@ -32,10 +32,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'dessertsButton',
             selector: '#dessertsButton'
-        },
-        {
-            ref: 'sidesButton',
-            selector: '#sidesButton'
         },
         {
             ref: 'loginButton',
@@ -54,18 +50,33 @@ Ext.define('BurgerQueen.controller.HomePage', {
             selector: '#ProductView'
         },
         {
-            ref: 'loginForm',
-            selector: '#loginForm'
+            ref: 'products',
+            selector: '#Products'
+        },
+        {
+            ref: 'userProfile',
+            selector: '#UserProfile'
+        },
+        {
+            ref: 'sidesButton',
+            selector: '#sidesButton'
+        },
+        {
+            ref: 'trayButton',
+            selector: '#trayButton'
+        },
+        {
+            ref: 'registerButton',
+            selector: '#registerButton'
+        },
+        {
+            ref: 'myProfileButton',
+            selector: '#myProfileButton'
         }
     ],
 
     onLoginButtonClick: function() {
-
-
-
                 Ext.create('BurgerQueen.view.LoginWindow').show();
-
-
     },
 
     onBeveragesButtonClick: function() {
@@ -74,6 +85,8 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
                 productStore.clearFilter();
                 productStore.filter('Category','Beverages');
+
+
 
     },
 
@@ -98,13 +111,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         productStore.filter('Category','Desserts');
     },
 
-    onSidesButtonClick: function() {
-         var productStore = this.productStore;
-
-                        productStore.clearFilter();
-                        productStore.filter('Category','Sides');
-    },
-
     onLogoutButtonClick: function() {
 
     },
@@ -126,47 +132,99 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
                 var productWin = Ext.create('BurgerQueen.view.ProductViewWindow',{selectedProduct: selectedProduct});
                 productWin.show();
-                Ext.getBody().mask();
     },
 
     onTrayBtnClick: function() {
          Ext.create('BurgerQueen.view.TrayWindow').show();
     },
 
-    onRegisterClick: function() {
-                Ext.create('BurgerQueen.view.RegisterWindow').show();
-
+    onRegisterButtonClick: function() {
+               Ext.create('BurgerQueen.view.RegisterWindow').show();
     },
 
-    onHomePagePanelRender: function() {
-                    var store = Ext.getStore('ProductStore');
-                    Ext.Ajax.request({
-                             url : 'meal/getAllMeals',
-                             params : {
+    onTrayButtonClick: function() {
+         Ext.create('BurgerQueen.view.TrayWindow').show();
+    },
 
-                             },
-                             success : function(response) {
-                                 data = response.responseText;
-                                 console.log(data);
-                                 Ext.each(data, function(record) {
-                                     var product = {
-                                         Id:record.id,
-                                         Code:record.code,
-                                         Name:record.name,
-                                         Description:record.description,
-                                         Category:record.category,
-                                         Price:record.price,
-                                         Image:record.image
-                                     };
-                                     store.add(product);
-                                 });
+    onLogoutButtonClick: function() {
+                                        this.getLoginButton().show();
+                                         this.getLogoutButton().hide();
+                                         this.getRegisterButton().show();
+                                         this.getMyProfileButton().hide();
+                                         this.getTrayButton().hide();
+                                Ext.getStore('TrayStore').removeAll();
+    },
 
-                             }
-                        });
+    onMyProfileButtonClick: function() {
+                this.getProducts().hide();
+                this.getUserProfile().show();
+
+                //var userStore = Ext.getStore('UserStore');
+
+                // Ext.each(userStore, function(record){
+                //     var userName = record.get('userName'),
+                //         firstName = record.get('firstName'),
+                //         middleName =  record.get('middleName'),
+                //         lastName = record.get('lastName'),
+                //         address = record.get('address'),
+                //         email = record.get('email'),
+                //         contactNum = record.get('contactNum');
+
+                //     this.getUserNameField().setValue(userName);
+                //     this.getFirstNameField().setValue(firstName);
+                //     this.getMiddleNameField().setValue(middleName);
+                //     this.getLastNameField().setValue(lastName);
+                //     this.getAddressField().setValue(address);
+                //     this.getEmailField().setValue(email);
+                // });
+    },
+
+    onBurgerQueenRender: function() {
+        var store = Ext.getStore('ProductStore');
+
+        Ext.Ajax.request({
+            url : 'meal/getAllMeals',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var product = {
+                        Id:record.id,
+                        Code:record.code,
+                        Name:record.name,
+                        Description:record.description,
+                        Category:record.category,
+                        Price:record.price,
+                        Image:record.image
+                    };
+                    store.add(product);
+                });
+            }
+        });
     },
 
     onLaunch: function() {
-              this.productStore = Ext.getStore('ProductStore');
+                this.productStore = Ext.getStore('ProductStore');
+
+    },
+
+    showLoadingMessageMask: function() {
+                            if (!this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
+                                  msg : "Loading, please wait..."
+                               });
+                            }
+                            this.oLoadingMessageMask.show();
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
     },
 
     init: function(application) {
@@ -186,10 +244,8 @@ Ext.define('BurgerQueen.controller.HomePage', {
             "#dessertsButton": {
                 click: this.onDessertsButtonClick
             },
-            "#sidesButton": {
-                click: this.onSidesButtonClick
-            },
             "#logoutButton": {
+                click: this.onLogoutButtonClick,
                 click: this.onLogoutButtonClick
             },
             "#ProductGrid": {
@@ -198,11 +254,17 @@ Ext.define('BurgerQueen.controller.HomePage', {
             "#trayBtn": {
                 click: this.onTrayBtnClick
             },
-            "#register": {
-                click: this.onRegisterClick
+            "#registerButton": {
+                click: this.onRegisterButtonClick
             },
-            "#HomePagePanel": {
-                render: this.onHomePagePanelRender
+            "#trayButton": {
+                click: this.onTrayButtonClick
+            },
+            "#myProfileButton": {
+                click: this.onMyProfileButtonClick
+            },
+            "#BurgerQueen": {
+                render: this.onBurgerQueenRender
             }
         });
     }

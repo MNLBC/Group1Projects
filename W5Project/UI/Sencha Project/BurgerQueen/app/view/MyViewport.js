@@ -44,59 +44,84 @@ Ext.define('BurgerQueen.view.MyViewport', {
                             dock: 'top',
                             layout: {
                                 type: 'hbox',
+                                pack: 'end'
+                            },
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    itemId: 'loginButton',
+                                    ui: 'menubarbtn',
+                                    text: 'Login'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'registerButton',
+                                    itemId: 'registerButton',
+                                    ui: 'menubarbtn',
+                                    text: 'Register'
+                                },
+                                {
+                                    xtype: 'button',
+                                    hidden: true,
+                                    id: 'myProfileButton',
+                                    itemId: 'myProfileButton',
+                                    ui: 'menubarbtn',
+                                    text: 'My Profile'
+                                },
+                                {
+                                    xtype: 'button',
+                                    hidden: true,
+                                    id: 'trayButton',
+                                    itemId: 'trayButton',
+                                    ui: 'menubarbtn',
+                                    text: 'My Tray'
+                                },
+                                {
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'logoutButton',
+                                    ui: 'menubarbtn',
+                                    text: 'Logout'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            layout: {
+                                type: 'hbox',
                                 pack: 'center'
                             },
                             items: [
                                 {
                                     xtype: 'button',
                                     itemId: 'beveragesButton',
+                                    ui: 'menubarbtn',
                                     text: 'Beverages'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'burgersButton',
+                                    ui: 'menubarbtn',
                                     text: 'Burgers'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'chickensButton',
+                                    ui: 'menubarbtn',
                                     text: 'Chickens'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'dessertsButton',
+                                    ui: 'menubarbtn',
                                     text: 'Desserts'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'sidesButton',
+                                    ui: 'menubarbtn',
                                     text: 'Sides'
-                                },
-                                {
-                                    xtype: 'button',
-                                    itemId: 'loginButton',
-                                    text: 'Login'
-                                },
-                                {
-                                    xtype: 'button',
-                                    itemId: 'logoutButton',
-                                    text: 'Logout'
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'trayBtn',
-                                    itemId: 'trayBtn',
-                                    text: 'My Tray'
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'myProfile',
-                                    text: 'My Profile'
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'registerButton',
-                                    text: 'Register'
                                 }
                             ]
                         }
