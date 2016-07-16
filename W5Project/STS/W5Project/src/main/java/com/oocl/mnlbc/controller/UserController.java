@@ -2,18 +2,21 @@ package com.oocl.mnlbc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.model.User;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -31,23 +34,25 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/addUser" })
-	public String addUser() {
+	@RequestMapping(value = { "/addUser" }, method = RequestMethod.POST)
+	public User addUser(@RequestParam(required = true) String username, @RequestParam(required = true) String password, @RequestParam(required = true) String firstname,
+			@RequestParam(required = false) String middlename, @RequestParam(required = true) String lastname, @RequestParam(required = true) String address, @RequestParam(required = true) String contactno,
+			@RequestParam(required = true) String email,@RequestParam(required = true) String gender, HttpSession session) {
 		User user = new User();
 
-		user.setFirstname("Aljun");
-		user.setLastname("Aljun");
-		user.setMiddlename("Aljun");
-		user.setAddress("Aljun");
-		user.setContact("Aljun");
+		user.setFirstname(firstname);
+		user.setLastname(lastname);
+		user.setMiddlename(middlename);
+		user.setAddress(address);
+		user.setContact(contactno);
 		user.setDisabled(false);
-		user.setGender("Aljun");
-		user.setEmail("JAVAMAN");
-		user.setType("admin");
-		user.setUsername("JAVAMAN");
-		user.setPassword("peter");
+		user.setGender(gender);
+		user.setEmail(email);
+		user.setType("customer");
+		user.setUsername(username);
+		user.setPassword(password);
 
-		return "done";
+		return user;
 	}
 
 	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)

@@ -11,20 +11,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.model.User;
 
 @Controller
-@RequestMapping("/login")
+//@RequestMapping("/login")
 public class LoginController {
 	@Autowired
 	UserDAO userDAO;
 
 	@ResponseBody
-	@RequestMapping(value = { "/username={username}&password={password}" }, method = RequestMethod.GET)
-	public String login(@PathVariable("username") String username, @PathVariable("password") String password,
+	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
+	public String login(@RequestParam(required = true) String username, @RequestParam(required = true) String password,
 			HttpSession session) {
 		List<User> users = userDAO.getAllUsers();
 		for (User user : users) {
