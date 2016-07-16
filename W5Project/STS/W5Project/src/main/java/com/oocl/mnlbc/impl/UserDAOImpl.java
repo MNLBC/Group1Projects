@@ -88,7 +88,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean checkUsernameExistence(String username) {
-		String query = "SELECT USERNAME FROM USERS WHERE USERNAME = '" + username + "'";
+		String query = "SELECT * FROM USERS WHERE USERNAME = '" + username + "'";
 		List<User> users = jdbcTemplateObject.query(query, new UserMapper());
 		if (users.size() > 1) {
 			return true;
@@ -98,7 +98,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean checkEmailExistence(String email) {
-		String query = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
+		String query = "SELECT * FROM USERS WHERE EMAIL = '" + email + "'";
 		List<User> users = jdbcTemplateObject.query(query, new UserMapper());
 		if (users.size() > 1) {
 			return true;
