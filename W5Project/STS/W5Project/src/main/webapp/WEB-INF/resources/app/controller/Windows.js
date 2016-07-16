@@ -184,7 +184,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                 console.log(form);
                 if(form.isValid()){
                      Ext.Ajax.request({
-                             url : 'addUser',
+                             url : 'user/addUser',
                              params : {
                                  'username':username,
                                  'password':password,

@@ -59,41 +59,52 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User addUser(final User user) {
-		
+
 		TransactionTemplate tt = new TransactionTemplate(getTransactionManager());
 		tt.execute(new TransactionCallback() {
 			public Object doInTransaction(TransactionStatus status) {
 				JdbcTemplate jt = new JdbcTemplate(executeTestSource());
 				StringBuilder query = new StringBuilder();
-				query.append("INSERT INTO USERS (USERNAME,PASSWORD,FIRSTNAME,MIDDLENAME,LASTNAME,GENDER,EMAIL,ADDRESS,CONTACTS,IS_DISABLED,TYPE) VALUES (");
-				query.append("'"+ user.getUsername() + "',");
-				query.append("'"+ user.getPassword() + "',");
-				query.append("'"+ user.getFirstname() + "',");
-				query.append("'"+ user.getMiddlename() + "',");
-				query.append("'"+ user.getLastname() + "',");
-				query.append("'"+ user.getGender() + "',");
-				query.append("'"+ user.getEmail() + "',");
-				query.append("'"+ user.getAddress() + "',");
-				query.append("'"+ user.getContact() + "',");
-				query.append( user.isDisabled() ? "0": "1" + ",");
-				query.append("'"+ user.getType() + "')");
+				query.append(
+						"INSERT INTO USERS (USERNAME,PASSWORD,FIRSTNAME,MIDDLENAME,LASTNAME,GENDER,EMAIL,ADDRESS,CONTACTS,IS_DISABLED,TYPE) VALUES (");
+				query.append("'" + user.getUsername() + "',");
+				query.append("'" + user.getPassword() + "',");
+				query.append("'" + user.getFirstname() + "',");
+				query.append("'" + user.getMiddlename() + "',");
+				query.append("'" + user.getLastname() + "',");
+				query.append("'" + user.getGender() + "',");
+				query.append("'" + user.getEmail() + "',");
+				query.append("'" + user.getAddress() + "',");
+				query.append("'" + user.getContact() + "',");
+				query.append(user.isDisabled() ? "0" : "1" + ",");
+				query.append("'" + user.getType() + "')");
 				jt.update(query.toString());
-				
+
 				return null;
 			}
 		});
-		
+
 		return user;
 	}
 
 	public boolean checkUsernameExistence(String username) {
-		// TODO Auto-generated method stub
-		return false;
+		String query = "SELECT USERNAME FROM USERS WHERE USERNAME = '" + username + "'";
+		List<User> users = jdbcTemplateObject.query(query, new UserMapper());
+		if (users.size() > 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean checkEmailExistence(String email) {
-		// TODO Auto-generated method stub
-		return false;
+		String query = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
+		List<User> users = jdbcTemplateObject.query(query, new UserMapper());
+		if (users.size() > 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
