@@ -8,10 +8,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.oocl.mnlbc.dao.OrderDAO;
+import com.oocl.mnlbc.dao.OrderItemsDAO;
 import com.oocl.mnlbc.mapper.MealMapper;
 import com.oocl.mnlbc.mapper.OrderMapper;
 import com.oocl.mnlbc.model.Meal;
 import com.oocl.mnlbc.model.Order;
+import com.oocl.mnlbc.model.OrderItems;
 
 public class OrderDAOImpl implements OrderDAO {
 	private DataSource dataSource;
@@ -47,8 +49,13 @@ public class OrderDAOImpl implements OrderDAO {
 	@Override
 	public List<Order> getAllOrderByUserID(int id) {
 		String query = "SELECT * FROM ORDERITEMS WHERE USERS_ID = " + id;
-		List<Order> orderItems = jdbcTemplateObject.query(query, new OrderMapper());
-		return orderItems;
+		List<Order> orders = jdbcTemplateObject.query(query, new OrderMapper());
+		for (Order order : orders) {
+			OrderItemsDAO orderItemsDAO = new OrderItemsDAOImpl();
+			List<OrderItems> orderItems = orderItemsDAO.getAllOrderItemsByOrderID(order.getId());
+			order.setOrderItemList(orderItems);
+		}
+		return orders;
 	}
 
 	@Override

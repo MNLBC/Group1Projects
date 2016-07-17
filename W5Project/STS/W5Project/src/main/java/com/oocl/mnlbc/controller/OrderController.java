@@ -8,9 +8,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderDAO;
@@ -24,7 +24,7 @@ import com.oocl.mnlbc.model.Order;
 @RequestMapping("/order")
 public class OrderController {
 	final static Logger logger = Logger.getLogger(OrderController.class);
-	
+
 	@Autowired
 	OrderDAO orderDAO;
 
@@ -39,30 +39,20 @@ public class OrderController {
 		logger.info("Getting all list of Order");
 		return buffer.toString();
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value = { "/getAllOrder/{userId}" })
-	public String getAllOrderByOrderID(@PathVariable("userId") int userId) {
-		List<Order> orderItems = orderDAO.getAllOrderByUserID(userId);
-		StringBuffer buffer = new StringBuffer();
-		for (Order orderItem : orderItems) {
-			buffer.append(orderItem).append("\n");
-		}
-		logger.info("Getting all order of user by ID");
-		return buffer.toString();
+	@RequestMapping(value = { "/getAllOrderByUser" }, method = RequestMethod.POST)
+	public List<Order> getAllOrderByUserID(@RequestParam(required = true) int userId) {
+		List<Order> orders = orderDAO.getAllOrderByUserID(userId);
+		logger.info("Getting all order by User ID");
+		return orders;
 	}
 
-	@RequestMapping(value = "/orderItemId/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/getOrderById", method = RequestMethod.POST)
 	@ResponseBody
-	public Order getOrderByID(@PathVariable("id") int id) {
-		List<Order> orderItems = orderDAO.getAllOrder();
-		Order orderItem = null;
-		for (Order orderItemL : orderItems) {
-			if (orderItemL.getId() == id) {
-				orderItem = orderItemL;
-			}
-		}
+	public Order getOrderByID(@RequestParam(required = true) int id) {
+		Order order = orderDAO.getOrderByID(id);
 		logger.info("Getting all order by ID");
-		return orderItem;
+		return order;
 	}
 }
