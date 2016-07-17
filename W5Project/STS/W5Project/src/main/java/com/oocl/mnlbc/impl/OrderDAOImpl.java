@@ -48,7 +48,7 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<Order> getAllOrder() {
-		String query = "SELECT * FROM ORDERITEMS";
+		String query = "SELECT * FROM ORDERS";
 		List<Order> orderItems = jdbcTemplateObject.query(query, new OrderMapper());
 		return orderItems;
 	}
@@ -67,7 +67,7 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public Order getOrderByID(int id) {
-		String query = "SELECT * FROM users WHERE ID = " + id;
+		String query = "SELECT * FROM ORDERS WHERE ID = " + id;
 		Order order= jdbcTemplateObject.queryForObject(query, new OrderMapper());
 		return order;
 	}
@@ -98,7 +98,7 @@ public class OrderDAOImpl implements OrderDAO {
 //			}
 //		});
 //
-//		return user;
+		return null;
 	}
 
 }
