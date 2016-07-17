@@ -23,4 +23,6 @@ public interface OrderItemsDAO {
 	public OrderItems getOrderItemsByID(int id);
 
 	public OrderItems addOrderItem(OrderItems orderItem);
+	
+	public List<OrderItems> addOrderItems(int orderId, List<OrderItems> orderItems);
 }

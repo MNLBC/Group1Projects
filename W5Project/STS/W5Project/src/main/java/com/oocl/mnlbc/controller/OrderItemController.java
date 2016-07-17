@@ -3,19 +3,28 @@
  */
 package com.oocl.mnlbc.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderItemsDAO;
+import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
 /**
@@ -57,18 +66,5 @@ public class OrderItemController {
 		logger.info("Getting order items by ID");
 		return null;
 	}
-
-	@ResponseBody
-	@RequestMapping(value = { "/addOrderItem" }, method = RequestMethod.POST)
-	public String addOrderItem(@RequestParam(required = true) String orderItems, HttpSession session) {
-		System.out.println("yey");
-
-		// OrderItems[] a = (OrderItems[]) orderItems;
-		// for (OrderItems orderItem : orderItems) {
-		// if (orderItemL.getCode().equals(code)) {
-		// orderItem = orderItemL;
-		// }
-		// }
-		return orderItems;
-	}
+	
 }

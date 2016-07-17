@@ -26,10 +26,10 @@ public class OrderMapper implements RowMapper<Order> {
 	public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Order order = new Order();
 		order.setId(rs.getInt("ID"));
-		order.setUserId(rs.getInt("USER_ID"));
+		order.setUserId(rs.getInt("USERS_ID"));
 		order.setStatus(rs.getString("STATUS"));
-		List<OrderItems> orderItems = orderItemsDAO.getAllOrderItemsByOrderID(rs.getInt("ID"));
-		order.setOrderItemList(orderItems);
+//		List<OrderItems> orderItems = orderItemsDAO.getAllOrderItemsByOrderID(rs.getInt("ID"));
+//		order.setOrderItemList(orderItems);
 		return order;
 	}
 

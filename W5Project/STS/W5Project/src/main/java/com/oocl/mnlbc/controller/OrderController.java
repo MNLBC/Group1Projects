@@ -3,9 +3,15 @@
  */
 package com.oocl.mnlbc.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderDAO;
+import com.oocl.mnlbc.dao.OrderItemsDAO;
 import com.oocl.mnlbc.model.Order;
+import com.oocl.mnlbc.model.User;
 
 /**
  * @author BARREPE
@@ -27,6 +35,9 @@ public class OrderController {
 
 	@Autowired
 	OrderDAO orderDAO;
+
+	@Autowired
+	OrderItemsDAO orderItemsDAO;
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrder" })
@@ -54,5 +65,30 @@ public class OrderController {
 		Order order = orderDAO.getOrderByID(id);
 		logger.info("Getting all order by ID");
 		return order;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = { "/addOrder" }, method = RequestMethod.POST)
+	public String addOrderItem(@RequestParam(required = true) String order, HttpSession session) {
+		ObjectMapper mapper = new ObjectMapper();
+		Order orderMapped = null;
+		try {
+			orderMapped = mapper.readValue(order, Order.class);
+			User user = (User) session.getAttribute("user");
+			orderMapped.setUserId(user.getId());
+			orderDAO.addOrder(orderMapped);
+			orderMapped.setId(orderDAO.getCurrSeq());
+			orderItemsDAO.addOrderItems(orderMapped.getId(), orderMapped.getOrderItemList());
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "DONE";
 	}
 }

@@ -9,9 +9,13 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.oocl.mnlbc.dao.OrderItemsDAO;
 import com.oocl.mnlbc.mapper.OrderItemsMapper;
+import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
 /***
@@ -28,6 +32,10 @@ public class OrderItemsDAOImpl implements OrderItemsDAO {
 	}
 
 	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public DataSource executeTestSource() {
 		return dataSource;
 	}
 
@@ -93,6 +101,29 @@ public class OrderItemsDAOImpl implements OrderItemsDAO {
 	public OrderItems addOrderItem(OrderItems orderItem) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<OrderItems> addOrderItems(final int orderId, List<OrderItems> orderItems) {
+		TransactionTemplate tt = new TransactionTemplate(getTransactionManager());
+		for (final OrderItems orderItem : orderItems) {
+			tt.execute(new TransactionCallback() {
+				public Object doInTransaction(TransactionStatus status) {
+					JdbcTemplate jt = new JdbcTemplate(executeTestSource());
+					StringBuilder query = new StringBuilder();
+					query.append("INSERT INTO ORDERITEMS (ORDER_ID, MEAL_ID, QUANTITY) VALUES (");
+					query.append(orderId + ",");
+					query.append(orderItem.getMealId() + ",");
+					query.append(orderItem.getQuantity() + ")");
+					jt.update(query.toString());
+
+					return null;
+				}
+			});
+		}
+
+		return orderItems;
+
 	}
 
 }

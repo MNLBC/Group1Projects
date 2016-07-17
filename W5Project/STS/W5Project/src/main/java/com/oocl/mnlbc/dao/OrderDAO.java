@@ -16,4 +16,6 @@ public interface OrderDAO {
 	public Order getOrderByID(int id);
 
 	public Order addOrder(Order order);
+	
+	public int getCurrSeq();
 }
