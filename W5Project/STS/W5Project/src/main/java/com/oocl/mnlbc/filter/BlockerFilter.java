@@ -57,14 +57,14 @@ public class BlockerFilter implements Filter {
 		} else {
 			// Blocking User with the name Johns or Scott
 			if (user.getFirstname().equalsIgnoreCase("Johns") || user.getFirstname().equalsIgnoreCase("Scott")) {
-				
+
 				ServletContext context = session.getServletContext();
 				List<User> logged = (List<User>) context.getAttribute("logged");
-				if (logged == null) {
-					logged = new ArrayList<User>();
+				if (logged != null) {
+
+					logged.remove(user);
+					session.invalidate();
 				}
-				logged.remove(user);
-				session.invalidate();
 				logger.info("User " + user + " is blocked.");
 				res.sendRedirect(req.getContextPath() + "/");
 			} else {

@@ -62,4 +62,16 @@ public class HomeController {
 			return true;
 		}
 	}
+
+	@ResponseBody
+	@RequestMapping(value = { "/getUserSession" }, method = RequestMethod.GET)
+	private HttpSession getUserSession(HttpSession session) {
+		logger.info("Getting session of logged in user");
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return null;
+		} else {
+			return session;
+		}
+	}
 }

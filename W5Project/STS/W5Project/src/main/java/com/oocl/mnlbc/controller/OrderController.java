@@ -79,6 +79,7 @@ public class OrderController {
 			orderDAO.addOrder(orderMapped);
 			orderMapped.setId(orderDAO.getCurrSeq());
 			orderItemsDAO.addOrderItems(orderMapped.getId(), orderMapped.getOrderItemList());
+			return "success";
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,6 +90,6 @@ public class OrderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "DONE";
+		return "fail";
 	}
 }
