@@ -29,7 +29,7 @@ public class HomeController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.POST)
-	public List<User> getNumberUserLogged(HttpSession session) {
+	public List<User> getAllLoggedUsers(HttpSession session) {
 		logger.info("Getting all logged in users");
 		ServletContext context = session.getServletContext();
 		List<User> logged = (List<User>) context.getAttribute("logged");
