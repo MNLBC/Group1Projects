@@ -15,8 +15,11 @@ import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
 /**
- * @author BARREPE
- *
+ * RowMapper implementation class MealMapper. Maps every record in query to
+ * Order model.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 public class OrderMapper implements RowMapper<Order> {
 	@Autowired
@@ -28,8 +31,9 @@ public class OrderMapper implements RowMapper<Order> {
 		order.setId(rs.getInt("ID"));
 		order.setUserId(rs.getInt("USERS_ID"));
 		order.setStatus(rs.getString("STATUS"));
-//		List<OrderItems> orderItems = orderItemsDAO.getAllOrderItemsByOrderID(rs.getInt("ID"));
-//		order.setOrderItemList(orderItems);
+		// List<OrderItems> orderItems =
+		// orderItemsDAO.getAllOrderItemsByOrderID(rs.getInt("ID"));
+		// order.setOrderItemList(orderItems);
 		return order;
 	}
 

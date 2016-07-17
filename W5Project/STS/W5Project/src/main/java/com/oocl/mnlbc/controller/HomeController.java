@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.oocl.mnlbc.model.User;
 
 /**
- * Handles requests for the application home page.
+ * Controller class HomeController. Handles requests for the home page.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 @Controller
 public class HomeController {
@@ -65,13 +68,13 @@ public class HomeController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/getUserSession" }, method = RequestMethod.GET)
-	private HttpSession getUserSession(HttpSession session) {
+	private User getUserSession(HttpSession session) {
 		logger.info("Getting session of logged in user");
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
 			return null;
 		} else {
-			return session;
+			return user;
 		}
 	}
 }

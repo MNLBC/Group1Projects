@@ -18,9 +18,12 @@ import com.oocl.mnlbc.mapper.OrderItemsMapper;
 import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
-/***
- * @author BARREPE
- *
+/**
+ * Implements the OrderItemsDAO to specify the actions that will be done by each
+ * methods.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 public class OrderItemsDAOImpl implements OrderItemsDAO {
 	private DataSource dataSource;

@@ -3,10 +3,12 @@ package com.oocl.mnlbc.model;
 import java.util.List;
 
 /**
- * Model Class. Used as backbone/pattern for the combo meal attributes (based on the database table Combo_Meal)
+ * Model Class. Used as backbone/pattern for the combo meal attributes (based on
+ * the database table Combo_Meal)
+ * 
  * 
  * @author Group 1
- *
+ * @since 07-18-2016
  */
 
 // Use as the backbone for Table Combo_Meal
@@ -19,7 +21,6 @@ public class ComboMeal {
 	private double price;
 	private String image;
 	private List<Meal> mealList;
-
 
 	public int getId() {
 		return id;

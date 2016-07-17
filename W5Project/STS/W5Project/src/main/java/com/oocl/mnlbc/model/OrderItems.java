@@ -1,11 +1,12 @@
 package com.oocl.mnlbc.model;
 
 /**
- * Model Class. Used as backbone/pattern for the order items attributes (based
- * on the database table orderItems)
+ * Model Class. Used as backbone/pattern for the order item attributes (based on
+ * the database table OrderItems)
+ * 
  * 
  * @author Group 1
- *
+ * @since 07-18-2016
  */
 
 public class OrderItems {

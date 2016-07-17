@@ -1,12 +1,12 @@
 package com.oocl.mnlbc.model;
 
 /**
- * 
  * Model Class. Used as backbone/pattern for the meal attributes (based on the
  * database table Meal)
  * 
+ * 
  * @author Group 1
- *
+ * @since 07-18-2016
  */
 
 // Use as the backbone for Table Meal

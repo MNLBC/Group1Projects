@@ -21,7 +21,12 @@ import com.oocl.mnlbc.controller.UserController;
 import com.oocl.mnlbc.model.User;
 
 /**
- * Servlet Filter implementation class BlockerFilter
+ * Servlet Filter implementation class BlockerFilter. Used to filter certain
+ * limitations to users. Includes filtering for blocked users based on the
+ * user's name.
+ * 
+ * @author Group1 ANDES
+ * @since 07-18-2016
  */
 public class BlockerFilter implements Filter {
 

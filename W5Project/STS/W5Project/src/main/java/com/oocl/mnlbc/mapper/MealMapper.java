@@ -11,8 +11,11 @@ import org.springframework.jdbc.core.RowMapper;
 import com.oocl.mnlbc.model.Meal;
 
 /**
- * @author BARREPE
- *
+ * RowMapper implementation class MealMapper. Maps every record in query to meal
+ * model.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 public class MealMapper implements RowMapper<Meal> {
 

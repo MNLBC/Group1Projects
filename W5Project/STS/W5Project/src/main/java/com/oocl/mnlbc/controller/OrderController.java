@@ -25,8 +25,10 @@ import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.User;
 
 /**
- * @author BARREPE
- *
+ * Controller class OrderController. Handles requests for the order of the current user logged in.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 @Controller
 @RequestMapping("/order")
