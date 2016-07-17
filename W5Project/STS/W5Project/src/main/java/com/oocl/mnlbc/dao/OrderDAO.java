@@ -15,5 +15,5 @@ public interface OrderDAO {
 
 	public Order getOrderByID(int id);
 
-	public Order addOrderItem(Order order);
+	public Order addOrder(Order order);
 }
