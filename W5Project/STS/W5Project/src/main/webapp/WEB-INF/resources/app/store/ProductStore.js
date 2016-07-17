@@ -25,55 +25,7 @@ Ext.define('BurgerQueen.store.ProductStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BurgerQueen.model.ProductModel',
-            storeId: 'ProductStore',
-            data: [
-                {
-                    Id: 22,
-                    Code: 'porro',
-                    Name: 'Bacon and Cheeseburger',
-                    Description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
-                    Category: 'Burgers',
-                    Price: 166,
-                    Image: 'resources/images/burgers/baconAndCheese.png'
-                },
-                {
-                    Id: 301,
-                    Code: 'nemo',
-                    Name: 'Coke',
-                    Description: 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-                    Category: 'Beverages',
-                    Price: 163,
-                    Image: 'resources/images/beverages/coke.png'
-                },
-                {
-                    Id: 270,
-                    Code: 'exercitationem',
-                    Name: 'Nuggets',
-                    Description: 'Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.',
-                    Category: 'Chickens',
-                    Price: 346,
-                    Image: 'resources/images/chicken/Nuggets.png'
-                },
-                {
-                    Id: 962,
-                    Code: 'ex',
-                    Name: 'Caramel Sundae',
-                    Description: 'Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.',
-                    Category: 'Desserts',
-                    Price: 827,
-                    Image: 'resources/images/desserts/caramelSundae.png'
-                },
-                {
-                    Id: 396,
-                    Code: 'illo',
-                    Name: 'Garden Salad',
-                    Description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-                    Category: 'Sides',
-                    Price: 744,
-                    Image: 'resources/images/sides/gardenSalad.png'
-                },
-                
-            ]
+            storeId: 'ProductStore'
         }, cfg)]);
     }
 });

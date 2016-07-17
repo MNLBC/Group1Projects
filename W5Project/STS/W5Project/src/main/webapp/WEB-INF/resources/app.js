@@ -22,30 +22,36 @@ Ext.Loader.setConfig({
 Ext.application({
 	appFolder: 'resources/app',
 
-    models: [
-        'ProductModel',
-        'TrayModel'
-    ],
-    stores: [
-        'ProductStore',
-        'TrayStore'
-    ],
-    views: [
-        'MyViewport',
-        'RegisterWindow',
-        'LoginWindow',
-        'Beverages',
-        'Sides',
-        'TrayWindow',
-        'ProductViewWindow',
-        'UserProfile'
-    ],
-    controllers: [
-        'HomePage',
-        'Windows'
-    ],
-    name: 'BurgerQueen',
-
+	   models: [
+	            'ProductModel',
+	            'TrayModel',
+	            'TransactionModel',
+	            'ActiveUserModel',
+	            'TransactionDetailsModel'
+	        ],
+	        stores: [
+	            'ProductStore',
+	            'TrayStore',
+	            'TransactionStore',
+	            'ActiveUserStore',
+	            'TransactionDetailsStore'
+	        ],
+	        views: [
+	            'MyViewport',
+	            'RegisterWindow',
+	            'LoginWindow',
+	            'TrayWindow',
+	            'ProductViewWindow',
+	            'UserProfile',
+	            'ActiveUsersWindow',
+	            'TransactionDetails'
+	        ],
+	        controllers: [
+	            'HomePage',
+	            'Windows'
+	        ],
+	        name: 'BurgerQueen',
+	        
     launch: function() {
         Ext.create('BurgerQueen.view.MyViewport');
     }

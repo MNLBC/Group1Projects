@@ -18,15 +18,17 @@ Ext.define('BurgerQueen.view.UserProfile', {
     alias: 'widget.userprofile',
 
     requires: [
-        'Ext.container.Container',
-        'Ext.form.field.Display'
+        'Ext.form.field.Display',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.grid.View'
     ],
 
-    height: 250,
+    height: 431,
     id: 'UserProfile',
     itemId: 'UserProfile',
-    width: 400,
-    layout: 'border',
+    width: 611,
+    layout: 'fit',
     header: false,
     title: 'My Profile',
 
@@ -37,68 +39,103 @@ Ext.define('BurgerQueen.view.UserProfile', {
             items: [
                 {
                     xtype: 'container',
-                    flex: 1,
-                    region: 'center',
+                    padding: '0, 100, 0, 100',
                     items: [
                         {
                             xtype: 'displayfield',
+                            height: 50,
                             itemId: 'usernameProfile',
-                            width: 150,
+                            width: 800,
                             fieldLabel: 'Username',
                             value: 'Display Field',
                             inputId: 'userName'
                         },
                         {
                             xtype: 'displayfield',
+                            height: 50,
                             itemId: 'firstnameProfile',
-                            width: 150,
+                            width: 800,
                             fieldLabel: 'First name',
                             value: 'Display Field',
                             inputId: 'firstName'
                         },
                         {
                             xtype: 'displayfield',
-                            height: 150,
+                            height: 50,
                             itemId: 'middlenameProfile',
+                            width: 800,
                             fieldLabel: 'Middle name:',
                             value: 'Display Field',
                             inputId: 'middleName'
                         },
                         {
                             xtype: 'displayfield',
-                            height: 150,
+                            height: 50,
                             id: 'lastnameProfile',
                             itemId: 'lastnameProfile',
+                            width: 800,
                             fieldLabel: 'Last name',
                             value: 'Display Field',
                             inputId: 'lastName'
                         },
                         {
                             xtype: 'displayfield',
-                            height: 150,
+                            height: 50,
                             id: 'addressProfile',
                             itemId: 'addressProfile',
+                            width: 800,
                             fieldLabel: 'Address',
                             value: 'Display Field',
                             inputId: 'address'
                         },
                         {
                             xtype: 'displayfield',
-                            height: 150,
+                            height: 50,
                             id: 'emailProfile',
                             itemId: 'emailProfile',
+                            width: 800,
                             fieldLabel: 'E-mail',
                             value: 'Display Field',
                             inputId: 'email'
                         },
                         {
                             xtype: 'displayfield',
-                            height: 150,
+                            height: 50,
                             id: 'contactnumProfile',
                             itemId: 'contactnumProfile',
+                            width: 800,
                             fieldLabel: 'Contact:',
                             value: 'Display Field',
                             inputId: 'userProfileWindow'
+                        },
+                        {
+                            xtype: 'gridpanel',
+                            id: 'TransacHistoryGrid',
+                            itemId: 'transactionHistoryGrid',
+                            autoScroll: true,
+                            title: 'My Grid Panel',
+                            hideHeaders: true,
+                            store: 'TransactionStore',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'Id',
+                                    text: 'Transaction Id',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'Status',
+                                    text: 'Transaction Status',
+                                    flex: 1
+                                }
+                            ],
+                            listeners: {
+                                itemdblclick: {
+                                    fn: me.onTransacHistoryGridItemDblClick,
+                                    scope: me
+                                }
+                            }
                         }
                     ]
                 }
@@ -106,6 +143,18 @@ Ext.define('BurgerQueen.view.UserProfile', {
         });
 
         me.callParent(arguments);
+    },
+
+    onTransacHistoryGridItemDblClick: function(dataview, record, item, index, e, eOpts) {
+        //         var transactionStore = Ext.getStore('TransactionStore');
+
+        //         var productGrid = Ext.getCmp('TransacHistoryGrid'),
+        //             selectModel = productGrid.getSelectionModel(),
+        //             selectedProduct = selectModel.getSelection()[0].data;
+
+                console.log('record mo '+record);
+                 Ext.create('BurgerQueen.view.TransactionDetails',{
+                    transaction : record }).show();
     }
 
 });

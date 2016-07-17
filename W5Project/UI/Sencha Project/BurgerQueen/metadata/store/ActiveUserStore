@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "data": null,
         "designer|userClassName": "ActiveUserStore",
         "model": "ActiveUserModel",
         "storeId": "ActiveUserStore"
