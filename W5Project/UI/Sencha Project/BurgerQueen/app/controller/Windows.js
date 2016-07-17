@@ -355,14 +355,25 @@ Ext.define('BurgerQueen.controller.Windows', {
             orderItems.push(orderItem);
         });
 
+
+
                    Ext.Ajax.request({
-                             url : '',
+                             url : 'orderItem/addOrderItem',
                              params : {
-                                 orderItems:orderItems
+                                 orderItems:Ext.JSON.encode(orderItems)
                              },
                              scope : this,
+
                             success : function(response) {
-                                console.log('ok na');
+                                var data = response.responseText;
+                                if(data === 'success'){
+                                    store.removeAll();
+                                    Ext.Message.alert('Success', 'Order success, please wait for order delivery.');
+                                    this.getTrayWindow().destroy();
+                                }
+                                else{
+                                    Ext.Message.alert('Error', 'Failed to checkout your order.');
+                                }
                             }
         });
 

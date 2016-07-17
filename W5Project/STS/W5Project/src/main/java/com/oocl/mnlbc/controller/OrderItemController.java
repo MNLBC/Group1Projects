@@ -65,10 +65,12 @@ public class OrderItemController {
 		return orderItem;
 	}
 
-	@RequestMapping(value = { "/orderItem" }, method = RequestMethod.POST)
 	@ResponseBody
-	public List<OrderItems> addOrderItem(@RequestParam(required = true) List<OrderItems> orderItems, HttpSession session) {
-
+	@RequestMapping(value = { "/addOrderItem" }, method = RequestMethod.POST)
+	public String addOrderItem(@RequestParam(required = true) String orderItems, HttpSession session) {
+		System.out.println("yey");
+		
+//		OrderItems[] a = (OrderItems[]) orderItems;
 		// for (OrderItems orderItem : orderItems) {
 		// if (orderItemL.getCode().equals(code)) {
 		// orderItem = orderItemL;
