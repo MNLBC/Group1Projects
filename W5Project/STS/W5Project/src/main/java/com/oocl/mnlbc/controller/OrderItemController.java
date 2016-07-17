@@ -3,7 +3,6 @@
  */
 package com.oocl.mnlbc.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,29 +39,24 @@ public class OrderItemController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/getAllOrderItems/{orderId}" })
-	public String getAllOrderItemsByOrderID(@PathVariable("orderId") int orderId) {
+	@RequestMapping(value = { "/getAllOrderItemsById" }, method = RequestMethod.POST)
+	public List<OrderItems> getAllOrderItemsByOrderID(@RequestParam(required = true) int orderId) {
 		List<OrderItems> orderItems = orderItemDAO.getAllOrderItemsByOrderID(orderId);
-		StringBuffer buffer = new StringBuffer();
-		for (OrderItems orderItem : orderItems) {
-			buffer.append(orderItem).append("\n");
-		}
 		logger.info("Getting all order items by ID");
-		return buffer.toString();
+		return orderItems;
 	}
 
-	@RequestMapping(value = "/orderItemId/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public OrderItems getOrderItemsByID(@PathVariable("id") int id) {
+	@RequestMapping(value = "/orderItemId", method = RequestMethod.POST)
+	public OrderItems getOrderItemsByID(@RequestParam(required = true) int id) {
 		List<OrderItems> orderItems = orderItemDAO.getAllOrderItems();
-		OrderItems orderItem = null;
-		for (OrderItems orderItemL : orderItems) {
-			if (orderItemL.getId() == id) {
-				orderItem = orderItemL;
+		for (OrderItems orderItem : orderItems) {
+			if (orderItem.getId() == id) {
+				return orderItem;
 			}
 		}
 		logger.info("Getting order items by ID");
-		return orderItem;
+		return null;
 	}
 
 	@ResponseBody
@@ -70,7 +64,7 @@ public class OrderItemController {
 	public String addOrderItem(@RequestParam(required = true) String orderItems, HttpSession session) {
 		System.out.println("yey");
 		
-//		OrderItems[] a = (OrderItems[]) orderItems;
+		// OrderItems[] a = (OrderItems[]) orderItems;
 		// for (OrderItems orderItem : orderItems) {
 		// if (orderItemL.getCode().equals(code)) {
 		// orderItem = orderItemL;

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.MealDAO;
@@ -28,39 +29,36 @@ public class MealController {
 	MealDAO mealDAO;
 
 	@ResponseBody
-	@RequestMapping(value = { "/getAllMeals" })
-	public List<Meal>  getAllMeals() {
+	@RequestMapping(value = { "/getAllMeals" }, method = RequestMethod.POST)
+	public List<Meal> getAllMeals() {
 		List<Meal> meals = mealDAO.getAllMeals();
 		logger.info("Getting all list of Meals");
 		return meals;
 	}
 
-	@RequestMapping(value = "/mealId/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public Meal getMealById(@PathVariable("id") int id) {
+	@RequestMapping(value = "/mealId", method = RequestMethod.POST)
+	public Meal getMealById(@RequestParam(required = true) int id) {
+		logger.info("Getting the meal by ID");
 		List<Meal> meals = mealDAO.getAllMeals();
-		Meal meal = null;
-		for (Meal mealL : meals) {
-			if (mealL.getId() == id) {
-				meal = mealL;
+		for (Meal meal : meals) {
+			if (meal.getId() == id) {
+				return meal;
 			}
 		}
-		logger.info("Getting the meal by ID");
-		return meal;
+		return null;
 	}
 
-	@RequestMapping(value = "/mealCode/{code}", method = RequestMethod.GET)
+	@RequestMapping(value = "/mealCode", method = RequestMethod.POST)
 	@ResponseBody
-	public Meal checkMealnameExistence(@PathVariable("code") String code) {
+	public Meal getMealByCode(@RequestParam(required = true) String code) {
+		logger.info("Getting the meal by Code");
 		List<Meal> meals = mealDAO.getAllMeals();
-		Meal meal = null;
-		for (Meal mealL : meals) {
-			if (mealL.getCode().equals(code)) {
-				meal = mealL;
+		for (Meal meal : meals) {
+			if (meal.getCode().equals(code)) {
+				return meal;
 			}
 		}
-		
-		logger.info("Checking the emeal if Existing");
-		return meal;
+		return null;
 	}
 }

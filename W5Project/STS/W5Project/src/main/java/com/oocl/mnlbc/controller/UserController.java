@@ -24,7 +24,7 @@ import com.oocl.mnlbc.model.User;
 public class UserController {
 
 	final static Logger logger = Logger.getLogger(UserController.class);
-	
+
 	@Autowired
 	UserDAO userDAO;
 
@@ -71,59 +71,54 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public User getUserByID(@PathVariable("id") int id) {
+	@RequestMapping(value = "/getUserById", method = RequestMethod.POST)
+	public User getUserByID(@RequestParam(required = true) int id, HttpSession session) {
+		logger.info("Client tried to search user by ID: " + id);
 		List<User> users = userDAO.getAllUsers();
-		User user = null;
-		for (User userL : users) {
-			if (userL.getId() == id) {
-				user = userL;
+		for (User user : users) {
+			if (user.getId() == id) {
+				return user;
 			}
 		}
-		logger.info("Client search for ID: " + id );
-		return user;
+		return null;
 	}
 
-	@RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
 	@ResponseBody
-	public User getUserByUsername(@PathVariable("username") String username) {
+	@RequestMapping(value = "/getUserByUsername", method = RequestMethod.POST)
+	public User getUserByUsername(@RequestParam(required = true) String username) {
+		logger.info("Client tried to search user by Username: " + username);
 		List<User> users = userDAO.getAllUsers();
-		User user = null;
-		for (User userL : users) {
-			if (userL.getUsername().equals(username)) {
-				user = userL;
+		for (User user : users) {
+			if (user.getUsername().equals(username)) {
+				return user;
 			}
 		}
-		
-		logger.info("Client search for Username: " + username);
-		return user;
+		return null;
 	}
 
-	@RequestMapping(value = "/userCheck/{username}", method = RequestMethod.GET)
 	@ResponseBody
-	public boolean checkUsernameExistence(@PathVariable("username") String username) {
+	@RequestMapping(value = "/userCheck", method = RequestMethod.POST)
+	public boolean checkUsernameExistence(@RequestParam(required = true) String username) {
 		List<User> users = userDAO.getAllUsers();
-		boolean check = false;
 		for (User userL : users) {
 			if (userL.getUsername().equals(username)) {
-				check = true;
+				return true;
 			}
 		}
-		return check;
+		return false;
 	}
 
-	@RequestMapping(value = "/emailCheck/{email}", method = RequestMethod.GET)
 	@ResponseBody
-	public boolean checkEmailExistence(@PathVariable("email") String email) {
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
+	public boolean checkEmailExistence(@RequestParam(required = true) String email) {
 		List<User> users = userDAO.getAllUsers();
-		boolean check = false;
 		for (User userL : users) {
 			if (userL.getEmail().equals(email)) {
-				check = true;
+				return true;
 			}
 		}
-		return check;
+		return false;
 	}
 
 	private String hashPassword(String password) {
