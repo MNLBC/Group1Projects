@@ -8,13 +8,12 @@
     "userConfig": {
         "container|align": "stretch",
         "designer|userClassName": "TrayWindow",
-        "header": false,
         "height": 399,
         "id": "TrayWindow",
         "itemId": "TrayWindow",
         "layout": "vbox",
         "modal": true,
-        "title": "",
+        "title": "My Tray",
         "width": 619
     },
     "name": "MyWindow",
@@ -229,7 +228,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "container|pack": "center",
+                "container|pack": "end",
                 "dock": null,
                 "layout|flex": null
             },
@@ -266,8 +265,9 @@
                 "fieldLabel": "Total Number of Items in Tray",
                 "id": "totalItems",
                 "itemId": "totalItems",
+                "layout|flex": null,
                 "value": "",
-                "width": 150
+                "width": null
             },
             "name": "MyDisplayField3",
             "designerId": "fed579b0-a215-4ed4-ad8a-24da193ec6e6"
@@ -332,7 +332,7 @@
                 "fieldLabel": "Total Amount in RMB",
                 "id": "totalAmount",
                 "itemId": "totalAmount",
-                "layout|flex": 1,
+                "layout|flex": null,
                 "value": ""
             },
             "name": "MyDisplayField4",

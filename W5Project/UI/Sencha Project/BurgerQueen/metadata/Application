@@ -13,13 +13,15 @@
         "models": [
             "ProductModel",
             "TrayModel",
-            "OrderModel"
+            "OrderModel",
+            "ActiveUserModel"
         ],
         "name": "BurgerQueen",
         "stores": [
             "ProductStore",
             "TrayStore",
-            "OrderStore"
+            "OrderStore",
+            "ActiveUserStore"
         ],
         "views": [
             "MyViewport",
@@ -29,7 +31,7 @@
             "TrayWindow",
             "ProductViewWindow",
             "UserProfile",
-            "MyGridPanel2"
+            "ActiveUsersWindow"
         ]
     },
     "name": "Application",

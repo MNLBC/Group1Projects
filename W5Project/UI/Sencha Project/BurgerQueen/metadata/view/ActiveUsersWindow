@@ -1,0 +1,49 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ActiveUsersWindow",
+        "height": 250,
+        "title": "Active Users",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "9d4b6ad7-4f28-4b44-a452-e72960332014",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "store": "ActiveUserStore",
+                "title": null
+            },
+            "name": "MyGridPanel2",
+            "designerId": "3d51885b-5eff-419f-8604-3a365414e327",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "username",
+                        "flex": 1,
+                        "text": "Users"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "f39917d1-2f6d-48a1-acf7-6f8e156d6c27"
+                }
+            ]
+        }
+    ]
+}

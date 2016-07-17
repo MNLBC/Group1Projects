@@ -50,6 +50,12 @@
             <artifactId>hibernate-validator</artifactId>
             <version>4.3.0.Final</version>
         </dependency>
+        <dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20090211</version>
+		</dependency>
+        
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

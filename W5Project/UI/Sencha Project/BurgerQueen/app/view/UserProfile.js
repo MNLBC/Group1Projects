@@ -26,6 +26,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
     id: 'UserProfile',
     itemId: 'UserProfile',
     width: 400,
+    layout: 'border',
     header: false,
     title: 'My Profile',
 
@@ -36,50 +37,70 @@ Ext.define('BurgerQueen.view.UserProfile', {
             items: [
                 {
                     xtype: 'container',
-                    height: 54
-                },
-                {
-                    xtype: 'displayfield',
-                    width: 404,
-                    fieldLabel: 'Username',
-                    value: 'Display Field',
-                    inputId: 'userName'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'First name',
-                    value: 'Display Field',
-                    inputId: 'firstName'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Middle name:',
-                    value: 'Display Field',
-                    inputId: 'middleName'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Last name',
-                    value: 'Display Field',
-                    inputId: 'lastName'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Address',
-                    value: 'Display Field',
-                    inputId: 'address'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'E-mail',
-                    value: 'Display Field',
-                    inputId: 'email'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: 'Contact:',
-                    value: 'Display Field',
-                    inputId: 'userProfileWindow'
+                    flex: 1,
+                    region: 'center',
+                    items: [
+                        {
+                            xtype: 'displayfield',
+                            itemId: 'usernameProfile',
+                            width: 150,
+                            fieldLabel: 'Username',
+                            value: 'Display Field',
+                            inputId: 'userName'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            itemId: 'firstnameProfile',
+                            width: 150,
+                            fieldLabel: 'First name',
+                            value: 'Display Field',
+                            inputId: 'firstName'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            height: 150,
+                            itemId: 'middlenameProfile',
+                            fieldLabel: 'Middle name:',
+                            value: 'Display Field',
+                            inputId: 'middleName'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            height: 150,
+                            id: 'lastnameProfile',
+                            itemId: 'lastnameProfile',
+                            fieldLabel: 'Last name',
+                            value: 'Display Field',
+                            inputId: 'lastName'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            height: 150,
+                            id: 'addressProfile',
+                            itemId: 'addressProfile',
+                            fieldLabel: 'Address',
+                            value: 'Display Field',
+                            inputId: 'address'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            height: 150,
+                            id: 'emailProfile',
+                            itemId: 'emailProfile',
+                            fieldLabel: 'E-mail',
+                            value: 'Display Field',
+                            inputId: 'email'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            height: 150,
+                            id: 'contactnumProfile',
+                            itemId: 'contactnumProfile',
+                            fieldLabel: 'Contact:',
+                            value: 'Display Field',
+                            inputId: 'userProfileWindow'
+                        }
+                    ]
                 }
             ]
         });

@@ -23,12 +23,14 @@ Ext.application({
     models: [
         'ProductModel',
         'TrayModel',
-        'OrderModel'
+        'OrderModel',
+        'ActiveUserModel'
     ],
     stores: [
         'ProductStore',
         'TrayStore',
-        'OrderStore'
+        'OrderStore',
+        'ActiveUserStore'
     ],
     views: [
         'MyViewport',
@@ -38,7 +40,7 @@ Ext.application({
         'TrayWindow',
         'ProductViewWindow',
         'UserProfile',
-        'MyGridPanel2'
+        'ActiveUsersWindow'
     ],
     controllers: [
         'HomePage',

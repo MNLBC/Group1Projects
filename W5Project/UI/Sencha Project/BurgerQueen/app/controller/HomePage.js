@@ -72,6 +72,38 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'myProfileButton',
             selector: '#myProfileButton'
+        },
+        {
+            ref: 'usernameProfile',
+            selector: '#usernameProfile'
+        },
+        {
+            ref: 'firstnameProfile',
+            selector: '#firstnameProfile'
+        },
+        {
+            ref: 'middlenameProfile',
+            selector: '#middlenameProfile'
+        },
+        {
+            ref: 'lastnameProfile',
+            selector: '#lastnameProfile'
+        },
+        {
+            ref: 'addressProfile',
+            selector: '#addressProfile'
+        },
+        {
+            ref: 'emailProfile',
+            selector: '#emailProfile'
+        },
+        {
+            ref: 'contactNumProfile',
+            selector: '#contactnumProfile'
+        },
+        {
+            ref: 'activeUsersCount',
+            selector: '#activeUsersCount'
         }
     ],
 
@@ -206,6 +238,25 @@ Ext.define('BurgerQueen.controller.HomePage', {
         });
     },
 
+    onUserProfileShow: function(component, eOpts) {
+                this.activeUserCounter();
+                if(Ext.isEmpty(currentLoginUser)){
+                    return;
+                }
+
+                this.getUsernameProfile().setValue(currentLoginUser.username);
+                this.getFirstnameProfile().setValue(currentLoginUser.firstname);
+                this.getMiddlenameProfile().setValue(currentLoginUser.middlename);
+                this.getLastnameProfile().setValue(currentLoginUser.lastname);
+                this.getAddressProfile().setValue(currentLoginUser.address);
+                this.getEmailProfile().setValue(currentLoginUser.email);
+                this.getContactNumProfile().setValue(currentLoginUser.contact);
+    },
+
+    onShowUsersWindowClick: function() {
+        Ext.create('BurgerQueen.view.ActiveUsersWindow').show();
+    },
+
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
 
@@ -225,6 +276,26 @@ Ext.define('BurgerQueen.controller.HomePage', {
                             if (this.oLoadingMessageMask) {
                                this.oLoadingMessageMask.hide();
                             }
+    },
+
+    activeUserCounter: function() {
+           var store =  Ext.getStore('ActiveUserStore');
+
+            Ext.Ajax.request({
+                    url : 'getLoggedUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        activeUsers = data;
+                       this.getActiveUsersCount().setValue(data.length);
+                        Ext.each(response, function(record){
+                            store.add({username:record.username});
+                        });
+                    }
+                });
     },
 
     init: function(application) {
@@ -265,6 +336,12 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#BurgerQueen": {
                 render: this.onBurgerQueenRender
+            },
+            "#UserProfile": {
+                show: this.onUserProfileShow
+            },
+            "#showUsersWindow": {
+                click: this.onShowUsersWindowClick
             }
         });
     }

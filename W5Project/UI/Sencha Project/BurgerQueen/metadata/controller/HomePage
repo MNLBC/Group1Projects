@@ -594,6 +594,201 @@
             },
             "name": "onBurgerQueenRender",
             "designerId": "71cd5b24-018b-45b6-8a32-fc449139a8f4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#UserProfile",
+                "designer|targetType": "UserProfile",
+                "fn": "onUserProfileShow",
+                "implHandler": [
+                    "        this.activeUserCounter();",
+                    "        if(Ext.isEmpty(currentLoginUser)){",
+                    "            return;",
+                    "        }",
+                    "",
+                    "        this.getUsernameProfile().setValue(currentLoginUser.username);",
+                    "        this.getFirstnameProfile().setValue(currentLoginUser.firstname);",
+                    "        this.getMiddlenameProfile().setValue(currentLoginUser.middlename);",
+                    "        this.getLastnameProfile().setValue(currentLoginUser.lastname);",
+                    "        this.getAddressProfile().setValue(currentLoginUser.address);",
+                    "        this.getEmailProfile().setValue(currentLoginUser.email);",
+                    "        this.getContactNumProfile().setValue(currentLoginUser.contact);"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onUserProfileShow",
+            "designerId": "3ec64ce3-f385-424e-8ebd-67d8cbccc5d7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameProfile",
+                "selector": "#usernameProfile"
+            },
+            "name": "usernameProfile",
+            "designerId": "e20042d7-719f-4d66-86b9-25301f735ba0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "firstnameProfile",
+                "selector": "#firstnameProfile"
+            },
+            "name": "firstnameProfile",
+            "designerId": "2d490563-7647-4c32-9a2f-ef57b02b9391"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "middlenameProfile",
+                "selector": "#middlenameProfile"
+            },
+            "name": "middlenameProfile",
+            "designerId": "c888cd63-fdaf-475a-9b63-fc6e28e012ba"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "lastnameProfile",
+                "selector": "#lastnameProfile"
+            },
+            "name": "lastnameProfile",
+            "designerId": "d720d106-996e-4d76-b555-925ff94ea95e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addressProfile",
+                "selector": "#addressProfile"
+            },
+            "name": "addressProfile",
+            "designerId": "29abfdb1-9e56-4f79-8488-dcccd6ea7aed"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "emailProfile",
+                "selector": "#emailProfile"
+            },
+            "name": "emailProfile",
+            "designerId": "acd327be-3f26-4561-a84f-160fc1958a19"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactNumProfile",
+                "selector": "#contactnumProfile"
+            },
+            "name": "contactNumProfile",
+            "designerId": "9489f37f-3e41-42f9-a331-0c100fa263a3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "activeUsersCount",
+                "selector": "#activeUsersCount"
+            },
+            "name": "activeUsersCount",
+            "designerId": "de0387d8-7364-4e31-b3ee-6fa58d4e0016"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeUserCounter",
+                "implHandler": [
+                    "   var store =  Ext.getStore('ActiveUserStore');",
+                    "",
+                    "    Ext.Ajax.request({",
+                    "            url : 'getLoggedUsers',",
+                    "            params : {",
+                    "",
+                    "            },",
+                    "            scope : this,",
+                    "            success : function(response) {",
+                    "                var data = Ext.decode(response.responseText);",
+                    "                activeUsers = data;",
+                    "               this.getActiveUsersCount().setValue(data.length);",
+                    "                Ext.each(response, function(record){",
+                    "                    store.add({username:record.username});",
+                    "                });",
+                    "            }",
+                    "        });"
+                ]
+            },
+            "name": "activeUserCounter",
+            "designerId": "b31fb7bd-6431-4673-be34-a3856e3da770"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#showUsersWindow",
+                "designer|targetType": "MyButton19",
+                "fn": "onShowUsersWindowClick",
+                "implHandler": [
+                    "Ext.create('BurgerQueen.view.ActiveUsersWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onShowUsersWindowClick",
+            "designerId": "487642f3-a070-424b-b52e-c817fc57bf61"
         }
     ]
 }

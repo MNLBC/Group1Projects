@@ -21,7 +21,8 @@ Ext.define('BurgerQueen.view.MyViewport', {
         'BurgerQueen.view.UserProfile',
         'Ext.panel.Panel',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Display'
     ],
 
     layout: 'fit',
@@ -82,6 +83,18 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     itemId: 'logoutButton',
                                     ui: 'menubarbtn',
                                     text: 'Logout'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    itemId: 'activeUsersCount',
+                                    fieldLabel: 'Users',
+                                    labelWidth: 50,
+                                    value: '0'
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'showUsersWindow',
+                                    text: 'Show Users'
                                 }
                             ]
                         },

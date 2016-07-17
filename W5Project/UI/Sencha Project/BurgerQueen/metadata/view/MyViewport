@@ -136,6 +136,38 @@
                             },
                             "name": "MyButton6",
                             "designerId": "38932cfd-8b56-406f-89ee-e83d8a096c67"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Users",
+                                "itemId": "activeUsersCount",
+                                "labelWidth": 50,
+                                "layout|flex": null,
+                                "value": "0"
+                            },
+                            "name": "MyDisplayField12",
+                            "designerId": "963e52de-20a0-4998-a3f9-7e02d22734ea"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "showUsersWindow",
+                                "layout|flex": null,
+                                "text": "Show Users"
+                            },
+                            "name": "MyButton19",
+                            "designerId": "e8e22bc2-82ee-489b-86f5-5c0d88203982"
                         }
                     ]
                 },

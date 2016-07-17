@@ -208,20 +208,31 @@ Ext.define('BurgerQueen.controller.Windows', {
 
         var trayGrid = this.getTrayGrid(),
             selectModel = trayGrid.getSelectionModel(),
-            selectedProduct = selectModel.getSelection(),
-            selectedQty = selectedProduct[0].data.Quantity,
-            selectedPrice = selectedProduct[0].data.Price;
+            selectedProduct = selectModel.getSelection();
 
-        var currentQty = this.getTotalItems().getValue(),
-            currentAmount = this.getTotalAmount().getValue();
 
-        var updatedQty = currentQty - selectedQty,
-            updatedAmount = currentAmount - selectedPrice;
+            if(!Ext.isEmpty(selectedProduct)){
+                var selectedPrice = selectedProduct[0].data.Price,
+                    selectedQty = selectedProduct[0].data.Quantity;
 
-        trayStore.remove(selectedProduct);
-        this.getTotalItems().setValue(updatedQty);
-        this.getTotalAmount().setValue(updatedAmount);
+                var currentQty = this.getTotalItems().getValue(),
+                    currentAmount = this.getTotalAmount().getValue();
 
+                var updatedQty = currentQty - selectedQty,
+                    updatedAmount = currentAmount - selectedPrice;
+
+                trayStore.remove(selectedProduct);
+                this.getTotalItems().setValue(updatedQty);
+                this.getTotalAmount().setValue(updatedAmount);
+
+                //call on show event of tray
+                this.onTrayWindowShow();
+
+
+            }else{
+                Ext.MessageBox.alert('Error','Please select an item to remove');
+
+            }
 
 
     },
@@ -291,6 +302,7 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onLoginWindowButtonClick: function() {
+
                 var form = this.getLoginForm(),
                             username = form.getValues().username,
                             password = form.getValues().password;
@@ -311,6 +323,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                                          Ext.MessageBox.alert('Error','Blocked');
                                      }else{
                                          Ext.MessageBox.alert('Success','Welcome!');
+                                         currentLoginUser = decodedData;
                                          this.getLoginButton().hide();
                                          this.getLogoutButton().show();
                                          this.getRegisterButton().hide();
@@ -341,7 +354,14 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onCheckoutBtnClick: function() {
+
+
         var store = Ext.getStore('TrayStore');
+
+        if(Ext.isEmpty(store.getRange())){
+            Ext.MessageBox.alert('Error','Your cart is empty');
+            return;
+        }
 
         var orderItems = [];
         store.each(function(record){
@@ -357,24 +377,24 @@ Ext.define('BurgerQueen.controller.Windows', {
 
 
 
-                   Ext.Ajax.request({
-                             url : 'orderItem/addOrderItem',
-                             params : {
-                                 orderItems:Ext.JSON.encode(orderItems)
-                             },
-                             scope : this,
+        Ext.Ajax.request({
+            url : 'orderItem/addOrderItem',
+            params : {
+                orderItems:Ext.JSON.encode(orderItems)
+            },
+            scope : this,
 
-                            success : function(response) {
-                                var data = response.responseText;
-                                if(data === 'success'){
-                                    store.removeAll();
-                                    Ext.Message.alert('Success', 'Order success, please wait for order delivery.');
-                                    this.getTrayWindow().destroy();
-                                }
-                                else{
-                                    Ext.Message.alert('Error', 'Failed to checkout your order.');
-                                }
-                            }
+            success : function(response) {
+                var data = response.responseText;
+                if(data === 'success'){
+                    store.removeAll();
+                    Ext.MessageBox.alert('Success', 'Order success, please wait for order delivery.');
+                    this.getTrayWindow().destroy();
+                }
+                else{
+                    Ext.MessageBox.alert('Error', 'Failed to checkout your order.');
+                }
+            }
         });
 
     },

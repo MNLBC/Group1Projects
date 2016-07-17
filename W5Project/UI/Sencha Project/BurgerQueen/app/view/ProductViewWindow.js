@@ -94,14 +94,6 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     value: 'Price'
                                 },
                                 {
-                                    xtype: 'displayfield',
-                                    anchor: '100%',
-                                    id: 'ProductDescription',
-                                    itemId: 'ProductDescription',
-                                    fieldLabel: '',
-                                    value: 'Description'
-                                },
-                                {
                                     xtype: 'numberfield',
                                     anchor: '100%',
                                     id: 'ProductQuantity',
@@ -109,6 +101,14 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     fieldLabel: 'Quantity',
                                     value: 1,
                                     minValue: 1
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    anchor: '100%',
+                                    id: 'ProductDescription',
+                                    itemId: 'ProductDescription',
+                                    fieldLabel: '',
+                                    value: 'Description'
                                 }
                             ],
                             dockedItems: [

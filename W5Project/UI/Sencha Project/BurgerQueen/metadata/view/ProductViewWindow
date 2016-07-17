@@ -124,23 +124,6 @@
                             "designerId": "55881250-2389-414f-ae45-75088bbd5c6d"
                         },
                         {
-                            "type": "Ext.form.field.Display",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fieldLabel": "",
-                                "id": "ProductDescription",
-                                "itemId": "ProductDescription",
-                                "layout|anchor": "100%",
-                                "value": "Description"
-                            },
-                            "name": "MyDisplayField2",
-                            "designerId": "d0724282-9ca6-4c25-8274-a29c16598d49"
-                        },
-                        {
                             "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
@@ -159,6 +142,23 @@
                             },
                             "name": "MyNumberField",
                             "designerId": "00d1d19c-db3e-4683-94b3-b4cb3dd6ea98"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "",
+                                "id": "ProductDescription",
+                                "itemId": "ProductDescription",
+                                "layout|anchor": "100%",
+                                "value": "Description"
+                            },
+                            "name": "MyDisplayField2",
+                            "designerId": "d0724282-9ca6-4c25-8274-a29c16598d49"
                         },
                         {
                             "type": "Ext.toolbar.Toolbar",

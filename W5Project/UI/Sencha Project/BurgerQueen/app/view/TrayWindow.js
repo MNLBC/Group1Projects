@@ -31,8 +31,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     id: 'TrayWindow',
     itemId: 'TrayWindow',
     width: 619,
-    header: false,
-    title: '',
+    title: 'My Tray',
     modal: true,
 
     layout: {
@@ -122,7 +121,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     xtype: 'toolbar',
                     layout: {
                         type: 'hbox',
-                        pack: 'center'
+                        pack: 'end'
                     },
                     items: [
                         {
@@ -137,13 +136,11 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     xtype: 'displayfield',
                     id: 'totalItems',
                     itemId: 'totalItems',
-                    width: 150,
                     fieldLabel: 'Total Number of Items in Tray',
                     value: ''
                 },
                 {
                     xtype: 'displayfield',
-                    flex: 1,
                     id: 'totalAmount',
                     itemId: 'totalAmount',
                     fieldLabel: 'Total Amount in RMB',

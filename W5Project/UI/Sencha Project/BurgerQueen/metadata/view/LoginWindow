@@ -45,6 +45,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "User Name",
                         "labelSeparator": null,
                         "layout|flex": null,
@@ -61,6 +63,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
                         "inputType": "password",
                         "labelSeparator": null,
