@@ -72,6 +72,10 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#registerForm'
         },
         {
+            ref: 'chickensButton',
+            selector: '#chickensButton'
+        },
+        {
             ref: 'loginForm',
             selector: '#loginForm'
         },
@@ -80,24 +84,28 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#registerWindow'
         },
         {
-            ref: 'loginWindow',
-            selector: '#loginWindow'
-        },
-        {
             ref: 'beveragesButton',
             selector: '#beveragesButton'
+        },
+        {
+            ref: 'loginWindow',
+            selector: '#loginWindow'
         },
         {
             ref: 'burgersButton',
             selector: '#burgersButton'
         },
         {
-            ref: 'chickensButton',
-            selector: '#chickensButton'
-        },
-        {
             ref: 'dessertsButton',
             selector: '#dessertsButton'
+        },
+        {
+            ref: 'registerButton',
+            selector: '#registerButton'
+        },
+        {
+            ref: 'trayButton',
+            selector: '#trayButton'
         },
         {
             ref: 'sidesButton',
@@ -112,20 +120,20 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#logoutButton'
         },
         {
-            ref: 'registerButton',
-            selector: '#registerButton'
-        },
-        {
-            ref: 'trayButton',
-            selector: '#trayButton'
-        },
-        {
             ref: 'myProfileButton',
             selector: '#myProfileButton'
         },
         {
             ref: 'addCartButton',
             selector: '#AddCartButton'
+        },
+        {
+            ref: 'activeUsersCount',
+            selector: '#activeUsersCount'
+        },
+        {
+            ref: 'products',
+            selector: '#Products'
         }
     ],
 
@@ -329,16 +337,19 @@ Ext.define('BurgerQueen.controller.Windows', {
                                          this.getRegisterButton().hide();
                                          this.getMyProfileButton().show();
                                          this.getTrayButton().show();
+                                         this.activeUserCounter();
                                          this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
-
+                                         this.getLoginWindow().destroy();
+                                         this.getProducts().show();
                                      }
                                  }else{
                                      Ext.MessageBox.alert('Error','Invalid Username/Password');
                                  }
-                                 this.getLoginWindow().destroy();
                              }
                         });
                     }
+
+
     },
 
     onCancelRegisterButtonClick: function() {
@@ -354,8 +365,6 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onCheckoutBtnClick: function() {
-
-
         var store = Ext.getStore('TrayStore');
 
         if(Ext.isEmpty(store.getRange())){
@@ -363,27 +372,29 @@ Ext.define('BurgerQueen.controller.Windows', {
             return;
         }
 
-        var orderItems = [];
+
+        var orderItemsArray = [];
         store.each(function(record){
             var recordId = record.data.Id,
                 recordQuantity = record.data.Quantity;
 
             var orderItem = {
-                mealId: recordId,
-                quantity:recordQuantity,
+                id: 0,
+                quantity: recordQuantity,
+                mealId: recordId
             };
-            orderItems.push(orderItem);
+            orderItemsArray.push(orderItem);
         });
 
-
+        var order = {
+            userId: 1,
+            orderItemList : orderItemsArray,
+            status : 'WAITING'
+        };
 
         Ext.Ajax.request({
             url : 'orderItem/addOrderItem',
-            params : {
-                orderItems:Ext.JSON.encode(orderItems)
-            },
-            scope : this,
-
+            params : { order:Ext.JSON.encode(order)},
             success : function(response) {
                 var data = response.responseText;
                 if(data === 'success'){
@@ -396,7 +407,64 @@ Ext.define('BurgerQueen.controller.Windows', {
                 }
             }
         });
+    },
 
+    onTransactionDetailsActivate: function(window, eOpts) {
+                var transactionData = window.transaction;
+                var id = transactionData.data.Id;
+
+                Ext.Ajax.request({
+                            url : 'orderItem/getAllOrderItemsById',
+                            params : {
+                                orderId:id
+                            },
+                            scope : this,
+
+                            success : function(response) {
+                                var transacDetailsStore = Ext.getStore('TransactionDetailsStore');
+                                var recordData = Ext.JSON.decode(response.responseText);
+                                    Ext.each(recordData, function(rec){
+                                       var orderItems = {
+                                        Id:rec.id,
+                                        Quantity:rec.quantity,
+                                        Meal:rec.mealId
+                                    };
+
+                                    transacDetailsStore.add(orderItems);
+                                });
+
+
+
+                            }
+                        });
+    },
+
+    activeUserCounter: function() {
+
+            Ext.Ajax.request({
+                    url : 'getLoggedUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        activeUsers = data;
+                        var store = activeUserStore;
+                        store.removeAll();
+                       this.getActiveUsersCount().setValue(data.length);
+                        Ext.each(data, function(record){
+                            store.add({username:record.username});
+                        });
+                    }
+                });
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
     },
 
     showLoadingMessageMask: function() {
@@ -406,13 +474,6 @@ Ext.define('BurgerQueen.controller.Windows', {
                                });
                             }
                             this.oLoadingMessageMask.show();
-    },
-
-    hideLoadingMessageMask: function() {
-
-                            if (this.oLoadingMessageMask) {
-                               this.oLoadingMessageMask.hide();
-                            }
     },
 
     init: function(application) {
@@ -449,6 +510,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#checkoutBtn": {
                 click: this.onCheckoutBtnClick
+            },
+            "#TransactionDetails": {
+                activate: this.onTransactionDetailsActivate
             }
         });
     }

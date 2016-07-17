@@ -18,6 +18,8 @@ Ext.define('BurgerQueen.view.Products', {
     alias: 'widget.Products',
 
     requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.Column'
@@ -25,7 +27,7 @@ Ext.define('BurgerQueen.view.Products', {
 
     height: 559,
     itemId: 'Products',
-    width: 1309,
+    width: 1099,
     autoScroll: true,
     header: false,
     title: 'Products',
@@ -34,33 +36,64 @@ Ext.define('BurgerQueen.view.Products', {
         var me = this;
 
         Ext.applyIf(me, {
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    layout: {
+                        type: 'hbox',
+                        pack: 'center'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'SearchField',
+                            itemId: 'SearchField',
+                            fieldLabel: 'Search',
+                            listeners: {
+                                change: {
+                                    fn: me.onSearchFieldChange,
+                                    scope: me
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
             items: [
                 {
-                    xtype: 'gridpanel',
-                    id: 'ProductGrid',
-                    itemId: 'ProductGrid',
-                    ui: 'menubarbtn',
-                    header: false,
-                    title: 'My Grid Panel',
-                    columnLines: false,
-                    hideHeaders: true,
-                    store: 'ProductStore',
-                    columns: [
+                    xtype: 'container',
+                    margin: '0, 100, 0, 100',
+                    padding: 100,
+                    items: [
                         {
-                            xtype: 'gridcolumn',
-                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                            xtype: 'gridpanel',
+                            id: 'ProductGrid',
+                            itemId: 'ProductGrid',
+                            ui: 'menubarbtn',
+                            header: false,
+                            title: 'My Grid Panel',
+                            columnLines: false,
+                            hideHeaders: true,
+                            store: 'ProductStore',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
 
-                                return '<img src="'+value+'" width="150" height="150" border="0" />';
-                            },
-                            dataIndex: 'Image',
-                            text: 'Image',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'Name',
-                            text: 'Name',
-                            flex: 1
+                                        return '<img src="'+value+'" width="150" height="150" border="0" />';
+                                    },
+                                    dataIndex: 'Image',
+                                    text: 'Image',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'Name',
+                                    text: 'Name',
+                                    flex: 1
+                                }
+                            ]
                         }
                     ]
                 }
@@ -68,6 +101,17 @@ Ext.define('BurgerQueen.view.Products', {
         });
 
         me.callParent(arguments);
+    },
+
+    onSearchFieldChange: function(field, newValue, oldValue, eOpts) {
+                var productStore = Ext.getStore('ProductStore');
+                productStore.clearFilter();
+                if(!Ext.isEmpty(newValue)){
+                    productStore.filter('Name', newValue);
+                }else{
+                    productStore.clearFilter();
+                }
+
     }
 
 });

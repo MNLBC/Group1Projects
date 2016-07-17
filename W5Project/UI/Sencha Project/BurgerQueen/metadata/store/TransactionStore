@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TransactionStore",
+        "model": "TransactionModel",
+        "storeId": "TransactionStore"
+    },
+    "name": "MyStore",
+    "designerId": "aa5a745b-6bbf-430f-be04-de2e8392503c"
+}

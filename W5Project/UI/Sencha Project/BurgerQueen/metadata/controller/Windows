@@ -170,6 +170,258 @@
             "designerId": "77cfe088-1cf7-43e0-b1a3-54c7cd7393db"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "productId",
+                "selector": "#productId"
+            },
+            "name": "productId",
+            "designerId": "6242d23f-abe8-4d4b-a56b-81f9295c929e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerForm",
+                "selector": "#registerForm"
+            },
+            "name": "registerForm",
+            "designerId": "236e1667-4add-459f-8f16-8142df7f9650"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "chickensButton",
+                "selector": "#chickensButton"
+            },
+            "name": "chickensButton",
+            "designerId": "fd888056-ba81-4805-9447-9a969609a298"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginForm",
+                "selector": "#loginForm"
+            },
+            "name": "loginForm",
+            "designerId": "e0359952-58b1-4a3c-b260-f23b52269e8d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerWindow",
+                "selector": "#registerWindow"
+            },
+            "name": "registerWindow",
+            "designerId": "c1b3c6ac-99db-4c73-aba3-7377c375c794"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "beveragesButton",
+                "selector": "#beveragesButton"
+            },
+            "name": "beveragesButton",
+            "designerId": "112c3b01-026a-4c7d-85e0-bfcef25cdd78"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginWindow",
+                "selector": "#loginWindow"
+            },
+            "name": "loginWindow",
+            "designerId": "0b99aa7c-21a9-4c0b-9228-1a0d07c81766"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "burgersButton",
+                "selector": "#burgersButton"
+            },
+            "name": "burgersButton",
+            "designerId": "5aaea91c-0c64-4c3e-b834-1b84a414bc9c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dessertsButton",
+                "selector": "#dessertsButton"
+            },
+            "name": "dessertsButton",
+            "designerId": "973b9fc8-3664-4702-8b1c-81124fb7db28"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registerButton",
+                "selector": "#registerButton"
+            },
+            "name": "registerButton",
+            "designerId": "2b833ee2-ec1f-4291-a61a-e886ec78437c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "trayButton",
+                "selector": "#trayButton"
+            },
+            "name": "trayButton",
+            "designerId": "642382ea-484b-4cde-b896-e13cf1dccbe3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sidesButton",
+                "selector": "#sidesButton"
+            },
+            "name": "sidesButton",
+            "designerId": "7dec68b9-bbc4-4ef0-a431-9f831171d302"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginButton",
+                "selector": "#loginButton"
+            },
+            "name": "loginButton",
+            "designerId": "08ea9aab-e84e-48ce-b8ac-1873f2d82a06"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "logoutButton",
+                "selector": "#logoutButton"
+            },
+            "name": "logoutButton",
+            "designerId": "88c8e7f2-8792-42fc-90e5-f625a9db2b2f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "myProfileButton",
+                "selector": "#myProfileButton"
+            },
+            "name": "myProfileButton",
+            "designerId": "d07b0a5f-dd3d-4a18-a12c-9a61da9405e0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addCartButton",
+                "selector": "#AddCartButton"
+            },
+            "name": "addCartButton",
+            "designerId": "d1c7af5f-0c79-425f-943f-378cfbd4abe2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "activeUsersCount",
+                "selector": "#activeUsersCount"
+            },
+            "name": "activeUsersCount",
+            "designerId": "edc73941-4a0f-4541-b759-8cf4e7941b17"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "products",
+                "selector": "#Products"
+            },
+            "name": "products",
+            "designerId": "752ec240-f404-4a9b-8d92-fb4c37ffb87e"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -377,20 +629,6 @@
             "designerId": "084d651f-b6b7-4748-aa05-a79bc6105ea2"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "productId",
-                "selector": "#productId"
-            },
-            "name": "productId",
-            "designerId": "6242d23f-abe8-4d4b-a56b-81f9295c929e"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -452,34 +690,6 @@
             "designerId": "72d77a22-9256-4bc3-8823-52a739f8798e"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "registerForm",
-                "selector": "#registerForm"
-            },
-            "name": "registerForm",
-            "designerId": "236e1667-4add-459f-8f16-8142df7f9650"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "loginForm",
-                "selector": "#loginForm"
-            },
-            "name": "loginForm",
-            "designerId": "e0359952-58b1-4a3c-b260-f23b52269e8d"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -518,16 +728,19 @@
                     "                                 this.getRegisterButton().hide();",
                     "                                 this.getMyProfileButton().show();",
                     "                                 this.getTrayButton().show();",
+                    "                                 this.activeUserCounter();",
                     "                                 this.getMyProfileButton().setText('Welcome, '+ decodedData.username);",
-                    "",
+                    "                                 this.getLoginWindow().destroy();",
+                    "                                 this.getProducts().show();",
                     "                             }",
                     "                         }else{",
                     "                             Ext.MessageBox.alert('Error','Invalid Username/Password');",
                     "                         }",
-                    "                         this.getLoginWindow().destroy();",
                     "                     }",
                     "                });",
-                    "            }"
+                    "            }",
+                    "",
+                    ""
                 ],
                 "name": "click",
                 "scope": "me"
@@ -556,34 +769,6 @@
             "designerId": "f41ed9a2-58cc-4a10-9c10-2f3f77badcdb"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "registerWindow",
-                "selector": "#registerWindow"
-            },
-            "name": "registerWindow",
-            "designerId": "c1b3c6ac-99db-4c73-aba3-7377c375c794"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "loginWindow",
-                "selector": "#loginWindow"
-            },
-            "name": "loginWindow",
-            "designerId": "0b99aa7c-21a9-4c0b-9228-1a0d07c81766"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -602,172 +787,6 @@
             },
             "name": "onCancelLoginButtonClick",
             "designerId": "361a2e2f-09e3-4c7a-868e-60aea2b979ca"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "showLoadingMessageMask",
-                "implHandler": [
-                    "                    if (!this.oLoadingMessageMask) {",
-                    "                       this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
-                    "                          msg : \"Loading, please wait...\"",
-                    "                       });",
-                    "                    }",
-                    "                    this.oLoadingMessageMask.show();"
-                ]
-            },
-            "name": "showLoadingMessageMask",
-            "designerId": "7b3757cd-32d2-4a23-be48-919e836a82bb"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "hideLoadingMessageMask",
-                "implHandler": [
-                    "",
-                    "                    if (this.oLoadingMessageMask) {",
-                    "                       this.oLoadingMessageMask.hide();",
-                    "                    }"
-                ]
-            },
-            "name": "hideLoadingMessageMask",
-            "designerId": "9ea85473-2551-4ec4-9502-3ffacd596c77"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "beveragesButton",
-                "selector": "#beveragesButton"
-            },
-            "name": "beveragesButton",
-            "designerId": "112c3b01-026a-4c7d-85e0-bfcef25cdd78"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "burgersButton",
-                "selector": "#burgersButton"
-            },
-            "name": "burgersButton",
-            "designerId": "5aaea91c-0c64-4c3e-b834-1b84a414bc9c"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "chickensButton",
-                "selector": "#chickensButton"
-            },
-            "name": "chickensButton",
-            "designerId": "fd888056-ba81-4805-9447-9a969609a298"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "dessertsButton",
-                "selector": "#dessertsButton"
-            },
-            "name": "dessertsButton",
-            "designerId": "973b9fc8-3664-4702-8b1c-81124fb7db28"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "sidesButton",
-                "selector": "#sidesButton"
-            },
-            "name": "sidesButton",
-            "designerId": "7dec68b9-bbc4-4ef0-a431-9f831171d302"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "loginButton",
-                "selector": "#loginButton"
-            },
-            "name": "loginButton",
-            "designerId": "08ea9aab-e84e-48ce-b8ac-1873f2d82a06"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "logoutButton",
-                "selector": "#logoutButton"
-            },
-            "name": "logoutButton",
-            "designerId": "88c8e7f2-8792-42fc-90e5-f625a9db2b2f"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "registerButton",
-                "selector": "#registerButton"
-            },
-            "name": "registerButton",
-            "designerId": "2b833ee2-ec1f-4291-a61a-e886ec78437c"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "trayButton",
-                "selector": "#trayButton"
-            },
-            "name": "trayButton",
-            "designerId": "642382ea-484b-4cde-b896-e13cf1dccbe3"
         },
         {
             "type": "controlleraction",
@@ -790,34 +809,6 @@
             "designerId": "02f30a4d-790e-4e45-8e17-2ebf10960d7c"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "myProfileButton",
-                "selector": "#myProfileButton"
-            },
-            "name": "myProfileButton",
-            "designerId": "d07b0a5f-dd3d-4a18-a12c-9a61da9405e0"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "addCartButton",
-                "selector": "#AddCartButton"
-            },
-            "name": "addCartButton",
-            "designerId": "d1c7af5f-0c79-425f-943f-378cfbd4abe2"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -829,8 +820,6 @@
                 "designer|targetType": "MyButton14",
                 "fn": "onCheckoutBtnClick",
                 "implHandler": [
-                    "",
-                    "",
                     "var store = Ext.getStore('TrayStore');",
                     "",
                     "if(Ext.isEmpty(store.getRange())){",
@@ -838,27 +827,29 @@
                     "    return;",
                     "}",
                     "",
-                    "var orderItems = [];",
+                    "",
+                    "var orderItemsArray = [];",
                     "store.each(function(record){",
                     "    var recordId = record.data.Id,",
                     "        recordQuantity = record.data.Quantity;",
                     "",
                     "    var orderItem = {",
-                    "        mealId: recordId,",
-                    "        quantity:recordQuantity,",
+                    "        id: 0,",
+                    "        quantity: recordQuantity,",
+                    "        mealId: recordId",
                     "    };",
-                    "    orderItems.push(orderItem);",
+                    "    orderItemsArray.push(orderItem);",
                     "});",
                     "",
-                    "",
+                    "var order = {",
+                    "    userId: 1,",
+                    "    orderItemList : orderItemsArray,",
+                    "    status : 'WAITING'",
+                    "};",
                     "",
                     "Ext.Ajax.request({",
                     "    url : 'orderItem/addOrderItem',",
-                    "    params : {",
-                    "        orderItems:Ext.JSON.encode(orderItems)",
-                    "    },",
-                    "    scope : this,",
-                    "",
+                    "    params : { order:Ext.JSON.encode(order)},",
                     "    success : function(response) {",
                     "        var data = response.responseText;",
                     "        if(data === 'success'){",
@@ -870,14 +861,132 @@
                     "            Ext.MessageBox.alert('Error', 'Failed to checkout your order.');",
                     "        }",
                     "    }",
-                    "});",
-                    ""
+                    "});"
                 ],
                 "name": "click",
                 "scope": "me"
             },
             "name": "onCheckoutBtnClick",
             "designerId": "ac81b750-9987-4c6b-828c-b7ac7ae83b04"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#TransactionDetails",
+                "designer|targetType": "TransactionDetails",
+                "fn": "onTransactionDetailsActivate",
+                "implHandler": [
+                    "        var transactionData = window.transaction;",
+                    "        var id = transactionData.data.Id;",
+                    "",
+                    "        Ext.Ajax.request({",
+                    "                    url : 'orderItem/getAllOrderItemsById',",
+                    "                    params : {",
+                    "                        orderId:id",
+                    "                    },",
+                    "                    scope : this,",
+                    "",
+                    "                    success : function(response) {",
+                    "                        var transacDetailsStore = Ext.getStore('TransactionDetailsStore');",
+                    "                        var recordData = Ext.JSON.decode(response.responseText);",
+                    "                            Ext.each(recordData, function(rec){",
+                    "                               var orderItems = {",
+                    "                                Id:rec.id,",
+                    "                                Quantity:rec.quantity,",
+                    "                                Meal:rec.mealId",
+                    "                            };",
+                    "                                ",
+                    "                            transacDetailsStore.add(orderItems);",
+                    "                        });",
+                    " ",
+                    "",
+                    "                        ",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onTransactionDetailsActivate",
+            "designerId": "85d80c71-6795-4a2f-87a4-7cf0b25eb29d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeUserCounter",
+                "implHandler": [
+                    "",
+                    "    Ext.Ajax.request({",
+                    "            url : 'getLoggedUsers',",
+                    "            params : {",
+                    "",
+                    "            },",
+                    "            scope : this,",
+                    "            success : function(response) {",
+                    "                var data = Ext.decode(response.responseText);",
+                    "                activeUsers = data;",
+                    "                var store = activeUserStore;",
+                    "                store.removeAll();",
+                    "               this.getActiveUsersCount().setValue(data.length);",
+                    "                Ext.each(data, function(record){",
+                    "                    store.add({username:record.username});",
+                    "                });",
+                    "            }",
+                    "        });"
+                ]
+            },
+            "name": "activeUserCounter",
+            "designerId": "c72ab362-2565-4b0e-bfd3-141ca08d11e7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideLoadingMessageMask",
+                "implHandler": [
+                    "",
+                    "                    if (this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask.hide();",
+                    "                    }"
+                ]
+            },
+            "name": "hideLoadingMessageMask",
+            "designerId": "9ea85473-2551-4ec4-9502-3ffacd596c77"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showLoadingMessageMask",
+                "implHandler": [
+                    "                    if (!this.oLoadingMessageMask) {",
+                    "                       this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {",
+                    "                          msg : \"Loading, please wait...\"",
+                    "                       });",
+                    "                    }",
+                    "                    this.oLoadingMessageMask.show();"
+                ]
+            },
+            "name": "showLoadingMessageMask",
+            "designerId": "7b3757cd-32d2-4a23-be48-919e836a82bb"
         }
     ]
 }

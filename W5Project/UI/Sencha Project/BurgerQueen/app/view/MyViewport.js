@@ -85,16 +85,17 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     text: 'Logout'
                                 },
                                 {
-                                    xtype: 'displayfield',
-                                    itemId: 'activeUsersCount',
-                                    fieldLabel: 'Users',
-                                    labelWidth: 50,
-                                    value: '0'
-                                },
-                                {
                                     xtype: 'button',
                                     itemId: 'showUsersWindow',
-                                    text: 'Show Users'
+                                    ui: 'menubarbtn',
+                                    text: 'Active Users'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    itemId: 'activeUsersCount',
+                                    fieldLabel: '',
+                                    labelWidth: 50,
+                                    value: '0'
                                 }
                             ]
                         },
@@ -106,6 +107,13 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                 pack: 'center'
                             },
                             items: [
+                                {
+                                    xtype: 'button',
+                                    id: 'allCategoriesButton',
+                                    itemId: 'allCategoriesButton',
+                                    ui: 'menubarbtn',
+                                    text: 'All Categories'
+                                },
                                 {
                                     xtype: 'button',
                                     itemId: 'beveragesButton',

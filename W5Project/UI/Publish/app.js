@@ -23,24 +23,26 @@ Ext.application({
     models: [
         'ProductModel',
         'TrayModel',
-        'OrderModel',
-        'ActiveUserModel'
+        'TransactionModel',
+        'ActiveUserModel',
+        'TransactionDetailsModel'
     ],
     stores: [
         'ProductStore',
         'TrayStore',
-        'OrderStore',
-        'ActiveUserStore'
+        'TransactionStore',
+        'ActiveUserStore',
+        'TransactionDetailsStore'
     ],
     views: [
         'MyViewport',
         'RegisterWindow',
         'LoginWindow',
-        'Beverages',
         'TrayWindow',
         'ProductViewWindow',
         'UserProfile',
-        'ActiveUsersWindow'
+        'ActiveUsersWindow',
+        'TransactionDetails'
     ],
     controllers: [
         'HomePage',
