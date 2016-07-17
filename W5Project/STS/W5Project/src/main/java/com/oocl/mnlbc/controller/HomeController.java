@@ -28,7 +28,7 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.GET)
 	public List<User> getAllLoggedUsers(HttpSession session) {
 		logger.info("Getting all logged in users");
 		ServletContext context = session.getServletContext();
@@ -40,7 +40,7 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/visitor" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/visitor" }, method = RequestMethod.GET)
 	public int getVisitors(HttpSession session) {
 		logger.info("Getting number of current number visitors");
 		ServletContext context = session.getServletContext();
@@ -52,7 +52,7 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/hasLogged" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/hasLogged" }, method = RequestMethod.GET)
 	private boolean hasSession(HttpSession session) {
 		logger.info("Checking if session has logged in user");
 		User user = (User) session.getAttribute("user");

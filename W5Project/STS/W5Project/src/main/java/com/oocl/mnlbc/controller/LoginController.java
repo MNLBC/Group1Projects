@@ -68,7 +68,7 @@ public class LoginController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/logout" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/logout" }, method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		User user = (User) session.getAttribute("user");
 
