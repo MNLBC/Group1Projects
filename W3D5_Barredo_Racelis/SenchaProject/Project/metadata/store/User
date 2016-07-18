@@ -1,0 +1,43 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"username\": \"admin\",",
+            "        \"password\": \"admin\",",
+            "        \"name\": \"Ed Mitchell\",",
+            "        \"type\": \"admin\",",
+            "        \"address\": \"08 Dexter Crossing\",",
+            "        \"contact\": 185",
+            "    },",
+            "    {",
+            "        \"username\": \"client\",",
+            "        \"password\": \"client\",",
+            "        \"name\": \"Hugh Wood\",",
+            "        \"type\": \"client\",",
+            "        \"address\": \"67 Sachtjen Way\",",
+            "        \"contact\": 646",
+            "    },",
+            "    {",
+            "        \"username\": \"client1\",",
+            "        \"password\": \"client1\",",
+            "        \"name\": \"Beulah Wilson\",",
+            "        \"type\": \"client\",",
+            "        \"address\": \"00 Surrey Drive\",",
+            "        \"contact\": 934",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "User",
+        "model": "User",
+        "storeId": "userStore"
+    },
+    "name": "MyStore",
+    "designerId": "65865f27-a576-4c5c-a94f-e188ee996ec5"
+}

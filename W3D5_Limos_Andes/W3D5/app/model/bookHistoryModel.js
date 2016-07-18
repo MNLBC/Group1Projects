@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.model.bookHistoryModel', {
+Ext.define('MyApp.model.bookHistoryModel', {
     extend: 'Ext.data.Model',
 
     requires: [

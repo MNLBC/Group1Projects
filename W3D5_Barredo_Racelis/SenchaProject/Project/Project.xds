@@ -1,0 +1,68 @@
+{
+    "name": "Project",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "",
+        "exportPath": "D:/Group1Projects/W3D5_Barredo_Racelis/Publish",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1373-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "3d188efd-06bb-4b3f-b5bf-e36a2aeba4d6",
+            "ee9f0720-7d46-4d88-a342-37c608abe15f",
+            "60e782c4-1dc0-4493-bb6e-cd5829a2433e",
+            "65c662c7-1707-4fda-8207-b56d09d62ec8",
+            "22404f63-9ca9-45f3-9bee-9f1c8a844940",
+            "1cb425fb-622f-44cf-852f-cfdf07e0e107",
+            "541a0509-5399-4245-8d38-54f284e45e04",
+            "cdb1d78f-1c82-4098-813a-a19079515fd3",
+            "9bb1da71-1923-4234-8c94-8c1b5bc2cd27"
+        ],
+        "store": [
+            "65865f27-a576-4c5c-a94f-e188ee996ec5",
+            "40473c0e-a53b-48e8-84f7-e3e54481121f"
+        ],
+        "controller": [
+            "5508615e-35f4-47b5-9e6b-7c6dd5c2e34f",
+            "ffad7ad6-f9f4-4f48-8304-f43ee76ede94",
+            "44cb1058-f93b-4cff-bd94-dd1b68c2e7ed",
+            "42f4b3fc-46ec-4cbf-9cba-af6f41116539"
+        ],
+        "model": [
+            "f9c80bfb-c3a3-462d-8154-6d8efbe6f396",
+            "2c8d0c6d-4db6-49c1-91cf-3456eb5beee3",
+            "ecf60a7e-f07e-4775-b572-0b51aaa9a95d"
+        ],
+        "resource": [
+            "1ec910d1-08a9-446f-aaca-edd346ec57c3",
+            "d11d869e-8ba3-4dbd-b347-a0977bd879af"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

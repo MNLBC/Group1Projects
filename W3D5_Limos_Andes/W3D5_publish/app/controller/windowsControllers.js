@@ -95,7 +95,7 @@ Ext.define('BookingManagementSystem.controller.windowsControllers', {
                 }
     },
 
-    onRegisterWindowActivate1: function(window, eOpts) {
+    onRegisterWindowActivate: function() {
 
                   this.registerPanel = Ext.getCmp('registerPanel');
                   this.registerWindow = Ext.getCmp('registerWindow');
@@ -156,7 +156,7 @@ Ext.define('BookingManagementSystem.controller.windowsControllers', {
                 click: this.onSubmitButtonClick
             },
             "#registerWindow": {
-                activate: this.onRegisterWindowActivate1
+                activate: this.onRegisterWindowActivate
             }
         });
     }

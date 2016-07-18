@@ -82,6 +82,9 @@
                                         "layout|margins": "",
                                         "margin": "-50, 0, 0, 0",
                                         "padding": "",
+                                        "style": [
+                                            "font-size:20px; font-family:"
+                                        ],
                                         "text": "Welcome to Book Management System"
                                     },
                                     "name": "MyLabel",

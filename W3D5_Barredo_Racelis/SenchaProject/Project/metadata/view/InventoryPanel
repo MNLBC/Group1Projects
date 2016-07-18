@@ -1,0 +1,413 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 5,
+        "designer|userAlias": "inventorypanel1",
+        "designer|userClassName": "InventoryPanel",
+        "itemId": "inventoryPanel",
+        "title": null
+    },
+    "name": "MyPanel1",
+    "designerId": "1cb425fb-622f-44cf-852f-cfdf07e0e107",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox"
+            },
+            "name": "MyContainer1",
+            "designerId": "1d478c04-8e60-4227-9646-404b24342619",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Title",
+                        "inputId": "title",
+                        "itemId": "titleInventoryPage"
+                    },
+                    "name": "MyTextField10",
+                    "designerId": "0ac1e4b5-db6c-4a65-a57e-1486d4e3145a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Author:",
+                        "inputId": "author",
+                        "itemId": "authorInventoryPage"
+                    },
+                    "name": "MyTextField11",
+                    "designerId": "5450486c-ac2c-42bb-838e-26b0d5cb7ea3"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null
+            },
+            "name": "MyToolbar6",
+            "designerId": "a55b7cc3-36ec-448b-802a-cd38fdb8e3b3",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill4",
+                    "designerId": "cd0071d9-610d-41b0-89cd-0b290d5275a8"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Filter",
+                        "itemId": "inventorySearchBttn",
+                        "layout|flex": null,
+                        "text": "Filter",
+                        "width": ""
+                    },
+                    "name": "MyButton14",
+                    "designerId": "02f04a2d-80ad-47a8-bf63-cb1cb68a72c0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "itemId": "bookGrid",
+                "store": "Books",
+                "title": "Book Records"
+            },
+            "name": "MyGridPanel",
+            "designerId": "31455bb9-7662-404f-8c5f-41f43c2191db",
+            "cn": [
+                {
+                    "type": "Ext.grid.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer",
+                    "designerId": "f69d6e71-f261-48e3-85c9-77e14ab23bbf"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "title",
+                        "text": "Ttitle",
+                        "width": 200
+                    },
+                    "name": "MyColumn",
+                    "designerId": "741e9b28-0c30-491c-b89d-a47926774c78",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hideLabel": true,
+                                "itemId": "titleColumnTextField",
+                                "width": 100
+                            },
+                            "name": "MyTextField17",
+                            "designerId": "f5096507-9825-4cf7-aac4-aeea35a78bdf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "author",
+                        "text": "Author"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "d92bcb29-ffeb-4398-a8b4-9d352edfff6f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hideLabel": true,
+                                "itemId": "authorColumnTextField",
+                                "width": 100
+                            },
+                            "name": "MyTextField18",
+                            "designerId": "8f4aa2c1-a3b2-4c02-8b1d-580a50b68f45"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "ddd17b19-9a19-483a-bd87-17419a5f44a9"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "datePublished",
+                        "text": "Date Published",
+                        "width": 119
+                    },
+                    "name": "MyDateColumn",
+                    "designerId": "7bd88ab9-6764-47d0-947d-09828c5435f8",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "dateColumnDateField"
+                            },
+                            "name": "MyDateField",
+                            "designerId": "e17380d0-8331-4384-bd19-2027e42dc721"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "flex": 1,
+                        "text": "Description",
+                        "tooltip": null
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "8eafe6b2-3976-48f7-991a-d70bd04192e5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "descriptionColumnTextField"
+                            },
+                            "name": "MyTextField19",
+                            "designerId": "fce6d97d-9bf0-4778-b4ac-28e9052240cb"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "category",
+                        "flex": 1,
+                        "itemId": "category",
+                        "text": "Category"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "0277c85b-538b-480f-adce-a9cbde335eae",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "forceSelection": true,
+                                "itemId": "categoryColumnComboBox",
+                                "multiSelect": true,
+                                "store": [
+                                    "[",
+                                    "'Science fiction',",
+                                    "'Satire',",
+                                    "'Drama',",
+                                    "'Action and Adventure',",
+                                    "'Romance',",
+                                    "'Mystery',",
+                                    "'Horror',",
+                                    "'Self help',",
+                                    "'Health',",
+                                    "'Guide',",
+                                    "'Travel',",
+                                    "'Children',",
+                                    "'Religion, Spirituality & New Age',",
+                                    "'Science',",
+                                    "'History',",
+                                    "'Math',",
+                                    "'Anthology',",
+                                    "'Poetry',",
+                                    "'Encyclopedias',",
+                                    "'Dictionaries',",
+                                    "'Comics',",
+                                    "'Art',",
+                                    "'Cookbooks',",
+                                    "'Diaries',",
+                                    "'Journals',",
+                                    "'Prayer books',",
+                                    "'Series',",
+                                    "'Trilogy',",
+                                    "'Biographies',",
+                                    "'Autobiographies',",
+                                    "'Fantasy'",
+                                    "]"
+                                ]
+                            },
+                            "name": "MyComboBox1",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "b43d4237-a648-4bbd-bbd1-3d2d7455f679"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.RowEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": "Ext.grid.plugin.RowEditing",
+                    "name": "MyRowEditingPlugin",
+                    "designerId": "bf82022b-2c7b-4a80-b26e-4d811c9a6f5e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar5",
+            "designerId": "8485ac75-753c-4815-8ee4-6f0fd9429ce5",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill3",
+                    "designerId": "1bdb614d-8897-49dc-85e9-202855a54a18"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "removeBooksBtn",
+                        "layout|flex": null,
+                        "text": "Remove"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "caffa75f-1bfc-4e30-8168-321223922678"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "addBooksBtn",
+                        "layout|flex": null,
+                        "text": "Add"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "5db78432-fea8-4478-8657-0f6bb0c15bee"
+                }
+            ]
+        }
+    ]
+}

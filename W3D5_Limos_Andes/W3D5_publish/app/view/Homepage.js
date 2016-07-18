@@ -88,7 +88,8 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                 {
                                                     xtype: 'textfield',
                                                     id: 'titleSearch',
-                                                    fieldLabel: 'Enter Title'
+                                                    fieldLabel: 'Enter Title',
+                                                    inputType: 'search'
                                                 }
                                             ]
                                         },
@@ -279,7 +280,8 @@ Ext.define('BookingManagementSystem.view.Homepage', {
                                                 {
                                                     xtype: 'textfield',
                                                     id: 'searchUser',
-                                                    fieldLabel: 'Enter UserName'
+                                                    fieldLabel: 'Enter UserName',
+                                                    inputType: 'search'
                                                 }
                                             ]
                                         }

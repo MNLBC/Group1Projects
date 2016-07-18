@@ -1,0 +1,184 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "addEditForm",
+        "designer|userClassName": "AddEditForm",
+        "header": false,
+        "height": 219,
+        "itemId": "addEditForm",
+        "title": "Register Account",
+        "width": 352
+    },
+    "name": "RegisterForm1",
+    "designerId": "d3fa2d5d-b452-4942-8667-41cb407c1397",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 62,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                    "\trel='stylesheet' type='text/css'>",
+                    " <center><div id=\"header\"><h3 style = 'font-family: Abel;'>Manage Book</h3></div></center>",
+                    " "
+                ],
+                "style": [
+                    "#nav {",
+                    "line-height: 30px;",
+                    "background-color: #D4F5C9;",
+                    "height: 460px;",
+                    "width: 180px;",
+                    "float: left;",
+                    "padding: 5px;",
+                    "}"
+                ]
+            },
+            "name": "MyContainer7",
+            "designerId": "15128e0e-1345-40cd-9749-f1f4179c9796"
+        },
+        {
+            "type": "Ext.toolbar.Spacer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 75,
+                "maxHeight": 75,
+                "maxWidth": 20,
+                "minHeight": 75,
+                "minWidth": 20,
+                "width": 20
+            },
+            "name": "MySpacer1",
+            "designerId": "3e40fb1c-968d-498c-bf8d-94a0d97b4d77"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "height": 130
+            },
+            "name": "MyFieldContainer4",
+            "designerId": "e2b893fb-7f27-46c8-a265-d8e4bcce7068",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Title",
+                        "fieldLabel": "Title:",
+                        "itemId": "titleBook",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "7fc595b7-bdc8-4d44-b840-8704101037b9"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Author",
+                        "fieldLabel": "Author:",
+                        "itemId": "authorBook",
+                        "labelWidth": 110,
+                        "width": 331
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "14fb5e1a-5d95-4d1d-9158-bd7a56c390ab"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Publisher",
+                        "fieldLabel": "Publisher:",
+                        "itemId": "publisherBook",
+                        "labelWidth": 110,
+                        "width": 330
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "bedf2479-09e2-4aef-9aa8-224e79a1e623"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "width": 330
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "3de0b0c3-3a95-484b-a87b-52128ac2474f",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Submit",
+                                "itemId": "submitBookBtn",
+                                "layout|flex": null,
+                                "text": "Submit"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "13e608e1-e8ce-49ee-b74d-ec0c3f1a36b8"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Cancel",
+                                "itemId": "cancelBookBtn",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "e49224fe-abe5-4865-bf17-bf5b1cae8178"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

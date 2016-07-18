@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.view.viewBookWindow', {
+Ext.define('MyApp.view.viewBookWindow', {
     extend: 'Ext.window.Window',
 
     requires: [

@@ -20,32 +20,10 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-    models: [
-        'userModel',
-        'bookModel',
-        'bookHistoryModel',
-        'userBookModel'
-    ],
-    stores: [
-        'userStore',
-        'bookStore',
-        'bookHistoryStore',
-        'userBookStore'
-    ],
-    views: [
-        'LoginPage',
-        'Homepage',
-        'addBookWindow',
-        'viewBook'
-    ],
-    controllers: [
-        'viewPortControllers',
-        'windowControllers'
-    ],
-    name: 'BookingManagementSystem',
+    name: 'MyApp',
 
     launch: function() {
-        Ext.create('BookingManagementSystem.view.LoginPage');
+        Ext.create('MyApp.view.LoginPage');
     }
 
 });

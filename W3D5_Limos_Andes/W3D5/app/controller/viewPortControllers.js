@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.controller.viewPortControllers', {
+Ext.define('MyApp.controller.viewPortControllers', {
     extend: 'Ext.app.Controller',
 
     refs: [

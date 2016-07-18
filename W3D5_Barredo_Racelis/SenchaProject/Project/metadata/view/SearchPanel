@@ -1,0 +1,233 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 5,
+        "designer|userAlias": "mypanel2",
+        "designer|userClassName": "SearchPanel",
+        "itemId": "searchPanel",
+        "title": null
+    },
+    "name": "MyPanel2",
+    "designerId": "65c662c7-1707-4fda-8207-b56d09d62ec8",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label"
+            },
+            "name": "MyComboBox4",
+            "designerId": "f365d17e-806f-4e08-8838-440d3999df7b"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "layout": "vbox"
+            },
+            "name": "MyContainer2",
+            "designerId": "c01f6c03-b353-440f-985c-f8ad4aea4589",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Title",
+                        "inputId": "titleSearch",
+                        "itemId": "titleSearchPage",
+                        "width": 255
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "a431975e-1b9d-4cd8-b97d-433648578202"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Author",
+                        "inputId": "authorSearch",
+                        "itemId": "authorSearchPage"
+                    },
+                    "name": "MyTextField7",
+                    "designerId": "1fcb335b-01d9-461d-90ed-f25377ef4f41"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null
+            },
+            "name": "MyToolbar7",
+            "designerId": "c8257bf4-7270-44e8-a09b-ddfebf3678e2",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill5",
+                    "designerId": "d5b6fb18-fdc9-48df-a5d5-f6477cc91a1b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "searchBtnSearchPage",
+                        "layout|flex": null,
+                        "text": "Search"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "c91db4f2-7c93-4573-a293-cee43b03ec0f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": null,
+                "itemId": "bookGridSearchPanel",
+                "store": "Books",
+                "title": "Book"
+            },
+            "name": "MyGridPanel1",
+            "designerId": "571a9d1d-30a2-4296-b457-940596735aa6",
+            "cn": [
+                {
+                    "type": "Ext.grid.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer2",
+                    "designerId": "9e95bbb6-1d4b-46c8-81ab-c81b6f385478"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "title",
+                        "text": "Title",
+                        "width": 154
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "01add69e-6618-4123-adc2-19f1f912e5e3"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "author",
+                        "text": "Author"
+                    },
+                    "name": "MyColumn10",
+                    "designerId": "7d6ca8b4-2639-485e-a2ea-dc0beac424f2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "datePublished",
+                        "text": "Date Published"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "5f91041c-e25d-41ca-9abf-bea388983e7b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "category",
+                        "text": "Category"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "40032417-8451-446b-8903-42589faffc99"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "flex": 1,
+                        "text": "Description"
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "5eff6596-d02d-4430-8299-cce5d4ea4547"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "6e2ebb4e-4641-4af9-9eb1-d4f5d30aa5f1"
+                }
+            ]
+        }
+    ]
+}

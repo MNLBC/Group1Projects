@@ -1,0 +1,237 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "name": "MyController",
+    "designerId": "ffad7ad6-f9f4-4f48-8304-f43ee76ede94",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "login",
+                "selector": "#login"
+            },
+            "name": "login",
+            "designerId": "a071c8c5-7c27-4007-9ddf-0ae84beab993"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameTextField",
+                "selector": "#usernameTextField"
+            },
+            "name": "usernameTextField",
+            "designerId": "1871dde2-a037-4f8c-b4df-b04ebfd929d1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordTextField",
+                "selector": "#passwordTextField"
+            },
+            "name": "passwordTextField",
+            "designerId": "b24cae98-2fdd-4bff-969d-c6d285ee7857"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "currentUsername",
+                "selector": "#currentUsername"
+            },
+            "name": "currentUsername",
+            "designerId": "a3c98cdf-fb96-4b01-b06a-3b20597303f2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signupBtn",
+                "selector": "#signupBtn"
+            },
+            "name": "signupBtn",
+            "designerId": "0c9e84d6-4e69-4104-98b9-19d378624d7a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "showLoginWindow",
+                "selector": "#showLoginWindow"
+            },
+            "name": "showLoginWindow",
+            "designerId": "06fa094c-979a-4c27-890e-95a7be7a1836"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "logoutbtn",
+                "selector": "#logoutbtn"
+            },
+            "name": "logoutbtn",
+            "designerId": "24c3cb40-13e4-4b9f-b85a-d8788155e8bc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#login",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton4",
+                "fn": "onLoginClick",
+                "implHandler": [
+                    "var username = this.getUsernameTextField().getValue(),",
+                    "    password = this.getPasswordTextField().getValue(),",
+                    "    window = button.up('window');",
+                    "console.log(username + \" \" + password);",
+                    "",
+                    "",
+                    "var gridUserStore = Ext.getStore('userStore');",
+                    "",
+                    "if(Ext.isEmpty(gridUserStore)){",
+                    "     gridUserStore = userStore;",
+                    "}",
+                    "",
+                    "",
+                    "//logic checking if the user exist in the store",
+                    "console.log();",
+                    "var success= false,",
+                    "    name ,",
+                    "    type = 'client';",
+                    "Ext.each(gridUserStore.getRange(), function(record){",
+                    "    var data = record.data;",
+                    "    if(data.username === username && data.password === password){",
+                    "        success = true;",
+                    "        Ext.Msg.alert('Successfully Login', 'You have successfully login');",
+                    "        name = data.name;",
+                    "        type = data.type;",
+                    "",
+                    "        return false;",
+                    "    }",
+                    "});",
+                    "",
+                    "if(success){",
+                    "    //show hide panels",
+                    "    this.getCurrentUsername().setText('Welcome , '+ name);",
+                    "",
+                    "    window.hide();",
+                    "    this.getSignupBtn().hide();",
+                    "    this.getLogoutbtn().show();",
+                    "    this.getCurrentUsername().show();",
+                    "    this.getShowLoginWindow().hide();",
+                    "",
+                    "    if(type === 'admin'){",
+                    "        this.getInventoryBtn().show();",
+                    "    }",
+                    "    button.up('window').destroy();",
+                    "}else{",
+                    "    Ext.Msg.alert('Login Failed', 'User does not exists');",
+                    "",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onLoginClick",
+            "designerId": "cc4d02a6-cb94-4dd4-913a-b2f89134e23c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelLogin",
+                "designer|params": [
+                    "button"
+                ],
+                "designer|targetType": "MyButton3",
+                "fn": "onCancelLoginClick",
+                "implHandler": [
+                    "    var window = button.up('window');",
+                    "        window.destroy();",
+                    "     "
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCancelLoginClick",
+            "designerId": "aabb13ac-96be-4bc5-aeaf-5251aaa31040"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "showLoginWindow2",
+                "selector": "#showLoginWindow"
+            },
+            "name": "showLoginWindow2",
+            "designerId": "9b7c7b67-ce4b-458e-b976-f3b9a288f0e8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "inventoryBtn",
+                "selector": "#inventoryBtn"
+            },
+            "name": "inventoryBtn",
+            "designerId": "c27ebf17-2af4-4a0d-9bdb-ec09f627b6aa"
+        }
+    ]
+}

@@ -6,30 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "controllers": [
-            "viewPortControllers",
-            "windowControllers"
-        ],
-        "models": [
-            "userModel",
-            "bookModel",
-            "bookHistoryModel",
-            "userBookModel"
-        ],
-        "name": "BookingManagementSystem",
-        "stores": [
-            "userStore",
-            "bookStore",
-            "bookHistoryStore",
-            "userBookStore"
-        ],
-        "views": [
-            "LoginPage",
-            "Homepage",
-            "addBookWindow",
-            "viewBook"
-        ]
+        "name": "MyApp"
     },
-    "name": "Application",
+    "name": "Application1",
     "designerId": "application"
 }

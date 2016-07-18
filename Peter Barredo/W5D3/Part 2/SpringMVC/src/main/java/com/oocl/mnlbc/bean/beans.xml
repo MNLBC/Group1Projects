@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+	<bean id="user" class="com.oocl.mnlbc.model.User">
+		<property name="fname" value="Peter"></property>
+		<property name="lname" value="Barredo"></property>
+		<property name="email" value="pvbarredo@gmail.com"></property>
+		<property name="phone" value="23435"></property>
+		<property name="username" value="pvbarredo"></property>
+		<property name="password" value="admin"></property>
+		<property name="address" value="zhuhai"></property>
+	</bean>
+
+	<!-- Initialization for data source -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="group1" />
+		<property name="password" value="ideals" />
+	</bean>
+
+	<!-- Definition for studentJDBCTemplate bean -->
+	<bean id="userJDBCTemplate" class="com.oocl.mnlbc.template.UserJDBCTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

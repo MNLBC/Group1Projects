@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('BookingManagementSystem.view.registerWindow', {
+Ext.define('MyApp.view.registerWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
@@ -101,7 +101,7 @@ Ext.define('BookingManagementSystem.view.registerWindow', {
                                     itemId: 'contactNo',
                                     fieldLabel: 'Contact No.',
                                     name: 'contactNo',
-                                    inputType: 'number',
+                                    inputType: 'tel',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
                                     maxLength: 11
@@ -114,7 +114,6 @@ Ext.define('BookingManagementSystem.view.registerWindow', {
                                     name: 'email',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
-                                    maskRe: /^([A-Za-z0-9_.]+)@([A-Za-z0-9]+).([A-Za-z0-9]+)$/,
                                     vtype: 'email',
                                     vtypeText: 'Invalid email format'
                                 },

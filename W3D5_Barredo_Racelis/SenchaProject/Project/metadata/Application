@@ -1,0 +1,36 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "HomeController",
+            "LoginController",
+            "SignUpController",
+            "AddUserController"
+        ],
+        "models": [
+            "User",
+            "Book",
+            "Category"
+        ],
+        "name": "Project",
+        "stores": [
+            "User",
+            "Books"
+        ],
+        "views": [
+            "LoginWindow",
+            "SearchPanel",
+            "HomePanel",
+            "InventoryPanel",
+            "UserPanel",
+            "MyComboBox2"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

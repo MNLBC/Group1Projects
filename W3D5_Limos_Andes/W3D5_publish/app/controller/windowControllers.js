@@ -68,7 +68,13 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                         var address = form.getValues().address;
                         var userStore = this.userStore;
                         console.log(userName);
-                    if(!this.isUserExist(userName)){
+                        var regexemail = new RegExp(/^([A-Za-z0-9_.]+)@([A-Za-z0-9]+).([A-Za-z0-9]+)$/);
+
+                    if(!regexemail.test(email)){
+
+                    this.hideLoadingMessageMask();
+                        this.showErrorMessage('Invalid Email address!');
+                    }else if(!this.isUserExist(userName)){
                                var users = {
                                    userId: this.userStore.getCount()+1,
                                     firstName:firstName,
@@ -85,8 +91,7 @@ Ext.define('BookingManagementSystem.controller.windowControllers', {
                                 this.showSuccessMessage('User has been created');
                                 this.registerWindow.close();
                                 Ext.getBody().unmask();
-                    }
-                    else{
+                    }else{
                         this.hideLoadingMessageMask();
                         this.showErrorMessage('Username already exists!');
                     }
