@@ -509,12 +509,8 @@
                     "            replaceQuantity = currentQuantity + productQuantity;",
                     "            trayStore.getAt(index).data.Quantity = replaceQuantity;",
                     "",
-                    "//         totalItems += replaceQuantity;",
-                    "//      this.getTotalItems().setValue(totalItems);",
                     "    }",
-                    "//     Ext.create('ProductViewWindow').hide();",
                     "Ext.Msg.alert('Status', this.added_to_cart);",
-                    "console.log(this.invalid_login);",
                     "this.getProductViewWindow().destroy();"
                 ],
                 "name": "click",
@@ -616,8 +612,7 @@
                     "            totalAmount += record.data.Total;",
                     "    });",
                     "",
-                    "    console.log(totalQuantity, totalAmount);",
-                    "    ",
+                    "",
                     "    this.getTotalItems().setValue(totalQuantity);",
                     "    this.getTotalAmount().setValue(totalAmount);",
                     ""
@@ -844,24 +839,26 @@
                     "var order = {",
                     "    userId: 1,",
                     "    orderItemList : orderItemsArray,",
-                    "    status : 'WAITING'",
+                    "    status : 'DONE'",
                     "};",
                     "",
                     "Ext.Ajax.request({",
-                    "    url : 'orderItem/addOrderItem',",
+                    "    url : 'order/addOrder',",
                     "    params : { order:Ext.JSON.encode(order)},",
                     "    success : function(response) {",
                     "        var data = response.responseText;",
                     "        if(data === 'success'){",
                     "            store.removeAll();",
                     "            Ext.MessageBox.alert('Success', 'Order success, please wait for order delivery.');",
-                    "            this.getTrayWindow().destroy();",
+                    "",
                     "        }",
                     "        else{",
                     "            Ext.MessageBox.alert('Error', 'Failed to checkout your order.');",
                     "        }",
                     "    }",
-                    "});"
+                    "});",
+                    "",
+                    "            this.getTrayWindow().destroy();"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -987,6 +984,40 @@
             },
             "name": "showLoadingMessageMask",
             "designerId": "7b3757cd-32d2-4a23-be48-919e836a82bb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#closeBtn",
+                "designer|targetType": "MyButton21",
+                "fn": "onCloseBtnClick",
+                "implHandler": [
+                    "this.getTransactionDetails().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onCloseBtnClick",
+            "designerId": "718ba6e4-b18e-4a0e-a658-25263d891d92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "transactionDetails",
+                "selector": "#TransactionDetails"
+            },
+            "name": "transactionDetails",
+            "designerId": "41bd28d3-9ef8-41a5-9a51-a088b5a5b1f9"
         }
     ]
 }

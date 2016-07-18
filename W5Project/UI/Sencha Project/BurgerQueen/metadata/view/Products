@@ -8,11 +8,21 @@
     "userConfig": {
         "autoScroll": true,
         "bodyPadding": null,
+        "bodyStyle": [
+            "font-family: 'Century Gothic';"
+        ],
         "designer|userAlias": "Products",
         "designer|userClassName": "Products",
         "header": false,
         "height": 559,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'",
+            "rel='stylesheet' type='text/css'>"
+        ],
         "itemId": "Products",
+        "style": [
+            "font-family: 'Century Gothic';"
+        ],
         "title": "Products",
         "width": 1099
     },
@@ -42,9 +52,14 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Search",
+                        "fieldStyle": " font-family: 'Century Gothic';",
                         "id": "SearchField",
                         "itemId": "SearchField",
-                        "layout|flex": null
+                        "labelStyle": "font-family: 'Century Gothic'",
+                        "layout|flex": null,
+                        "style": [
+                            " font-family: 'Century Gothic';"
+                        ]
                     },
                     "name": "MyTextField11",
                     "designerId": "ea6a5f9e-9ff1-42e3-8ba4-bcf63c296d99",
@@ -86,8 +101,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "margin": "0, 100, 0, 100",
-                "padding": 100
+                "margin": "0, 300, 0, 300",
+                "padding": "20,100,100,100"
             },
             "name": "MyContainer3",
             "designerId": "cc4a27a2-ae48-4f1d-96bc-9ae7b8dee633",
@@ -101,6 +116,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "autoScroll": null,
+                        "bodyBorder": true,
                         "columnLines": false,
                         "designer|uiInterfaceName": "menubarbtn",
                         "header": false,
@@ -133,7 +149,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "Image",
-                                "flex": 1,
+                                "flex": 0.4,
                                 "text": "Image"
                             },
                             "name": "MyColumn1",
@@ -159,7 +175,7 @@
                                         "fn": "renderer",
                                         "implHandler": [
                                             "",
-                                            "                        return '<img src=\"'+value+'\" width=\"150\" height=\"150\" border=\"0\" />';"
+                                            "                        return '<img src=\"'+value+'\" width=\"250\" height=\"250\" border=\"0\" />';"
                                         ]
                                     },
                                     "name": "renderer",
@@ -176,7 +192,11 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "Name",
-                                "flex": 1,
+                                "flex": 0.4,
+                                "style": [
+                                    "font-family: 'Abel';",
+                                    "font-size: 15px;"
+                                ],
                                 "text": "Name"
                             },
                             "name": "MyColumn",

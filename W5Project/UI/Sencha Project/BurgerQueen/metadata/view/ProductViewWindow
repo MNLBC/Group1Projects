@@ -6,22 +6,47 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bodyStyle": null,
         "designer|userClassName": "ProductViewWindow",
         "frameHeader": false,
         "header": false,
         "height": 405,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>"
+        ],
         "id": "ProductView",
         "itemId": "ProductView",
         "layout": "fit",
         "manageHeight": false,
         "maxHeight": null,
         "modal": true,
+        "style": null,
         "title": "My Window",
         "width": 665
     },
     "name": "MyWindow",
     "designerId": "95b91392-93dd-4c5b-b941-014b7b6d0a5b",
     "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "fieldLabel": "",
+                "height": 70,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>Product View</h2></div></center>"
+                ],
+                "width": 665
+            },
+            "name": "MyFieldContainer3",
+            "designerId": "59b9acaa-e5c8-4eb7-afc2-22732eee6cfe"
+        },
         {
             "type": "Ext.container.Container",
             "reference": {
@@ -32,7 +57,10 @@
             "userConfig": {
                 "container|align": "middle",
                 "layout": "hbox",
-                "shadow": false
+                "shadow": false,
+                "style": [
+                    "font-family: 'Century Gothic';"
+                ]
             },
             "name": "MyContainer",
             "designerId": "c9b64e81-15b6-4a76-b806-3718598f1eed",
@@ -81,6 +109,9 @@
                     "userConfig": {
                         "autoScroll": true,
                         "bodyPadding": 10,
+                        "bodyStyle": [
+                            "font-family: 'Century Gothic';"
+                        ],
                         "header": false,
                         "height": 200,
                         "layout|flex": 1,
@@ -98,9 +129,12 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "",
+                                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "id": "ProductName",
                                 "itemId": "ProductName",
+                                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "layout|anchor": "100%",
+                                "style": null,
                                 "value": "Name"
                             },
                             "name": "MyDisplayField",
@@ -115,9 +149,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "RMB",
+                                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "id": "ProductPrice",
                                 "itemId": "ProductPrice",
+                                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "layout|anchor": "100%",
+                                "style": [
+                                    "font-family: 'Century Gothic';"
+                                ],
                                 "value": "Price"
                             },
                             "name": "MyDisplayField1",
@@ -132,10 +171,13 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "Quantity",
+                                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "id": "ProductQuantity",
                                 "itemId": "ProductQuantity",
+                                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "layout|anchor": "100%",
                                 "minValue": 1,
+                                "style": null,
                                 "value": [
                                     "1"
                                 ]
@@ -152,9 +194,12 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "",
+                                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "id": "ProductDescription",
                                 "itemId": "ProductDescription",
+                                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                                 "layout|anchor": "100%",
+                                "style": null,
                                 "value": "Description"
                             },
                             "name": "MyDisplayField2",
@@ -169,7 +214,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "container|pack": "center",
-                                "dock": "bottom"
+                                "dock": "bottom",
+                                "style": null
                             },
                             "name": "MyToolbar3",
                             "designerId": "67758da9-e39a-412e-ab0e-3e7b36c75c32",
@@ -185,6 +231,7 @@
                                         "id": "AddCartButton",
                                         "itemId": "AddCartButton",
                                         "layout|flex": null,
+                                        "style": null,
                                         "text": "Add to cart"
                                     },
                                     "name": "MyButton11",

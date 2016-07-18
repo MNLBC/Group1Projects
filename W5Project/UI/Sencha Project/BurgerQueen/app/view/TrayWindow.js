@@ -17,6 +17,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
+        'Ext.form.FieldContainer',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.plugin.CellEditing',
@@ -28,9 +29,13 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     ],
 
     height: 399,
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     id: 'TrayWindow',
     itemId: 'TrayWindow',
+    style: 'font-family: \'Century Gothic\';',
     width: 619,
+    bodyStyle: 'font-family: \'Century Gothic\';',
+    header: false,
     title: 'My Tray',
     modal: true,
 
@@ -45,9 +50,17 @@ Ext.define('BurgerQueen.view.TrayWindow', {
         Ext.applyIf(me, {
             items: [
                 {
+                    xtype: 'fieldcontainer',
+                    height: 60,
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>My Tray</h2></div></center>',
+                    width: 619,
+                    fieldLabel: ''
+                },
+                {
                     xtype: 'gridpanel',
                     id: 'trayGrid',
                     itemId: 'trayGrid',
+                    bodyStyle: 'font-family: \'Century Gothic\';',
                     header: false,
                     title: 'My Grid Panel',
                     store: 'TrayStore',
@@ -60,6 +73,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             xtype: 'gridcolumn',
                             id: 'orderName',
                             itemId: 'orderName',
+                            style: 'font-family: \'Abel\';',
                             dataIndex: 'Name',
                             text: 'Name',
                             flex: 0.8
@@ -68,6 +82,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             xtype: 'gridcolumn',
                             id: 'orderQty',
                             itemId: 'orderQty',
+                            style: 'font-family: \'Abel\';',
                             dataIndex: 'Quantity',
                             text: 'Quantity',
                             flex: 0.5,
@@ -82,6 +97,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             xtype: 'numbercolumn',
                             id: 'orderPrice',
                             itemId: 'orderPrice',
+                            style: 'font-family: \'Abel\';',
                             dataIndex: 'Price',
                             text: 'Price',
                             flex: 0.5
@@ -101,6 +117,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             },
                             id: 'total',
                             itemId: 'total',
+                            style: 'font-family: \'Abel\';',
                             dataIndex: 'Total',
                             text: 'Total'
                         }
@@ -137,14 +154,18 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     id: 'totalItems',
                     itemId: 'totalItems',
                     fieldLabel: 'Total Number of Items in Tray',
-                    value: ''
+                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                    value: '',
+                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                 },
                 {
                     xtype: 'displayfield',
                     id: 'totalAmount',
                     itemId: 'totalAmount',
                     fieldLabel: 'Total Amount in RMB',
-                    value: ''
+                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                    value: '',
+                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                 }
             ],
             dockedItems: [
@@ -189,11 +210,9 @@ Ext.define('BurgerQueen.view.TrayWindow', {
             totalAmount += record.data.Total;
         });
 
-        console.log(totalQuantity, totalAmount);
 
         Ext.getCmp('totalItems').setValue(totalQuantity);
         Ext.getCmp('totalAmount').setValue(totalAmount);
-        console.log('test');
     }
 
 });

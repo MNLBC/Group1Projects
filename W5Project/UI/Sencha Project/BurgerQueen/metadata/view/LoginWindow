@@ -9,11 +9,18 @@
         "designer|userClassName": "LoginWindow",
         "header": false,
         "height": 250,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>"
+        ],
         "itemId": "loginWindow",
         "layout": "fit",
         "modal": true,
-        "title": "My Window",
-        "width": 400
+        "style": [
+            "font-family: 'Abel';",
+            ""
+        ],
+        "title": "Log-in ",
+        "width": 350
     },
     "name": "MyWindow",
     "designerId": "384e8a9e-8962-41f9-aa5a-f5eafb480c6a",
@@ -30,6 +37,10 @@
                 "container|align": "stretch",
                 "container|pack": "center",
                 "header": false,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>Log-in</h2></div></center>"
+                ],
                 "itemId": "loginForm",
                 "layout": "vbox",
                 "title": "My Form"
@@ -48,7 +59,9 @@
                         "allowBlank": false,
                         "allowOnlyWhitespace": false,
                         "fieldLabel": "User Name",
+                        "fieldStyle": null,
                         "labelSeparator": null,
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": null,
                         "name": "username"
                     },
@@ -68,6 +81,7 @@
                         "fieldLabel": "Password",
                         "inputType": "password",
                         "labelSeparator": null,
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": null,
                         "name": "password"
                     },
@@ -84,7 +98,10 @@
                     "userConfig": {
                         "container|pack": "center",
                         "dock": null,
-                        "layout|flex": null
+                        "height": 34,
+                        "layout|flex": null,
+                        "layout|margins": "",
+                        "margin": null
                     },
                     "name": "MyToolbar2",
                     "designerId": "9aa09605-6992-4a5a-9596-bececa40bad5",
@@ -99,6 +116,9 @@
                             "userConfig": {
                                 "id": "loginWindowButton",
                                 "layout|flex": null,
+                                "style": [
+                                    "font-family: 'Abel';"
+                                ],
                                 "text": "Login"
                             },
                             "name": "MyButton9",
@@ -114,6 +134,9 @@
                             "userConfig": {
                                 "id": "cancelLoginButton",
                                 "layout|flex": null,
+                                "style": [
+                                    "font-family: 'Abel';"
+                                ],
                                 "text": "Cancel"
                             },
                             "name": "MyButton10",

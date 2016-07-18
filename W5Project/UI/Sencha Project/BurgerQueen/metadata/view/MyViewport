@@ -8,6 +8,10 @@
     "userConfig": {
         "designer|initialView": true,
         "designer|userClassName": "MyViewport",
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>",
+            ""
+        ],
         "layout": "fit"
     },
     "name": "MyViewport",
@@ -188,6 +192,22 @@
                     "designerId": "a908f591-d0d4-4cdb-b0bc-f6ebe85e5a8a",
                     "cn": [
                         {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 60,
+                                "layout|flex": null,
+                                "src": "resources/images/burgerQueenLogo.png",
+                                "width": 60
+                            },
+                            "name": "MyImg1",
+                            "designerId": "4906c7db-d92c-4510-882e-1545386e6f5e"
+                        },
+                        {
                             "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",
@@ -199,7 +219,12 @@
                                 "id": "allCategoriesButton",
                                 "itemId": "allCategoriesButton",
                                 "layout|flex": null,
-                                "text": "All Categories",
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
+                                "text": "All Categories |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton20",
@@ -216,7 +241,12 @@
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "beveragesButton",
                                 "layout|flex": null,
-                                "text": "Beverages",
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
+                                "text": "Beverages |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton",
@@ -233,7 +263,12 @@
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "burgersButton",
                                 "layout|flex": null,
-                                "text": "Burgers",
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
+                                "text": "Burgers |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton1",
@@ -250,7 +285,12 @@
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "chickensButton",
                                 "layout|flex": null,
-                                "text": "Chickens",
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
+                                "text": "Chickens |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton2",
@@ -267,7 +307,12 @@
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "dessertsButton",
                                 "layout|flex": null,
-                                "text": "Desserts",
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
+                                "text": "Desserts |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton3",
@@ -284,6 +329,11 @@
                                 "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "itemId": "sidesButton",
                                 "layout|flex": null,
+                                "style": [
+                                    "    ",
+                                    "    font-family: 'Abel';",
+                                    "    font-size:30px;"
+                                ],
                                 "text": "Sides",
                                 "ui": "menubarbtn"
                             },

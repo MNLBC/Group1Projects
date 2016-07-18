@@ -26,9 +26,12 @@ Ext.define('BurgerQueen.view.Products', {
     ],
 
     height: 559,
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\nrel=\'stylesheet\' type=\'text/css\'>',
     itemId: 'Products',
+    style: 'font-family: \'Century Gothic\';',
     width: 1099,
     autoScroll: true,
+    bodyStyle: 'font-family: \'Century Gothic\';',
     header: false,
     title: 'Products',
 
@@ -49,7 +52,10 @@ Ext.define('BurgerQueen.view.Products', {
                             xtype: 'textfield',
                             id: 'SearchField',
                             itemId: 'SearchField',
+                            style: 'font-family: \'Century Gothic\';',
                             fieldLabel: 'Search',
+                            labelStyle: 'font-family: \'Century Gothic\'',
+                            fieldStyle: ' font-family: \'Century Gothic\';',
                             listeners: {
                                 change: {
                                     fn: me.onSearchFieldChange,
@@ -63,14 +69,15 @@ Ext.define('BurgerQueen.view.Products', {
             items: [
                 {
                     xtype: 'container',
-                    margin: '0, 100, 0, 100',
-                    padding: 100,
+                    margin: '0, 300, 0, 300',
+                    padding: '20,100,100,100',
                     items: [
                         {
                             xtype: 'gridpanel',
                             id: 'ProductGrid',
                             itemId: 'ProductGrid',
                             ui: 'menubarbtn',
+                            bodyBorder: true,
                             header: false,
                             title: 'My Grid Panel',
                             columnLines: false,
@@ -81,17 +88,18 @@ Ext.define('BurgerQueen.view.Products', {
                                     xtype: 'gridcolumn',
                                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
 
-                                        return '<img src="'+value+'" width="150" height="150" border="0" />';
+                                        return '<img src="'+value+'" width="250" height="250" border="0" />';
                                     },
                                     dataIndex: 'Image',
                                     text: 'Image',
-                                    flex: 1
+                                    flex: 0.4
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    style: 'font-family: \'Abel\';\nfont-size: 15px;',
                                     dataIndex: 'Name',
                                     text: 'Name',
-                                    flex: 1
+                                    flex: 0.4
                                 }
                             ]
                         }

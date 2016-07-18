@@ -25,8 +25,10 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
         'Ext.button.Button'
     ],
 
-    height: 501,
+    height: 600,
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Register</h2></div></center>',
     itemId: 'registerWindow',
+    style: 'font-family: \'Abel\';',
     width: 463,
     layout: 'fit',
     header: false,
@@ -42,18 +44,29 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                     xtype: 'form',
                     itemId: 'registerForm',
                     bodyPadding: 10,
+                    bodyStyle: 'font-family: \'Century Gothic\';',
                     header: false,
-                    title: 'My Form',
+                    title: 'Register',
                     layout: {
                         type: 'vbox',
                         align: 'stretch'
                     },
                     items: [
                         {
+                            xtype: 'fieldcontainer',
+                            flex: 1,
+                            height: 60,
+                            html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div><h2 style = \'font-family: Abel;\'>Register</h2></div></center>',
+                            margin: '0, 0, 35, 0',
+                            width: 400,
+                            fieldLabel: ''
+                        },
+                        {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'User Name',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'username',
                             allowBlank: false
                         },
@@ -64,6 +77,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             itemId: '',
                             fieldLabel: 'Password',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'password',
                             inputType: 'password',
                             allowBlank: false
@@ -83,6 +97,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             itemId: 'confirmpassword',
                             fieldLabel: 'Confirm Password',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'confirmpassword',
                             inputType: 'password',
                             allowBlank: false
@@ -92,6 +107,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             fieldLabel: 'First Name',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'firstname',
                             allowBlank: false
                         },
@@ -99,6 +115,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'textfield',
                             flex: 1,
                             fieldLabel: 'Middle Name',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'middlename'
                         },
                         {
@@ -106,6 +123,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             fieldLabel: 'Last Name',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'lastname',
                             allowBlank: false
                         },
@@ -114,6 +132,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             fieldLabel: 'Address',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'address',
                             allowBlank: false
                         },
@@ -122,6 +141,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             fieldLabel: 'Contact No.',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'contactno',
                             inputType: 'tel',
                             allowBlank: false,
@@ -132,6 +152,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             fieldLabel: 'Email',
                             labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'email',
                             invalidText: 'Email is invalid',
                             allowBlank: false,
@@ -142,6 +163,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             flex: 1,
                             width: 400,
                             fieldLabel: 'Gender',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             items: [
                                 {
                                     xtype: 'radiofield',

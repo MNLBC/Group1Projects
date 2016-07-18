@@ -6,19 +6,49 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bodyStyle": [
+            " font-family: 'Century Gothic';"
+        ],
         "container|align": "stretch",
         "designer|userClassName": "TrayWindow",
+        "header": false,
         "height": 399,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>"
+        ],
         "id": "TrayWindow",
         "itemId": "TrayWindow",
         "layout": "vbox",
         "modal": true,
+        "style": [
+            " font-family: 'Century Gothic';"
+        ],
         "title": "My Tray",
         "width": 619
     },
     "name": "MyWindow",
     "designerId": "a193880b-da66-4706-93f0-f105e99918fc",
     "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "",
+                "height": 60,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>My Tray</h2></div></center>"
+                ],
+                "layout|flex": null,
+                "width": 619
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "9a273314-980e-4398-8484-22d7f4bc63c0"
+        },
         {
             "type": "Ext.grid.Panel",
             "reference": {
@@ -27,6 +57,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bodyStyle": [
+                    " font-family: 'Century Gothic';"
+                ],
                 "header": false,
                 "id": "trayGrid",
                 "itemId": "trayGrid",
@@ -62,6 +95,9 @@
                         "flex": 0.8,
                         "id": "orderName",
                         "itemId": "orderName",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
                         "text": "Name"
                     },
                     "name": "MyColumn3",
@@ -101,11 +137,9 @@
                                     "    totalAmount += record.data.Total;",
                                     "});",
                                     "",
-                                    "console.log(totalQuantity, totalAmount);",
                                     "",
                                     "Ext.getCmp('totalItems').setValue(totalQuantity);",
-                                    "Ext.getCmp('totalAmount').setValue(totalAmount);",
-                                    "console.log('test');"
+                                    "Ext.getCmp('totalAmount').setValue(totalAmount);"
                                 ],
                                 "name": "edit",
                                 "scope": "me"
@@ -127,6 +161,9 @@
                         "flex": 0.5,
                         "id": "orderQty",
                         "itemId": "orderQty",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
                         "text": "Quantity"
                     },
                     "name": "MyColumn4",
@@ -162,6 +199,9 @@
                         "flex": 0.5,
                         "id": "orderPrice",
                         "itemId": "orderPrice",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
                         "text": "Price"
                     },
                     "name": "MyNumberColumn",
@@ -178,6 +218,9 @@
                         "dataIndex": "Total",
                         "id": "total",
                         "itemId": "total",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
                         "text": "Total"
                     },
                     "name": "MyColumn2",
@@ -263,9 +306,12 @@
             "userConfig": {
                 "dock": null,
                 "fieldLabel": "Total Number of Items in Tray",
+                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                 "id": "totalItems",
                 "itemId": "totalItems",
+                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                 "layout|flex": null,
+                "style": null,
                 "value": "",
                 "width": null
             },
@@ -330,8 +376,10 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Total Amount in RMB",
+                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
                 "id": "totalAmount",
                 "itemId": "totalAmount",
+                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                 "layout|flex": null,
                 "value": ""
             },

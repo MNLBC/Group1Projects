@@ -6,12 +6,20 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bodyStyle": null,
         "designer|userClassName": "RegisterWindow",
         "header": false,
-        "height": 501,
+        "height": 600,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+            "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>Register</h2></div></center>"
+        ],
         "itemId": "registerWindow",
         "layout": "fit",
         "modal": true,
+        "style": [
+            "font-family: 'Abel';"
+        ],
         "title": "My Window",
         "width": 463
     },
@@ -27,15 +35,40 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
+                "bodyStyle": [
+                    "font-family: 'Century Gothic';"
+                ],
                 "container|align": "stretch",
                 "header": false,
                 "itemId": "registerForm",
                 "layout": "vbox",
-                "title": "My Form"
+                "margin": null,
+                "title": "Register"
             },
             "name": "MyForm",
             "designerId": "e1b5cdc8-9230-4eae-9d90-222c894b568f",
             "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "height": 60,
+                        "html": [
+                            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                            "<center><div><h2 style = 'font-family: Abel;'>Register</h2></div></center>"
+                        ],
+                        "layout|flex": 1,
+                        "margin": "0, 0, 35, 0",
+                        "width": 400
+                    },
+                    "name": "MyFieldContainer",
+                    "designerId": "02b931bb-6512-4375-bd64-148071463271"
+                },
                 {
                     "type": "Ext.form.field.Text",
                     "reference": {
@@ -48,6 +81,7 @@
                         "fieldLabel": "User Name",
                         "itemId": null,
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "username"
                     },
@@ -68,6 +102,7 @@
                         "inputType": "password",
                         "itemId": "",
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "password"
                     },
@@ -88,6 +123,7 @@
                         "inputType": "password",
                         "itemId": "confirmpassword",
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "confirmpassword"
                     },
@@ -132,6 +168,7 @@
                         "fieldLabel": "First Name",
                         "itemId": null,
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "firstname"
                     },
@@ -148,6 +185,7 @@
                     "userConfig": {
                         "fieldLabel": "Middle Name",
                         "itemId": null,
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "middlename"
                     },
@@ -166,6 +204,7 @@
                         "fieldLabel": "Last Name",
                         "itemId": null,
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "lastname"
                     },
@@ -184,6 +223,7 @@
                         "fieldLabel": "Address",
                         "itemId": null,
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "address"
                     },
@@ -202,6 +242,7 @@
                         "fieldLabel": "Contact No.",
                         "inputType": "tel",
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "maskRe": "/^[0-9]*$/",
                         "name": "contactno"
@@ -222,6 +263,7 @@
                         "inputType": null,
                         "invalidText": "Email is invalid",
                         "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "name": "email",
                         "regex": "/^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}/"
@@ -238,6 +280,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Gender",
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                         "layout|flex": 1,
                         "width": 400
                     },
@@ -305,6 +348,7 @@
                     "userConfig": {
                         "id": "registerWindowButton",
                         "layout|flex": null,
+                        "style": null,
                         "text": "Register"
                     },
                     "name": "MyButton7",

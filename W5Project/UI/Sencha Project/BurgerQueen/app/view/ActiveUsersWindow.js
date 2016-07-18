@@ -39,6 +39,7 @@ Ext.define('BurgerQueen.view.ActiveUsersWindow', {
             items: [
                 {
                     xtype: 'container',
+                    style: 'font-family: \'Century Gothic\';',
                     layout: {
                         type: 'vbox',
                         align: 'stretch'

@@ -19,10 +19,13 @@ Ext.define('BurgerQueen.view.TransactionDetails', {
     requires: [
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
-        'Ext.grid.View'
+        'Ext.grid.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button'
     ],
 
     height: 250,
+    id: 'TransactionDetails',
     itemId: 'TransactionDetails',
     width: 400,
     header: false,
@@ -34,6 +37,10 @@ Ext.define('BurgerQueen.view.TransactionDetails', {
 
         Ext.applyIf(me, {
             items: [
+                {
+                    xtype: 'container',
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Transaction Details</h2></div></center>'
+                },
                 {
                     xtype: 'gridpanel',
                     header: false,
@@ -71,7 +78,25 @@ Ext.define('BurgerQueen.view.TransactionDetails', {
                     fn: me.onTransactionDetailsDestroy,
                     scope: me
                 }
-            }
+            },
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    layout: {
+                        type: 'hbox',
+                        pack: 'end'
+                    },
+                    items: [
+                        {
+                            xtype: 'button',
+                            id: 'closeBtn',
+                            itemId: 'closeBtn',
+                            text: 'Close'
+                        }
+                    ]
+                }
+            ]
         });
 
         me.callParent(arguments);

@@ -134,6 +134,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'products',
             selector: '#Products'
+        },
+        {
+            ref: 'transactionDetails',
+            selector: '#TransactionDetails'
         }
     ],
 
@@ -198,12 +202,8 @@ Ext.define('BurgerQueen.controller.Windows', {
                     replaceQuantity = currentQuantity + productQuantity;
                     trayStore.getAt(index).data.Quantity = replaceQuantity;
 
-        //         totalItems += replaceQuantity;
-        //      this.getTotalItems().setValue(totalItems);
             }
-        //     Ext.create('ProductViewWindow').hide();
         Ext.Msg.alert('Status', this.added_to_cart);
-        console.log(this.invalid_login);
         this.getProductViewWindow().destroy();
     },
 
@@ -257,7 +257,6 @@ Ext.define('BurgerQueen.controller.Windows', {
                     totalAmount += record.data.Total;
             });
 
-            console.log(totalQuantity, totalAmount);
 
             this.getTotalItems().setValue(totalQuantity);
             this.getTotalAmount().setValue(totalAmount);
@@ -389,24 +388,26 @@ Ext.define('BurgerQueen.controller.Windows', {
         var order = {
             userId: 1,
             orderItemList : orderItemsArray,
-            status : 'WAITING'
+            status : 'DONE'
         };
 
         Ext.Ajax.request({
-            url : 'orderItem/addOrderItem',
+            url : 'order/addOrder',
             params : { order:Ext.JSON.encode(order)},
             success : function(response) {
                 var data = response.responseText;
                 if(data === 'success'){
                     store.removeAll();
                     Ext.MessageBox.alert('Success', 'Order success, please wait for order delivery.');
-                    this.getTrayWindow().destroy();
+
                 }
                 else{
                     Ext.MessageBox.alert('Error', 'Failed to checkout your order.');
                 }
             }
         });
+
+                    this.getTrayWindow().destroy();
     },
 
     onTransactionDetailsActivate: function(window, eOpts) {
@@ -437,6 +438,10 @@ Ext.define('BurgerQueen.controller.Windows', {
 
                             }
                         });
+    },
+
+    onCloseBtnClick: function() {
+        this.getTransactionDetails().destroy();
     },
 
     activeUserCounter: function() {
@@ -513,6 +518,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#TransactionDetails": {
                 activate: this.onTransactionDetailsActivate
+            },
+            "#closeBtn": {
+                click: this.onCloseBtnClick
             }
         });
     }

@@ -24,11 +24,13 @@ Ext.define('BurgerQueen.view.LoginWindow', {
     ],
 
     height: 250,
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     itemId: 'loginWindow',
-    width: 400,
+    style: 'font-family: \'Abel\';',
+    width: 350,
     layout: 'fit',
     header: false,
-    title: 'My Window',
+    title: 'Log-in ',
     modal: true,
 
     initComponent: function() {
@@ -38,6 +40,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
             items: [
                 {
                     xtype: 'form',
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Log-in</h2></div></center>',
                     itemId: 'loginForm',
                     bodyPadding: 10,
                     header: false,
@@ -51,6 +54,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'User Name',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'username',
                             allowBlank: false,
                             allowOnlyWhitespace: false
@@ -58,6 +62,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'Password',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             name: 'password',
                             inputType: 'password',
                             allowBlank: false,
@@ -65,6 +70,8 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                         },
                         {
                             xtype: 'toolbar',
+                            margins: '',
+                            height: 34,
                             layout: {
                                 type: 'hbox',
                                 pack: 'center'
@@ -73,11 +80,13 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                                 {
                                     xtype: 'button',
                                     id: 'loginWindowButton',
+                                    style: 'font-family: \'Abel\';',
                                     text: 'Login'
                                 },
                                 {
                                     xtype: 'button',
                                     id: 'cancelLoginButton',
+                                    style: 'font-family: \'Abel\';',
                                     text: 'Cancel'
                                 }
                             ]

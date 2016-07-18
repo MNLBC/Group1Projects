@@ -28,7 +28,10 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
-                "layout": "vbox"
+                "layout": "vbox",
+                "style": [
+                    "font-family: 'Century Gothic';"
+                ]
             },
             "name": "MyContainer4",
             "designerId": "907af93e-f499-438d-84b0-1e1632caf00c"

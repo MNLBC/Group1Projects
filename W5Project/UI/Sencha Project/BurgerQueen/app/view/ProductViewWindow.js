@@ -17,6 +17,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
+        'Ext.form.FieldContainer',
         'Ext.Img',
         'Ext.form.Panel',
         'Ext.form.field.Display',
@@ -27,6 +28,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
     ],
 
     height: 405,
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     id: 'ProductView',
     itemId: 'ProductView',
     width: 665,
@@ -41,9 +43,20 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
         var me = this;
 
         Ext.applyIf(me, {
+            dockedItems: [
+                {
+                    xtype: 'fieldcontainer',
+                    dock: 'top',
+                    height: 70,
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Product View</h2></div></center>',
+                    width: 665,
+                    fieldLabel: ''
+                }
+            ],
             items: [
                 {
                     xtype: 'container',
+                    style: 'font-family: \'Century Gothic\';',
                     shadow: false,
                     layout: {
                         type: 'hbox',
@@ -74,6 +87,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                             height: 200,
                             autoScroll: true,
                             bodyPadding: 10,
+                            bodyStyle: 'font-family: \'Century Gothic\';',
                             header: false,
                             title: 'My Form',
                             items: [
@@ -83,15 +97,20 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     id: 'ProductName',
                                     itemId: 'ProductName',
                                     fieldLabel: '',
-                                    value: 'Name'
+                                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    value: 'Name',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                                 },
                                 {
                                     xtype: 'displayfield',
                                     anchor: '100%',
                                     id: 'ProductPrice',
                                     itemId: 'ProductPrice',
+                                    style: 'font-family: \'Century Gothic\';',
                                     fieldLabel: 'RMB',
-                                    value: 'Price'
+                                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    value: 'Price',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                                 },
                                 {
                                     xtype: 'numberfield',
@@ -99,7 +118,9 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     id: 'ProductQuantity',
                                     itemId: 'ProductQuantity',
                                     fieldLabel: 'Quantity',
+                                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     value: 1,
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     minValue: 1
                                 },
                                 {
@@ -108,7 +129,9 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     id: 'ProductDescription',
                                     itemId: 'ProductDescription',
                                     fieldLabel: '',
-                                    value: 'Description'
+                                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    value: 'Description',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                                 }
                             ],
                             dockedItems: [

@@ -18,6 +18,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
     alias: 'widget.userprofile',
 
     requires: [
+        'Ext.form.FieldContainer',
         'Ext.form.field.Display',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
@@ -36,6 +37,16 @@ Ext.define('BurgerQueen.view.UserProfile', {
         var me = this;
 
         Ext.applyIf(me, {
+            dockedItems: [
+                {
+                    xtype: 'fieldcontainer',
+                    dock: 'top',
+                    height: 70,
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>My Profile</h2></div></center>',
+                    width: 611,
+                    fieldLabel: ''
+                }
+            ],
             items: [
                 {
                     xtype: 'container',
@@ -47,7 +58,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'usernameProfile',
                             width: 800,
                             fieldLabel: 'Username',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'userName'
                         },
                         {
@@ -56,7 +69,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'firstnameProfile',
                             width: 800,
                             fieldLabel: 'First name',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'firstName'
                         },
                         {
@@ -65,7 +80,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'middlenameProfile',
                             width: 800,
                             fieldLabel: 'Middle name:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'middleName'
                         },
                         {
@@ -75,7 +92,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'lastnameProfile',
                             width: 800,
                             fieldLabel: 'Last name',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'lastName'
                         },
                         {
@@ -85,7 +104,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'addressProfile',
                             width: 800,
                             fieldLabel: 'Address',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'address'
                         },
                         {
@@ -95,7 +116,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'emailProfile',
                             width: 800,
                             fieldLabel: 'E-mail',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'email'
                         },
                         {
@@ -105,7 +128,9 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             itemId: 'contactnumProfile',
                             width: 800,
                             fieldLabel: 'Contact:',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             value: 'Display Field',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                             inputId: 'userProfileWindow'
                         },
                         {
@@ -113,7 +138,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             id: 'TransacHistoryGrid',
                             itemId: 'transactionHistoryGrid',
                             autoScroll: true,
-                            title: 'My Grid Panel',
+                            title: 'Recent Transactions',
                             hideHeaders: true,
                             store: 'TransactionStore',
                             columns: [
@@ -146,13 +171,8 @@ Ext.define('BurgerQueen.view.UserProfile', {
     },
 
     onTransacHistoryGridItemDblClick: function(dataview, record, item, index, e, eOpts) {
-        //         var transactionStore = Ext.getStore('TransactionStore');
 
-        //         var productGrid = Ext.getCmp('TransacHistoryGrid'),
-        //             selectModel = productGrid.getSelectionModel(),
-        //             selectedProduct = selectModel.getSelection()[0].data;
 
-                console.log('record mo '+record);
                  Ext.create('BurgerQueen.view.TransactionDetails',{
                     transaction : record }).show();
     }

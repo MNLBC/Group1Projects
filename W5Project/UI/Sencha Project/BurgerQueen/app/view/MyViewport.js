@@ -22,9 +22,11 @@ Ext.define('BurgerQueen.view.MyViewport', {
         'Ext.panel.Panel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
-        'Ext.form.field.Display'
+        'Ext.form.field.Display',
+        'Ext.Img'
     ],
 
+    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\' rel=\'stylesheet\' type=\'text/css\'>',
     layout: 'fit',
 
     initComponent: function() {
@@ -108,39 +110,51 @@ Ext.define('BurgerQueen.view.MyViewport', {
                             },
                             items: [
                                 {
+                                    xtype: 'image',
+                                    height: 60,
+                                    width: 60,
+                                    src: 'resources/images/burgerQueenLogo.png'
+                                },
+                                {
                                     xtype: 'button',
                                     id: 'allCategoriesButton',
                                     itemId: 'allCategoriesButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
-                                    text: 'All Categories'
+                                    text: 'All Categories |'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'beveragesButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
-                                    text: 'Beverages'
+                                    text: 'Beverages |'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'burgersButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
-                                    text: 'Burgers'
+                                    text: 'Burgers |'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'chickensButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
-                                    text: 'Chickens'
+                                    text: 'Chickens |'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'dessertsButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
-                                    text: 'Desserts'
+                                    text: 'Desserts |'
                                 },
                                 {
                                     xtype: 'button',
                                     itemId: 'sidesButton',
+                                    style: 'font-family: \'Abel\';\n    font-size:30px;',
                                     ui: 'menubarbtn',
                                     text: 'Sides'
                                 }
