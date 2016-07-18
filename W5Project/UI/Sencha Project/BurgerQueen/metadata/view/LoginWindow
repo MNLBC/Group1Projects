@@ -1,0 +1,150 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginWindow",
+        "header": false,
+        "height": 250,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>"
+        ],
+        "itemId": "loginWindow",
+        "layout": "fit",
+        "modal": true,
+        "style": [
+            "font-family: 'Abel';",
+            ""
+        ],
+        "title": "Log-in ",
+        "width": 350
+    },
+    "name": "MyWindow",
+    "designerId": "384e8a9e-8962-41f9-aa5a-f5eafb480c6a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "container|pack": "center",
+                "header": false,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>Log-in</h2></div></center>"
+                ],
+                "itemId": "loginForm",
+                "layout": "vbox",
+                "title": "My Form"
+            },
+            "name": "MyForm1",
+            "designerId": "6679965d-9458-4fa1-9325-8e679618e180",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "User Name",
+                        "fieldStyle": null,
+                        "labelSeparator": null,
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                        "layout|flex": null,
+                        "name": "username"
+                    },
+                    "name": "MyTextField8",
+                    "designerId": "b67948ff-9183-4614-8686-9cce69ef1da0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "fieldLabel": "Password",
+                        "inputType": "password",
+                        "labelSeparator": null,
+                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                        "layout|flex": null,
+                        "name": "password"
+                    },
+                    "name": "MyTextField9",
+                    "designerId": "5576c7db-0e6a-4ee8-a2ec-9a8005b0c838"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "dock": null,
+                        "height": 34,
+                        "layout|flex": null,
+                        "layout|margins": "",
+                        "margin": null
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "9aa09605-6992-4a5a-9596-bececa40bad5",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "loginWindowButton",
+                                "layout|flex": null,
+                                "style": [
+                                    "font-family: 'Abel';"
+                                ],
+                                "text": "Login"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "a2cd2411-f9a4-48f5-8eed-c832919784af"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "cancelLoginButton",
+                                "layout|flex": null,
+                                "style": [
+                                    "font-family: 'Abel';"
+                                ],
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton10",
+                            "designerId": "a2b4e5e0-ed4a-446f-940c-2e0017aac57c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

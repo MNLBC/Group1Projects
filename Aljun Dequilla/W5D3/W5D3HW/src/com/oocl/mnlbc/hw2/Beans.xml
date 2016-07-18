@@ -13,8 +13,8 @@
       <property name="password" value="admin123"/>
    </bean>
 
-   <!-- Definition for studentJDBCTemplate bean -->
-   <bean id="studentJDBCTemplate" 
+   <!-- Definition for userJDBCTemplate bean -->
+   <bean id="userJDBCTemplate" 
       class="com.oocl.mnlbc.hw2.UserJDBCTemplate">
       <property name="dataSource"  ref="dataSource" />    
    </bean>

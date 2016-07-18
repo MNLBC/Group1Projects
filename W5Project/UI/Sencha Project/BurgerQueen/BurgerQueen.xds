@@ -1,0 +1,79 @@
+{
+    "name": "BurgerQueen",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/BurgerQueen/",
+        "exportPath": "D:/Group1Projects/W5Project/UI/Publish",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": true,
+        "lockUrlPrefix": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1167-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1379-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1169-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1185-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1188-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1109-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "9ba1ba59-a4fe-45fc-a890-6b8455864d00",
+            "b73ec7d7-ddd4-4a70-b1a7-a5741fa781b3",
+            "384e8a9e-8962-41f9-aa5a-f5eafb480c6a",
+            "159d9e1f-cdeb-4919-bd06-7f3f430d7893",
+            "95b91392-93dd-4c5b-b941-014b7b6d0a5b",
+            "a193880b-da66-4706-93f0-f105e99918fc",
+            "feaacf15-cc23-43de-947d-74cac5110f34",
+            "9d4b6ad7-4f28-4b44-a452-e72960332014",
+            "d7281523-32e7-4ce9-90ad-74c7e3c2127c"
+        ],
+        "store": [
+            "2583dd27-d23f-434c-aad6-a1f7a440c827",
+            "a50727e3-1fa2-4d09-a572-a06bb7a2095a",
+            "1fe4c619-6c40-4e0b-afe8-0d90934ca998",
+            "aa5a745b-6bbf-430f-be04-de2e8392503c",
+            "e0ed4240-1989-49de-ab9a-a5c2e37d3c26"
+        ],
+        "controller": [
+            "f79b1324-e313-43db-b83b-7825ec247cf6",
+            "a7aa32de-c51e-4381-8f6d-51a5345c3a54"
+        ],
+        "model": [
+            "2bda7658-2d01-4e94-bd8e-5715a1235be9",
+            "5a0b5ca8-58fc-459d-ba3f-cb978f091d52",
+            "178d4e5e-204d-499b-95c0-1762b9f31911",
+            "820432ee-1129-4ef1-9128-f2825adf45c4",
+            "337e4aa2-4af0-44e9-b678-391051d6b6b3"
+        ],
+        "resource": [
+            "17688caf-6df4-44b2-9bf1-02f77bc4c0f5",
+            "26ca72b5-861e-4b01-a2f7-9fbc8aa21ba2"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

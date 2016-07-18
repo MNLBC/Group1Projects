@@ -1,0 +1,70 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "center",
+        "container|pack": "center",
+        "designer|userClassName": "ActiveUsersWindow",
+        "height": 250,
+        "itemId": "ActiveUsersWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": "Active Users",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "9d4b6ad7-4f28-4b44-a452-e72960332014",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox",
+                "style": [
+                    "font-family: 'Century Gothic';"
+                ]
+            },
+            "name": "MyContainer4",
+            "designerId": "907af93e-f499-438d-84b0-1e1632caf00c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "",
+                    "    var activeUserStore = Ext.getStore('ActiveUserStore');",
+                    "    activeUserStore.each(function(rec){",
+                    "                component.add(",
+                    "                {",
+                    "                    xtype:'label',",
+                    "                    text:rec.data.username",
+                    "                }",
+                    "            );",
+                    "    });",
+                    "",
+                    "",
+                    ""
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onWindowShow",
+            "designerId": "8842973c-eaac-4fee-a703-2c13b01cbdab"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="W5D3_NUMBER2and3">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <property name="java-output-path" value="/W5D3_NUMBER2and3/build/classes"/>
+        <property name="context-root" value="W5D3_NUMBER2and3"/>
+    </wb-module>
+</project-modules>
