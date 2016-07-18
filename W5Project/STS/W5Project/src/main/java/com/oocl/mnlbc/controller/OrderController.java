@@ -25,9 +25,10 @@ import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.User;
 
 /**
- * Controller class OrderController. Handles requests for the order of the current user logged in.
+ * Controller class OrderController. Handles requests for the order of the
+ * current user logged in.
  * 
- * @author Group 1 
+ * @author Group 1
  * @since 07-18-2016
  */
 @Controller
@@ -83,13 +84,10 @@ public class OrderController {
 			orderItemsDAO.addOrderItems(orderMapped.getId(), orderMapped.getOrderItemList());
 			return "success";
 		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "fail";
