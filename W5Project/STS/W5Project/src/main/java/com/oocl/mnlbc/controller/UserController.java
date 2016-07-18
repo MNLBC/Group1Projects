@@ -18,6 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.model.User;
 
+/**
+ * Controller class UserController. Handles requests for the registration and
+ * user data retrieval from database.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {

@@ -17,8 +17,10 @@ import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.model.Meal;
 
 /**
- * @author BARREPE
- *
+ * Controller class MealController. Handles requests for meals after query in the database.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 @Controller
 @RequestMapping("/meal")

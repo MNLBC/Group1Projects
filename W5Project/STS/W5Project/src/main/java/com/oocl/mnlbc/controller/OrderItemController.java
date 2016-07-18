@@ -28,8 +28,11 @@ import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
 /**
- * @author BARREPE
- *
+ * Controller class OrderItemsController. Handles requests for the ordered meals
+ * per order of the the current user logged in.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 @Controller
 @RequestMapping("/orderItem")
@@ -66,5 +69,5 @@ public class OrderItemController {
 		logger.info("Getting order items by ID");
 		return null;
 	}
-	
+
 }

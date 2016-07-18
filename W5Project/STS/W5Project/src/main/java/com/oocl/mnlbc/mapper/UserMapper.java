@@ -7,6 +7,13 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.oocl.mnlbc.model.User;
 
+/**
+ * RowMapper implementation class MealMapper. Maps every record in query to User
+ * model.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
+ */
 public class UserMapper implements RowMapper<User> {
 
 	@Override

@@ -11,8 +11,11 @@ import org.springframework.jdbc.core.RowMapper;
 import com.oocl.mnlbc.model.OrderItems;
 
 /**
- * @author BARREPE
- *
+ * RowMapper implementation class OrderItemsMapper. Maps every record in query
+ * to OrderItems model.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 public class OrderItemsMapper implements RowMapper<OrderItems> {
 

@@ -20,6 +20,13 @@ import com.oocl.mnlbc.model.Meal;
 import com.oocl.mnlbc.model.Order;
 import com.oocl.mnlbc.model.OrderItems;
 
+/**
+ * Implements the OrderDAO to specify the actions that will be done by each
+ * methods.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
+ */
 public class OrderDAOImpl implements OrderDAO {
 	private DataSource dataSource;
 	private PlatformTransactionManager transactionManager;

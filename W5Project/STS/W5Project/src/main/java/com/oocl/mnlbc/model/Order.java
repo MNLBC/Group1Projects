@@ -4,10 +4,11 @@ import java.util.List;
 
 /**
  * Model Class. Used as backbone/pattern for the order attributes (based on the
- * database table Order)
+ * database table Orders)
+ * 
  * 
  * @author Group 1
- *
+ * @since 07-18-2016
  */
 
 public class Order {

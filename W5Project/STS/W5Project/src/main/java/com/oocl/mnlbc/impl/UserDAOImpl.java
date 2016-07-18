@@ -14,6 +14,13 @@ import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.mapper.UserMapper;
 import com.oocl.mnlbc.model.User;
 
+/**
+ * Implements the UserDAO to specify the actions that will be done by each
+ * methods.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
+ */
 public class UserDAOImpl implements UserDAO {
 	private DataSource dataSource;
 	private PlatformTransactionManager transactionManager;

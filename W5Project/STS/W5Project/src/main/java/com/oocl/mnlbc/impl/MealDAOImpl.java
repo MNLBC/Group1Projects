@@ -13,6 +13,13 @@ import com.oocl.mnlbc.mapper.UserMapper;
 import com.oocl.mnlbc.model.Meal;
 import com.oocl.mnlbc.model.User;
 
+/**
+ * Implements the MealDAO to specify the actions that will be done by
+ * each methods. 
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
+ */
 public class MealDAOImpl implements MealDAO {
 	private DataSource dataSource;
 	private PlatformTransactionManager transactionManager;

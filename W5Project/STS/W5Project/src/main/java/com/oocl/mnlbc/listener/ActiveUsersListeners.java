@@ -9,8 +9,11 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 /**
- * Application Lifecycle Listener implementation class ActiveUsersListeners
- *
+ * Application Lifecycle Listener implementation class ActiveUsersListeners Used
+ * to count number of visitors.
+ * 
+ * @author Group 1 
+ * @since 07-18-2016
  */
 public class ActiveUsersListeners implements HttpSessionListener {
 
