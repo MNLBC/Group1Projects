@@ -12,7 +12,7 @@ import com.oocl.mnlbc.service.ItemService;
 
 @RestController
 public class ItemController {
-	@RequestMapping(value = "/item/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/GET/item/{id}", method = RequestMethod.GET)
 	public Item getItemById(@PathVariable("id") String id) {
 		ItemService is = new ItemService();
 		is.init();
@@ -23,8 +23,4 @@ public class ItemController {
 		return item;
 	}
 
-	@RequestMapping("/getTest")
-	public String getTest() {
-		return "test";
-	}
 }
