@@ -34,7 +34,8 @@
             "UserProfile",
             "ActiveUsersWindow",
             "TransactionDetails",
-            "MyTextField9"
+            "MyTextField9",
+            "ContactUsWindow"
         ]
     },
     "name": "Application",

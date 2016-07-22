@@ -1018,6 +1018,40 @@
             },
             "name": "transactionDetails",
             "designerId": "41bd28d3-9ef8-41a5-9a51-a088b5a5b1f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnContactUs",
+                "designer|targetType": "MyButton24",
+                "fn": "onBtnContactUsClick",
+                "implHandler": [
+                    "Ext.create('BurgerQueen.view.ContactUsWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnContactUsClick",
+            "designerId": "f1f44b94-5055-43e5-b1ed-22ecd5086ed4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "btnContactUs",
+                "selector": "#btnContactUs"
+            },
+            "name": "btnContactUs",
+            "designerId": "aa717698-3214-4ead-8c4f-c1f100dd9d55"
         }
     ]
 }

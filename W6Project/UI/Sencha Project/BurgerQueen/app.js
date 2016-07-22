@@ -47,7 +47,8 @@ Ext.application({
         'UserProfile',
         'ActiveUsersWindow',
         'TransactionDetails',
-        'MyTextField9'
+        'MyTextField9',
+        'ContactUsWindow'
     ],
     controllers: [
         'HomePage',

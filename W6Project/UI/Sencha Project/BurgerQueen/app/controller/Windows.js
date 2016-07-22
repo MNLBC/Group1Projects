@@ -138,6 +138,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'transactionDetails',
             selector: '#TransactionDetails'
+        },
+        {
+            ref: 'btnContactUs',
+            selector: '#btnContactUs'
         }
     ],
 
@@ -444,6 +448,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         this.getTransactionDetails().destroy();
     },
 
+    onBtnContactUsClick: function() {
+        Ext.create('BurgerQueen.view.ContactUsWindow').show();
+    },
+
     activeUserCounter: function() {
 
             Ext.Ajax.request({
@@ -521,6 +529,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#closeBtn": {
                 click: this.onCloseBtnClick
+            },
+            "#btnContactUs": {
+                click: this.onBtnContactUsClick
             }
         });
     }

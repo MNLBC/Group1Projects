@@ -105,6 +105,12 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     fieldLabel: '',
                                     labelWidth: 50,
                                     value: '0'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'btnContactUs',
+                                    itemId: 'btnContactUs',
+                                    text: 'Contact Us'
                                 }
                             ]
                         },
