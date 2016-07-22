@@ -20,6 +20,8 @@ Ext.define('BurgerQueen.view.UserProfile', {
     requires: [
         'Ext.Img',
         'Ext.form.field.Display',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.grid.View'
@@ -157,12 +159,26 @@ Ext.define('BurgerQueen.view.UserProfile', {
                         },
                         {
                             xtype: 'container',
-                            height: 20,
-                            layout: 'anchor'
+                            height: 35,
+                            items: [
+                                {
+                                    xtype: 'toolbar',
+                                    rtl: false,
+                                    layout: {
+                                        type: 'hbox',
+                                        pack: 'end'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            text: 'MyButton'
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             xtype: 'container',
-                            flex: 1,
                             items: [
                                 {
                                     xtype: 'gridpanel',
