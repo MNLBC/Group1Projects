@@ -1,0 +1,387 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": [
+            " font-family: 'Century Gothic';"
+        ],
+        "container|align": "stretch",
+        "designer|userClassName": "TrayWindow",
+        "header": false,
+        "height": 399,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>"
+        ],
+        "id": "TrayWindow",
+        "itemId": "TrayWindow",
+        "layout": "vbox",
+        "modal": true,
+        "style": [
+            " font-family: 'Century Gothic';"
+        ],
+        "title": "My Tray",
+        "width": 619
+    },
+    "name": "MyWindow",
+    "designerId": "a193880b-da66-4706-93f0-f105e99918fc",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "",
+                "height": 60,
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>My Tray</h2></div></center>"
+                ],
+                "layout|flex": null,
+                "width": 619
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "9a273314-980e-4398-8484-22d7f4bc63c0"
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "id": "trayGrid",
+                "itemId": "trayGrid",
+                "store": "TrayStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel1",
+            "designerId": "8fa37acd-930a-47ac-92ee-81a12e846898",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "trayGridView",
+                        "itemId": "trayGrid"
+                    },
+                    "name": "MyGridView1",
+                    "designerId": "760ea726-fed7-4053-8ec4-0f8d68cb0584"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "flex": 0.8,
+                        "id": "orderName",
+                        "itemId": "orderName",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
+                        "text": "Name"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "45600e24-bbdb-4d26-86b4-94ba855aa044"
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": "Ext.grid.plugin.CellEditing",
+                    "userConfig": {
+                        "pluginId": "cellEdit"
+                    },
+                    "name": "MyCellEditingPlugin",
+                    "designerId": "a93cbe6e-7f6c-4044-bbf4-f80779eb4201",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingEdit",
+                                "implHandler": [
+                                    "var grid = Ext.getCmp('trayGrid'),",
+                                    "    store = grid.getStore(),",
+                                    "    totalQuantity = 0,",
+                                    "    totalAmount = 0,",
+                                    "    records = store.getRange();",
+                                    "",
+                                    "Ext.each(records,function(record){",
+                                    "    totalQuantity += record.data.Quantity;",
+                                    "    totalAmount += record.data.Total;",
+                                    "});",
+                                    "",
+                                    "",
+                                    "Ext.getCmp('totalItems').setValue(totalQuantity);",
+                                    "Ext.getCmp('totalAmount').setValue(totalAmount);"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingEdit",
+                            "designerId": "5c6155a1-b866-449d-8dae-ef59d69f88f5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Quantity",
+                        "flex": 0.5,
+                        "id": "orderQty",
+                        "itemId": "orderQty",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
+                        "text": "Quantity"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "51355ccb-98f4-4467-8106-f84ac87c4b0e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "orderQtyId",
+                                "id": "orderQtyField",
+                                "inputId": "orderQtyId",
+                                "itemId": "orderQtyField"
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "4f4a837d-bdcf-4e13-a27d-d22f792b98f1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Price",
+                        "flex": 0.5,
+                        "id": "orderPrice",
+                        "itemId": "orderPrice",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
+                        "text": "Price"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "d8e563ad-b0d9-4d21-9dd4-c0258b705246"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Total",
+                        "id": "total",
+                        "itemId": "total",
+                        "style": [
+                            "font-family: 'Abel'; "
+                        ],
+                        "text": "Total"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "debaf207-cd88-41c0-9060-aa1cceba33d8",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "                           var price = record.data.Price,",
+                                    "                            quantity = record.data.Quantity,",
+                                    "                           trayStore = Ext.getStore('TrayStore'),",
+                                    "                            idEdit = record.data.Id;",
+                                    "                            record = trayStore.getById(idEdit);",
+                                    "                            var newTotal = price * quantity;",
+                                    "                            record.set('Total', newTotal);",
+                                    "                            return newTotal;",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "dcdfd1f5-c732-4b2e-9cf8-479ddd02c407"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": null,
+                "layout|flex": null
+            },
+            "name": "MyToolbar4",
+            "designerId": "0efc5dcd-52bb-486b-b1d7-620967e1de5b",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "removeItemBtn",
+                        "itemId": "removeItemBtn",
+                        "layout|flex": null,
+                        "text": "Remove Item"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "57f29d81-7748-47eb-bf66-d712f7b89ae0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "fieldLabel": "Total Number of Items in Tray",
+                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                "id": "totalItems",
+                "itemId": "totalItems",
+                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                "layout|flex": null,
+                "style": null,
+                "value": "",
+                "width": null
+            },
+            "name": "MyDisplayField3",
+            "designerId": "fed579b0-a215-4ed4-ad8a-24da193ec6e6"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "dock": "bottom",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar5",
+            "designerId": "3db50de8-7b9a-417d-ade5-1da44f145021",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "checkoutBtn",
+                        "itemId": "checkoutBtn",
+                        "layout|flex": null,
+                        "text": "CheckOut"
+                    },
+                    "name": "MyButton14",
+                    "designerId": "57195fb4-e164-4253-8ef0-45da9a298449"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "cancelCheckoutBtn",
+                        "itemId": "cancelCheckoutBtn",
+                        "layout|flex": null,
+                        "text": "Cancel"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "cf2ec02d-7383-443c-9280-b1a54dced4aa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Total Amount in RMB",
+                "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                "id": "totalAmount",
+                "itemId": "totalAmount",
+                "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                "layout|flex": null,
+                "value": ""
+            },
+            "name": "MyDisplayField4",
+            "designerId": "c81c177b-b0d8-4413-8265-151738d92fb6"
+        }
+    ]
+}
