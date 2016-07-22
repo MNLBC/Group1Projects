@@ -295,7 +295,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         if(form.isValid()){
             Ext.Ajax.request({
                 url : 'user/addUser',
-                 params : { user:Ext.JSON.encode(user)},
+//                 params : ,
+                headers: { 'Content-Type': 'application/json',
+                			'Accept': 'application/json'},
+                 jsonData:user,
                 scope : this,
                 success : function(response) {
                     var data = response.responseText;

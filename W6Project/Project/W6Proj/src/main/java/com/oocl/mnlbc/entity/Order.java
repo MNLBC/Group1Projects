@@ -16,14 +16,15 @@ import javax.persistence.Table;
 public class Order {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "orderSequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderSequence")
 	@SequenceGenerator(name = "orderSequence", sequenceName = "ORDERS_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
 
-//	@ManyToOne(optional = false, fetch = FetchType.EAGER)
-//	@JoinColumn(name = "user_id", referencedColumnName = "id")
-//	private User user;
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	private User user;
+
 
 	@Column(name = "status")
 	private String status;
@@ -38,9 +39,9 @@ public class Order {
 	/**
 	 * @return the user
 	 */
-//	public User getUser() {
-//		return user;
-//	}
+	public User getUser() {
+		return user;
+	}
 
 	/**
 	 * @return the status
@@ -50,29 +51,27 @@ public class Order {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param user the user to set
+	 * @param user
+	 *            the user to set
 	 */
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	/**
-	 * @param status the status to set
+	 * @param status
+	 *            the status to set
 	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	
-	
-	
-	
-	
 }

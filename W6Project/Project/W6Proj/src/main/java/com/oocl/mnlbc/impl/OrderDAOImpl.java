@@ -58,8 +58,9 @@ public class OrderDAOImpl implements OrderDAO {
 	 */
 	@Override
 	public Order addOrder(Order order) {
-		
+		entityManager.getTransaction().begin();
 		entityManager.persist(order);
+		entityManager.getTransaction().commit();
 		return order;
 	}
 

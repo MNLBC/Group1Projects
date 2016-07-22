@@ -32,6 +32,7 @@ import com.oocl.mnlbc.entity.User;
  *
  */
 @Controller
+@RequestMapping(value ="/order")
 public class OrderController {
 
 	@Autowired
@@ -59,10 +60,11 @@ public class OrderController {
 	@RequestMapping(value= {"/addOrder" }, method = RequestMethod.POST)
 	public String addOrder(@RequestBody Order order) {
 		orderDao.init();
+		order.setStatus("DONE");
 //		User user = new User();
 //		order.setUser(user);
-		order.setId(0);
-		order.setStatus("WAITING");
+//		order.setId(0);
+//		order.setStatus("WAITING");
 		orderDao.addOrder(order);
 		return "success";
 	}

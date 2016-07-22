@@ -40,7 +40,7 @@ public class User implements Serializable {
 	private String address;
 
 	@Column(name = "contacts")
-	private String contacts;
+	private String contactno;
 
 	@Column(name = "type")
 	private String type;
@@ -66,6 +66,7 @@ public class User implements Serializable {
 	@Column(name = "points")
 	private double points;
 
+	
 	/**
 	 * @return the id
 	 */
@@ -102,10 +103,10 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * @return the contacts
+	 * @return the contactno
 	 */
-	public String getContacts() {
-		return contacts;
+	public String getContactno() {
+		return contactno;
 	}
 
 	/**
@@ -200,10 +201,10 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * @param contacts the contacts to set
+	 * @param contactno the contactno to set
 	 */
-	public void setContacts(String contacts) {
-		this.contacts = contacts;
+	public void setContactno(String contactno) {
+		this.contactno = contactno;
 	}
 
 	/**
@@ -262,6 +263,4 @@ public class User implements Serializable {
 		this.points = points;
 	}
 
-
-	
 }

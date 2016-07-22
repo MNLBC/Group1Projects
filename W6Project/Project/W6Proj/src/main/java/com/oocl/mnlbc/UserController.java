@@ -104,8 +104,8 @@ public class UserController {
 
 		switch (isUsernameEmailExist(user.getUsername(), user.getEmail())) {
 		case 1:
-			// logger.info("Client try to register Username: " + username + " is
-			// already in used.");
+			//logger.info("Client try to register Username: " + username + " is
+			//already in used.");
 			return "username";
 		case 2:
 			// logger.info("Client try to register Email: " + email + " is
