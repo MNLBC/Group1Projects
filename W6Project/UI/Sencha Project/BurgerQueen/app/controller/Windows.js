@@ -286,7 +286,12 @@ Ext.define('BurgerQueen.controller.Windows', {
                     'address':address,
                     'contactno':contactno,
                     'email':email,
-                    'gender':gender
+                    'gender':gender,
+                    'userLevel':0,
+                    'isDisabled':0,
+                    'points':0,
+                    'type':'customer',
+
                 },
                 scope : this,
                 success : function(response) {
