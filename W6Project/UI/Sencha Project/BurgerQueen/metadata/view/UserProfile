@@ -265,44 +265,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 35,
+                        "height": 20,
+                        "layout": "anchor",
                         "layout|flex": null
                     },
                     "name": "MyContainer16",
-                    "designerId": "cca6147a-d59c-4a90-b3f9-935e61a81066",
-                    "cn": [
-                        {
-                            "type": "Ext.toolbar.Toolbar",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "container|align": null,
-                                "container|pack": "end",
-                                "rtl": false
-                            },
-                            "name": "MyToolbar9",
-                            "designerId": "0dbfc536-3cb7-462d-bf51-6be6120a8c6f",
-                            "cn": [
-                                {
-                                    "type": "Ext.button.Button",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "layout|flex": null,
-                                        "text": "MyButton"
-                                    },
-                                    "name": "MyButton22",
-                                    "designerId": "105d8b43-3b47-44bb-818b-5ea538100816"
-                                }
-                            ]
-                        }
-                    ]
+                    "designerId": "cca6147a-d59c-4a90-b3f9-935e61a81066"
                 },
                 {
                     "type": "Ext.container.Container",
@@ -312,7 +280,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": null
+                        "layout|flex": 1
                     },
                     "name": "MyContainer11",
                     "designerId": "384b81cd-5c3f-4a10-ad49-0a38e6e4651e",
