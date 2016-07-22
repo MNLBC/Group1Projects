@@ -19,7 +19,9 @@ public interface OrderDAO {
 
 	public List<Order> getAllOrder();
 
-	public Order getOrderByUserId(int id);
+	public Order getOrderById(int id);
+	
+	public List<Order> getOrderByUserId(int id);
 
 	public Order addOrder(Order order);
 

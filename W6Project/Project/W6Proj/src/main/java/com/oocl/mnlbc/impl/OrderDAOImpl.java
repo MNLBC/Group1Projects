@@ -45,9 +45,16 @@ public class OrderDAOImpl implements OrderDAO {
 	 * @see com.oocl.mnlbc.dao.OrderDAO#getAllOrderByOrderID(javax.persistence.
 	 * EntityManager, int)
 	 */
-	public Order getOrderByUserId(int id) {
+	public Order getOrderById(int id) {
 		Order order = (Order) entityManager.find(Order.class, id);
 		return order;
+	}
+
+	public List<Order> getOrderByUserId(int id) {
+		Query query = entityManager.createQuery("select o from Order o where o.userId = :userId");
+		query.setParameter("userId", id);
+		List<Order> orderList = query.getResultList();
+		return orderList;
 
 	}
 

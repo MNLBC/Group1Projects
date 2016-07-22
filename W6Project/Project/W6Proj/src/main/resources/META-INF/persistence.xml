@@ -6,6 +6,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>com.oocl.mnlbc.entity.User</class>
 		<class>com.oocl.mnlbc.entity.Order</class>
+		<class>com.oocl.mnlbc.entity.Meal</class>
 
 		
     <properties>

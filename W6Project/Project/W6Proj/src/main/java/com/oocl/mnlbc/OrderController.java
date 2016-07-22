@@ -3,15 +3,9 @@
  */
 package com.oocl.mnlbc;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.servlet.http.HttpSession;
-
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderDAO;
 import com.oocl.mnlbc.entity.Order;
-import com.oocl.mnlbc.entity.User;
-
 
 /**
  * @author DELEOAN
@@ -32,39 +24,44 @@ import com.oocl.mnlbc.entity.User;
  *
  */
 @Controller
-@RequestMapping(value ="/order")
+@RequestMapping(value = "/order")
 public class OrderController {
-
+	final static Logger logger = Logger.getLogger(OrderController.class);
+	
 	@Autowired
 	OrderDAO orderDao;
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/getAllOrders", method = RequestMethod.GET)
 	public List<Order> getAllOrder() {
 		orderDao.init();
-//		EntityManager em = orderDao.getEntityManager();
+		// logger.info("Getting all list of Order");
 		List<Order> orderList = orderDao.getAllOrder();
 		return orderList;
 	}
-	
+
+	@ResponseBody
+	@RequestMapping(value = { "/getAllOrderByUser" }, method = RequestMethod.POST)
+	public List<Order> getAllOrderByUserID(@RequestParam(required = true) int userId) {
+		orderDao.init();
+		List<Order> orderList = orderDao.getOrderByUserId(userId);
+		// logger.info("Getting all order by User ID");
+		return orderList;
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "/getOrderById/{id}", method = RequestMethod.GET)
-	public Order getOrderByUserId(@PathVariable("id") int id){
+	public Order getOrderById(@PathVariable("id") int id) {
 		orderDao.init();
-//		EntityManager em = orderDao.getEntityManager();
-		Order order = orderDao.getOrderByUserId(id);
+		/// logger.info("Getting all order by ID");
+		Order order = orderDao.getOrderById(id);
 		return order;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value= {"/addOrder" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/addOrder" }, method = RequestMethod.POST)
 	public String addOrder(@RequestBody Order order) {
 		orderDao.init();
-		order.setStatus("DONE");
-//		User user = new User();
-//		order.setUser(user);
-//		order.setId(0);
-//		order.setStatus("WAITING");
 		orderDao.addOrder(order);
 		return "success";
 	}

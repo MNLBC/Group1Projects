@@ -25,7 +25,7 @@ import javax.persistence.Table;
 @Table(name = "Meal")
 public class Meal {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "mealSequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mealSequence")
 	@SequenceGenerator(name = "mealSequence", sequenceName = "MEAL_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
@@ -50,9 +50,6 @@ public class Meal {
 
 	@Column(name = "points")
 	private float points;
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id", fetch = FetchType.EAGER)
-	private List<OrderItem> orderItems;
 
 	/**
 	 * @return the id
@@ -111,76 +108,67 @@ public class Meal {
 	}
 
 	/**
-	 * @return the orderItems
-	 */
-	public List<OrderItem> getOrderItems() {
-		return orderItems;
-	}
-
-	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param code the code to set
+	 * @param code
+	 *            the code to set
 	 */
 	public void setCode(String code) {
 		this.code = code;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
 	public void setPrice(float price) {
 		this.price = price;
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
 	/**
-	 * @param image the image to set
+	 * @param image
+	 *            the image to set
 	 */
 	public void setImage(String image) {
 		this.image = image;
 	}
 
 	/**
-	 * @param category the category to set
+	 * @param category
+	 *            the category to set
 	 */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
 	/**
-	 * @param points the points to set
+	 * @param points
+	 *            the points to set
 	 */
 	public void setPoints(float points) {
 		this.points = points;
 	}
-
-	/**
-	 * @param orderItems the orderItems to set
-	 */
-	public void setOrderItems(List<OrderItem> orderItems) {
-		this.orderItems = orderItems;
-	}
-	
-	
-	
 
 }
