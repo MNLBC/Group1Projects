@@ -109,18 +109,14 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     fieldLabel: '',
                                     labelWidth: 50,
                                     value: '0'
-                                },
-                                {
-                                    xtype: 'button',
-                                    id: 'btnContactUs',
-                                    itemId: 'btnContactUs',
-                                    text: 'Contact Us'
                                 }
                             ]
                         },
                         {
                             xtype: 'toolbar',
                             dock: 'top',
+                            id: 'toolBarCustomer',
+                            itemId: 'toolBarCustomer',
                             style: 'background-color:#ff9e14;\nfont-color:white;',
                             layout: {
                                 type: 'hbox',
@@ -175,12 +171,20 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     style: 'font-family: \'Insaniburger with Cheese\';\n    font-size:35px;\n     color:white;',
                                     ui: 'menubarbtn',
                                     text: 'Sides'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'btnContactUs',
+                                    itemId: 'btnContactUs',
+                                    style: 'font-family: \'Insaniburger with Cheese\';\n    font-size:35px; \n    color:white;',
+                                    text: 'Contact Us'
                                 }
                             ]
                         },
                         {
                             xtype: 'toolbar',
                             dock: 'top',
+                            hidden: true,
                             id: 'toolBarAdmin',
                             itemId: 'toolBarAdmin',
                             layout: {

@@ -6,12 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "container|align": "center",
-        "container|pack": "center",
         "designer|userClassName": "ActiveUsersWindow",
         "height": 270,
         "itemId": "ActiveUsersWindow",
-        "layout": "vbox",
         "modal": true,
         "title": "Active Users",
         "width": 357
@@ -20,44 +17,63 @@
     "designerId": "9d4b6ad7-4f28-4b44-a452-e72960332014",
     "cn": [
         {
-            "type": "Ext.grid.Panel",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "hideHeaders": true,
-                "layout|flex": 1,
-                "store": "ActiveUserStore",
-                "title": "My Grid Panel"
+                "container|align": "stretch",
+                "container|padding": 20,
+                "layout": "vbox"
             },
-            "name": "MyGridPanel6",
-            "designerId": "beb7fa7b-156f-4980-aefd-0c1a9435f00f",
+            "name": "MyContainer4",
+            "designerId": "75b0fb7c-fab2-4200-8d77-a6d762c4e549",
             "cn": [
                 {
-                    "type": "Ext.grid.column.Column",
+                    "type": "Ext.grid.Panel",
                     "reference": {
-                        "name": "columns",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "username",
-                        "text": "String"
+                        "header": false,
+                        "hideHeaders": true,
+                        "layout|flex": 1,
+                        "store": "ActiveUserStore",
+                        "title": "My Grid Panel"
                     },
-                    "name": "MyColumn21",
-                    "designerId": "8a1ae1b4-4a59-4534-a9fa-b71bcb053339"
-                },
-                {
-                    "type": "Ext.grid.View",
-                    "reference": {
-                        "name": "viewConfig",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "name": "MyGridView6",
-                    "designerId": "961935aa-902d-4500-81a5-8fdda60e74f3"
+                    "name": "MyGridPanel6",
+                    "designerId": "beb7fa7b-156f-4980-aefd-0c1a9435f00f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "username",
+                                "flex": 1,
+                                "text": "String"
+                            },
+                            "name": "MyColumn21",
+                            "designerId": "8a1ae1b4-4a59-4534-a9fa-b71bcb053339"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView6",
+                            "designerId": "961935aa-902d-4500-81a5-8fdda60e74f3"
+                        }
+                    ]
                 }
             ]
         }

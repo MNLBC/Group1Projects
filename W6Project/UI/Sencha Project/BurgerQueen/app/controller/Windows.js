@@ -44,12 +44,12 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#ProductImage'
         },
         {
-            ref: 'productViewWindow',
-            selector: '#ProductView'
-        },
-        {
             ref: 'totalItems',
             selector: '#totalItems'
+        },
+        {
+            ref: 'productViewWindow',
+            selector: '#ProductView'
         },
         {
             ref: 'trayWindow',
@@ -341,20 +341,39 @@ Ext.define('BurgerQueen.controller.Windows', {
                                  var data = response.responseText;
                                  if(!Ext.isEmpty(data)){
                                      var decodedData = Ext.decode(data);
-                                     if(decodedData.disabled){
-                                         Ext.MessageBox.alert('Error','Blocked');
+                                     var type = decodedData.type;
+                                     if(decodedData === 1){
+                                         Ext.MessageBox.alert('Error','User is disabled');
                                      }else{
+
                                          Ext.MessageBox.alert('Success','Welcome!');
                                          currentLoginUser = decodedData;
-                                         this.getLoginButton().hide();
-                                         this.getLogoutButton().show();
-                                         this.getRegisterButton().hide();
-                                         this.getMyProfileButton().show();
-                                         this.getTrayButton().show();
-                                         this.activeUserCounter();
-                                         this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
-                                         this.getLoginWindow().destroy();
-                                         this.getProducts().show();
+                                         if(type === 'customer'){
+                                             this.getLoginButton().hide();
+                                             this.getLogoutButton().show();
+                                             this.getRegisterButton().hide();
+                                             this.getMyProfileButton().show();
+                                             this.getTrayButton().show();
+                                             Ext.getCmp('toolBarCustomer').show();
+                                             Ext.getCmp('toolBarAdmin').hide();
+                                             this.activeUserCounter();
+                                             this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
+                                             this.getLoginWindow().destroy();
+                                             this.getProducts().show();
+                                         }else{
+                                             this.getLoginButton().hide();
+                                             this.getLogoutButton().show();
+                                             this.getRegisterButton().hide();
+                                             this.getMyProfileButton().hide();
+                                             this.getTrayButton().hide();
+                                             Ext.getCmp('toolBarCustomer').hide();
+                                             Ext.getCmp('toolBarAdmin').show();
+                                             this.activeUserCounter();
+                                             this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
+                                             this.getProducts().hide();
+                                             this.getLoginWindow().destroy();
+
+                                         }
                                      }
                                  }else{
                                      Ext.MessageBox.alert('Error','Invalid Username/Password');

@@ -17,15 +17,162 @@ Ext.define('BurgerQueen.view.AdminUserPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.adminuserpanel',
 
-    height: 580,
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.View',
+        'Ext.grid.column.Number',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button'
+    ],
+
+    height: 605,
     id: 'AdminUserPanel',
     itemId: 'AdminUserPanel',
-    width: 828,
+    width: 2006,
     header: false,
     title: 'Admin',
 
     initComponent: function() {
         var me = this;
+
+        Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'container',
+                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Abel; color:#565652;\'>Users</h1></div></center>'
+                },
+                {
+                    xtype: 'gridpanel',
+                    header: false,
+                    title: 'My Grid Panel',
+                    store: 'UsersStore',
+                    viewConfig: {
+                        id: 'usersGrid',
+                        itemId: 'usersGrid'
+                    },
+                    columns: [
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'id',
+                            text: 'ID',
+                            flex: 0.5,
+                            format: '0000'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Username',
+                            text: 'Username',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Password',
+                            text: 'Password',
+                            flex: 1.5
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Firstname',
+                            text: 'Firstname',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Middlename',
+                            text: 'Middlename',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Lastname',
+                            text: 'Lastname',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Gender',
+                            text: 'Gender',
+                            flex: 0.5
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Email',
+                            text: 'Email',
+                            flex: 2
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Address',
+                            text: 'Address',
+                            flex: 2
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Contact',
+                            text: 'Contact',
+                            flex: 1.5
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'Disabled',
+                            text: 'Disabled',
+                            flex: 0.5,
+                            format: '0000'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Type',
+                            text: 'Type',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'Level',
+                            text: 'Level',
+                            flex: 0.5,
+                            format: '0000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'Points',
+                            text: 'Points',
+                            flex: 0.5,
+                            format: '0000'
+                        }
+                    ]
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    layout: {
+                        type: 'hbox',
+                        pack: 'end'
+                    },
+                    items: [
+                        {
+                            xtype: 'button',
+                            disabled: true,
+                            height: 40,
+                            id: 'btnDisable',
+                            itemId: 'btnDisable',
+                            width: 100,
+                            text: 'Disable'
+                        },
+                        {
+                            xtype: 'button',
+                            disabled: true,
+                            height: 40,
+                            id: 'btnEnable',
+                            itemId: 'btnEnable',
+                            width: 100,
+                            text: 'Enable'
+                        }
+                    ]
+                }
+            ]
+        });
 
         me.callParent(arguments);
     }

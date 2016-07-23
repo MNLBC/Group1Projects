@@ -116,6 +116,14 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'adminUserPanel',
             selector: '#AdminUserPanel'
+        },
+        {
+            ref: 'commentsGrid',
+            selector: '#commentsGrid'
+        },
+        {
+            ref: 'usersGrid',
+            selector: '#usersGrid'
         }
     ],
 
@@ -222,6 +230,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             scope : this,
             success : function(response) {
+
                 var data = Ext.decode(response.responseText);
 
                    if(!Ext.isEmpty(data)){
@@ -232,8 +241,38 @@ Ext.define('BurgerQueen.controller.HomePage', {
             }
         });
 
+        var userStore = Ext.getStore('UsersModel');
 
+        Ext.Ajax.request({
+            url : 'user/getAllUsers',
+            params : {
 
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var users = {
+                        Id:record.id,
+                        Username:record.username,
+                        Password:record.password,
+                        Firstname:record.firstname,
+                        Middlename:record.middlename,
+                        Lastname:record.lastname,
+                        Gender:record.gender,
+                        Email:record.email,
+                        Address:record.address,
+                        Contact:record.contact,
+                        Disabled:record.is_disabled,
+                        Type:record.type,
+                        Level:record.level,
+                        Point:record.point
+
+                    };
+                    userStore.add(users);
+                });
+            }
+        });
     },
 
     onUserProfileShow: function(component, eOpts) {
@@ -311,6 +350,8 @@ Ext.define('BurgerQueen.controller.HomePage', {
                     }
                 });
 
+                Ext.getCmp('toolBarCustomer').show();
+                Ext.getCmp('toolBarAdmin').hide();
                 this.getTrayButton().hide();
                 this.getRegisterButton().show();
                 this.getLoginButton().show();
@@ -400,6 +441,37 @@ Ext.define('BurgerQueen.controller.HomePage', {
         console.log('Comments');
     },
 
+    onBtnAcceptClick: function() {
+        var commentsStore = Ext.getStore('CommentsStore');
+
+        var commentsGrid = this.getCommentsGrid(),
+            selectModel = commentsGrid.getSelectionModel(),
+            selectedComments = selectModel.getSelection();
+
+
+            if(!Ext.isEmpty(selectedComments)){
+                var selectedUser = selectedComments[0].data.Users,
+                    selecteComment = selectedComments[0].data.Comments;
+
+                commentsStore.remove(selectedComments);
+
+
+
+            }else{
+                Ext.MessageBox.alert('Error','Please select an item.');
+
+            }
+
+    },
+
+    onBtnDisableClick: function() {
+
+    },
+
+    onBtnEnableClick: function() {
+
+    },
+
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
         //         activeUserStore = Ext.getStore('ActiveUserStore');
@@ -438,9 +510,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         var store = activeUserStore;
                         store.removeAll();
                        this.getActiveUsersCount().setValue(data.length);
-        //                 Ext.each(data, function(record){
-        //                     store.add({username:record.username});
-        //                 });
+                        Ext.each(data, function(record){
+                            store.add({username:record.username});
+                        });
 
                     }
                 });
@@ -456,6 +528,10 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 this.getMyProfileButton().show();
                 this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username);
                 this.getProducts().show();
+        if(currentLoginUser.type ==='admin'){
+             Ext.getCmp('toolBarCustomer').hide();
+             Ext.getCmp('toolBarAdmin').show();
+        }
 
     },
 
@@ -520,6 +596,15 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#btnComments": {
                 click: this.onBtnCommentsClick
+            },
+            "#btnAccept": {
+                click: this.onBtnAcceptClick
+            },
+            "#btnDisable": {
+                click: this.onBtnDisableClick
+            },
+            "#btnEnable": {
+                click: this.onBtnEnableClick
             }
         });
     }
