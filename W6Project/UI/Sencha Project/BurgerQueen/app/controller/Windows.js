@@ -307,7 +307,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                         success : function(response) {
                     var data = response.responseText;
                     if(data ==='success'){
-                        Ext.MessageBox.alert('Sucess', this.success_registration);
+                        Ext.MessageBox.alert('Success', this.success_registration);
                         this.getRegisterWindow().destroy();
                     }
                     if(data === 'username'){
@@ -341,7 +341,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                                  var data = response.responseText;
                                  if(!Ext.isEmpty(data)){
                                      var decodedData = Ext.decode(data);
-                                     if(decodedData.disabled){
+                                     if(decodedData === 1){
                                          Ext.MessageBox.alert('Error','Blocked');
                                      }else{
                                          Ext.MessageBox.alert('Success','Welcome!');

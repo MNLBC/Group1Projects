@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,6 +31,12 @@ public class Meal {
 	@Column(name = "id")
 	private int id;
 
+	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<OrderItem> orderItemList;
+	
+	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Tray> trayList;
+	
 	@Column(name = "code")
 	private String code;
 
@@ -170,5 +177,35 @@ public class Meal {
 	public void setPoints(float points) {
 		this.points = points;
 	}
+
+	/**
+	 * @return the orderItemList
+	 */
+	public List<OrderItem> getOrderItemList() {
+		return orderItemList;
+	}
+
+	/**
+	 * @return the trayList
+	 */
+	public List<Tray> getTrayList() {
+		return trayList;
+	}
+
+	/**
+	 * @param orderItemList the orderItemList to set
+	 */
+	public void setOrderItemList(List<OrderItem> orderItemList) {
+		this.orderItemList = orderItemList;
+	}
+
+	/**
+	 * @param trayList the trayList to set
+	 */
+	public void setTrayList(List<Tray> trayList) {
+		this.trayList = trayList;
+	}
+	
+	
 
 }

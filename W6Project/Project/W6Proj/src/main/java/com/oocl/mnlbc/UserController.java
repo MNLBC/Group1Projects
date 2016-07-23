@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,7 @@ import com.oocl.mnlbc.entity.User;
 @Controller
 @RequestMapping(value ="/user")
 public class UserController {
+	final static Logger logger = Logger.getLogger(UserController.class);
 
 	@Autowired
 	UserDAO userDao;
@@ -104,12 +106,10 @@ public class UserController {
 
 		switch (isUsernameEmailExist(user.getUsername(), user.getEmail())) {
 		case 1:
-			//logger.info("Client try to register Username: " + username + " is
-			//already in used.");
+			logger.info("Client try to register Username: " + user.getUsername() + " is already in used.");
 			return "username";
 		case 2:
-			// logger.info("Client try to register Email: " + email + " is
-			// already in used.");
+			 logger.info("Client try to register Email: " + user.getEmail() + " is already in used.");
 			return "email";
 		default:
 			userDao.addUser(user);

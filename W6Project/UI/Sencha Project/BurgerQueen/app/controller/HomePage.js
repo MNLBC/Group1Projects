@@ -438,9 +438,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         var store = activeUserStore;
                         store.removeAll();
                        this.getActiveUsersCount().setValue(data.length);
-        //                 Ext.each(data, function(record){
-        //                     store.add({username:record.username});
-        //                 });
+                         Ext.each(data, function(record){
+                             store.add({username:record.username});
+                         });
 
                     }
                 });
