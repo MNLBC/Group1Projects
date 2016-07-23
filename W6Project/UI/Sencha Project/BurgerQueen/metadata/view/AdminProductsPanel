@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "adminproductspanel",
+        "designer|userClassName": "AdminProductsPanel",
+        "header": false,
+        "height": 250,
+        "id": "AdminProductsPanel",
+        "itemId": "AdminProductsPanel",
+        "title": "My Panel",
+        "width": 400
+    },
+    "name": "MyPanel3",
+    "designerId": "6d08b34a-4855-4acb-99da-c8b1f7b61186"
+}

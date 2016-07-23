@@ -76,8 +76,9 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                                     flex: 1,
                                     width: 320,
                                     fieldLabel: '',
-                                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    labelStyle: 'font-family: \'Abel\'; font-size: 20px;',
                                     name: 'username',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
                                     emptyText: 'Username'
@@ -94,6 +95,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                                     fieldLabel: '',
                                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     name: 'password',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;',
                                     inputType: 'password',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,

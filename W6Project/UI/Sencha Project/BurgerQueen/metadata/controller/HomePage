@@ -302,6 +302,76 @@
             "designerId": "42484e32-0bb0-47ff-abc1-96567f2ceb20"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "fullnameProfile",
+                "selector": "#fullnameProfile"
+            },
+            "name": "fullnameProfile",
+            "designerId": "c7f8c0fa-82f4-4f7b-9ba7-bcd8329aeef0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminCommentsPanel",
+                "selector": "#AdminCommentsPanel"
+            },
+            "name": "adminCommentsPanel",
+            "designerId": "edaa070e-a0c3-4a0d-965f-1e8ba61e9990"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminProductsPanel",
+                "selector": "#AdminProductsPanel"
+            },
+            "name": "adminProductsPanel",
+            "designerId": "ce635263-23c7-4d59-a5b8-5fe79632454f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminTransactionsPanel",
+                "selector": "#AdminTransactionsPanel"
+            },
+            "name": "adminTransactionsPanel",
+            "designerId": "77bcb664-aca5-4271-9b87-9270b93fb27f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminUserPanel",
+                "selector": "#AdminUserPanel"
+            },
+            "name": "adminUserPanel",
+            "designerId": "faa3bb49-1d39-4b32-a0f3-86b36eea0519"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -797,6 +867,112 @@
             "designerId": "e5e04df5-d474-42de-86f3-022070ee99d5"
         },
         {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnUsers",
+                "designer|targetType": "MyButton25",
+                "fn": "onBtnUsersClick",
+                "implHandler": [
+                    "    this.getProducts().hide();",
+                    "    this.getUserProfile().hide();",
+                    "    this.getAdminCommentsPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminTransactionsPanel().hide();",
+                    "    this.getAdminUserPanel().show();",
+                    "console.log('User');",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnUsersClick",
+            "designerId": "60382127-b182-467c-8395-c91c9b9325e8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnProducts",
+                "designer|targetType": "MyButton26",
+                "fn": "onBtnProductsClick",
+                "implHandler": [
+                    "    this.getProducts().hide();",
+                    "    this.getUserProfile().hide();",
+                    "    this.getAdminCommentsPanel().hide();",
+                    "    this.getAdminTransactionsPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
+                    "    this.getAdminProductsPanel().show();",
+                    "console.log('Product');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnProductsClick",
+            "designerId": "c2656875-8c73-4e49-a961-5a8f566fba61"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnTransactions",
+                "designer|targetType": "MyButton27",
+                "fn": "onBtnTransactionsClick",
+                "implHandler": [
+                    "     this.getProducts().hide();",
+                    "    this.getUserProfile().hide();",
+                    "    this.getAdminCommentsPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminTransactionsPanel().show();",
+                    "console.log('Transaction');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnTransactionsClick",
+            "designerId": "17ecd71c-4307-48e4-a24a-2b2623eb0249"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnComments",
+                "designer|targetType": "MyButton28",
+                "fn": "onBtnCommentsClick",
+                "implHandler": [
+                    "    this.getProducts().hide();",
+                    "    this.getUserProfile().hide();",
+                    "    this.getAdminUserPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminTransactionsPanel().hide();",
+                    "    this.getAdminCommentsPanel().show();",
+                    "console.log('Comments');"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnCommentsClick",
+            "designerId": "1bc04f6e-51fc-4043-bbc0-621202fc1bc5"
+        },
+        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -896,20 +1072,6 @@
             },
             "name": "displayForSessions",
             "designerId": "b6b79e3c-bccb-4ac9-a684-1a232308d849"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "fullnameProfile",
-                "selector": "#fullnameProfile"
-            },
-            "name": "fullnameProfile",
-            "designerId": "c7f8c0fa-82f4-4f7b-9ba7-bcd8329aeef0"
         }
     ]
 }

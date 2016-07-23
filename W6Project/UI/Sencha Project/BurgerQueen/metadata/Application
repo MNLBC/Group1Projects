@@ -34,7 +34,11 @@
             "UserProfile",
             "ActiveUsersWindow",
             "TransactionDetails",
-            "MyTextField9"
+            "ContactUsWindow",
+            "AdminUserPanel",
+            "AdminCommentsPanel",
+            "AdminTransactionsPanel",
+            "AdminProductsPanel"
         ]
     },
     "name": "Application",

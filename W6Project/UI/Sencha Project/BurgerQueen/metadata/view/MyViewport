@@ -208,6 +208,22 @@
                             },
                             "name": "MyDisplayField12",
                             "designerId": "963e52de-20a0-4998-a3f9-7e02d22734ea"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnContactUs",
+                                "itemId": "btnContactUs",
+                                "layout|flex": null,
+                                "text": "Contact Us"
+                            },
+                            "name": "MyButton24",
+                            "designerId": "04bd6667-a8e2-4860-a6b5-923b0ef1b67c"
                         }
                     ]
                 },
@@ -386,13 +402,95 @@
                     ]
                 },
                 {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "dock": "top",
+                        "id": "toolBarAdmin",
+                        "itemId": "toolBarAdmin"
+                    },
+                    "name": "MyToolbar11",
+                    "designerId": "1f7a436a-869d-4770-94eb-59c48a1a8360",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnUsers",
+                                "itemId": "btnUsers",
+                                "layout|flex": null,
+                                "text": "Users"
+                            },
+                            "name": "MyButton25",
+                            "designerId": "b341713b-e1c7-4777-be44-158c7bcb7e22"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnProducts",
+                                "itemId": "btnProducts",
+                                "layout|flex": null,
+                                "text": "Products"
+                            },
+                            "name": "MyButton26",
+                            "designerId": "708a9439-9187-4b1b-9470-5db2d991f2ae"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnTransactions",
+                                "itemId": "btnTransactions",
+                                "layout|flex": null,
+                                "text": "Transactions"
+                            },
+                            "name": "MyButton27",
+                            "designerId": "014a73ed-75cc-4b18-b8bf-aee3a1a39370"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnComments",
+                                "itemId": "btnComments",
+                                "layout|flex": null,
+                                "text": "Comments"
+                            },
+                            "name": "MyButton28",
+                            "designerId": "1ec41f15-e960-4aa3-abea-43ac3da12929"
+                        }
+                    ]
+                },
+                {
                     "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "products",
+                    "name": "products3",
                     "designerId": "4a095eef-eb41-4f7f-b72a-47b69b93b403",
                     "masterInstanceId": "159d9e1f-cdeb-4919-bd06-7f3f430d7893"
                 },
@@ -406,9 +504,53 @@
                     "userConfig": {
                         "hidden": true
                     },
-                    "name": "userprofile",
+                    "name": "userprofile3",
                     "designerId": "368e6e97-f8fa-4903-a297-e4be8f345299",
                     "masterInstanceId": "feaacf15-cc23-43de-947d-74cac5110f34"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminproductspanel1",
+                    "designerId": "fb2e97dc-87bd-4785-a7c0-c5649a9e39ae",
+                    "masterInstanceId": "6d08b34a-4855-4acb-99da-c8b1f7b61186"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "admintransactionspanel1",
+                    "designerId": "e3e48db3-1024-4c25-8987-1d930f6114d0",
+                    "masterInstanceId": "c35b962e-f910-4d5c-9f2d-c5f3befa2fe8"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminuserpanel1",
+                    "designerId": "0ca7ed73-f9a5-49ba-84b5-4fb2d80e49bf",
+                    "masterInstanceId": "d02020d9-f38e-4fc4-b80e-6b904d1a8c2d"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "admincommentspanel2",
+                    "designerId": "c8cbec25-43ca-4a3e-b886-45199d8dcad2",
+                    "masterInstanceId": "9aee4c05-66e5-444f-be12-dc2055332bbf"
                 }
             ]
         }
