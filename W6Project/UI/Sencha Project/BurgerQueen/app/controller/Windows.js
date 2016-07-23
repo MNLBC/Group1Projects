@@ -268,32 +268,43 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onRegisterWindowButtonClick: function() {
-        var form = this.getRegisterForm(),
-            username = form.getValues().username,
-            password = form.getValues().password,
-            firstname = form.getValues().firstname,
-            middlename = form.getValues().middlename,
-            lastname = form.getValues().lastname,
-            address = form.getValues().address,
-            contactno = form.getValues().contactno,
-            email = form.getValues().email,
-            gender = form.getValues().gender;
-        if(form.isValid()){
-            Ext.Ajax.request({
-                url : 'user/addUser',
-                params : {
-                    'username':username,
-                    'password':password,
-                    'firstname':firstname,
-                    'middlename':middlename,
-                    'lastname':lastname,
-                    'address':address,
-                    'contactno':contactno,
-                    'email':email,
-                    'gender':gender
-                },
-                scope : this,
-                success : function(response) {
+                var form = this.getRegisterForm(),
+                    username = form.getValues().username,
+                    password = form.getValues().password,
+                    firstname = form.getValues().firstname,
+                    middlename = form.getValues().middlename,
+                    lastname = form.getValues().lastname,
+                    address = form.getValues().address,
+                    contactno = form.getValues().contactno,
+                    email = form.getValues().email,
+                    gender = form.getValues().gender,
+                    user = {
+                            username:username,
+                            password:password,
+                            firstname:firstname,
+                            middlename:middlename,
+                            lastname:lastname,
+                            address:address,
+                            contactno:contactno,
+                            email:email,
+                            gender:gender,
+                            userLevel:0,
+                            isDisabled:0,
+                            points:0,
+                            type:'customer',
+
+                     };
+
+
+                if(form.isValid()){
+                    Ext.Ajax.request({
+                        url : 'user/addUser',
+        //                 params : ,
+                        headers: { 'Content-Type': 'application/json',
+                         'Accept': 'application/json'},
+                         jsonData:user,
+                        scope : this,
+                        success : function(response) {
                     var data = response.responseText;
                     if(data ==='success'){
                         Ext.MessageBox.alert('Sucess', this.success_registration);
