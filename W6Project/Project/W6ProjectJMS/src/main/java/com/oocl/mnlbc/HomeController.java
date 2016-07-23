@@ -9,16 +9,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.consumer.Consumer;
+import com.oocl.mnlbc.model.MessageDetails;
 import com.oocl.mnlbc.provider.Provider;
 
 /**
  * Handles requests for the application home page.
+ * 
+ * @author DEQUILLA
  */
 @Controller
 public class HomeController {
@@ -44,12 +48,18 @@ public class HomeController {
 		return "home";
 	}
 
+	// @RequestBody MessageDetails messageDetails
+
 	@ResponseBody
-	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-	public String sendMessage(@RequestParam(required = true) String form) {
+	@RequestMapping(value = { "/sendMessage" }, method = RequestMethod.POST)
+	public String sendMessage(@RequestParam(value = "username") String username,
+			@RequestParam(value = "message") String message) {
+		MessageDetails messageDetails = new MessageDetails();
+		messageDetails.setUsername(username);
+		messageDetails.setMessage(message);
 		provider = new Provider();
-		provider.sendMessage(form);
-		return form;
+		provider.sendMessage(messageDetails.getComment());
+		return messageDetails.getComment();
 	}
 
 	@ResponseBody
@@ -61,12 +71,27 @@ public class HomeController {
 
 	@ResponseBody
 	@RequestMapping(value = "/viewMessage")
-	public List<String> viewMessage() {
-		List<String> messageList = consumer.getMessageList();
+	public List<MessageDetails> viewMessage() {
+		List<MessageDetails> messageList = consumer.getMessageList();
 		if (messageList == null || messageList.size() < 1) {
 			return null;
 		}
 		System.out.println(messageList);
 		return messageList;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/removeMessage", method = RequestMethod.POST)
+	public String removeMessage(@RequestBody MessageDetails messageDetails) {
+		List<MessageDetails> messageList = consumer.getMessageList();
+		if (messageList == null || messageList.size() < 1) {
+			return null;
+		} else {
+			if (messageList.contains(messageDetails)) {
+				messageList.remove(messageDetails);
+				return "success";
+			}
+		}
+		return "fail";
 	}
 }
