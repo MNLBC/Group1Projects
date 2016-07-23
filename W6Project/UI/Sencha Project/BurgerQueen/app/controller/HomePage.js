@@ -100,6 +100,22 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'fullnameProfile',
             selector: '#fullnameProfile'
+        },
+        {
+            ref: 'adminCommentsPanel',
+            selector: '#AdminCommentsPanel'
+        },
+        {
+            ref: 'adminProductsPanel',
+            selector: '#AdminProductsPanel'
+        },
+        {
+            ref: 'adminTransactionsPanel',
+            selector: '#AdminTransactionsPanel'
+        },
+        {
+            ref: 'adminUserPanel',
+            selector: '#AdminUserPanel'
         }
     ],
 
@@ -342,6 +358,48 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 });
     },
 
+    onBtnUsersClick: function() {
+            this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminCommentsPanel().hide();
+            this.getAdminProductsPanel().hide();
+            this.getAdminTransactionsPanel().hide();
+            this.getAdminUserPanel().show();
+        console.log('User');
+
+
+    },
+
+    onBtnProductsClick: function() {
+            this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminCommentsPanel().hide();
+            this.getAdminTransactionsPanel().hide();
+            this.getAdminUserPanel().hide();
+            this.getAdminProductsPanel().show();
+        console.log('Product');
+    },
+
+    onBtnTransactionsClick: function() {
+             this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminCommentsPanel().hide();
+            this.getAdminUserPanel().hide();
+            this.getAdminProductsPanel().hide();
+            this.getAdminTransactionsPanel().show();
+        console.log('Transaction');
+    },
+
+    onBtnCommentsClick: function() {
+            this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminUserPanel().hide();
+            this.getAdminProductsPanel().hide();
+            this.getAdminTransactionsPanel().hide();
+            this.getAdminCommentsPanel().show();
+        console.log('Comments');
+    },
+
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
         //         activeUserStore = Ext.getStore('ActiveUserStore');
@@ -450,6 +508,18 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#myProfileButton": {
                 click: this.onMyProfileButtonClick
+            },
+            "#btnUsers": {
+                click: this.onBtnUsersClick
+            },
+            "#btnProducts": {
+                click: this.onBtnProductsClick
+            },
+            "#btnTransactions": {
+                click: this.onBtnTransactionsClick
+            },
+            "#btnComments": {
+                click: this.onBtnCommentsClick
             }
         });
     }

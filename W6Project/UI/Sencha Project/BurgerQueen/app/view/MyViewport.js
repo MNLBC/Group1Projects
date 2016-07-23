@@ -19,6 +19,10 @@ Ext.define('BurgerQueen.view.MyViewport', {
     requires: [
         'BurgerQueen.view.Products',
         'BurgerQueen.view.UserProfile',
+        'BurgerQueen.view.AdminProductsPanel',
+        'BurgerQueen.view.AdminTransactionsPanel',
+        'BurgerQueen.view.AdminUserPanel',
+        'BurgerQueen.view.AdminCommentsPanel',
         'Ext.panel.Panel',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
@@ -173,6 +177,42 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     text: 'Sides'
                                 }
                             ]
+                        },
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            id: 'toolBarAdmin',
+                            itemId: 'toolBarAdmin',
+                            layout: {
+                                type: 'hbox',
+                                pack: 'center'
+                            },
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    id: 'btnUsers',
+                                    itemId: 'btnUsers',
+                                    text: 'Users'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'btnProducts',
+                                    itemId: 'btnProducts',
+                                    text: 'Products'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'btnTransactions',
+                                    itemId: 'btnTransactions',
+                                    text: 'Transactions'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'btnComments',
+                                    itemId: 'btnComments',
+                                    text: 'Comments'
+                                }
+                            ]
                         }
                     ],
                     items: [
@@ -182,6 +222,18 @@ Ext.define('BurgerQueen.view.MyViewport', {
                         {
                             xtype: 'userprofile',
                             hidden: true
+                        },
+                        {
+                            xtype: 'adminproductspanel'
+                        },
+                        {
+                            xtype: 'admintransactionspanel'
+                        },
+                        {
+                            xtype: 'adminuserpanel'
+                        },
+                        {
+                            xtype: 'admincommentspanel1'
                         }
                     ]
                 }
