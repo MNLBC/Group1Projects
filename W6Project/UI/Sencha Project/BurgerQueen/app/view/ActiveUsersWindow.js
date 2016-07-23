@@ -17,12 +17,14 @@ Ext.define('BurgerQueen.view.ActiveUsersWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
-        'Ext.container.Container'
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.grid.View'
     ],
 
-    height: 250,
+    height: 270,
     itemId: 'ActiveUsersWindow',
-    width: 400,
+    width: 357,
     title: 'Active Users',
     modal: true,
 
@@ -38,39 +40,23 @@ Ext.define('BurgerQueen.view.ActiveUsersWindow', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'container',
-                    style: 'font-family: \'Century Gothic\';',
-                    layout: {
-                        type: 'vbox',
-                        align: 'stretch'
-                    }
+                    xtype: 'gridpanel',
+                    flex: 1,
+                    title: 'My Grid Panel',
+                    hideHeaders: true,
+                    store: 'ActiveUserStore',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'username',
+                            text: 'String'
+                        }
+                    ]
                 }
-            ],
-            listeners: {
-                show: {
-                    fn: me.onWindowShow,
-                    scope: me
-                }
-            }
+            ]
         });
 
         me.callParent(arguments);
-    },
-
-    onWindowShow: function(component, eOpts) {
-
-            var activeUserStore = Ext.getStore('ActiveUserStore');
-            activeUserStore.each(function(rec){
-                        component.add(
-                        {
-                            xtype:'label',
-                            text:rec.data.username
-                        }
-                    );
-            });
-
-
-
     }
 
 });
