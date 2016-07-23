@@ -16,6 +16,7 @@ import javax.jms.Session;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import com.oocl.mnlbc.listener.Listener;
+import com.oocl.mnlbc.model.MessageDetails;
 
 /**
  * @author DEQUILLA
@@ -31,25 +32,25 @@ public class Consumer {
 	private static Session session = null;
 	private static Destination destination = null;
 	private static MessageConsumer messageConsumer = null;
-	private static List<String> messageList = new ArrayList<String>();
+	private List<MessageDetails> messageList = new ArrayList<MessageDetails>();
 
 	/**
 	 * 
 	 */
 	public Consumer() {
-		createTopic();
+		createQueue();
 	}
 
 	/**
 	 * 
 	 */
-	private void createTopic() {
+	private void createQueue() {
 		try {
 			connectionFactory = new ActiveMQConnectionFactory(USER_NAME, PASSOWRD, BROKEN_URL);
 			connection = connectionFactory.createConnection();
 			connection.start();
 			session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
-			destination = session.createTopic("BurgerQueenQueue");
+			destination = session.createQueue("BurgerQueenQueue");
 			messageConsumer = session.createConsumer(destination);
 			Listener listener = new Listener();
 			listener.setMessageList(messageList);
@@ -63,7 +64,7 @@ public class Consumer {
 	/**
 	 * @return the message list
 	 */
-	public List<String> getMessageList() {
+	public List<MessageDetails> getMessageList() {
 		return messageList;
 	}
 
@@ -71,7 +72,7 @@ public class Consumer {
 	 * @param message
 	 *            list the message list to set
 	 */
-	public void setMessageList(List<String> messageList) {
+	public void setMessageList(List<MessageDetails> messageList) {
 		this.messageList = messageList;
 	}
 
