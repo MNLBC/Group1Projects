@@ -5,6 +5,7 @@ package com.oocl.mnlbc;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.oocl.mnlbc.entity.Meal;
 @Controller
 @RequestMapping("/meal")
 public class MealController {
+	final static Logger logger = Logger.getLogger(MealController.class);
 	@Autowired
 	MealDAO mealDAO;
 
@@ -31,7 +33,7 @@ public class MealController {
 	public List<Meal> getAllMeals() {
 		mealDAO.init();
 		List<Meal> meals = mealDAO.getAllMeals();
-//		logger.info("Getting all list of Meals");
+		logger.info("Getting all list of Meals");
 		return meals;
 	}
 	
@@ -40,7 +42,7 @@ public class MealController {
 	public Meal getMealByID(@PathVariable("id") int id) {
 		mealDAO.init();
 		Meal meal =  mealDAO.getMealByID(id);
-//		logger.info("Getting all list of Meals");
+		logger.info("Getting all list of Meals");
 		return meal;
 	}
 	
@@ -49,7 +51,7 @@ public class MealController {
 	public Meal getMealByCode(@PathVariable("code") String code) {
 		mealDAO.init();
 		Meal meal = mealDAO.getMealByCode(code);
-//		logger.info("Getting all list of Meals");
+		logger.info("Getting all list of Meals");
 		return meal;
 	}
 }

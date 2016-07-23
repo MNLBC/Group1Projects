@@ -1,9 +1,8 @@
+/**
+ * 
+ */
 package com.oocl.mnlbc.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,34 +11,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 /**
- * 
  * @author DELEOAN
  *
  */
 @Entity
-@Table(name = "Orders")
-public class Order {
-
+@Table(name = "Tray")
+public class Tray {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderSequence")
-	@SequenceGenerator(name = "orderSequence", sequenceName = "ORDERS_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "traySequence")
+	@SequenceGenerator(name = "traySequence", sequenceName = "TRAY_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
 
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-	
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-	private List<OrderItem> orderItemList;
 
+	@JoinColumn(name = "meal_id", referencedColumnName = "id")
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	private Meal meal;
 
-	@Column(name = "status")
-	private String status;
+	@Column(name = "quantity")
+	private int quantity;
 
 	/**
 	 * @return the id
@@ -56,10 +53,17 @@ public class Order {
 	}
 
 	/**
-	 * @return the status
+	 * @return the meal
 	 */
-	public String getStatus() {
-		return status;
+	public Meal getMeal() {
+		return meal;
+	}
+
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return quantity;
 	}
 
 	/**
@@ -79,26 +83,19 @@ public class Order {
 	}
 
 	/**
-	 * @param status
-	 *            the status to set
+	 * @param meal
+	 *            the meal to set
 	 */
-	public void setStatus(String status) {
-		this.status = status;
+	public void setMeal(Meal meal) {
+		this.meal = meal;
 	}
 
 	/**
-	 * @return the orderItemList
+	 * @param quantity
+	 *            the quantity to set
 	 */
-	public List<OrderItem> getOrderItemList() {
-		return orderItemList;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	/**
-	 * @param orderItemList the orderItemList to set
-	 */
-	public void setOrderItemList(List<OrderItem> orderItemList) {
-		this.orderItemList = orderItemList;
-	}
-
-	
 }

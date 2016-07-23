@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,6 +25,12 @@ public class User implements Serializable {
 	@SequenceGenerator(name = "userSequence", sequenceName = "USER_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
+
+//	@OneToMany(mappedBy = "user")
+//	private List<Order> orderList;
+//
+//	@OneToMany(mappedBy = "user")
+//	private List<Tray> trayList;
 
 	@Column(name = "firstname")
 	private String firstname;
@@ -59,14 +64,13 @@ public class User implements Serializable {
 
 	@Column(name = "user_level")
 	private int userLevel;
-	
+
 	@Column(name = "is_disabled")
 	private int isDisabled;
 
 	@Column(name = "points")
 	private double points;
 
-	
 	/**
 	 * @return the id
 	 */
@@ -166,101 +170,115 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param firstname the firstname to set
+	 * @param firstname
+	 *            the firstname to set
 	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
 	/**
-	 * @param lastname the lastname to set
+	 * @param lastname
+	 *            the lastname to set
 	 */
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 
 	/**
-	 * @param middlename the middlename to set
+	 * @param middlename
+	 *            the middlename to set
 	 */
 	public void setMiddlename(String middlename) {
 		this.middlename = middlename;
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address
+	 *            the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
-	 * @param contactno the contactno to set
+	 * @param contactno
+	 *            the contactno to set
 	 */
 	public void setContactno(String contactno) {
 		this.contactno = contactno;
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param type
+	 *            the type to set
 	 */
 	public void setType(String type) {
 		this.type = type;
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	/**
-	 * @param username the username to set
+	 * @param username
+	 *            the username to set
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	/**
-	 * @param gender the gender to set
+	 * @param gender
+	 *            the gender to set
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
 	/**
-	 * @param userLevel the userLevel to set
+	 * @param userLevel
+	 *            the userLevel to set
 	 */
 	public void setUserLevel(int userLevel) {
 		this.userLevel = userLevel;
 	}
 
 	/**
-	 * @param isDisabled the isDisabled to set
+	 * @param isDisabled
+	 *            the isDisabled to set
 	 */
 	public void setIsDisabled(int isDisabled) {
 		this.isDisabled = isDisabled;
 	}
 
 	/**
-	 * @param points the points to set
+	 * @param points
+	 *            the points to set
 	 */
 	public void setPoints(double points) {
 		this.points = points;
-	}
+	}	
 
 }

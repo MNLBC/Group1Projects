@@ -51,11 +51,10 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	public List<Order> getOrderByUserId(int id) {
-		Query query = entityManager.createQuery("select o from Order o where o.userId = :userId");
+		Query query = entityManager.createQuery("select o from Order o where o.user.id = :userId");
 		query.setParameter("userId", id);
 		List<Order> orderList = query.getResultList();
 		return orderList;
-
 	}
 
 	/*
@@ -67,6 +66,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public Order addOrder(Order order) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(order);
+		entityManager.flush();
 		entityManager.getTransaction().commit();
 		return order;
 	}

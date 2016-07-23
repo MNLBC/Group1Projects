@@ -7,5 +7,6 @@
 		<bean id="UserDAOImpl" class="com.oocl.mnlbc.impl.UserDAOImpl"></bean>
 		<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl"></bean>
 		<bean id="MealDAOImpl" class="com.oocl.mnlbc.impl.MealDAOImpl"></bean>
+		<bean id="OrderItemDAOImpl" class="com.oocl.mnlbc.impl.OrderItemDAOImpl"></bean>
 		
 </beans>

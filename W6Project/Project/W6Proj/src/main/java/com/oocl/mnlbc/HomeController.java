@@ -3,6 +3,7 @@ package com.oocl.mnlbc;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -33,33 +34,56 @@ public class HomeController {
 		return "index";
 	}
 
-//	@ResponseBody
-//	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.GET)
-//	public List<User> getAllLoggedUsers(HttpSession session) {
-//		userDao.init();
-//		logger.info("Getting all logged in users");
-//		List<User> logged = userDao.getAllUsers();
-//		if (logged == null) {
-//			logged = new ArrayList<User>();
-//		}
-//		return logged;
-//	}
+	@ResponseBody
+	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.GET)
+	public List<User> getAllLoggedUsers(HttpSession session) {
+		userDao.init();
+		logger.info("Getting all logged in users");
+		ServletContext context = session.getServletContext();
+		List<User> logged = (List<User>) context.getAttribute("logged");
+		if (logged == null) {
+			logged = new ArrayList<User>();
+		}
+		return logged;
+	}
 
-//	@ResponseBody
-//	@RequestMapping(value = { "/getUserSession" }, method = RequestMethod.GET)
-//	private User getUserSession() {
-//		userDao.init();
-//		logger.info("Getting session of logged in user");
-//		
-//		if (user == null) {
-//			return null;
-//		} else {
-//			return user;
-//		}
-//		
-//	}
-	
-	
+	@ResponseBody
+	@RequestMapping(value = { "/getUserSession" }, method = RequestMethod.GET)
+	private User getUserSession(HttpSession session) {
+		userDao.init();
+		logger.info("Getting session of logged in user");
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return null;
+		} else {
+			return user;
+		}
+	}
 
+	@ResponseBody
+	@RequestMapping(value = { "/visitor" }, method = RequestMethod.GET)
+	public int getVisitors(HttpSession session) {
+		userDao.init();
+		logger.info("Getting number of current number visitors");
+		ServletContext context = session.getServletContext();
+		List<String> visitor = (List<String>) context.getAttribute("visitor");
+		if (visitor == null) {
+			visitor = new ArrayList<String>();
+		}
+		return visitor.size();
+	}
+
+	@ResponseBody
+	@RequestMapping(value = { "/hasLogged" }, method = RequestMethod.GET)
+	private boolean hasSession(HttpSession session) {
+		userDao.init();
+		logger.info("Checking if session has logged in user");
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }
