@@ -28,28 +28,34 @@ Ext.define('BurgerQueen.view.ActiveUsersWindow', {
     title: 'Active Users',
     modal: true,
 
-    layout: {
-        type: 'vbox',
-        align: 'center',
-        pack: 'center'
-    },
-
     initComponent: function() {
         var me = this;
 
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'gridpanel',
-                    flex: 1,
-                    title: 'My Grid Panel',
-                    hideHeaders: true,
-                    store: 'ActiveUserStore',
-                    columns: [
+                    xtype: 'container',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch',
+                        padding: 20
+                    },
+                    items: [
                         {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'username',
-                            text: 'String'
+                            xtype: 'gridpanel',
+                            flex: 1,
+                            header: false,
+                            title: 'My Grid Panel',
+                            hideHeaders: true,
+                            store: 'ActiveUserStore',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'username',
+                                    text: 'String',
+                                    flex: 1
+                                }
+                            ]
                         }
                     ]
                 }
