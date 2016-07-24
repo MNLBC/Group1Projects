@@ -35,20 +35,10 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-
-		return "home";
+	public String startHomeConsumer() {
+		consumer = new Consumer();
+		return "success";
 	}
-
-	// @RequestBody MessageDetails messageDetails
 
 	@ResponseBody
 	@RequestMapping(value = { "/sendMessage" }, method = RequestMethod.POST)
@@ -70,7 +60,7 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/viewMessage")
+	@RequestMapping(value = "/viewMessage", produces = "application/json")
 	public List<MessageDetails> viewMessage() {
 		List<MessageDetails> messageList = consumer.getMessageList();
 		if (messageList == null || messageList.size() < 1) {

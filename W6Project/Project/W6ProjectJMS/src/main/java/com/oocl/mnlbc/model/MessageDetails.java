@@ -10,12 +10,11 @@ import java.io.Serializable;
  *
  */
 
-public class MessageDetails implements Serializable {
+public class MessageDetails {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private String username;
 	private String message;
 

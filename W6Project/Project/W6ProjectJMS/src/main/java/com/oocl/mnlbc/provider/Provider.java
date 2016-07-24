@@ -9,12 +9,9 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageProducer;
-import javax.jms.ObjectMessage;
 import javax.jms.Session;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-
-import com.oocl.mnlbc.model.MessageDetails;
 
 /**
  * @author DEQUILLA
@@ -62,18 +59,4 @@ public class Provider {
 		}
 	}
 
-	/**
-	 * @param messageDetails
-	 */
-	public void sendObject(MessageDetails messageDetails) {
-		try {
-			messageProducer = session.createProducer(destination);
-			ObjectMessage objectMessage = session.createObjectMessage();
-			objectMessage.setObject(messageDetails);
-			messageProducer.send(objectMessage);
-			session.commit();
-		} catch (JMSException e) {
-			e.printStackTrace();
-		}
-	}
 }
