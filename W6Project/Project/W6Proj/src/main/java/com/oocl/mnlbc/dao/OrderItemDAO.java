@@ -22,7 +22,7 @@ public interface OrderItemDAO {
 	
 	public OrderItem getOrderItemsById(int id);
 	
-	public OrderItem addOrderItem(OrderItem orderItem);
+	public boolean addOrderItem(List<OrderItem> orderItem);
 	
 	public List<OrderItem> addOrderItem(int orderId, List<OrderItem> orderItem);
 	

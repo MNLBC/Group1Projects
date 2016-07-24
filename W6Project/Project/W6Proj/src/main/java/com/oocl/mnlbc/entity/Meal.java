@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author RACELPA
  *
@@ -25,17 +27,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Meal")
 public class Meal {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mealSequence")
 	@SequenceGenerator(name = "mealSequence", sequenceName = "MEAL_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-
-	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<OrderItem> orderItemList;
 	
-	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Tray> trayList;
+	
+//	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	private List<OrderItem> orderItemList;
+//	
+//	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	private List<Tray> trayList;
 	
 	@Column(name = "code")
 	private String code;
@@ -177,35 +181,5 @@ public class Meal {
 	public void setPoints(float points) {
 		this.points = points;
 	}
-
-	/**
-	 * @return the orderItemList
-	 */
-	public List<OrderItem> getOrderItemList() {
-		return orderItemList;
-	}
-
-	/**
-	 * @return the trayList
-	 */
-	public List<Tray> getTrayList() {
-		return trayList;
-	}
-
-	/**
-	 * @param orderItemList the orderItemList to set
-	 */
-	public void setOrderItemList(List<OrderItem> orderItemList) {
-		this.orderItemList = orderItemList;
-	}
-
-	/**
-	 * @param trayList the trayList to set
-	 */
-	public void setTrayList(List<Tray> trayList) {
-		this.trayList = trayList;
-	}
-	
-	
 
 }

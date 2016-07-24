@@ -20,44 +20,36 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-	 appFolder: 'resources/app',
+	appFolder: 'resources/app',
+	
     requires: [
         'Ext.rtl.*'
     ],
     models: [
-             'ProductModel',
-             'TrayModel',
-             'TransactionModel',
-             'ActiveUserModel',
-             'TransactionDetailsModel',
-             'CommentsModel',
-             'UsersModel'
-         ],
-         stores: [
-             'ProductStore',
-             'TrayStore',
-             'TransactionStore',
-             'ActiveUserStore',
-             'TransactionDetailsStore',
-             'CommentsStore',
-             'UsersStore'
-         ],
-         views: [
-             'MyViewport',
-             'RegisterWindow',
-             'LoginWindow',
-             'TrayWindow',
-             'ProductViewWindow',
-             'UserProfile',
-             'ActiveUsersWindow',
-             'TransactionDetails',
-             'ContactUsWindow',
-             'AdminUserPanel',
-             'AdminCommentsPanel',
-             'AdminTransactionsPanel',
-             'AdminProductsPanel'
-         ],
-   
+        'ProductModel',
+        'TrayModel',
+        'TransactionModel',
+        'ActiveUserModel',
+        'TransactionDetailsModel'
+    ],
+    stores: [
+        'ProductStore',
+        'TrayStore',
+        'TransactionStore',
+        'ActiveUserStore',
+        'TransactionDetailsStore'
+    ],
+    views: [
+        'MyViewport',
+        'RegisterWindow',
+        'LoginWindow',
+        'TrayWindow',
+        'ProductViewWindow',
+        'UserProfile',
+        'ActiveUsersWindow',
+        'TransactionDetails',
+        'MyTextField9'
+    ],
     controllers: [
         'HomePage',
         'Windows'

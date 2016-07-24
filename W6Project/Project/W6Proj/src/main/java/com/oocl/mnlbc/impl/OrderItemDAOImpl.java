@@ -76,11 +76,13 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 	 * OrderItem)
 	 */
 	@Override
-	public OrderItem addOrderItem(OrderItem orderItem) {
+	public boolean addOrderItem(List<OrderItem> orderItems) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(orderItem);
+		for (OrderItem orderItem : orderItems) {
+			entityManager.persist(orderItem);
+		}
 		entityManager.getTransaction().commit();
-		return orderItem;
+		return true;
 	}
 
 	/*

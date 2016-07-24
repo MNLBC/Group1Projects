@@ -3,6 +3,8 @@
  */
 package com.oocl.mnlbc.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author DELEOAN
@@ -26,13 +30,13 @@ public class Tray {
 	@SequenceGenerator(name = "traySequence", sequenceName = "TRAY_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-
+	
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "meal_id", referencedColumnName = "id")
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Meal meal;
 
 	@Column(name = "quantity")

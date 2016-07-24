@@ -8,5 +8,6 @@
 		<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl"></bean>
 		<bean id="MealDAOImpl" class="com.oocl.mnlbc.impl.MealDAOImpl"></bean>
 		<bean id="OrderItemDAOImpl" class="com.oocl.mnlbc.impl.OrderItemDAOImpl"></bean>
+		<bean id="TrayDAOImpl" class="com.oocl.mnlbc.impl.TrayDAOImpl"></bean>
 		
 </beans>

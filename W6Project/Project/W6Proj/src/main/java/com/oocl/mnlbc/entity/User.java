@@ -26,12 +26,6 @@ public class User implements Serializable {
 	@Column(name = "id")
 	private int id;
 
-//	@OneToMany(mappedBy = "user")
-//	private List<Order> orderList;
-//
-//	@OneToMany(mappedBy = "user")
-//	private List<Tray> trayList;
-
 	@Column(name = "firstname")
 	private String firstname;
 

@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * 
  * @author DELEOAN
@@ -29,12 +31,13 @@ public class Order {
 	@SequenceGenerator(name = "orderSequence", sequenceName = "ORDERS_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-
+	
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+//	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order", fetch = FetchType.LAZY)
 	private List<OrderItem> orderItemList;
 
 

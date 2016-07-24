@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author RACELPA
  *
@@ -23,15 +25,16 @@ import javax.persistence.Table;
 public class OrderItem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "orderItemsSequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderItemsSequence")
 	@SequenceGenerator(name = "orderItemsSequence", sequenceName = "ORDERSITEMS_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-
+	
+	@JsonIgnore
 	@JoinColumn(name = "order_id", referencedColumnName = "id")
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private Order order;
-
+	
 	@JoinColumn(name = "meal_id", referencedColumnName = "id")
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Meal meal;

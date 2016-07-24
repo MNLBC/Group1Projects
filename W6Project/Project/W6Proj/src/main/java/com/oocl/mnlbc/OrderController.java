@@ -78,7 +78,11 @@ public class OrderController {
 		List<OrderItem> orderItems = order.getOrderItemList();
 		order.setOrderItemList(null);
 		orderDao.addOrder(order);
-		orderItemDao.addOrderItem(order.getId(), orderItems);
+		
+		for (OrderItem orderItem : orderItems) {
+			orderItem.setId(order.getId());
+		}
+		orderItemDao.addOrderItem(orderItems);
 		return "success";
 	}
 
