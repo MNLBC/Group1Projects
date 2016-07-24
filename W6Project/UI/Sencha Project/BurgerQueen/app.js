@@ -29,18 +29,14 @@ Ext.application({
         'TrayModel',
         'TransactionModel',
         'ActiveUserModel',
-        'TransactionDetailsModel',
-        'CommentsModel',
-        'UsersModel'
+        'TransactionDetailsModel'
     ],
     stores: [
         'ProductStore',
         'TrayStore',
         'TransactionStore',
         'ActiveUserStore',
-        'TransactionDetailsStore',
-        'CommentsStore',
-        'UsersStore'
+        'TransactionDetailsStore'
     ],
     views: [
         'MyViewport',

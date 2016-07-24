@@ -597,7 +597,6 @@
                     "    },",
                     "    scope : this,",
                     "    success : function(response) {",
-                    "",
                     "        var data = Ext.decode(response.responseText);",
                     "",
                     "           if(!Ext.isEmpty(data)){",
@@ -608,38 +607,8 @@
                     "    }",
                     "});",
                     "",
-                    "var userStore = Ext.getStore('UsersModel');",
                     "",
-                    "Ext.Ajax.request({",
-                    "    url : 'user/getAllUsers',",
-                    "    params : {",
-                    "",
-                    "    },",
-                    "    scope : this,",
-                    "    success : function(response) {",
-                    "        var data = Ext.decode(response.responseText);",
-                    "        Ext.each(data, function(record){",
-                    "            var users = {",
-                    "                Id:record.id,",
-                    "                Username:record.username,",
-                    "                Password:record.password,",
-                    "                Firstname:record.firstname,",
-                    "                Middlename:record.middlename,",
-                    "                Lastname:record.lastname,",
-                    "                Gender:record.gender,",
-                    "                Email:record.email,",
-                    "                Address:record.address,",
-                    "                Contact:record.contact,",
-                    "                Disabled:record.is_disabled,",
-                    "                Type:record.type,",
-                    "                Level:record.level,",
-                    "                Point:record.point",
-                    "                ",
-                    "            };",
-                    "            userStore.add(users);",
-                    "        });",
-                    "    }",
-                    "});"
+                    ""
                 ],
                 "name": "render",
                 "scope": "me"
@@ -797,8 +766,6 @@
                     "            }",
                     "        });",
                     "",
-                    "        Ext.getCmp('toolBarCustomer').show();",
-                    "        Ext.getCmp('toolBarAdmin').hide();",
                     "        this.getTrayButton().hide();",
                     "        this.getRegisterButton().show();",
                     "        this.getLoginButton().show();",
@@ -1070,9 +1037,9 @@
                     "                var store = activeUserStore;",
                     "                store.removeAll();",
                     "               this.getActiveUsersCount().setValue(data.length);",
-                    "                Ext.each(data, function(record){",
-                    "                    store.add({username:record.username});",
-                    "                });",
+                    "//                 Ext.each(data, function(record){",
+                    "//                     store.add({username:record.username});",
+                    "//                 });",
                     "",
                     "            }",
                     "        });"
@@ -1100,116 +1067,11 @@
                     "        this.getMyProfileButton().show();",
                     "        this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username);",
                     "        this.getProducts().show();",
-                    "if(currentLoginUser.type ==='admin'){",
-                    "     Ext.getCmp('toolBarCustomer').hide();",
-                    "     Ext.getCmp('toolBarAdmin').show();",
-                    "}",
                     ""
                 ]
             },
             "name": "displayForSessions",
             "designerId": "b6b79e3c-bccb-4ac9-a684-1a232308d849"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#btnAccept",
-                "designer|targetType": "MyButton29",
-                "fn": "onBtnAcceptClick",
-                "implHandler": [
-                    "var commentsStore = Ext.getStore('CommentsStore');",
-                    "",
-                    "var commentsGrid = this.getCommentsGrid(),",
-                    "    selectModel = commentsGrid.getSelectionModel(),",
-                    "    selectedComments = selectModel.getSelection();",
-                    "",
-                    "",
-                    "    if(!Ext.isEmpty(selectedComments)){",
-                    "        var selectedUser = selectedComments[0].data.Users,",
-                    "            selecteComment = selectedComments[0].data.Comments;",
-                    "",
-                    "        commentsStore.remove(selectedComments);",
-                    "",
-                    "",
-                    "",
-                    "    }else{",
-                    "        Ext.MessageBox.alert('Error','Please select an item.');",
-                    "",
-                    "    }",
-                    ""
-                ],
-                "name": "click",
-                "scope": "me"
-            },
-            "name": "onBtnAcceptClick",
-            "designerId": "c54c8488-7b7c-4f38-965a-ac77d1512123"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "commentsGrid",
-                "selector": "#commentsGrid"
-            },
-            "name": "commentsGrid",
-            "designerId": "644f1d22-5fe4-406c-bcd0-f9c8f30cbd8c"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "usersGrid",
-                "selector": "#usersGrid"
-            },
-            "name": "usersGrid",
-            "designerId": "5c0bf37b-0029-4149-a594-17cd92b8f6a7"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#btnDisable",
-                "designer|targetType": "MyButton30",
-                "fn": "onBtnDisableClick",
-                "name": "click",
-                "scope": "me"
-            },
-            "name": "onBtnDisableClick",
-            "designerId": "410f728d-191c-49d1-8fca-33ad228a80b3"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#btnEnable",
-                "designer|targetType": "MyButton31",
-                "fn": "onBtnEnableClick",
-                "name": "click",
-                "scope": "me"
-            },
-            "name": "onBtnEnableClick",
-            "designerId": "48482528-9700-4b0a-855e-91763235554e"
         }
     ]
 }
