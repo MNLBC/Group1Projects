@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommentsStore",
+        "model": "CommentsModel",
+        "storeId": "CommentsStore"
+    },
+    "name": "MyStore",
+    "designerId": "3292f7d8-7c68-4f3e-8f59-39d9fec27fc1"
+}

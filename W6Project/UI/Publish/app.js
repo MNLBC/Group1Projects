@@ -29,14 +29,17 @@ Ext.application({
         'TrayModel',
         'TransactionModel',
         'ActiveUserModel',
-        'TransactionDetailsModel'
+        'TransactionDetailsModel',
+        'CommentsModel',
+        'UsersModel'
     ],
     stores: [
         'ProductStore',
         'TrayStore',
         'TransactionStore',
         'ActiveUserStore',
-        'TransactionDetailsStore'
+        'TransactionDetailsStore',
+        'CommentsStore'
     ],
     views: [
         'MyViewport',
@@ -53,6 +56,7 @@ Ext.application({
         'AdminTransactionsPanel',
         'AdminProductsPanel'
     ],
+    appFolder: 'resources/app',
     controllers: [
         'HomePage',
         'Windows'

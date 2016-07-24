@@ -572,7 +572,7 @@
                     "    },",
                     "    scope : this,",
                     "    success : function(response) {",
-                    "        var data = Ext.decode(response.responseText);",
+                    "        var data = response.responseText;",
                     "        Ext.each(data, function(record){",
                     "            var product = {",
                     "                Id:record.id,",
@@ -606,6 +606,40 @@
                     "           }",
                     "    }",
                     "});",
+                    "",
+                    "",
+                    "        var userStore = Ext.getStore('UsersStore');",
+                    "",
+                    "        Ext.Ajax.request({",
+                    "            url : 'user/getAllUsers',",
+                    "            params : {",
+                    "",
+                    "            },",
+                    "            scope : this,",
+                    "            success : function(response) {",
+                    "                var data = Ext.decode(response.responseText);",
+                    "                Ext.each(data, function(record){",
+                    "                    var users = {",
+                    "                        id:record.id,",
+                    "                        Username:record.username,",
+                    "                        Password:record.password,",
+                    "                        Firstname:record.firstname,",
+                    "                        Middlename:record.middlename,",
+                    "                        Lastname:record.lastname,",
+                    "                        Gender:record.gender,",
+                    "                        Email:record.email,",
+                    "                        Address:record.address,",
+                    "                        Contact:record.contactno,",
+                    "                        Disabled:record.isDisabled,",
+                    "                        Type:record.type,",
+                    "                        Level:record.userLevel,",
+                    "                        Points:record.points",
+                    "",
+                    "                    };",
+                    "                    userStore.add(users);",
+                    "                });",
+                    "            }",
+                    "        });",
                     "",
                     "",
                     ""
@@ -1067,11 +1101,94 @@
                     "        this.getMyProfileButton().show();",
                     "        this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username);",
                     "        this.getProducts().show();",
+                    "",
+                    "if(currentLoginUser.type ==='admin'){",
+                    "             Ext.getCmp('toolBarCustomer').hide();",
+                    "             Ext.getCmp('toolBarAdmin').show();",
+                    "        }",
                     ""
                 ]
             },
             "name": "displayForSessions",
             "designerId": "b6b79e3c-bccb-4ac9-a684-1a232308d849"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userGrid",
+                "selector": "#userGrid"
+            },
+            "name": "userGrid",
+            "designerId": "da8c70c1-be60-43cd-8233-6751aa523b1e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#userGrid",
+                "designer|targetType": "MyGridPanel5",
+                "fn": "onUserGridSelectionChange",
+                "implHandler": [
+                    "var userStore = Ext.getStore('UsersStore');",
+                    "",
+                    "        var usersGrid = this.getUserGrid(),",
+                    "            selectModel = usersGrid.getSelectionModel(),",
+                    "            selectedUser = selectModel.getSelection(),",
+                    "            userDisabledValue = selectedUser[0].data.Disabled;",
+                    "",
+                    "        if(userDisabledValue === 0){",
+                    "",
+                    "            // Ext.getCmp('btnEnable')",
+                    "            this.getBtnEnable().disable();",
+                    "            this.getBtnDisable().enable();",
+                    "",
+                    "        }else{",
+                    "            this.getBtnEnable().enable();",
+                    "            this.getBtnDisable().disable();",
+                    "        }"
+                ],
+                "name": "selectionchange",
+                "scope": "me"
+            },
+            "name": "onUserGridSelectionChange",
+            "designerId": "ff7fd53a-d887-4956-a688-d6a5b7c24105"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "btnEnable",
+                "selector": "#btnEnable"
+            },
+            "name": "btnEnable",
+            "designerId": "97d840af-6c57-4bf3-9250-2fa36a43eac7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "btnDisable",
+                "selector": "#btnDisable"
+            },
+            "name": "btnDisable",
+            "designerId": "5233d0d3-2e61-427b-94af-30a7b942879e"
         }
     ]
 }

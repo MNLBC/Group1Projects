@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "appFolder": "resources/app",
         "controllers": [
             "HomePage",
             "Windows"
@@ -15,7 +16,9 @@
             "TrayModel",
             "TransactionModel",
             "ActiveUserModel",
-            "TransactionDetailsModel"
+            "TransactionDetailsModel",
+            "CommentsModel",
+            "UsersModel"
         ],
         "name": "BurgerQueen",
         "stores": [
@@ -23,7 +26,9 @@
             "TrayStore",
             "TransactionStore",
             "ActiveUserStore",
-            "TransactionDetailsStore"
+            "TransactionDetailsStore",
+            "CommentsStore",
+            "UsersStore"
         ],
         "views": [
             "MyViewport",
