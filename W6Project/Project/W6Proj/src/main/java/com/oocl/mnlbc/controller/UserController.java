@@ -97,7 +97,7 @@ public class UserController {
 	@RequestMapping(value = { "/addUser" }, method = RequestMethod.POST)
 	public String addUser(@RequestBody User user) {
 		userDao.init();
-		
+		user.setPassword(hashPassword(user.getPassword()));
 		user.setIsDisabled(0);
 		user.setGender(user.getGender().toUpperCase());
 		user.setType("customer");
