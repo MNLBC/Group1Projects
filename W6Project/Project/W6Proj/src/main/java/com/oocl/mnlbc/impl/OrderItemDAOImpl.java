@@ -39,7 +39,6 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 	 */
 	@Override
 	public List<OrderItem> getAllOrderItems() {
-		// TODO Auto-generated method stub
 		Query query = entityManager.createQuery("select oi from OrderItem oi");
 		List<OrderItem> orderItemList = query.getResultList();
 		return orderItemList;

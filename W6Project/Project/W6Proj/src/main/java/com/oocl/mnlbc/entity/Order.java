@@ -1,6 +1,5 @@
 package com.oocl.mnlbc.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 /**
  * 
  * @author DELEOAN
@@ -31,15 +31,14 @@ public class Order {
 	@SequenceGenerator(name = "orderSequence", sequenceName = "ORDERS_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-	
-//	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order", fetch = FetchType.LAZY)
-	private List<OrderItem> orderItemList;
 
+	@JsonManagedReference
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order", fetch = FetchType.EAGER)
+	private List<OrderItem> orderItemList;
 
 	@Column(name = "status")
 	private String status;
@@ -97,11 +96,11 @@ public class Order {
 	}
 
 	/**
-	 * @param orderItemList the orderItemList to set
+	 * @param orderItemList
+	 *            the orderItemList to set
 	 */
 	public void setOrderItemList(List<OrderItem> orderItemList) {
 		this.orderItemList = orderItemList;
 	}
 
-	
 }

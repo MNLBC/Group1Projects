@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -26,15 +28,14 @@ public class OrderItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderItemsSequence")
-	@SequenceGenerator(name = "orderItemsSequence", sequenceName = "ORDERSITEMS_ID_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "orderItemsSequence", sequenceName = "ORDERITEMS_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
-	@JsonIgnore
-	@JoinColumn(name = "order_id", referencedColumnName = "id")
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+
+	@JsonBackReference
+	@ManyToOne(optional = false)
 	private Order order;
-	
+
 	@JoinColumn(name = "meal_id", referencedColumnName = "id")
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Meal meal;
@@ -71,33 +72,35 @@ public class OrderItem {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param order the order to set
+	 * @param order
+	 *            the order to set
 	 */
 	public void setOrder(Order order) {
 		this.order = order;
 	}
 
 	/**
-	 * @param meal the meal to set
+	 * @param meal
+	 *            the meal to set
 	 */
 	public void setMeal(Meal meal) {
 		this.meal = meal;
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param quantity
+	 *            the quantity to set
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	
-	
 }

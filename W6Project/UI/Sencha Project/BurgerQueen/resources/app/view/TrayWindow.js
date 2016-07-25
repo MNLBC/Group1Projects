@@ -34,6 +34,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     itemId: 'TrayWindow',
     style: 'font-family: \'Century Gothic\';',
     width: 619,
+    autoScroll: true,
     bodyStyle: 'font-family: \'Century Gothic\';',
     header: false,
     title: 'My Tray',
@@ -60,6 +61,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     xtype: 'gridpanel',
                     id: 'trayGrid',
                     itemId: 'trayGrid',
+                    autoScroll: true,
                     header: false,
                     title: 'My Grid Panel',
                     store: 'TrayStore',
@@ -119,6 +121,25 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             style: 'font-family: \'Abel\';',
                             dataIndex: 'Total',
                             text: 'Total'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+
+                                var  quantity = record.data.Quantity,
+                                    trayStore = Ext.getStore('TrayStore'),
+                                    idEdit = record.data.Id;
+                                record = trayStore.getById(idEdit);
+                                var productRecord = Ext.getStore('ProductStore').getById(idEdit),
+                                    points = productRecord.data.Points;
+
+                                var newPoints = points * quantity;
+                                record.set('Points', newPoints);
+
+                                return Ext.util.Format.number(newPoints, "0.00");
+                            },
+                            dataIndex: 'Points',
+                            text: 'Points'
                         }
                     ],
                     plugins: [
@@ -154,7 +175,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     itemId: 'totalItems',
                     fieldLabel: 'Total Number of Items in Tray',
                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
-                    value: '',
+                    value: '0',
                     fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                 },
                 {
@@ -163,8 +184,28 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     itemId: 'totalAmount',
                     fieldLabel: 'Total Amount in RMB',
                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
-                    value: '',
-                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
+                    value: '0',
+                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                    listeners: {
+                        change: {
+                            fn: me.onTotalAmountChange,
+                            scope: me
+                        }
+                    }
+                },
+                {
+                    xtype: 'displayfield',
+                    id: 'totalDiscountedAmount',
+                    itemId: 'totalDiscountedAmount',
+                    fieldLabel: 'Total Discounted Amount',
+                    value: '0'
+                },
+                {
+                    xtype: 'displayfield',
+                    id: 'totalPoints',
+                    itemId: 'totalPoints',
+                    fieldLabel: 'Total Points',
+                    value: '0'
                 }
             ],
             dockedItems: [
@@ -202,16 +243,44 @@ Ext.define('BurgerQueen.view.TrayWindow', {
             store = grid.getStore(),
             totalQuantity = 0,
             totalAmount = 0,
+            totalPoints = 0,
             records = store.getRange();
 
         Ext.each(records,function(record){
             totalQuantity += record.data.Quantity;
             totalAmount += record.data.Total;
+            totalPoints += record.data.Points;
         });
 
 
-        Ext.getCmp('totalItems').setValue(totalQuantity);
         Ext.getCmp('totalAmount').setValue(totalAmount);
+        Ext.getCmp('totalItems').setValue(totalQuantity);
+        Ext.getCmp('totalPoints').setValue(totalPoints);
+
+    },
+
+    onTotalAmountChange: function(field, newValue, oldValue, eOpts) {
+                  var points = currentLoginUser.points;
+                    var discount = 0;
+                    if(points > 10){
+                        discount = .05;
+                    }else if(points > 50){
+                        discount = .10;
+                    }else if(points >200){
+                        discount = .15;
+                    }
+
+
+
+               var totalAmount = Ext.getCmp('totalAmount').getValue();
+        if(discount!==0){
+                var discountedAmount = totalAmount * discount;
+        }else{
+             var discountedAmount = 0;
+        }
+                var totalDiscountedAmount = totalAmount - discountedAmount;
+                Ext.getCmp('totalDiscountedAmount').setValue(totalDiscountedAmount);
+
     }
 
 });

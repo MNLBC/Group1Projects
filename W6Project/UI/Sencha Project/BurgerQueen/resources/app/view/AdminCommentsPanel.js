@@ -43,19 +43,22 @@ Ext.define('BurgerQueen.view.AdminCommentsPanel', {
                 },
                 {
                     xtype: 'gridpanel',
+                    id: 'commentsGrid',
+                    itemId: 'commentsGrid',
                     autoScroll: true,
                     header: false,
                     title: 'My Grid Panel',
+                    store: 'CommentsStore',
                     columns: [
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'string',
+                            dataIndex: 'username',
                             text: 'Username',
                             flex: 0.5
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'string',
+                            dataIndex: 'comments',
                             text: 'Comments',
                             flex: 1
                         }
@@ -73,6 +76,10 @@ Ext.define('BurgerQueen.view.AdminCommentsPanel', {
                     items: [
                         {
                             xtype: 'button',
+                            height: 45,
+                            id: 'btnAccept',
+                            itemId: 'btnAccept',
+                            width: 100,
                             text: 'Accept'
                         }
                     ]

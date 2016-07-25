@@ -51,9 +51,16 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	public List<Order> getOrderByUserId(int id) {
-		Query query = entityManager.createQuery("select o from Order o where o.user.id = :userId");
-		query.setParameter("userId", id);
-		List<Order> orderList = query.getResultList();
+		List<Order> orderList = null;
+		try {
+			Query query = entityManager.createQuery("select o from Order o where o.user.id = :userId");
+			query.setParameter("userId", id);
+			 orderList = query.getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return orderList;
 	}
 
@@ -66,7 +73,6 @@ public class OrderDAOImpl implements OrderDAO {
 	public Order addOrder(Order order) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(order);
-		entityManager.flush();
 		entityManager.getTransaction().commit();
 		return order;
 	}
@@ -78,7 +84,6 @@ public class OrderDAOImpl implements OrderDAO {
 	 */
 	@Override
 	public EntityManager getEntityManager() {
-		// TODO Auto-generated method stub
 		return entityManager;
 	}
 }

@@ -17,15 +17,83 @@ Ext.define('BurgerQueen.view.AdminProductsPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.adminproductspanel',
 
-    height: 250,
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.View',
+        'Ext.grid.column.Column'
+    ],
+
+    height: 434,
     id: 'AdminProductsPanel',
     itemId: 'AdminProductsPanel',
-    width: 400,
+    width: 711,
+    layout: 'fit',
     header: false,
     title: 'My Panel',
 
     initComponent: function() {
         var me = this;
+
+        Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'gridpanel',
+                    header: false,
+                    title: 'My Grid Panel',
+                    store: 'ProductStore',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Id',
+                            text: 'Id',
+                            flex: 0.5
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Code',
+                            text: 'Code',
+                            flex: 0.5
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Name',
+                            text: 'Name',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Description',
+                            text: 'Description',
+                            flex: 1.5
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Category',
+                            text: 'Category',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Price',
+                            text: 'Price',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Image',
+                            text: 'Image',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'Points',
+                            text: 'Points',
+                            flex: 0.5
+                        }
+                    ]
+                }
+            ]
+        });
 
         me.callParent(arguments);
     }

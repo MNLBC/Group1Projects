@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class OrderController {
 	@RequestMapping(value = "/getAllOrders", method = RequestMethod.GET)
 	public List<Order> getAllOrder() {
 		orderDao.init();
-		// logger.info("Getting all list of Order");
+		 logger.info("Getting all list of Order");
 		List<Order> orderList = orderDao.getAllOrder();
 		return orderList;
 	}
@@ -52,7 +52,9 @@ public class OrderController {
 	public List<Order> getAllOrderByUserID(@RequestParam(required = true) int userId) {
 		orderDao.init();
 		List<Order> orderList = orderDao.getOrderByUserId(userId);
-		// logger.info("Getting all order by User ID");
+		
+		
+		 logger.info("Getting all order by User ID");
 		return orderList;
 	}
 
@@ -60,7 +62,7 @@ public class OrderController {
 	@RequestMapping(value = "/getOrderById/{id}", method = RequestMethod.GET)
 	public Order getOrderById(@PathVariable("id") int id) {
 		orderDao.init();
-		/// logger.info("Getting all order by ID");
+		 logger.info("Getting all order by ID");
 		Order order = orderDao.getOrderById(id);
 		return order;
 	}
@@ -70,17 +72,13 @@ public class OrderController {
 	public String addOrderItem(@RequestBody Order order) {
 		orderDao.init();
 		orderItemDao.init();
-//		mealDao.init();
-//		for(OrderItem item : order.getOrderItemList()){
-//			Meal meal = mealDao.getMealByID(item.getMeal().getId());
-//			item.setMeal(meal);
-//		}
 		List<OrderItem> orderItems = order.getOrderItemList();
 		order.setOrderItemList(null);
 		orderDao.addOrder(order);
 		
 		for (OrderItem orderItem : orderItems) {
-			orderItem.setId(order.getId());
+			Order orderItemsOrder = orderItem.getOrder();
+			orderItemsOrder.setId(order.getId());
 		}
 		orderItemDao.addOrderItem(orderItems);
 		return "success";

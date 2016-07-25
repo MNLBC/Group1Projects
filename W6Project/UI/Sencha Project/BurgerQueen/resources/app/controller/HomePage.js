@@ -128,6 +128,10 @@ Ext.define('BurgerQueen.controller.HomePage', {
         {
             ref: 'btnDisable',
             selector: '#btnDisable'
+        },
+        {
+            ref: 'commentsGrid',
+            selector: '#commentsGrid'
         }
     ],
 
@@ -209,7 +213,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             scope : this,
             success : function(response) {
-                var data = response.responseText;
+                var data = Ext.JSON.decode(response.responseText);
                 Ext.each(data, function(record){
                     var product = {
                         Id:record.id,
@@ -218,7 +222,8 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         Description:record.description,
                         Category:record.category,
                         Price:record.price,
-                        Image:record.image
+                        Image:record.image,
+                        Points:record.points
                     };
                     store.add(product);
                 });
@@ -298,10 +303,10 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 this.getAddressProfile().setValue(currentLoginUser.address);
                 this.getEmailProfile().setValue(currentLoginUser.email);
                 this.getContactNumProfile().setValue(currentLoginUser.contact);
-
+                Ext.getCmp('userLevel').setValue(currentLoginUser.userLevel);
 
                 Ext.Ajax.request({
-                    url : 'order/getAllOrderByUser',
+                    url : 'order/getAllOrderByUserId',
                     params : {
                         userId : currentLoginUser.id
                     },
@@ -344,18 +349,42 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onLogoutButtonClick: function() {
-                    Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
+         Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
                             if(btnText === "yes"){
-                                        Ext.Ajax.request({
-                    url : 'logout',
-                    params : {
+                                var trays = [];
 
-                    },
-                    scope : this,
-                    success : function(response) {
-                        this.activeUserCounter();
-                    }
-                });
+
+                                var store = Ext.getStore('TrayStore');
+
+                                store.each(function(record){
+
+                                    var trayItem = {
+                                        id:0,
+                                        user:{
+                                            id:currentLoginUser.id
+                                        },
+                                        meal:{
+                                            id:record.data.Id
+                                        },
+                                        quantity:record.data.Quantity
+                                    };
+                              trays.push(trayItem);
+                             });
+
+                                    this.addToTray(trays);
+
+                               Ext.getCmp('toolBarCustomer').show();
+                              Ext.getCmp('toolBarAdmin').hide();
+                              Ext.Ajax.request({
+                                url : 'logout',
+                                params : {
+
+                                },
+                                scope : this,
+                                success : function(response) {
+                                    this.activeUserCounter();
+                                }
+                            });
 
                 this.getTrayButton().hide();
                 this.getRegisterButton().show();
@@ -401,6 +430,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
                     this.getFullNameField().setValue(fullName);
                     this.getAddressField().setValue(address);
                     this.getEmailField().setValue(email);
+                    this.getContactNumProfile().setValue(currentLoginUser.contact);
                 });
     },
 
@@ -417,13 +447,97 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onBtnProductsClick: function() {
-            this.getProducts().hide();
+        //     this.getProducts().hide();
+            Ext.getCmp('AdminProductsPanel').show();
             this.getUserProfile().hide();
             this.getAdminCommentsPanel().hide();
             this.getAdminTransactionsPanel().hide();
             this.getAdminUserPanel().hide();
-            this.getAdminProductsPanel().show();
+            //this.getAdminProductsPanel().show();
+
         console.log('Product');
+
+        var store = Ext.getStore('ProductStore');
+        store.removeAll();
+        Ext.Ajax.request({
+            url : 'meal/getAllMeals',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var product = {
+                        Id:record.id,
+                        Code:record.code,
+                        Name:record.name,
+                        Description:record.description,
+                        Category:record.category,
+                        Price:record.price,
+                        Image:record.image,
+                        Points:record.points
+                    };
+                    store.add(product);
+                });
+            }
+        });
+
+        this.activeUserCounter();
+
+        Ext.Ajax.request({
+            url : 'getUserSession',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+
+                   if(!Ext.isEmpty(data)){
+
+                       currentLoginUser = data;
+                       this.displayForSessions();
+                   }
+            }
+        });
+
+
+                var userStore = Ext.getStore('UsersStore');
+
+                Ext.Ajax.request({
+                    url : 'user/getAllUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        Ext.each(data, function(record){
+                            var users = {
+                                id:record.id,
+                                Username:record.username,
+                                Password:record.password,
+                                Firstname:record.firstname,
+                                Middlename:record.middlename,
+                                Lastname:record.lastname,
+                                Gender:record.gender,
+                                Email:record.email,
+                                Address:record.address,
+                                Contact:record.contactno,
+                                Disabled:record.isDisabled,
+                                Type:record.type,
+                                Level:record.userLevel,
+                                Points:record.points
+
+                            };
+                            userStore.add(users);
+                        });
+                    }
+                });
+
+
+
     },
 
     onBtnTransactionsClick: function() {
@@ -443,7 +557,30 @@ Ext.define('BurgerQueen.controller.HomePage', {
             this.getAdminProductsPanel().hide();
             this.getAdminTransactionsPanel().hide();
             this.getAdminCommentsPanel().show();
-        console.log('Comments');
+
+        var store = Ext.getStore('CommentsStore');
+        store.removeAll();
+
+        Ext.Ajax.request({
+            url : 'http://localhost:' + window.location.port + '/mnlbcjms/viewMessage',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var username = record.username,
+                        message = record.message;
+                    var comment = {
+                        username: username,
+                        comments: message
+                    };
+                    store.add(comment);
+                });
+
+            }
+        });
     },
 
     onUserGridSelectionChange: function() {
@@ -466,10 +603,70 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 }
     },
 
+    onBtnAcceptClick: function() {
+         var commentsStore = Ext.getStore('CommentsStore');
+
+                var commentsGrid = this.getCommentsGrid(),
+                    selectModel = commentsGrid.getSelectionModel(),
+                    selectedComments = selectModel.getSelection();
+
+
+                    if(!Ext.isEmpty(selectedComments)){
+                        var selectedUser = selectedComments[0].data.username,
+                            selecteComment = selectedComments[0].data.comments;
+
+
+                        commentsStore.remove(selectedComments);
+
+
+                        Ext.Ajax.request({
+                    url : 'user/getUserByUserName/' + selectedUser,
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var user = Ext.JSON.decode(response.responseText);
+                        user.points += 0.5;
+
+                        Ext.Ajax.request({
+                            url:'user/updateUser',
+                            headers: { 'Content-Type': 'application/json',
+                             'Accept': 'application/json'},
+                             jsonData:user,
+                            scope:this,
+                            success : function(response) {
+                                Ext.MesssageBox.alert('Success','Points added to user');
+                            }
+                        });
+
+                    }
+                });
+
+
+                    }else{
+                        Ext.MessageBox.alert('Error','Please select an item.');
+
+                    }
+    },
+
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
         //         activeUserStore = Ext.getStore('ActiveUserStore');
                 activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
+    },
+
+    addToTray: function(trays) {
+         Ext.Ajax.request({
+                                url : 'tray/addTray',
+                                params : {
+                                    'trays':Ext.JSON.encode(trays)
+                                },
+                                scope : this,
+                                success : function(response) {
+
+                                }
+                            });
     },
 
     showLoadingMessageMask: function() {
@@ -504,9 +701,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
                         var store = activeUserStore;
                         store.removeAll();
                        this.getActiveUsersCount().setValue(data.length);
-        //                 Ext.each(data, function(record){
-        //                     store.add({username:record.username});
-        //                 });
+                        Ext.each(data, function(record){
+                            store.add({username:record.username});
+                        });
 
                     }
                 });
@@ -522,6 +719,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 this.getMyProfileButton().show();
                 this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username);
                 this.getProducts().show();
+
 
         if(currentLoginUser.type ==='admin'){
                      Ext.getCmp('toolBarCustomer').hide();
@@ -594,6 +792,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#userGrid": {
                 selectionchange: this.onUserGridSelectionChange
+            },
+            "#btnAccept": {
+                click: this.onBtnAcceptClick
             }
         });
     }

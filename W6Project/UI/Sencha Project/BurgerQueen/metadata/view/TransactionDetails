@@ -102,36 +102,7 @@
                         "text": "Meal"
                     },
                     "name": "MyColumn9",
-                    "designerId": "997e67ed-e0ae-4b9f-a9a8-24df0c71d29d",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "value",
-                                    "metaData",
-                                    "record",
-                                    "rowIndex",
-                                    "colIndex",
-                                    "store",
-                                    "view"
-                                ],
-                                "fn": "renderer",
-                                "implHandler": [
-                                    "                        var prodStore = Ext.getStore('ProductStore');",
-                                    "                        var prodData = prodStore.findRecord('Id',value);",
-                                    "                        return prodData.get('Name');"
-                                ]
-                            },
-                            "name": "renderer",
-                            "designerId": "9afe5c35-f168-475c-96a7-271c200da17c"
-                        }
-                    ]
+                    "designerId": "997e67ed-e0ae-4b9f-a9a8-24df0c71d29d"
                 }
             ]
         },

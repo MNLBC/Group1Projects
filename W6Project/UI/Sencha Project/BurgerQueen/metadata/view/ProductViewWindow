@@ -258,6 +258,22 @@
                     },
                     "name": "MyHiddenField",
                     "designerId": "02be5f15-d54b-4736-8817-6024689aac89"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "productPoints",
+                        "itemId": "productPoints",
+                        "layout|flex": 1
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "7d1e2380-fe27-4a4a-a75f-12c5406c5111"
                 }
             ]
         }

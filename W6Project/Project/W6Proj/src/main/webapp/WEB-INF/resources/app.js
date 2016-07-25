@@ -26,30 +26,38 @@ Ext.application({
         'Ext.rtl.*'
     ],
     models: [
-        'ProductModel',
-        'TrayModel',
-        'TransactionModel',
-        'ActiveUserModel',
-        'TransactionDetailsModel'
-    ],
-    stores: [
-        'ProductStore',
-        'TrayStore',
-        'TransactionStore',
-        'ActiveUserStore',
-        'TransactionDetailsStore'
-    ],
-    views: [
-        'MyViewport',
-        'RegisterWindow',
-        'LoginWindow',
-        'TrayWindow',
-        'ProductViewWindow',
-        'UserProfile',
-        'ActiveUsersWindow',
-        'TransactionDetails',
-        'MyTextField9'
-    ],
+             'ProductModel',
+             'TrayModel',
+             'TransactionModel',
+             'ActiveUserModel',
+             'TransactionDetailsModel',
+             'CommentsModel',
+             'UsersModel'
+         ],
+         stores: [
+             'ProductStore',
+             'TrayStore',
+             'TransactionStore',
+             'ActiveUserStore',
+             'TransactionDetailsStore',
+             'CommentsStore',
+             'UsersStore'
+         ],
+         views: [
+             'MyViewport',
+             'RegisterWindow',
+             'LoginWindow',
+             'TrayWindow',
+             'ProductViewWindow',
+             'UserProfile',
+             'ActiveUsersWindow',
+             'TransactionDetails',
+             'ContactUsWindow',
+             'AdminUserPanel',
+             'AdminCommentsPanel',
+             'AdminTransactionsPanel',
+             'AdminProductsPanel'
+         ],
     controllers: [
         'HomePage',
         'Windows'

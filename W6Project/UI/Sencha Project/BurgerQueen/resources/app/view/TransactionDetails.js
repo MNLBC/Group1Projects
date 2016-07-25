@@ -61,11 +61,6 @@ Ext.define('BurgerQueen.view.TransactionDetails', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                var prodStore = Ext.getStore('ProductStore');
-                                var prodData = prodStore.findRecord('Id',value);
-                                return prodData.get('Name');
-                            },
                             dataIndex: 'Meal',
                             text: 'Meal',
                             flex: 1

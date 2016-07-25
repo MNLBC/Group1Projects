@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoScroll": true,
         "designer|userAlias": "adminuserpanel",
         "designer|userClassName": "AdminUserPanel",
         "header": false,

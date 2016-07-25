@@ -85,4 +85,15 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.oocl.mnlbc.dao.UserDAO#updateUser(com.oocl.mnlbc.entity.User)
+	 */
+	@Override
+	public boolean updateUser(User user) {
+		entityManager.getTransaction().begin();
+		entityManager.merge(user);
+		entityManager.getTransaction().commit();
+		return true;
+	}
+
 }

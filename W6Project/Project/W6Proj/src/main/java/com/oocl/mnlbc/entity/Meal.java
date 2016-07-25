@@ -34,13 +34,6 @@ public class Meal {
 	@Column(name = "id")
 	private int id;
 	
-	
-//	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	private List<OrderItem> orderItemList;
-//	
-//	@OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	private List<Tray> trayList;
-	
 	@Column(name = "code")
 	private String code;
 

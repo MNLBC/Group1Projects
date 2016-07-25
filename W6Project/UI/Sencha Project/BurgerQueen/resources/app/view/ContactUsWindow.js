@@ -52,6 +52,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                         {
                             xtype: 'label',
                             height: 16,
+                            padding: '',
                             style: 'font-family:\'Abel\';\nfont-size: 20px;',
                             text: 'Contact Number: 09123456789'
                         },
@@ -60,6 +61,8 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             flex: 1,
                             margins: '10,0,0,0',
                             height: 97,
+                            id: 'commentBox',
+                            itemId: 'commentBox',
                             fieldLabel: 'Comments:',
                             labelStyle: 'font-family:\'Abel\';font-size:18px;'
                         },
@@ -77,6 +80,8 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    id: 'btnSubmitComment',
+                                    itemId: 'btnSubmitComment',
                                     text: 'Submit'
                                 }
                             ]

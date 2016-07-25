@@ -1,4 +1,4 @@
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -117,6 +117,21 @@ public class UserController {
 		}
 
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/updateUser" }, method = RequestMethod.POST)
+	public boolean updateUser(@RequestBody User user) {
+		userDao.init();
+		userDao.updateUser(user);
+		logger.info("User has been updated");
+		return true;
+	}
+	
+	
+	
+	
+	
+	
 
 	private int isUsernameEmailExist(String username, String email) {
 		userDao.init();

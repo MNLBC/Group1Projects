@@ -45,6 +45,9 @@ Ext.define('BurgerQueen.model.ProductModel', {
         {
             name: 'Image',
             type: 'auto'
+        },
+        {
+            name: 'Points'
         }
     ]
 });

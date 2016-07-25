@@ -71,6 +71,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "height": 16,
+                        "padding": "",
                         "style": [
                             "font-family:'Abel';",
                             "font-size: 20px;"
@@ -90,6 +91,8 @@
                     "userConfig": {
                         "fieldLabel": "Comments:",
                         "height": 97,
+                        "id": "commentBox",
+                        "itemId": "commentBox",
                         "labelStyle": "font-family:'Abel';font-size:18px;",
                         "layout|flex": 1,
                         "layout|margins": "10,0,0,0"
@@ -132,6 +135,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "btnSubmitComment",
+                                "itemId": "btnSubmitComment",
                                 "layout|flex": null,
                                 "text": "Submit"
                             },

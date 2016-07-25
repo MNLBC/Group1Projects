@@ -20,15 +20,17 @@ Ext.define('BurgerQueen.view.UserProfile', {
     requires: [
         'Ext.Img',
         'Ext.form.field.Display',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.grid.View'
     ],
 
-    height: 431,
+    height: 615,
     id: 'UserProfile',
     itemId: 'UserProfile',
-    width: 611,
+    width: 612,
     layout: 'fit',
     header: false,
     title: 'My Profile',
@@ -138,6 +140,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                         {
                                             xtype: 'displayfield',
                                             height: 50,
+                                            hidden: true,
                                             id: 'contactnumProfile',
                                             itemId: 'contactnumProfile',
                                             width: 800,
@@ -146,6 +149,12 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                             value: 'Display Field',
                                             fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                             inputId: 'userProfileWindow'
+                                        },
+                                        {
+                                            xtype: 'displayfield',
+                                            id: 'userLevel',
+                                            fieldLabel: 'User Level',
+                                            value: 'Display Field'
                                         }
                                     ]
                                 },
@@ -159,6 +168,21 @@ Ext.define('BurgerQueen.view.UserProfile', {
                             xtype: 'container',
                             height: 20,
                             layout: 'anchor'
+                        },
+                        {
+                            xtype: 'toolbar',
+                            layout: {
+                                type: 'hbox',
+                                pack: 'end'
+                            },
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    id: 'editProfileButton',
+                                    itemId: 'editProfileButton',
+                                    text: 'Edit Profile'
+                                }
+                            ]
                         },
                         {
                             xtype: 'container',

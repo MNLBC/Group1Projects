@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoScroll": true,
         "bodyStyle": [
             " font-family: 'Century Gothic';"
         ],
@@ -57,6 +58,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "header": false,
                 "id": "trayGrid",
                 "itemId": "trayGrid",
@@ -127,16 +129,20 @@
                                     "    store = grid.getStore(),",
                                     "    totalQuantity = 0,",
                                     "    totalAmount = 0,",
+                                    "    totalPoints = 0,",
                                     "    records = store.getRange();",
                                     "",
                                     "Ext.each(records,function(record){",
                                     "    totalQuantity += record.data.Quantity;",
                                     "    totalAmount += record.data.Total;",
+                                    "    totalPoints += record.data.Points;",
                                     "});",
                                     "",
                                     "",
+                                    "Ext.getCmp('totalAmount').setValue(totalAmount);",
                                     "Ext.getCmp('totalItems').setValue(totalQuantity);",
-                                    "Ext.getCmp('totalAmount').setValue(totalAmount);"
+                                    "Ext.getCmp('totalPoints').setValue(totalPoints);",
+                                    ""
                                 ],
                                 "name": "edit",
                                 "scope": "me"
@@ -257,6 +263,58 @@
                             "designerId": "dcdfd1f5-c732-4b2e-9cf8-479ddd02c407"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Points",
+                        "text": "Points"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "51136d04-46c4-4938-8c38-0b1e879d39a8",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "                         var  quantity = record.data.Quantity,",
+                                    "                           trayStore = Ext.getStore('TrayStore'),",
+                                    "                            idEdit = record.data.Id;",
+                                    "                            record = trayStore.getById(idEdit);",
+                                    "var productRecord = Ext.getStore('ProductStore').getById(idEdit),",
+                                    "    points = productRecord.data.Points;",
+                                    "",
+                                    "                            var newPoints = points * quantity;",
+                                    "                            record.set('Points', newPoints);",
+                                    "",
+                                    "                            return Ext.util.Format.number(newPoints, \"0.00\");"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "dee218e2-45da-4c92-99fa-8a5bbe5ae892"
+                        }
+                    ]
                 }
             ]
         },
@@ -309,7 +367,7 @@
                 "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                 "layout|flex": null,
                 "style": null,
-                "value": "",
+                "value": "0",
                 "width": null
             },
             "name": "MyDisplayField3",
@@ -378,10 +436,84 @@
                 "itemId": "totalAmount",
                 "labelStyle": "font-family: 'Abel'; font-size: 15px;",
                 "layout|flex": null,
-                "value": ""
+                "value": "0"
             },
             "name": "MyDisplayField4",
-            "designerId": "c81c177b-b0d8-4413-8265-151738d92fb6"
+            "designerId": "c81c177b-b0d8-4413-8265-151738d92fb6",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTotalAmountChange",
+                        "implHandler": [
+                            "          var points = currentLoginUser.points;",
+                            "            var discount = 0;",
+                            "            if(points > 10){",
+                            "                discount = .05;",
+                            "            }else if(points > 50){",
+                            "                discount = .10;",
+                            "            }else if(points >200){",
+                            "                discount = .15;",
+                            "            }",
+                            "",
+                            "",
+                            "",
+                            "       var totalAmount = Ext.getCmp('totalAmount').getValue();",
+                            "if(discount!==0){",
+                            "        var discountedAmount = totalAmount * discount;",
+                            "}else{",
+                            "     var discountedAmount = 0;",
+                            "}",
+                            "        var totalDiscountedAmount = totalAmount - discountedAmount;",
+                            "        Ext.getCmp('totalDiscountedAmount').setValue(totalDiscountedAmount);",
+                            ""
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "name": "onTotalAmountChange",
+                    "designerId": "6d840b92-3041-452c-a43f-87e073b1878d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Total Discounted Amount",
+                "id": "totalDiscountedAmount",
+                "itemId": "totalDiscountedAmount",
+                "layout|flex": null,
+                "value": "0"
+            },
+            "name": "MyDisplayField7",
+            "designerId": "6954b949-e6ff-45a3-899c-34699c6eba68"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Total Points",
+                "id": "totalPoints",
+                "itemId": "totalPoints",
+                "layout|flex": null,
+                "value": "0"
+            },
+            "name": "MyDisplayField6",
+            "designerId": "dff8d5f3-98e8-4706-b241-2d0f1d9d068f"
         }
     ]
 }

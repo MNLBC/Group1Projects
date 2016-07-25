@@ -163,6 +163,13 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                             id: 'productId',
                             itemId: 'productId',
                             fieldLabel: 'Label'
+                        },
+                        {
+                            xtype: 'hiddenfield',
+                            flex: 1,
+                            id: 'productPoints',
+                            itemId: 'productPoints',
+                            fieldLabel: 'Label'
                         }
                     ]
                 }

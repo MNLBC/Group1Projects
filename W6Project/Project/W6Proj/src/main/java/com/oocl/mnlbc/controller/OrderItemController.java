@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.util.List;
 
@@ -31,45 +31,32 @@ public class OrderItemController {
 	OrderItemDAO orderItemDAO;
 
 	@ResponseBody
-	@RequestMapping(value= "/getAllOrderItem", method = RequestMethod.GET )
-	public List <OrderItem> getAllOrderItem() {
+	@RequestMapping(value = "/getAllOrderItem", method = RequestMethod.GET)
+	public List<OrderItem> getAllOrderItem() {
 		orderItemDAO.init();
-//		logger.info("Getting all order items");
-		List <OrderItem> orderItemList = orderItemDAO.getAllOrderItems();
-		
+		logger.info("Getting all order items");
+		List<OrderItem> orderItemList = orderItemDAO.getAllOrderItems();
+
 		return orderItemList;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value= {"/getAllOrderItemsByOrderId" }, method = RequestMethod.POST)
-	public List<OrderItem> getAllOrderItemsById(@RequestParam(required=true) int id){
+	@RequestMapping(value = { "/getAllOrderItemsByOrderId" }, method = RequestMethod.POST)
+	public List<OrderItem> getAllOrderItemsById(@RequestParam(required = true) int id) {
 		orderItemDAO.init();
-		List <OrderItem> orderItemList = orderItemDAO.getAllOrderItemsByOrderId(id);
-		// logger.info("Getting all order items by Id");
+		List<OrderItem> orderItemList = orderItemDAO.getAllOrderItemsByOrderId(id);
+		logger.info("Getting all order items by Id");
 		return orderItemList;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/getOrderItemById/{id}", method = RequestMethod.GET)
-	public OrderItem getOrderItemById(@PathVariable("id") int id){
+	public OrderItem getOrderItemById(@PathVariable("id") int id) {
 		orderItemDAO.init();
-		//logger.info("Getting all orderItems by Id");
+		logger.info("Getting all orderItems by Id");
 		OrderItem orderItem = orderItemDAO.getOrderItemsById(id);
-		
+
 		return orderItem;
 	}
-	
-//	@ResponseBody
-//	@RequestMapping(value= {"/addOrderItem"}, method = RequestMethod.POST)
-//	public String addOrderItems(@RequestBody OrderItem orderItem){
-//		orderItemDAO.init();
-//		orderItemDAO.addOrderItem(orderItem);
-//		return "success";
-//	}
-//	
-//	@ResponseBody
-//	@RequestMapping(value = {"/addOrderItem"})
-	
-	
 
 }

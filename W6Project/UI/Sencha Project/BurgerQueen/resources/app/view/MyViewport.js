@@ -115,6 +115,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                         {
                             xtype: 'toolbar',
                             dock: 'top',
+                            id: 'toolBarCustomer',
                             style: 'background-color:#ff9e14;\nfont-color:white;',
                             layout: {
                                 type: 'hbox',
@@ -125,7 +126,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     xtype: 'image',
                                     height: 60,
                                     width: 60,
-                                    src: 'resources/images/burgerQueenLogo.png'
+                                    src: 'resources/images/Logo.png'
                                 },
                                 {
                                     xtype: 'button',
@@ -133,7 +134,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     itemId: 'allCategoriesButton',
                                     style: 'font-family: \'Insaniburger with Cheese\';\n    font-size:35px;\n    color:white;',
                                     ui: 'menubarbtn',
-                                    text: 'All Categoriessss |'
+                                    text: 'All Categories |'
                                 },
                                 {
                                     xtype: 'button',
@@ -174,13 +175,16 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     xtype: 'button',
                                     id: 'btnContactUs',
                                     itemId: 'btnContactUs',
-                                    text: 'Contact Us'
+                                    style: 'font-family: \'Insaniburger with Cheese\';\n    font-size:35px;\n     color:white;',
+                                    ui: 'menubarbtn',
+                                    text: '| Contact Us'
                                 }
                             ]
                         },
                         {
                             xtype: 'toolbar',
                             dock: 'top',
+                            hidden: true,
                             id: 'toolBarAdmin',
                             itemId: 'toolBarAdmin',
                             layout: {
@@ -196,12 +200,14 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                 },
                                 {
                                     xtype: 'button',
+                                    hidden: true,
                                     id: 'btnProducts',
                                     itemId: 'btnProducts',
                                     text: 'Products'
                                 },
                                 {
                                     xtype: 'button',
+                                    hidden: true,
                                     id: 'btnTransactions',
                                     itemId: 'btnTransactions',
                                     text: 'Transactions'

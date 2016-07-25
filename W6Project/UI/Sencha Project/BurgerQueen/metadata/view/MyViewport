@@ -221,6 +221,7 @@
                     "userConfig": {
                         "container|pack": "center",
                         "dock": "top",
+                        "id": "toolBarCustomer",
                         "style": [
                             "background-color:#ff9e14;",
                             "font-color:white;"
@@ -239,7 +240,7 @@
                             "userConfig": {
                                 "height": 60,
                                 "layout|flex": null,
-                                "src": "resources/images/burgerQueenLogo.png",
+                                "src": "resources/images/Logo.png",
                                 "width": 60
                             },
                             "name": "MyImg1",
@@ -263,7 +264,7 @@
                                     "    font-size:35px;",
                                     "    color:white;"
                                 ],
-                                "text": "All Categoriessss |",
+                                "text": "All Categories |",
                                 "ui": "menubarbtn"
                             },
                             "name": "MyButton20",
@@ -391,10 +392,17 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|uiInterfaceName": "menubarbtn-toolbar-small",
                                 "id": "btnContactUs",
                                 "itemId": "btnContactUs",
                                 "layout|flex": null,
-                                "text": "Contact Us"
+                                "style": [
+                                    "font-family: 'Insaniburger with Cheese';",
+                                    "    font-size:35px;",
+                                    "     color:white;"
+                                ],
+                                "text": "| Contact Us",
+                                "ui": "menubarbtn"
                             },
                             "name": "MyButton24",
                             "designerId": "04bd6667-a8e2-4860-a6b5-923b0ef1b67c"
@@ -411,6 +419,7 @@
                     "userConfig": {
                         "container|pack": "center",
                         "dock": "top",
+                        "hidden": true,
                         "id": "toolBarAdmin",
                         "itemId": "toolBarAdmin"
                     },
@@ -441,6 +450,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "id": "btnProducts",
                                 "itemId": "btnProducts",
                                 "layout|flex": null,
@@ -457,6 +467,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "id": "btnTransactions",
                                 "itemId": "btnTransactions",
                                 "layout|flex": null,

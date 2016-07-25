@@ -19,13 +19,15 @@ import com.oocl.mnlbc.entity.Meal;
  */
 public class MealDAOImpl implements MealDAO {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.oocl.mnlbc.dao.MealDAO#getAllMeals()
 	 */
-	
+
 	EntityManagerFactory entityManagerFactory;
 	EntityManager entityManager;
-	
+
 	@Override
 	public List<Meal> getAllMeals() {
 		Query query = entityManager.createQuery("select m from Meal m");
@@ -33,17 +35,21 @@ public class MealDAOImpl implements MealDAO {
 		return mealList;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.oocl.mnlbc.dao.MealDAO#getMealByID(int)
 	 */
 	@Override
 	public Meal getMealByID(int id) {
-		
+
 		Meal meal = (Meal) entityManager.find(Meal.class, id);
 		return meal;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.oocl.mnlbc.dao.MealDAO#getMealByCode(java.lang.String)
 	 */
 	@Override
@@ -54,16 +60,19 @@ public class MealDAOImpl implements MealDAO {
 		return meal;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.oocl.mnlbc.dao.MealDAO#addMeal(com.oocl.mnlbc.entity.Meal)
 	 */
 	@Override
 	public Meal addMeal(Meal meal) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.oocl.mnlbc.dao.MealDAO#init()
 	 */
 	@Override

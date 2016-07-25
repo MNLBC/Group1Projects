@@ -44,6 +44,9 @@
             "userConfig": {
                 "autoScroll": true,
                 "header": false,
+                "id": "commentsGrid",
+                "itemId": "commentsGrid",
+                "store": "CommentsStore",
                 "title": "My Grid Panel"
             },
             "name": "MyGridPanel4",
@@ -57,7 +60,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "string",
+                        "dataIndex": "username",
                         "flex": 0.5,
                         "text": "Username"
                     },
@@ -72,7 +75,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "string",
+                        "dataIndex": "comments",
                         "flex": 1,
                         "text": "Comments"
                     },
@@ -113,8 +116,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "height": 45,
+                        "id": "btnAccept",
+                        "itemId": "btnAccept",
                         "layout|flex": null,
-                        "text": "Accept"
+                        "text": "Accept",
+                        "width": 100
                     },
                     "name": "MyButton29",
                     "designerId": "38412aa1-c7ab-44d0-b108-0f7be7a18bfe"

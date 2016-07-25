@@ -104,6 +104,19 @@
             },
             "name": "MyField6",
             "designerId": "2cb5b1f8-0901-4a7d-a706-fca7de278228"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Points"
+            },
+            "name": "MyField36",
+            "designerId": "68c27d26-a094-4a86-bc08-eb3b85c26da7"
         }
     ]
 }

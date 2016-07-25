@@ -41,6 +41,9 @@ Ext.define('BurgerQueen.model.TrayModel', {
         {
             name: 'Total',
             type: 'auto'
+        },
+        {
+            name: 'Points'
         }
     ]
 });

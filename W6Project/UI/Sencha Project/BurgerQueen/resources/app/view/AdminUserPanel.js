@@ -29,6 +29,7 @@ Ext.define('BurgerQueen.view.AdminUserPanel', {
     id: 'AdminUserPanel',
     itemId: 'AdminUserPanel',
     width: 828,
+    autoScroll: true,
     header: false,
     title: 'Admin',
 

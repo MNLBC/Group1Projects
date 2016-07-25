@@ -1,4 +1,4 @@
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -27,6 +27,8 @@ public interface UserDAO {
 	public boolean checkUsernameExistence(String username);
 
 	public boolean checkEmailExistence(String email);
+	
+	public boolean updateUser(User user);
 
 	public EntityManager getEntityManager();
 }

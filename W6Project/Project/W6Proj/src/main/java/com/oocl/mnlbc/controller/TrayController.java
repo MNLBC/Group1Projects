@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.oocl.mnlbc;
+package com.oocl.mnlbc.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,6 +22,7 @@ import com.oocl.mnlbc.dao.OrderDAO;
 import com.oocl.mnlbc.dao.TrayDAO;
 import com.oocl.mnlbc.entity.Order;
 import com.oocl.mnlbc.entity.Tray;
+import org.codehaus.jackson.map.DeserializationConfig;
 
 /**
  * @author DELEOAN
@@ -34,7 +35,7 @@ public class TrayController {
 	final static Logger logger = Logger.getLogger(OrderItemController.class);
 	@Autowired
 	TrayDAO trayDAO;
-	
+
 	@Autowired
 	OrderDAO orderDAO;
 
@@ -43,7 +44,7 @@ public class TrayController {
 	public List<Tray> getTrayByUserID(@RequestParam(required = true) int userId) {
 		trayDAO.init();
 		List<Tray> trays = trayDAO.getAllTrayByUserId(userId);
-		// logger.info("Getting all order by User ID");
+		logger.info("Getting all order by User ID");
 		return trays;
 	}
 
@@ -55,18 +56,20 @@ public class TrayController {
 		for (Tray tray : trays) {
 			trayDAO.removeTray(tray);
 		}
-		// logger.info("Getting all order by User ID");
+		logger.info("Getting all order by User ID");
 		return true;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = { "/addTray" }, method = RequestMethod.POST)
-	public boolean addTray(@RequestParam (required = true) String trays){
+	public boolean addTray(@RequestParam(required = true) String trays) {
 		trayDAO.init();
 		ObjectMapper mapper = new ObjectMapper();
-		
+		mapper.configure(DeserializationConfig.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+		List<Tray> trayList = null;
 		try {
-			List<Tray> trayList = mapper.readValue(trays, mapper.getTypeFactory().constructCollectionType(List.class, Tray.class));
+
+			trayList = mapper.readValue(trays, mapper.getTypeFactory().constructCollectionType(List.class, Tray.class));
 			trayDAO.addListTray(trayList);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
@@ -77,7 +80,5 @@ public class TrayController {
 		}
 		return true;
 	}
-	
-	
 
 }
