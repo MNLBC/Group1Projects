@@ -33,9 +33,8 @@ public class OrderItemController {
 	@ResponseBody
 	@RequestMapping(value = "/getAllOrderItem", method = RequestMethod.GET)
 	public List<OrderItem> getAllOrderItem() {
-		orderItemDAO.init();
 		logger.info("Getting all order items");
-		List<OrderItem> orderItemList = orderItemDAO.getAllOrderItems();
+		List<OrderItem> orderItemList = orderItemDAO.getAll();
 
 		return orderItemList;
 	}
@@ -43,9 +42,6 @@ public class OrderItemController {
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrderItemsByOrderId" }, method = RequestMethod.POST)
 	public List<OrderItem> getAllOrderItemsById(@RequestParam(required = true) int id) {
-		orderItemDAO.init();
-	
-		
 		List<OrderItem> orderItemList = orderItemDAO.getAllOrderItemsByOrderId(id);
 		logger.info("Getting all order items by Id");
 		return orderItemList;
@@ -54,10 +50,8 @@ public class OrderItemController {
 	@ResponseBody
 	@RequestMapping(value = "/getOrderItemById/{id}", method = RequestMethod.GET)
 	public OrderItem getOrderItemById(@PathVariable("id") int id) {
-		orderItemDAO.init();
 		logger.info("Getting all orderItems by Id");
-		OrderItem orderItem = orderItemDAO.getOrderItemsById(id);
-
+		OrderItem orderItem = orderItemDAO.find(id);
 		return orderItem;
 	}
 

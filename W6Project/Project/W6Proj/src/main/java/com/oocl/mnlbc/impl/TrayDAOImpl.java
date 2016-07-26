@@ -12,7 +12,6 @@ import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.TrayDAO;
 import com.oocl.mnlbc.entity.Tray;
-import com.oocl.mnlbc.models.TrayReturnModel;
 
 /**
  * @author LIMOSJO

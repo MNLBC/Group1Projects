@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="UserDAOImpl" class="com.oocl.mnlbc.impl.UserDAOImpl"></bean>
+	<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl"></bean>
+	<bean id="MealDAOImpl" class="com.oocl.mnlbc.impl.MealDAOImpl"></bean>
+	<bean id="OrderItemDAOImpl" class="com.oocl.mnlbc.impl.OrderItemDAOImpl"></bean>
+	<bean id="TrayDAOImpl" class="com.oocl.mnlbc.impl.TrayDAOImpl"></bean>	
+	
+</beans>
