@@ -28,6 +28,14 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
         {
             ref: 'adminOrderManagementStatus',
             selector: '#adminOrderManagementStatus'
+        },
+        {
+            ref: 'onAdminOrderManagementBttnClose',
+            selector: '#onAdminOrderManagementBttnClose'
+        },
+        {
+            ref: 'adminOrderManagementViewWindow',
+            selector: '#AdminOrderManagementViewWindow'
         }
     ],
 
@@ -48,10 +56,46 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
 
     },
 
+    onAdminOrderManagementPanelRender: function(component, eOpts) {
+                var store = Ext.getStore('AdminOrderManagementStore');
+                Ext.Ajax.request({
+                    url : 'order/getAllOrders',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                    var data = Ext.JSON.decode(response.responseText);
+                    Ext.each(data, function(record){
+                            var order = {
+                                Id:record.id,
+                                Code:record.code,
+                                Name:record.name,
+                                Description:record.description,
+                                Category:record.category,
+                                Price:record.price,
+                            };
+                            store.add(order);
+                        });
+                    }
+                });
+    },
+
+    onAdminOrderManagementGridItemDblClick: function() {
+        alert('gumana');
+                Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow').show();
+    },
+
     init: function(application) {
         this.control({
             "#adminDoneBttn": {
                 click: this.onAdminDoneBttn
+            },
+            "#AdminOrderManagementPanel": {
+                render: this.onAdminOrderManagementPanelRender
+            },
+            "#adminOrderManagementGrid": {
+                itemdblclick: this.onAdminOrderManagementGridItemDblClick
             }
         });
     }

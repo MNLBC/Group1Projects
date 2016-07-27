@@ -403,8 +403,8 @@
                                         "implHandler": [
                                             "",
                                             "",
-                                            "         Ext.create('BurgerQueen.view.TransactionDetails',{",
-                                            "            transaction : record }).show();"
+                                            "Ext.create('BurgerQueen.view.TransactionDetails',{",
+                                            "    transaction : record }).show();"
                                         ],
                                         "name": "itemdblclick",
                                         "scope": "me"

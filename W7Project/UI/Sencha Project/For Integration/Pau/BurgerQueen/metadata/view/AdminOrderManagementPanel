@@ -48,7 +48,24 @@
                     },
                     "name": "MyGridPanel8",
                     "designerId": "b0c8773e-22f6-48a7-8c7c-61df34786d20",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "event",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
+                        {
+                            "type": "Ext.selection.RowModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": "Ext.selection.RowModel",
+                            "name": "MyRowSelectionModel",
+                            "designerId": "8ccb078a-6f48-43be-9e15-f93fe9ead3d7"
+                        },
                         {
                             "type": "Ext.grid.column.Column",
                             "reference": {
@@ -65,7 +82,14 @@
                                 "width": 65
                             },
                             "name": "MyColumn36",
-                            "designerId": "b436efcc-a7a2-45e7-98d1-189d3c0b0d26"
+                            "designerId": "b436efcc-a7a2-45e7-98d1-189d3c0b0d26",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "event",
+                                    "type": "string"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -117,25 +141,6 @@
                             },
                             "name": "MyColumn37",
                             "designerId": "89de42da-aab9-4db4-84d4-6e24a8e5aec0"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "adminOrderQuantity",
-                                "designer|displayName": "adminOrderManagementQuantity",
-                                "id": "adminOrderManagementQuantity",
-                                "itemId": "adminOrderManagementQuantity",
-                                "stateId": "adminOrderManagementQuantity",
-                                "text": "Quantity",
-                                "width": 74
-                            },
-                            "name": "MyColumn38",
-                            "designerId": "941b0366-16c6-4cd7-94a5-2f6cdfa9a789"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -211,27 +216,7 @@
                         "text": "Done"
                     },
                     "name": "MyButton33",
-                    "designerId": "47d3a5e1-2a12-44b9-868a-abdb3629e281",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onAdminDoneBttnClick",
-                                "implHandler": [
-                                    ""
-                                ],
-                                "name": "click",
-                                "scope": "me"
-                            },
-                            "name": "onAdminDoneBttnClick",
-                            "designerId": "b86b48bf-a110-4c27-be3d-029b583e9d0e"
-                        }
-                    ]
+                    "designerId": "47d3a5e1-2a12-44b9-868a-abdb3629e281"
                 }
             ]
         }

@@ -85,6 +85,96 @@
             },
             "name": "adminOrderManagementStatus",
             "designerId": "eda00321-02d7-495d-8926-e32d1d31befc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "onAdminOrderManagementBttnClose",
+                "selector": "#onAdminOrderManagementBttnClose"
+            },
+            "name": "onAdminOrderManagementBttnClose",
+            "designerId": "a84e61d4-cb8e-4801-8bf5-a5b7377f4f7d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#AdminOrderManagementPanel",
+                "designer|targetType": "AdminOrderManagementPanel",
+                "fn": "onAdminOrderManagementPanelRender",
+                "implHandler": [
+                    "        var store = Ext.getStore('AdminOrderManagementStore');",
+                    "        Ext.Ajax.request({",
+                    "            url : 'order/getAllOrders',",
+                    "            params : {",
+                    "",
+                    "            },",
+                    "            scope : this,",
+                    "            success : function(response) {",
+                    "            var data = Ext.JSON.decode(response.responseText);",
+                    "            Ext.each(data, function(record){",
+                    "                    var order = {",
+                    "                        Id:record.id,",
+                    "                        Code:record.code,",
+                    "                        Name:record.name,",
+                    "                        Description:record.description,",
+                    "                        Category:record.category,",
+                    "                        Price:record.price,",
+                    "                    };",
+                    "                    store.add(order);",
+                    "                });",
+                    "            }",
+                    "        });"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onAdminOrderManagementPanelRender",
+            "designerId": "d3489f08-a2d0-4bb1-917c-e750b8b09a92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrderManagementViewWindow",
+                "selector": "#AdminOrderManagementViewWindow"
+            },
+            "name": "adminOrderManagementViewWindow",
+            "designerId": "52b8d0e5-6fcd-48ce-8275-3215e279c0f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminOrderManagementGrid",
+                "designer|targetType": "MyGridPanel8",
+                "fn": "onAdminOrderManagementGridItemDblClick",
+                "implHandler": [
+                    "alert('gumana');",
+                    "        Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow').show();"
+                ],
+                "name": "itemdblclick",
+                "scope": "me"
+            },
+            "name": "onAdminOrderManagementGridItemDblClick",
+            "designerId": "970acaf7-52c0-4fcf-b1a4-bae7a173ede7"
         }
     ]
 }

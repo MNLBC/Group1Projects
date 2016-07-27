@@ -15,7 +15,7 @@
             }
         },
         "urlPrefix": "http://localhost/BurgerQueen/",
-        "exportPath": "D:/My Documents/w7/publish",
+        "exportPath": "D:/My Documents/Group1Projects/W7Project/UI/Sencha Project/For Integration/Pau/publish",
         "spacesToIndent": 4,
         "sdkPath": "",
         "lineEnding": "CRLF",
@@ -39,7 +39,11 @@
         "displayfield-ExtBox1-1695-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-1819-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-1874-inputEl": "a new version of the framework is available",
-        "displayfield-ExtBox1-1929-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1929-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2118-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2173-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2228-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-2283-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.1.0",
     "xdsBuild": 1943,
@@ -64,7 +68,8 @@
             "c35b962e-f910-4d5c-9f2d-c5f3befa2fe8",
             "6d08b34a-4855-4acb-99da-c8b1f7b61186",
             "9aee4c05-66e5-444f-be12-dc2055332bbf",
-            "fd998168-24ad-4af8-b1f5-2091940a0d81"
+            "fd998168-24ad-4af8-b1f5-2091940a0d81",
+            "1b615c80-9c42-4ee9-9dd6-7e67bf0f69b1"
         ],
         "store": [
             "2583dd27-d23f-434c-aad6-a1f7a440c827",

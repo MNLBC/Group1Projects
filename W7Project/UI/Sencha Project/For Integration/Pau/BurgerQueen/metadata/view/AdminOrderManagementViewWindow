@@ -1,0 +1,162 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagementViewWindow",
+        "height": 250,
+        "id": "AdminOrderManagementViewWindow",
+        "itemId": "AdminOrderManagementViewWindow",
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "1b615c80-9c42-4ee9-9dd6-7e67bf0f69b1",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "title": "My Form"
+            },
+            "name": "MyForm5",
+            "designerId": "c485286d-4d05-4dfb-b09d-a0875bc2e756",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "My Grid Panel"
+                    },
+                    "name": "MyGridPanel9",
+                    "designerId": "bf6182de-4911-45e7-8eea-f342e031dd77",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "adminUserId",
+                                "designer|displayName": "Id",
+                                "flex": 1,
+                                "id": "id",
+                                "itemId": "id",
+                                "text": "Id"
+                            },
+                            "name": "MyColumn41",
+                            "designerId": "799a499c-e787-40a4-91b0-ad286220f312"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "adminOrderManagementMeal",
+                                "flex": 1,
+                                "text": "Meal"
+                            },
+                            "name": "MyColumn42",
+                            "designerId": "3677e000-dce1-4dbb-bd97-6902e883a411"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "adminOrderManagementQuantity",
+                                "flex": 1,
+                                "text": "Quantity",
+                                "width": 82
+                            },
+                            "name": "MyColumn43",
+                            "designerId": "1a5479a0-f300-4f30-9635-0b75f610d340"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView9",
+                            "designerId": "76be7605-7835-485f-8cef-621ed3aaade3"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "bottom"
+                            },
+                            "name": "MyToolbar16",
+                            "designerId": "07be7625-4409-48d8-932c-663c2ee80e9a",
+                            "cn": [
+                                {
+                                    "type": "Ext.toolbar.Fill",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null
+                                    },
+                                    "name": "MyFill1",
+                                    "designerId": "34ecf630-b276-4d00-a536-a3b63c8559bb"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "onAdminOrderManagementBttnClose",
+                                        "id": "onAdminOrderManagementBttnClose",
+                                        "itemId": "onAdminOrderManagementBttn",
+                                        "layout|flex": null,
+                                        "text": "close"
+                                    },
+                                    "name": "MyButton35",
+                                    "designerId": "a7e68482-b673-466c-869a-c723c19ed27f",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "event",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

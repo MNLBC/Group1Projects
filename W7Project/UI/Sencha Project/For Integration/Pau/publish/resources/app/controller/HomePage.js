@@ -547,13 +547,13 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onBtnTransactionsClick: function() {
-             this.getProducts().hide();
-            this.getUserProfile().hide();
-            this.getAdminCommentsPanel().hide();
-            this.getAdminUserPanel().hide();
-            this.getAdminOrderManagementPanel().hide();
-            this.getAdminProductsPanel().hide();
-            this.getAdminTransactionsPanel().show();
+        this.getProducts().hide();
+        this.getUserProfile().hide();
+        this.getAdminCommentsPanel().hide();
+        this.getAdminUserPanel().hide();
+        this.getAdminOrderManagementPanel().hide();
+        this.getAdminProductsPanel().hide();
+        this.getAdminTransactionsPanel().show();
         console.log('Transaction');
     },
 
@@ -669,9 +669,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onLaunch: function() {
-                this.productStore = Ext.getStore('ProductStore');
+        this.productStore = Ext.getStore('ProductStore');
         //         activeUserStore = Ext.getStore('ActiveUserStore');
-                activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
+        activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
     },
 
     addToTray: function(trays) {

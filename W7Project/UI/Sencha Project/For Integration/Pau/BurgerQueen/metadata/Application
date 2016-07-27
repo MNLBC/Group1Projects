@@ -47,7 +47,8 @@
             "AdminCommentsPanel",
             "AdminTransactionsPanel",
             "AdminProductsPanel",
-            "AdminOrderManagement"
+            "AdminOrderManagement",
+            "AdminOrderManagementViewWindow"
         ]
     },
     "name": "Application",

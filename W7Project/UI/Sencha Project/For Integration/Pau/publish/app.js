@@ -58,7 +58,8 @@ Ext.application({
         'AdminCommentsPanel',
         'AdminTransactionsPanel',
         'AdminProductsPanel',
-        'AdminOrderManagementPanel'
+        'AdminOrderManagement',
+        'AdminOrderManagementViewWindow'
     ],
     appFolder: 'resources/app',
     controllers: [

@@ -268,28 +268,28 @@ Ext.define('BurgerQueen.controller.Windows', {
             selectedProduct = selectModel.getSelection();
 
 
-            if(!Ext.isEmpty(selectedProduct)){
-                var selectedPrice = selectedProduct[0].data.Price,
-                    selectedQty = selectedProduct[0].data.Quantity;
+        if(!Ext.isEmpty(selectedProduct)){
+            var selectedPrice = selectedProduct[0].data.Price,
+                selectedQty = selectedProduct[0].data.Quantity;
 
-                var currentQty = this.getTotalItems().getValue(),
-                    currentAmount = this.getTotalAmount().getValue();
+            var currentQty = this.getTotalItems().getValue(),
+                currentAmount = this.getTotalAmount().getValue();
 
-                var updatedQty = currentQty - selectedQty,
-                    updatedAmount = currentAmount - selectedPrice;
+            var updatedQty = currentQty - selectedQty,
+                updatedAmount = currentAmount - selectedPrice;
 
-                trayStore.remove(selectedProduct);
-                this.getTotalItems().setValue(updatedQty);
-                this.getTotalAmount().setValue(updatedAmount);
+            trayStore.remove(selectedProduct);
+            this.getTotalItems().setValue(updatedQty);
+            this.getTotalAmount().setValue(updatedAmount);
 
-                //call on show event of tray
-                this.onTrayWindowShow();
+            //call on show event of tray
+            this.onTrayWindowShow();
 
 
-            }else{
-                Ext.MessageBox.alert('Error','Please select an item to remove');
+        }else{
+            Ext.MessageBox.alert('Error','Please select an item to remove');
 
-            }
+        }
 
 
     },

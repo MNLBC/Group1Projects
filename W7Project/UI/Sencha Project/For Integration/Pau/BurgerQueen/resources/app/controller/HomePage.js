@@ -547,13 +547,13 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onBtnTransactionsClick: function() {
-             this.getProducts().hide();
-            this.getUserProfile().hide();
-            this.getAdminCommentsPanel().hide();
-            this.getAdminUserPanel().hide();
-            this.getAdminOrderManagementPanel().hide();
-            this.getAdminProductsPanel().hide();
-            this.getAdminTransactionsPanel().show();
+        this.getProducts().hide();
+        this.getUserProfile().hide();
+        this.getAdminCommentsPanel().hide();
+        this.getAdminUserPanel().hide();
+        this.getAdminOrderManagementPanel().hide();
+        this.getAdminProductsPanel().hide();
+        this.getAdminTransactionsPanel().show();
         console.log('Transaction');
     },
 
@@ -593,21 +593,21 @@ Ext.define('BurgerQueen.controller.HomePage', {
     onUserGridSelectionChange: function() {
         var userStore = Ext.getStore('UsersStore');
 
-                var usersGrid = this.getUserGrid(),
-                    selectModel = usersGrid.getSelectionModel(),
-                    selectedUser = selectModel.getSelection(),
-                    userDisabledValue = selectedUser[0].data.Disabled;
+        var usersGrid = this.getUserGrid(),
+            selectModel = usersGrid.getSelectionModel(),
+            selectedUser = selectModel.getSelection(),
+            userDisabledValue = selectedUser[0].data.Disabled;
 
-                if(userDisabledValue === 0){
+        if(userDisabledValue === 0){
 
-                    // Ext.getCmp('btnEnable')
-                    this.getBtnEnable().disable();
-                    this.getBtnDisable().enable();
+            // Ext.getCmp('btnEnable')
+            this.getBtnEnable().disable();
+            this.getBtnDisable().enable();
 
-                }else{
-                    this.getBtnEnable().enable();
-                    this.getBtnDisable().disable();
-                }
+        }else{
+            this.getBtnEnable().enable();
+            this.getBtnDisable().disable();
+        }
     },
 
     onBtnAcceptClick: function() {
@@ -669,9 +669,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onLaunch: function() {
-                this.productStore = Ext.getStore('ProductStore');
+        this.productStore = Ext.getStore('ProductStore');
         //         activeUserStore = Ext.getStore('ActiveUserStore');
-                activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
+        activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
     },
 
     addToTray: function(trays) {

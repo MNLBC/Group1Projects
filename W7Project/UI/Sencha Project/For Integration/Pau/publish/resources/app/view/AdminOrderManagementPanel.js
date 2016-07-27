@@ -20,6 +20,7 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
     requires: [
         'Ext.form.Panel',
         'Ext.grid.Panel',
+        'Ext.selection.RowModel',
         'Ext.grid.column.Column',
         'Ext.grid.View',
         'Ext.toolbar.Toolbar',
@@ -50,6 +51,9 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                             itemId: 'adminOrderManagementGrid',
                             title: 'My Grid Panel',
                             store: 'AdminOrderManagementStore',
+                            selModel: Ext.create('Ext.selection.RowModel', {
+
+                            }),
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
@@ -82,15 +86,6 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    stateId: 'adminOrderManagementQuantity',
-                                    id: 'adminOrderManagementQuantity',
-                                    itemId: 'adminOrderManagementQuantity',
-                                    width: 74,
-                                    dataIndex: 'adminOrderQuantity',
-                                    text: 'Quantity'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
                                     stateId: 'adminOrderManagementStatus',
                                     id: 'adminOrderManagementStatus',
                                     itemId: 'adminOrderManagementStatus',
@@ -112,13 +107,7 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                             xtype: 'button',
                             id: 'adminDoneBttn',
                             itemId: 'adminDoneBttn',
-                            text: 'Done',
-                            listeners: {
-                                click: {
-                                    fn: me.onAdminDoneBttnClick,
-                                    scope: me
-                                }
-                            }
+                            text: 'Done'
                         }
                     ]
                 }
@@ -126,10 +115,6 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
         });
 
         me.callParent(arguments);
-    },
-
-    onAdminDoneBttnClick: function(button, e, eOpts) {
-
     }
 
 });

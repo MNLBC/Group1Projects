@@ -230,8 +230,8 @@ Ext.define('BurgerQueen.view.UserProfile', {
     onTransacHistoryGridItemDblClick: function(dataview, record, item, index, e, eOpts) {
 
 
-                 Ext.create('BurgerQueen.view.TransactionDetails',{
-                    transaction : record }).show();
+        Ext.create('BurgerQueen.view.TransactionDetails',{
+            transaction : record }).show();
     }
 
 });
