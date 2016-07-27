@@ -47,8 +47,8 @@ public class OrderController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = { "/getAllOrderByUserId" }, method = RequestMethod.POST)
-	public List<Order> getAllOrderByUserID(@RequestParam(required = true) int userId) {
+	@RequestMapping(value = { "/getAllOrderByUserId/{userId}" }, method = RequestMethod.GET)
+	public List<Order> getAllOrderByUserID(@PathVariable("userId") int userId) {
 		List<Order> orderList = orderDao.getOrderByUserId(userId);
 		logger.info("Getting all order by User ID");
 		return orderList;
@@ -57,25 +57,26 @@ public class OrderController {
 	@ResponseBody
 	@RequestMapping(value = "/getOrderById/{id}", method = RequestMethod.GET)
 	public Order getOrderById(@PathVariable("id") int id) {
-		logger.info("Getting all order by ID");
 		Order order = orderDao.find(id);
+		logger.info("Getting all order by ID");
 		return order;
 	}
 
-//	@ResponseBody
-//	@RequestMapping(value = { "/addOrder" }, method = RequestMethod.POST)
-//	public String addOrderItem(@RequestBody Order order) {
-//		List<OrderItem> orderItems = order.getOrderItemList();
-//		order.setOrderItemList(null);
-//		orderDao.add(order);
-//		
-//		for (OrderItem orderItem : orderItems) {
-//			Order orderItemsOrder = orderItem.getOrder();
-//			orderItemsOrder.setId(order.getId());
-//		}
-//		orderItemDao.add(orderItems);
-//		return "success";
-//	}
+	@ResponseBody
+	@RequestMapping(value = { "/addOrder" }, method = RequestMethod.POST)
+	public boolean addOrderItem(@RequestBody Order order) {
+		List<OrderItem> orderItems = order.getOrderItemList();
+		order.setOrderItemList(null);
+		orderDao.add(order);
+		
+		for (OrderItem orderItem : orderItems) {
+			Order orderItemsOrder = orderItem.getOrder();
+			orderItemsOrder.setId(order.getId());
+		}
+		orderItemDao.addOrderItems(orderItems);
+		
+		return true;
+	}
 
 
 

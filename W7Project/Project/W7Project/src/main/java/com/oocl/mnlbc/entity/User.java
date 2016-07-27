@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * @author RACELPA
  *
@@ -52,7 +54,8 @@ public class User implements Serializable {
 
 	@Column(name = "username")
 	private String username;
-
+	
+	@JsonIgnore
 	@Column(name = "password")
 	private String password;
 

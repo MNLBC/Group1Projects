@@ -4,10 +4,20 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="UserService" class="com.oocl.mnlbc.service.impl.UserService"></bean>
+
 	<bean id="UserDAOImpl" class="com.oocl.mnlbc.impl.UserDAOImpl"></bean>
 	<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl"></bean>
 	<bean id="MealDAOImpl" class="com.oocl.mnlbc.impl.MealDAOImpl"></bean>
 	<bean id="OrderItemDAOImpl" class="com.oocl.mnlbc.impl.OrderItemDAOImpl"></bean>
-	<bean id="TrayDAOImpl" class="com.oocl.mnlbc.impl.TrayDAOImpl"></bean>	
+	<bean id="TrayDAOImpl" class="com.oocl.mnlbc.impl.TrayDAOImpl"></bean>
+	
+	<bean id="FeedbackDAOImpl" class="com.oocl.mnlbc.impl.FeedbackDAOImpl"></bean>
+	<bean id="InquiryDAOImpl" class="com.oocl.mnlbc.impl.InquiryDAOImpl"></bean>
+	
+		
+	
+	
 	
 </beans>

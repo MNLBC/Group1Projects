@@ -32,31 +32,12 @@ public class UserDAOImpl extends AbstractJPADAO<User> implements UserDAO {
 		return userReturn;
 	}
 
-
 	@Override
-	public boolean checkUsernameExistence(String username) {
-
-		Query query = entityManager.createQuery("select u from User u where u.username = :username");
-		query.setParameter("username", username);
-		List<User> users = query.getResultList();
-		if (users.size() > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
-	public boolean checkEmailExistence(String email) {
+	public User getUserByEmail(String email) {
 		Query query = entityManager.createQuery("select u from User u where u.email = :email");
 		query.setParameter("email", email);
-		List<User> users = query.getResultList();
-		if (users.size() > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		User userReturn = (User) query.getSingleResult();
+		return userReturn;
 	}
-
 
 }

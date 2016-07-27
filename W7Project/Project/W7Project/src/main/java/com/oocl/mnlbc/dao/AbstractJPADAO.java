@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public abstract class AbstractJPADAO<T extends Serializable> {
 
 	private Class<T> clazz;
 
-	@PersistenceContext
-	protected EntityManager entityManager;
+	protected EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("unitEclipseLink", new java.util.HashMap());
+	protected EntityManager entityManager = emfactory.createEntityManager();
 
 	public void setClazz(Class<T> clazz) {
 		this.clazz = clazz;
@@ -41,7 +42,9 @@ public abstract class AbstractJPADAO<T extends Serializable> {
 	}
 
 	public void delete(T entity) {
-
+		entityManager.getTransaction().begin();
+		entityManager.remove( entity );
+		entityManager.getTransaction().commit();
 	}
 
 

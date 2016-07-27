@@ -37,6 +37,14 @@ public class OrderItemDAOImpl extends AbstractJPADAO<OrderItem> implements Order
 		List<OrderItem> orderItemList = query.getResultList();
 		return orderItemList;
 	}
-
+	@Override
+	public boolean addOrderItems(List<OrderItem> orderItems) {
+		entityManager.getTransaction().begin();
+		for (OrderItem orderItem : orderItems) {
+			entityManager.persist(orderItem);
+		}
+		entityManager.getTransaction().commit();
+		return true;
+	}
 
 }

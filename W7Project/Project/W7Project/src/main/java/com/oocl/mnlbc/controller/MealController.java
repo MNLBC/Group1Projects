@@ -9,12 +9,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.entity.Meal;
+import com.oocl.mnlbc.entity.User;
 
 
 /**
@@ -50,5 +52,29 @@ public class MealController {
 		Meal meal = mealDAO.getMealByCode(code);
 		logger.info("Getting all list of Meals");
 		return meal;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/addMeal" }, method = RequestMethod.POST)
+	public boolean addMeal(@RequestBody Meal meal) {
+		mealDAO.add(meal);
+		logger.info("Adding new meal");
+		return true;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/updateMeal" }, method = RequestMethod.POST)
+	public boolean updateMeal(@RequestBody Meal meal) {
+		mealDAO.update(meal);
+		logger.info("Updating meal");
+		return true;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/deleteMeal" }, method = RequestMethod.POST)
+	public boolean deleteMeal(@RequestBody Meal meal) {
+		mealDAO.delete(meal);
+		logger.info("Deleting meal");
+		return true;
 	}
 }

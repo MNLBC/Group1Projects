@@ -15,6 +15,7 @@ import com.oocl.mnlbc.dao.GenericDAO;
 import com.oocl.mnlbc.dao.OrderDAO;
 import com.oocl.mnlbc.entity.Meal;
 import com.oocl.mnlbc.entity.Order;
+import com.oocl.mnlbc.entity.User;
 
 /**
  * @author RACELPA
@@ -30,7 +31,9 @@ public class OrderDAOImpl  extends AbstractJPADAO<Order> implements OrderDAO{
 	
 	@Override
 	public List<Order> getOrderByUserId(int id) {
-		return null;
+		Query query = entityManager.createQuery("select o from Order o where o.user.id = :userId");
+		query.setParameter("userId", id);
+		return query.getResultList();
 	}
 
 }

@@ -9,6 +9,8 @@
 		<class>com.oocl.mnlbc.entity.Meal</class>
 		<class>com.oocl.mnlbc.entity.OrderItem</class>
 		<class>com.oocl.mnlbc.entity.Tray</class>
+		<class>com.oocl.mnlbc.entity.Feedback</class>
+		<class>com.oocl.mnlbc.entity.Inquiry</class>
 		
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@ZHA-ITA098-W7:1521:xe"/>
