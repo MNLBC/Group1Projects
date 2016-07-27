@@ -1,0 +1,34 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"category\": \"Chicken\"",
+            "    },",
+            "    {",
+            "        \"category\": \"Beverages\"",
+            "    },",
+            "    {",
+            "        \"category\": \"Sides\"",
+            "    },",
+            "    {",
+            "        \"category\": \"Dessert\"",
+            "    },",
+            "    {",
+            "        \"category\": \"Burgers\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "CategoryStore",
+        "model": "CategoryModel",
+        "storeId": "CategoryStore"
+    },
+    "name": "MyStore",
+    "designerId": "1dc6492c-f943-4c9a-baa8-5ab36c5777fe"
+}

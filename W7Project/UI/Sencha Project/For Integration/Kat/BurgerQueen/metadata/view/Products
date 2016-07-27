@@ -1,0 +1,214 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "bodyPadding": null,
+        "bodyStyle": [
+            "font-family: 'Century Gothic';"
+        ],
+        "designer|userAlias": "Products",
+        "designer|userClassName": "Products",
+        "header": false,
+        "height": 559,
+        "html": [
+            "<link href='http://fonts.googleapis.com/css?family=Abel'",
+            "rel='stylesheet' type='text/css'>"
+        ],
+        "itemId": "Products",
+        "style": [
+            "font-family: 'Century Gothic';"
+        ],
+        "title": "Products",
+        "width": 1099
+    },
+    "name": "MyPanel1",
+    "designerId": "159d9e1f-cdeb-4919-bd06-7f3f430d7893",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "dock": "top"
+            },
+            "name": "MyToolbar7",
+            "designerId": "0aaf84a9-39f3-43e0-ae08-add440b2a56e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Search",
+                        "fieldStyle": " font-family: 'Century Gothic';",
+                        "id": "SearchField",
+                        "itemId": "SearchField",
+                        "labelStyle": "font-family: 'Century Gothic'",
+                        "layout|flex": null,
+                        "style": [
+                            " font-family: 'Century Gothic';"
+                        ]
+                    },
+                    "name": "MyTextField11",
+                    "designerId": "ea6a5f9e-9ff1-42e3-8ba4-bcf63c296d99",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSearchFieldChange",
+                                "implHandler": [
+                                    "        var productStore = Ext.getStore('ProductStore');",
+                                    "        productStore.clearFilter();",
+                                    "        if(!Ext.isEmpty(newValue)){",
+                                    "            productStore.filter('Name', newValue);",
+                                    "        }else{",
+                                    "            productStore.clearFilter();",
+                                    "        }",
+                                    "        "
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onSearchFieldChange",
+                            "designerId": "5f0fa151-a106-4285-ade1-ee8e9cfbc467"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "margin": "0, 300, 0, 300",
+                "padding": "20,100,100,100"
+            },
+            "name": "MyContainer3",
+            "designerId": "cc4a27a2-ae48-4f1d-96bc-9ae7b8dee633",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": null,
+                        "bodyBorder": true,
+                        "columnLines": false,
+                        "designer|uiInterfaceName": "menubarbtn",
+                        "header": false,
+                        "hideHeaders": true,
+                        "id": "ProductGrid",
+                        "itemId": "ProductGrid",
+                        "store": "ProductStore",
+                        "title": "My Grid Panel",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyGridPanel",
+                    "designerId": "b8eed07c-d301-4fb6-8e4e-c42891bdb2b6",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView",
+                            "designerId": "6a59c452-ce49-45d2-aa02-8c9fb70bfa3d"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Image",
+                                "flex": 0.4,
+                                "text": "Image"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "99bb6763-201a-41a0-9059-941c20e0f014",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "",
+                                            "                        return '<img src=\"'+value+'\" width=\"250\" height=\"250\" border=\"0\" />';"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "d81de1ea-1583-4f74-b2db-1363e1d99467"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Name",
+                                "flex": 1,
+                                "html": [
+                                    "<style>",
+                                    "#ProductGrid .x-grid-cell-inner  {",
+                                    "  font-size: 50px;",
+                                    "  color:#8b542f;",
+                                    "}",
+                                    "</style>"
+                                ],
+                                "text": "Name"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "ec2f2233-6c66-489b-9e96-1509167a51a5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

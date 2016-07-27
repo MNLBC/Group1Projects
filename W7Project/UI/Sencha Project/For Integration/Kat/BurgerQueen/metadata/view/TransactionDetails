@@ -1,0 +1,161 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TransactionDetails",
+        "header": false,
+        "height": 250,
+        "id": "TransactionDetails",
+        "itemId": "TransactionDetails",
+        "modal": true,
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "d7281523-32e7-4ce9-90ad-74c7e3c2127c",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": [
+                    "<link href='http://fonts.googleapis.com/css?family=Abel'rel='stylesheet' type='text/css'>",
+                    "<center><div id=\"nav\"><h2 style = 'font-family: Abel;'>Transaction Details</h2></div></center>"
+                ]
+            },
+            "name": "MyContainer5",
+            "designerId": "08668381-68b4-45b5-b922-b2efc656a355"
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "store": "TransactionDetailsStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel3",
+            "designerId": "2743f1d6-8c9d-4998-9630-c2f35c701d48",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Id",
+                        "flex": 1,
+                        "text": "Id"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "fadd2f74-8859-4ba5-9aaa-a4b21a99b0f1"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView3",
+                    "designerId": "175ac271-2cdf-46ec-acab-e60d48e152b8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Quantity",
+                        "flex": 1,
+                        "text": "Quantity"
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "7959ab7e-036b-4d3b-9ef1-620eaa882cf2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Meal",
+                        "flex": 1,
+                        "text": "Meal"
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "997e67ed-e0ae-4b9f-a9a8-24df0c71d29d"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTransactionDetailsDestroy",
+                "implHandler": [
+                    "        var transStore = Ext.getStore('TransactionDetailsStore');",
+                    "        transStore.removeAll();"
+                ],
+                "name": "destroy",
+                "scope": "me"
+            },
+            "name": "onTransactionDetailsDestroy",
+            "designerId": "c1c55ac7-dffc-4c20-89b1-f92405755184"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar8",
+            "designerId": "385cadb8-acdf-49d1-881d-30f37a903597",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "closeBtn",
+                        "itemId": "closeBtn",
+                        "layout|flex": null,
+                        "text": "Close"
+                    },
+                    "name": "MyButton21",
+                    "designerId": "d04d316d-fddf-40ea-8336-ff89be37affb"
+                }
+            ]
+        }
+    ]
+}

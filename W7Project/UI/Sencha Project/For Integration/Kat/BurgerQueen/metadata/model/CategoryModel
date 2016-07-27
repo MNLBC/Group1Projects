@@ -1,0 +1,28 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CategoryModel"
+    },
+    "name": "MyModel",
+    "designerId": "e70c3f07-fc18-4f50-ba20-ce9176a7e14f",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "category"
+            },
+            "name": "MyField37",
+            "designerId": "dd183247-cb47-4414-98af-8f1bcbb6f9a7"
+        }
+    ]
+}

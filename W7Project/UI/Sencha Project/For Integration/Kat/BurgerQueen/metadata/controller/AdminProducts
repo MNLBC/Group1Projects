@@ -1,0 +1,638 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminProducts"
+    },
+    "name": "MyController",
+    "designerId": "ec3820fc-266c-4a70-9f1f-05be2f5e528c",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminProductsPanel",
+                "selector": "#AdminProductsPanel"
+            },
+            "name": "adminProductsPanel",
+            "designerId": "ed1656e2-4f52-46ff-b7d0-3c9ba2c87711"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activeUserCounter",
+                "implHandler": [
+                    "",
+                    "    Ext.Ajax.request({",
+                    "            url : 'getLoggedUsers',",
+                    "            params : {",
+                    "",
+                    "            },",
+                    "            scope : this,",
+                    "            success : function(response) {",
+                    "                var data = Ext.decode(response.responseText);",
+                    "                activeUsers = data;",
+                    "                var store = activeUserStore;",
+                    "                store.removeAll();",
+                    "               this.getActiveUsersCount().setValue(data.length);",
+                    "                Ext.each(data, function(record){",
+                    "                    store.add({username:record.username});",
+                    "                });",
+                    "            }",
+                    "        });"
+                ]
+            },
+            "name": "activeUserCounter",
+            "designerId": "c53c7be8-9d6e-4e6a-bd80-16d3746787ea"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "userProfile",
+                "selector": "#UserProfile"
+            },
+            "name": "userProfile",
+            "designerId": "0b995ca7-3062-4cd7-b431-c42e61bf96d5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminTransactionsPanel",
+                "selector": "#AdminTransactionsPanel"
+            },
+            "name": "adminTransactionsPanel",
+            "designerId": "d21c4340-0149-428c-a048-6454129a0ef8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminUserPanel",
+                "selector": "#AdminUserPanel"
+            },
+            "name": "adminUserPanel",
+            "designerId": "b96eea58-851a-4f99-92fd-3352ef2d9831"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminCommentsPanel",
+                "selector": "#AdminCommentsPanel"
+            },
+            "name": "adminCommentsPanel",
+            "designerId": "0bad1f8d-e923-4a22-bf2d-a4550e41680d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminAddMealForm",
+                "selector": "#adminAddMealForm"
+            },
+            "name": "adminAddMealForm",
+            "designerId": "08427d93-5be9-4139-8246-07b28af07b9d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "btnProducts",
+                "selector": "#btnProducts"
+            },
+            "name": "btnProducts",
+            "designerId": "50b5083f-b9fd-486b-abd9-1f11fcc2f0e6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnProducts",
+                "designer|targetType": "MyButton26",
+                "fn": "onBtnProductsClick",
+                "implHandler": [
+                    "this.getAdminProductsPanel().show();",
+                    "    this.getUserProfile().hide();",
+                    "    this.getAdminCommentsPanel().hide();",
+                    "    this.getAdminTransactionsPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
+                    "",
+                    "var store = Ext.getStore('ProductStore');",
+                    "store.removeAll();",
+                    "Ext.Ajax.request({",
+                    "    url : 'meal/getAllMeals',",
+                    "    params : {",
+                    "",
+                    "    },",
+                    "    scope : this,",
+                    "    success : function(response) {",
+                    "        var data = Ext.JSON.decode(response.responseText);",
+                    "        Ext.each(data, function(record){",
+                    "            var product = {",
+                    "                Id:record.id,",
+                    "                Code:record.code,",
+                    "                Name:record.name,",
+                    "                Description:record.description,",
+                    "                Category:record.category,",
+                    "                Price:record.price,",
+                    "                Image:record.image,",
+                    "                Points:record.points",
+                    "            };",
+                    "            store.add(product);",
+                    "        });",
+                    "    }",
+                    "});"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtnProductsClick",
+            "designerId": "a288ad3d-c90b-49e9-aa3a-475bce5ebbe6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminCreateBtn",
+                "designer|targetType": "MyButton33",
+                "fn": "onAdminCreateBtnClick",
+                "implHandler": [
+                    "Ext.create('BurgerQueen.view.AdminAddMealWindow').show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminCreateBtnClick",
+            "designerId": "ce4d700c-1965-4e53-a6d8-fc2c7656d80e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminDeleteBtn",
+                "designer|targetType": "MyButton34",
+                "fn": "onAdminDeleteBtnClick",
+                "implHandler": [
+                    " Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to delete this meal?\", function(btnText){",
+                    "                    if(btnText === \"yes\"){",
+                    "                        var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
+                    "                            adminProductStore = adminProductsGrid.getStore(),",
+                    "                            selectModel = adminProductsGrid.getSelectionModel(),",
+                    "                            selectedProduct = selectModel.getSelection();",
+                    "",
+                    "                        adminProductStore.remove(selectedProduct);",
+                    "                    }",
+                    " });",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminDeleteBtnClick",
+            "designerId": "3df6861b-3fef-4b6b-a81a-b9d320966e4f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminProductGridView",
+                "selector": "#adminProductGridView"
+            },
+            "name": "adminProductGridView",
+            "designerId": "40fefa3e-1732-4552-bdf2-8b38115c1fbd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminEditMealName",
+                "selector": "#adminEditMealName"
+            },
+            "name": "adminEditMealName",
+            "designerId": "23978074-cfbc-4aa2-8fdc-0bc5f9b0b7c4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminEditDescription",
+                "selector": "#adminEditDescription"
+            },
+            "name": "adminEditDescription",
+            "designerId": "94afd0f0-70d4-464b-a5ab-b70ac45174ca"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminEditPrice",
+                "selector": "#adminEditPrice"
+            },
+            "name": "adminEditPrice",
+            "designerId": "22b7402c-a8ed-4967-9f95-5dd37e9869da"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminEditPoints",
+                "selector": "#adminEditPoints"
+            },
+            "name": "adminEditPoints",
+            "designerId": "6942bc43-7984-41fe-ae45-33a082120b66"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminEditMealBtn",
+                "designer|targetType": "MyButton35",
+                "fn": "onAdminEditMealBtnClick",
+                "implHandler": [
+                    "Ext.create('BurgerQueen.view.AdminEditMealWindow').show();",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminEditMealBtnClick",
+            "designerId": "416e1e92-9854-4355-9467-f5dfe11122a5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminEditMealWindow",
+                "designer|targetType": "AdminEditMealWindow",
+                "fn": "onAdminEditMealWindowActivate",
+                "implHandler": [
+                    "var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
+                    "                            adminProductStore = adminProductsGrid.getStore(),",
+                    "                            selectModel = adminProductsGrid.getSelectionModel(),",
+                    "                            selectedProduct = selectModel.getSelection()[0].data;",
+                    "",
+                    "this.getAdminEditMealName().setValue(selectedProduct.Name);",
+                    "    this.getAdminEditDescription().setValue(selectedProduct.Description);",
+                    "    this.getAdminEditPrice().setValue(selectedProduct.Price);",
+                    "    this.getAdminEditPoints().setValue(selectedProduct.Points);"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onAdminEditMealWindowActivate",
+            "designerId": "c771e354-138f-4a28-b8d6-7c971ab8d63f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminCancelCreateBtn",
+                "designer|targetType": "MyButton37",
+                "fn": "onAdminCancelCreateBtnClick",
+                "implHandler": [
+                    "this.getAdminAddMealWindow().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminCancelCreateBtnClick",
+            "designerId": "7941944b-f7bb-4353-a7de-922511b27cd3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminCancelEditBtn",
+                "designer|targetType": "MyButton39",
+                "fn": "onAdminCancelEditBtnClick",
+                "implHandler": [
+                    "this.getAdminEditMealWindow().destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminCancelEditBtnClick",
+            "designerId": "1e34df49-61f5-4845-bb41-ad16410d4dad"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminEditBtn",
+                "designer|targetType": "MyButton38",
+                "fn": "onAdminEditBtnClick",
+                "implHandler": [
+                    "var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
+                    "    selectModel = adminProductsGrid.getSelectionModel(),",
+                    "    selectedProduct = selectModel.getSelection()[0].data;    ",
+                    "",
+                    "var mealName = this.getAdminEditMealName().getValue(),",
+                    "    mealDescription = this.getAdminEditDescription().getValue(),",
+                    "    mealPrice = this.getAdminEditPrice().getValue(),",
+                    "    mealPoints = this.getAdminEditPoints().getValue();",
+                    "",
+                    "var meal = selectedProduct;",
+                    "    meal.Name = mealName;",
+                    "    meal.Description = mealDescription;",
+                    "    meal.Price = mealPrice;",
+                    "    meal.Points = mealPoints;",
+                    "",
+                    "Ext.Ajax.request({",
+                    "                    url:'meal/updateMeal',",
+                    "                    headers: { 'Content-Type': 'application/json',",
+                    "                     'Accept': 'application/json'},",
+                    "                     jsonData:meal,",
+                    "                    scope:this,",
+                    "                    success : function(response) {",
+                    "                        Ext.MessageBox.alert('Success','Meal has been updated!');",
+                    "                        adminProductsGrid.refresh();",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminEditBtnClick",
+            "designerId": "fff25a26-f27a-4e8b-a01d-62a013d1d817"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminAddMealWindow",
+                "designer|targetType": "AdminAddMealWindow",
+                "fn": "onAdminAddMealWindowActivate",
+                "implHandler": [
+                    ""
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onAdminAddMealWindowActivate",
+            "designerId": "8d9e07e1-6f42-4c9c-be1d-0bb9097a6e8b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminSubmitMealBtn",
+                "designer|targetType": "MyButton36",
+                "fn": "onAdminSubmitMealBtnClick",
+                "implHandler": [
+                    " var form = this.getAdminAddMealForm().getValues(),",
+                    "     image = Ext.getCmp('adminMealImg').getValue(),",
+                    "     category = form.category,",
+                    "     code = form.code,",
+                    "     name = form.name,",
+                    "     description = form.description,",
+                    "     price = form.price,",
+                    "     points = form.points;",
+                    "",
+                    "var meal = {",
+                    "    image:image,",
+                    "    category:category,",
+                    "    code:code,",
+                    "    name:name,",
+                    "    description:description,",
+                    "    price:price,",
+                    "    points:points",
+                    "};",
+                    "",
+                    "",
+                    "        if(form.isValid()){",
+                    "            Ext.Ajax.request({",
+                    "                url : 'meal/addMeal',",
+                    "//                 params : ,",
+                    "                headers: { 'Content-Type': 'application/json',",
+                    "                 'Accept': 'application/json'},",
+                    "                 jsonData:meal,",
+                    "                scope : this,",
+                    "                success : function(response) {",
+                    "            var data = response.responseText;",
+                    "            if(data ==='success'){",
+                    "                Ext.MessageBox.alert('Success', 'Meal Added!');",
+                    "                this.getAdminAddMealWindow.destroy();",
+                    "            }",
+                    "                }",
+                    "        });",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminSubmitMealBtnClick",
+            "designerId": "b58d1120-c436-499a-8428-bed2f3047367"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMealImg",
+                "selector": "#adminMealImg"
+            },
+            "name": "adminMealImg",
+            "designerId": "9ccc0c7f-aa86-439d-80d4-990cb35c5af4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMealCategory",
+                "selector": "#adminMealCategory"
+            },
+            "name": "adminMealCategory",
+            "designerId": "d423a25b-88c2-4d0d-b566-cb4a9c96fc73"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "description",
+                "selector": "#adminAddMealDesc"
+            },
+            "name": "description",
+            "designerId": "2cbaa25a-1558-4d24-9cc9-7c0035398c7f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "price",
+                "selector": "#adminAddMealPrice"
+            },
+            "name": "price",
+            "designerId": "a09815aa-a27f-4d54-b95b-ff994805eb30"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "points",
+                "selector": "#adminAddMealPoints"
+            },
+            "name": "points",
+            "designerId": "2c7cfe97-7826-4712-8908-59d603a83bb7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mealname",
+                "selector": "#adminAddMealName"
+            },
+            "name": "mealname",
+            "designerId": "68d4c23e-cbcf-4250-95bf-331867df4d5b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminEditMealWindow",
+                "selector": "#adminEditMealWindow"
+            },
+            "name": "adminEditMealWindow",
+            "designerId": "39fd9acd-7dc7-4ce0-a7a4-71b6a7adb78c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminAddMealWindow",
+                "selector": "#adminAddMealWindow"
+            },
+            "name": "adminAddMealWindow",
+            "designerId": "361d0970-c44e-4fd2-9d36-2415eca21f1b"
+        }
+    ]
+}
