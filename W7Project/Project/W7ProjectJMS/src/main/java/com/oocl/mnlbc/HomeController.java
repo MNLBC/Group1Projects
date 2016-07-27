@@ -1,6 +1,8 @@
 package com.oocl.mnlbc;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.consumer.Consumer;
+import com.oocl.mnlbc.consumer.AdminConsumer;
+import com.oocl.mnlbc.consumer.ClientConsumer;
+import com.oocl.mnlbc.listener.AdminListener;
 import com.oocl.mnlbc.listener.Listener;
 import com.oocl.mnlbc.provider.Provider;
 
@@ -20,18 +24,19 @@ import com.oocl.mnlbc.provider.Provider;
 @Controller
 public class HomeController {
 
-	// private static final Logger logger =
-	// LoggerFactory.getLogger(HomeController.class);
 	private static Provider provider;
-	private static Consumer consumer;
-	private static Listener listener;
+
+	private static AdminConsumer adminConsumer;
+	private ClientConsumer clientConsumer;
+	private Listener listener;
+	private Map<Integer, ClientConsumer> userMap = new HashMap<Integer, ClientConsumer>();
 
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String startHomeConsumer() {
-		consumer = new Consumer();
+		adminConsumer = new AdminConsumer();
 		return "home";
 	}
 
@@ -45,15 +50,17 @@ public class HomeController {
 
 	@ResponseBody
 	@RequestMapping(value = "/startConsumer")
-	public String startConsumer() {
-		consumer = new Consumer();
+	public String startConsumer(@RequestParam(value = "userId") Integer userId) {
+		clientConsumer = new ClientConsumer();
+		userMap.put(userId, clientConsumer);
 		return "success";
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/viewMessage", produces = "application/json")
 	public List<String> viewMessage() {
-		List<String> messages = consumer.getMessages();
+		AdminListener adminListener = adminConsumer.getListener();
+		List<String> messages = adminListener.getMessages();
 		if (messages == null || messages.size() < 1) {
 			return null;
 		}
@@ -61,12 +68,15 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/receiveMessage", produces = "application/json")
-	public String receiveMessage() {
+	@RequestMapping(value = "/receiveMessage")
+	public String receiveMessage(@RequestParam(value = "userId") Integer userId) {
+		clientConsumer = userMap.get(userId);
+		listener = clientConsumer.getListener();
 		String adminMessage = listener.getAdminMessage();
 		if (adminMessage == null || adminMessage.isEmpty()) {
 			return null;
 		}
+		listener.setAdminMessage(new String());
 		return adminMessage;
 	}
 
