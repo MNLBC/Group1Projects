@@ -48,8 +48,11 @@ public abstract class AbstractJPADAO<T extends Serializable> {
 	}
 
 
-	public void deleteById(long entityId) {
-
+	public void deleteById(int id) {
+		T entity = find(id);
+		entityManager.getTransaction().begin();
+		entityManager.remove( entity );
+		entityManager.getTransaction().commit();
 	}
 
 }

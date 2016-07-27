@@ -20,7 +20,7 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-	appFolder: 'resources/app',
+	appFolder: 'resources/client/app',
 	
     requires: [
         'Ext.rtl.*'

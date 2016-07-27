@@ -36,10 +36,11 @@ public class MessageController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/startAdmin", method = RequestMethod.GET)
 	public String startHomeConsumer() {
 		adminConsumer = new AdminConsumer();
-		return "home";
+		return "success";
 	}
 
 	@ResponseBody

@@ -12,15 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.dao.OrderDAO;
 import com.oocl.mnlbc.dao.OrderItemDAO;
-import com.oocl.mnlbc.entity.Meal;
 import com.oocl.mnlbc.entity.Order;
 import com.oocl.mnlbc.entity.OrderItem;
+import com.oocl.mnlbc.service.impl.OrderService;
 
 /**
  * @author DELEOAN
@@ -30,52 +28,32 @@ import com.oocl.mnlbc.entity.OrderItem;
 @Controller
 @RequestMapping(value = "/order")
 public class OrderController {
-	final static Logger logger = Logger.getLogger(OrderController.class);
-
+	
 	@Autowired
-	OrderDAO orderDao;
-
-	@Autowired
-	OrderItemDAO orderItemDao;
+	OrderService orderService;
 
 	@ResponseBody
 	@RequestMapping(value = "/getAllOrders", method = RequestMethod.GET)
 	public List<Order> getAllOrder() {
-		logger.info("Getting all list of Order");
-		List<Order> orderList = orderDao.getAll();
-		return orderList;
+		return orderService.getAllOrder();
 	}
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrderByUserId/{userId}" }, method = RequestMethod.GET)
 	public List<Order> getAllOrderByUserID(@PathVariable("userId") int userId) {
-		List<Order> orderList = orderDao.getOrderByUserId(userId);
-		logger.info("Getting all order by User ID");
-		return orderList;
+		return orderService.getAllOrderByUserID(userId);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/getOrderById/{id}", method = RequestMethod.GET)
 	public Order getOrderById(@PathVariable("id") int id) {
-		Order order = orderDao.find(id);
-		logger.info("Getting all order by ID");
-		return order;
+		return orderService.getOrderById(id);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = { "/addOrder" }, method = RequestMethod.POST)
 	public boolean addOrderItem(@RequestBody Order order) {
-		List<OrderItem> orderItems = order.getOrderItemList();
-		order.setOrderItemList(null);
-		orderDao.add(order);
-		
-		for (OrderItem orderItem : orderItems) {
-			Order orderItemsOrder = orderItem.getOrder();
-			orderItemsOrder.setId(order.getId());
-		}
-		orderItemDao.addOrderItems(orderItems);
-		
-		return true;
+		return orderService.addOrderItem(order);
 	}
 
 

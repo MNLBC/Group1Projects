@@ -30,8 +30,20 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		logger.info("Accessing homepage");
+		logger.info("Accessing Client homepage");
 		return "index";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index() {
+		logger.info("Accessing Client homepage");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin() {
+		logger.info("Accessing Admin homepage");
+		return "admin";
 	}
 
 	@ResponseBody

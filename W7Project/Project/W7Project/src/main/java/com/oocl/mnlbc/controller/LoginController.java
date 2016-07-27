@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.entity.User;
+import com.oocl.mnlbc.service.impl.LoginService;
+import com.oocl.mnlbc.util.PasswordHashing;
 
 /**
  * @author LIMOSJO
@@ -29,15 +31,19 @@ import com.oocl.mnlbc.entity.User;
  */
 @Controller
 public class LoginController {
+	
 	final static Logger logger = Logger.getLogger(LoginController.class);
+	
 	@Autowired
 	UserDAO userDAO;
-
+	
 	@ResponseBody
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
 	public User login(@RequestParam(required = true) String username, @RequestParam(required = true) String password,
 			HttpSession session) {
-		password = hashPassword(password);
+		
+		password = PasswordHashing.getInstance().hashPassword(password);
+	
 		List<User> users = userDAO.getAll();
 		for (User user : users) {
 			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.dao.OrderItemDAO;
 import com.oocl.mnlbc.entity.OrderItem;
+import com.oocl.mnlbc.service.impl.OrderItemService;
 
 /**
  * @author RACELPA
@@ -26,33 +27,26 @@ import com.oocl.mnlbc.entity.OrderItem;
 @Controller
 @RequestMapping("/orderItem")
 public class OrderItemController {
-	final static Logger logger = Logger.getLogger(OrderItemController.class);
+	
 	@Autowired
-	OrderItemDAO orderItemDAO;
+	OrderItemService orderItemService;
 
 	@ResponseBody
 	@RequestMapping(value = "/getAllOrderItem", method = RequestMethod.GET)
 	public List<OrderItem> getAllOrderItem() {
-		logger.info("Getting all order items");
-		List<OrderItem> orderItemList = orderItemDAO.getAll();
-
-		return orderItemList;
+		return orderItemService.getAllOrderItem();
 	}
 
 	@ResponseBody
 	@RequestMapping(value = { "/getAllOrderItemsByOrderId" }, method = RequestMethod.POST)
 	public List<OrderItem> getAllOrderItemsById(@RequestParam(required = true) int id) {
-		List<OrderItem> orderItemList = orderItemDAO.getAllOrderItemsByOrderId(id);
-		logger.info("Getting all order items by Id");
-		return orderItemList;
+		return orderItemService.getAllOrderItemsById(id);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/getOrderItemById/{id}", method = RequestMethod.GET)
 	public OrderItem getOrderItemById(@PathVariable("id") int id) {
-		logger.info("Getting all orderItems by Id");
-		OrderItem orderItem = orderItemDAO.find(id);
-		return orderItem;
+		return orderItemService.getOrderItemById(id);
 	}
 
 }
