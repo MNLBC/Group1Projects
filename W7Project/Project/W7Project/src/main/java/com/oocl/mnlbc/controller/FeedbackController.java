@@ -48,4 +48,10 @@ public class FeedbackController {
 	public boolean updateFeedback(@RequestBody Feedback feedback) {
 		return feedbackService.updateFeedback(feedback);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/removeFeedback" }, method = RequestMethod.POST)
+	public boolean removeFeedback(@RequestBody Feedback feedback) {
+		return feedbackService.removeFeedback(feedback);
+	}
 }

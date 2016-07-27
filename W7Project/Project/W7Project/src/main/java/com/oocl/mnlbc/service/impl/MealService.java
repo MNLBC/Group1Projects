@@ -2,9 +2,12 @@ package com.oocl.mnlbc.service.impl;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.entity.Meal;
 
@@ -53,5 +56,17 @@ public class MealService {
 		mealDao.deleteById(id);
 		logger.info("Deleting meal by ID");
 		return true;
+	}
+
+	public boolean checkMealCode(String code) {
+		
+		try {
+			mealDao.getMealByCode(code);
+			return true;
+		} catch (NoResultException e) {
+			return false;
+		}
+		
+		
 	}
 }

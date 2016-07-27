@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.Meal;
@@ -50,6 +51,12 @@ public class MealController {
 	@RequestMapping(value = { "/addMeal" }, method = RequestMethod.POST)
 	public boolean addMeal(@RequestBody Meal meal) {
 		return mealService.addMeal(meal);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/checkMealCode" }, method = RequestMethod.POST)
+	public boolean checkMealCode(@RequestParam(required=true) String code) {
+		return mealService.checkMealCode(code);
 	}
 	
 	@ResponseBody

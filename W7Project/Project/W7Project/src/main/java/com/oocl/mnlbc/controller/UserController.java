@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.User;
@@ -66,6 +67,13 @@ public class UserController {
 	@RequestMapping(value = { "/updateUser" }, method = RequestMethod.POST)
 	public boolean updateUser(@RequestBody User user) {
 		return userService.updateUser(user);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/changePassword" }, method = RequestMethod.POST)
+	public String changePassword(@RequestParam(required = true) String currentPass, @RequestParam(required = true) String newPass,
+			@RequestParam(required = true) String username ) {
+		return userService.changePassword(currentPass, newPass, username);
 	}
 
 }

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.entity.User;
+import com.oocl.mnlbc.util.PasswordHashing;
 
 @Service
 public class UserService {
@@ -111,6 +112,23 @@ public class UserService {
 			e.printStackTrace();
 		}
 		return md5;
+	}
+
+	public String changePassword(String currentPass, String newPass, String username) {
+		User user = userDao.getUserByUsername(username);
+		currentPass = PasswordHashing.getInstance().hashPassword(currentPass);
+		
+		if(currentPass.equals(user.getPassword())){
+			
+			newPass = PasswordHashing.getInstance().hashPassword(newPass);
+			user.getPassword();
+			userDao.update(user);
+			return "success";
+			
+		}else{
+			return "current password";
+		}
+		
 	}
 	
 }

@@ -58,4 +58,9 @@ public class OrderService {
 		return true;
 	}
 
+	public boolean updateOrder(Order order) {
+		orderDao.update(order);
+		return true;
+	}
+
 }

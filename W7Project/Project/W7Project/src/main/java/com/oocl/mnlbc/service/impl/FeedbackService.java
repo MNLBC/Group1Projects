@@ -47,4 +47,9 @@ public class FeedbackService {
 		feedbackDAO.update(feedback);
 		return true;
 	}
+
+	public boolean removeFeedback(Feedback feedback) {
+		feedbackDAO.delete(feedback);
+		return true;
+	}
 }

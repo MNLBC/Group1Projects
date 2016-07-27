@@ -51,5 +51,11 @@ public class OrderController {
 	public boolean addOrderItem(@RequestBody Order order) {
 		return orderService.addOrderItem(order);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/updateOrder" }, method = RequestMethod.POST)
+	public boolean updateOrder(@RequestBody Order order) {
+		return orderService.updateOrder(order);
+	}
 
 }
