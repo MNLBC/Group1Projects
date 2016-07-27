@@ -1,0 +1,43 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"adminUserlId\": 29,",
+            "        \"adminOrderId\": 315,",
+            "        \"adminOrderUsername\": \"druiz\",",
+            "        \"adminOrderQuantity\": 291,",
+            "        \"adminOrderDate\": \"5/5/2001\",",
+            "        \"adminOrderManagementStatus\": \"Waiting\"",
+            "    },",
+            "    {",
+            "        \"adminUserlId\": 855,",
+            "        \"adminOrderId\": 508,",
+            "        \"adminOrderUsername\": \"hfisher\",",
+            "        \"adminOrderQuantity\": 132,",
+            "        \"adminOrderDate\": \"6/28/2001\",",
+            "        \"adminOrderManagementStatus\": \"Waiting\"",
+            "    },",
+            "    {",
+            "        \"adminUserlId\": 331,",
+            "        \"adminOrderId\": 498,",
+            "        \"adminOrderUsername\": \"hlee\",",
+            "        \"adminOrderQuantity\": 490,",
+            "        \"adminOrderDate\": \"7/9/2004\",",
+            "        \"adminOrderManagementStatus\": \"Waiting\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "AdminOrderManagementStore",
+        "model": "AdminOrderManagementModel",
+        "storeId": "AdminOrderManagementStore"
+    },
+    "name": "MyStore",
+    "designerId": "db597e55-edb3-4079-bccf-5f7ff7d0b83e"
+}

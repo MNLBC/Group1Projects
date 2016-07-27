@@ -1,0 +1,90 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagement"
+    },
+    "name": "MyController",
+    "designerId": "c7542825-3f90-4eef-8394-53e88bd9aedc",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminDoneBttn",
+                "selector": "#adminDoneBttn"
+            },
+            "name": "adminDoneBttn",
+            "designerId": "175ce111-81a0-489a-8446-f31de5975a80"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminDoneBttn",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onAdminDoneBttn",
+                "implHandler": [
+                    "        var adminOrderManagementStore = Ext.getStore('AdminOrderManagementStore'),",
+                    "        adminOrderManagementGrid = this.getAdminOrderManagementGrid(),",
+                    "        adminOrderManagementModel = adminOrderManagementGrid.getSelectionModel(),",
+                    "        selectedProduct = adminOrderManagementModel.getSelection();",
+                    "",
+                    "        if(!Ext.isEmpty(selectedProduct)){",
+                    "        productRecord = adminOrderManagementStore.findRecord(\"adminOrderId\", selectedProduct[0].data.adminOrderId);",
+                    "        productRecord.set('adminOrderManagementStatus', 'Done');",
+                    "",
+                    "        }else{",
+                    "            Ext.MessageBox.alert('Error','Please select an item to update status');",
+                    "",
+                    "        }",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminDoneBttn",
+            "designerId": "7b93c04b-737a-464b-b973-9ee9dbed8d2a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrderManagementGrid",
+                "selector": "#adminOrderManagementGrid"
+            },
+            "name": "adminOrderManagementGrid",
+            "designerId": "152f0b41-d13d-4518-891f-0171a9d2fe98"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrderManagementStatus",
+                "selector": "#adminOrderManagementStatus"
+            },
+            "name": "adminOrderManagementStatus",
+            "designerId": "eda00321-02d7-495d-8926-e32d1d31befc"
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "adminproductspanel",
+        "designer|userClassName": "AdminProductsPanel",
+        "header": false,
+        "height": 434,
+        "id": "AdminProductsPanel",
+        "itemId": "AdminProductsPanel",
+        "layout": "fit",
+        "title": "My Panel",
+        "width": 711
+    },
+    "name": "MyPanel3",
+    "designerId": "6d08b34a-4855-4acb-99da-c8b1f7b61186",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "store": "ProductStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel7",
+            "designerId": "0d8415dc-bc9c-4580-a311-63ca4d19bb59",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView7",
+                    "designerId": "6d2d7fa8-a00a-473f-9e0e-c392655cc23b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Id",
+                        "flex": 0.5,
+                        "text": "Id"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "db452c8f-eba4-415e-ad62-76f02a5c42e6"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Code",
+                        "flex": 0.5,
+                        "text": "Code"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "e6d0abdd-e5d5-42d0-899b-ac8931d70e9d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "flex": 1,
+                        "text": "Name"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "a89950f9-f388-4bef-8eb2-b7aa09accbd6"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Description",
+                        "flex": 1.5,
+                        "text": "Description"
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "9408fa24-21e4-412d-8a8b-171c786bb8a5"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Category",
+                        "flex": 1,
+                        "text": "Category"
+                    },
+                    "name": "MyColumn31",
+                    "designerId": "8c73dd12-0cae-4b92-a7f1-fcf9a702e379"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Price",
+                        "flex": 1,
+                        "text": "Price"
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "2f709fbf-bbb6-43d2-913c-5d2597f2318b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Image",
+                        "flex": 1,
+                        "text": "Image"
+                    },
+                    "name": "MyColumn33",
+                    "designerId": "52cbac3a-2680-42ba-8994-25fc83d12d3c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Points",
+                        "flex": 0.5,
+                        "text": "Points"
+                    },
+                    "name": "MyColumn34",
+                    "designerId": "9008abcc-9c7c-4a13-aee3-ff05aaa03f3a"
+                }
+            ]
+        }
+    ]
+}

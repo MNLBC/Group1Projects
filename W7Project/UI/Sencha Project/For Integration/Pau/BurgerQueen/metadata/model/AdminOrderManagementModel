@@ -1,0 +1,94 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagementModel",
+        "idProperty": "adminOrderId"
+    },
+    "name": "MyModel",
+    "designerId": "f0a38a15-3541-4460-a5e2-77dd19fbfbf4",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminUserlId"
+            },
+            "name": "MyField42",
+            "designerId": "6ab18082-1199-4484-bd9b-17a8126a95e9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminOrderId"
+            },
+            "name": "MyField38",
+            "designerId": "4ae257b0-01d3-4479-8256-726a4fea4e89"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminOrderUsername"
+            },
+            "name": "MyField37",
+            "designerId": "5cc1a23a-71bc-498e-85b3-70070b2c3888"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminOrderQuantity"
+            },
+            "name": "MyField39",
+            "designerId": "ecb3bb7d-8aac-4005-9df6-63e7e6ffbd7a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminOrderDate"
+            },
+            "name": "MyField40",
+            "designerId": "734c2686-66e9-4322-bbd3-e8a0ec7dc610"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "adminOrderManagementStatus"
+            },
+            "name": "MyField41",
+            "designerId": "496a58ca-dfc2-4919-8cc0-09f7d0c83a3d"
+        }
+    ]
+}

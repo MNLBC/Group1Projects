@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CommentsModel"
+    },
+    "name": "MyModel",
+    "designerId": "e6a85e66-17ae-4503-bc20-edff546a4acd",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "username"
+            },
+            "name": "MyField19",
+            "designerId": "24d59679-af98-426a-a515-fa29fc1c314d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "comments"
+            },
+            "name": "MyField20",
+            "designerId": "869ffe15-dfb5-4742-a473-627c12b5e51a"
+        }
+    ]
+}

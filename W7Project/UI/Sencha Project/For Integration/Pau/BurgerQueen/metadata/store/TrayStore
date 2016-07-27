@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TrayStore",
+        "model": "TrayModel",
+        "storeId": "TrayStore"
+    },
+    "name": "MyStore",
+    "designerId": "a50727e3-1fa2-4d09-a572-a06bb7a2095a"
+}

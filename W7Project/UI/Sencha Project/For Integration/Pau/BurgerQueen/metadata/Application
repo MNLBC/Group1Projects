@@ -1,0 +1,55 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "appFolder": "resources/app",
+        "controllers": [
+            "HomePage",
+            "Windows",
+            "AdminOrderManagement"
+        ],
+        "models": [
+            "ProductModel",
+            "TrayModel",
+            "TransactionModel",
+            "ActiveUserModel",
+            "TransactionDetailsModel",
+            "CommentsModel",
+            "UsersModel",
+            "AdminOrderManagementModel"
+        ],
+        "name": "BurgerQueen",
+        "stores": [
+            "ProductStore",
+            "TrayStore",
+            "TransactionStore",
+            "ActiveUserStore",
+            "TransactionDetailsStore",
+            "CommentsStore",
+            "UsersStore",
+            "AdminOrderManagementStore"
+        ],
+        "views": [
+            "MyViewport",
+            "RegisterWindow",
+            "LoginWindow",
+            "TrayWindow",
+            "ProductViewWindow",
+            "UserProfile",
+            "ActiveUsersWindow",
+            "TransactionDetails",
+            "ContactUsWindow",
+            "AdminUserPanel",
+            "AdminCommentsPanel",
+            "AdminTransactionsPanel",
+            "AdminProductsPanel",
+            "AdminOrderManagement"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

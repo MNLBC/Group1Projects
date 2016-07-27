@@ -1,0 +1,206 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "EditProfileWindow",
+        "height": 429,
+        "id": "editProfileWindow",
+        "itemId": "editProfileWindow",
+        "layout": "fit",
+        "modal": true,
+        "title": "",
+        "width": 347
+    },
+    "name": "MyWindow",
+    "designerId": "9c2230f1-a193-439f-84b6-7206bb9dc72d",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "header": false,
+                "itemId": "updateProfileForm",
+                "title": "My Form"
+            },
+            "name": "MyForm3",
+            "designerId": "51ecd9f9-5f2e-48da-86d2-a0df9356cb48",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "height": 67,
+                        "html": [
+                            "<link href='http://fonts.googleapis.com/css?family=Arial'rel='stylesheet' type='text/css'>",
+                            "<center><div id=\"nav\"><h1 style = 'font-family: Arial; color:#565652;' >Update Profile</h1></div></center>"
+                        ],
+                        "width": 334
+                    },
+                    "name": "MyFieldContainer2",
+                    "designerId": "37f568f0-2d84-4138-9ff5-eaea63c8262e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "emptyText": "First name",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editFirstName",
+                        "itemId": "editFirstName",
+                        "width": 320
+                    },
+                    "name": "MyTextField12",
+                    "designerId": "eaa33f5d-4981-431d-aca3-2840ac64ea63"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Middle name",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editMiddleName",
+                        "itemId": "editMiddleName",
+                        "width": 320
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "0b31b8ca-f11b-46b4-b706-bc2c48f75451"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Last name",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editLastName",
+                        "itemId": "editLastName",
+                        "width": 320
+                    },
+                    "name": "MyTextField13",
+                    "designerId": "52dbdc20-7b9f-4916-8d3c-acc111880806"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Address",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editAddress",
+                        "itemId": "editAddress",
+                        "width": 320
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "cb6706f4-041a-4e9f-9c35-78657a923a9b"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Email",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editEmail",
+                        "itemId": "editEmail",
+                        "width": 320
+                    },
+                    "name": "MyTextField15",
+                    "designerId": "d0685c18-5912-43a6-94b2-03a169f72334"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Contact Number",
+                        "fieldLabel": "",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "height": 40,
+                        "id": "editContact",
+                        "itemId": "editContact",
+                        "width": 320
+                    },
+                    "name": "MyTextField17",
+                    "designerId": "d9050e6d-1aab-4e1d-bbb3-89229c5425bc"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar10",
+                    "designerId": "06fe8708-8566-41bd-8622-c7e78d01a25a",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "btnUpdateProfile",
+                                "itemId": "btnUpdateProfile",
+                                "layout|flex": null,
+                                "text": "Update"
+                            },
+                            "name": "MyButton23",
+                            "designerId": "a0199f03-3927-4579-b8f1-7d062d65ce5f"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
