@@ -48,4 +48,10 @@ public class MealService {
 		logger.info("Deleting meal");
 		return true;
 	}
+
+	public boolean deleteById(int id) {
+		mealDao.deleteById(id);
+		logger.info("Deleting meal by ID");
+		return true;
+	}
 }

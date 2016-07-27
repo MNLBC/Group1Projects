@@ -63,4 +63,10 @@ public class MealController {
 	public boolean deleteMeal(@RequestBody Meal meal) {
 		return mealService.deleteMeal(meal);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/deleteMealById/{id}" }, method = RequestMethod.GET)
+	public boolean deleteMealById(@PathVariable("id") int id) {
+		return mealService.deleteById(id);
+	}
 }
