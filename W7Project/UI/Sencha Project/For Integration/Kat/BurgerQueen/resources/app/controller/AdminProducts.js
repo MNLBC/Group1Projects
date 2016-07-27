@@ -135,24 +135,59 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
 
     onAdminCreateBtnClick: function() {
         Ext.create('BurgerQueen.view.AdminAddMealWindow').show();
+
     },
 
     onAdminDeleteBtnClick: function() {
-         Ext.Msg.confirm("Confirmation", "Are you sure you want to delete this meal?", function(btnText){
-                            if(btnText === "yes"){
-                                var adminProductsGrid = Ext.getCmp('adminProductGridView'),
-                                    adminProductStore = adminProductsGrid.getStore(),
-                                    selectModel = adminProductsGrid.getSelectionModel(),
-                                    selectedProduct = selectModel.getSelection();
+        var adminProductsGrid = Ext.getCmp('adminProductGridView'),
+            selectModel = adminProductsGrid.getSelectionModel(),
+            selectedProduct = selectModel.getSelection()[0].data;
 
-                                adminProductStore.remove(selectedProduct);
-                            }
-         });
+         if (!Ext.isEmpty(selectedProduct)) {
+             Ext.Msg.confirm("Confirmation", "Are you sure you want to delete this meal?", function(btnText){
+            if(btnText === "yes"){
+        var meal = {
+            id:selectedProduct.Id,
+            code:selectedProduct.Code,
+            name:selectedProduct.Name,
+            description:selectedProduct.Description,
+            category:selectedProduct.Category,
+            price:selectedProduct.Price,
+            image:selectedProduct.Image,
+            points:selectedProduct.Points
+        };
+
+                Ext.Ajax.request({
+                    url:'meal/updateMeal',
+                    headers: { 'Content-Type': 'application/json',
+                              'Accept': 'application/json'},
+                    jsonData:meal,
+                    scope:this,
+                    success : function(response) {
+                        Ext.MessageBox.alert('Success','Meal has been deleted!');
+                        adminProductStore.remove(selectedProduct);
+                    }
+                });
+            }
+        });
+         } else {
+             Ext.MessageBox.alert('Error','Please select an item!');
+         }
+
 
     },
 
     onAdminEditMealBtnClick: function() {
-        Ext.create('BurgerQueen.view.AdminEditMealWindow').show();
+        var adminProductsGrid = Ext.getCmp('adminProductGridView'),
+            selectModel = adminProductsGrid.getSelectionModel(),
+            selectedProduct = selectModel.getSelection();
+
+        if (!Ext.isEmpty(selectedProduct)) {
+            Ext.create('BurgerQueen.view.AdminEditMealWindow').show();
+        } else {
+            Ext.MessageBox.alert('Error','Please select an item!');
+        }
+
 
     },
 
@@ -203,10 +238,6 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
                                 adminProductsGrid.refresh();
                             }
                         });
-    },
-
-    onAdminAddMealWindowActivate: function(window, eOpts) {
-
     },
 
     onAdminSubmitMealBtnClick: function() {
@@ -295,9 +326,6 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
             },
             "#adminEditBtn": {
                 click: this.onAdminEditBtnClick
-            },
-            "#adminAddMealWindow": {
-                activate: this.onAdminAddMealWindowActivate
             },
             "#adminSubmitMealBtn": {
                 click: this.onAdminSubmitMealBtnClick

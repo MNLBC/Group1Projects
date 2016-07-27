@@ -75,12 +75,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "buttonText": "Browse",
                                 "emptyText": "Select an image",
                                 "fieldLabel": "Photo",
                                 "id": "adminMealImg",
                                 "itemId": "adminMealImg",
                                 "name": "image",
-                                "width": 376
+                                "width": 338
                             },
                             "name": "MyFileUpload",
                             "designerId": "dd284752-94ed-4ffd-b6ed-5a9f0fe17115",
@@ -93,6 +94,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "designer|displayName": "",
+                                        "icon": "",
                                         "iconCls": "'upload-icon'",
                                         "text": ""
                                     },
@@ -117,7 +120,8 @@
                                 "queryMode": "local",
                                 "store": "CategoryStore",
                                 "value": null,
-                                "valueField": "Chicken"
+                                "valueField": "Chicken",
+                                "width": 338
                             },
                             "name": "MyComboBox",
                             "designerId": "7656b319-8951-4a24-81af-0e5d4b127a50"
@@ -133,7 +137,8 @@
                                 "fieldLabel": "Meal Code",
                                 "id": "adminMealCode",
                                 "itemId": "adminMealCode",
-                                "name": "code"
+                                "name": "code",
+                                "width": 338
                             },
                             "name": "MyTextField26",
                             "designerId": "e1f9fa11-ea8a-435c-8f80-f3026aa0b998"
@@ -150,7 +155,8 @@
                                 "fieldLabel": "Meal Name",
                                 "id": "adminAddMealName",
                                 "itemId": "adminAddMealName",
-                                "name": "name"
+                                "name": "name",
+                                "width": 338
                             },
                             "name": "MyTextField18",
                             "designerId": "fc783e50-063d-47a1-a3f1-4855410ba822"
@@ -167,7 +173,8 @@
                                 "fieldLabel": "Description:",
                                 "id": "adminAddMealDesc",
                                 "itemId": "adminAddMealDesc",
-                                "name": "description"
+                                "name": "description",
+                                "width": 338
                             },
                             "name": "MyTextField19",
                             "designerId": "4850f204-bd58-4384-a420-b627eea5eeae"
@@ -184,7 +191,8 @@
                                 "fieldLabel": "Price:",
                                 "id": "adminAddMealPrice",
                                 "itemId": "adminAddMealPrice",
-                                "name": "price"
+                                "name": "price",
+                                "width": 338
                             },
                             "name": "MyTextField20",
                             "designerId": "56cf083e-0a5b-4324-b100-dd0284368da5"
@@ -201,7 +209,8 @@
                                 "fieldLabel": "Points:",
                                 "id": "adminAddMealPoints",
                                 "itemId": "adminAddMealPoints",
-                                "name": "points"
+                                "name": "points",
+                                "width": 338
                             },
                             "name": "MyTextField21",
                             "designerId": "c33f339d-5b05-4718-ae60-b934912e3ab1"

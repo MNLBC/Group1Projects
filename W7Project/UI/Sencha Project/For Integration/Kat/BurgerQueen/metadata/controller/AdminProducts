@@ -204,7 +204,8 @@
                 "designer|targetType": "MyButton33",
                 "fn": "onAdminCreateBtnClick",
                 "implHandler": [
-                    "Ext.create('BurgerQueen.view.AdminAddMealWindow').show();"
+                    "Ext.create('BurgerQueen.view.AdminAddMealWindow').show();",
+                    ""
                 ],
                 "name": "click",
                 "scope": "me"
@@ -224,16 +225,41 @@
                 "designer|targetType": "MyButton34",
                 "fn": "onAdminDeleteBtnClick",
                 "implHandler": [
-                    " Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to delete this meal?\", function(btnText){",
-                    "                    if(btnText === \"yes\"){",
-                    "                        var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
-                    "                            adminProductStore = adminProductsGrid.getStore(),",
-                    "                            selectModel = adminProductsGrid.getSelectionModel(),",
-                    "                            selectedProduct = selectModel.getSelection();",
+                    "var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
+                    "    selectModel = adminProductsGrid.getSelectionModel(),",
+                    "    selectedProduct = selectModel.getSelection()[0].data;",
                     "",
-                    "                        adminProductStore.remove(selectedProduct);",
-                    "                    }",
-                    " });",
+                    " if (!Ext.isEmpty(selectedProduct)) {",
+                    "     Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to delete this meal?\", function(btnText){",
+                    "    if(btnText === \"yes\"){",
+                    "var meal = {",
+                    "    id:selectedProduct.Id,",
+                    "    code:selectedProduct.Code,",
+                    "    name:selectedProduct.Name,",
+                    "    description:selectedProduct.Description,",
+                    "    category:selectedProduct.Category,",
+                    "    price:selectedProduct.Price,",
+                    "    image:selectedProduct.Image,",
+                    "    points:selectedProduct.Points",
+                    "};",
+                    "        ",
+                    "        Ext.Ajax.request({",
+                    "            url:'meal/updateMeal',",
+                    "            headers: { 'Content-Type': 'application/json',",
+                    "                      'Accept': 'application/json'},",
+                    "            jsonData:meal,",
+                    "            scope:this,",
+                    "            success : function(response) {",
+                    "                Ext.MessageBox.alert('Success','Meal has been deleted!');",
+                    "                adminProductStore.remove(selectedProduct);",
+                    "            }",
+                    "        });",
+                    "    }",
+                    "});",
+                    " } else {",
+                    "     Ext.MessageBox.alert('Error','Please select an item!');",
+                    " }",
+                    "",
                     ""
                 ],
                 "name": "click",
@@ -324,7 +350,16 @@
                 "designer|targetType": "MyButton35",
                 "fn": "onAdminEditMealBtnClick",
                 "implHandler": [
-                    "Ext.create('BurgerQueen.view.AdminEditMealWindow').show();",
+                    "var adminProductsGrid = Ext.getCmp('adminProductGridView'),",
+                    "    selectModel = adminProductsGrid.getSelectionModel(),",
+                    "    selectedProduct = selectModel.getSelection();",
+                    "",
+                    "if (!Ext.isEmpty(selectedProduct)) {",
+                    "    Ext.create('BurgerQueen.view.AdminEditMealWindow').show();",
+                    "} else {",
+                    "    Ext.MessageBox.alert('Error','Please select an item!');",
+                    "}",
+                    "",
                     ""
                 ],
                 "name": "click",
@@ -445,26 +480,6 @@
             },
             "name": "onAdminEditBtnClick",
             "designerId": "fff25a26-f27a-4e8b-a01d-62a013d1d817"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#adminAddMealWindow",
-                "designer|targetType": "AdminAddMealWindow",
-                "fn": "onAdminAddMealWindowActivate",
-                "implHandler": [
-                    ""
-                ],
-                "name": "activate",
-                "scope": "me"
-            },
-            "name": "onAdminAddMealWindowActivate",
-            "designerId": "8d9e07e1-6f42-4c9c-be1d-0bb9097a6e8b"
         },
         {
             "type": "controlleraction",

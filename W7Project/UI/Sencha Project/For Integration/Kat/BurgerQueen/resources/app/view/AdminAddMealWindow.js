@@ -59,12 +59,14 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'filefield',
                                     id: 'adminMealImg',
                                     itemId: 'adminMealImg',
-                                    width: 376,
+                                    width: 338,
                                     fieldLabel: 'Photo',
                                     name: 'image',
                                     emptyText: 'Select an image',
+                                    buttonText: 'Browse',
                                     buttonConfig: {
                                         xtype: 'filebutton',
+                                        icon: '',
                                         iconCls: '\'upload-icon\'',
                                         text: ''
                                     }
@@ -73,6 +75,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'combobox',
                                     id: 'adminMealCategory',
                                     itemId: 'adminMealCategory',
+                                    width: 338,
                                     fieldLabel: 'Category',
                                     name: 'category',
                                     displayField: 'category',
@@ -84,6 +87,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminMealCode',
                                     itemId: 'adminMealCode',
+                                    width: 338,
                                     fieldLabel: 'Meal Code',
                                     name: 'code'
                                 },
@@ -91,6 +95,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminAddMealName',
                                     itemId: 'adminAddMealName',
+                                    width: 338,
                                     fieldLabel: 'Meal Name',
                                     name: 'name'
                                 },
@@ -98,6 +103,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminAddMealDesc',
                                     itemId: 'adminAddMealDesc',
+                                    width: 338,
                                     fieldLabel: 'Description:',
                                     name: 'description'
                                 },
@@ -105,6 +111,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminAddMealPrice',
                                     itemId: 'adminAddMealPrice',
+                                    width: 338,
                                     fieldLabel: 'Price:',
                                     name: 'price'
                                 },
@@ -112,6 +119,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminAddMealPoints',
                                     itemId: 'adminAddMealPoints',
+                                    width: 338,
                                     fieldLabel: 'Points:',
                                     name: 'points'
                                 }
