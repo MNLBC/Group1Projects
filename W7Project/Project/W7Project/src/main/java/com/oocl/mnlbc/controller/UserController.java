@@ -1,11 +1,7 @@
 package com.oocl.mnlbc.controller;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.entity.User;
 import com.oocl.mnlbc.service.impl.UserService;
 
@@ -25,10 +20,9 @@ import com.oocl.mnlbc.service.impl.UserService;
  *
  */
 @Controller
-@RequestMapping(value ="/user")
+@RequestMapping(value = "/user")
 public class UserController {
-	
-	
+
 	@Autowired
 	UserService userService;
 
@@ -37,7 +31,6 @@ public class UserController {
 	public User getUserById(@PathVariable("id") int id) {
 		return userService.find(id);
 	}
-
 
 	@ResponseBody
 	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
@@ -68,12 +61,11 @@ public class UserController {
 	public String addUser(@RequestBody User user) {
 		return userService.addUser(user);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = { "/updateUser" }, method = RequestMethod.POST)
 	public boolean updateUser(@RequestBody User user) {
 		return userService.updateUser(user);
 	}
-
 
 }

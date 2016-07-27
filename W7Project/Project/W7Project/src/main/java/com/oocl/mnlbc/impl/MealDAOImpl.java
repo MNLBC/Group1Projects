@@ -3,17 +3,11 @@
  */
 package com.oocl.mnlbc.impl;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.AbstractJPADAO;
 import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.entity.Meal;
-import com.oocl.mnlbc.entity.User;
 
 /**
  * @author LIMOSJO
@@ -21,9 +15,10 @@ import com.oocl.mnlbc.entity.User;
  */
 public class MealDAOImpl extends AbstractJPADAO<Meal> implements MealDAO {
 
-	public MealDAOImpl(){
-		setClazz(Meal.class );
+	public MealDAOImpl() {
+		setClazz(Meal.class);
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -31,12 +26,11 @@ public class MealDAOImpl extends AbstractJPADAO<Meal> implements MealDAO {
 	 */
 	@Override
 	public Meal getMealByCode(String code) {
-		
+
 		Query query = entityManager.createQuery("select m from Meal m where m.code = :code");
 		query.setParameter("code", code);
 		Meal meal = (Meal) query.getSingleResult();
 		return meal;
 	}
-
 
 }

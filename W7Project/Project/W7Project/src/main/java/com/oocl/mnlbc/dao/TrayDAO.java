@@ -5,9 +5,6 @@ package com.oocl.mnlbc.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
-import com.oocl.mnlbc.entity.OrderItem;
 import com.oocl.mnlbc.entity.Tray;
 
 /**

@@ -27,8 +27,8 @@ import org.codehaus.jackson.annotate.JsonManagedReference;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Orders")
-@NamedQuery(name="Order.findAll", query="SELECT b FROM Order b")
-public class Order implements Serializable{
+@NamedQuery(name = "Order.findAll", query = "SELECT b FROM Order b")
+public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderSequence")

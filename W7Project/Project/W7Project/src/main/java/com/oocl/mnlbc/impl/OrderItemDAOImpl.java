@@ -5,14 +5,10 @@ package com.oocl.mnlbc.impl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.AbstractJPADAO;
 import com.oocl.mnlbc.dao.OrderItemDAO;
-import com.oocl.mnlbc.entity.Order;
 import com.oocl.mnlbc.entity.OrderItem;
 
 /**
@@ -20,11 +16,11 @@ import com.oocl.mnlbc.entity.OrderItem;
  *
  */
 public class OrderItemDAOImpl extends AbstractJPADAO<OrderItem> implements OrderItemDAO {
-	
-	
-	public OrderItemDAOImpl(){
-		setClazz(OrderItem.class );
+
+	public OrderItemDAOImpl() {
+		setClazz(OrderItem.class);
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -37,6 +33,7 @@ public class OrderItemDAOImpl extends AbstractJPADAO<OrderItem> implements Order
 		List<OrderItem> orderItemList = query.getResultList();
 		return orderItemList;
 	}
+
 	@Override
 	public boolean addOrderItems(List<OrderItem> orderItems) {
 		entityManager.getTransaction().begin();

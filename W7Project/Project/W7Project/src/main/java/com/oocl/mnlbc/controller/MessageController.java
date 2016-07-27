@@ -32,7 +32,7 @@ public class MessageController {
 	private ClientConsumer clientConsumer;
 	private Listener listener;
 	private Map<Integer, ClientConsumer> userMap = new HashMap<Integer, ClientConsumer>();
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */

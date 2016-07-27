@@ -5,14 +5,10 @@ package com.oocl.mnlbc.impl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.AbstractJPADAO;
 import com.oocl.mnlbc.dao.TrayDAO;
-import com.oocl.mnlbc.entity.OrderItem;
 import com.oocl.mnlbc.entity.Tray;
 
 /**
@@ -20,10 +16,11 @@ import com.oocl.mnlbc.entity.Tray;
  *
  */
 public class TrayDAOImpl extends AbstractJPADAO<Tray> implements TrayDAO {
-	
-	public TrayDAOImpl(){
-		setClazz(Tray.class );
+
+	public TrayDAOImpl() {
+		setClazz(Tray.class);
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -31,7 +28,7 @@ public class TrayDAOImpl extends AbstractJPADAO<Tray> implements TrayDAO {
 	 */
 	@Override
 	public boolean addListTray(List<Tray> trays) {
-		
+
 		entityManager.getTransaction().begin();
 		for (Tray tray : trays) {
 			entityManager.persist(tray);
@@ -39,7 +36,6 @@ public class TrayDAOImpl extends AbstractJPADAO<Tray> implements TrayDAO {
 		entityManager.getTransaction().commit();
 		return true;
 	}
-
 
 	/*
 	 * (non-Javadoc)
@@ -51,7 +47,7 @@ public class TrayDAOImpl extends AbstractJPADAO<Tray> implements TrayDAO {
 		Query query = entityManager.createQuery("select t from Tray t where t.user.id = :id");
 		query.setParameter("id", id);
 		List<Tray> trays = query.getResultList();
-		
+
 		return trays;
 	}
 

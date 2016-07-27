@@ -1,16 +1,13 @@
 package com.oocl.mnlbc.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,7 +20,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Users")
-@NamedQuery(name="User.findAll", query="SELECT b FROM User b")
+@NamedQuery(name = "User.findAll", query = "SELECT b FROM User b")
 public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSequence")
@@ -54,7 +51,7 @@ public class User implements Serializable {
 
 	@Column(name = "username")
 	private String username;
-	
+
 	@JsonIgnore
 	@Column(name = "password")
 	private String password;
@@ -279,6 +276,6 @@ public class User implements Serializable {
 	 */
 	public void setPoints(double points) {
 		this.points = points;
-	}	
+	}
 
 }

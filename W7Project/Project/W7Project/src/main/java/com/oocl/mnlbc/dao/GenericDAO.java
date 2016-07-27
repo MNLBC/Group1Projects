@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface GenericDAO<T extends Serializable> {
-	
+
 	T find(final int id);
 
 	List<T> getAll();

@@ -4,22 +4,15 @@
 package com.oocl.mnlbc.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author RACELPA
@@ -29,15 +22,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Meal")
-@NamedQuery(name="Meal.findAll", query="SELECT b FROM Meal b")
-public class Meal implements Serializable{
-	
+@NamedQuery(name = "Meal.findAll", query = "SELECT b FROM Meal b")
+public class Meal implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mealSequence")
 	@SequenceGenerator(name = "mealSequence", sequenceName = "MEAL_ID_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "code")
 	private String code;
 

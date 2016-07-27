@@ -18,22 +18,22 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Inquiry")
-@NamedQuery(name="Inquiry.findAll", query="SELECT b FROM Inquiry b")
-public class Inquiry implements Serializable{
-	
+@NamedQuery(name = "Inquiry.findAll", query = "SELECT b FROM Inquiry b")
+public class Inquiry implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inquirySequence")
 	@SequenceGenerator(name = "inquirySequence", sequenceName = "INQUIRY_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-	
+
 	@Column(name = "message")
 	private String message;
-	
+
 	@Column(name = "date_created")
 	private Date date_created;
 
@@ -68,8 +68,5 @@ public class Inquiry implements Serializable{
 	public void setDate_created(Date date_created) {
 		this.date_created = date_created;
 	}
-	
-	
-	
-	
+
 }

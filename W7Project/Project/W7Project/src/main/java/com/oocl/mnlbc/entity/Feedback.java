@@ -17,23 +17,23 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Feedback")
-@NamedQuery(name="Feedback.findAll", query="SELECT b FROM Feedback b")
-public class Feedback implements Serializable{
-	
+@NamedQuery(name = "Feedback.findAll", query = "SELECT b FROM Feedback b")
+public class Feedback implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedbackSequence")
 	@SequenceGenerator(name = "feedbackSequence", sequenceName = "FEEDBACK_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-	
+
 	@JoinColumn(name = "meal_id", referencedColumnName = "id")
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private Meal meal;
-	
+
 	@Column(name = "feedback")
 	private String feedback;
 
@@ -68,8 +68,5 @@ public class Feedback implements Serializable{
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-	
-	
-	
-	
+
 }

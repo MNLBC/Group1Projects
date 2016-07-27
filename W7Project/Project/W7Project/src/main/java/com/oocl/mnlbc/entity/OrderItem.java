@@ -19,8 +19,6 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  * @author RACELPA
  *
@@ -28,8 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Orderitems")
-@NamedQuery(name="OrderItem.findAll", query="SELECT b FROM OrderItem b")
-public class OrderItem implements Serializable{
+@NamedQuery(name = "OrderItem.findAll", query = "SELECT b FROM OrderItem b")
+public class OrderItem implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderItemsSequence")

@@ -1,15 +1,9 @@
 package com.oocl.mnlbc.impl;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.AbstractJPADAO;
 import com.oocl.mnlbc.dao.UserDAO;
-import com.oocl.mnlbc.entity.Tray;
 import com.oocl.mnlbc.entity.User;
 
 /**
@@ -19,9 +13,8 @@ import com.oocl.mnlbc.entity.User;
  */
 public class UserDAOImpl extends AbstractJPADAO<User> implements UserDAO {
 
-	
-	public UserDAOImpl(){
-		setClazz(User.class );
+	public UserDAOImpl() {
+		setClazz(User.class);
 	}
 
 	@Override

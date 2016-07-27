@@ -17,8 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  * @author DELEOAN
  *
@@ -26,18 +24,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Tray")
-@NamedQuery(name="Tray.findAll", query="SELECT b FROM Tray b")
-public class Tray implements Serializable{
+@NamedQuery(name = "Tray.findAll", query = "SELECT b FROM Tray b")
+public class Tray implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "traySequence")
 	@SequenceGenerator(name = "traySequence", sequenceName = "TRAY_SEQ", allocationSize = 1)
 	@Column(name = "id")
 	private int id;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "meal_id", referencedColumnName = "id")
 	private Meal meal;

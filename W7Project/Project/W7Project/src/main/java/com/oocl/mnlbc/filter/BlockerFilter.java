@@ -23,7 +23,7 @@ import com.oocl.mnlbc.entity.User;
  * @author LIMOSJO
  *
  */
-public class BlockerFilter implements Filter{
+public class BlockerFilter implements Filter {
 	final static Logger logger = Logger.getLogger(BlockerFilter.class);
 
 	/**

@@ -5,7 +5,6 @@ package com.oocl.mnlbc.controller;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.dao.OrderDAO;
-import com.oocl.mnlbc.dao.OrderItemDAO;
 import com.oocl.mnlbc.entity.Order;
-import com.oocl.mnlbc.entity.OrderItem;
 import com.oocl.mnlbc.service.impl.OrderService;
 
 /**
@@ -28,7 +24,7 @@ import com.oocl.mnlbc.service.impl.OrderService;
 @Controller
 @RequestMapping(value = "/order")
 public class OrderController {
-	
+
 	@Autowired
 	OrderService orderService;
 
@@ -55,7 +51,5 @@ public class OrderController {
 	public boolean addOrderItem(@RequestBody Order order) {
 		return orderService.addOrderItem(order);
 	}
-
-
 
 }
