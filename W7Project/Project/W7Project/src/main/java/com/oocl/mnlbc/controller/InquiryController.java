@@ -34,8 +34,8 @@ public class InquiryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getAllInquiries" }, method = RequestMethod.GET)
-	public List<Inquiry> getAllFeedbacks() {
-		return inquiryService.getAllFeedbacks();
+	public List<Inquiry> getAllInquiry() {
+		return inquiryService.getAllInquiry();
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class InquiryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/updateInquiry" }, method = RequestMethod.POST)
-	public boolean updateFeedback(@RequestBody Inquiry inquiry) {
+	public boolean updateInquiry(@RequestBody Inquiry inquiry) {
 		return inquiryService.updateInquiry(inquiry);
 	}
 	
@@ -74,7 +74,7 @@ public class InquiryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/removeInquiry" }, method = RequestMethod.POST)
-	public boolean removeFeedback(@RequestBody Inquiry inquiry) {
+	public boolean removeInquiry(@RequestBody Inquiry inquiry) {
 		return inquiryService.removeInquiry(inquiry);
 	}
 	
@@ -84,7 +84,7 @@ public class InquiryController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/removeInquiry/{id}", method = RequestMethod.GET)
-	public boolean removeFeedbackById(@PathVariable("id") int id) {
+	public boolean removeInquiryById(@PathVariable("id") int id) {
 		return inquiryService.removeInquiryById(id);
 	}
 

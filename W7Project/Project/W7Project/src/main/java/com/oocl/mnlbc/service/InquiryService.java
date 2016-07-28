@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.oocl.mnlbc.controller.InquiryController;
 import com.oocl.mnlbc.dao.InquiryDAO;
+import com.oocl.mnlbc.dao.UserDAO;
 import com.oocl.mnlbc.entity.Inquiry;
+import com.oocl.mnlbc.entity.User;
 
 /**
  * @author DEQUIAL
@@ -22,12 +24,22 @@ import com.oocl.mnlbc.entity.Inquiry;
 public class InquiryService {
 	@Autowired
 	InquiryDAO inquiryDAO;
+	
+	@Autowired
+	UserDAO userDAO;
 
 	private static final Logger logger = LoggerFactory.getLogger(InquiryController.class);
 
-	public List<Inquiry> getAllFeedbacks() {
+	public List<Inquiry> getAllInquiry() {
 		logger.info("Getting all list of inquiry");
-		return inquiryDAO.getAll();
+		List<Inquiry> inquiries = inquiryDAO.getAll();
+		
+		for (Inquiry inquiry : inquiries) {
+		    User user = userDAO.find(inquiry.getUser().getId());
+		    inquiry.setUser(user);
+		}
+		
+		return inquiries;
 	}
 
 	public Inquiry getInquiryById(int id) {
