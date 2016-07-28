@@ -124,10 +124,6 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#myProfileButton'
         },
         {
-            ref: 'activeUsersCount',
-            selector: '#activeUsersCount'
-        },
-        {
             ref: 'products',
             selector: '#Products'
         },
@@ -514,7 +510,6 @@ Ext.define('BurgerQueen.controller.Windows', {
                                                             this.getLoginButton().hide();
                                                             this.getLogoutButton().show();
                                                             this.getRegisterButton().hide();
-                                                            this.activeUserCounter();
                                                             this.getMyProfileButton().setText('Welcome, '+ decodedData.username +'! |');
                                                             this.getLoginWindow().destroy();
                                                             ajaxFunction();
@@ -726,24 +721,6 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     },
 
-    onTotalItemsChange: function() {
-
-        // var level = currentLoginUser.userLevel,
-        //     totaPrice = this.getTotalAmount().getValue(),
-        //     discount = 0;
-        // if(!Ext.isEmpty(totalPrice)){
-        //     if(level === 1){
-        //         discount = totalPrice * 0.05;
-        //     }else if(level ===2){
-        //         discount = totalPrice * 0.1;
-        //     }else if(level ===3){
-        //         discount = totalPrice * 0.15;
-        //     }
-
-        //         this.getTotalAmount().setValue(totalPrice-discount);
-        // }
-    },
-
     onTotalPointsChange: function() {
         var level = currentLoginUser.userLevel,
             totalPrice = this.getTotalAmount().getValue(),
@@ -901,27 +878,6 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     },
 
-    activeUserCounter: function() {
-
-            Ext.Ajax.request({
-                    url : 'getLoggedUsers',
-                    params : {
-
-                    },
-                    scope : this,
-                    success : function(response) {
-                        var data = Ext.decode(response.responseText);
-                        activeUsers = data;
-                        var store = activeUserStore;
-                        store.removeAll();
-                       this.getActiveUsersCount().setValue(data.length);
-                        Ext.each(data, function(record){
-                            store.add({username:record.username});
-                        });
-                    }
-                });
-    },
-
     hideLoadingMessageMask: function() {
 
                             if (this.oLoadingMessageMask) {
@@ -984,9 +940,6 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#btnSubmitComment": {
                 click: this.onBtnSubmitCommentClick
-            },
-            "#totalItems": {
-                change: this.onTotalItemsChange
             },
             "#totalPoints": {
                 change: this.onTotalPointsChange

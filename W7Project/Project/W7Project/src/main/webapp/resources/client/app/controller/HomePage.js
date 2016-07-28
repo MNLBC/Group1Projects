@@ -90,10 +90,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
             selector: '#contactnumProfile'
         },
         {
-            ref: 'activeUsersCount',
-            selector: '#activeUsersCount'
-        },
-        {
             ref: 'transacHistoryGrid',
             selector: '#TransacHistoryGrid'
         },
@@ -132,9 +128,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
 
 
-
-
-
     },
 
     onBeveragesButtonClick: function() {
@@ -144,7 +137,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
         this.getUserProfile().hide();
                 productStore.clearFilter();
-                productStore.filter('Category','Drinks');
+                productStore.filter('Category','Beverages');
 
 
 
@@ -207,8 +200,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onBurgerQueenRender: function() {
-        this.activeUserCounter();
-
         Ext.Ajax.request({
             url : 'getUserSession',
             params : {
@@ -258,7 +249,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onUserProfileShow: function(component, eOpts) {
-        this.activeUserCounter();
         if(Ext.isEmpty(currentLoginUser)){
             return;
         }
@@ -299,11 +289,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 });
             }
         });
-    },
-
-    onShowUsersWindowClick: function() {
-
-        Ext.create('BurgerQueen.view.ActiveUsersWindow').show();
     },
 
     onAllCategoriesButtonClick: function() {
@@ -368,7 +353,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
                     },
                     scope : this,
                     success : function(response) {
-                        this.activeUserCounter();
                         Ext.Ajax.request({
                             url : 'message/closeClient',
                             params : {
@@ -462,7 +446,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
             }
         });
 
-        this.activeUserCounter();
 
         Ext.Ajax.request({
             url : 'getUserSession',
@@ -647,37 +630,12 @@ Ext.define('BurgerQueen.controller.HomePage', {
                             }
     },
 
-    activeUserCounter: function() {
-
-
-            Ext.Ajax.request({
-                    url : 'getLoggedUsers',
-                    params : {
-
-                    },
-                    scope : this,
-                    success : function(response) {
-                        var data = Ext.decode(response.responseText);
-                        activeUsers = data;
-                        activeUser = true;
-                        var store = activeUserStore;
-                        store.removeAll();
-                       this.getActiveUsersCount().setValue(data.length);
-                        Ext.each(data, function(record){
-                            store.add({username:record.username});
-                        });
-
-                    }
-                });
-    },
-
     displayForSessions: function() {
                 this.getLoginButton().hide();
                 this.getLogoutButton().show();
                 this.getRegisterButton().hide();
                 this.getMyProfileButton().show();
                 this.getTrayButton().show();
-                this.activeUserCounter();
                 this.getMyProfileButton().show();
                 this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username + '! |');
                 this.getProducts().show();
@@ -719,9 +677,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#UserProfile": {
                 show: this.onUserProfileShow
-            },
-            "#showUsersWindow": {
-                click: this.onShowUsersWindowClick
             },
             "#allCategoriesButton": {
                 click: this.onAllCategoriesButtonClick
