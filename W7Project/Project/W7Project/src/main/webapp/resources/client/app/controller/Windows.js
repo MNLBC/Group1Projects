@@ -226,6 +226,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'contactUsForm',
             selector: '#contactUsForm'
+        },
+        {
+            ref: 'contactUsWindow',
+            selector: '#contactUsWindow'
         }
     ],
 
@@ -689,24 +693,37 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onBtnSubmitCommentClick: function() {
-        // console.log('hi;');
+        var comment = this.getCommentBox().getValue(),
+            form = this.getContactUsForm();
 
-        var comment = this.getCommentBox().getValue();
-        // if(!Ext.isEmpty(comment)){
-        //         Ext.Ajax.request({
-        //             url : 'http://localhost:' + window.location.port + '/mnlbcjms/sendMessage',
-        //             params : {
-        //                 username:currentLoginUser.username,
-        //                message:comment
-        //             },
-        //             scope : this,
-        //             success : function(response) {
-        //                Ext.MessageBox.alert('Information','Your comment has been sent.');
-        //             }
-        //         });
+        var inquiry ={
+            id:0,
+            user:{
+                id:currentLoginUser.id
+            },
+            'message':comment
+
+        };
+
+         if(form.isValid()){
+
+                Ext.Ajax.request({
+                url:'inquiry/addInquiry',
+                headers: { 'Content-Type': 'application/json',
+                'Accept': 'application/json'},
+                jsonData:inquiry,
+                success : function(response) {
+                    Ext.MessageBox.alert('Information','Your comment has been sent.');
+
+                }
+                });
+        this.getContactUsWindow().destroy();
+
+         }else{
+             Ext.MessageBox.alert('Error', 'Please insert before submiting');
+         }
 
 
-        // }
     },
 
     onTotalItemsChange: function() {

@@ -20,11 +20,12 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
         'Ext.form.Panel',
         'Ext.form.Label',
         'Ext.form.field.TextArea',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
 
     height: 330,
+    id: 'contactUsWindow',
+    itemId: 'contactUsWindow',
     width: 400,
     title: '',
     modal: true,
@@ -56,14 +57,14 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             items: [
                                 {
                                     xtype: 'label',
-                                    style: 'font-family:\'Abel\';\nfont-size: 20px;\npadding-left:20px;',
+                                    style: 'font-family:\'Abel\';\nfont-size: 20px;',
                                     text: 'Branch:Grand BayView Hotel Zhuhai, China'
                                 },
                                 {
                                     xtype: 'label',
                                     height: 16,
                                     margin: '',
-                                    padding: '0 0 0 20',
+                                    padding: '',
                                     style: 'font-family:\'Abel\';\nfont-size: 20px;',
                                     text: 'Contact Number: 09123456789'
                                 },
@@ -73,30 +74,24 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                                     hidden: true,
                                     id: 'commentBox',
                                     itemId: 'commentBox',
+                                    width: 351,
                                     fieldLabel: 'Comments:',
-                                    labelStyle: 'font-family:\'Abel\';font-size:18px;'
+                                    labelStyle: 'font-family:\'Abel\';font-size:18px;',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false
                                 },
                                 {
                                     xtype: 'container'
-                                }
-                            ],
-                            dockedItems: [
+                                },
                                 {
-                                    xtype: 'toolbar',
-                                    dock: 'top',
-                                    layout: {
-                                        type: 'hbox',
-                                        pack: 'end'
-                                    },
-                                    items: [
-                                        {
-                                            xtype: 'button',
-                                            hidden: true,
-                                            id: 'btnSubmitComment',
-                                            itemId: 'btnSubmitComment',
-                                            text: 'Submit'
-                                        }
-                                    ]
+                                    xtype: 'button',
+                                    height: 35,
+                                    hidden: true,
+                                    id: 'btnSubmitComment',
+                                    itemId: 'btnSubmitComment',
+                                    margin: '0 0 0 250',
+                                    width: 100,
+                                    text: 'Submit'
                                 }
                             ]
                         }
