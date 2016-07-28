@@ -16,4 +16,6 @@ public interface OrderItemDAO extends GenericDAO<OrderItem> {
 	public List<OrderItem> getAllOrderItemsByOrderId(int id);
 
 	public boolean addOrderItems(List<OrderItem> orderItem);
+	
+	public List<OrderItem> getOrderItemByMealId(int mealId);
 }

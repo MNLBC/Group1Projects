@@ -51,4 +51,13 @@ public class TrayDAOImpl extends AbstractJPADAO<Tray> implements TrayDAO {
 		return trays;
 	}
 
+	@Override
+	public List<Tray> getAllTrayByMealId(int id) {
+		Query query = entityManager.createQuery("select t from Tray t where t.meal.id = :id");
+		query.setParameter("id", id);
+		List<Tray> trays = query.getResultList();
+		return trays;
+		
+	}
+
 }

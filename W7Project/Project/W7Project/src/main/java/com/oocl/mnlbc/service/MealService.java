@@ -8,8 +8,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.oocl.mnlbc.dao.FeedbackDAO;
 import com.oocl.mnlbc.dao.MealDAO;
+import com.oocl.mnlbc.dao.OrderItemDAO;
+import com.oocl.mnlbc.dao.TrayDAO;
+import com.oocl.mnlbc.entity.Feedback;
 import com.oocl.mnlbc.entity.Meal;
+import com.oocl.mnlbc.entity.OrderItem;
+import com.oocl.mnlbc.entity.Tray;
 
 @Service
 public class MealService {
@@ -18,6 +24,15 @@ public class MealService {
 
 	@Autowired
 	MealDAO mealDao;
+	
+	@Autowired
+	OrderItemDAO orderItemDao;
+	
+	@Autowired
+	TrayDAO trayDao;
+	
+	@Autowired
+	FeedbackDAO feedbackDao;
 	
 	public List<Meal> getAllMeals(){
 		logger.info("Getting all list of Meals");
@@ -47,12 +62,29 @@ public class MealService {
 	}
 	
 	public boolean deleteMeal(Meal meal){
+
 		mealDao.delete(meal);
 		logger.info("Deleting meal");
 		return true;
 	}
 
 	public boolean deleteById(int id) {
+		
+		List<OrderItem> orderItems =  orderItemDao.getOrderItemByMealId(id);
+		for (OrderItem orderItem : orderItems) {
+			orderItemDao.delete(orderItem);
+		}
+		
+		List<Feedback> feedbacks =  feedbackDao.getAllFeedbackByMealId(id);
+		for (Feedback feedback : feedbacks) {
+			feedbackDao.delete(feedback);
+		}
+		
+		List<Tray> trays =  trayDao.getAllTrayByMealId(id);
+		for (Tray tray : trays) {
+			trayDao.delete(tray);
+		}
+		
 		mealDao.deleteById(id);
 		logger.info("Deleting meal by ID");
 		return true;

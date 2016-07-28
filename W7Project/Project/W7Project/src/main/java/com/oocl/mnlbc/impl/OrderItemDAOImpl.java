@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import com.oocl.mnlbc.dao.AbstractJPADAO;
 import com.oocl.mnlbc.dao.OrderItemDAO;
+import com.oocl.mnlbc.entity.Order;
 import com.oocl.mnlbc.entity.OrderItem;
 
 /**
@@ -42,6 +43,13 @@ public class OrderItemDAOImpl extends AbstractJPADAO<OrderItem> implements Order
 		}
 		entityManager.getTransaction().commit();
 		return true;
+	}
+	
+	@Override
+	public List<OrderItem> getOrderItemByMealId(int mealId) {
+		Query query = entityManager.createQuery("select o from OrderItem o where o.meal.id = :mealId");
+		query.setParameter("mealId", mealId);
+		return query.getResultList();
 	}
 
 }

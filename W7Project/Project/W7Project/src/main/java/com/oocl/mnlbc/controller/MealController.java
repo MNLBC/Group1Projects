@@ -43,6 +43,16 @@ public class MealController {
 	}
 	
 	/**
+	 * This request is for getting all the meals using GET.
+	 * 
+	 */
+//	@ResponseBody
+//	@RequestMapping(value = { "/upload" }, method = RequestMethod.GET)
+//	public List<Meal> getAllMeals() {
+//		return mealService.getAllMeals();
+//	}
+	
+	/**
 	 * This request is for getting meal using id by GET.
 	 * 
 	 */

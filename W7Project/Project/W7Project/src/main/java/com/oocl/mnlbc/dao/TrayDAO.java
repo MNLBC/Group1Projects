@@ -16,4 +16,5 @@ public interface TrayDAO extends GenericDAO<Tray> {
 	boolean addListTray(List<Tray> trays);
 
 	List<Tray> getAllTrayByUserId(int id);
+	List<Tray> getAllTrayByMealId(int id);
 }
