@@ -16,8 +16,10 @@ import com.oocl.mnlbc.entity.User;
 import com.oocl.mnlbc.service.LoginService;
 
 /**
+ * This is a controller for Login and Logout requests
+ * 
  * @author LIMOSJO
- *
+ * @since 07/21/16
  */
 @Controller
 public class LoginController {
@@ -31,6 +33,11 @@ public class LoginController {
 	/**
 	 * This request is for success logging in using POST request.
 	 * 
+	 * @param username
+	 *            the user name from the form
+	 * @param session
+	 *            the session of the page request
+	 * @return an object of User
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
@@ -41,8 +48,14 @@ public class LoginController {
 	/**
 	 * This request is for checking if user logging in using POST request.
 	 * 
+	 * @param username
+	 *            the user name from the form
+	 * @param password
+	 *            the password from the form
+	 * @param session
+	 *            the session of the page request
+	 * @return the status of checking
 	 */
-
 	@ResponseBody
 	@RequestMapping(value = { "/checkLoggedIn" }, method = RequestMethod.POST)
 	public String checkLoggedIn(@RequestParam(required = true) String username,
@@ -53,6 +66,9 @@ public class LoginController {
 	/**
 	 * This request is for logging out using POST request.
 	 * 
+	 * @param session
+	 *            the session of the page request
+	 * @return the status of logout
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/logout" }, method = RequestMethod.GET)

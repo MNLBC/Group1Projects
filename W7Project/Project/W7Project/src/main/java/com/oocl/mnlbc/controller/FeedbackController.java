@@ -15,75 +15,90 @@ import com.oocl.mnlbc.service.FeedbackService;
 
 /**
  * This is a controller for Feedback requests
- * @author BARREPE
  * 
+ * @author BARREPE
+ * @since 07/27/16
  */
 
 @Controller
 @RequestMapping(value = "/feedback")
 public class FeedbackController {
-	
+
 	/**
 	 * Automatic instantiation of Feedback Service
 	 */
 	@Autowired
 	FeedbackService feedbackService;
-	
-	
+
 	/**
 	 * This request is for getting all the feedbacks.
-	 * @return
+	 * 
+	 * @return the list of all feedback
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getAllFeedbacks" }, method = RequestMethod.GET)
 	public List<Feedback> getAllFeedbacks() {
 		return feedbackService.getAllFeedbacks();
 	}
-	
+
 	/**
 	 * This request is for getting the feedbacks using the id.
-	 * @return
+	 * 
+	 * @param id
+	 *            the id of the feedback to be retrieved
+	 * @return an object of Feedback
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/getFeedbackById/{id}", method = RequestMethod.GET)
 	public Feedback getFeedbackById(@PathVariable("id") int id) {
 		return feedbackService.getFeedbackById(id);
 	}
-	
+
 	/**
 	 * This request is for adding feedback
-	 * @return
+	 * 
+	 * @param feedback
+	 *            the feedback to be inserted
+	 * @return a boolean result of insertion
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/addFeedback" }, method = RequestMethod.POST)
 	public boolean addFeedback(@RequestBody Feedback feedback) {
 		return feedbackService.addFeedback(feedback);
 	}
-	
+
 	/**
 	 * This request is for updating feedback
-	 * @return
+	 * 
+	 * @param feedback
+	 *            the feedback to be updated
+	 * @return a boolean result of update
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/updateFeedback" }, method = RequestMethod.POST)
 	public boolean updateFeedback(@RequestBody Feedback feedback) {
 		return feedbackService.updateFeedback(feedback);
 	}
-	
-	
+
 	/**
 	 * This request is for removing feedback
-	 * @return
+	 * 
+	 * @param feedback
+	 *            the feedback to be removed
+	 * @return a boolean result of deletion
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/removeFeedback" }, method = RequestMethod.POST)
 	public boolean removeFeedback(@RequestBody Feedback feedback) {
 		return feedbackService.removeFeedback(feedback);
 	}
-	
+
 	/**
 	 * This request is for removing feedback using Id
-	 * @return
+	 * 
+	 * @param id
+	 *            the id of the feedback to be removed
+	 * @return a boolean result of deletion
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/removeFeedback/{id}", method = RequestMethod.GET)

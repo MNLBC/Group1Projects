@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oocl.mnlbc.dao.UserDAO;
+import com.oocl.mnlbc.entity.Tray;
 import com.oocl.mnlbc.entity.User;
 
 /**
