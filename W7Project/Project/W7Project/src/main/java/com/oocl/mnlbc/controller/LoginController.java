@@ -34,7 +34,7 @@ public class LoginController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-	public User login(@RequestParam(required = true) String username, String password, HttpSession session) {
+	public User login(@RequestParam(required = true) String username, HttpSession session) {
 		return loginService.login(username, session);
 	}
 

@@ -22,6 +22,9 @@ public class LoginService {
 	@Autowired
 	UserDAO userDAO;
 
+	@Autowired
+	UserService userService;
+
 	public User login(String username, HttpSession session) {
 		ServletContext context = session.getServletContext();
 		List<User> loggedUsers = getAllLoggedUsers(context);
@@ -43,10 +46,15 @@ public class LoginService {
 
 	public String checkLoggedIn(String username, String password, HttpSession session) {
 		password = PasswordHashing.getInstance().hashPassword(password);
-		User user = userDAO.getUserByUsername(username);
 		ServletContext context = session.getServletContext();
 		List<User> loggedUsers = getAllLoggedUsers(context);
+		boolean isExist = userService.isUsernameExisting(username);
 		boolean isLoggedIn = checkUserLoggedIn(username, loggedUsers);
+
+		User user = null;
+		if (isExist) {
+			user = userDAO.getUserByUsername(username);
+		}
 
 		if (user == null) {
 			logger.info("User" + username + " does not exist.");
