@@ -9,8 +9,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.dao.OrderDAO;
 import com.oocl.mnlbc.dao.OrderItemDAO;
+import com.oocl.mnlbc.entity.Meal;
 import com.oocl.mnlbc.entity.Order;
 import com.oocl.mnlbc.entity.OrderItem;
 
@@ -29,6 +31,9 @@ public class OrderService {
 	@Autowired
 	OrderItemDAO orderItemDao;
 	
+	@Autowired
+	MealDAO mealDao;
+	
 	public List<Order> getAllOrder(){
 		logger.info("Getting all list of Order");
 		return orderDao.getAll();
@@ -36,7 +41,17 @@ public class OrderService {
 	
 	public List<Order> getAllOrderByUserID(int userId){
 		logger.info("Getting all order by User ID");
-		return orderDao.getOrderByUserId(userId);
+		List<Order> orders = orderDao.getOrderByUserId(userId);
+		
+		for (Order order : orders) {
+			List<OrderItem> orderItems = order.getOrderItemList();
+			for (OrderItem orderItem : orderItems) {
+				Meal meal = mealDao.find(orderItem.getMeal().getId());
+				orderItem.setMeal(meal);
+			}
+		}
+		
+		return orders;
 	}
 	
 	public Order getOrderById(int id){
