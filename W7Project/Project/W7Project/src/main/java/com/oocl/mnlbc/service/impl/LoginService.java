@@ -22,39 +22,48 @@ public class LoginService {
 	@Autowired
 	UserDAO userDAO;
 
-	public User login(String username, String password, HttpSession session) {
-
+	public User login(String username, String password) {
 		password = PasswordHashing.getInstance().hashPassword(password);
 
 		User user = userDAO.getUserByUsername(username);
 		if (user == null) {
+			logger.info("User" + user.getUsername() + " does not exist.");
 			return null;
 		}
 
 		if (user.getPassword().equals(password)) {
-			ServletContext context = session.getServletContext();
-
-			List<User> logged = getAllLoggedUsers(context);
-
 			if (user.getIsDisabled() == 0) {
-				boolean check = isUserLoggedIn(username, logged);
-
-				if (!check) {
-					logged.add(user);
-				}
-
-				context.setAttribute("logged", logged);
-				session.setAttribute("user", user);
-
 				logger.info("Client " + user.getUsername() + " has successfully logged in.");
-
 				return user;
-
-			} else {
-				logger.info("Client " + user.getUsername() + " is blocked.");
 			}
+			logger.info("Client " + user.getUsername() + " is blocked.");
 		}
 		return null;
+	}
+
+	public String checkLoggedIn(String username, HttpSession session) {
+		User user = userDAO.getUserByUsername(username);
+		if (user == null) {
+			logger.info("User" + user.getUsername() + " does not exist.");
+			return "null";
+		}
+
+		ServletContext context = session.getServletContext();
+
+		List<User> loggedUsers = getAllLoggedUsers(context);
+
+		boolean isLoggedIn = checkUserLoggedIn(username, loggedUsers);
+
+		if (isLoggedIn) {
+			logger.info("Client " + user.getUsername() + " has already logged in.");
+			return "logged";
+		}
+
+		loggedUsers.add(user);
+		context.setAttribute("logged", loggedUsers);
+		session.setAttribute("user", user);
+
+		return "success";
 	}
 
 	public String logout(HttpSession session) {
@@ -80,7 +89,7 @@ public class LoginService {
 		return logged;
 	}
 
-	private boolean isUserLoggedIn(String username, List<User> logged) {
+	private boolean checkUserLoggedIn(String username, List<User> logged) {
 		boolean flag = false;
 		for (User name : logged) {
 			if (name.getUsername().equals(username)) {

@@ -21,24 +21,35 @@ import com.oocl.mnlbc.service.impl.LoginService;
  */
 @Controller
 public class LoginController {
-	
+
 	/**
 	 * Automatic instantiation of login Service
 	 */
 	@Autowired
 	LoginService loginService;
-	
+
 	/**
 	 * This request is for logging in using POST request.
 	 * 
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-	public User login(@RequestParam(required = true) String username, @RequestParam(required = true) String password,
-			HttpSession session) {
-		return loginService.login(username, password, session);
+	public User login(@RequestParam(required = true) String username, @RequestParam(required = true) String password) {
+		return loginService.login(username, password);
 	}
-	
+
+	/**
+	 * This request is for checking if user already logged in using POST
+	 * request.
+	 * 
+	 */
+
+	@ResponseBody
+	@RequestMapping(value = { "/checkLoggedIn" }, method = RequestMethod.POST)
+	public String checkLoggedIn(@RequestParam(required = true) String username, HttpSession session) {
+		return loginService.checkLoggedIn(username, session);
+	}
+
 	/**
 	 * This request is for logging out using POST request.
 	 * 
