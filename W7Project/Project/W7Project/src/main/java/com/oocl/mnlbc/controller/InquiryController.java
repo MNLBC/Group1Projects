@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.entity.Feedback;
 import com.oocl.mnlbc.entity.Inquiry;
 import com.oocl.mnlbc.service.impl.InquiryService;
 
