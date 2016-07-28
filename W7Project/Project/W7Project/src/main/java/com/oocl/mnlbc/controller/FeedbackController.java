@@ -54,4 +54,11 @@ public class FeedbackController {
 	public boolean removeFeedback(@RequestBody Feedback feedback) {
 		return feedbackService.removeFeedback(feedback);
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/removeFeedback/{id}", method = RequestMethod.GET)
+	public boolean removeFeedbackById(@PathVariable("id") int id) {
+		return feedbackService.removeFeedbackById(id);
+	}
 }

@@ -52,4 +52,9 @@ public class FeedbackService {
 		feedbackDAO.delete(feedback);
 		return true;
 	}
+
+	public boolean removeFeedbackById(int id) {
+		feedbackDAO.deleteById(id);
+		return true;
+	}
 }

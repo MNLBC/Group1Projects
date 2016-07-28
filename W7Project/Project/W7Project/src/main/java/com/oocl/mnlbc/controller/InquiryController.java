@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.oocl.mnlbc.entity.Feedback;
 import com.oocl.mnlbc.entity.Inquiry;
 import com.oocl.mnlbc.service.impl.InquiryService;
 
@@ -47,6 +48,19 @@ public class InquiryController {
 	@RequestMapping(value = { "/updateInquiry" }, method = RequestMethod.POST)
 	public boolean updateFeedback(@RequestBody Inquiry inquiry) {
 		return inquiryService.updateInquiry(inquiry);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/removeInquiry" }, method = RequestMethod.POST)
+	public boolean removeFeedback(@RequestBody Inquiry inquiry) {
+		return inquiryService.removeInquiry(inquiry);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/removeInquiry/{id}", method = RequestMethod.GET)
+	public boolean removeFeedbackById(@PathVariable("id") int id) {
+		return inquiryService.removeInquiryById(id);
 	}
 
 }

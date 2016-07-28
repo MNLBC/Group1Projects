@@ -46,4 +46,16 @@ public class InquiryService {
 		inquiryDAO.update(inquiry);
 		return true;
 	}
+
+	public boolean removeInquiry(Inquiry inquiry) {
+		logger.info("deleting inquiry");
+		inquiryDAO.delete(inquiry);
+		return true;
+	}
+
+	public boolean removeInquiryById(int id) {
+		logger.info("deleting inquiry by id");
+		inquiryDAO.deleteById(id);
+		return false;
+	}
 }
