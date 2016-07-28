@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminMessageStore",
+        "model": "AdminMessageModel",
+        "storeId": "AdminCreateMessageStore"
+    },
+    "name": "MyStore",
+    "designerId": "57a4a8c1-d7f4-481b-b2a1-6fbe4609b5aa"
+}

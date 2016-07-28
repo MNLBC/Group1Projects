@@ -1,0 +1,28 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminMessageModel"
+    },
+    "name": "MyModel",
+    "designerId": "e411ca25-ad8d-415a-83f9-5cf9f696df2a",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Message"
+            },
+            "name": "MyField40",
+            "designerId": "3fb0b463-3da5-4514-8632-671d68bce4da"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "AdminMenuController",
+            "AdminMainController",
+            "AdminWindowsController"
+        ],
+        "models": [
+            "UsersModel",
+            "AdminMessageModel",
+            "AdminInquiryModel",
+            "AdminCommentsModel"
+        ],
+        "name": "BurgerQueenAdmin",
+        "stores": [
+            "UsersStore",
+            "AdminMessageStore",
+            "AdminInquiryStore",
+            "AdminCommentsStore"
+        ],
+        "views": [
+            "AdminMainViewport",
+            "adminProductsPanel",
+            "adminOrdersPanel",
+            "adminCommentsPanel",
+            "LoginWindow",
+            "adminUsersPanel",
+            "adminCreateMessagePanel",
+            "adminInquiryPanel"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

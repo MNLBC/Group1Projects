@@ -1,0 +1,72 @@
+{
+    "name": "BurgerQueenAdmin",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/BurgerQueenAdmin/",
+        "exportPath": "D:/My Documents/BurgerQueenAdmin/BurgerQueenAdminPublish",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": true,
+        "lockUrlPrefix": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1183-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "16093103-164a-4b57-8cda-d8a19e3594a8",
+            "f70053bc-ce38-4906-be66-bbf0e7e1620b",
+            "df15cd7b-f878-4122-8ba9-d6c87ce7501f",
+            "7c0816fe-4071-4587-b35d-b7e043903f25",
+            "a2894fd1-f825-43c3-9a10-f13873fcdd6e",
+            "bde1a33d-bcea-4038-b954-345bc6af3a3e",
+            "95acc806-81d6-4f8e-95cc-72bd6719c9aa",
+            "4397d531-2f26-4198-a28a-2b8a7c0513d2"
+        ],
+        "store": [
+            "7d8482d3-5b17-4d56-bd4c-00cb12c58d89",
+            "57a4a8c1-d7f4-481b-b2a1-6fbe4609b5aa",
+            "06dfd098-7b4c-4085-b929-77bf2a90754d",
+            "1e91ece3-55bb-46ed-bd8e-fd3931c5120e"
+        ],
+        "controller": [
+            "41f1f715-4218-4d6e-b0e0-4e53fdda36e8",
+            "7f431338-a2a2-4b0a-8a12-63d60f6ad043",
+            "025c1a7f-c5e8-409d-80c7-9eb79f563d3d"
+        ],
+        "model": [
+            "67e73fa1-c999-43e4-99ef-f27a514c6a21",
+            "e411ca25-ad8d-415a-83f9-5cf9f696df2a",
+            "cd8b906b-9997-421e-b499-7de4d0496118",
+            "246a3337-9db0-42b7-835a-eb907a410e20"
+        ],
+        "resource": [
+            "0136197c-d826-4c9c-b838-e77b269c07c5",
+            "4ef9ca44-d994-4042-a8c1-e9b11c5b7ccd"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

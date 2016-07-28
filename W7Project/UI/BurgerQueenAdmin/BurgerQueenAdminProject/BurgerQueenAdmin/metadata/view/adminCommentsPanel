@@ -1,0 +1,152 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "admincommentspanel",
+        "designer|userClassName": "adminCommentsPanel",
+        "frameHeader": false,
+        "header": false,
+        "height": 250,
+        "id": "adminCommentsPanel",
+        "itemId": "adminCommentsPanel",
+        "layout": "fit",
+        "title": "Comments",
+        "width": 400
+    },
+    "name": "MyPanel4",
+    "designerId": "7c0816fe-4071-4587-b35d-b7e043903f25",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "store": "AdminCommentsStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel",
+            "designerId": "e79f77d3-cea0-484f-95aa-8eca0a878b8b",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "f8038d8b-7446-4cad-946d-06f35e23dda9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Id",
+                        "flex": 1,
+                        "text": "Id"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "0bd83df5-e64d-436f-a8ac-b7c8ed216865"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "User",
+                        "flex": 1,
+                        "text": "User"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "75502ef9-a7fe-4068-89fb-c92cacb3421b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Meal",
+                        "flex": 1,
+                        "text": "Meal"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "cefa7488-2668-4cf6-94e1-88f6ebf91ba5"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Feedback",
+                        "flex": 1,
+                        "text": "Feedback"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "658d3f8a-618f-4782-9eee-e73810f4a792"
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": "Ext.selection.RowModel",
+                    "name": "MyRowSelectionModel",
+                    "designerId": "2155bcfa-d1bc-4dfb-bc31-49aa95acc83d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar2",
+            "designerId": "bd57c8ca-9616-4205-b891-88dfd7e1763f",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "acceptFeedbackAdmin",
+                        "layout|flex": null,
+                        "text": "Accept Feedback"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "07311646-f0b7-4749-be35-150ea0ac9837"
+                }
+            ]
+        }
+    ]
+}

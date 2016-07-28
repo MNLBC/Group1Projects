@@ -1,0 +1,44 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"Id\": \"dolorem\",",
+            "        \"UserId\": \"laborum\",",
+            "        \"Message\": \"atque\"",
+            "    },",
+            "    {",
+            "        \"Id\": \"dolorem\",",
+            "        \"UserId\": \"omnis\",",
+            "        \"Message\": \"quia\"",
+            "    },",
+            "    {",
+            "        \"Id\": \"assumenda\",",
+            "        \"UserId\": \"fugiat\",",
+            "        \"Message\": \"nulla\"",
+            "    },",
+            "    {",
+            "        \"Id\": \"nostrum\",",
+            "        \"UserId\": \"vel\",",
+            "        \"Message\": \"est\"",
+            "    },",
+            "    {",
+            "        \"Id\": \"reprehenderit\",",
+            "        \"UserId\": \"quidem\",",
+            "        \"Message\": \"aut\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "AdminInquiryStore",
+        "model": "AdminInquiryModel",
+        "storeId": "AdminInquiryStore"
+    },
+    "name": "MyStore",
+    "designerId": "06dfd098-7b4c-4085-b929-77bf2a90754d"
+}
