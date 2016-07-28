@@ -50,7 +50,7 @@ public class Meal implements Serializable {
 	private String category;
 
 	@Column(name = "points")
-	private float points;
+	private int points;
 
 	/**
 	 * @return the id
@@ -104,7 +104,7 @@ public class Meal implements Serializable {
 	/**
 	 * @return the points
 	 */
-	public float getPoints() {
+	public int getPoints() {
 		return points;
 	}
 
@@ -168,7 +168,7 @@ public class Meal implements Serializable {
 	 * @param points
 	 *            the points to set
 	 */
-	public void setPoints(float points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 

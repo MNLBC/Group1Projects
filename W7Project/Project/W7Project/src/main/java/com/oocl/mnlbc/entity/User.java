@@ -11,8 +11,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 /**
  * @author RACELPA
  *
@@ -52,7 +50,6 @@ public class User implements Serializable {
 	@Column(name = "username")
 	private String username;
 
-	@JsonIgnore
 	@Column(name = "password")
 	private String password;
 
@@ -66,7 +63,7 @@ public class User implements Serializable {
 	private int isDisabled;
 
 	@Column(name = "points")
-	private double points;
+	private int points;
 
 	/**
 	 * @return the id
@@ -162,7 +159,7 @@ public class User implements Serializable {
 	/**
 	 * @return the points
 	 */
-	public double getPoints() {
+	public int getPoints() {
 		return points;
 	}
 
@@ -274,7 +271,7 @@ public class User implements Serializable {
 	 * @param points
 	 *            the points to set
 	 */
-	public void setPoints(double points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 
