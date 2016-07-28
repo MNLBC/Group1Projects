@@ -1,0 +1,449 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "userprofile",
+        "designer|userClassName": "UserProfile",
+        "header": false,
+        "height": 691,
+        "id": "UserProfile",
+        "itemId": "UserProfile",
+        "layout": "fit",
+        "title": "My Profile",
+        "width": 612
+    },
+    "name": "MyPanel1",
+    "designerId": "feaacf15-cc23-43de-947d-74cac5110f34",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox",
+                "padding": ""
+            },
+            "name": "MyContainer2",
+            "designerId": "1fc8550d-e506-4158-8cd1-0f0956922ac2",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 20,
+                        "layout": "anchor",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer15",
+                    "designerId": "fd3535ce-d6c4-43f5-b196-4a1c17e86c07"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "height": 349,
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer9",
+                    "designerId": "4b03c88c-8ecc-491b-bbb1-08c4f7d2dc64",
+                    "cn": [
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer13",
+                            "designerId": "4e1ad9d5-c305-4292-b401-306a1d1c15fa"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 325,
+                                "layout": "anchor",
+                                "layout|flex": 1,
+                                "rtl": true
+                            },
+                            "name": "MyContainer12",
+                            "designerId": "ffc22628-bbbb-425f-b21b-bdd378ebfbbf",
+                            "cn": [
+                                {
+                                    "type": "Ext.Img",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "maxHeight": 300,
+                                        "maxWidth": 200,
+                                        "minHeight": 300,
+                                        "minWidth": 200,
+                                        "padding": "0px 0px 0px 80px",
+                                        "rtl": true,
+                                        "src": "resources/avatar.png",
+                                        "width": ""
+                                    },
+                                    "name": "MyImg3",
+                                    "designerId": "b3a198ec-fb0c-4938-8827-41c1f8bd0b23"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 309,
+                                "layout|flex": 1,
+                                "width": 311
+                            },
+                            "name": "MyContainer10",
+                            "designerId": "d624182f-acd7-4605-9cb1-f69096dad4b0",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "fullnameProfile",
+                                        "fieldLabel": "",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 25px; font-weight: bold;",
+                                        "height": 50,
+                                        "id": "fullnameProfile",
+                                        "inputId": "lastName",
+                                        "itemId": "fullnameProfile",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "value": "Display Field",
+                                        "width": 800
+                                    },
+                                    "name": "MyDisplayField8",
+                                    "designerId": "a66a3fae-ec2b-41bc-a6dd-d76f2441ca88"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "username",
+                                        "fieldLabel": "Username",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "height": 50,
+                                        "id": "usernameProfile",
+                                        "inputId": "userName",
+                                        "itemId": "usernameProfile",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "labelWidth": 70,
+                                        "value": "Display Field",
+                                        "width": 800
+                                    },
+                                    "name": "MyDisplayField5",
+                                    "designerId": "1db9119c-9f56-4ac2-8277-30320f38ff5b"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "addressProfile",
+                                        "fieldLabel": "Address",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "height": 50,
+                                        "id": "addressProfile",
+                                        "inputId": "address",
+                                        "itemId": "addressProfile",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "labelWidth": 70,
+                                        "value": "Display Field",
+                                        "width": 800
+                                    },
+                                    "name": "MyDisplayField9",
+                                    "designerId": "d61ccbbb-745f-47c7-b3d8-266f16fa5ba3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "emailProfile",
+                                        "fieldLabel": "E-mail",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "height": 50,
+                                        "id": "emailProfile",
+                                        "inputId": "email",
+                                        "itemId": "emailProfile",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "labelWidth": 70,
+                                        "value": "Display Field",
+                                        "width": 800
+                                    },
+                                    "name": "MyDisplayField10",
+                                    "designerId": "ebd84591-78da-41dd-b26a-ae96c55c48b1"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "contactNumProfile",
+                                        "fieldLabel": "Contact:",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "height": 50,
+                                        "id": "contactnumProfile",
+                                        "inputId": "userProfileWindow",
+                                        "itemId": "contactnumProfile",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "labelWidth": 70,
+                                        "value": "Display Field",
+                                        "width": 800
+                                    },
+                                    "name": "MyDisplayField11",
+                                    "designerId": "42f6459b-2289-45b1-9285-26b1bde8cadf"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "User Level",
+                                        "fieldStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "id": "userLevel",
+                                        "labelStyle": "font-family: 'Abel'; font-size: 15px;",
+                                        "labelWidth": 70,
+                                        "value": "Display Field"
+                                    },
+                                    "name": "MyDisplayField13",
+                                    "designerId": "1d0aed59-041d-4396-805a-59fbae832b71"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 293,
+                                "layout|flex": 1
+                            },
+                            "name": "MyContainer14",
+                            "designerId": "fbc82798-f72c-467b-8dd8-3fd43c4d85da"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 20,
+                        "layout": "anchor",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer16",
+                    "designerId": "cca6147a-d59c-4a90-b3f9-935e61a81066"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "layout|flex": null
+                    },
+                    "name": "MyToolbar14",
+                    "designerId": "77451eaf-4a40-453b-b297-704921beb6e6",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "editProfileButton",
+                                "itemId": "editProfileButton",
+                                "layout|flex": null,
+                                "text": "Edit Profile"
+                            },
+                            "name": "MyButton32",
+                            "designerId": "869ab4f3-87e2-431a-9239-5fbd1380a1b0"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "profileOpenChangePasswordWindow",
+                                "itemId": "profileOpenChangePasswordWindow",
+                                "layout|flex": null,
+                                "text": "Change Password"
+                            },
+                            "name": "MyButton33",
+                            "designerId": "9fcb9ab5-952b-4270-b4f4-1bf3942b6de9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer11",
+                    "designerId": "384b81cd-5c3f-4a10-ad49-0a38e6e4651e",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "hideHeaders": true,
+                                "id": "TransacHistoryGrid",
+                                "itemId": "transactionHistoryGrid",
+                                "store": "TransactionStore",
+                                "title": "Recent Transactions"
+                            },
+                            "name": "MyGridPanel2",
+                            "designerId": "9a2b3c69-6907-40b7-8bd5-40ac082c6e64",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Id",
+                                        "flex": 1,
+                                        "text": "Transaction Id"
+                                    },
+                                    "name": "MyColumn6",
+                                    "designerId": "b96d7abc-7264-423b-a965-5a667f69286c"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView2",
+                                    "designerId": "170b5dd7-7902-40a6-8dbd-9bf7783ef91f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Status",
+                                        "flex": 1,
+                                        "text": "Transaction Status"
+                                    },
+                                    "name": "MyColumn5",
+                                    "designerId": "99194d5a-eaf7-47b8-bee9-99298b959af5"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTransacHistoryGridItemDblClick",
+                                        "implHandler": [
+                                            "",
+                                            "",
+                                            "         Ext.create('BurgerQueen.view.TransactionDetails',{",
+                                            "            transaction : record }).show();"
+                                        ],
+                                        "name": "itemdblclick",
+                                        "scope": "me"
+                                    },
+                                    "name": "onTransacHistoryGridItemDblClick",
+                                    "designerId": "9a1d8564-c52a-4ef1-9b0e-c4b809af4fd7"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

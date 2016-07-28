@@ -1,0 +1,130 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "WinUserEdit",
+        "header": false,
+        "height": 236,
+        "id": "winUserEdit",
+        "itemId": "winUserEdit",
+        "modal": true,
+        "title": "My Window",
+        "width": 329
+    },
+    "name": "MyWindow",
+    "designerId": "31239b69-38d5-416c-9dff-9ef60336e348",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "html": [
+                    "<center><div id=\"nav\"><h1 style = 'font-family: Arial; color:#565652;' >Manage User</h1></div></center>"
+                ],
+                "title": "Manage User"
+            },
+            "name": "MyPanel1",
+            "designerId": "0d61177d-6e73-4d89-852f-8194e3845660"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "header": false,
+                "id": "adminManageUserForm",
+                "itemId": "adminManageUserForm",
+                "title": "My Form"
+            },
+            "name": "MyForm5",
+            "designerId": "1ae8e44c-0870-4fc7-b771-dd05ca1987dc",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "type",
+                        "fieldLabel": "User Type",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "id": "UserManageType",
+                        "itemId": "UserManageType",
+                        "labelStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "margin": 20,
+                        "queryMode": "local",
+                        "store": "UserTypeStore",
+                        "valueField": "type"
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "a7cfdbb4-7973-4f08-8c0b-74ff4c55b199"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Points",
+                        "fieldStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "id": "manageUserPoints",
+                        "inputType": "number",
+                        "itemId": "manageUserPoints",
+                        "labelStyle": "text-align: center; font-family:'Abel' ; font-size:18px;",
+                        "margin": 20
+                    },
+                    "name": "MyTextField20",
+                    "designerId": "8f319753-ebe3-48e5-b7da-5f511c9c1723"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 30,
+                        "id": "manageUserBtnConfirm",
+                        "itemId": "manageUserBtnConfirm",
+                        "margin": "0 0 0 100",
+                        "padding": "",
+                        "text": "Confirm",
+                        "width": "50%"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "cc99d223-0ca2-4698-aae4-994cda96a5c4"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyContainer24",
+                    "designerId": "2480c5b8-6884-42ff-9647-11da945e5f34"
+                }
+            ]
+        }
+    ]
+}
