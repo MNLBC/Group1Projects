@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oocl.mnlbc.service.impl.MessageService;
+import com.oocl.mnlbc.service.MessageService;
 
 /**
  * @author DEQUIAL

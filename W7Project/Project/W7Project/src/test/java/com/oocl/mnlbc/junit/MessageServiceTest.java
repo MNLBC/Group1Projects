@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.oocl.mnlbc.service.impl.MessageService;
+import com.oocl.mnlbc.service.MessageService;
 
 /**
  * @author DEQUIAL
@@ -28,7 +28,7 @@ public class MessageServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.MessageService#startClientConsumer(java.lang.Integer)}.
+	 * {@link com.oocl.mnlbc.service.MessageService#startClientConsumer(java.lang.Integer)}.
 	 */
 	@Test
 	public void testClientConsumer() {
@@ -42,7 +42,7 @@ public class MessageServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.MessageService#startAdminConsumer()}.
+	 * {@link com.oocl.mnlbc.service.MessageService#startAdminConsumer()}.
 	 */
 	@Test
 	public void testAdminConsumer() {

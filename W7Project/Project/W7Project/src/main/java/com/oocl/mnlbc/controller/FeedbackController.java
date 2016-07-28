@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.Feedback;
-import com.oocl.mnlbc.service.impl.FeedbackService;
+import com.oocl.mnlbc.service.FeedbackService;
 
 /**
  * This is a controller for Feedback requests

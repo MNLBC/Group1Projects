@@ -17,7 +17,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.oocl.mnlbc.entity.User;
-import com.oocl.mnlbc.service.impl.UserService;
+import com.oocl.mnlbc.service.UserService;
 
 /**
  * @author DEQUIAL
@@ -33,7 +33,7 @@ public class UserServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.UserService#find(int)}.
+	 * {@link com.oocl.mnlbc.service.UserService#find(int)}.
 	 */
 	@Test
 	public void testFindFail() {
@@ -62,7 +62,7 @@ public class UserServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.UserService#getUserByUsername(java.lang.String)}.
+	 * {@link com.oocl.mnlbc.service.UserService#getUserByUsername(java.lang.String)}.
 	 */
 	@Test
 	public void testGetUserByUsernameSuccess() {
@@ -71,7 +71,7 @@ public class UserServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.UserService#isUsernameExisting(java.lang.String)}.
+	 * {@link com.oocl.mnlbc.service.UserService#isUsernameExisting(java.lang.String)}.
 	 */
 	@Test
 	public void testIsUsernameExist() {
@@ -85,7 +85,7 @@ public class UserServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.UserService#isEmailExisting(java.lang.String)}.
+	 * {@link com.oocl.mnlbc.service.UserService#isEmailExisting(java.lang.String)}.
 	 */
 	@Test
 	public void testIsEmailDoesNotExist() {
@@ -94,7 +94,7 @@ public class UserServiceTest {
 
 	/**
 	 * Test method for
-	 * {@link com.oocl.mnlbc.service.impl.UserService#updateUser(com.oocl.mnlbc.entity.User)}.
+	 * {@link com.oocl.mnlbc.service.UserService#updateUser(com.oocl.mnlbc.entity.User)}.
 	 */
 	@Test
 	public void testUpdateUser() {

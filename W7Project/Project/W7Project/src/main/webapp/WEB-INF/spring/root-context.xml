@@ -5,7 +5,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<bean id="UserService" class="com.oocl.mnlbc.service.impl.UserService"></bean>
+	<bean id="UserService" class="com.oocl.mnlbc.service.UserService"></bean>
 
 	<bean id="UserDAOImpl" class="com.oocl.mnlbc.impl.UserDAOImpl"></bean>
 	<bean id="OrderDAOImpl" class="com.oocl.mnlbc.impl.OrderDAOImpl"></bean>

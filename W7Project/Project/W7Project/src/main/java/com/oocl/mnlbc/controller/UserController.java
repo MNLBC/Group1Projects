@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.User;
-import com.oocl.mnlbc.service.impl.UserService;
+import com.oocl.mnlbc.service.UserService;
 
 /**
  * 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.User;
-import com.oocl.mnlbc.service.impl.HomeService;
+import com.oocl.mnlbc.service.HomeService;
 
 /**
  * Handles requests for the application home page.

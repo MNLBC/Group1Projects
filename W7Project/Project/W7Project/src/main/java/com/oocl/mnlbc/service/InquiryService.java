@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.oocl.mnlbc.service.impl;
+package com.oocl.mnlbc.service;
 
 import java.util.List;
 

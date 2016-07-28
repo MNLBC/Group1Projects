@@ -1,4 +1,4 @@
-package com.oocl.mnlbc.service.impl;
+package com.oocl.mnlbc.service;
 
 import java.io.IOException;
 import java.util.List;

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oocl.mnlbc.entity.Order;
-import com.oocl.mnlbc.service.impl.OrderService;
+import com.oocl.mnlbc.service.OrderService;
 
 /**
  * @author DELEOAN
