@@ -32,6 +32,10 @@ Ext.define('BurgerQueenAdmin.controller.AdminMainController', {
         {
             ref: 'adminMessageToSend',
             selector: '#AdminMessageToSend'
+        },
+        {
+            ref: 'activeUsersCount',
+            selector: '#activeUsersCount'
         }
     ],
 
@@ -155,6 +159,37 @@ Ext.define('BurgerQueenAdmin.controller.AdminMainController', {
                 }
     },
 
+    onLogoutButtonClick: function() {
+                Ext.getCmp('AdminMainViewport').destroy();
+                Ext.create('BurgerQueenAdmin.view.LoginWindow').show();
+
+    },
+
+    activeUserCounter: function() {
+
+
+
+            Ext.Ajax.request({
+                    url : 'getLoggedUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        activeUsers = data;
+                        activeUser = true;
+                        var store = Ext.getStore('ActiveUserStore');
+                        store.removeAll();
+                       this.getActiveUsersCount().setValue(data.length);
+                        Ext.each(data, function(record){
+                            store.add({username:record.username});
+                        });
+
+                    }
+                });
+    },
+
     init: function(application) {
         this.control({
             "#showAdminMenu": {
@@ -168,6 +203,9 @@ Ext.define('BurgerQueenAdmin.controller.AdminMainController', {
             },
             "#AdminSendMsgBtn": {
                 click: this.onAdminSendMsgBtnClick
+            },
+            "#logoutButton": {
+                click: this.onLogoutButtonClick
             }
         });
     }

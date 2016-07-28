@@ -26,7 +26,7 @@ Ext.define('BurgerQueenAdmin.view.adminCreateMessagePanel', {
         'Ext.grid.View'
     ],
 
-    height: 679,
+    height: 661,
     id: 'adminCreateMessagePanel',
     itemId: 'adminCreateMessagePanel',
     padding: '',
@@ -50,7 +50,9 @@ Ext.define('BurgerQueenAdmin.view.adminCreateMessagePanel', {
                 {
                     xtype: 'textareafield',
                     itemId: 'AdminMessageToSend',
-                    fieldLabel: 'Enter Message To Send'
+                    fieldLabel: 'Enter Message To Send',
+                    labelStyle: 'font-family:\'Abel\' ; font-size:15px;',
+                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;'
                 },
                 {
                     xtype: 'toolbar',

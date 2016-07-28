@@ -93,7 +93,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminProducts', {
              image = Ext.getCmp('adminMealImg').getValue(),
              category = formValues.category.toLocaleLowerCase(),
 
-             setImage = 'resources/images/' + category +'/'+image,
+             setImage = '/resources/images/Logo.png',
              code = formValues.code,
              name = formValues.name,
              description = formValues.description,
@@ -112,7 +112,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminProducts', {
         };
 
 
-        if(form.isValid()){
+        if(form.isValid() && !mealFlag){
             Ext.Ajax.request({
                 url : 'meal/addMeal',
                 //                 params : ,
@@ -258,7 +258,12 @@ Ext.define('BurgerQueenAdmin.controller.AdminProducts', {
         var mealCode = Ext.getCmp('adminMealCode'),
             code = mealCode.getValue();
         //var existing = "";
-
+        var regex = new RegExp('[M][0-9]{2}');
+        if(!regex.test(code)){
+            mealFlag = true;
+            mealCode.markInvalid('Invalid meal code format!');
+            return 'Invalid meal code format';
+        }
         Ext.Ajax.request({
             url:'meal/checkMealCode',
             params : {
@@ -269,15 +274,14 @@ Ext.define('BurgerQueenAdmin.controller.AdminProducts', {
 
                 if (data == 'true') {
                     mealCode.markInvalid('Meal code is already existing!');
+                    mealFlag = true;
                     return 'Meal code is already existing!';
                 }
-
+                mealFlag = false;
                 return true;
             }
         });
 
-        // console.log(existing);
-        // return existing;
     },
 
     init: function(application) {

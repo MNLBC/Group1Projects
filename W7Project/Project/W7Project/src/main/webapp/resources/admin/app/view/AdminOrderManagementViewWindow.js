@@ -54,7 +54,8 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementViewWindow', {
                             id: 'orderId',
                             itemId: 'orderId',
                             dataIndex: 'id',
-                            text: 'OrderId'
+                            text: 'Order Item Id',
+                            flex: 1
                         },
                         {
                             xtype: 'gridcolumn',
@@ -80,8 +81,10 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementViewWindow', {
                                 },
                                 {
                                     xtype: 'button',
+                                    height: 35,
                                     id: 'onAdminOrderManagementBttnClose',
                                     itemId: 'onAdminOrderManagementBttnClose',
+                                    width: 100,
                                     text: 'close'
                                 }
                             ]

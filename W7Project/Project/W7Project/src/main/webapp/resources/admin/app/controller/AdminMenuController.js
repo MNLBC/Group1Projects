@@ -16,6 +16,8 @@
 Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
     extend: 'Ext.app.Controller',
 
+    oLoadingMessageMask: null,
+
     refs: [
         {
             ref: 'adminCommentsPanel',
@@ -44,6 +46,18 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
         {
             ref: 'adminOrderManagementPanel',
             selector: '#AdminOrderManagementPanel'
+        },
+        {
+            ref: 'showUsersWindow',
+            selector: '#showUsersWindow'
+        },
+        {
+            ref: 'activeUsersWindow',
+            selector: '#ActiveUsersWindow'
+        },
+        {
+            ref: 'activeUsersCount',
+            selector: '#activeUsersCount'
         }
     ],
 
@@ -55,6 +69,42 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
+            this.activeUserCounter();
+
+        this.showLoadingMessageMask();
+         var userStore = Ext.getStore('UsersStore');
+        userStore.removeAll();
+        Ext.Ajax.request({
+                    url : 'user/getAllUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        Ext.each(data, function(record){
+                            var users = {
+                                id:record.id,
+                                Username:record.username,
+                                Password:record.password,
+                                Firstname:record.firstname,
+                                Middlename:record.middlename,
+                                Lastname:record.lastname,
+                                Gender:record.gender,
+                                Email:record.email,
+                                Address:record.address,
+                                Contact:record.contactno,
+                                Disabled:record.isDisabled,
+                                Type:record.type,
+                                Level:record.userLevel,
+                                Points:record.points
+
+                            };
+                            userStore.add(users);
+                        });
+                        this.hideLoadingMessageMask();
+                    }
+                });
 
 
     },
@@ -67,8 +117,8 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
-
-
+            this.activeUserCounter();
+        this.showLoadingMessageMask();
         var store = Ext.getStore('ProductStore');
         store.removeAll();
         Ext.Ajax.request({
@@ -92,8 +142,10 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
                     };
                     store.add(product);
                 });
+                this.hideLoadingMessageMask();
             }
         });
+
     },
 
     onAdminOrdersButtonClick: function() {
@@ -104,8 +156,8 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
-
-
+            this.activeUserCounter();
+        this.showLoadingMessageMask();
 
             var store = Ext.getStore('AdminOrderManagementStore');
 
@@ -124,7 +176,9 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
                                     status:record.status
                                 };
                                 store.add(order);
+
                             });
+                            this.hideLoadingMessageMask();
                         }
                     });
 
@@ -138,7 +192,8 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().show();
-
+            this.activeUserCounter();
+        this.showLoadingMessageMask();
             var store = Ext.getStore('AdminCommentsStore');
             store.removeAll();
                              Ext.Ajax.request({
@@ -158,8 +213,10 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
                                                  };
                                              store.add(adminComment);
                                          });
+                                         this.hideLoadingMessageMask();
                                      }
                                 });
+
     },
 
     onAdminInquiriesButtonClick: function() {
@@ -170,7 +227,8 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             this.getAdminInquiriesPanel().show();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
-
+            this.activeUserCounter();
+        this.showLoadingMessageMask();
             var store = Ext.getStore('AdminInquiryStore');
             store.removeAll();
                              Ext.Ajax.request({
@@ -190,8 +248,10 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
                                                  };
                                              store.add(adminInquiry);
                                          });
+                                         this.hideLoadingMessageMask();
                                      }
                                 });
+
     },
 
     onAdminCreateMessageButtonClick: function() {
@@ -202,6 +262,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
         this.getAdminInquiriesPanel().hide();
         this.getAdminCreateMessagePanel().show();
         this.getAdminCommentsPanel().hide();
+            this.activeUserCounter();
         var store = Ext.getStore('AdminMessageStore');
         store.removeAll();
 
@@ -215,7 +276,6 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
 
                                                          if(!Ext.isEmpty(data)){
                                                              var decodedData = Ext.decode(data);
-                                                             console.log(decodedData);
                                                              Ext.each(decodedData, function(record){
                                                                 var message = {
                                                                     Message : record
@@ -224,11 +284,55 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
                                                                  store.add(message);
                                                              });
                                                          }else{
-
                                                          }
 
                                                       }
                                                   });
+    },
+
+    onShowUsersWindowClick: function() {
+        Ext.create('BurgerQueenAdmin.view.ActiveUsersWindow').show();
+        this.activeUserCounter();
+    },
+
+    showLoadingMessageMask: function() {
+                            if (!this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask = new Ext.LoadMask(Ext.getBody(), {
+                                  msg : "Loading, please wait..."
+                               });
+                            }
+                            this.oLoadingMessageMask.show();
+    },
+
+    hideLoadingMessageMask: function() {
+
+                            if (this.oLoadingMessageMask) {
+                               this.oLoadingMessageMask.hide();
+                            }
+    },
+
+    activeUserCounter: function() {
+
+
+            Ext.Ajax.request({
+                    url : 'getLoggedUsers',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.decode(response.responseText);
+                        activeUsers = data;
+                        activeUser = true;
+                        var store = Ext.getStore('ActiveUserStore');
+                        store.removeAll();
+                       this.getActiveUsersCount().setValue(data.length);
+                        Ext.each(data, function(record){
+                            store.add({username:record.username});
+                        });
+
+                    }
+                });
     },
 
     init: function(application) {
@@ -250,6 +354,9 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             },
             "#adminCreateMessageButton": {
                 click: this.onAdminCreateMessageButtonClick
+            },
+            "#showUsersWindow": {
+                click: this.onShowUsersWindowClick
             }
         });
     }

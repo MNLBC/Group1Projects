@@ -44,6 +44,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminOrderManagement', {
                         id = selected.id;
 
 
+
          Ext.Ajax.request({
                             url : 'orderItem/getAllOrderItemsByOrderId',
                             params : {
@@ -53,6 +54,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminOrderManagement', {
                             success : function(response) {
                                 var orderManagementStore = Ext.getStore('AdminOrderManagementDetailsStore');
                                 var data = Ext.JSON.decode(response.responseText);
+                                orderManagementStore.removeAll();
                                 Ext.each(data, function(record){
                                     var order = {
                                         id:record.id,
@@ -78,11 +80,9 @@ Ext.define('BurgerQueenAdmin.controller.AdminOrderManagement', {
 
                 if(!Ext.isEmpty(selectedOrder)){
                     var orderRecord = store.findRecord("id",selectedOrder.id);
-                    orderRecord.set('status','DONE');
-
-
-
-                    var order = {
+                    if(orderRecord.data.status != 'DONE'){
+                        orderRecord.set('status','DONE');
+                        var order = {
                         id:selectedOrder.id,
                         user:{
                             id:selectedOrder.userId
@@ -100,7 +100,9 @@ Ext.define('BurgerQueenAdmin.controller.AdminOrderManagement', {
                                 Ext.MessageBox.alert('Success','Order Status updated!');
                             }
                        });
-
+                    }else{
+                        Ext.MessageBox.alert('Error','Order is already done');
+                    }
                 }else{
                     Ext.MessageBox.alert('Error','Please select an item to update status');
 

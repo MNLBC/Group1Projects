@@ -24,7 +24,7 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
         'Ext.button.Button'
     ],
 
-    height: 250,
+    height: 260,
     id: 'adminEditMealWindow',
     itemId: 'adminEditMealWindow',
     width: 400,
@@ -48,7 +48,7 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                         {
                             xtype: 'container',
                             height: 55,
-                            html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\n	rel=\'stylesheet\' type=\'text/css\'>\n <center><div id="header"><h2 style = \'font-family: Abel;\'>Edit Meal</h2></div></center>'
+                            html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Edit Meal</h1></div></center>'
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -62,6 +62,8 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                                     width: 361,
                                     fieldLabel: 'Meal Name',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false
                                 },
                                 {
@@ -71,6 +73,8 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                                     width: 361,
                                     fieldLabel: 'Description',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false
                                 },
                                 {
@@ -80,6 +84,8 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                                     width: 361,
                                     fieldLabel: 'Price',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: ' font-family:\'Abel\' ; font-size:18px;',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     maxValue: 99,
                                     minValue: 1
@@ -91,6 +97,8 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                                     width: 361,
                                     fieldLabel: 'Points',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: ' font-family:\'Abel\' ; font-size:18px;',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     maxValue: 10,
                                     minValue: 1
@@ -109,14 +117,18 @@ Ext.define('BurgerQueenAdmin.view.AdminEditMealWindow', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    height: 35,
                                     id: 'adminEditBtn',
                                     itemId: 'adminEditBtn',
+                                    width: 100,
                                     text: 'Edit Meal'
                                 },
                                 {
                                     xtype: 'button',
+                                    height: 35,
                                     id: 'adminCancelEditBtn',
                                     itemId: 'adminCancelEditBtn',
+                                    width: 100,
                                     text: 'Cancel'
                                 }
                             ]

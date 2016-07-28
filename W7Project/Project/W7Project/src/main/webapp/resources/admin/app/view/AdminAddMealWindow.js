@@ -50,7 +50,7 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                         {
                             xtype: 'container',
                             height: 55,
-                            html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\n	rel=\'stylesheet\' type=\'text/css\'>\n <center><div id="header"><h2 style = \'font-family: Abel;\'>Create Meal</h2></div></center>'
+                            html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Create Meal</h1></div></center>'
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -59,12 +59,15 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                             items: [
                                 {
                                     xtype: 'filefield',
+                                    height: '',
+                                    hidden: true,
                                     id: 'adminMealImg',
                                     itemId: 'adminMealImg',
                                     width: 338,
                                     fieldLabel: 'Photo',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'image',
-                                    allowBlank: false,
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     emptyText: 'Select an image',
                                     buttonText: 'Browse',
                                     buttonConfig: {
@@ -76,17 +79,22 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                 },
                                 {
                                     xtype: 'combobox',
+                                    height: '',
                                     id: 'adminMealCategory',
                                     itemId: 'adminMealCategory',
                                     width: 338,
                                     fieldLabel: 'Category',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'category',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
                                     displayField: 'category',
+                                    forceSelection: true,
                                     queryMode: 'local',
                                     store: 'CategoryStore',
+                                    typeAhead: true,
                                     valueField: 'category'
                                 },
                                 {
@@ -96,9 +104,13 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Meal Code',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'code',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
-                                    allowOnlyWhitespace: false
+                                    allowOnlyWhitespace: false,
+                                    enforceMaxLength: true,
+                                    maxLength: 3
                                 },
                                 {
                                     xtype: 'textfield',
@@ -107,7 +119,9 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Meal Name',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'name',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false
                                 },
@@ -118,7 +132,9 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Description:',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'description',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false
                                 },
@@ -129,10 +145,14 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Price:',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'price',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
                                     enforceMaxLength: false,
+                                    allowDecimals: false,
+                                    allowExponential: false,
                                     maxValue: 99,
                                     minValue: 1
                                 },
@@ -143,9 +163,13 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Points:',
                                     labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     name: 'points',
+                                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
+                                    allowDecimals: false,
+                                    allowExponential: false,
                                     maxValue: 10,
                                     minValue: 1
                                 }
@@ -165,14 +189,18 @@ Ext.define('BurgerQueenAdmin.view.AdminAddMealWindow', {
                     items: [
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminSubmitMealBtn',
                             itemId: 'adminSubmitMealBtn',
+                            width: 100,
                             text: 'Submit'
                         },
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminCancelCreateBtn',
                             itemId: 'adminCancelCreateBtn',
+                            width: 100,
                             text: 'Cancel'
                         }
                     ]

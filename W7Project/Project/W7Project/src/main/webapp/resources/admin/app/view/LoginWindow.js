@@ -18,6 +18,7 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
 
     requires: [
         'Ext.form.Panel',
+        'Ext.form.FieldContainer',
         'Ext.form.field.Text',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
@@ -30,6 +31,7 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
     width: 400,
     layout: 'fit',
     closable: false,
+    header: false,
     title: 'Login',
     modal: true,
 
@@ -52,11 +54,20 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
                     },
                     items: [
                         {
+                            xtype: 'fieldcontainer',
+                            height: 62,
+                            html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Login</h1></div></center>',
+                            width: 358,
+                            fieldLabel: ''
+                        },
+                        {
                             xtype: 'textfield',
                             id: 'username',
                             itemId: 'username',
                             fieldLabel: 'Username',
+                            labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             name: 'username',
+                            fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             allowBlank: false,
                             allowOnlyWhitespace: false
                         },
@@ -65,7 +76,9 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
                             id: 'password',
                             itemId: 'password',
                             fieldLabel: 'Password',
+                            labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             name: 'password',
+                            fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             inputType: 'password',
                             allowBlank: false,
                             allowOnlyWhitespace: false
@@ -77,10 +90,12 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
                                     xtype: 'button',
                                     id: 'adminLoginBtn',
                                     itemId: 'adminLoginBtn',
+                                    width: 100,
                                     text: 'Login'
                                 },
                                 {
                                     xtype: 'button',
+                                    width: 100,
                                     text: 'Go to BQ'
                                 }
                             ]

@@ -19,10 +19,10 @@ Ext.define('BurgerQueenAdmin.view.adminCommentsPanel', {
 
     requires: [
         'Ext.grid.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.grid.View',
         'Ext.grid.column.Column',
         'Ext.selection.RowModel',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
 
@@ -47,6 +47,19 @@ Ext.define('BurgerQueenAdmin.view.adminCommentsPanel', {
                     header: false,
                     title: 'My Grid Panel',
                     store: 'AdminCommentsStore',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'container',
+                                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Products Feedback</h1></div></center>',
+                                    width: '100%'
+                                }
+                            ]
+                        }
+                    ],
                     columns: [
                         {
                             xtype: 'gridcolumn',

@@ -40,7 +40,7 @@ Ext.define('BurgerQueenAdmin.view.adminUserPanel', {
             items: [
                 {
                     xtype: 'container',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Users</h1></div></center>'
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Users</h1></div></center>'
                 },
                 {
                     xtype: 'gridpanel',
@@ -69,6 +69,7 @@ Ext.define('BurgerQueenAdmin.view.adminUserPanel', {
                         },
                         {
                             xtype: 'gridcolumn',
+                            hidden: true,
                             dataIndex: 'Password',
                             text: 'Password',
                             flex: 1
@@ -168,6 +169,15 @@ Ext.define('BurgerQueenAdmin.view.adminUserPanel', {
                             itemId: 'btnDisable',
                             width: 100,
                             text: 'Disable'
+                        },
+                        {
+                            xtype: 'button',
+                            disabled: true,
+                            height: 45,
+                            id: 'btnManage',
+                            itemId: 'btnManage',
+                            width: 100,
+                            text: 'Manage'
                         }
                     ]
                 }

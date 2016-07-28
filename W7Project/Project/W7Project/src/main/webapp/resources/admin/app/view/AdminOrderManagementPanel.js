@@ -19,11 +19,11 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementPanel', {
 
     requires: [
         'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.grid.Panel',
         'Ext.selection.RowModel',
         'Ext.grid.column.Column',
         'Ext.grid.View',
-        'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button'
     ],
@@ -46,7 +46,21 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementPanel', {
                     height: 198,
                     layout: 'fit',
                     bodyPadding: 10,
+                    header: false,
                     title: 'Order Management',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'container',
+                                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Orders</h1></div></center>',
+                                    width: '100%'
+                                }
+                            ]
+                        }
+                    ],
                     items: [
                         {
                             xtype: 'gridpanel',
@@ -65,7 +79,8 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementPanel', {
                                     id: 'adminOrderId',
                                     itemId: 'adminOrderId',
                                     dataIndex: 'id',
-                                    text: 'Order Id'
+                                    text: 'Order Id',
+                                    flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -73,7 +88,8 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementPanel', {
                                     itemId: 'adminUserId',
                                     width: 65,
                                     dataIndex: 'userId',
-                                    text: 'User Id'
+                                    text: 'User Id',
+                                    flex: 1
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -99,8 +115,10 @@ Ext.define('BurgerQueenAdmin.view.AdminOrderManagementPanel', {
                         },
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminDoneBttn',
                             itemId: 'adminDoneBttn',
+                            width: 100,
                             text: 'Done'
                         }
                     ]

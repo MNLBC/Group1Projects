@@ -25,7 +25,9 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
         'BurgerQueenAdmin.view.AdminOrderManagementPanel',
         'Ext.panel.Panel',
         'Ext.button.Button',
-        'Ext.toolbar.Toolbar'
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Display',
+        'Ext.toolbar.Fill'
     ],
 
     id: 'AdminMainViewport',
@@ -48,7 +50,8 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                     hidden: true,
                     id: 'adminMenu',
                     itemId: 'adminMenu',
-                    title: 'Menu Buttons',
+                    header: false,
+                    title: 'Menu',
                     layout: {
                         type: 'vbox',
                         align: 'stretch',
@@ -59,6 +62,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminUsersButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Manage Users'
                         },
@@ -66,6 +70,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminProductsButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Manage Products'
                         },
@@ -73,6 +78,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminOrdersButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Manage Orders'
                         },
@@ -80,6 +86,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminProductFeedbackButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Product Feedback'
                         },
@@ -87,6 +94,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminInquiriesButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Inquiries'
                         },
@@ -94,6 +102,7 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                             xtype: 'button',
                             flex: 1,
                             id: 'adminCreateMessageButton',
+                            style: 'font-family:\'Abel\';\nfont-size:18px;',
                             ui: 'menubarbtn',
                             text: 'Create Message'
                         }
@@ -105,8 +114,18 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                     id: 'adminMain',
                     itemId: 'adminMain',
                     layout: 'fit',
+                    header: false,
                     title: 'Chosen Menu',
                     dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'container'
+                                }
+                            ]
+                        },
                         {
                             xtype: 'toolbar',
                             dock: 'top',
@@ -115,7 +134,30 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                                     xtype: 'button',
                                     id: 'showAdminMenu',
                                     itemId: 'showAdminMenu',
-                                    text: 'Expand Menu'
+                                    ui: 'uibtn',
+                                    text: 'Menu'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'showUsersWindow',
+                                    itemId: 'showUsersWindow',
+                                    text: 'ACTIVE USERS'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    id: 'activeUsersCount',
+                                    itemId: 'activeUsersCount',
+                                    fieldLabel: '',
+                                    value: '0'
+                                },
+                                {
+                                    xtype: 'tbfill'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'logoutButton',
+                                    itemId: 'logoutButton',
+                                    text: 'Logout'
                                 }
                             ]
                         }
@@ -154,7 +196,6 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
     },
 
     onAdminMainViewportRender: function(component, eOpts) {
-
                                                   Ext.Ajax.request({
                                                       url:'message/startAdmin',
                                                       params:{
@@ -164,6 +205,28 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                                                            console.log("Admin start status: " + response.responseText);
                                                       }
                                                   });
+
+            var store = Ext.getStore('AdminCommentsStore');
+            store.removeAll();
+                             Ext.Ajax.request({
+                                     url : 'feedback/getAllFeedbacks',
+                                     params : {
+                                     },
+                                     scope : this,
+                                     success : function(response) {
+                                         var data = response.responseText;
+                                         var decodedData = Ext.decode(data);
+                                         Ext.each(decodedData, function(record){
+                                             var adminComment = {
+                                                     Id: record.id,
+                                                     User: record.user.id,
+                                                     Meal: record.meal.id,
+                                                     Feedback: record.feedback
+                                                 };
+                                             store.add(adminComment);
+                                         });
+                                     }
+                                });
     }
 
 });

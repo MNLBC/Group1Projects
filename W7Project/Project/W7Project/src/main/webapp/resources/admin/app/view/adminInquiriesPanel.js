@@ -19,6 +19,7 @@ Ext.define('BurgerQueenAdmin.view.adminInquiriesPanel', {
 
     requires: [
         'Ext.grid.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.grid.View',
         'Ext.grid.column.Column'
     ],
@@ -44,6 +45,19 @@ Ext.define('BurgerQueenAdmin.view.adminInquiriesPanel', {
                     header: false,
                     title: 'My Grid Panel',
                     store: 'AdminInquiryStore',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'container',
+                                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Inquiries</h1></div></center>',
+                                    width: '100%'
+                                }
+                            ]
+                        }
+                    ],
                     columns: [
                         {
                             xtype: 'gridcolumn',

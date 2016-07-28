@@ -42,6 +42,7 @@ Ext.define('BurgerQueenAdmin.view.adminProductsPanel', {
                     xtype: 'container',
                     dock: 'top',
                     height: 100,
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Products</h1></div></center>',
                     width: 100
                 },
                 {
@@ -54,20 +55,26 @@ Ext.define('BurgerQueenAdmin.view.adminProductsPanel', {
                     items: [
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminCreateBtn',
                             itemId: 'adminCreateBtn',
+                            width: 100,
                             text: 'Create Meal'
                         },
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminDeleteBtn',
                             itemId: 'adminDeleteBtn',
+                            width: 100,
                             text: 'Delete Meal'
                         },
                         {
                             xtype: 'button',
+                            height: 35,
                             id: 'adminEditMealBtn',
                             itemId: 'adminEditMealBtn',
+                            width: 100,
                             text: 'Edit Meal'
                         }
                     ]

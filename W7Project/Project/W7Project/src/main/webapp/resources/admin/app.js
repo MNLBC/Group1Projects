@@ -21,46 +21,53 @@ Ext.Loader.setConfig({
 
 Ext.application({
 	appFolder: 'resources/admin/app',
-    models: [
-             'UsersModel',
-             'AdminMessageModel',
-             'AdminInquiryModel',
-             'AdminCommentsModel',
-             'ProductModel',
-             'CategoryModel',
-             'AdminOrderManagementModel',
-             'AdminOrderManagementDetailsModel'
-         ],
-         stores: [
-             'UsersStore',
-             'AdminMessageStore',
-             'AdminInquiryStore',
-             'AdminCommentsStore',
-             'ProductStore',
-             'CategoryStore',
-             'AdminOrderManagementStore',
-             'AdminOrderManagementDetailsStore'
-         ],
-         views: [
-             'AdminMainViewport',
-             'adminCommentsPanel',
-             'LoginWindow',
-             'adminUserPanel',
-             'adminCreateMessagePanel',
-             'adminInquiriesPanel',
-             'adminProductsPanel',
-             'AdminAddMealWindow',
-             'AdminEditMealWindow',
-             'AdminOrderManagementPanel',
-             'AdminOrderManagementViewWindow'
-         ],
-         controllers: [
-             'AdminMenuController',
-             'AdminMainController',
-             'AdminWindow',
-             'AdminProducts',
-             'AdminOrderManagement'
-         ],
+	models: [
+	         'UsersModel',
+	         'AdminMessageModel',
+	         'AdminInquiryModel',
+	         'AdminCommentsModel',
+	         'ProductModel',
+	         'CategoryModel',
+	         'AdminOrderManagementModel',
+	         'AdminOrderManagementDetailsModel',
+	         'UserTypeModel',
+	         'ActiveUserModel'
+	     ],
+	     stores: [
+	         'UsersStore',
+	         'AdminMessageStore',
+	         'AdminInquiryStore',
+	         'AdminCommentsStore',
+	         'ProductStore',
+	         'CategoryStore',
+	         'AdminOrderManagementStore',
+	         'AdminOrderManagementDetailsStore',
+	         'WinUserTypeStore',
+	         'ActiveUserStore'
+	     ],
+	     views: [
+	         'AdminMainViewport',
+	         'adminCommentsPanel',
+	         'LoginWindow',
+	         'adminUserPanel',
+	         'adminCreateMessagePanel',
+	         'adminInquiriesPanel',
+	         'adminProductsPanel',
+	         'AdminAddMealWindow',
+	         'AdminEditMealWindow',
+	         'AdminOrderManagementPanel',
+	         'AdminOrderManagementViewWindow',
+	         'WinUserEdit',
+	         'ActiveUsersWindow'
+	     ],
+	     controllers: [
+	         'AdminMenuController',
+	         'AdminMainController',
+	         'AdminWindow',
+	         'AdminProducts',
+	         'AdminOrderManagement',
+	         'AdminUser'
+	     ],
          name: 'BurgerQueenAdmin',
 
 
