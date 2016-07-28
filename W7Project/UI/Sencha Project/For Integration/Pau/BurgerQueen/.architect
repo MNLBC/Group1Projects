@@ -1477,7 +1477,7 @@
                 }
             ]
         },
-        "resource": false,
+        "resource": true,
         "17688caf-6df4-44b2-9bf1-02f77bc4c0f5": {
             "id": "17688caf-6df4-44b2-9bf1-02f77bc4c0f5"
         },
@@ -1524,17 +1524,15 @@
             "c7542825-3f90-4eef-8394-53e88bd9aedc",
             "db597e55-edb3-4079-bccf-5f7ff7d0b83e",
             "f0a38a15-3541-4460-a5e2-77dd19fbfbf4",
-            "1b615c80-9c42-4ee9-9dd6-7e67bf0f69b1",
-            "6f6b615e-7626-473a-8984-bfcc782d0eb9",
-            "390aa3a8-2578-46b0-b36d-5cda0f543613"
+            "1b615c80-9c42-4ee9-9dd6-7e67bf0f69b1"
         ]
     },
     "canvasState": {
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "c7542825-3f90-4eef-8394-53e88bd9aedc",
-        "selectedInstance": "9661ce4e-6b60-45f4-bea1-827e1c85588d"
+        "topInstance": "db597e55-edb3-4079-bccf-5f7ff7d0b83e",
+        "selectedInstance": "db597e55-edb3-4079-bccf-5f7ff7d0b83e"
     },
     "editMode": "code",
     "userSettings": {

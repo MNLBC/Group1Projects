@@ -33,53 +33,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "adminOrdersPanel",
-                "selector": "#adminOrdersPanel"
-            },
-            "name": "adminOrdersPanel",
-            "designerId": "8a4ad2b9-42c1-47a0-8b44-900a0427b6bd"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "adminProductsPanel",
-                "selector": "#adminProductsPanel"
-            },
-            "name": "adminProductsPanel",
-            "designerId": "b4ac400c-ca2f-4ce0-b19a-bc38f317c6d2"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "ref": "adminMenu",
                 "selector": "#adminMenu"
             },
             "name": "adminMenu",
             "designerId": "0fd17634-49d3-4909-a187-045a0197f3e4"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "adminUsersPanel",
-                "selector": "#adminUsersPanel"
-            },
-            "name": "adminUsersPanel",
-            "designerId": "1c1e20cd-327a-480b-b785-bf41ca1bd652"
         },
         {
             "type": "controllerref",
@@ -110,6 +68,48 @@
             "designerId": "81af93fe-9cbd-48da-8e10-cf0fcebc5040"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminUserPanel",
+                "selector": "#adminUserPanel"
+            },
+            "name": "adminUserPanel",
+            "designerId": "a3b32bc3-b12c-4ae1-a3f3-7bdb51cf8a8e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminProductsPanel",
+                "selector": "#adminProductsPanel"
+            },
+            "name": "adminProductsPanel",
+            "designerId": "5c28d20e-53b2-498a-a46d-97b70b6c4b5b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrderManagementPanel",
+                "selector": "#AdminOrderManagementPanel"
+            },
+            "name": "adminOrderManagementPanel",
+            "designerId": "a16f33ba-33b5-45a1-b1cc-40285b9e53b4"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -122,12 +122,14 @@
                 "fn": "onAdminUsersButtonClick",
                 "implHandler": [
                     "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().show();",
+                    "    this.getAdminUserPanel().show();",
                     "    this.getAdminProductsPanel().hide();",
-                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminOrderManagementPanel().hide();",
                     "    this.getAdminInquiriesPanel().hide();",
                     "    this.getAdminCreateMessagePanel().hide();",
-                    "    this.getAdminCommentsPanel().hide();"
+                    "    this.getAdminCommentsPanel().hide();",
+                    "",
+                    ""
                 ],
                 "name": "click",
                 "scope": "me"
@@ -148,12 +150,39 @@
                 "fn": "onAdminProductsButtonClick",
                 "implHandler": [
                     "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
                     "    this.getAdminProductsPanel().show();",
-                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminOrderManagementPanel().hide();",
                     "    this.getAdminInquiriesPanel().hide();",
                     "    this.getAdminCreateMessagePanel().hide();",
-                    "    this.getAdminCommentsPanel().hide();"
+                    "    this.getAdminCommentsPanel().hide();",
+                    "",
+                    "",
+                    "var store = Ext.getStore('ProductStore');",
+                    "store.removeAll();",
+                    "Ext.Ajax.request({",
+                    "    url : 'meal/getAllMeals',",
+                    "    params : {",
+                    "",
+                    "    },",
+                    "    scope : this,",
+                    "    success : function(response) {",
+                    "        var data = Ext.JSON.decode(response.responseText);",
+                    "        Ext.each(data, function(record){",
+                    "            var product = {",
+                    "                Id:record.id,",
+                    "                Code:record.code,",
+                    "                Name:record.name,",
+                    "                Description:record.description,",
+                    "                Category:record.category,",
+                    "                Price:record.price,",
+                    "                Image:record.image,",
+                    "                Points:record.points",
+                    "            };",
+                    "            store.add(product);",
+                    "        });",
+                    "    }",
+                    "});"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -174,12 +203,36 @@
                 "fn": "onAdminOrdersButtonClick",
                 "implHandler": [
                     "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
                     "    this.getAdminProductsPanel().hide();",
-                    "    this.getAdminOrdersPanel().show();",
+                    "    this.getAdminOrderManagementPanel().show();",
                     "    this.getAdminInquiriesPanel().hide();",
                     "    this.getAdminCreateMessagePanel().hide();",
-                    "    this.getAdminCommentsPanel().hide();"
+                    "    this.getAdminCommentsPanel().hide();",
+                    "",
+                    "",
+                    "",
+                    "    var store = Ext.getStore('AdminOrderManagementStore');",
+                    "",
+                    "            Ext.Ajax.request({",
+                    "                url : 'order/getAllOrders',",
+                    "                params : {",
+                    "",
+                    "                },",
+                    "                scope : this,",
+                    "                success : function(response) {",
+                    "                    var data = Ext.JSON.decode(response.responseText);",
+                    "                    Ext.each(data, function(record){",
+                    "                        var order = {",
+                    "                            id:record.id,",
+                    "                            userId:record.user.id,",
+                    "                            status:record.status",
+                    "                        };",
+                    "                        store.add(order);",
+                    "                    });",
+                    "                }",
+                    "            });",
+                    ""
                 ],
                 "name": "click",
                 "scope": "me"
@@ -200,12 +253,34 @@
                 "fn": "onAdminProductFeedbackButtonClick",
                 "implHandler": [
                     "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
                     "    this.getAdminProductsPanel().hide();",
-                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminOrderManagementPanel().hide();",
                     "    this.getAdminInquiriesPanel().hide();",
                     "    this.getAdminCreateMessagePanel().hide();",
-                    "    this.getAdminCommentsPanel().show();"
+                    "    this.getAdminCommentsPanel().show();",
+                    "",
+                    "    var store = Ext.getStore('AdminCommentsStore');",
+                    "    store.removeAll();",
+                    "                     Ext.Ajax.request({",
+                    "                             url : 'feedback/getAllFeedbacks',",
+                    "                             params : {",
+                    "                             },",
+                    "                             scope : this,",
+                    "                             success : function(response) {",
+                    "                                 var data = response.responseText;",
+                    "                                 var decodedData = Ext.decode(data);",
+                    "                                 Ext.each(decodedData, function(record){",
+                    "                                     var adminComment = {",
+                    "                                             Id: record.id,",
+                    "                                             User: record.user.id,",
+                    "                                             Meal: record.meal.id,",
+                    "                                             Feedback: record.feedback",
+                    "                                         };",
+                    "                                     store.add(adminComment);",
+                    "                                 });",
+                    "                             }",
+                    "                        });"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -226,12 +301,34 @@
                 "fn": "onAdminInquiriesButtonClick",
                 "implHandler": [
                     "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminUserPanel().hide();",
                     "    this.getAdminProductsPanel().hide();",
-                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminOrderManagementPanel().hide();",
                     "    this.getAdminInquiriesPanel().show();",
                     "    this.getAdminCreateMessagePanel().hide();",
-                    "    this.getAdminCommentsPanel().hide();"
+                    "    this.getAdminCommentsPanel().hide();",
+                    "",
+                    "    var store = Ext.getStore('AdminInquiryStore');",
+                    "    store.removeAll();",
+                    "                     Ext.Ajax.request({",
+                    "                             url : 'inquiry/getAllInquiries',",
+                    "                             params : {",
+                    "                             },",
+                    "                             scope : this,",
+                    "                             success : function(response) {",
+                    "                                 var data = response.responseText;",
+                    "                                 var decodedData = Ext.decode(data);",
+                    "                                 Ext.each(decodedData, function(record){",
+                    "                                     var adminInquiry = {",
+                    "                                             Id: record.id,",
+                    "                                             User: record.user.username,",
+                    "                                             Message: record.message,",
+                    "                                             DateCreated: record.date_created",
+                    "                                         };",
+                    "                                     store.add(adminInquiry);",
+                    "                                 });",
+                    "                             }",
+                    "                        });"
                 ],
                 "name": "click",
                 "scope": "me"
@@ -251,13 +348,40 @@
                 "designer|targetType": "MyButton6",
                 "fn": "onAdminCreateMessageButtonClick",
                 "implHandler": [
-                    "    this.getAdminMenu().hide();",
-                    "    this.getAdminUsersPanel().hide();",
-                    "    this.getAdminProductsPanel().hide();",
-                    "    this.getAdminOrdersPanel().hide();",
-                    "    this.getAdminInquiriesPanel().hide();",
-                    "    this.getAdminCreateMessagePanel().show();",
-                    "    this.getAdminCommentsPanel().hide();"
+                    "this.getAdminMenu().hide();",
+                    "this.getAdminUserPanel().hide();",
+                    "this.getAdminProductsPanel().hide();",
+                    "this.getAdminOrderManagementPanel().hide();",
+                    "this.getAdminInquiriesPanel().hide();",
+                    "this.getAdminCreateMessagePanel().show();",
+                    "this.getAdminCommentsPanel().hide();",
+                    "var store = Ext.getStore('AdminMessageStore');",
+                    "store.removeAll();",
+                    "",
+                    "                                Ext.Ajax.request({",
+                    "                                              url:'message/viewMessage',",
+                    "                                              params:{",
+                    "                                              },",
+                    "                                               scope:this,",
+                    "                                               success : function(response) {",
+                    "                                                 var data = response.responseText;",
+                    "",
+                    "                                                 if(!Ext.isEmpty(data)){",
+                    "                                                     var decodedData = Ext.decode(data);",
+                    "                                                     console.log(decodedData);",
+                    "                                                     Ext.each(decodedData, function(record){",
+                    "                                                        var message = {",
+                    "                                                            Message : record",
+                    "",
+                    "                                                        };",
+                    "                                                         store.add(message);",
+                    "                                                     });",
+                    "                                                 }else{",
+                    "",
+                    "                                                 }",
+                    "",
+                    "                                              }",
+                    "                                          });"
                 ],
                 "name": "click",
                 "scope": "me"

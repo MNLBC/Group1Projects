@@ -8,14 +8,252 @@
     "userConfig": {
         "designer|userAlias": "adminproductspanel",
         "designer|userClassName": "adminProductsPanel",
-        "frameHeader": false,
         "header": false,
-        "height": 250,
+        "height": 434,
         "id": "adminProductsPanel",
         "itemId": "adminProductsPanel",
-        "title": "Products",
-        "width": 400
+        "layout": "fit",
+        "title": "My Panel",
+        "width": 711
     },
-    "name": "MyPanel2",
-    "designerId": "f70053bc-ce38-4906-be66-bbf0e7e1620b"
+    "name": "MyPanel3",
+    "designerId": "6cc87ccc-0a6f-408c-ac65-c841820c3c2d",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "height": 100,
+                "width": 100
+            },
+            "name": "MyContainer22",
+            "designerId": "8c969296-304a-4f45-95fc-acffb0d53a59"
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "AdminProductGrid",
+                "header": false,
+                "id": "",
+                "itemId": "",
+                "store": "ProductStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel7",
+            "designerId": "0b37afd0-4bd2-40d9-a757-918266e50788",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "adminProductGridView",
+                        "itemId": "adminProductGridView"
+                    },
+                    "name": "MyGridView7",
+                    "designerId": "71bff404-c7e9-42f0-8e87-29d1ba11a0e9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Id",
+                        "flex": 0.5,
+                        "text": "Id"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "208f41c3-0c82-4296-8489-11897db9ee0c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Code",
+                        "flex": 0.5,
+                        "text": "Code"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "edc1d190-48e3-44eb-81bb-fbc6df3d9c3f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Name",
+                        "flex": 1,
+                        "text": "Name"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "381bd927-0ee2-455d-8217-646bbe87af9d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Description",
+                        "flex": 1.5,
+                        "text": "Description"
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "610cd59c-0250-4143-a998-bd0f67e8f931"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Category",
+                        "flex": 1,
+                        "text": "Category"
+                    },
+                    "name": "MyColumn31",
+                    "designerId": "38188fd2-fd93-4ce9-ae7a-cdaf783b7dc9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Price",
+                        "flex": 1,
+                        "text": "Price"
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "ad07d927-f672-471a-87b5-dcf190e36b8a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Image",
+                        "flex": 1,
+                        "text": "Image"
+                    },
+                    "name": "MyColumn33",
+                    "designerId": "5b3ea9ad-3a70-4df8-be0a-37b7f605a85c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Points",
+                        "flex": 0.5,
+                        "text": "Points"
+                    },
+                    "name": "MyColumn34",
+                    "designerId": "77d96e20-b9fa-40dc-b310-8ab941f56207"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar15",
+            "designerId": "953cc428-dbd5-48e5-b5ab-a1bdd4181e44",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Create Meal",
+                        "id": "adminCreateBtn",
+                        "itemId": "adminCreateBtn",
+                        "layout|flex": null,
+                        "text": "Create Meal"
+                    },
+                    "name": "MyButton33",
+                    "designerId": "18d71596-cd01-4111-8b40-94b08a48f5b8"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Delete Meal",
+                        "id": "adminDeleteBtn",
+                        "itemId": "adminDeleteBtn",
+                        "layout|flex": null,
+                        "text": "Delete Meal"
+                    },
+                    "name": "MyButton34",
+                    "designerId": "287202c1-a841-4806-8599-da6bdd1a98dc"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Edit Meal",
+                        "id": "adminEditMealBtn",
+                        "itemId": "adminEditMealBtn",
+                        "layout|flex": null,
+                        "text": "Edit Meal"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "ecce02af-b121-43db-b724-908038a1d4e4"
+                }
+            ]
+        }
+    ]
 }

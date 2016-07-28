@@ -25,10 +25,13 @@ Ext.define('BurgerQueenAdmin.model.AdminInquiryModel', {
             name: 'Id'
         },
         {
-            name: 'UserId'
+            name: 'User'
         },
         {
             name: 'Message'
+        },
+        {
+            name: 'DateCreated'
         }
     ]
 });

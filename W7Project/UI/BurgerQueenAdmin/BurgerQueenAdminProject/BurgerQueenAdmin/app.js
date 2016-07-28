@@ -24,28 +24,41 @@ Ext.application({
         'UsersModel',
         'AdminMessageModel',
         'AdminInquiryModel',
-        'AdminCommentsModel'
+        'AdminCommentsModel',
+        'ProductModel',
+        'CategoryModel',
+        'AdminOrderManagementModel',
+        'AdminOrderManagementDetailsModel'
     ],
     stores: [
         'UsersStore',
         'AdminMessageStore',
         'AdminInquiryStore',
-        'AdminCommentsStore'
+        'AdminCommentsStore',
+        'ProductStore',
+        'CategoryStore',
+        'AdminOrderManagementStore',
+        'AdminOrderManagementDetailsStore'
     ],
     views: [
         'AdminMainViewport',
-        'adminProductsPanel',
-        'adminOrdersPanel',
         'adminCommentsPanel',
         'LoginWindow',
-        'adminUsersPanel',
+        'adminUserPanel',
         'adminCreateMessagePanel',
-        'adminInquiriesPanel'
+        'adminInquiriesPanel',
+        'adminProductsPanel',
+        'AdminAddMealWindow',
+        'AdminEditMealWindow',
+        'AdminOrderManagementPanel',
+        'AdminOrderManagementViewWindow'
     ],
     controllers: [
         'AdminMenuController',
         'AdminMainController',
-        'AdminWindowsController'
+        'AdminWindow',
+        'AdminProducts',
+        'AdminOrderManagement'
     ],
     name: 'BurgerQueenAdmin',
 

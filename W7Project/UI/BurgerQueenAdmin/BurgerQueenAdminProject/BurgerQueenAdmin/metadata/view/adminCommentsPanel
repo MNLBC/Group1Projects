@@ -29,6 +29,8 @@
             "codeClass": null,
             "userConfig": {
                 "header": false,
+                "id": "AdminCommentsGrid",
+                "itemId": "AdminCommentsGrid",
                 "store": "AdminCommentsStore",
                 "title": "My Grid Panel"
             },
@@ -54,7 +56,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "Id",
-                        "flex": 1,
+                        "flex": 0.2,
                         "text": "Id"
                     },
                     "name": "MyColumn",
@@ -69,7 +71,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "User",
-                        "flex": 1,
+                        "flex": 0.4,
                         "text": "User"
                     },
                     "name": "MyColumn1",
@@ -84,7 +86,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "Meal",
-                        "flex": 1,
+                        "flex": 0.4,
                         "text": "Meal"
                     },
                     "name": "MyColumn2",
@@ -145,6 +147,21 @@
                     },
                     "name": "MyButton9",
                     "designerId": "07311646-f0b7-4749-be35-150ea0ac9837"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "deleteFeedback",
+                        "layout|flex": null,
+                        "text": "Delete Feedback"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "fe4a0a87-f712-48e7-b060-5ab23c4aa2c9"
                 }
             ]
         }

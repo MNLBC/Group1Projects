@@ -196,28 +196,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "adminproductspanel",
-                    "designerId": "6878538c-b71a-4c64-ba72-c03619327a9b",
-                    "masterInstanceId": "f70053bc-ce38-4906-be66-bbf0e7e1620b"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "adminorderspanel",
-                    "designerId": "f52993c6-a5f6-4cd4-a236-d6aa90b19f66",
-                    "masterInstanceId": "df15cd7b-f878-4122-8ba9-d6c87ce7501f"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
                     "name": "admincommentspanel",
                     "designerId": "3b1a1e13-5d06-4134-8087-005b784ff13b",
                     "masterInstanceId": "7c0816fe-4071-4587-b35d-b7e043903f25"
@@ -229,18 +207,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "adminuserspanel2",
-                    "designerId": "ca395772-2e11-479d-b1cd-050c8a6e65b2",
-                    "masterInstanceId": "bde1a33d-bcea-4038-b954-345bc6af3a3e"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "admincreatemessagepanel1",
+                    "name": "admincreatemessagepanel",
                     "designerId": "af8d1f3e-281a-4a4e-94c5-99cc5d65d6cb",
                     "masterInstanceId": "95acc806-81d6-4f8e-95cc-72bd6719c9aa"
                 },
@@ -251,11 +218,71 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "admininquiriespanel1",
+                    "name": "admininquiriespanel",
                     "designerId": "828b4abf-d677-4acd-aeb0-38f4c761dd4f",
                     "masterInstanceId": "4397d531-2f26-4198-a28a-2b8a7c0513d2"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminuserpanel",
+                    "designerId": "78e3ace0-0a5a-4b30-baef-e73348fde3b4",
+                    "masterInstanceId": "bde1a33d-bcea-4038-b954-345bc6af3a3e"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminproductspanel1",
+                    "designerId": "b85a0c7f-da99-4083-b19a-89c7d060453f",
+                    "masterInstanceId": "6cc87ccc-0a6f-408c-ac65-c841820c3c2d"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminordermanagementpanel1",
+                    "designerId": "fd772cfc-0249-4722-9a1f-36bd8b17874b",
+                    "masterInstanceId": "bff466aa-65ea-4cb6-ab50-f14123900132"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onAdminMainViewportRender",
+                "implHandler": [
+                    "",
+                    "                                          Ext.Ajax.request({",
+                    "                                              url:'message/startAdmin',",
+                    "                                              params:{",
+                    "                                              },",
+                    "                                               scope:this,",
+                    "                                               success : function(response) {",
+                    "                                                   console.log(\"Admin start status: \" + response.responseText);",
+                    "                                              }",
+                    "                                          });"
+                ],
+                "name": "render",
+                "scope": "me"
+            },
+            "name": "onAdminMainViewportRender",
+            "designerId": "b7150651-a41d-49e7-ba5c-f380783a178a"
         }
     ]
 }

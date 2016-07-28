@@ -1,0 +1,97 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminWindow"
+    },
+    "name": "MyController",
+    "designerId": "025c1a7f-c5e8-409d-80c7-9eb79f563d3d",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginWindow",
+                "selector": "#LoginWindow"
+            },
+            "name": "loginWindow",
+            "designerId": "98eeb8ba-4b3d-4a2a-8ad0-65e4a8de5090"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginWindowForm",
+                "selector": "#LoginWindowForm"
+            },
+            "name": "loginWindowForm",
+            "designerId": "a78fc0e1-629e-4413-8171-250b900fe0bf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminLoginBtn",
+                "designer|targetType": "MyButton7",
+                "fn": "onAdminLoginBtnClick",
+                "implHandler": [
+                    "    var form = this.getLoginWindowForm().getForm();",
+                    "    var username = form.getValues().username,",
+                    "        password = form.getValues().password;",
+                    "    if(form.isValid()){",
+                    "",
+                    "                      Ext.Ajax.request({",
+                    "                             url : 'login',",
+                    "                             params : {",
+                    "                                 'username':username,",
+                    "                                 'password':password",
+                    "                             },",
+                    "                             scope : this,",
+                    "                             success : function(response) {",
+                    "                                 var data = response.responseText;",
+                    "                                 if(!Ext.isEmpty(data)){",
+                    "                                     var decodedData = Ext.decode(data);",
+                    "                                     var type = decodedData.type;",
+                    "",
+                    "                                     if(type!='admin'){",
+                    "                                         Ext.MessageBox.alert('Error', 'Invalid login, your account is not an administrator!');",
+                    "                                     }else{",
+                    "                                         Ext.create('BurgerQueenAdmin.view.AdminMainViewport').show();",
+                    "                                         this.getLoginWindow().destroy();",
+                    "                                     }",
+                    "                                 }else{",
+                    "                                     Ext.MessageBox.alert('Error', 'Invalid login');",
+                    "                                 }",
+                    "",
+                    "                             }",
+                    "                        });",
+                    "    }else{",
+                    "        Ext.MessageBox.alert('Error', 'Please input required fields');",
+                    "    }",
+                    "",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminLoginBtnClick",
+            "designerId": "1008453a-1c87-4599-bac2-31e845d69d1e"
+        }
+    ]
+}

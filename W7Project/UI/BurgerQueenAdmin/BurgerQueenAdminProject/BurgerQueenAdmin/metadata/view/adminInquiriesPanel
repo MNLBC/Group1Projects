@@ -56,7 +56,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "Id",
-                        "flex": 1,
+                        "flex": 0.2,
                         "text": "Id"
                     },
                     "name": "MyColumn27",
@@ -70,9 +70,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "UserId",
-                        "flex": 1,
-                        "text": "UserId"
+                        "dataIndex": "User",
+                        "flex": 0.4,
+                        "text": "User"
                     },
                     "name": "MyColumn28",
                     "designerId": "9adb4dcb-7b70-4e56-b204-36282616ae27"

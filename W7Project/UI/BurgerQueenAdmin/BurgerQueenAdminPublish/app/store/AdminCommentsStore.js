@@ -25,39 +25,7 @@ Ext.define('BurgerQueenAdmin.store.AdminCommentsStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BurgerQueenAdmin.model.AdminCommentsModel',
-            storeId: 'AdminCommentsStore',
-            data: [
-                {
-                    Id: 'ipsum',
-                    User: 'asperiores',
-                    Meal: 'maxime',
-                    Feedback: 'quod'
-                },
-                {
-                    Id: 'ipsam',
-                    User: 'quod',
-                    Meal: 'porro',
-                    Feedback: 'quis'
-                },
-                {
-                    Id: 'sit',
-                    User: 'repudiandae',
-                    Meal: 'eum',
-                    Feedback: 'dolorem'
-                },
-                {
-                    Id: 'illum',
-                    User: 'qui',
-                    Meal: 'corrupti',
-                    Feedback: 'tenetur'
-                },
-                {
-                    Id: 'voluptatum',
-                    User: 'consequatur',
-                    Meal: 'rerum',
-                    Feedback: 'esse'
-                }
-            ]
+            storeId: 'AdminCommentsStore'
         }, cfg)]);
     }
 });

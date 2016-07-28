@@ -48,6 +48,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Username",
                         "id": "username",
                         "itemId": "username",
@@ -64,9 +66,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
                         "fieldLabel": "Password",
                         "id": "password",
+                        "inputType": "password",
                         "itemId": "password",
+                        "layout|flex": null,
                         "name": "password"
                     },
                     "name": "MyTextField1",

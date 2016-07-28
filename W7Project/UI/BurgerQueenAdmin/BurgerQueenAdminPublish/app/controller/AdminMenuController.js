@@ -22,20 +22,8 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
             selector: '#adminCommentsPanel'
         },
         {
-            ref: 'adminOrdersPanel',
-            selector: '#adminOrdersPanel'
-        },
-        {
-            ref: 'adminProductsPanel',
-            selector: '#adminProductsPanel'
-        },
-        {
             ref: 'adminMenu',
             selector: '#adminMenu'
-        },
-        {
-            ref: 'adminUsersPanel',
-            selector: '#adminUsersPanel'
         },
         {
             ref: 'adminCreateMessagePanel',
@@ -44,67 +32,203 @@ Ext.define('BurgerQueenAdmin.controller.AdminMenuController', {
         {
             ref: 'adminInquiriesPanel',
             selector: '#adminInquiriesPanel'
+        },
+        {
+            ref: 'adminUserPanel',
+            selector: '#adminUserPanel'
+        },
+        {
+            ref: 'adminProductsPanel',
+            selector: '#adminProductsPanel'
+        },
+        {
+            ref: 'adminOrderManagementPanel',
+            selector: '#AdminOrderManagementPanel'
         }
     ],
 
     onAdminUsersButtonClick: function() {
             this.getAdminMenu().hide();
-            this.getAdminUsersPanel().show();
+            this.getAdminUserPanel().show();
             this.getAdminProductsPanel().hide();
-            this.getAdminOrdersPanel().hide();
+            this.getAdminOrderManagementPanel().hide();
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
+
+
     },
 
     onAdminProductsButtonClick: function() {
             this.getAdminMenu().hide();
-            this.getAdminUsersPanel().hide();
+            this.getAdminUserPanel().hide();
             this.getAdminProductsPanel().show();
-            this.getAdminOrdersPanel().hide();
+            this.getAdminOrderManagementPanel().hide();
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
+
+
+        var store = Ext.getStore('ProductStore');
+        store.removeAll();
+        Ext.Ajax.request({
+            url : 'meal/getAllMeals',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var product = {
+                        Id:record.id,
+                        Code:record.code,
+                        Name:record.name,
+                        Description:record.description,
+                        Category:record.category,
+                        Price:record.price,
+                        Image:record.image,
+                        Points:record.points
+                    };
+                    store.add(product);
+                });
+            }
+        });
     },
 
     onAdminOrdersButtonClick: function() {
             this.getAdminMenu().hide();
-            this.getAdminUsersPanel().hide();
+            this.getAdminUserPanel().hide();
             this.getAdminProductsPanel().hide();
-            this.getAdminOrdersPanel().show();
+            this.getAdminOrderManagementPanel().show();
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
+
+
+
+            var store = Ext.getStore('AdminOrderManagementStore');
+
+                    Ext.Ajax.request({
+                        url : 'order/getAllOrders',
+                        params : {
+
+                        },
+                        scope : this,
+                        success : function(response) {
+                            var data = Ext.JSON.decode(response.responseText);
+                            Ext.each(data, function(record){
+                                var order = {
+                                    id:record.id,
+                                    userId:record.user.id,
+                                    status:record.status
+                                };
+                                store.add(order);
+                            });
+                        }
+                    });
+
     },
 
     onAdminProductFeedbackButtonClick: function() {
             this.getAdminMenu().hide();
-            this.getAdminUsersPanel().hide();
+            this.getAdminUserPanel().hide();
             this.getAdminProductsPanel().hide();
-            this.getAdminOrdersPanel().hide();
+            this.getAdminOrderManagementPanel().hide();
             this.getAdminInquiriesPanel().hide();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().show();
+
+            var store = Ext.getStore('AdminCommentsStore');
+            store.removeAll();
+                             Ext.Ajax.request({
+                                     url : 'feedback/getAllFeedbacks',
+                                     params : {
+                                     },
+                                     scope : this,
+                                     success : function(response) {
+                                         var data = response.responseText;
+                                         var decodedData = Ext.decode(data);
+                                         Ext.each(decodedData, function(record){
+                                             var adminComment = {
+                                                     Id: record.id,
+                                                     User: record.user.id,
+                                                     Meal: record.meal.id,
+                                                     Feedback: record.feedback
+                                                 };
+                                             store.add(adminComment);
+                                         });
+                                     }
+                                });
     },
 
     onAdminInquiriesButtonClick: function() {
             this.getAdminMenu().hide();
-            this.getAdminUsersPanel().hide();
+            this.getAdminUserPanel().hide();
             this.getAdminProductsPanel().hide();
-            this.getAdminOrdersPanel().hide();
+            this.getAdminOrderManagementPanel().hide();
             this.getAdminInquiriesPanel().show();
             this.getAdminCreateMessagePanel().hide();
             this.getAdminCommentsPanel().hide();
+
+            var store = Ext.getStore('AdminInquiryStore');
+            store.removeAll();
+                             Ext.Ajax.request({
+                                     url : 'inquiry/getAllInquiries',
+                                     params : {
+                                     },
+                                     scope : this,
+                                     success : function(response) {
+                                         var data = response.responseText;
+                                         var decodedData = Ext.decode(data);
+                                         Ext.each(decodedData, function(record){
+                                             var adminInquiry = {
+                                                     Id: record.id,
+                                                     User: record.user.username,
+                                                     Message: record.message,
+                                                     DateCreated: record.date_created
+                                                 };
+                                             store.add(adminInquiry);
+                                         });
+                                     }
+                                });
     },
 
     onAdminCreateMessageButtonClick: function() {
-            this.getAdminMenu().hide();
-            this.getAdminUsersPanel().hide();
-            this.getAdminProductsPanel().hide();
-            this.getAdminOrdersPanel().hide();
-            this.getAdminInquiriesPanel().hide();
-            this.getAdminCreateMessagePanel().show();
-            this.getAdminCommentsPanel().hide();
+        this.getAdminMenu().hide();
+        this.getAdminUserPanel().hide();
+        this.getAdminProductsPanel().hide();
+        this.getAdminOrderManagementPanel().hide();
+        this.getAdminInquiriesPanel().hide();
+        this.getAdminCreateMessagePanel().show();
+        this.getAdminCommentsPanel().hide();
+        var store = Ext.getStore('AdminMessageStore');
+        store.removeAll();
+
+                                        Ext.Ajax.request({
+                                                      url:'message/viewMessage',
+                                                      params:{
+                                                      },
+                                                       scope:this,
+                                                       success : function(response) {
+                                                         var data = response.responseText;
+
+                                                         if(!Ext.isEmpty(data)){
+                                                             var decodedData = Ext.decode(data);
+                                                             console.log(decodedData);
+                                                             Ext.each(decodedData, function(record){
+                                                                var message = {
+                                                                    Message : record
+
+                                                                };
+                                                                 store.add(message);
+                                                             });
+                                                         }else{
+
+                                                         }
+
+                                                      }
+                                                  });
     },
 
     init: function(application) {

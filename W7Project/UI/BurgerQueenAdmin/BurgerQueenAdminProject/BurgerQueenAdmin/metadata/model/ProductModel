@@ -1,0 +1,122 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ProductModel",
+        "idProperty": "Id"
+    },
+    "name": "MyModel",
+    "designerId": "7eb4b16d-c193-4df4-a82c-f673d802043b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Id",
+                "type": "int"
+            },
+            "name": "MyField",
+            "designerId": "fbfee0e0-03e2-414c-b7ea-d9ca0c361844"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Code"
+            },
+            "name": "MyField1",
+            "designerId": "5af010fb-8836-4f42-bf90-23b710c34753"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Name"
+            },
+            "name": "MyField2",
+            "designerId": "97a254ea-2a1e-40ca-b0e7-56794e09a2fd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Description"
+            },
+            "name": "MyField3",
+            "designerId": "550b0e4e-5099-4696-94eb-befeac402426"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Category"
+            },
+            "name": "MyField4",
+            "designerId": "edcf8b38-6c25-43c5-9aff-b59904fa4a8b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Price"
+            },
+            "name": "MyField5",
+            "designerId": "68dd2e9a-a92a-49a1-bbc7-606817c86fe3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Image",
+                "type": "auto"
+            },
+            "name": "MyField6",
+            "designerId": "26a8895c-e473-487f-b5d2-1216d554faaa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Points"
+            },
+            "name": "MyField36",
+            "designerId": "1b3644cc-e9e6-4afa-839a-56679af5e08a"
+        }
+    ]
+}

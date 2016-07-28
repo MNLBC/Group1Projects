@@ -7,12 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "autoScroll": true,
-        "designer|userAlias": "adminuserspanel1",
-        "designer|userClassName": "adminUsersPanel",
+        "designer|userAlias": "adminuserpanel",
+        "designer|userClassName": "adminUserPanel",
         "header": false,
         "height": 580,
-        "id": "adminUsersPanel",
-        "itemId": "adminUsersPanel",
+        "id": "adminUserPanel",
+        "itemId": "adminUserPanel",
         "title": "Admin",
         "width": 828
     },

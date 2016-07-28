@@ -17,12 +17,12 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
     extend: 'Ext.container.Viewport',
 
     requires: [
-        'BurgerQueenAdmin.view.adminProductsPanel',
-        'BurgerQueenAdmin.view.adminOrdersPanel',
         'BurgerQueenAdmin.view.adminCommentsPanel',
-        'BurgerQueenAdmin.view.adminUsersPanel',
         'BurgerQueenAdmin.view.adminCreateMessagePanel',
         'BurgerQueenAdmin.view.adminInquiriesPanel',
+        'BurgerQueenAdmin.view.adminUserPanel',
+        'BurgerQueenAdmin.view.adminProductsPanel',
+        'BurgerQueenAdmin.view.AdminOrderManagementPanel',
         'Ext.panel.Panel',
         'Ext.button.Button',
         'Ext.toolbar.Toolbar'
@@ -122,29 +122,48 @@ Ext.define('BurgerQueenAdmin.view.AdminMainViewport', {
                     ],
                     items: [
                         {
-                            xtype: 'adminproductspanel'
-                        },
-                        {
-                            xtype: 'adminorderspanel'
-                        },
-                        {
                             xtype: 'admincommentspanel'
-                        },
-                        {
-                            xtype: 'adminuserspanel1'
                         },
                         {
                             xtype: 'admincreatemessagepanel'
                         },
                         {
                             xtype: 'admininquiriespanel'
+                        },
+                        {
+                            xtype: 'adminuserpanel'
+                        },
+                        {
+                            xtype: 'adminproductspanel'
+                        },
+                        {
+                            xtype: 'adminordermanagementpanel'
                         }
                     ]
                 }
-            ]
+            ],
+            listeners: {
+                render: {
+                    fn: me.onAdminMainViewportRender,
+                    scope: me
+                }
+            }
         });
 
         me.callParent(arguments);
+    },
+
+    onAdminMainViewportRender: function(component, eOpts) {
+
+                                                  Ext.Ajax.request({
+                                                      url:'message/startAdmin',
+                                                      params:{
+                                                      },
+                                                       scope:this,
+                                                       success : function(response) {
+                                                           console.log("Admin start status: " + response.responseText);
+                                                      }
+                                                  });
     }
 
 });

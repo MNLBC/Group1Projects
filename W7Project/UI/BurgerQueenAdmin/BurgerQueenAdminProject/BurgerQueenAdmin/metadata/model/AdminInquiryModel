@@ -32,7 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "UserId"
+                "name": "User"
             },
             "name": "MyField38",
             "designerId": "05359c52-95e3-45bd-8000-dcde7b6ff56f"
@@ -49,6 +49,19 @@
             },
             "name": "MyField39",
             "designerId": "f78f7aaa-fd21-4597-9392-af66fbcfd987"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DateCreated"
+            },
+            "name": "MyField4",
+            "designerId": "15b424ec-0409-43a7-a0ee-578da9f88e0e"
         }
     ]
 }

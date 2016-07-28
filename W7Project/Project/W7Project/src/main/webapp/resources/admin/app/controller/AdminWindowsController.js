@@ -20,12 +20,49 @@ Ext.define('BurgerQueenAdmin.controller.AdminWindowsController', {
         {
             ref: 'loginWindow',
             selector: '#LoginWindow'
+        },
+        {
+            ref: 'loginWindowForm',
+            selector: '#LoginWindowForm'
         }
     ],
 
     onAdminLoginBtnClick: function() {
+            var form = this.getLoginWindowForm().getForm();
+            var username = form.getValues().username,
+                password = form.getValues().password;
+            if(form.isValid()){
 
-            this.getLoginWindow().destroy();
+                              Ext.Ajax.request({
+                                     url : 'login',
+                                     params : {
+                                         'username':username,
+                                         'password':password
+                                     },
+                                     scope : this,
+                                     success : function(response) {
+                                         var data = response.responseText;
+                                         if(!Ext.isEmpty(data)){
+                                             var decodedData = Ext.decode(data);
+                                             var type = decodedData.type;
+
+                                             if(type!='admin'){
+                                                 Ext.MessageBox.alert('Error', 'Invalid login, your account is not an administrator!');
+                                             }else{
+                                                 Ext.create('BurgerQueenAdmin.view.AdminMainViewport').show();
+                                                 this.getLoginWindow().destroy();
+                                             }
+                                         }else{
+                                             Ext.MessageBox.alert('Error', 'Invalid login');
+                                         }
+
+                                     }
+                                });
+            }else{
+                Ext.MessageBox.alert('Error', 'Please input required fields');
+            }
+
+
     },
 
     init: function(application) {

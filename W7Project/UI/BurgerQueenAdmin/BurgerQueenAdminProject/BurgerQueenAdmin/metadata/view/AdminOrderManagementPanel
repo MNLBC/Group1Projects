@@ -1,0 +1,195 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "adminordermanagementpanel",
+        "designer|userClassName": "AdminOrderManagementPanel",
+        "header": false,
+        "height": 331,
+        "id": "AdminOrderManagementPanel",
+        "itemId": "AdminOrderManagementPanel",
+        "layout": "fit",
+        "title": "My Panel",
+        "width": 1111
+    },
+    "name": "MyPanel1",
+    "designerId": "bff466aa-65ea-4cb6-ab50-f14123900132",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "height": 198,
+                "layout": "fit",
+                "title": "Order Management"
+            },
+            "name": "MyForm4",
+            "designerId": "86035269-7e40-45a9-b65f-99f53d9aecca",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "AdminOrderManagementGrid",
+                        "header": false,
+                        "id": "adminOrderManagementGrid",
+                        "itemId": "adminOrderManagementGrid",
+                        "scroll": "vertical",
+                        "store": "AdminOrderManagementStore",
+                        "title": "My Grid Panel"
+                    },
+                    "name": "MyGridPanel8",
+                    "designerId": "0881d946-4c05-4f6b-b67a-315c01fef807",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "event",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "Ext.selection.RowModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": "Ext.selection.RowModel",
+                            "name": "MyRowSelectionModel",
+                            "designerId": "779fcb0d-1cf5-4adc-8a37-4444b23a4190"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id",
+                                "designer|displayName": "adminOrderId",
+                                "id": "adminOrderId",
+                                "itemId": "adminOrderId",
+                                "text": "Order Id"
+                            },
+                            "name": "MyColumn40",
+                            "designerId": "32ea4db2-ecaf-48ea-a269-d5b55f995653"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "userId",
+                                "designer|displayName": "adminUserId",
+                                "id": "adminUserId",
+                                "itemId": "adminUserId",
+                                "text": "User Id",
+                                "width": 65
+                            },
+                            "name": "MyColumn36",
+                            "designerId": "d4d216be-f2ab-46e9-94d4-ae5e1b914438",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "event",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "status",
+                                "designer|displayName": "adminOrderManagementStatus",
+                                "flex": 1,
+                                "id": "adminOrderManagementStatus",
+                                "itemId": "adminOrderManagementStatus",
+                                "stateId": "adminOrderManagementStatus",
+                                "text": "Status"
+                            },
+                            "name": "MyColumn39",
+                            "designerId": "0da266fc-952f-4c10-9656-d45fc1434f51"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView8",
+                            "designerId": "e858992f-9b40-43b7-8053-fb29b7d5cf71"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar15",
+            "designerId": "b568ab98-65b6-4dbd-a7b4-b62ab1832205",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill",
+                    "designerId": "1966b2c0-6d3b-4dc1-af95-90c71dac0187"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "adminDoneBttn",
+                        "id": "adminDoneBttn",
+                        "itemId": "adminDoneBttn",
+                        "layout|flex": null,
+                        "text": "Done"
+                    },
+                    "name": "MyButton33",
+                    "designerId": "2c688343-6266-42a8-976f-900b0e3c6140"
+                }
+            ]
+        }
+    ]
+}

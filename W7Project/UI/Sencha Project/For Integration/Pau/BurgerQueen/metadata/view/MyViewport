@@ -518,7 +518,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "products1",
+                    "name": "products",
                     "designerId": "4a095eef-eb41-4f7f-b72a-47b69b93b403",
                     "masterInstanceId": "159d9e1f-cdeb-4919-bd06-7f3f430d7893"
                 },
@@ -532,7 +532,7 @@
                     "userConfig": {
                         "hidden": true
                     },
-                    "name": "userprofile1",
+                    "name": "userprofile",
                     "designerId": "368e6e97-f8fa-4903-a297-e4be8f345299",
                     "masterInstanceId": "feaacf15-cc23-43de-947d-74cac5110f34"
                 },
@@ -543,7 +543,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "adminproductspanel1",
+                    "name": "adminproductspanel",
                     "designerId": "fb2e97dc-87bd-4785-a7c0-c5649a9e39ae",
                     "masterInstanceId": "6d08b34a-4855-4acb-99da-c8b1f7b61186"
                 },
@@ -554,7 +554,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "admintransactionspanel1",
+                    "name": "admintransactionspanel",
                     "designerId": "e3e48db3-1024-4c25-8987-1d930f6114d0",
                     "masterInstanceId": "c35b962e-f910-4d5c-9f2d-c5f3befa2fe8"
                 },
@@ -565,7 +565,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "adminuserpanel1",
+                    "name": "adminuserpanel",
                     "designerId": "0ca7ed73-f9a5-49ba-84b5-4fb2d80e49bf",
                     "masterInstanceId": "d02020d9-f38e-4fc4-b80e-6b904d1a8c2d"
                 },
@@ -576,7 +576,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "admincommentspanel1",
+                    "name": "admincommentspanel",
                     "designerId": "c8cbec25-43ca-4a3e-b886-45199d8dcad2",
                     "masterInstanceId": "9aee4c05-66e5-444f-be12-dc2055332bbf"
                 },
@@ -587,7 +587,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "adminordermanagementpanel1",
+                    "name": "adminordermanagementpanel2",
                     "designerId": "2d212c89-1dd7-4378-8f12-210946ba1f2c",
                     "masterInstanceId": "fd998168-24ad-4af8-b1f5-2091940a0d81"
                 }

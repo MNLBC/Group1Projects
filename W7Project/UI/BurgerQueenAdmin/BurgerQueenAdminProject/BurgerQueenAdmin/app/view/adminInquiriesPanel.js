@@ -49,13 +49,13 @@ Ext.define('BurgerQueenAdmin.view.adminInquiriesPanel', {
                             xtype: 'gridcolumn',
                             dataIndex: 'Id',
                             text: 'Id',
-                            flex: 1
+                            flex: 0.2
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'UserId',
-                            text: 'UserId',
-                            flex: 1
+                            dataIndex: 'User',
+                            text: 'User',
+                            flex: 0.4
                         },
                         {
                             xtype: 'gridcolumn',

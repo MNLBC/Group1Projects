@@ -1,0 +1,178 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagement"
+    },
+    "name": "MyController",
+    "designerId": "d3eb09cc-0bf1-4fdd-8519-4676ff5528c9",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrderManagementGrid",
+                "selector": "#adminOrderManagementGrid"
+            },
+            "name": "adminOrderManagementGrid",
+            "designerId": "b400b8d1-ede3-4637-a9f9-d125a83cbf78"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminOrderManagementGrid",
+                "designer|targetType": "MyGridPanel8",
+                "fn": "onAdminOrderManagementGridItemDblClick",
+                "implHandler": [
+                    "var orderStore = Ext.getStore('AdminOrderManagementDetailsStore');",
+                    "",
+                    "        var orderGrid = this.getAdminOrderManagementGrid(),",
+                    "            selectModel = orderGrid.getSelectionModel(),",
+                    "            selectedOrder = selectModel.getSelection()[0].data;",
+                    "",
+                    "        var orderDetailsWin = Ext.create('BurgerQueenAdmin.view.AdminOrderManagementViewWindow',{selectedOrder: selectedOrder});",
+                    "        orderDetailsWin.show();",
+                    ""
+                ],
+                "name": "itemdblclick",
+                "scope": "me"
+            },
+            "name": "onAdminOrderManagementGridItemDblClick",
+            "designerId": "4d0ea06c-429f-467d-819f-50e960764d36"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#AdminOrderManagementViewWindow",
+                "designer|targetType": "AdminOrderManagementViewWindow",
+                "fn": "onAdminOrderManagementViewWindowShow",
+                "implHandler": [
+                    "",
+                    "           var grid = Ext.getCmp('adminOrderManagementGrid'),",
+                    "              store =  grid.getStore(),",
+                    "                        model = grid.getSelectionModel(),",
+                    "                        selected = model.getSelection()[0].data,",
+                    "                id = selected.id;",
+                    "",
+                    "",
+                    " Ext.Ajax.request({",
+                    "                    url : 'orderItem/getAllOrderItemsByOrderId',",
+                    "                    params : {",
+                    "                        id:id",
+                    "                    },",
+                    "                    scope : this,",
+                    "                    success : function(response) {",
+                    "                        var orderManagementStore = Ext.getStore('AdminOrderManagementDetailsStore');",
+                    "                        var data = Ext.JSON.decode(response.responseText);",
+                    "                        Ext.each(data, function(record){",
+                    "                            var order = {",
+                    "                                id:record.id,",
+                    "                                meal:record.meal.name,",
+                    "                                quantity:record.quantity",
+                    "                            };",
+                    "                            orderManagementStore.add(order);",
+                    "                        });",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "name": "onAdminOrderManagementViewWindowShow",
+            "designerId": "c674f629-b4c7-432a-a139-e44ac7290635"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#onAdminOrderManagementBttnClose",
+                "designer|targetType": "MyButton35",
+                "fn": "onOnAdminOrderManagementBttnCloseClick",
+                "implHandler": [
+                    "Ext.getCmp('AdminOrderManagementViewWindow').destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onOnAdminOrderManagementBttnCloseClick",
+            "designerId": "fe2ca304-9727-4eed-a22c-be35e707c55b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminDoneBttn",
+                "designer|targetType": "MyButton33",
+                "fn": "onAdminDoneBttnClick",
+                "implHandler": [
+                    "        var store = Ext.getStore('AdminOrderManagementStore'),",
+                    "        grid = this.getAdminOrderManagementGrid(),",
+                    "        model = grid.getSelectionModel(),",
+                    "        selectedOrder = model.getSelection()[0].data;",
+                    "",
+                    "",
+                    "        if(!Ext.isEmpty(selectedOrder)){",
+                    "            var orderRecord = store.findRecord(\"id\",selectedOrder.id);",
+                    "            orderRecord.set('status','DONE');",
+                    "",
+                    "",
+                    "",
+                    "            var order = {",
+                    "                id:selectedOrder.id,",
+                    "                user:{",
+                    "                    id:selectedOrder.userId",
+                    "                },",
+                    "",
+                    "                status: 'DONE'",
+                    "            };",
+                    "                Ext.Ajax.request({",
+                    "                    url:'order/updateOrder',",
+                    "                    headers: { 'Content-Type': 'application/json',",
+                    "                              'Accept': 'application/json'},",
+                    "                    jsonData:order,",
+                    "                    scope:this,",
+                    "                    success : function(response) {",
+                    "                        Ext.MessageBox.alert('Success','Order Status updated!');",
+                    "                    }",
+                    "               });",
+                    "",
+                    "        }else{",
+                    "            Ext.MessageBox.alert('Error','Please select an item to update status');",
+                    "",
+                    "        }",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminDoneBttnClick",
+            "designerId": "978ce2f6-487a-4aa5-a9ee-0f2f9055e748"
+        }
+    ]
+}

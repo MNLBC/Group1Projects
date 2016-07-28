@@ -1,0 +1,205 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminEditMealWindow",
+        "header": false,
+        "height": 250,
+        "id": "adminEditMealWindow",
+        "itemId": "adminEditMealWindow",
+        "modal": true,
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "51f1a8d6-ac0f-4d54-9017-d1e6d102ee8c",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|displayName": "adminEditMealForm",
+                "header": false,
+                "id": "adminEditMealForm",
+                "itemId": "adminEditMealForm",
+                "title": "My Form"
+            },
+            "name": "MyForm5",
+            "designerId": "8d37f76d-c568-46f8-8bb1-402dd68b782d",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 55,
+                        "html": [
+                            "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                            "\trel='stylesheet' type='text/css'>",
+                            " <center><div id=\"header\"><h2 style = 'font-family: Abel;'>Edit Meal</h2></div></center>"
+                        ]
+                    },
+                    "name": "MyContainer24",
+                    "designerId": "87e0ead7-43cc-4abc-8d36-74eba4c5632c"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "height": 120,
+                        "width": 400
+                    },
+                    "name": "MyFieldContainer4",
+                    "designerId": "dda0d099-aaef-471f-9348-5292cba819da",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Meal Name",
+                                "id": "adminEditMealName",
+                                "itemId": "adminEditMealName",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "width": 361
+                            },
+                            "name": "MyTextField22",
+                            "designerId": "1b7495b9-7a11-467f-be28-4941cda19e3f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Description",
+                                "id": "adminEditDescription",
+                                "itemId": "adminEditDescription",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "width": 361
+                            },
+                            "name": "MyTextField23",
+                            "designerId": "48cd0ed1-5f9b-4765-811f-baabb300c3ca"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Price",
+                                "id": "adminEditPrice",
+                                "inputType": null,
+                                "itemId": "adminEditPrice",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 99,
+                                "minValue": 1,
+                                "width": 361
+                            },
+                            "name": "MyNumberField3",
+                            "designerId": "9a4bc9ad-1a49-43ee-bb4a-6e4afa099965"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Points",
+                                "id": "adminEditPoints",
+                                "inputType": null,
+                                "itemId": "adminEditPoints",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 10,
+                                "minValue": 1,
+                                "width": 361
+                            },
+                            "name": "MyNumberField4",
+                            "designerId": "8e2134fd-7fd5-457a-81f2-9c7e1206e315"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar17",
+                    "designerId": "b479376a-957f-4930-9aa1-b0233d079ae2",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Edit",
+                                "id": "adminEditBtn",
+                                "itemId": "adminEditBtn",
+                                "layout|flex": null,
+                                "text": "Edit Meal"
+                            },
+                            "name": "MyButton38",
+                            "designerId": "fffe1c0b-42a8-41e8-a2a2-0276b3ac9c47"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Cancel",
+                                "id": "adminCancelEditBtn",
+                                "itemId": "adminCancelEditBtn",
+                                "layout|flex": null,
+                                "text": "Cancel"
+                            },
+                            "name": "MyButton39",
+                            "designerId": "3c3ca400-76be-4123-87d3-45f59a016e69"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

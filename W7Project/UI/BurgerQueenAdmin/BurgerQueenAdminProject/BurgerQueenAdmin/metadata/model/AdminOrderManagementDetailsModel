@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagementDetailsModel"
+    },
+    "name": "MyModel",
+    "designerId": "1230adf0-4b62-43a4-ae0c-b1c049a2a8e8",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField37",
+            "designerId": "9dd5bbe5-3637-47a3-8034-09019778bc02"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "meal"
+            },
+            "name": "MyField40",
+            "designerId": "2768b413-bf22-40ab-bba3-3da89312d9ed"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "quantity"
+            },
+            "name": "MyField43",
+            "designerId": "74163c09-b4f3-4721-a806-ed75403aa4fb"
+        }
+    ]
+}

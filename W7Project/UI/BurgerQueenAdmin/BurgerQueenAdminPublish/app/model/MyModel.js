@@ -20,48 +20,17 @@ Ext.define('BurgerQueenAdmin.model.MyModel', {
         'Ext.data.Field'
     ],
 
+    idProperty: 'adminOrderId',
+
     fields: [
         {
             name: 'id'
         },
         {
-            name: 'Username'
+            name: 'userId'
         },
         {
-            name: 'Password'
-        },
-        {
-            name: 'Firstname'
-        },
-        {
-            name: 'Middlename'
-        },
-        {
-            name: 'Lastname'
-        },
-        {
-            name: 'Gender'
-        },
-        {
-            name: 'Email'
-        },
-        {
-            name: 'Address'
-        },
-        {
-            name: 'Contact'
-        },
-        {
-            name: 'Disabled'
-        },
-        {
-            name: 'Type'
-        },
-        {
-            name: 'Level'
-        },
-        {
-            name: 'Points'
+            name: 'status'
         }
     ]
 });

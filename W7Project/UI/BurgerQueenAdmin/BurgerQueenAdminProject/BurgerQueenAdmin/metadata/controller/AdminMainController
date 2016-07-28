@@ -40,6 +40,34 @@
             "designerId": "23ed4e50-d681-4bc9-a6a1-2b8a0dcec6a3"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminCommentsGrid",
+                "selector": "#AdminCommentsGrid"
+            },
+            "name": "adminCommentsGrid",
+            "designerId": "8be1e801-751f-4786-ad8e-c2231a1fa17f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMessageToSend",
+                "selector": "#AdminMessageToSend"
+            },
+            "name": "adminMessageToSend",
+            "designerId": "1615ad94-fe64-4e7e-8c05-1d29882d3bb2"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -58,6 +86,170 @@
             },
             "name": "onShowAdminMenuClick",
             "designerId": "796ce45a-c04b-41c2-838a-a6bd46f2e8b9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#acceptFeedbackAdmin",
+                "designer|targetType": "MyButton9",
+                "fn": "onAcceptFeedbackAdminClick",
+                "implHandler": [
+                    "            var feedbackGrid = this.getAdminCommentsGrid(),",
+                    "            selectedModel = feedbackGrid.getSelectionModel(),",
+                    "            selectedFeedback = selectedModel.getSelection(),",
+                    "            store = Ext.getStore('AdminCommentsStore');",
+                    "            if(!Ext.isEmpty(selectedFeedback)){",
+                    "                var userId = selectedFeedback[0].data.User;",
+                    "                var feedBackId = selectedFeedback[0].data.Id;",
+                    "                Ext.Ajax.request({",
+                    "                             url : 'user/getUserById/' + userId,",
+                    "                             params : {",
+                    "                             },",
+                    "                             scope : this,",
+                    "                             success : function(response) {",
+                    "                                 var data = response.responseText;",
+                    "                                 var decodedData = Ext.decode(data);",
+                    "                                 console.log(decodedData);",
+                    "                                 decodedData.points += 1;",
+                    "                                 console.log(decodedData);",
+                    "                                                 Ext.Ajax.request({",
+                    "                                                    url:'user/updateUser',",
+                    "                                                    headers: { 'Content-Type': 'application/json',",
+                    "                                                     'Accept': 'application/json'},",
+                    "                                                     jsonData:decodedData,",
+                    "                                                    scope:this,",
+                    "                                                    success : function(response) {",
+                    "                                                        Ext.MessageBox.alert('Success','Points added to user');",
+                    "                                                            Ext.Ajax.request({",
+                    "                                                           url:'feedback/removeFeedback/'+feedBackId,",
+                    "                                                                   params:{",
+                    "",
+                    "                                                                   },",
+                    "                                                                    scope:this,",
+                    "                                                                    success : function(response) {",
+                    "                                                                    store.remove(selectedFeedback);",
+                    "                                                                }",
+                    "                                                            });",
+                    "",
+                    "                                                    }",
+                    "                                                });",
+                    "                             }",
+                    "                        });",
+                    "",
+                    "            }else{",
+                    "                Ext.MessageBox.alert('Error', 'No selected feedback');",
+                    "            }",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAcceptFeedbackAdminClick",
+            "designerId": "39c9a313-2d6f-4d70-9877-d1723ef04599"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#deleteFeedback",
+                "designer|targetType": "MyButton10",
+                "fn": "onDeleteFeedbackClick",
+                "implHandler": [
+                    "var feedbackGrid = this.getAdminCommentsGrid(),",
+                    "    store = Ext.getStore('AdminCommentsStore');",
+                    "                    selectedModel = feedbackGrid.getSelectionModel();",
+                    "                    selectedFeedback = selectedModel.getSelection();",
+                    "                    if(!Ext.isEmpty(selectedFeedback)){",
+                    "                        Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to delete feedback?\", function(btnText){",
+                    "                            if(btnText === \"yes\"){",
+                    "                                var feedBackId = selectedFeedback[0].data.Id;",
+                    "",
+                    "                                  Ext.Ajax.request({",
+                    "                                      url:'feedback/removeFeedback/'+feedBackId,",
+                    "                                      params:{",
+                    "                                      },",
+                    "                                       scope:this,",
+                    "                                       success : function(response) {",
+                    "                                         var data = response.responseText;",
+                    "                                         var decodedData = Ext.decode(data);",
+                    "                                         if(!Ext.isEmpty(decodedData)){",
+                    "                                             Ext.MessageBox.alert('Success', 'Feedback has been deleted');",
+                    "                                            store.remove(selectedFeedback);",
+                    "                                         }",
+                    "                                         else{",
+                    "                                             Ext.MessageBox.alert('Error', 'Failed to delete feedback');",
+                    "                                         }",
+                    "                                      }",
+                    "                                  });",
+                    "                            }else{",
+                    "",
+                    "                            }",
+                    "                        },this);",
+                    "",
+                    "                    }else{",
+                    "                        Ext.MessageBox.alert('Error', 'No selected feedback to approve');",
+                    "                    }",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onDeleteFeedbackClick",
+            "designerId": "cc07318d-c8fc-484a-bc27-5d16b9ae543f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#AdminSendMsgBtn",
+                "designer|targetType": "MyButton33",
+                "fn": "onAdminSendMsgBtnClick",
+                "implHandler": [
+                    "        var message = this.getAdminMessageToSend().getValue();",
+                    "        if(Ext.isEmpty(message)){",
+                    "            Ext.MessageBox.alert('Error', 'Empty message');",
+                    "        }else{",
+                    "                        var store = Ext.getStore('AdminMessageStore');",
+                    "                                Ext.Ajax.request({",
+                    "                                              url:'message/sendMessage',",
+                    "                                              params:{",
+                    "                                                  message : message",
+                    "                                              },",
+                    "                                               scope:this,",
+                    "                                               success : function(response) {",
+                    "                                                 var data = response.responseText;",
+                    "                                                 if(!Ext.isEmpty(data)){",
+                    "                                                     Ext.MessageBox.alert('Success', 'Message successfully sent to all clients');",
+                    "                                                     var messageMod = {",
+                    "                                                            Message : message",
+                    "                                                        };",
+                    "                                                         store.add(messageMod);",
+                    "                                                 }else{",
+                    "                                                     Ext.MessageBox.alert('Error', 'Message failed to sent');",
+                    "                                                 }",
+                    "",
+                    "                                              }",
+                    "                                          });",
+                    "        }"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminSendMsgBtnClick",
+            "designerId": "c4709b9c-14ec-455d-b9c8-d0c7c1005988"
         }
     ]
 }

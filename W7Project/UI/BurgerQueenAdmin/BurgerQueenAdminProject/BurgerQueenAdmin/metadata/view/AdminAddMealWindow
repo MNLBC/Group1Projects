@@ -1,0 +1,301 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminAddMealWindow",
+        "header": false,
+        "height": 363,
+        "id": "adminAddMealWindow",
+        "itemId": "adminAddMealWindow",
+        "modal": true,
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "c3957383-16a5-4afc-a2cc-5dd5c10525ed",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|displayName": "adminAddMealForm",
+                "header": false,
+                "id": "adminAddMealForm",
+                "itemId": "adminAddMealForm",
+                "title": "adminAddMealForm"
+            },
+            "name": "MyForm4",
+            "designerId": "c601f7bb-df8a-4432-8d74-1a068d05e190",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 55,
+                        "html": [
+                            "<link href='http://fonts.googleapis.com/css?family=Abel'",
+                            "\trel='stylesheet' type='text/css'>",
+                            " <center><div id=\"header\"><h2 style = 'font-family: Abel;'>Create Meal</h2></div></center>"
+                        ]
+                    },
+                    "name": "MyContainer23",
+                    "designerId": "434e03e9-03cd-45ea-8104-5856f8a2a40f"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "height": 237
+                    },
+                    "name": "MyFieldContainer3",
+                    "designerId": "3860733e-e6dd-4bdb-a407-c6844a6ca009",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.File",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "buttonText": "Browse",
+                                "emptyText": "Select an image",
+                                "fieldLabel": "Photo",
+                                "id": "adminMealImg",
+                                "itemId": "adminMealImg",
+                                "name": "image",
+                                "width": 338
+                            },
+                            "name": "MyFileUpload",
+                            "designerId": "f1bb7dbe-206b-4b2b-806a-bd50a2520b84",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.FileButton",
+                                    "reference": {
+                                        "name": "buttonConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "",
+                                        "icon": "",
+                                        "iconCls": "'upload-icon'",
+                                        "text": ""
+                                    },
+                                    "name": "MyFileButton",
+                                    "designerId": "3b759ec4-0e97-44c3-aa0e-c729f09fac6a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "displayField": "category",
+                                "fieldLabel": "Category",
+                                "id": "adminMealCategory",
+                                "itemId": "adminMealCategory",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "name": "category",
+                                "queryMode": "local",
+                                "store": "CategoryStore",
+                                "value": null,
+                                "valueField": "category",
+                                "width": 338
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "4208dfac-a2bc-4119-9d24-ceed6cfc3250"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Meal Code",
+                                "id": "adminMealCode",
+                                "itemId": "adminMealCode",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "name": "code",
+                                "width": 338
+                            },
+                            "name": "MyTextField26",
+                            "designerId": "91ffed5c-6d69-4e61-ae61-d4cb6a2e6fbc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "designer|displayName": "Meal name",
+                                "fieldLabel": "Meal Name",
+                                "id": "adminAddMealName",
+                                "itemId": "adminAddMealName",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "name": "name",
+                                "width": 338
+                            },
+                            "name": "MyTextField18",
+                            "designerId": "8c9569b0-2834-4489-a50d-e2394de66413"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "designer|displayName": "Description",
+                                "fieldLabel": "Description:",
+                                "id": "adminAddMealDesc",
+                                "itemId": "adminAddMealDesc",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "name": "description",
+                                "width": 338
+                            },
+                            "name": "MyTextField19",
+                            "designerId": "5a3d8190-3cc7-4f81-a8e8-b521ca16e700"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "designer|displayName": "Price",
+                                "enforceMaxLength": false,
+                                "fieldLabel": "Price:",
+                                "id": "adminAddMealPrice",
+                                "inputType": null,
+                                "itemId": "adminAddMealPrice",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 99,
+                                "minValue": 1,
+                                "name": "price",
+                                "width": 338
+                            },
+                            "name": "MyNumberField1",
+                            "designerId": "80b7ecd5-5745-4cc9-bd2d-2caee99bf79d"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "designer|displayName": "Points",
+                                "fieldLabel": "Points:",
+                                "id": "adminAddMealPoints",
+                                "inputType": null,
+                                "itemId": "adminAddMealPoints",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 10,
+                                "minValue": 1,
+                                "name": "points",
+                                "regexText": null,
+                                "width": 338
+                            },
+                            "name": "MyNumberField2",
+                            "designerId": "11252ce8-db82-453b-86a3-5858aceaab66"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar16",
+            "designerId": "ecbc87c4-3495-4bf2-9a2a-e5de8cc567c6",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Submit",
+                        "id": "adminSubmitMealBtn",
+                        "itemId": "adminSubmitMealBtn",
+                        "layout|flex": null,
+                        "text": "Submit"
+                    },
+                    "name": "MyButton36",
+                    "designerId": "223798d9-4413-4498-8c5f-6e39686ed366"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Cancel",
+                        "id": "adminCancelCreateBtn",
+                        "itemId": "adminCancelCreateBtn",
+                        "layout|flex": null,
+                        "text": "Cancel"
+                    },
+                    "name": "MyButton37",
+                    "designerId": "46d5cb3e-76a7-4be4-9290-e6522442875e"
+                }
+            ]
+        }
+    ]
+}

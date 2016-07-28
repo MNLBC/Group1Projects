@@ -25,34 +25,7 @@ Ext.define('BurgerQueenAdmin.store.AdminInquiryStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BurgerQueenAdmin.model.AdminInquiryModel',
-            storeId: 'AdminInquiryStore',
-            data: [
-                {
-                    Id: 'dolorem',
-                    UserId: 'laborum',
-                    Message: 'atque'
-                },
-                {
-                    Id: 'dolorem',
-                    UserId: 'omnis',
-                    Message: 'quia'
-                },
-                {
-                    Id: 'assumenda',
-                    UserId: 'fugiat',
-                    Message: 'nulla'
-                },
-                {
-                    Id: 'nostrum',
-                    UserId: 'vel',
-                    Message: 'est'
-                },
-                {
-                    Id: 'reprehenderit',
-                    UserId: 'quidem',
-                    Message: 'aut'
-                }
-            ]
+            storeId: 'AdminInquiryStore'
         }, cfg)]);
     }
 });

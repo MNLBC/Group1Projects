@@ -56,14 +56,19 @@ Ext.define('BurgerQueenAdmin.view.LoginWindow', {
                             id: 'username',
                             itemId: 'username',
                             fieldLabel: 'Username',
-                            name: 'username'
+                            name: 'username',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'textfield',
                             id: 'password',
                             itemId: 'password',
                             fieldLabel: 'Password',
-                            name: 'password'
+                            name: 'password',
+                            inputType: 'password',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false
                         },
                         {
                             xtype: 'toolbar',

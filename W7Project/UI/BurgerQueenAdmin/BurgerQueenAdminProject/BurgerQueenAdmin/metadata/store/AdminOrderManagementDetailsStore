@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminOrderManagementDetailsStore",
+        "model": "AdminOrderManagementDetailsModel",
+        "storeId": "AdminOrderManagementDetailsStore"
+    },
+    "name": "MyStore1",
+    "designerId": "2177e3f4-b57c-4e9a-acea-59fca7c56cce"
+}

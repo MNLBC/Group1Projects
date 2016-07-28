@@ -1,0 +1,155 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userClassName": "AdminOrderManagementViewWindow",
+        "header": false,
+        "height": 409,
+        "id": "AdminOrderManagementViewWindow",
+        "itemId": "AdminOrderManagementViewWindow",
+        "layout": "fit",
+        "modal": true,
+        "title": "My Window",
+        "width": 1137
+    },
+    "name": "MyWindow",
+    "designerId": "9925f243-4908-4548-b39e-ba6e8f8e39ee",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "adminOrderManagementViewGrid",
+                "header": false,
+                "height": 312,
+                "id": "adminOrderManagementViewGrid",
+                "itemId": "adminOrderManagementViewGrid",
+                "store": "AdminOrderManagementDetailsStore",
+                "title": "Order Management"
+            },
+            "name": "MyGridPanel9",
+            "designerId": "c122f1a0-a630-4e25-8cdf-084ccdbd5d5c",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "id",
+                        "designer|displayName": "orderId",
+                        "id": "orderId",
+                        "itemId": "orderId",
+                        "text": "OrderId"
+                    },
+                    "name": "MyColumn35",
+                    "designerId": "748a8d9c-76fe-4a11-9dc9-0e610c9e6829"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "meal",
+                        "flex": 1,
+                        "text": "Meal"
+                    },
+                    "name": "MyColumn42",
+                    "designerId": "b9479406-6b32-4af2-ab46-9f678cf75c13"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "quantity",
+                        "flex": 1,
+                        "text": "Quantity",
+                        "width": 82
+                    },
+                    "name": "MyColumn43",
+                    "designerId": "cf0da9ac-6d74-4038-8a8b-12f8570a428f"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView9",
+                    "designerId": "23b459c7-c994-4e94-90e4-0892324bcb2a"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar16",
+                    "designerId": "793e06b3-3c27-4b6f-a8ac-ee780b6556a6",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "f9e313ee-db41-41b0-b81b-71b67471ce75"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "onAdminOrderManagementBttnClose",
+                                "id": "onAdminOrderManagementBttnClose",
+                                "itemId": "onAdminOrderManagementBttnClose",
+                                "layout|flex": null,
+                                "text": "close"
+                            },
+                            "name": "MyButton35",
+                            "designerId": "49682d52-ab57-479b-bfa4-38c85366886e",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "event",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

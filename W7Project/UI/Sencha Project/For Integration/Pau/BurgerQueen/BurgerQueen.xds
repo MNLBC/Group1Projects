@@ -15,7 +15,7 @@
             }
         },
         "urlPrefix": "http://localhost/BurgerQueen/",
-        "exportPath": "D:/My Documents/w7/publish",
+        "exportPath": "D:/My Documents/Group1Projects/W7Project/UI/Sencha Project/For Integration/Pau/publish",
         "spacesToIndent": 4,
         "sdkPath": "",
         "lineEnding": "CRLF",
@@ -43,8 +43,7 @@
         "displayfield-ExtBox1-2118-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-2173-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-2228-inputEl": "a new version of the framework is available",
-        "displayfield-ExtBox1-2283-inputEl": "a new version of the framework is available",
-        "displayfield-ExtBox1-2380-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-2283-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.1.0",
     "xdsBuild": 1943,
