@@ -12,7 +12,11 @@ import org.springframework.stereotype.Service;
 
 import com.oocl.mnlbc.controller.FeedbackController;
 import com.oocl.mnlbc.dao.FeedbackDAO;
+import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.entity.Feedback;
+import com.oocl.mnlbc.entity.Inquiry;
+import com.oocl.mnlbc.entity.Meal;
+import com.oocl.mnlbc.entity.User;
 
 /**
  * @author DEQUIAL
@@ -22,12 +26,20 @@ import com.oocl.mnlbc.entity.Feedback;
 public class FeedbackService {
 	@Autowired
 	FeedbackDAO feedbackDAO;
+	
+	@Autowired
+	MealDAO mealDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(FeedbackController.class);
 
 	public List<Feedback> getAllFeedbacks() {
 		logger.info("Getting all feedbacks");
 		List<Feedback> feedbacks = feedbackDAO.getAll();
+		for (Feedback feedback : feedbacks) {
+			Meal meal = mealDao.find(feedback.getMeal().getId());
+			feedback.setMeal(meal);
+		}
+
 		return feedbacks;
 	}
 
