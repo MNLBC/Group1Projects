@@ -10,7 +10,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.oocl.mnlbc.dao.MealDAO;
 import com.oocl.mnlbc.dao.TrayDAO;
+import com.oocl.mnlbc.dao.UserDAO;
+import com.oocl.mnlbc.entity.Meal;
 import com.oocl.mnlbc.entity.Tray;
 
 @Service
@@ -21,9 +24,19 @@ public class TrayService {
 	@Autowired
 	TrayDAO trayDao;
 	
+	@Autowired
+	MealDAO mealDao;
+	
 	public List<Tray> getTrayByUserId(int userId){
 		logger.info("Getting all order by User ID");
-		return trayDao.getAllTrayByUserId(userId);
+		List<Tray> trays = trayDao.getAllTrayByUserId(userId);
+		
+		for (Tray tray : trays) {
+			Meal meal = mealDao.find(tray.getMeal().getId());
+			tray.setMeal(meal);
+		}
+		
+		return trays;
 	}
 	
 	public boolean removeTrayByUserId(int userId){
