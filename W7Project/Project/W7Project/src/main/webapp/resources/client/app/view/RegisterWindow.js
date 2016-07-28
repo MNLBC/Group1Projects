@@ -26,10 +26,10 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
     ],
 
     height: 600,
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Register</h2></div></center>',
+    html: '<center><div id="nav"><h2 style = \'font-family: Abel;\'>Register</h2></div></center>',
     itemId: 'registerWindow',
     style: 'font-family: \'Abel\';',
-    width: 463,
+    width: 450,
     layout: 'fit',
     header: false,
     title: 'My Window',
@@ -56,7 +56,7 @@ Ext.define('BurgerQueen.view.RegisterWindow', {
                             xtype: 'fieldcontainer',
                             flex: 1,
                             height: 60,
-                            html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div><h1 style = \'font-family: Arial; color:#565652; \'>Register</h1></div></center>',
+                            html: '<center><div><h1 style = \'font-family: Arial; color:#565652; \'>Register</h1></div></center>',
                             margin: '0, 0, 35, 0',
                             width: 400,
                             fieldLabel: ''

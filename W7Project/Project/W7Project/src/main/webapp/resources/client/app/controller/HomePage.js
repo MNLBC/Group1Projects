@@ -138,6 +138,11 @@ Ext.define('BurgerQueen.controller.HomePage', {
     onLoginButtonClick: function() {
                 Ext.create('BurgerQueen.view.LoginWindow').show();
 
+
+
+
+
+
     },
 
     onBeveragesButtonClick: function() {
@@ -187,16 +192,23 @@ Ext.define('BurgerQueen.controller.HomePage', {
                     selectModel = productGrid.getSelectionModel(),
                     selectedProduct = selectModel.getSelection()[0].data;
 
-        //         var selectedProductName = selectedProduct.name,
-        //         	selectedProductPrice = selectedProduct.price,
-        //         	selectedProductDesc = selectedProduct.description;
-
-        //         this.getProductName().setValue(selectedProductName);
-        //         this.getProductPrice().setValue(selectedProductPrice);
-        //         this.getProductDesc().setValue(selectedProductDesc);
-
                 var productWin = Ext.create('BurgerQueen.view.ProductViewWindow',{selectedProduct: selectedProduct});
                 productWin.show();
+    },
+
+    onUserGridItemDblClick: function() {
+        // var userStore = Ext.getStore('UsersStore');
+
+        //     var userGrid = this.getUserGrid(),
+        //         selectModel = userGrid.getSelectionModel(),
+        //         selectedUser = selectModel.getSelection()[0].data;
+
+        var userWin = Ext.create('BurgerQueen.view.WinUserEdit').show();
+
+
+        //     Ext.getCmp('UserManageType').setValue(selectedUser.Type);
+        //     Ext.getCmp('manageUserPoints').setValue(selectedUser.Points);
+
     },
 
     onTrayBtnClick: function() {
@@ -204,6 +216,25 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onBurgerQueenRender: function() {
+        this.activeUserCounter();
+
+        Ext.Ajax.request({
+            url : 'getUserSession',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+
+                   if(!Ext.isEmpty(data)){
+
+                       currentLoginUser = data;
+                       this.displayForSessions();
+                   }
+            }
+        });
+
         var store = Ext.getStore('ProductStore');
 
         Ext.Ajax.request({
@@ -230,101 +261,49 @@ Ext.define('BurgerQueen.controller.HomePage', {
             }
         });
 
-        this.activeUserCounter();
-
-        Ext.Ajax.request({
-            url : 'getUserSession',
-            params : {
-
-            },
-            scope : this,
-            success : function(response) {
-                var data = Ext.decode(response.responseText);
-
-                   if(!Ext.isEmpty(data)){
-
-                       currentLoginUser = data;
-                       this.displayForSessions();
-                   }
-            }
-        });
-
-
-                var userStore = Ext.getStore('UsersStore');
-
-                Ext.Ajax.request({
-                    url : 'user/getAllUsers',
-                    params : {
-
-                    },
-                    scope : this,
-                    success : function(response) {
-                        var data = Ext.decode(response.responseText);
-                        Ext.each(data, function(record){
-                            var users = {
-                                id:record.id,
-                                Username:record.username,
-                                Password:record.password,
-                                Firstname:record.firstname,
-                                Middlename:record.middlename,
-                                Lastname:record.lastname,
-                                Gender:record.gender,
-                                Email:record.email,
-                                Address:record.address,
-                                Contact:record.contactno,
-                                Disabled:record.isDisabled,
-                                Type:record.type,
-                                Level:record.userLevel,
-                                Points:record.points
-
-                            };
-                            userStore.add(users);
-                        });
-                    }
-                });
 
 
 
     },
 
     onUserProfileShow: function(component, eOpts) {
-                this.activeUserCounter();
-                if(Ext.isEmpty(currentLoginUser)){
-                    return;
-                }
+        this.activeUserCounter();
+        if(Ext.isEmpty(currentLoginUser)){
+            return;
+        }
 
         var firstName = currentLoginUser.firstname,
             middleName = currentLoginUser.middlename,
             lastName =currentLoginUser.lastname,
             fullName = lastName + ', ' + firstName + " " + middleName;
 
-                this.getUsernameProfile().setValue(currentLoginUser.username);
-                this.getFullnameProfile().setValue(fullName);
-                this.getAddressProfile().setValue(currentLoginUser.address);
-                this.getEmailProfile().setValue(currentLoginUser.email);
-                this.getContactNumProfile().setValue(currentLoginUser.contact);
-                Ext.getCmp('userLevel').setValue(currentLoginUser.userLevel);
+        this.getUsernameProfile().setValue(currentLoginUser.username);
+        this.getFullnameProfile().setValue(fullName);
+        this.getAddressProfile().setValue(currentLoginUser.address);
+        this.getEmailProfile().setValue(currentLoginUser.email);
+        this.getContactNumProfile().setValue(currentLoginUser.contactno);
+        Ext.getCmp('userLevel').setValue(currentLoginUser.userLevel);
 
-                Ext.Ajax.request({
-                    url : 'order/getAllOrderByUserId',
-                    params : {
-                        userId : currentLoginUser.id
-                    },
-                    scope : this,
+        Ext.Ajax.request({
+            url : 'order/getAllOrderByUserId',
+            params : {
+                userId : currentLoginUser.id
+            },
+            scope : this,
 
-                    success : function(response) {
-                        var transactionStore = Ext.getStore('TransactionStore');
-                        var userTransactions = Ext.JSON.decode(response.responseText);
-                        Ext.each(userTransactions,function(record){
-                            var transaction = {
-                                Id : record.id,
-                                UserId: record.userId,
-                                Status : record.status
-                            };
-                            transactionStore.add(transaction);
-                        });
-                    }
+            success : function(response) {
+                var transactionStore = Ext.getStore('TransactionStore');
+                var userTransactions = Ext.JSON.decode(response.responseText);
+                Ext.each(userTransactions,function(record){
+                    var transaction = {
+                        Id : record.id,
+                        UserId: record.userId,
+                        Status : record.status
+                    };
+                    transactionStore.add(transaction);
                 });
+            }
+        });
     },
 
     onShowUsersWindowClick: function() {
@@ -349,7 +328,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     onLogoutButtonClick: function() {
-         Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
+
+
+        Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
                             if(btnText === "yes"){
                                 var trays = [];
 
@@ -374,7 +355,22 @@ Ext.define('BurgerQueen.controller.HomePage', {
                                     this.addToTray(trays);
 
                                Ext.getCmp('toolBarCustomer').show();
-                              Ext.getCmp('toolBarAdmin').hide();
+                               Ext.getCmp('toolBarAdmin').hide();
+                                this.getUserProfile().hide();
+                                this.getTrayButton().hide();
+                                this.getRegisterButton().show();
+                                this.getLoginButton().show();
+                                this.getLogoutButton().hide();
+                                this.getMyProfileButton().hide();
+                                Ext.getCmp('AdminUserPanel').hide();
+                                Ext.getCmp('AdminCommentsPanel').hide();
+                                this.getProducts().show();
+
+        //                        if (currentLoginUser.type === "admin"){
+
+        //                        }
+
+
                               Ext.Ajax.request({
                                 url : 'logout',
                                 params : {
@@ -386,18 +382,19 @@ Ext.define('BurgerQueen.controller.HomePage', {
                                 }
                             });
 
-                this.getTrayButton().hide();
-                this.getRegisterButton().show();
-                this.getLoginButton().show();
-                this.getLogoutButton().hide();
-                this.getMyProfileButton().hide();
-                this.getUserProfile().hide();
-                this.getProducts().show();
+
+
+
+
+
                 Ext.getStore('TrayStore').removeAll();
                                 Ext.getStore('TransactionStore').removeAll();
                                 Ext.getStore('TransactionDetailsStore').removeAll();
                             }
                         }, this);
+
+
+
 
     },
 
@@ -413,7 +410,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 this.getProducts().hide();
                 this.getUserProfile().show();
 
-                var userStore = Ext.getStore('UserStore').getRange();
+                var userStore = Ext.getStore('UsersStore').getRange();
 
                 Ext.each(userStore, function(record){
                     var userName = record.get('userName'),
@@ -441,7 +438,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
             this.getAdminProductsPanel().hide();
             this.getAdminTransactionsPanel().hide();
             this.getAdminUserPanel().show();
-        console.log('User');
 
 
     },
@@ -583,26 +579,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
         });
     },
 
-    onUserGridSelectionChange: function() {
-        var userStore = Ext.getStore('UsersStore');
-
-                var usersGrid = this.getUserGrid(),
-                    selectModel = usersGrid.getSelectionModel(),
-                    selectedUser = selectModel.getSelection(),
-                    userDisabledValue = selectedUser[0].data.Disabled;
-
-                if(userDisabledValue === 0){
-
-                    // Ext.getCmp('btnEnable')
-                    this.getBtnEnable().disable();
-                    this.getBtnDisable().enable();
-
-                }else{
-                    this.getBtnEnable().enable();
-                    this.getBtnDisable().disable();
-                }
-    },
-
     onBtnAcceptClick: function() {
          var commentsStore = Ext.getStore('CommentsStore');
 
@@ -636,7 +612,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
                              jsonData:user,
                             scope:this,
                             success : function(response) {
-                                Ext.MesssageBox.alert('Success','Points added to user');
+                                Ext.MessageBox.alert('Success','Points added to user');
                             }
                         });
 
@@ -650,9 +626,61 @@ Ext.define('BurgerQueen.controller.HomePage', {
                     }
     },
 
+    onProfileOpenChangePasswordWindowClick: function() {
+               Ext.create('BurgerQueen.view.ProfileChangePasswordWindow').show();
+    },
+
+    onBtnEnableClick: function() {
+         var userStore = Ext.getStore('UsersStore');
+
+                                 var usersGrid = this.getUserGrid(),
+                            selectModel = usersGrid.getSelectionModel(),
+                            selectedUser = selectModel.getSelection(),
+                           selectedUser = selectedUser[0].data.Username;
+
+                var user = {'username' : selectedUser,
+                             'isDisabled' : 0};
+
+               Ext.Ajax.request({
+                            url:'user/updateUser',
+                            headers: { 'Content-Type': 'application/json',
+                             'Accept': 'application/json'},
+                             jsonData:user,
+                            scope:this,
+                            success : function(response) {
+                                Ext.MessageBox.alert('Success',selectedUser + ' is now Active');
+                            }
+                        });
+
+
+    },
+
+    onBtnDisableClick: function() {
+
+                var userStore = Ext.getStore('UsersStore');
+
+                                 var usersGrid = this.getUserGrid(),
+                            selectModel = usersGrid.getSelectionModel(),
+                            selectedUser = selectModel.getSelection(),
+                           selectedUser = selectedUser[0].data.Username;
+
+                var user = {'username' : selectedUser,
+                             'isDisabled' : 1};
+
+               Ext.Ajax.request({
+                            url:'user/updateUser',
+                            headers: { 'Content-Type': 'application/json',
+                             'Accept': 'application/json'},
+                             jsonData:user,
+                            scope:this,
+                            success : function(response) {
+                                Ext.MessageBox.alert('Success',selectedUser + ' is now Blocked');
+                            }
+                        });
+    },
+
     onLaunch: function() {
                 this.productStore = Ext.getStore('ProductStore');
-        //         activeUserStore = Ext.getStore('ActiveUserStore');
                 activeUserStore = Ext.create('BurgerQueen.store.ActiveUserStore');
     },
 
@@ -717,8 +745,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 this.getTrayButton().show();
                 this.activeUserCounter();
                 this.getMyProfileButton().show();
-                this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username);
+                this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username + '! |');
                 this.getProducts().show();
+
 
 
         if(currentLoginUser.type ==='admin'){
@@ -747,6 +776,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
             },
             "#ProductGrid": {
                 itemdblclick: this.onProductGridItemDblClick
+            },
+            "#userGrid": {
+                itemdblclick: this.onUserGridItemDblClick
             },
             "#trayBtn": {
                 click: this.onTrayBtnClick
@@ -790,11 +822,17 @@ Ext.define('BurgerQueen.controller.HomePage', {
             "#btnComments": {
                 click: this.onBtnCommentsClick
             },
-            "#userGrid": {
-                selectionchange: this.onUserGridSelectionChange
-            },
             "#btnAccept": {
                 click: this.onBtnAcceptClick
+            },
+            "#profileOpenChangePasswordWindow": {
+                click: this.onProfileOpenChangePasswordWindowClick
+            },
+            "#btnEnable": {
+                click: this.onBtnEnableClick
+            },
+            "#btnDisable": {
+                click: this.onBtnDisableClick
             }
         });
     }

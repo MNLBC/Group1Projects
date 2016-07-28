@@ -28,7 +28,7 @@ Ext.define('BurgerQueen.view.AdminUserPanel', {
     height: 580,
     id: 'AdminUserPanel',
     itemId: 'AdminUserPanel',
-    width: 828,
+    width: 830,
     autoScroll: true,
     header: false,
     title: 'Admin',
@@ -40,12 +40,13 @@ Ext.define('BurgerQueen.view.AdminUserPanel', {
             items: [
                 {
                     xtype: 'container',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Users</h1></div></center>'
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Users</h1></div></center>'
                 },
                 {
                     xtype: 'gridpanel',
                     id: 'userGrid',
                     itemId: 'userGrid',
+                    autoScroll: true,
                     header: false,
                     title: 'My Grid Panel',
                     store: 'UsersStore',

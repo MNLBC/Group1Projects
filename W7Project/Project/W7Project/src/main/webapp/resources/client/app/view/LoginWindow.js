@@ -24,7 +24,6 @@ Ext.define('BurgerQueen.view.LoginWindow', {
     ],
 
     height: 250,
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     itemId: 'loginWindow',
     style: 'font-family: \'Abel\';',
     width: 350,
@@ -44,7 +43,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
             items: [
                 {
                     xtype: 'form',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Login</h1></div></center>',
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Login</h1></div></center>',
                     itemId: 'loginForm',
                     bodyPadding: 10,
                     header: false,
@@ -78,7 +77,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                                     fieldLabel: '',
                                     labelStyle: 'font-family: \'Abel\'; font-size: 20px;',
                                     name: 'username',
-                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;text-align: center; ',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,
                                     emptyText: 'Username'
@@ -95,7 +94,7 @@ Ext.define('BurgerQueen.view.LoginWindow', {
                                     fieldLabel: '',
                                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     name: 'password',
-                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;',
+                                    fieldStyle: 'font-family: \'Abel\'; font-size: 20px;text-align: center; ',
                                     inputType: 'password',
                                     allowBlank: false,
                                     allowOnlyWhitespace: false,

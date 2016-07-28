@@ -27,7 +27,6 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
     ],
 
     height: 278,
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     id: 'ProductView',
     itemId: 'ProductView',
     width: 665,
@@ -109,7 +108,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                 },
                                 {
                                     xtype: 'numberfield',
-                                    anchor: '50%',
+                                    anchor: '60%',
                                     id: 'ProductQuantity',
                                     itemId: 'ProductQuantity',
                                     padding: '10px 0px 0px 0px',
@@ -118,6 +117,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     value: 1,
                                     fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    maxValue: 10,
                                     minValue: 1
                                 },
                                 {
@@ -145,7 +145,7 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                             xtype: 'button',
                                             id: 'AddCartButton',
                                             itemId: 'AddCartButton',
-                                            text: 'Add to cart'
+                                            text: 'Add to tray'
                                         },
                                         {
                                             xtype: 'button',

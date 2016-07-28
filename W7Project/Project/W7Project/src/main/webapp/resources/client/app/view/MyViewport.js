@@ -30,7 +30,6 @@ Ext.define('BurgerQueen.view.MyViewport', {
         'Ext.Img'
     ],
 
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\' rel=\'stylesheet\' type=\'text/css\'>',
     layout: 'fit',
 
     initComponent: function() {
@@ -116,7 +115,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                             xtype: 'toolbar',
                             dock: 'top',
                             id: 'toolBarCustomer',
-                            style: 'background-color:#ff9e14;\nfont-color:white;',
+                            style: 'background-image: url(resources/rectangle-banner.png);\n background-repeat: repeat;	\n font-color:white;',
                             layout: {
                                 type: 'hbox',
                                 pack: 'center'
@@ -134,7 +133,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     itemId: 'allCategoriesButton',
                                     style: 'font-family: \'Insaniburger with Cheese\';\n    font-size:35px;\n    color:white;',
                                     ui: 'menubarbtn',
-                                    text: 'All Categories |'
+                                    text: 'All Categoriessss |'
                                 },
                                 {
                                     xtype: 'button',

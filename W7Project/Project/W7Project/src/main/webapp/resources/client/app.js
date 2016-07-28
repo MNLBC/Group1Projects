@@ -32,7 +32,8 @@ Ext.application({
              'ActiveUserModel',
              'TransactionDetailsModel',
              'CommentsModel',
-             'UsersModel'
+             'UsersModel',
+             'UserTypeModel'
          ],
          stores: [
              'ProductStore',
@@ -41,7 +42,8 @@ Ext.application({
              'ActiveUserStore',
              'TransactionDetailsStore',
              'CommentsStore',
-             'UsersStore'
+             'UsersStore',
+             'UserTypeStore'
          ],
          views: [
              'MyViewport',
@@ -56,7 +58,8 @@ Ext.application({
              'AdminUserPanel',
              'AdminCommentsPanel',
              'AdminTransactionsPanel',
-             'AdminProductsPanel'
+             'AdminProductsPanel',
+             'WinUserEdit'
          ],
     controllers: [
         'HomePage',

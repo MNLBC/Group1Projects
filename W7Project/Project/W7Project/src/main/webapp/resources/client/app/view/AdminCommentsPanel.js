@@ -39,7 +39,7 @@ Ext.define('BurgerQueen.view.AdminCommentsPanel', {
             items: [
                 {
                     xtype: 'container',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Abel; color:#565652;\'>Comments</h1></div></center>'
+                    html: '<center><div id="nav"><h1 style = \'font-family: Abel; color:#565652;\'>Comments</h1></div></center>'
                 },
                 {
                     xtype: 'gridpanel',

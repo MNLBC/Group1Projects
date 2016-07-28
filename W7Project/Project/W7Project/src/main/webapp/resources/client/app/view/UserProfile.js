@@ -27,7 +27,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
         'Ext.grid.View'
     ],
 
-    height: 615,
+    height: 691,
     id: 'UserProfile',
     itemId: 'UserProfile',
     width: 612,
@@ -55,7 +55,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                         },
                         {
                             xtype: 'container',
-                            height: 277,
+                            height: 349,
                             layout: {
                                 type: 'hbox',
                                 align: 'stretch',
@@ -69,6 +69,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                 {
                                     xtype: 'container',
                                     flex: 1,
+                                    height: 325,
                                     rtl: true,
                                     layout: 'anchor',
                                     items: [
@@ -88,6 +89,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                 {
                                     xtype: 'container',
                                     flex: 1,
+                                    height: 309,
                                     width: 311,
                                     items: [
                                         {
@@ -105,10 +107,12 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                         {
                                             xtype: 'displayfield',
                                             height: 50,
+                                            id: 'usernameProfile',
                                             itemId: 'usernameProfile',
                                             width: 800,
                                             fieldLabel: 'Username',
                                             labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                            labelWidth: 70,
                                             value: 'Display Field',
                                             fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                             inputId: 'userName'
@@ -121,6 +125,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                             width: 800,
                                             fieldLabel: 'Address',
                                             labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                            labelWidth: 70,
                                             value: 'Display Field',
                                             fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                             inputId: 'address'
@@ -133,6 +138,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                             width: 800,
                                             fieldLabel: 'E-mail',
                                             labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                            labelWidth: 70,
                                             value: 'Display Field',
                                             fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                             inputId: 'email'
@@ -140,12 +146,12 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                         {
                                             xtype: 'displayfield',
                                             height: 50,
-                                            hidden: true,
                                             id: 'contactnumProfile',
                                             itemId: 'contactnumProfile',
                                             width: 800,
                                             fieldLabel: 'Contact:',
                                             labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                            labelWidth: 70,
                                             value: 'Display Field',
                                             fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                             inputId: 'userProfileWindow'
@@ -154,13 +160,17 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                             xtype: 'displayfield',
                                             id: 'userLevel',
                                             fieldLabel: 'User Level',
-                                            value: 'Display Field'
+                                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                            labelWidth: 70,
+                                            value: 'Display Field',
+                                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
                                         }
                                     ]
                                 },
                                 {
                                     xtype: 'container',
-                                    flex: 1
+                                    flex: 1,
+                                    height: 293
                                 }
                             ]
                         },
@@ -181,6 +191,12 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                     id: 'editProfileButton',
                                     itemId: 'editProfileButton',
                                     text: 'Edit Profile'
+                                },
+                                {
+                                    xtype: 'button',
+                                    id: 'profileOpenChangePasswordWindow',
+                                    itemId: 'profileOpenChangePasswordWindow',
+                                    text: 'Change Password'
                                 }
                             ]
                         },

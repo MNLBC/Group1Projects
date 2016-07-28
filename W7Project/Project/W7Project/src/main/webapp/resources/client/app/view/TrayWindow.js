@@ -29,7 +29,6 @@ Ext.define('BurgerQueen.view.TrayWindow', {
     ],
 
     height: 399,
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>',
     id: 'TrayWindow',
     itemId: 'TrayWindow',
     style: 'font-family: \'Century Gothic\';',
@@ -53,7 +52,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                 {
                     xtype: 'fieldcontainer',
                     height: 60,
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>My Tray</h2></div></center>',
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >My Tray</h1></div></center>',
                     width: 619,
                     fieldLabel: ''
                 },
@@ -91,7 +90,10 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                                 xtype: 'textfield',
                                 id: 'orderQtyField',
                                 itemId: 'orderQtyField',
-                                inputId: 'orderQtyId'
+                                inputId: 'orderQtyId',
+                                inputType: 'number',
+                                maxLength: 2,
+                                regex: /^([1-9]|10)$/
                             }
                         },
                         {
@@ -136,7 +138,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                                 var newPoints = points * quantity;
                                 record.set('Points', newPoints);
 
-                                return Ext.util.Format.number(newPoints, "0.00");
+                                return Ext.util.Format.number(newPoints, '00.00');
                             },
                             dataIndex: 'Points',
                             text: 'Points'
@@ -170,42 +172,56 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                     ]
                 },
                 {
-                    xtype: 'displayfield',
-                    id: 'totalItems',
-                    itemId: 'totalItems',
-                    fieldLabel: 'Total Number of Items in Tray',
-                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
-                    value: '0',
-                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
-                },
-                {
-                    xtype: 'displayfield',
-                    id: 'totalAmount',
-                    itemId: 'totalAmount',
-                    fieldLabel: 'Total Amount in RMB',
-                    labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
-                    value: '0',
-                    fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
-                    listeners: {
-                        change: {
-                            fn: me.onTotalAmountChange,
-                            scope: me
+                    xtype: 'container',
+                    flex: 1,
+                    items: [
+                        {
+                            xtype: 'displayfield',
+                            id: 'totalPoints',
+                            itemId: 'totalPoints',
+                            fieldLabel: 'Total Points',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                            labelWidth: 80,
+                            value: '0',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            id: 'totalItems',
+                            itemId: 'totalItems',
+                            rtl: false,
+                            fieldLabel: '',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                            value: '0',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            id: 'totalAmount',
+                            itemId: 'totalAmount',
+                            fieldLabel: 'Total (RMB)',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 20px;font-weight: bold;',
+                            labelWidth: 120,
+                            value: '0',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 20px; font-weight: bold;',
+                            listeners: {
+                                change: {
+                                    fn: me.onTotalAmountChange,
+                                    scope: me
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'displayfield',
+                            id: 'totalDiscountedAmount',
+                            itemId: 'totalDiscountedAmount',
+                            fieldLabel: 'Grand Total (RMB) w/ Discount',
+                            labelStyle: 'font-family: \'Abel\'; font-size: 18px; font-weight: bold;',
+                            labelWidth: 260,
+                            value: '0',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 20px; font-weight: bold;'
                         }
-                    }
-                },
-                {
-                    xtype: 'displayfield',
-                    id: 'totalDiscountedAmount',
-                    itemId: 'totalDiscountedAmount',
-                    fieldLabel: 'Total Discounted Amount',
-                    value: '0'
-                },
-                {
-                    xtype: 'displayfield',
-                    id: 'totalPoints',
-                    itemId: 'totalPoints',
-                    fieldLabel: 'Total Points',
-                    value: '0'
+                    ]
                 }
             ],
             dockedItems: [
@@ -252,9 +268,9 @@ Ext.define('BurgerQueen.view.TrayWindow', {
             totalPoints += record.data.Points;
         });
 
-
+        totalPoints = Ext.util.Format.number(totalPoints, '00.00');
+        Ext.getCmp('totalItems').setValue('Total '+totalQuantity + ' item(s)');
         Ext.getCmp('totalAmount').setValue(totalAmount);
-        Ext.getCmp('totalItems').setValue(totalQuantity);
         Ext.getCmp('totalPoints').setValue(totalPoints);
 
     },

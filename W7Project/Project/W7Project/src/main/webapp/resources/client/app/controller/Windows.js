@@ -172,16 +172,40 @@ Ext.define('BurgerQueen.controller.Windows', {
             selector: '#editAddress'
         },
         {
-            ref: 'editEmail',
-            selector: '#editEmail'
-        },
-        {
             ref: 'editContact',
             selector: '#editContact'
         },
         {
             ref: 'totalDiscountedAmount',
             selector: '#totalDiscountedAmount'
+        },
+        {
+            ref: 'editProfileWindow',
+            selector: '#editProfileWindow'
+        },
+        {
+            ref: 'editOldPassword',
+            selector: '#editOldPassword'
+        },
+        {
+            ref: 'editNewPassword',
+            selector: '#editNewPassword'
+        },
+        {
+            ref: 'editConfirmPassword',
+            selector: '#editConfirmPassword'
+        },
+        {
+            ref: 'changePasswordForm',
+            selector: '#changePasswordForm'
+        },
+        {
+            ref: 'profileChangePasswordWindow',
+            selector: '#profileChangePasswordWindow'
+        },
+        {
+            ref: 'userGrid',
+            selector: '#userGrid'
         }
     ],
 
@@ -279,9 +303,8 @@ Ext.define('BurgerQueen.controller.Windows', {
                     updatedAmount = currentAmount - selectedPrice;
 
                 trayStore.remove(selectedProduct);
-                this.getTotalItems().setValue(updatedQty);
+                this.getTotalItems().setValue('Total '+updatedQty + ' item(s)');
                 this.getTotalAmount().setValue(updatedAmount);
-
                 //call on show event of tray
                 this.onTrayWindowShow();
 
@@ -309,8 +332,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             });
 
 
-        this.getTotalAmount().setValue(totalAmount);
-            this.getTotalItems().setValue(totalQuantity);
+          totalPoints = Ext.util.Format.number(totalPoints, '00.00');
+            this.getTotalAmount().setValue(totalAmount);
+            this.getTotalItems().setValue('Total '+totalQuantity + ' item(s)');
             this.getTotalPoints().setValue(totalPoints);
     },
 
@@ -412,7 +436,8 @@ Ext.define('BurgerQueen.controller.Windows', {
 
                                 }
                             });
-                                    Ext.Ajax.request({
+
+                              Ext.Ajax.request({
                             url : 'tray/removeTrayByUserId',
                             params : {
                                 "userId":currentLoginUser.id
@@ -424,6 +449,12 @@ Ext.define('BurgerQueen.controller.Windows', {
                             }
                         });
         };
+
+
+
+
+
+
                                 Ext.Ajax.request({
                                      url : 'login',
                                      params : {
@@ -443,36 +474,67 @@ Ext.define('BurgerQueen.controller.Windows', {
                                                  Ext.MessageBox.alert('Success','Welcome!');
                                                  currentLoginUser = decodedData;
 
+
+                                                 this.getLoginButton().hide();
+                                                 this.getLogoutButton().show();
+                                                 this.getRegisterButton().hide();
+                                                 this.activeUserCounter();
+                                                 this.getMyProfileButton().setText('Welcome, '+ decodedData.username +'! |');
+                                                 this.getLoginWindow().destroy();
+                                                 ajaxFunction();
                                                  if(type === 'customer'){
-                                                     ajaxFunction();
-                                                     this.getLoginButton().hide();
-                                                     this.getLogoutButton().show();
-                                                     this.getRegisterButton().hide();
+
+                                                     Ext.getCmp('AdminUserPanel').hide();
+                                                     Ext.getCmp('AdminCommentsPanel').hide();
                                                      this.getMyProfileButton().show();
                                                      this.getTrayButton().show();
                                                      Ext.getCmp('toolBarCustomer').show();
                                                      Ext.getCmp('toolBarAdmin').hide();
-                                                     this.activeUserCounter();
-                                                     this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
-                                                     this.getLoginWindow().destroy();
                                                      this.getProducts().show();
 
-
-
                                                  }else{
-                                                     this.getLoginButton().hide();
-                                                     this.getLogoutButton().show();
-                                                     this.getRegisterButton().hide();
+
                                                      this.getMyProfileButton().hide();
                                                      this.getTrayButton().hide();
                                                      Ext.getCmp('toolBarCustomer').hide();
                                                      Ext.getCmp('toolBarAdmin').show();
-                                                     this.activeUserCounter();
-                                                     this.getMyProfileButton().setText('Welcome, '+ decodedData.username);
+                                                     Ext.getCmp('AdminUserPanel').show();
                                                      this.getProducts().hide();
-                                                     this.getLoginWindow().destroy();
-                                                     //this.getAdminUserPanel().show();
 
+
+
+                                                      var userStore = Ext.getStore('UsersStore');
+
+                                                      Ext.Ajax.request({
+                                                        url : 'user/getAllUsers',
+                                                        params : {
+
+                                                        },
+                                                        scope : this,
+                                                        success : function(response) {
+                                                            var data = Ext.decode(response.responseText);
+                                                            Ext.each(data, function(record){
+                                                                var users = {
+                                                                    id:record.id,
+                                                                    Username:record.username,
+                                                                    Password:record.password,
+                                                                    Firstname:record.firstname,
+                                                                    Middlename:record.middlename,
+                                                                    Lastname:record.lastname,
+                                                                    Gender:record.gender,
+                                                                    Email:record.email,
+                                                                    Address:record.address,
+                                                                    Contact:record.contactno,
+                                                                    Disabled:record.isDisabled,
+                                                                    Type:record.type,
+                                                                    Level:record.userLevel,
+                                                                    Points:record.points
+
+                                                                };
+                                                                userStore.add(users);
+                                                            });
+                                                        }
+                                                    });
                                                  }
                                              }
                                          }else{
@@ -608,6 +670,22 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     onBtnContactUsClick: function() {
         Ext.create('BurgerQueen.view.ContactUsWindow').show();
+
+            Ext.Ajax.request({
+                url : 'hasLogged',
+                params : {
+
+                },
+                scope : this,
+                success : function(response) {
+
+                    if(response.responseText === 'true'){
+                      Ext.getCmp('commentBox').show();
+                     Ext.getCmp('btnSubmitComment').show();
+                    }
+                }
+                });
+
     },
 
     onBtnSubmitCommentClick: function() {
@@ -674,14 +752,12 @@ Ext.define('BurgerQueen.controller.Windows', {
             middlename = currentLoginUser.middlename,
             lastname = currentLoginUser.lastname,
             address = currentLoginUser.address,
-            email = currentLoginUser.email,
             contact = currentLoginUser.contactno;
 
         this.getEditFirstName().setValue(firstname);
         this.getEditMiddleName().setValue(middlename);
         this.getEditLastName().setValue(lastname);
         this.getEditAddress().setValue(address);
-        this.getEditEmail().setValue(email);
         this.getEditContact().setValue(contact);
 
 
@@ -693,8 +769,8 @@ Ext.define('BurgerQueen.controller.Windows', {
                 middlename = this.getEditMiddleName().getValue(),
                 lastname = this.getEditLastName().getValue(),
                address =  this.getEditAddress().getValue(),
-               email = this.getEditEmail().getValue(),
-               contactno =  this.getEditContact().getValue();
+               contactno =  this.getEditContact().getValue(),
+                fullname = lastname +', '+firstname+' '+middlename;
 
 
         var user = currentLoginUser;
@@ -702,7 +778,6 @@ Ext.define('BurgerQueen.controller.Windows', {
         user.middlename = middlename;
         user.lastname = lastname;
         user.address = address;
-        user.email = email;
         user.contactno = contactno;
 
         Ext.Ajax.request({
@@ -712,9 +787,58 @@ Ext.define('BurgerQueen.controller.Windows', {
                              jsonData:user,
                             scope:this,
                             success : function(response) {
-                                Ext.MessageBox.alert('Success','User profile has been updated. Changes will be applied after next login');
+                                Ext.MessageBox.alert('Success','User profile has been updated.');
+                                Ext.getCmp('fullnameProfile').setValue(fullname);
+                                Ext.getCmp('addressProfile').setValue(address);
+                                Ext.getCmp('contactnumProfile').setValue(contactno);
                             }
                         });
+
+
+        this.getEditProfileWindow().destroy();
+
+
+    },
+
+    onBtnSavePasswordChangeClick: function() {
+
+
+         // var form = this.getChangePasswordForm(),
+         var oldPassword = this.getEditOldPassword().getValue(),
+                newPassword = this.getEditNewPassword().getValue(),
+                confirmPassword = this.getEditConfirmPassword().getValue(),
+            changepassword = {
+                user:currentLoginUser.username,
+                'currentPassword':oldPassword,
+                'newPassword':newPassword
+
+            };
+
+            //if(form.isValid()){
+
+                Ext.Ajax.request({
+                        url : 'user/addUser', //CHANGEEEE THISSSSS!!!!!!!!
+                        headers: { 'Content-Type': 'application/json',
+                         'Accept': 'application/json'},
+                         jsonData:changepassword,
+                        scope : this,
+                        success : function(response) {
+                    var data = response.responseText;
+                    if(data ==='success'){
+                        Ext.MessageBox.alert('Sucess', this.success_changePassword);
+                        this.getProfileChangePasswordWindow().destroy();
+                    }
+                    if(data === 'failed'){
+                        Ext.MessageBox.alert('Error', this.failed_toChangePassword);
+                    }
+                }
+            });
+
+        //     }else{
+        //          Ext.MessageBox.alert('Error', 'Please check fields');
+
+        // }
+
 
     },
 
@@ -816,6 +940,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#btnUpdateProfile": {
                 click: this.onBtnUpdateProfileClick
+            },
+            "#btnSavePasswordChange": {
+                click: this.onBtnSavePasswordChangeClick
             }
         });
     }

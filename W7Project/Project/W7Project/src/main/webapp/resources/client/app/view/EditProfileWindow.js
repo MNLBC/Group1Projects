@@ -24,7 +24,7 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
         'Ext.button.Button'
     ],
 
-    height: 429,
+    height: 400,
     id: 'editProfileWindow',
     itemId: 'editProfileWindow',
     width: 347,
@@ -47,7 +47,7 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                         {
                             xtype: 'fieldcontainer',
                             height: 67,
-                            html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Update Profile</h1></div></center>',
+                            html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Update Profile</h1></div></center>',
                             width: 334,
                             fieldLabel: ''
                         },
@@ -90,16 +90,6 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             fieldLabel: '',
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             emptyText: 'Address'
-                        },
-                        {
-                            xtype: 'textfield',
-                            height: 40,
-                            id: 'editEmail',
-                            itemId: 'editEmail',
-                            width: 320,
-                            fieldLabel: '',
-                            fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
-                            emptyText: 'Email'
                         },
                         {
                             xtype: 'textfield',

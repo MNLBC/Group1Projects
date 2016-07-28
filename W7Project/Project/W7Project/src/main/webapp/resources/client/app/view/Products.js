@@ -26,7 +26,6 @@ Ext.define('BurgerQueen.view.Products', {
     ],
 
     height: 559,
-    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'\nrel=\'stylesheet\' type=\'text/css\'>',
     itemId: 'Products',
     style: 'font-family: \'Century Gothic\';',
     width: 1099,
@@ -50,12 +49,15 @@ Ext.define('BurgerQueen.view.Products', {
                     items: [
                         {
                             xtype: 'textfield',
+                            height: 35,
                             id: 'SearchField',
                             itemId: 'SearchField',
                             style: 'font-family: \'Century Gothic\';',
-                            fieldLabel: 'Search',
+                            width: 150,
                             labelStyle: 'font-family: \'Century Gothic\'',
-                            fieldStyle: ' font-family: \'Century Gothic\';',
+                            fieldStyle: ' font-family: \'Century Gothic\'; font-size:20px;',
+                            emptyText: 'Search',
+                            regex: /^[A-Za-z\s]+$/,
                             listeners: {
                                 change: {
                                     fn: me.onSearchFieldChange,

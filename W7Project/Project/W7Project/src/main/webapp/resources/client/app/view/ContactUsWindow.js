@@ -23,7 +23,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
         'Ext.button.Button'
     ],
 
-    height: 303,
+    height: 310,
     width: 400,
     title: '',
     modal: true,
@@ -35,7 +35,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
             items: [
                 {
                     xtype: 'container',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Arial\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Contact Us!</h1></div></center>'
+                    html: '<center><div id="nav"><h1 style = \'font-family: Arial; color:#565652;\' >Contact Us!</h1></div></center>'
                 },
                 {
                     xtype: 'container',
@@ -51,7 +51,9 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                         },
                         {
                             xtype: 'label',
+                            margins: '0 0 10 0',
                             height: 16,
+                            margin: '',
                             padding: '',
                             style: 'font-family:\'Abel\';\nfont-size: 20px;',
                             text: 'Contact Number: 09123456789'
@@ -61,6 +63,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             flex: 1,
                             margins: '10,0,0,0',
                             height: 97,
+                            hidden: true,
                             id: 'commentBox',
                             itemId: 'commentBox',
                             fieldLabel: 'Comments:',
@@ -80,6 +83,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    hidden: true,
                                     id: 'btnSubmitComment',
                                     itemId: 'btnSubmitComment',
                                     text: 'Submit'

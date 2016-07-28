@@ -39,7 +39,7 @@ Ext.define('BurgerQueen.view.TransactionDetails', {
             items: [
                 {
                     xtype: 'container',
-                    html: '<link href=\'http://fonts.googleapis.com/css?family=Abel\'rel=\'stylesheet\' type=\'text/css\'>\n<center><div id="nav"><h2 style = \'font-family: Abel;\'>Transaction Details</h2></div></center>'
+                    html: '<center><div id="nav"><h2 style = \'font-family: Abel;\'>Transaction Details</h2></div></center>'
                 },
                 {
                     xtype: 'gridpanel',
