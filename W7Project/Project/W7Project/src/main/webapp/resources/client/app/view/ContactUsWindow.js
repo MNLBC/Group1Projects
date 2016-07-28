@@ -17,6 +17,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
+        'Ext.form.Panel',
         'Ext.form.Label',
         'Ext.form.field.TextArea',
         'Ext.toolbar.Toolbar',
@@ -45,48 +46,57 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                     },
                     items: [
                         {
-                            xtype: 'label',
-                            style: 'font-family:\'Abel\';\nfont-size: 20px;\npadding-left:20px;',
-                            text: 'Branch:Grand BayView Hotel Zhuhai, China'
-                        },
-                        {
-                            xtype: 'label',
-                            margins: '0 0 10 0',
-                            height: 16,
-                            margin: '',
-                            padding: '0 0 0 20',
-                            style: 'font-family:\'Abel\';\nfont-size: 20px;',
-                            text: 'Contact Number: 09123456789'
-                        },
-                        {
-                            xtype: 'textareafield',
+                            xtype: 'form',
                             flex: 1,
-                            margins: '10,0,0,0',
-                            height: 97,
-                            hidden: true,
-                            id: 'commentBox',
-                            itemId: 'commentBox',
-                            fieldLabel: 'Comments:',
-                            labelStyle: 'font-family:\'Abel\';font-size:18px;'
-                        },
-                        {
-                            xtype: 'container',
-                            flex: 1
-                        },
-                        {
-                            xtype: 'toolbar',
-                            flex: 1,
-                            layout: {
-                                type: 'hbox',
-                                pack: 'end'
-                            },
+                            id: 'contactUsForm',
+                            itemId: 'contactUsForm',
+                            bodyPadding: 10,
+                            header: false,
+                            title: 'My Form',
                             items: [
                                 {
-                                    xtype: 'button',
+                                    xtype: 'label',
+                                    style: 'font-family:\'Abel\';\nfont-size: 20px;\npadding-left:20px;',
+                                    text: 'Branch:Grand BayView Hotel Zhuhai, China'
+                                },
+                                {
+                                    xtype: 'label',
+                                    height: 16,
+                                    margin: '',
+                                    padding: '0 0 0 20',
+                                    style: 'font-family:\'Abel\';\nfont-size: 20px;',
+                                    text: 'Contact Number: 09123456789'
+                                },
+                                {
+                                    xtype: 'textareafield',
+                                    height: 97,
                                     hidden: true,
-                                    id: 'btnSubmitComment',
-                                    itemId: 'btnSubmitComment',
-                                    text: 'Submit'
+                                    id: 'commentBox',
+                                    itemId: 'commentBox',
+                                    fieldLabel: 'Comments:',
+                                    labelStyle: 'font-family:\'Abel\';font-size:18px;'
+                                },
+                                {
+                                    xtype: 'container'
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    layout: {
+                                        type: 'hbox',
+                                        pack: 'end'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            hidden: true,
+                                            id: 'btnSubmitComment',
+                                            itemId: 'btnSubmitComment',
+                                            text: 'Submit'
+                                        }
+                                    ]
                                 }
                             ]
                         }

@@ -326,57 +326,66 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
 
         Ext.Msg.confirm("Confirmation", "Are you sure you want to logout?", function(btnText){
-                            if(btnText === "yes"){
-                                var trays = [];
+            if(btnText === "yes"){
+                var trays = [];
 
-                                 task.stop();
-                                var store = Ext.getStore('TrayStore');
+                task.stop();
+                var store = Ext.getStore('TrayStore');
 
-                                store.each(function(record){
+                store.each(function(record){
 
-                                    var trayItem = {
-                                        id:0,
-                                        user:{
-                                            id:currentLoginUser.id
-                                        },
-                                        meal:{
-                                            id:record.data.Id
-                                        },
-                                        quantity:record.data.Quantity
-                                    };
-                              trays.push(trayItem);
-                             });
+                    var trayItem = {
+                        id:0,
+                        user:{
+                            id:currentLoginUser.id
+                        },
+                        meal:{
+                            id:record.data.Id
+                        },
+                        quantity:record.data.Quantity
+                    };
+                    trays.push(trayItem);
+                });
 
-                                    this.addToTray(trays);
+                this.addToTray(trays);
 
-                               Ext.getCmp('toolBarCustomer').show();
-                               Ext.getCmp('toolBarAdmin').hide();
-                                this.getUserProfile().hide();
-                                this.getTrayButton().hide();
-                                this.getRegisterButton().show();
-                                this.getLoginButton().show();
-                                this.getLogoutButton().hide();
-                                this.getMyProfileButton().hide();
-                                Ext.getCmp('AdminUserPanel').hide();
-                                Ext.getCmp('AdminCommentsPanel').hide();
-                                this.getProducts().show();
+                Ext.getCmp('toolBarCustomer').show();
+                Ext.getCmp('toolBarAdmin').hide();
+                this.getUserProfile().hide();
+                this.getTrayButton().hide();
+                this.getRegisterButton().show();
+                this.getLoginButton().show();
+                this.getLogoutButton().hide();
+                this.getMyProfileButton().hide();
+                Ext.getCmp('AdminUserPanel').hide();
+                Ext.getCmp('AdminCommentsPanel').hide();
+                this.getProducts().show();
 
-                              Ext.Ajax.request({
-                                url : 'logout',
-                                params : {
+                Ext.Ajax.request({
+                    url : 'logout',
+                    params : {
 
-                                },
-                                scope : this,
-                                success : function(response) {
-                                    this.activeUserCounter();
-                                }
-                            });
+                    },
+                    scope : this,
+                    success : function(response) {
+                        this.activeUserCounter();
+                        Ext.Ajax.request({
+                            url : 'message/closeClient',
+                            params : {
+                                userId:currentLoginUser.id
+                            },
+                            scope : this,
+                            success : function(response) {
+                            }
+                        });
+                    }
+                });
 
                 Ext.getStore('TrayStore').removeAll();
-                                Ext.getStore('TransactionStore').removeAll();
-                                Ext.getStore('TransactionDetailsStore').removeAll();
-                            }
-                        }, this);
+                Ext.getStore('TransactionStore').removeAll();
+                Ext.getStore('TransactionDetailsStore').removeAll();
+            }
+        }, this);
 
 
 

@@ -222,6 +222,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'btnComment',
             selector: '#btnComment'
+        },
+        {
+            ref: 'contactUsForm',
+            selector: '#contactUsForm'
         }
     ],
 
@@ -264,39 +268,35 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onAddCartButtonClick: function() {
-
         var trayStore = Ext.getStore('TrayStore'),
-            productName = this.getProductName().getValue(),
-            productQuantity = this.getProductQuantity().getValue(),
-            productPrice = this.getProductPrice().getValue(),
-            productId= this.getProductId().getValue(),
-           productPoints = this.getProductPoints().getValue();
+                    productName = this.getProductName().getValue(),
+                    productQuantity = this.getProductQuantity().getValue(),
+                    productPrice = this.getProductPrice().getValue(),
+                    productId= this.getProductId().getValue(),
+                   productPoints = this.getProductPoints().getValue();
 
-        var total = productQuantity * productPrice;
-        total = Ext.util.Format.number(total, '00.00');
-
-        var tray = {
-            Id: productId,
-            Name: productName,
-            Quantity: productQuantity,
-            Price: productPrice,
-            Total: total,
-            Points:productQuantity * productPoints
-        };
+                var tray = {
+                    Id: productId,
+                    Name: productName,
+                    Quantity: productQuantity,
+                    Price: productPrice,
+                    Total: productQuantity * productPrice,
+                    Points:productQuantity * productPoints
+                };
 
 
-        var totalItems = 0;
-            var index = trayStore.find('Id', productId);
-            if(index === -1){
-                trayStore.add(tray);
-            }else{
-                var currentQuantity = trayStore.getAt(index).data.Quantity,
-                    replaceQuantity = currentQuantity + productQuantity;
-                    trayStore.getAt(index).data.Quantity = replaceQuantity;
+                var totalItems = 0;
+                    var index = trayStore.find('Id', productId);
+                    if(index === -1){
+                        trayStore.add(tray);
+                    }else{
+                        var currentQuantity = trayStore.getAt(index).data.Quantity,
+                            replaceQuantity = currentQuantity + productQuantity;
+                            trayStore.getAt(index).data.Quantity = replaceQuantity;
 
-            }
-        Ext.Msg.alert('Status', this.added_to_cart);
-        this.getProductViewWindow().destroy();
+                    }
+                Ext.Msg.alert('Status', this.added_to_cart);
+                this.getProductViewWindow().destroy();
     },
 
     onCancelCheckoutBtnClick: function() {
@@ -350,8 +350,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                     totalPoints += record.data.Points;
             });
 
-
-          totalPoints = Ext.util.Format.number(totalPoints, '00.00');
+        //     totalAmount = Ext.util.Format.number(totalAmount, '0,000.00');
             this.getTotalAmount().setValue(totalAmount);
             this.getTotalItems().setValue('Total '+totalQuantity + ' item(s)');
             this.getTotalPoints().setValue(totalPoints);
@@ -471,99 +470,85 @@ Ext.define('BurgerQueen.controller.Windows', {
 
 
                                 Ext.Ajax.request({
-                                     url : 'login',
-                                     params : {
-                                         'username':username,
-                                         'password':password
-                                     },
-                                     scope : this,
-                                     success : function(response) {
-                                         var data = response.responseText;
-                                         if(!Ext.isEmpty(data)){
-                                             var decodedData = Ext.decode(data);
-                                             var type = decodedData.type;
-                                             if(decodedData.isDisabled === 1){
-                                                 Ext.MessageBox.alert('Error','User is blocked');
-                                             }else{
-
-                                                 Ext.MessageBox.alert('Success','Welcome!');
-                                                 currentLoginUser = decodedData;
-                                                  task.start();
-
-                                                 this.getLoginButton().hide();
-                                                 this.getLogoutButton().show();
-                                                 this.getRegisterButton().hide();
-                                                 this.activeUserCounter();
-                                                 this.getMyProfileButton().setText('Welcome, '+ decodedData.username +'! |');
-                                                 this.getLoginWindow().destroy();
-                                                 ajaxFunction();
-                                                 if(type === 'customer'){
-
-                                                     Ext.getCmp('AdminUserPanel').hide();
-                                                     Ext.getCmp('AdminCommentsPanel').hide();
-                                                     this.getMyProfileButton().show();
-                                                     this.getTrayButton().show();
-                                                     Ext.getCmp('toolBarCustomer').show();
-                                                     Ext.getCmp('toolBarAdmin').hide();
-                                                     this.getProducts().show();
-
-                                                 }else{
-
-                                                     this.getMyProfileButton().hide();
-                                                     this.getTrayButton().hide();
-                                                     Ext.getCmp('toolBarCustomer').hide();
-                                                     Ext.getCmp('toolBarAdmin').show();
-                                                     Ext.getCmp('AdminUserPanel').show();
-                                                     this.getProducts().hide();
+                                    url : 'checkLoggedIn',
+                                    params : {
+                                        'username':username,
+                                        'password':password
+                                    },
+                                    scope : this,
+                                    success : function(response) {
+                                        var data = response.responseText;
+                                        if(!Ext.isEmpty(data)) {
+                                            if (data === 'null') {
+                                                Ext.MessageBox.alert('Error','User does not exist');
+                                            } else if (data === 'password') {
+                                                Ext.MessageBox.alert('Error','User entered wrong password');
+                                            } else if (data === 'block') {
+                                                Ext.MessageBox.alert('Error','User is blocked');
+                                            } else if (data === 'logged') {
+                                                Ext.MessageBox.alert('Error','User is already logged in');
+                                            } else if (data === 'success'){
+                                                //
 
 
+                                                Ext.Ajax.request({
+                                                    url : 'login',
+                                                    params : {
+                                                        'username':username,
+                                                        'password':password
+                                                    },
+                                                    scope : this,
+                                                    success : function(response) {
+                                                        var data = response.responseText;
+                                                        if(!Ext.isEmpty(data)){
+                                                            var decodedData = Ext.decode(data);
+                                                            var type = decodedData.type;
+                                                            Ext.MessageBox.alert('Success','Welcome!');
+                                                            currentLoginUser = decodedData;
+                                                            task.start();
 
-                                                      var userStore = Ext.getStore('UsersStore');
+                                                            this.getLoginButton().hide();
+                                                            this.getLogoutButton().show();
+                                                            this.getRegisterButton().hide();
+                                                            this.activeUserCounter();
+                                                            this.getMyProfileButton().setText('Welcome, '+ decodedData.username +'! |');
+                                                            this.getLoginWindow().destroy();
+                                                            ajaxFunction();
+                                                            if(type === 'customer'){
 
-                                                      Ext.Ajax.request({
-                                                        url : 'user/getAllUsers',
-                                                        params : {
+                                                                Ext.getCmp('AdminUserPanel').hide();
+                                                                Ext.getCmp('AdminCommentsPanel').hide();
+                                                                this.getMyProfileButton().show();
+                                                                this.getTrayButton().show();
+                                                                Ext.getCmp('toolBarCustomer').show();
+                                                                Ext.getCmp('toolBarAdmin').hide();
+                                                                this.getProducts().show();
 
-                                                        },
-                                                        scope : this,
-                                                        success : function(response) {
-                                                            var data = Ext.decode(response.responseText);
-                                                            Ext.each(data, function(record){
-                                                                var users = {
-                                                                    id:record.id,
-                                                                    Username:record.username,
-                                                                    Password:record.password,
-                                                                    Firstname:record.firstname,
-                                                                    Middlename:record.middlename,
-                                                                    Lastname:record.lastname,
-                                                                    Gender:record.gender,
-                                                                    Email:record.email,
-                                                                    Address:record.address,
-                                                                    Contact:record.contactno,
-                                                                    Disabled:record.isDisabled,
-                                                                    Type:record.type,
-                                                                    Level:record.userLevel,
-                                                                    Points:record.points
+                                                                Ext.Ajax.request({
+                                                                    url : 'message/startClient',
+                                                                    params : {
+                                                                        userId:currentLoginUser.id
+                                                                    },
+                                                                    scope : this,
+                                                                    success : function(response) {
+                                                                        var data = Ext.decode(response.responseText);
+                                                                    }
+                                                                });
 
-                                                                };
-                                                                userStore.add(users);
-                                                            });
+                                                            }
                                                         }
-                                                    });
-                                                 }
-                                             }
-                                         }else{
-                                             Ext.MessageBox.alert('Error','Invalid Username/Password');
-                                         }
-                                     }
+                                                    }
+                                                });
+
+                                            }
+
+                                            //
+                                        }
+                                    }
+
+
                                 });
-
                             }
-
-
-
-
-
 
     },
 
@@ -704,23 +689,24 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onBtnSubmitCommentClick: function() {
-        console.log('hi;');
+        // console.log('hi;');
+
         var comment = this.getCommentBox().getValue();
-        if(!Ext.isEmpty(comment)){
-                Ext.Ajax.request({
-                    url : 'http://localhost:' + window.location.port + '/mnlbcjms/sendMessage',
-                    params : {
-                        username:currentLoginUser.username,
-                       message:comment
-                    },
-                    scope : this,
-                    success : function(response) {
-                       Ext.MessageBox.alert('Information','Your comment has been sent.');
-                    }
-                });
+        // if(!Ext.isEmpty(comment)){
+        //         Ext.Ajax.request({
+        //             url : 'http://localhost:' + window.location.port + '/mnlbcjms/sendMessage',
+        //             params : {
+        //                 username:currentLoginUser.username,
+        //                message:comment
+        //             },
+        //             scope : this,
+        //             success : function(response) {
+        //                Ext.MessageBox.alert('Information','Your comment has been sent.');
+        //             }
+        //         });
 
 
-        }
+        // }
     },
 
     onTotalItemsChange: function() {
