@@ -210,6 +210,18 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'updateProfileForm',
             selector: '#updateProfileForm'
+        },
+        {
+            ref: 'commentFoodForm',
+            selector: '#commentFoodForm'
+        },
+        {
+            ref: 'txtCommentBox',
+            selector: '#txtCommentBox'
+        },
+        {
+            ref: 'btnComment',
+            selector: '#btnComment'
         }
     ],
 
@@ -260,12 +272,15 @@ Ext.define('BurgerQueen.controller.Windows', {
             productId= this.getProductId().getValue(),
            productPoints = this.getProductPoints().getValue();
 
+        var total = productQuantity * productPrice;
+        total = Ext.util.Format.number(total, '00.00');
+
         var tray = {
             Id: productId,
             Name: productName,
             Quantity: productQuantity,
             Price: productPrice,
-            Total: productQuantity * productPrice,
+            Total: total,
             Points:productQuantity * productPoints
         };
 
@@ -843,6 +858,46 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     },
 
+    onBtnCommentClick: function() {
+            var form = this.getCommentFoodForm();
+
+                if(form.isValid()){
+                    var commentTxt = this.getTxtCommentBox().getValue(),
+                         productId= this.getProductId().getValue();
+
+                    var comment = {
+                        id:0,
+                        user:{
+                            id:currentLoginUser.id
+                        },
+                        meal:{
+                            id:productId
+                        },
+                        'feedback':commentTxt
+                         };
+
+
+                    Ext.Ajax.request({
+                        url : 'feedback/addFeedback',
+                        headers: { 'Content-Type': 'application/json',
+                                     'Accept': 'application/json'},
+                        jsonData:comment,
+                        scope : this,
+                        success : function(response) {
+                            var data = response.responseText;
+                            Ext.MessageBox.alert('Success', 'Thank your for your comment ^__^ Enjoy!');
+                            this.getProductViewWindow().destroy();
+                        }
+                    });
+
+
+                 }else{
+                     Ext.MessageBox.alert('Error', 'Please input some comment...');
+                 }
+
+
+    },
+
     activeUserCounter: function() {
 
             Ext.Ajax.request({
@@ -944,6 +999,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#btnSavePasswordChange": {
                 click: this.onBtnSavePasswordChangeClick
+            },
+            "#btnComment": {
+                click: this.onBtnCommentClick
             }
         });
     }

@@ -40,6 +40,10 @@ Ext.define('BurgerQueen.controller.AdminUser', {
         {
             ref: 'winUserEdit',
             selector: '#winUserEdit'
+        },
+        {
+            ref: 'adminManageUserForm',
+            selector: '#adminManageUserForm'
         }
     ],
 
@@ -266,14 +270,14 @@ Ext.define('BurgerQueen.controller.AdminUser', {
     },
 
     onManageUserBtnConfirmClick: function() {
-
-
+                var form = this.getAdminManageUserForm();
                 var usersGrid = this.getUserGrid(),
                     selectModel = usersGrid.getSelectionModel(),
                     selectedUser = selectModel.getSelection();
                 User = selectedUser[0].data;
 
-                var type = Ext.getCmp('UserManageType').getValue(),
+         if(form.isValid()){
+             var type = Ext.getCmp('UserManageType').getValue(),
                   points = Ext.getCmp('manageUserPoints').getValue();
 
             var user ={
@@ -338,6 +342,12 @@ Ext.define('BurgerQueen.controller.AdminUser', {
                                 });
 
             this.getWinUserEdit().destroy();
+
+         }else{
+             Ext.MessageBox.alert('Error', 'Invalid input, please check fields');
+         }
+
+
 
     },
 

@@ -23,10 +23,11 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
         'Ext.form.field.Number',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
-        'Ext.form.field.Hidden'
+        'Ext.form.field.Hidden',
+        'Ext.form.field.TextArea'
     ],
 
-    height: 278,
+    height: 355,
     id: 'ProductView',
     itemId: 'ProductView',
     width: 665,
@@ -117,6 +118,8 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                                     labelStyle: 'font-family: \'Abel\'; font-size: 15px;',
                                     value: 1,
                                     fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                                    allowDecimals: false,
+                                    allowExponential: false,
                                     maxValue: 10,
                                     minValue: 1
                                 },
@@ -170,6 +173,36 @@ Ext.define('BurgerQueen.view.ProductViewWindow', {
                             id: 'productPoints',
                             itemId: 'productPoints',
                             fieldLabel: 'Label'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'form',
+                    flex: 1,
+                    hidden: true,
+                    id: 'commentFoodForm',
+                    itemId: 'commentFoodForm',
+                    bodyPadding: 10,
+                    header: false,
+                    title: 'My Form',
+                    items: [
+                        {
+                            xtype: 'textareafield',
+                            anchor: '100%',
+                            height: 50,
+                            id: 'txtCommentBox',
+                            itemId: 'txtCommentBox',
+                            fieldLabel: '',
+                            fieldStyle: 'font-family: \'Abel\'; font-size: 15px;',
+                            allowBlank: false,
+                            emptyText: 'Comment about our food...'
+                        },
+                        {
+                            xtype: 'button',
+                            id: 'btnComment',
+                            itemId: 'btnComment',
+                            margin: '0 0 0 550',
+                            text: 'Comment'
                         }
                     ]
                 }

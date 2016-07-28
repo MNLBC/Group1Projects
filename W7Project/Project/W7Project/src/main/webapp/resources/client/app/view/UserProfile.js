@@ -203,6 +203,7 @@ Ext.define('BurgerQueen.view.UserProfile', {
                         {
                             xtype: 'container',
                             flex: 1,
+                            autoScroll: true,
                             items: [
                                 {
                                     xtype: 'gridpanel',

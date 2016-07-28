@@ -20,7 +20,6 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
         'Ext.form.Panel',
         'Ext.form.FieldContainer',
         'Ext.form.field.Text',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
 
@@ -108,25 +107,17 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             allowBlank: false,
                             allowOnlyWhitespace: false,
-                            emptyText: 'Contact Number'
-                        }
-                    ],
-                    dockedItems: [
+                            emptyText: 'Contact Number',
+                            regex: '^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$'
+                        },
                         {
-                            xtype: 'toolbar',
-                            dock: 'bottom',
-                            layout: {
-                                type: 'hbox',
-                                pack: 'end'
-                            },
-                            items: [
-                                {
-                                    xtype: 'button',
-                                    id: 'btnUpdateProfile',
-                                    itemId: 'btnUpdateProfile',
-                                    text: 'Update'
-                                }
-                            ]
+                            xtype: 'button',
+                            height: 35,
+                            id: 'btnUpdateProfile',
+                            itemId: 'btnUpdateProfile',
+                            margin: '5 0 0 30',
+                            width: '80%',
+                            text: 'Update'
                         }
                     ]
                 }

@@ -199,9 +199,10 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             xtype: 'displayfield',
                             id: 'totalAmount',
                             itemId: 'totalAmount',
+                            width: '50%',
                             fieldLabel: 'Total (RMB)',
                             labelStyle: 'font-family: \'Abel\'; font-size: 20px;font-weight: bold;',
-                            labelWidth: 120,
+                            labelWidth: 110,
                             value: '0',
                             fieldStyle: 'font-family: \'Abel\'; font-size: 20px; font-weight: bold;',
                             listeners: {
@@ -215,9 +216,10 @@ Ext.define('BurgerQueen.view.TrayWindow', {
                             xtype: 'displayfield',
                             id: 'totalDiscountedAmount',
                             itemId: 'totalDiscountedAmount',
+                            width: '70%',
                             fieldLabel: 'Grand Total (RMB) w/ Discount',
                             labelStyle: 'font-family: \'Abel\'; font-size: 18px; font-weight: bold;',
-                            labelWidth: 260,
+                            labelWidth: 250,
                             value: '0',
                             fieldStyle: 'font-family: \'Abel\'; font-size: 20px; font-weight: bold;'
                         }
@@ -269,6 +271,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
         });
 
         totalPoints = Ext.util.Format.number(totalPoints, '00.00');
+        totalAmount = Ext.util.Format.number(totalAmount, '00.00');
         Ext.getCmp('totalItems').setValue('Total '+totalQuantity + ' item(s)');
         Ext.getCmp('totalAmount').setValue(totalAmount);
         Ext.getCmp('totalPoints').setValue(totalPoints);
@@ -295,6 +298,7 @@ Ext.define('BurgerQueen.view.TrayWindow', {
              var discountedAmount = 0;
         }
                 var totalDiscountedAmount = totalAmount - discountedAmount;
+                    totalDiscountedAmount = Ext.util.Format.number(totalDiscountedAmount, '00.00');
                 Ext.getCmp('totalDiscountedAmount').setValue(totalDiscountedAmount);
 
     }

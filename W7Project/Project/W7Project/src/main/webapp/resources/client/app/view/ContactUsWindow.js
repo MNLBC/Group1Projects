@@ -23,7 +23,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
         'Ext.button.Button'
     ],
 
-    height: 310,
+    height: 330,
     width: 400,
     title: '',
     modal: true,
@@ -46,7 +46,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                     items: [
                         {
                             xtype: 'label',
-                            style: 'font-family:\'Abel\';\nfont-size: 20px;',
+                            style: 'font-family:\'Abel\';\nfont-size: 20px;\npadding-left:20px;',
                             text: 'Branch:Grand BayView Hotel Zhuhai, China'
                         },
                         {
@@ -54,7 +54,7 @@ Ext.define('BurgerQueen.view.ContactUsWindow', {
                             margins: '0 0 10 0',
                             height: 16,
                             margin: '',
-                            padding: '',
+                            padding: '0 0 0 20',
                             style: 'font-family:\'Abel\';\nfont-size: 20px;',
                             text: 'Contact Number: 09123456789'
                         },

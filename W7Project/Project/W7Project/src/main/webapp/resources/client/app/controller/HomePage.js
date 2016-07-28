@@ -186,6 +186,20 @@ Ext.define('BurgerQueen.controller.HomePage', {
 
                 var productWin = Ext.create('BurgerQueen.view.ProductViewWindow',{selectedProduct: selectedProduct});
                 productWin.show();
+
+         Ext.Ajax.request({
+                url : 'hasLogged',
+                params : {
+
+                },
+                scope : this,
+                success : function(response) {
+
+                    if(response.responseText === 'true'){
+                      Ext.getCmp('commentFoodForm').show();
+                    }
+                }
+                });
     },
 
     onTrayBtnClick: function() {
