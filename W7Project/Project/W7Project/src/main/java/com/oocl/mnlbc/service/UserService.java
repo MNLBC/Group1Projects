@@ -108,7 +108,7 @@ public class UserService {
 		if (currentPass.equals(user.getPassword())) {
 
 			newPass = PasswordHashing.getInstance().hashPassword(newPass);
-			user.getPassword();
+			user.setPassword(newPass);
 			userDao.update(user);
 			return "success";
 
