@@ -83,7 +83,7 @@ public class LoginService {
 	private boolean isUserLoggedIn(String username, List<User> logged) {
 		boolean flag = false;
 		for (User name : logged) {
-			if (name.equals(username)) {
+			if (name.getUsername().equals(username)) {
 				flag = true;
 			}
 		}
