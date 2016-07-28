@@ -117,7 +117,12 @@ Ext.define('BurgerQueen.view.Products', {
                 var productStore = Ext.getStore('ProductStore');
                 productStore.clearFilter();
                 if(!Ext.isEmpty(newValue)){
-                    productStore.filter('Name', newValue);
+        //             productStore.filter('Name', newValue);
+                    productStore.filterBy(function(record){
+                        if(record.data.Name.toLowerCase().indexOf(newValue.toLowerCase()) != -1){
+                            return true;
+                        }
+                    });
                 }else{
                     productStore.clearFilter();
                 }
