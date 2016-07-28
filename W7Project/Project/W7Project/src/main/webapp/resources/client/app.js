@@ -75,13 +75,16 @@ Ext.application({
     	   task = runner.newTask({
     	        run: function () {
     	        Ext.Ajax.request({
-    	                  url : 'user/getAllUsers',
+    	                  url : 'message/receiveMessage',
     	                  params : {
-    	                      
+    	                	  userId:currentLoginUser.id
     	                  },
     	                  scope : this,
     	                  success : function(response) {
-    	                   Ext.MessageBox.alert('HI GROUP1','In my heart , we are the best group  ');
+    	                	  var message = response.responseText;
+    	                	  if(!Ext.isEmpty(message)){
+    	                		  Ext.MessageBox.alert('Admin\'s Message',message);
+    	                	  }
     	                  }
     	           });
     	        },
