@@ -41,20 +41,32 @@ public class MessageController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/startClient")
-	public String startConsumer(@RequestParam(value = "userId") Integer userId) {
-		return messageService.startClientConsumer(userId);
-	}
-
-	@ResponseBody
 	@RequestMapping(value = "/viewMessage", produces = "application/json")
 	public List<String> viewMessage() {
 		return messageService.viewMessage();
 	}
 
 	@ResponseBody
+	@RequestMapping(value = "/closeAdmin")
+	public String closeAdmin() {
+		return messageService.closeAdmin();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/startClient")
+	public String startConsumer(@RequestParam(value = "userId") Integer userId) {
+		return messageService.startClientConsumer(userId);
+	}
+
+	@ResponseBody
 	@RequestMapping(value = "/receiveMessage")
 	public String receiveMessage(@RequestParam(value = "userId") Integer userId) {
 		return messageService.receiveMessage(userId);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/closeClient")
+	public String closeClient(@RequestParam(value = "userId") Integer userId) {
+		return messageService.closeClient(userId);
 	}
 }

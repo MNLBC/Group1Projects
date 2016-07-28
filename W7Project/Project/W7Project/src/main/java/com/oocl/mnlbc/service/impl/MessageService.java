@@ -52,13 +52,6 @@ public class MessageService {
 		return message;
 	}
 
-	public String startClientConsumer(Integer userId) {
-		logger.info("Client consumer " + userId + " has started.");
-		clientConsumer = new ClientConsumer();
-		userMap.put(userId, clientConsumer);
-		return "success";
-	}
-
 	public List<String> viewMessage() {
 		logger.info("Getting all admin messages.");
 		AdminListener adminListener = adminConsumer.getListener();
@@ -68,6 +61,20 @@ public class MessageService {
 		}
 		return messages;
 	}
+	
+	public String closeAdmin() {
+		logger.info("Admin consumer has close.");
+		adminConsumer.close();
+		return "success";
+	}
+	
+	public String startClientConsumer(Integer userId) {
+		logger.info("Client consumer " + userId + " has started.");
+		clientConsumer = new ClientConsumer();
+		userMap.put(userId, clientConsumer);
+		return "success";
+	}
+
 
 	public String receiveMessage(@RequestParam(value = "userId") Integer userId) {
 		logger.info("Client consumer " + userId + " tried to receive message.");
@@ -79,5 +86,13 @@ public class MessageService {
 		}
 		listener.setAdminMessage(new String());
 		return adminMessage;
+	}
+	
+	public String closeClient(Integer userId) {
+		logger.info("Client consumer has close.");
+		clientConsumer = userMap.get(userId);
+		clientConsumer.close();
+		userMap.remove(userId);
+		return "success";
 	}
 }

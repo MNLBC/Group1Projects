@@ -28,8 +28,8 @@ public class OrderItemDAOImpl extends AbstractJPADAO<OrderItem> implements Order
 	 */
 	@Override
 	public List<OrderItem> getAllOrderItemsByOrderId(int id) {
-		Query query = entityManager.createQuery("select oi from OrderItem oi where oi.order.id= :orderItemId");
-		query.setParameter("orderItemId", id);
+		Query query = entityManager.createQuery("select oi from OrderItem oi where oi.order.id= :orderId");
+		query.setParameter("orderId", id);
 		List<OrderItem> orderItemList = query.getResultList();
 		return orderItemList;
 	}

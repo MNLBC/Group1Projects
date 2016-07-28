@@ -21,11 +21,11 @@ public class Consumer {
 	static final String PASSOWRD = ActiveMQConnectionFactory.DEFAULT_PASSWORD;
 	static final String BROKEN_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_URL;
 
-	static ConnectionFactory connectionFactory = null;
-	static Connection connection = null;
-	static Session session = null;
-	static Destination destination = null;
-	static MessageConsumer messageConsumer = null;
+	ConnectionFactory connectionFactory = null;
+	Connection connection = null;
+	Session session = null;
+	Destination destination = null;
+	MessageConsumer messageConsumer = null;
 
 	protected void createTopic() {
 		try {
@@ -35,6 +35,16 @@ public class Consumer {
 			session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
 			destination = session.createTopic("BurgerQueenTopic");
 			messageConsumer = session.createConsumer(destination);
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void close() {
+		try {
+			messageConsumer.close();
+			session.close();
+			connection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}

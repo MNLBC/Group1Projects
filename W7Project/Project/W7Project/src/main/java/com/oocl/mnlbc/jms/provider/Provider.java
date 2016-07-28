@@ -22,11 +22,11 @@ public class Provider {
 	private static final String PASSOWRD = ActiveMQConnectionFactory.DEFAULT_PASSWORD;
 	private static final String BROKEN_URL = ActiveMQConnectionFactory.DEFAULT_BROKER_URL;
 
-	private static ConnectionFactory connectionFactory = null;
-	private static Connection connection = null;
-	private static Session session = null;
-	private static Destination destination = null;
-	private static MessageProducer messageProducer = null;
+	private ConnectionFactory connectionFactory = null;
+	private Connection connection = null;
+	private Session session = null;
+	private Destination destination = null;
+	private MessageProducer messageProducer = null;
 
 	public Provider() {
 		createTopic();
