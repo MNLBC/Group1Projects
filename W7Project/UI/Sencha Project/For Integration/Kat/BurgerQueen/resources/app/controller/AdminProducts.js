@@ -96,6 +96,14 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
         {
             ref: 'adminAddMealWindow',
             selector: '#adminAddMealWindow'
+        },
+        {
+            ref: 'adminEditMealForm',
+            selector: '#myform5'
+        },
+        {
+            ref: 'adminMealCode',
+            selector: '#adminMealCode'
         }
     ],
 
@@ -140,32 +148,36 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
 
     onAdminDeleteBtnClick: function() {
         var adminProductsGrid = Ext.getCmp('adminProductGridView'),
+            adminProductStore = adminProductsGrid.getStore(),
             selectModel = adminProductsGrid.getSelectionModel(),
-            selectedProduct = selectModel.getSelection()[0].data;
+            selectedProduct = selectModel.getSelection();
 
          if (!Ext.isEmpty(selectedProduct)) {
              Ext.Msg.confirm("Confirmation", "Are you sure you want to delete this meal?", function(btnText){
             if(btnText === "yes"){
-        var meal = {
-            id:selectedProduct.Id,
-            code:selectedProduct.Code,
-            name:selectedProduct.Name,
-            description:selectedProduct.Description,
-            category:selectedProduct.Category,
-            price:selectedProduct.Price,
-            image:selectedProduct.Image,
-            points:selectedProduct.Points
-        };
+                var product = selectedProduct[0].data;
+        // var meal = {
+        //      id:product.Id,
+        //      image:product.Image,
+        //      category:product.Category,
+        //      code:product.Code,
+        //      name:product.Name,
+        //      description:product.Description,
+        //      price:product.Price,
+        //      points:product.Points
+        // };
 
                 Ext.Ajax.request({
-                    url:'meal/updateMeal',
-                    headers: { 'Content-Type': 'application/json',
-                              'Accept': 'application/json'},
-                    jsonData:meal,
+                    url:'meal/deleteMealById/' + product.Id,
+                    params : {
+
+                    },
+                    //jsonData:meal,
                     scope:this,
                     success : function(response) {
                         Ext.MessageBox.alert('Success','Meal has been deleted!');
                         adminProductStore.remove(selectedProduct);
+                        adminProductsGrid.refresh();
                     }
                 });
             }
@@ -212,7 +224,8 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
     },
 
     onAdminEditBtnClick: function() {
-        var adminProductsGrid = Ext.getCmp('adminProductGridView'),
+        var form = this.getAdminEditMealForm(),
+            adminProductsGrid = Ext.getCmp('adminProductGridView'),
             selectModel = adminProductsGrid.getSelectionModel(),
             selectedProduct = selectModel.getSelection()[0].data;
 
@@ -221,37 +234,77 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
             mealPrice = this.getAdminEditPrice().getValue(),
             mealPoints = this.getAdminEditPoints().getValue();
 
-        var meal = selectedProduct;
-            meal.Name = mealName;
-            meal.Description = mealDescription;
-            meal.Price = mealPrice;
-            meal.Points = mealPoints;
+        var meal = {
+            id:selectedProduct.Id,
+            image:selectedProduct.Image,
+            category:selectedProduct.Category,
+            code:selectedProduct.Code,
+            name:mealName,
+            description:mealDescription,
+            price:mealPrice,
+            points:mealPoints
+        };
 
-        Ext.Ajax.request({
-                            url:'meal/updateMeal',
-                            headers: { 'Content-Type': 'application/json',
-                             'Accept': 'application/json'},
-                             jsonData:meal,
-                            scope:this,
-                            success : function(response) {
-                                Ext.MessageBox.alert('Success','Meal has been updated!');
-                                adminProductsGrid.refresh();
-                            }
-                        });
+        //var meal = selectedProduct;
+
+        if(form.isValid()){
+            Ext.Ajax.request({
+                url:'meal/updateMeal',
+                headers: { 'Content-Type': 'application/json',
+                          'Accept': 'application/json'},
+                jsonData:meal,
+                scope:this,
+                success : function(response) {
+                    var store = Ext.getStore('ProductStore');
+                    store.removeAll();
+                    Ext.Ajax.request({
+                        url : 'meal/getAllMeals',
+                        params : {
+
+                        },
+                        scope : this,
+                        success : function(response) {
+                            var data = Ext.JSON.decode(response.responseText);
+                            Ext.each(data, function(record){
+                                var product = {
+                                    Id:record.id,
+                                    Code:record.code,
+                                    Name:record.name,
+                                    Description:record.description,
+                                    Category:record.category,
+                                    Price:record.price,
+                                    Image:record.image,
+                                    Points:record.points
+                                };
+                                store.add(product);
+                            });
+                        }
+                    });
+                }
+            });
+            this.getAdminEditMealWindow().destroy();
+            Ext.MessageBox.alert('Success','Meal has been updated!');
+        } else {
+            Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');
+        }
     },
 
     onAdminSubmitMealBtnClick: function() {
-         var form = this.getAdminAddMealForm().getValues(),
+         var form = this.getAdminAddMealForm(),
+             formValues = form.getValues(),
              image = Ext.getCmp('adminMealImg').getValue(),
-             category = form.category,
-             code = form.code,
-             name = form.name,
-             description = form.description,
-             price = form.price,
-             points = form.points;
+             category = formValues.category.toLocaleLowerCase(),
+
+             setImage = 'resources/images/' + category +'/'+image,
+             code = formValues.code,
+             name = formValues.name,
+             description = formValues.description,
+             price = formValues.price,
+             points = formValues.points,
+             adminProductsGrid = Ext.getCmp('adminProductGridView');
 
         var meal = {
-            image:image,
+            image:setImage,
             category:category,
             code:code,
             name:name,
@@ -261,23 +314,73 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
         };
 
 
-                if(form.isValid()){
+        if(form.isValid()){
+            Ext.Ajax.request({
+                url : 'meal/addMeal',
+                //                 params : ,
+                headers: { 'Content-Type': 'application/json',
+                          'Accept': 'application/json'},
+                jsonData:meal,
+                scope : this,
+                success : function(response) {
+                    var store = Ext.getStore('ProductStore');
+                    store.removeAll();
                     Ext.Ajax.request({
-                        url : 'meal/addMeal',
-        //                 params : ,
-                        headers: { 'Content-Type': 'application/json',
-                         'Accept': 'application/json'},
-                         jsonData:meal,
+                        url : 'meal/getAllMeals',
+                        params : {
+
+                        },
                         scope : this,
                         success : function(response) {
-                    var data = response.responseText;
-                    if(data ==='success'){
-                        Ext.MessageBox.alert('Success', 'Meal Added!');
-                        this.getAdminAddMealWindow.destroy();
-                    }
+                            var data = Ext.JSON.decode(response.responseText);
+                            Ext.each(data, function(record){
+                                var product = {
+                                    Id:record.id,
+                                    Code:record.code,
+                                    Name:record.name,
+                                    Description:record.description,
+                                    Category:record.category,
+                                    Price:record.price,
+                                    Image:record.image,
+                                    Points:record.points
+                                };
+                                store.add(product);
+                            });
                         }
-                });
+                    });
                 }
+            });
+            this.getAdminAddMealWindow().destroy();
+            Ext.MessageBox.alert('Success', 'Meal Added!');
+        } else {
+            Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');
+        }
+    },
+
+    onAdminMealCodeBlur: function() {
+        var mealCode = Ext.getCmp('adminMealCode'),
+            code = mealCode.getValue();
+        //var existing = "";
+
+        Ext.Ajax.request({
+            url:'meal/checkMealCode',
+            params : {
+                'code':code
+            },
+            success : function(response) {
+                var data = response.responseText;
+
+                if (data == 'true') {
+                    mealCode.markInvalid('Meal code is already existing!');
+                    return 'Meal code is already existing!';
+                }
+
+                return true;
+            }
+        });
+
+        // console.log(existing);
+        // return existing;
     },
 
     activeUserCounter: function() {
@@ -329,6 +432,9 @@ Ext.define('BurgerQueen.controller.AdminProducts', {
             },
             "#adminSubmitMealBtn": {
                 click: this.onAdminSubmitMealBtnClick
+            },
+            "#adminMealCode": {
+                blur: this.onAdminMealCodeBlur
             }
         });
     }

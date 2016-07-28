@@ -28,6 +28,7 @@
                 "bodyPadding": 10,
                 "designer|displayName": "adminEditMealForm",
                 "header": false,
+                "itemId": "myform5",
                 "title": "My Form"
             },
             "name": "MyForm5",
@@ -74,9 +75,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "fieldLabel": "Meal Name",
                                 "id": "adminEditMealName",
-                                "itemId": "adminEditMealName"
+                                "itemId": "adminEditMealName",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "width": 361
                             },
                             "name": "MyTextField22",
                             "designerId": "f27808cd-9c44-4a7a-8dc5-8375c59b5eb8"
@@ -89,41 +93,56 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "fieldLabel": "Description",
                                 "id": "adminEditDescription",
-                                "itemId": "adminEditDescription"
+                                "itemId": "adminEditDescription",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "width": 361
                             },
                             "name": "MyTextField23",
                             "designerId": "1442d9a8-ff71-4857-beb9-51da199b32fc"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "fieldLabel": "Price",
                                 "id": "adminEditPrice",
-                                "itemId": "adminEditPrice"
+                                "inputType": null,
+                                "itemId": "adminEditPrice",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 99,
+                                "minValue": 1,
+                                "width": 361
                             },
-                            "name": "MyTextField24",
+                            "name": "MyNumberField3",
                             "designerId": "b658f494-20c2-4475-9667-45d6c42f2341"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "fieldLabel": "Points",
                                 "id": "adminEditPoints",
-                                "itemId": "adminEditPoints"
+                                "inputType": null,
+                                "itemId": "adminEditPoints",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 10,
+                                "minValue": 1,
+                                "width": 361
                             },
-                            "name": "MyTextField25",
+                            "name": "MyNumberField4",
                             "designerId": "890343fa-be8f-45df-b3b0-606d5694167b"
                         }
                     ]

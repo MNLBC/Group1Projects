@@ -19,7 +19,7 @@ Ext.define('BurgerQueen.view.AdminEditMealWindow', {
     requires: [
         'Ext.form.Panel',
         'Ext.form.FieldContainer',
-        'Ext.form.field.Text',
+        'Ext.form.field.Number',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
@@ -38,6 +38,7 @@ Ext.define('BurgerQueen.view.AdminEditMealWindow', {
             items: [
                 {
                     xtype: 'form',
+                    itemId: 'myform5',
                     bodyPadding: 10,
                     header: false,
                     title: 'My Form',
@@ -56,25 +57,41 @@ Ext.define('BurgerQueen.view.AdminEditMealWindow', {
                                     xtype: 'textfield',
                                     id: 'adminEditMealName',
                                     itemId: 'adminEditMealName',
-                                    fieldLabel: 'Meal Name'
+                                    width: 361,
+                                    fieldLabel: 'Meal Name',
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
                                     id: 'adminEditDescription',
                                     itemId: 'adminEditDescription',
-                                    fieldLabel: 'Description'
+                                    width: 361,
+                                    fieldLabel: 'Description',
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    allowBlank: false
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'numberfield',
                                     id: 'adminEditPrice',
                                     itemId: 'adminEditPrice',
-                                    fieldLabel: 'Price'
+                                    width: 361,
+                                    fieldLabel: 'Price',
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    allowBlank: false,
+                                    maxValue: 99,
+                                    minValue: 1
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'numberfield',
                                     id: 'adminEditPoints',
                                     itemId: 'adminEditPoints',
-                                    fieldLabel: 'Points'
+                                    width: 361,
+                                    fieldLabel: 'Points',
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    allowBlank: false,
+                                    maxValue: 10,
+                                    minValue: 1
                                 }
                             ]
                         }

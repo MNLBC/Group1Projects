@@ -75,6 +75,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "buttonText": "Browse",
                                 "emptyText": "Select an image",
                                 "fieldLabel": "Photo",
@@ -112,15 +113,18 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "displayField": "category",
                                 "fieldLabel": "Category",
                                 "id": "adminMealCategory",
                                 "itemId": "adminMealCategory",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
                                 "name": "category",
                                 "queryMode": "local",
                                 "store": "CategoryStore",
                                 "value": null,
-                                "valueField": "Chicken",
+                                "valueField": "category",
                                 "width": 338
                             },
                             "name": "MyComboBox",
@@ -134,9 +138,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "fieldLabel": "Meal Code",
                                 "id": "adminMealCode",
                                 "itemId": "adminMealCode",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
                                 "name": "code",
                                 "width": 338
                             },
@@ -151,10 +158,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "designer|displayName": "Meal name",
                                 "fieldLabel": "Meal Name",
                                 "id": "adminAddMealName",
                                 "itemId": "adminAddMealName",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
                                 "name": "name",
                                 "width": 338
                             },
@@ -169,10 +179,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "designer|displayName": "Description",
                                 "fieldLabel": "Description:",
                                 "id": "adminAddMealDesc",
                                 "itemId": "adminAddMealDesc",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
                                 "name": "description",
                                 "width": 338
                             },
@@ -180,39 +193,53 @@
                             "designerId": "4850f204-bd58-4384-a420-b627eea5eeae"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "designer|displayName": "Price",
+                                "enforceMaxLength": false,
                                 "fieldLabel": "Price:",
                                 "id": "adminAddMealPrice",
+                                "inputType": null,
                                 "itemId": "adminAddMealPrice",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 99,
+                                "minValue": 1,
                                 "name": "price",
                                 "width": 338
                             },
-                            "name": "MyTextField20",
+                            "name": "MyNumberField1",
                             "designerId": "56cf083e-0a5b-4324-b100-dd0284368da5"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
                                 "designer|displayName": "Points",
                                 "fieldLabel": "Points:",
                                 "id": "adminAddMealPoints",
+                                "inputType": null,
                                 "itemId": "adminAddMealPoints",
+                                "labelSeparator": "<span style=\"color: rgb(255, 0, 0); padding-left: 2px;\">*</span>:",
+                                "maxValue": 10,
+                                "minValue": 1,
                                 "name": "points",
+                                "regexText": null,
                                 "width": 338
                             },
-                            "name": "MyTextField21",
+                            "name": "MyNumberField2",
                             "designerId": "c33f339d-5b05-4718-ae60-b934912e3ab1"
                         }
                     ]

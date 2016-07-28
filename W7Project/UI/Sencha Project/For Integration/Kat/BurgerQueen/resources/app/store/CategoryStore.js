@@ -37,7 +37,7 @@ Ext.define('BurgerQueen.store.CategoryStore', {
                     category: 'Sides'
                 },
                 {
-                    category: 'Dessert'
+                    category: 'Desserts'
                 },
                 {
                     category: 'Burgers'

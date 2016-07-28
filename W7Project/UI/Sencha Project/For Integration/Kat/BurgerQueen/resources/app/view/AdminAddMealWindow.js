@@ -22,6 +22,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
         'Ext.form.field.File',
         'Ext.form.field.FileButton',
         'Ext.form.field.ComboBox',
+        'Ext.form.field.Number',
         'Ext.toolbar.Toolbar'
     ],
 
@@ -62,6 +63,7 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     width: 338,
                                     fieldLabel: 'Photo',
                                     name: 'image',
+                                    allowBlank: false,
                                     emptyText: 'Select an image',
                                     buttonText: 'Browse',
                                     buttonConfig: {
@@ -77,11 +79,14 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     itemId: 'adminMealCategory',
                                     width: 338,
                                     fieldLabel: 'Category',
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
                                     name: 'category',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false,
                                     displayField: 'category',
                                     queryMode: 'local',
                                     store: 'CategoryStore',
-                                    valueField: 'Chicken'
+                                    valueField: 'category'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -89,7 +94,10 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     itemId: 'adminMealCode',
                                     width: 338,
                                     fieldLabel: 'Meal Code',
-                                    name: 'code'
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    name: 'code',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -97,7 +105,10 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     itemId: 'adminAddMealName',
                                     width: 338,
                                     fieldLabel: 'Meal Name',
-                                    name: 'name'
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    name: 'name',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -105,23 +116,37 @@ Ext.define('BurgerQueen.view.AdminAddMealWindow', {
                                     itemId: 'adminAddMealDesc',
                                     width: 338,
                                     fieldLabel: 'Description:',
-                                    name: 'description'
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    name: 'description',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'numberfield',
                                     id: 'adminAddMealPrice',
                                     itemId: 'adminAddMealPrice',
                                     width: 338,
                                     fieldLabel: 'Price:',
-                                    name: 'price'
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    name: 'price',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false,
+                                    enforceMaxLength: false,
+                                    maxValue: 99,
+                                    minValue: 1
                                 },
                                 {
-                                    xtype: 'textfield',
+                                    xtype: 'numberfield',
                                     id: 'adminAddMealPoints',
                                     itemId: 'adminAddMealPoints',
                                     width: 338,
                                     fieldLabel: 'Points:',
-                                    name: 'points'
+                                    labelSeparator: '<span style="color: rgb(255, 0, 0); padding-left: 2px;">*</span>:',
+                                    name: 'points',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false,
+                                    maxValue: 10,
+                                    minValue: 1
                                 }
                             ]
                         }
