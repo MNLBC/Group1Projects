@@ -22,46 +22,51 @@ public class LoginService {
 	@Autowired
 	UserDAO userDAO;
 
-	public User login(String username, String password) {
-		password = PasswordHashing.getInstance().hashPassword(password);
-
+	public User login(String username, HttpSession session) {
+		ServletContext context = session.getServletContext();
+		List<User> loggedUsers = getAllLoggedUsers(context);
 		User user = userDAO.getUserByUsername(username);
+
 		if (user == null) {
 			logger.info("User" + user.getUsername() + " does not exist.");
 			return null;
 		}
 
-		if (user.getPassword().equals(password)) {
-			if (user.getIsDisabled() == 0) {
-				logger.info("Client " + user.getUsername() + " has successfully logged in.");
-				return user;
-			}
-			logger.info("Client " + user.getUsername() + " is blocked.");
-		}
-		return null;
+		logger.info("Client " + user.getUsername() + " has successfully logged in.");
+
+		loggedUsers.add(user);
+		context.setAttribute("logged", loggedUsers);
+		session.setAttribute("user", user);
+
+		return user;
 	}
 
-	public String checkLoggedIn(String username, HttpSession session) {
+	public String checkLoggedIn(String username, String password, HttpSession session) {
+		password = PasswordHashing.getInstance().hashPassword(password);
 		User user = userDAO.getUserByUsername(username);
+		ServletContext context = session.getServletContext();
+		List<User> loggedUsers = getAllLoggedUsers(context);
+		boolean isLoggedIn = checkUserLoggedIn(username, loggedUsers);
+
 		if (user == null) {
-			logger.info("User" + user.getUsername() + " does not exist.");
+			logger.info("User" + username + " does not exist.");
 			return "null";
 		}
 
-		ServletContext context = session.getServletContext();
+		if (!user.getPassword().equals(password)) {
+			logger.info("Client " + user.getUsername() + "  has entered wrong password.");
+			return "password";
+		}
 
-		List<User> loggedUsers = getAllLoggedUsers(context);
-
-		boolean isLoggedIn = checkUserLoggedIn(username, loggedUsers);
+		if (user.getIsDisabled() == 1) {
+			logger.info("Client " + user.getUsername() + "  is blocked.");
+			return "block";
+		}
 
 		if (isLoggedIn) {
 			logger.info("Client " + user.getUsername() + " has already logged in.");
 			return "logged";
 		}
-
-		loggedUsers.add(user);
-		context.setAttribute("logged", loggedUsers);
-		session.setAttribute("user", user);
 
 		return "success";
 	}

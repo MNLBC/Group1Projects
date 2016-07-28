@@ -29,25 +29,25 @@ public class LoginController {
 	LoginService loginService;
 
 	/**
-	 * This request is for logging in using POST request.
+	 * This request is for success logging in using POST request.
 	 * 
 	 */
 	@ResponseBody
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-	public User login(@RequestParam(required = true) String username, @RequestParam(required = true) String password) {
-		return loginService.login(username, password);
+	public User login(@RequestParam(required = true) String username, String password, HttpSession session) {
+		return loginService.login(username, session);
 	}
 
 	/**
-	 * This request is for checking if user already logged in using POST
-	 * request.
+	 * This request is for checking if user logging in using POST request.
 	 * 
 	 */
 
 	@ResponseBody
 	@RequestMapping(value = { "/checkLoggedIn" }, method = RequestMethod.POST)
-	public String checkLoggedIn(@RequestParam(required = true) String username, HttpSession session) {
-		return loginService.checkLoggedIn(username, session);
+	public String checkLoggedIn(@RequestParam(required = true) String username,
+			@RequestParam(required = true) String password, HttpSession session) {
+		return loginService.checkLoggedIn(username, password, session);
 	}
 
 	/**
