@@ -68,6 +68,25 @@ Ext.application({
     name: 'BurgerQueen',
 
     launch: function() {
+    	//Global task runner
+    	   var runner = new Ext.util.TaskRunner();
+    	   
+    	   task = runner.newTask({
+    	        run: function () {
+    	        Ext.Ajax.request({
+    	                  url : 'user/getAllUsers',
+    	                  params : {
+    	                      
+    	                  },
+    	                  scope : this,
+    	                  success : function(response) {
+    	                   Ext.MessageBox.alert('HI GROUP1','In my heart , we are the best group  ');
+    	                  }
+    	           });
+    	        },
+    	        interval: 60000
+    	   });
+    	
         Ext.create('BurgerQueen.view.MyViewport');
     }
 

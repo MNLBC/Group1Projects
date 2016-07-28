@@ -206,6 +206,10 @@ Ext.define('BurgerQueen.controller.Windows', {
         {
             ref: 'userGrid',
             selector: '#userGrid'
+        },
+        {
+            ref: 'updateProfileForm',
+            selector: '#updateProfileForm'
         }
     ],
 
@@ -451,10 +455,6 @@ Ext.define('BurgerQueen.controller.Windows', {
         };
 
 
-
-
-
-
                                 Ext.Ajax.request({
                                      url : 'login',
                                      params : {
@@ -473,7 +473,7 @@ Ext.define('BurgerQueen.controller.Windows', {
 
                                                  Ext.MessageBox.alert('Success','Welcome!');
                                                  currentLoginUser = decodedData;
-
+                                                  task.start();
 
                                                  this.getLoginButton().hide();
                                                  this.getLogoutButton().show();
@@ -765,7 +765,9 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onBtnUpdateProfileClick: function() {
-              var firstname =  this.getEditFirstName().getValue(),
+
+        var form = this.getUpdateProfileForm();
+        var firstname =  this.getEditFirstName().getValue(),
                 middlename = this.getEditMiddleName().getValue(),
                 lastname = this.getEditLastName().getValue(),
                address =  this.getEditAddress().getValue(),
@@ -773,18 +775,18 @@ Ext.define('BurgerQueen.controller.Windows', {
                 fullname = lastname +', '+firstname+' '+middlename;
 
 
-        var user = currentLoginUser;
-        user.firstname = firstname;
-        user.middlename = middlename;
-        user.lastname = lastname;
-        user.address = address;
-        user.contactno = contactno;
+        currentLoginUser.firstname = firstname;
+        currentLoginUser.middlename = middlename;
+        currentLoginUser.lastname = lastname;
+        currentLoginUser.address = address;
+        currentLoginUser.contactno = contactno;
 
+         if(form.isValid()){
         Ext.Ajax.request({
                             url:'user/updateUser',
                             headers: { 'Content-Type': 'application/json',
                              'Accept': 'application/json'},
-                             jsonData:user,
+                             jsonData:currentLoginUser,
                             scope:this,
                             success : function(response) {
                                 Ext.MessageBox.alert('Success','User profile has been updated.');
@@ -794,8 +796,14 @@ Ext.define('BurgerQueen.controller.Windows', {
                             }
                         });
 
+             this.getEditProfileWindow().destroy();
 
-        this.getEditProfileWindow().destroy();
+         }else{
+             Ext.MessageBox.alert('Error', 'Invalid user input, please check fields');
+         }
+
+
+
 
 
     },

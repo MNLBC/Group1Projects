@@ -39,6 +39,7 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
             items: [
                 {
                     xtype: 'form',
+                    id: 'updateProfileForm',
                     itemId: 'updateProfileForm',
                     bodyPadding: 10,
                     header: false,
@@ -59,6 +60,8 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             width: 320,
                             fieldLabel: '',
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
                             emptyText: 'First name'
                         },
                         {
@@ -79,6 +82,8 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             width: 320,
                             fieldLabel: '',
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
                             emptyText: 'Last name'
                         },
                         {
@@ -89,6 +94,8 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             width: 320,
                             fieldLabel: '',
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
                             emptyText: 'Address'
                         },
                         {
@@ -99,6 +106,8 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             width: 320,
                             fieldLabel: '',
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
                             emptyText: 'Contact Number'
                         }
                     ],
