@@ -32,8 +32,7 @@ public class UserServiceTest {
 	UserService userService;
 
 	/**
-	 * Test method for
-	 * {@link com.oocl.mnlbc.service.UserService#find(int)}.
+	 * Test method for {@link com.oocl.mnlbc.service.UserService#find(int)}.
 	 */
 	@Test
 	public void testFindFail() {
@@ -89,7 +88,12 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void testIsEmailDoesNotExist() {
-		assertFalse(userService.isEmailExisting("rockystar@email\\.com"));
+		assertFalse(userService.isEmailExisting("rockystar@email.com"));
+	}
+
+	@Test
+	public void testIsEmailExist() {
+		assertTrue(userService.isEmailExisting("pvbarredo@gmail.com"));
 	}
 
 	/**

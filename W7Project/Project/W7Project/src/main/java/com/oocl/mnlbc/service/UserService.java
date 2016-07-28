@@ -2,8 +2,6 @@ package com.oocl.mnlbc.service;
 
 import java.util.List;
 
-import javax.persistence.NoResultException;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,14 +31,13 @@ public class UserService {
 	}
 
 	public boolean isUsernameExisting(String username) {
-
-		try {
-			getUserByUsername(username);
-			return true;
-		} catch (NoResultException e) {
-			return false;
+		List<User> users = getAll();
+		for (User user : users) {
+			if (user.getUsername().equals(username)) {
+				return true;
+			}
 		}
-
+		return false;
 	}
 
 	public User getUserByEmail(String email) {
@@ -48,14 +45,13 @@ public class UserService {
 	}
 
 	public boolean isEmailExisting(String email) {
-
-		try {
-			getUserByEmail(email);
-			return true;
-		} catch (NoResultException e) {
-			return false;
+		List<User> users = getAll();
+		for (User user : users) {
+			if (user.getEmail().equals(email)) {
+				return true;
+			}
 		}
-
+		return false;
 	}
 
 	public boolean updateUser(User user) {
