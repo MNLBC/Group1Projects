@@ -665,7 +665,27 @@ Ext.define('BurgerQueen.controller.HomePage', {
             this.getAdminTransactionsPanel().hide();
             this.getAdminUserPanel().hide();
             this.getAdminOrderManagementPanel().show();
-        console.log('User');
+
+        var store = Ext.getStore('AdminOrderManagementStore');
+
+                Ext.Ajax.request({
+                    url : 'order/getAllOrders',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.JSON.decode(response.responseText);
+                        Ext.each(data, function(record){
+                            var order = {
+                                id:record.id,
+                                user_id:record.userId,
+                                status:record.status
+                            };
+                            store.add(order);
+                        });
+                    }
+                });
     },
 
     onLaunch: function() {

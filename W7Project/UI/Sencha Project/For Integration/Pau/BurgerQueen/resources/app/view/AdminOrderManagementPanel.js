@@ -28,10 +28,12 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
         'Ext.button.Button'
     ],
 
-    height: 271,
+    height: 331,
     id: 'AdminOrderManagementPanel',
     itemId: 'AdminOrderManagementPanel',
-    width: 538,
+    width: 1111,
+    layout: 'fit',
+    header: false,
     title: 'My Panel',
 
     initComponent: function() {
@@ -42,6 +44,7 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                 {
                     xtype: 'form',
                     height: 198,
+                    layout: 'fit',
                     bodyPadding: 10,
                     title: 'Order Management',
                     items: [
@@ -49,7 +52,9 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                             xtype: 'gridpanel',
                             id: 'adminOrderManagementGrid',
                             itemId: 'adminOrderManagementGrid',
+                            header: false,
                             title: 'My Grid Panel',
+                            scroll: 'vertical',
                             store: 'AdminOrderManagementStore',
                             selModel: Ext.create('Ext.selection.RowModel', {
 
@@ -57,48 +62,43 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
-                                    id: 'adminUserId',
-                                    itemId: 'adminUserId',
-                                    width: 65,
-                                    dataIndex: 'adminUserlId',
-                                    text: 'User Id'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
                                     id: 'adminOrderId',
                                     itemId: 'adminOrderId',
-                                    dataIndex: 'adminOrderId',
+                                    dataIndex: 'id',
                                     text: 'Order Id'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    id: 'adminUserName',
-                                    itemId: 'adminUserName',
-                                    dataIndex: 'adminOrderUsername',
-                                    text: 'Username'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    id: 'adminOrderDate',
-                                    itemId: 'adminOrderDate',
-                                    dataIndex: 'adminOrderDate',
-                                    text: 'Date'
+                                    id: 'adminUserId',
+                                    itemId: 'adminUserId',
+                                    width: 65,
+                                    dataIndex: 'userId',
+                                    text: 'User Id'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     stateId: 'adminOrderManagementStatus',
                                     id: 'adminOrderManagementStatus',
                                     itemId: 'adminOrderManagementStatus',
-                                    dataIndex: 'adminOrderManagementStatus',
+                                    dataIndex: 'status',
                                     text: 'Status',
                                     flex: 1
                                 }
-                            ]
+                            ],
+                            listeners: {
+                                itemdblclick: {
+                                    fn: me.onAdminOrderManagementGridItemDblClick,
+                                    scope: me
+                                }
+                            }
                         }
                     ]
-                },
+                }
+            ],
+            dockedItems: [
                 {
                     xtype: 'toolbar',
+                    dock: 'bottom',
                     items: [
                         {
                             xtype: 'tbfill'
@@ -115,6 +115,11 @@ Ext.define('BurgerQueen.view.AdminOrderManagementPanel', {
         });
 
         me.callParent(arguments);
+    },
+
+    onAdminOrderManagementGridItemDblClick: function(dataview, record, item, index, e, eOpts) {
+        // Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow',{
+        //     orderManagement : record }).show();
     }
 
 });

@@ -20,7 +20,8 @@
             "TransactionDetailsModel",
             "CommentsModel",
             "UsersModel",
-            "AdminOrderManagementModel"
+            "AdminOrderManagementModel",
+            "AdminOrderManagementDetailsModel"
         ],
         "name": "BurgerQueen",
         "stores": [
@@ -31,7 +32,8 @@
             "TransactionDetailsStore",
             "CommentsStore",
             "UsersStore",
-            "AdminOrderManagementStore"
+            "AdminOrderManagementStore",
+            "AdminOrderManagementDetailsStore"
         ],
         "views": [
             "MyViewport",

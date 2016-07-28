@@ -24,25 +24,13 @@ Ext.define('BurgerQueen.model.AdminOrderManagementModel', {
 
     fields: [
         {
-            name: 'adminUserlId'
+            name: 'id'
         },
         {
-            name: 'adminOrderManagementId'
+            name: 'userId'
         },
         {
-            name: 'adminOrderManagementUsername'
-        },
-        {
-            name: 'adminOrderManagementQuantity'
-        },
-        {
-            name: 'adminOrderManagementDate'
-        },
-        {
-            name: 'adminOrderManagementStatus'
-        },
-        {
-            name: 'adminOrderManagementMeal'
+            name: 'status'
         }
     ]
 });

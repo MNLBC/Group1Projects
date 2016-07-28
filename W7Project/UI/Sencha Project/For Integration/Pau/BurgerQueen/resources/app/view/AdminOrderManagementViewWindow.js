@@ -17,7 +17,6 @@ Ext.define('BurgerQueen.view.AdminOrderManagementViewWindow', {
     extend: 'Ext.window.Window',
 
     requires: [
-        'Ext.form.Panel',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.grid.View',
@@ -26,11 +25,15 @@ Ext.define('BurgerQueen.view.AdminOrderManagementViewWindow', {
         'Ext.button.Button'
     ],
 
-    height: 250,
+    height: 409,
     id: 'AdminOrderManagementViewWindow',
     itemId: 'AdminOrderManagementViewWindow',
-    width: 400,
+    width: 1137,
+    layout: 'fit',
+    closable: false,
+    header: false,
     title: 'My Window',
+    modal: true,
 
     initComponent: function() {
         var me = this;
@@ -38,51 +41,48 @@ Ext.define('BurgerQueen.view.AdminOrderManagementViewWindow', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'form',
-                    bodyPadding: 10,
-                    title: 'My Form',
-                    items: [
+                    xtype: 'gridpanel',
+                    height: 312,
+                    id: 'adminOrderManagementViewGrid',
+                    itemId: 'adminOrderManagementViewGrid',
+                    header: false,
+                    title: 'Order Management',
+                    store: 'AdminOrderManagementDetailsStore',
+                    columns: [
                         {
-                            xtype: 'gridpanel',
-                            title: 'My Grid Panel',
-                            columns: [
+                            xtype: 'gridcolumn',
+                            id: 'orderId',
+                            itemId: 'orderId',
+                            dataIndex: 'id',
+                            text: 'OrderId'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'meal',
+                            text: 'Meal',
+                            flex: 1
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 82,
+                            dataIndex: 'quantity',
+                            text: 'Quantity',
+                            flex: 1
+                        }
+                    ],
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'bottom',
+                            items: [
                                 {
-                                    xtype: 'gridcolumn',
-                                    id: 'id',
-                                    itemId: 'id',
-                                    dataIndex: 'adminUserId',
-                                    text: 'Id',
-                                    flex: 1
+                                    xtype: 'tbfill'
                                 },
                                 {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'adminOrderManagementMeal',
-                                    text: 'Meal',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    width: 82,
-                                    dataIndex: 'adminOrderManagementQuantity',
-                                    text: 'Quantity',
-                                    flex: 1
-                                }
-                            ],
-                            dockedItems: [
-                                {
-                                    xtype: 'toolbar',
-                                    dock: 'bottom',
-                                    items: [
-                                        {
-                                            xtype: 'tbfill'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            id: 'onAdminOrderManagementBttnClose',
-                                            itemId: 'onAdminOrderManagementBttn',
-                                            text: 'close'
-                                        }
-                                    ]
+                                    xtype: 'button',
+                                    id: 'onAdminOrderManagementBttnClose',
+                                    itemId: 'onAdminOrderManagementBttnClose',
+                                    text: 'close'
                                 }
                             ]
                         }
