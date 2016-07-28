@@ -1,0 +1,63 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminMainController"
+    },
+    "name": "MyController",
+    "designerId": "7f431338-a2a2-4b0a-8a12-63d60f6ad043",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMenu",
+                "selector": "#adminMenu"
+            },
+            "name": "adminMenu",
+            "designerId": "cf8e86f9-cdf0-4c65-8ce5-898b97538d30"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMain",
+                "selector": "#adminMain"
+            },
+            "name": "adminMain",
+            "designerId": "23ed4e50-d681-4bc9-a6a1-2b8a0dcec6a3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#showAdminMenu",
+                "designer|targetType": "MyButton",
+                "fn": "onShowAdminMenuClick",
+                "implHandler": [
+                    "this.getAdminMenu().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onShowAdminMenuClick",
+            "designerId": "796ce45a-c04b-41c2-838a-a6bd46f2e8b9"
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminCommentsModel"
+    },
+    "name": "MyModel",
+    "designerId": "246a3337-9db0-42b7-835a-eb907a410e20",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Id"
+            },
+            "name": "MyField",
+            "designerId": "7d8a4140-c6e0-467f-ab23-88be12997c0b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "User"
+            },
+            "name": "MyField1",
+            "designerId": "5e144f4e-9468-4c2b-a2fd-cd5b984d47e7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Meal"
+            },
+            "name": "MyField2",
+            "designerId": "6877ee05-84a0-4f49-baf5-ace3af55113f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Feedback"
+            },
+            "name": "MyField3",
+            "designerId": "200cf039-5743-4c42-914e-ac68ec5f385b"
+        }
+    ]
+}

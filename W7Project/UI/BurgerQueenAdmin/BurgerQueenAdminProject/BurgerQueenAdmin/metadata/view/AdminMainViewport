@@ -1,0 +1,261 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "container|align": "stretch",
+        "designer|initialView": true,
+        "designer|userClassName": "AdminMainViewport",
+        "id": "AdminMainViewport",
+        "itemId": "AdminMainViewport",
+        "layout": "hbox"
+    },
+    "name": "MyViewport",
+    "designerId": "16093103-164a-4b57-8cda-d8a19e3594a8",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "hidden": true,
+                "id": "adminMenu",
+                "itemId": "adminMenu",
+                "layout": "vbox",
+                "layout|flex": 0.3,
+                "title": "Menu Buttons"
+            },
+            "name": "MyPanel",
+            "designerId": "c18881b5-a349-4bbc-a7ee-94f41cbd4e1f",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminUsersButton",
+                        "layout|flex": 1,
+                        "text": "Manage Users",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "396756a3-73c6-4b5a-8935-88e7041a2c75"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminProductsButton",
+                        "layout|flex": 1,
+                        "text": "Manage Products",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "74c1eae5-80d2-4cbe-86e2-25b7dc6cd162"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminOrdersButton",
+                        "layout|flex": 1,
+                        "text": "Manage Orders",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "325626f0-68fb-4395-a29b-4699512f0cfa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminProductFeedbackButton",
+                        "layout|flex": 1,
+                        "text": "Product Feedback",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "6f849b9e-18e9-4ab5-a8ab-51b77c5d1beb"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminInquiriesButton",
+                        "layout|flex": 1,
+                        "text": "Inquiries",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "89cc2c2a-ce08-4e7f-9e33-c1e34d6fc81b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "menubarbtn-small",
+                        "id": "adminCreateMessageButton",
+                        "layout|flex": 1,
+                        "text": "Create Message",
+                        "ui": "menubarbtn"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "1fc898c2-9069-4f10-968d-2078752e877b"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "adminMain",
+                "itemId": "adminMain",
+                "layout": "fit",
+                "layout|flex": 1,
+                "title": "Chosen Menu"
+            },
+            "name": "MyPanel1",
+            "designerId": "9d4c60a2-5b1f-4c5a-87a9-ffa62f2d4726",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "47df4b9c-b42c-4cc8-9c16-62299ba8b1b6",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "showAdminMenu",
+                                "itemId": "showAdminMenu",
+                                "layout|flex": null,
+                                "text": "Expand Menu"
+                            },
+                            "name": "MyButton",
+                            "designerId": "54e12d0f-3386-47de-9233-c61bc7fd0b14"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminproductspanel",
+                    "designerId": "6878538c-b71a-4c64-ba72-c03619327a9b",
+                    "masterInstanceId": "f70053bc-ce38-4906-be66-bbf0e7e1620b"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminorderspanel",
+                    "designerId": "f52993c6-a5f6-4cd4-a236-d6aa90b19f66",
+                    "masterInstanceId": "df15cd7b-f878-4122-8ba9-d6c87ce7501f"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "admincommentspanel",
+                    "designerId": "3b1a1e13-5d06-4134-8087-005b784ff13b",
+                    "masterInstanceId": "7c0816fe-4071-4587-b35d-b7e043903f25"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "adminuserspanel2",
+                    "designerId": "ca395772-2e11-479d-b1cd-050c8a6e65b2",
+                    "masterInstanceId": "bde1a33d-bcea-4038-b954-345bc6af3a3e"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "admincreatemessagepanel1",
+                    "designerId": "af8d1f3e-281a-4a4e-94c5-99cc5d65d6cb",
+                    "masterInstanceId": "95acc806-81d6-4f8e-95cc-72bd6719c9aa"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "admininquiriespanel1",
+                    "designerId": "828b4abf-d677-4acd-aeb0-38f4c761dd4f",
+                    "masterInstanceId": "4397d531-2f26-4198-a28a-2b8a7c0513d2"
+                }
+            ]
+        }
+    ]
+}

@@ -21,21 +21,33 @@ Ext.Loader.setConfig({
 
 Ext.application({
 	appFolder: 'resources/admin/app',
-    views: [
-        'AdminMainViewport',
-        'adminUserPanel',
-        'adminProductsPanel',
-        'adminOrdersPanel',
-        'adminCommentsPanel',
-        'adminInquiriesPanel',
-        'adminCreateMessagePanel',
-        'LoginWindow'
-    ],
-    controllers: [
-        'AdminMenuController',
-        'AdminMainController',
-        'AdminWindowsController'
-    ],
+    models: [
+             'UsersModel',
+             'AdminMessageModel',
+             'AdminInquiryModel',
+             'AdminCommentsModel'
+         ],
+         stores: [
+             'UsersStore',
+             'AdminMessageStore',
+             'AdminInquiryStore',
+             'AdminCommentsStore'
+         ],
+         views: [
+             'AdminMainViewport',
+             'adminProductsPanel',
+             'adminOrdersPanel',
+             'adminCommentsPanel',
+             'LoginWindow',
+             'adminUsersPanel',
+             'adminCreateMessagePanel',
+             'adminInquiriesPanel'
+         ],
+         controllers: [
+             'AdminMenuController',
+             'AdminMainController',
+             'AdminWindowsController'
+         ],
     name: 'BurgerQueenAdmin',
 
     launch: function() {

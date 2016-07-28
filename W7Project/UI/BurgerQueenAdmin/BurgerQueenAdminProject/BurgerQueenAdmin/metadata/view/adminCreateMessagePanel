@@ -1,0 +1,121 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 100,
+        "container|align": "stretch",
+        "container|pack": "center",
+        "container|padding": "",
+        "designer|userAlias": "admincreatemessagepanel",
+        "designer|userClassName": "adminCreateMessagePanel",
+        "header": false,
+        "height": 679,
+        "id": "adminCreateMessagePanel",
+        "itemId": "adminCreateMessagePanel",
+        "layout": "vbox",
+        "padding": "",
+        "title": "AdminCreateMessagePanel",
+        "width": 926
+    },
+    "name": "MyPanel1",
+    "designerId": "95acc806-81d6-4f8e-95cc-72bd6719c9aa",
+    "cn": [
+        {
+            "type": "Ext.form.field.TextArea",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Enter Message To Send",
+                "itemId": "AdminMessageToSend"
+            },
+            "name": "MyTextArea2",
+            "designerId": "e4c97cf3-3767-4a5b-b0a5-398792c7f6a2"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": null,
+                "layout|flex": null
+            },
+            "name": "MyToolbar15",
+            "designerId": "2739eca6-6f9c-4ec5-a577-2cc6bac5a9e8",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "AdminSendMsgBtn",
+                        "layout|flex": null,
+                        "text": "Send Message"
+                    },
+                    "name": "MyButton33",
+                    "designerId": "21aeb4b2-89d0-440f-ab05-ad1ec40cff23"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "header": false,
+                "layout|flex": 1,
+                "store": "AdminMessageStore",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel8",
+            "designerId": "c63cd2e3-88e9-4eb7-94e7-8562c684548b",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Message",
+                        "flex": 1,
+                        "text": "Messages Sent"
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "6ca7c77b-a341-4019-9a64-9903a6a20578"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": false
+                    },
+                    "name": "MyGridView8",
+                    "designerId": "d6f29feb-254e-45f9-91c8-97d4d69c9c43"
+                }
+            ]
+        }
+    ]
+}

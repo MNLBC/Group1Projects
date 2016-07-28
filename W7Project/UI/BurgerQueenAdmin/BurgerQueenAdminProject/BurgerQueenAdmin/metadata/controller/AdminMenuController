@@ -1,0 +1,269 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AdminMenuController"
+    },
+    "name": "MyController",
+    "designerId": "41f1f715-4218-4d6e-b0e0-4e53fdda36e8",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminCommentsPanel",
+                "selector": "#adminCommentsPanel"
+            },
+            "name": "adminCommentsPanel",
+            "designerId": "5930b264-32a3-4037-8675-cf6b98f1ef3a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminOrdersPanel",
+                "selector": "#adminOrdersPanel"
+            },
+            "name": "adminOrdersPanel",
+            "designerId": "8a4ad2b9-42c1-47a0-8b44-900a0427b6bd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminProductsPanel",
+                "selector": "#adminProductsPanel"
+            },
+            "name": "adminProductsPanel",
+            "designerId": "b4ac400c-ca2f-4ce0-b19a-bc38f317c6d2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminMenu",
+                "selector": "#adminMenu"
+            },
+            "name": "adminMenu",
+            "designerId": "0fd17634-49d3-4909-a187-045a0197f3e4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminUsersPanel",
+                "selector": "#adminUsersPanel"
+            },
+            "name": "adminUsersPanel",
+            "designerId": "1c1e20cd-327a-480b-b785-bf41ca1bd652"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminCreateMessagePanel",
+                "selector": "#adminCreateMessagePanel"
+            },
+            "name": "adminCreateMessagePanel",
+            "designerId": "50ba8019-5cf0-4977-ab9b-adcfb1df4968"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "adminInquiriesPanel",
+                "selector": "#adminInquiriesPanel"
+            },
+            "name": "adminInquiriesPanel",
+            "designerId": "81af93fe-9cbd-48da-8e10-cf0fcebc5040"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminUsersButton",
+                "designer|targetType": "MyButton1",
+                "fn": "onAdminUsersButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().show();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminInquiriesPanel().hide();",
+                    "    this.getAdminCreateMessagePanel().hide();",
+                    "    this.getAdminCommentsPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminUsersButtonClick",
+            "designerId": "8afaab4c-4150-4cff-9428-2ded1ff441fd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminProductsButton",
+                "designer|targetType": "MyButton2",
+                "fn": "onAdminProductsButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminProductsPanel().show();",
+                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminInquiriesPanel().hide();",
+                    "    this.getAdminCreateMessagePanel().hide();",
+                    "    this.getAdminCommentsPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminProductsButtonClick",
+            "designerId": "870541b4-8696-4c25-a5c9-46ed52521b09"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminOrdersButton",
+                "designer|targetType": "MyButton3",
+                "fn": "onAdminOrdersButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminOrdersPanel().show();",
+                    "    this.getAdminInquiriesPanel().hide();",
+                    "    this.getAdminCreateMessagePanel().hide();",
+                    "    this.getAdminCommentsPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminOrdersButtonClick",
+            "designerId": "271e771e-8cdf-4802-a974-727e80465e49"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminProductFeedbackButton",
+                "designer|targetType": "MyButton4",
+                "fn": "onAdminProductFeedbackButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminInquiriesPanel().hide();",
+                    "    this.getAdminCreateMessagePanel().hide();",
+                    "    this.getAdminCommentsPanel().show();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminProductFeedbackButtonClick",
+            "designerId": "d952dc03-191a-498d-afd3-191bf087133a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminInquiriesButton",
+                "designer|targetType": "MyButton5",
+                "fn": "onAdminInquiriesButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminInquiriesPanel().show();",
+                    "    this.getAdminCreateMessagePanel().hide();",
+                    "    this.getAdminCommentsPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminInquiriesButtonClick",
+            "designerId": "62b8a243-1b0a-4a30-9697-69ddeb6192d9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#adminCreateMessageButton",
+                "designer|targetType": "MyButton6",
+                "fn": "onAdminCreateMessageButtonClick",
+                "implHandler": [
+                    "    this.getAdminMenu().hide();",
+                    "    this.getAdminUsersPanel().hide();",
+                    "    this.getAdminProductsPanel().hide();",
+                    "    this.getAdminOrdersPanel().hide();",
+                    "    this.getAdminInquiriesPanel().hide();",
+                    "    this.getAdminCreateMessagePanel().show();",
+                    "    this.getAdminCommentsPanel().hide();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onAdminCreateMessageButtonClick",
+            "designerId": "d3e17304-ae33-48ee-96b0-cdcc44453969"
+        }
+    ]
+}

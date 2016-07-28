@@ -1,0 +1,123 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoShow": true,
+        "closable": false,
+        "designer|userClassName": "LoginWindow",
+        "height": 250,
+        "id": "LoginWindow",
+        "itemId": "LoginWindow",
+        "layout": "fit",
+        "modal": true,
+        "title": "Login",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "a2894fd1-f825-43c3-9a10-f13873fcdd6e",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "center",
+                "container|pack": "center",
+                "header": false,
+                "id": "LoginWindowForm",
+                "itemId": "LoginWindowForm",
+                "layout": "vbox",
+                "title": "My Form"
+            },
+            "name": "MyForm",
+            "designerId": "37c58402-e412-4c51-b2fe-29e744e14db3",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Username",
+                        "id": "username",
+                        "itemId": "username",
+                        "name": "username"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "2a21c266-ef96-4458-8e45-d4bb9985e808"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Password",
+                        "id": "password",
+                        "itemId": "password",
+                        "name": "password"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "242b0cc3-d7e4-4da3-9390-d2ddc75c135b"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "8cc8d188-9e47-48e3-b285-278be19c732d",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "adminLoginBtn",
+                                "itemId": "adminLoginBtn",
+                                "layout|flex": null,
+                                "text": "Login"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "67a198ce-4362-4ad4-81fd-c96231f49691"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Go to BQ"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "10ec0cef-6b64-4552-ba8b-748057232fa6"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
