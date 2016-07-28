@@ -41,17 +41,17 @@ public class OrderService {
 	
 	public List<Order> getAllOrderByUserID(int userId){
 		logger.info("Getting all order by User ID");
-		List<Order> orders = orderDao.getOrderByUserId(userId);
+//		List<Order> orders = orderDao.getOrderByUserId(userId);
+//		
+//		for (Order order : orders) {
+//			List<OrderItem> orderItems = order.getOrderItemList();
+//			for (OrderItem orderItem : orderItems) {
+//				Meal meal = mealDao.find(orderItem.getMeal().getId());
+//				orderItem.setMeal(meal);
+//			}
+//		}
 		
-		for (Order order : orders) {
-			List<OrderItem> orderItems = order.getOrderItemList();
-			for (OrderItem orderItem : orderItems) {
-				Meal meal = mealDao.find(orderItem.getMeal().getId());
-				orderItem.setMeal(meal);
-			}
-		}
-		
-		return orders;
+		return orderDao.getOrderByUserId(userId);
 	}
 	
 	public Order getOrderById(int id){

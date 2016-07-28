@@ -216,6 +216,18 @@ Ext.define('BurgerQueen.controller.HomePage', {
                    }
             }
         });
+        Ext.Ajax.request({
+            url : 'visitor',
+            params : {
+
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+                   console.log(data);
+
+            }
+        });
 
         var store = Ext.getStore('ProductStore');
 
@@ -242,7 +254,6 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 });
             }
         });
-
 
 
 
@@ -345,6 +356,7 @@ Ext.define('BurgerQueen.controller.HomePage', {
                 Ext.getCmp('AdminUserPanel').hide();
                 Ext.getCmp('AdminCommentsPanel').hide();
                 this.getProducts().show();
+        //         Ext.getCmp('visitorsLabel').hide();
 
                 Ext.Ajax.request({
                     url : 'logout',
@@ -631,22 +643,38 @@ Ext.define('BurgerQueen.controller.HomePage', {
     },
 
     displayForSessions: function() {
-                this.getLoginButton().hide();
-                this.getLogoutButton().show();
-                this.getRegisterButton().hide();
-                this.getMyProfileButton().show();
-                this.getTrayButton().show();
-                this.getMyProfileButton().show();
-                this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username + '! |');
-                this.getProducts().show();
+        this.getLoginButton().hide();
+        this.getLogoutButton().show();
+        this.getRegisterButton().hide();
+        this.getMyProfileButton().show();
+        this.getTrayButton().show();
+        this.getMyProfileButton().show();
+        this.getMyProfileButton().setText('Welcome, '+ currentLoginUser.username + '! |');
+        this.getProducts().show();
 
 
 
         if(currentLoginUser.type ==='admin'){
-                     Ext.getCmp('toolBarCustomer').hide();
-                     Ext.getCmp('toolBarAdmin').show();
-                }
+            Ext.getCmp('toolBarCustomer').hide();
+            Ext.getCmp('toolBarAdmin').show();
+        }
 
+        var trayStore = Ext.getStore('TrayStore');
+               trayStore.removeAll();
+
+        Ext.Ajax.request({
+            url : 'tray/getTraySession',
+            params : {
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.each(data,function(record){
+                    trayStore.add(record);
+                });
+
+            }
+        });
     },
 
     init: function(application) {

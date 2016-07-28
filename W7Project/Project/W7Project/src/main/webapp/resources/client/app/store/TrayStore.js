@@ -25,7 +25,35 @@ Ext.define('BurgerQueen.store.TrayStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BurgerQueen.model.TrayModel',
-            storeId: 'TrayStore'
+            storeId: 'TrayStore',
+            listeners: {
+                datachanged: {
+                    fn: me.onStoreDataChangeD,
+                    scope: me
+                }
+            }
         }, cfg)]);
+    },
+
+    onStoreDataChangeD: function(store, eOpts) {
+        var trays =[];
+
+        Ext.each(store.getRange(),function(record){
+            trays.push(record.data);
+        });
+
+
+        Ext.Ajax.request({
+                                    url : 'tray/setTraySession',
+                                    params : {
+                                        'trays':Ext.JSON.encode(trays)
+                                    },
+                                    scope : this,
+                                    success : function(response) {
+                                        //var data = Ext.JSON.decode(response.responseText);
+
+                                    }
+                                });
     }
+
 });

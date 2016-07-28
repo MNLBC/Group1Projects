@@ -65,7 +65,7 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     itemId: 'registerButton',
                                     style: 'font-family:\'Abel\';\nfont-size:20px;',
                                     ui: 'menubarbtn',
-                                    text: 'REGISTER '
+                                    text: 'REGISTER | '
                                 },
                                 {
                                     xtype: 'button',
@@ -92,6 +92,14 @@ Ext.define('BurgerQueen.view.MyViewport', {
                                     style: 'font-family:\'Abel\';\nfont-size:20px;',
                                     ui: 'menubarbtn',
                                     text: 'LOGOUT |'
+                                },
+                                {
+                                    xtype: 'button',
+                                    hidden: true,
+                                    itemId: 'btnVisitors',
+                                    style: 'font-family:\'Abel\';\nfont-size:20px;',
+                                    ui: 'menubarbtn',
+                                    text: 'VISITORS |'
                                 }
                             ]
                         },

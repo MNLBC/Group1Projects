@@ -93,7 +93,7 @@ Ext.define('BurgerQueenAdmin.controller.AdminProducts', {
              image = Ext.getCmp('adminMealImg').getValue(),
              category = formValues.category.toLocaleLowerCase(),
 
-             setImage = '/resources/images/Logo.png',
+             setImage = 'resources/images/Logo.png',
              code = formValues.code,
              name = formValues.name,
              description = formValues.description,

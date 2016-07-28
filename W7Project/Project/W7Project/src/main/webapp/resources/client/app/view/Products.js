@@ -89,7 +89,9 @@ Ext.define('BurgerQueen.view.Products', {
                                 {
                                     xtype: 'gridcolumn',
                                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-
+                                        if(Ext.isEmpty(value)){
+                                            return '<img src="/resources/images/Logo.png" width="250" height="250" border="0" />';
+                                        }
                                         return '<img src="'+value+'" width="250" height="250" border="0" />';
                                     },
                                     dataIndex: 'Image',

@@ -94,7 +94,7 @@ public class TrayController {
 	 * @return a string of success
 	 */
 	@ResponseBody
-	@RequestMapping(value = { "/getTraySession" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/getTraySession" }, method = RequestMethod.GET)
 	public String getTraySession(HttpSession session) {
 		return trayService.getTraySession(session);
 	}

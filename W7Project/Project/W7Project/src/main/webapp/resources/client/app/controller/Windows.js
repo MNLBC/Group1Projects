@@ -296,6 +296,8 @@ Ext.define('BurgerQueen.controller.Windows', {
 
                     }
                 Ext.Msg.alert('Status', this.added_to_cart);
+
+
                 this.getProductViewWindow().destroy();
     },
 
@@ -305,6 +307,25 @@ Ext.define('BurgerQueen.controller.Windows', {
 
     onRemoveItemBtnClick: function() {
         var trayStore = Ext.getStore('TrayStore');
+        var trays =[];
+
+        Ext.each(trayStore.getRange(),function(record){
+            trays.push(record.data);
+        });
+
+
+
+        Ext.Ajax.request({
+                                    url : 'tray/setTraySession',
+                                    params : {
+                                        'trays':Ext.JSON.encode(trays)
+                                    },
+                                    scope : this,
+                                    success : function(response) {
+                                        //var data = Ext.JSON.decode(response.responseText);
+
+                                    }
+                                });
 
         var trayGrid = this.getTrayGrid(),
             selectModel = trayGrid.getSelectionModel(),
@@ -522,6 +543,9 @@ Ext.define('BurgerQueen.controller.Windows', {
                                                                 Ext.getCmp('toolBarCustomer').show();
                                                                 Ext.getCmp('toolBarAdmin').hide();
                                                                 this.getProducts().show();
+        //                                                         this.getVisitorsLabel().show();
+        //                                                         this.activeVisitors();
+
 
                                                                 Ext.Ajax.request({
                                                                     url : 'message/startClient',
@@ -597,7 +621,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                 id:currentLoginUser.id
             },
             orderItemList:orderItemList,
-            status: 'DONE'
+            status: 'WAITING'
         };
 
 
@@ -606,13 +630,8 @@ Ext.define('BurgerQueen.controller.Windows', {
             jsonData:order,
             success : function(response) {
                 var data = response.responseText;
-                if(data === 'success'){
                     store.removeAll();
-                    Ext.MessageBox.alert('Success', 'Order success, please wait for order delivery.');
-                }
-                else{
-                    Ext.MessageBox.alert('Error', 'Failed to checkout your order.');
-                }
+                    Ext.MessageBox.alert('Success', 'Order success, please wait order delivery.');
             }
         });
 
@@ -626,7 +645,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                              jsonData:user,
                             scope:this,
                             success : function(response) {
-                                Ext.MesssageBox.alert('Success','Points added to user');
+                                Ext.MessageBox.alert('Success','Points added to user');
                             }
                         });
 
@@ -865,7 +884,7 @@ Ext.define('BurgerQueen.controller.Windows', {
                         scope : this,
                         success : function(response) {
                             var data = response.responseText;
-                            Ext.MessageBox.alert('Success', 'Thank your for your comment ^__^ Enjoy!');
+                            Ext.MessageBox.alert('Success', 'Thank you for your comment!');
                             this.getProductViewWindow().destroy();
                         }
                     });
@@ -876,6 +895,10 @@ Ext.define('BurgerQueen.controller.Windows', {
                  }
 
 
+    },
+
+    onBtnVisitorsClick: function() {
+                    this.activeVisitors();
     },
 
     hideLoadingMessageMask: function() {
@@ -892,6 +915,20 @@ Ext.define('BurgerQueen.controller.Windows', {
                                });
                             }
                             this.oLoadingMessageMask.show();
+    },
+
+    activeVisitors: function() {
+                    Ext.Ajax.request({
+                            url : 'visitor',
+                            params : {
+
+                            },
+                            scope : this,
+                            success : function(response) {
+                                var data = Ext.decode(response.responseText);
+                                Ext.MessageBox.alert('Information', 'Number of visitors: ' + data);
+                            }
+                        });
     },
 
     init: function(application) {
@@ -958,6 +995,9 @@ Ext.define('BurgerQueen.controller.Windows', {
             },
             "#btnComment": {
                 click: this.onBtnCommentClick
+            },
+            "#btnVisitors": {
+                click: this.onBtnVisitorsClick
             }
         });
     }
