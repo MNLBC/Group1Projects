@@ -285,9 +285,9 @@ Ext.define('BurgerQueen.controller.HomePage', {
         Ext.getCmp('userLevel').setValue(currentLoginUser.userLevel);
 
         Ext.Ajax.request({
-            url : 'order/getAllOrderByUserId',
+            url : 'order/getAllOrderByUserId/'+currentLoginUser.id,
             params : {
-                userId : currentLoginUser.id
+
             },
             scope : this,
 

@@ -801,26 +801,19 @@ Ext.define('BurgerQueen.controller.Windows', {
     },
 
     onBtnSavePasswordChangeClick: function() {
-
-
-         // var form = this.getChangePasswordForm(),
          var oldPassword = this.getEditOldPassword().getValue(),
                 newPassword = this.getEditNewPassword().getValue(),
-                confirmPassword = this.getEditConfirmPassword().getValue(),
-            changepassword = {
-                user:currentLoginUser.username,
-                'currentPassword':oldPassword,
-                'newPassword':newPassword
+                confirmPassword = this.getEditConfirmPassword().getValue();
 
-            };
-
-            //if(form.isValid()){
-
+        if(newPassword === confirmPassword){
                 Ext.Ajax.request({
-                        url : 'user/addUser', //CHANGEEEE THISSSSS!!!!!!!!
-                        headers: { 'Content-Type': 'application/json',
-                         'Accept': 'application/json'},
-                         jsonData:changepassword,
+                        url : 'user/changePassword',
+                    params:{
+                        'currentPass':oldPassword,
+                        'newPass':newPassword,
+                        'username':currentLoginUser.username
+                    },
+
                         scope : this,
                         success : function(response) {
                     var data = response.responseText;
@@ -828,16 +821,16 @@ Ext.define('BurgerQueen.controller.Windows', {
                         Ext.MessageBox.alert('Sucess', this.success_changePassword);
                         this.getProfileChangePasswordWindow().destroy();
                     }
-                    if(data === 'failed'){
+                    if(data === 'current password'){
                         Ext.MessageBox.alert('Error', this.failed_toChangePassword);
                     }
                 }
             });
+        }else{
+            Ext.MessageBox.alert('Error','Password does not match');
+        }
 
-        //     }else{
-        //          Ext.MessageBox.alert('Error', 'Please check fields');
 
-        // }
 
 
     },
