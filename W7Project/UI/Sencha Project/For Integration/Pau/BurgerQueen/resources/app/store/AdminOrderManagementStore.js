@@ -25,33 +25,7 @@ Ext.define('BurgerQueen.store.AdminOrderManagementStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             model: 'BurgerQueen.model.AdminOrderManagementModel',
-            storeId: 'AdminOrderManagementStore',
-            data: [
-                {
-                    adminUserlId: 29,
-                    adminOrderId: 315,
-                    adminOrderUsername: 'druiz',
-                    adminOrderQuantity: 291,
-                    adminOrderDate: '5/5/2001',
-                    adminOrderManagementStatus: 'Waiting'
-                },
-                {
-                    adminUserlId: 855,
-                    adminOrderId: 508,
-                    adminOrderUsername: 'hfisher',
-                    adminOrderQuantity: 132,
-                    adminOrderDate: '6/28/2001',
-                    adminOrderManagementStatus: 'Waiting'
-                },
-                {
-                    adminUserlId: 331,
-                    adminOrderId: 498,
-                    adminOrderUsername: 'hlee',
-                    adminOrderQuantity: 490,
-                    adminOrderDate: '7/9/2004',
-                    adminOrderManagementStatus: 'Waiting'
-                }
-            ]
+            storeId: 'AdminOrderManagementStore'
         }, cfg)]);
     }
 });

@@ -245,47 +245,47 @@ Ext.define('BurgerQueen.controller.HomePage', {
             success : function(response) {
                 var data = Ext.decode(response.responseText);
 
-                   if(!Ext.isEmpty(data)){
+                if(!Ext.isEmpty(data)){
 
-                       currentLoginUser = data;
-                       this.displayForSessions();
-                   }
+                    currentLoginUser = data;
+                    this.displayForSessions();
+                }
             }
         });
 
 
-                var userStore = Ext.getStore('UsersStore');
+        var userStore = Ext.getStore('UsersStore');
 
-                Ext.Ajax.request({
-                    url : 'user/getAllUsers',
-                    params : {
+        Ext.Ajax.request({
+            url : 'user/getAllUsers',
+            params : {
 
-                    },
-                    scope : this,
-                    success : function(response) {
-                        var data = Ext.decode(response.responseText);
-                        Ext.each(data, function(record){
-                            var users = {
-                                id:record.id,
-                                Username:record.username,
-                                Password:record.password,
-                                Firstname:record.firstname,
-                                Middlename:record.middlename,
-                                Lastname:record.lastname,
-                                Gender:record.gender,
-                                Email:record.email,
-                                Address:record.address,
-                                Contact:record.contactno,
-                                Disabled:record.isDisabled,
-                                Type:record.type,
-                                Level:record.userLevel,
-                                Points:record.points
+            },
+            scope : this,
+            success : function(response) {
+                var data = Ext.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var users = {
+                        id:record.id,
+                        Username:record.username,
+                        Password:record.password,
+                        Firstname:record.firstname,
+                        Middlename:record.middlename,
+                        Lastname:record.lastname,
+                        Gender:record.gender,
+                        Email:record.email,
+                        Address:record.address,
+                        Contact:record.contactno,
+                        Disabled:record.isDisabled,
+                        Type:record.type,
+                        Level:record.userLevel,
+                        Points:record.points
 
-                            };
-                            userStore.add(users);
-                        });
-                    }
+                    };
+                    userStore.add(users);
                 });
+            }
+        });
 
 
 
@@ -665,7 +665,27 @@ Ext.define('BurgerQueen.controller.HomePage', {
             this.getAdminTransactionsPanel().hide();
             this.getAdminUserPanel().hide();
             this.getAdminOrderManagementPanel().show();
-        console.log('User');
+
+        var store = Ext.getStore('AdminOrderManagementStore');
+
+                Ext.Ajax.request({
+                    url : 'order/getAllOrders',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.JSON.decode(response.responseText);
+                        Ext.each(data, function(record){
+                            var order = {
+                                id:record.id,
+                                user_id:record.userId,
+                                status:record.status
+                            };
+                            store.add(order);
+                        });
+                    }
+                });
     },
 
     onLaunch: function() {

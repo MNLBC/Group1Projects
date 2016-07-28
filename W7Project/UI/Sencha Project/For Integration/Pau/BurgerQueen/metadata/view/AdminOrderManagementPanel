@@ -8,11 +8,13 @@
     "userConfig": {
         "designer|userAlias": "adminordermanagementpanel",
         "designer|userClassName": "AdminOrderManagementPanel",
-        "height": 271,
+        "header": false,
+        "height": 331,
         "id": "AdminOrderManagementPanel",
         "itemId": "AdminOrderManagementPanel",
+        "layout": "fit",
         "title": "My Panel",
-        "width": 538
+        "width": 1111
     },
     "name": "MyPanel1",
     "designerId": "fd998168-24ad-4af8-b1f5-2091940a0d81",
@@ -27,6 +29,7 @@
             "userConfig": {
                 "bodyPadding": 10,
                 "height": 198,
+                "layout": "fit",
                 "title": "Order Management"
             },
             "name": "MyForm4",
@@ -41,8 +44,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|displayName": "AdminOrderManagementGrid",
+                        "header": false,
                         "id": "adminOrderManagementGrid",
                         "itemId": "adminOrderManagementGrid",
+                        "scroll": "vertical",
                         "store": "AdminOrderManagementStore",
                         "title": "My Grid Panel"
                     },
@@ -74,7 +79,24 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "adminUserlId",
+                                "dataIndex": "id",
+                                "designer|displayName": "adminOrderId",
+                                "id": "adminOrderId",
+                                "itemId": "adminOrderId",
+                                "text": "Order Id"
+                            },
+                            "name": "MyColumn40",
+                            "designerId": "7c2fd2f0-1790-488c-9907-b1c9d1db3a22"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "userId",
                                 "designer|displayName": "adminUserId",
                                 "id": "adminUserId",
                                 "itemId": "adminUserId",
@@ -99,58 +121,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "adminOrderId",
-                                "designer|displayName": "adminOrderId",
-                                "id": "adminOrderId",
-                                "itemId": "adminOrderId",
-                                "text": "Order Id"
-                            },
-                            "name": "MyColumn40",
-                            "designerId": "7c2fd2f0-1790-488c-9907-b1c9d1db3a22"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "adminOrderUsername",
-                                "designer|displayName": "adminUserName",
-                                "id": "adminUserName",
-                                "itemId": "adminUserName",
-                                "text": "Username"
-                            },
-                            "name": "MyColumn35",
-                            "designerId": "b43e2bc8-56e1-4342-9ac0-d1ecacee23f9"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "adminOrderDate",
-                                "designer|displayName": "adminOrderDate",
-                                "id": "adminOrderDate",
-                                "itemId": "adminOrderDate",
-                                "text": "Date"
-                            },
-                            "name": "MyColumn37",
-                            "designerId": "89de42da-aab9-4db4-84d4-6e24a8e5aec0"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "adminOrderManagementStatus",
+                                "dataIndex": "status",
                                 "designer|displayName": "adminOrderManagementStatus",
                                 "flex": 1,
                                 "id": "adminOrderManagementStatus",
@@ -170,6 +141,25 @@
                             "codeClass": null,
                             "name": "MyGridView8",
                             "designerId": "bbef537c-5b33-449a-ab45-f03f040369cd"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onAdminOrderManagementGridItemDblClick",
+                                "implHandler": [
+                                    "// Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow',{",
+                                    "//     orderManagement : record }).show();"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "name": "onAdminOrderManagementGridItemDblClick",
+                            "designerId": "2c759283-9d54-47ee-9374-d4d0b4877482"
                         }
                     ]
                 }
@@ -178,12 +168,12 @@
         {
             "type": "Ext.toolbar.Toolbar",
             "reference": {
-                "name": "items",
+                "name": "dockedItems",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "dock": null
+                "dock": "bottom"
             },
             "name": "MyToolbar15",
             "designerId": "9bf2507b-a3cd-47f2-b360-7897b8108dc0",

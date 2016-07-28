@@ -36,18 +36,68 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
         {
             ref: 'adminOrderManagementViewWindow',
             selector: '#AdminOrderManagementViewWindow'
+        },
+        {
+            ref: 'adminOrderManagementViewGrid',
+            selector: '#adminOrderManagementViewGrid'
+        },
+        {
+            ref: 'adminOrderManagementViewGrid',
+            selector: '#adminOrderManagementViewGrid'
+        },
+        {
+            ref: 'adminOrderManagementViewWindow',
+            selector: '#AdminOrderManagementViewWindow'
+        },
+        {
+            ref: 'adminOrderManagementPanel',
+            selector: '#AdminOrderManagementPanel'
+        },
+        {
+            ref: 'adminOrderManagementPanel',
+            selector: '#AdminOrderManagementPanel'
+        },
+        {
+            ref: 'adminOrderManagementViewGrid',
+            selector: '#adminOrderManagementViewGrid'
+        },
+        {
+            ref: 'adminOrderManagementViewWindow',
+            selector: '#AdminOrderManagementViewWindow'
         }
     ],
 
     onAdminDoneBttn: function(button, e, eOpts) {
-                var adminOrderManagementStore = Ext.getStore('AdminOrderManagementStore'),
-                adminOrderManagementGrid = this.getAdminOrderManagementGrid(),
-                adminOrderManagementModel = adminOrderManagementGrid.getSelectionModel(),
-                selectedProduct = adminOrderManagementModel.getSelection();
+                var store = Ext.getStore('AdminOrderManagementStore'),
+                grid = this.getAdminOrderManagementGrid(),
+                model = grid.getSelectionModel(),
+                selectedOrder = model.getSelection()[0].data;
 
-                if(!Ext.isEmpty(selectedProduct)){
-                productRecord = adminOrderManagementStore.findRecord("adminOrderId", selectedProduct[0].data.adminOrderId);
-                productRecord.set('adminOrderManagementStatus', 'Done');
+
+                if(!Ext.isEmpty(selectedOrder)){
+                    var orderRecord = store.findRecord("id",selectedOrder.id);
+                    orderRecord.set('status','DONE');
+
+
+
+                    var order = {
+                        id:selectedOrder.id,
+                        user:{
+                            id:selectedOrder.userId
+                        },
+
+                        status: 'DONE'
+                    };
+                        Ext.Ajax.request({
+                            url:'order/updateOrder',
+                            headers: { 'Content-Type': 'application/json',
+                                      'Accept': 'application/json'},
+                            jsonData:order,
+                            scope:this,
+                            success : function(response) {
+                                Ext.MessageBox.alert('Success','Order Status updated!');
+                            }
+                       });
 
                 }else{
                     Ext.MessageBox.alert('Error','Please select an item to update status');
@@ -56,8 +106,63 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
 
     },
 
-    onAdminOrderManagementPanelRender: function(component, eOpts) {
-                var store = Ext.getStore('AdminOrderManagementStore');
+    onAdminOrderManagementGridItemDblClick: function() {
+                var orderStore = Ext.getStore('AdminOrderManagementDetailsStore');
+
+                var orderGrid = this.getAdminOrderManagementGrid(),
+                    selectModel = orderGrid.getSelectionModel(),
+                    selectedOrder = selectModel.getSelection()[0].data;
+
+                var orderDetailsWin = Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow',{selectedOrder: selectedOrder});
+                orderDetailsWin.show();
+
+
+    },
+
+    onOnAdminOrderManagementBttnCloseClick: function() {
+        Ext.getCmp('AdminOrderManagementViewWindow').destroy()
+    },
+
+    onAdminOrderManagementViewWindowShow: function(component, eOpts) {
+                   var grid = Ext.getCmp('adminOrderManagementGrid'),
+                      store =  grid.getStore(),
+                                model = grid.getSelectionModel(),
+                                selected = model.getSelection()[0].data,
+                        id = selected.id;
+
+
+         Ext.Ajax.request({
+                            url : 'orderItem/getAllOrderItemsByOrderId',
+                            params : {
+                                id:id
+                            },
+                            scope : this,
+                            success : function(response) {
+                                var orderManagementStore = Ext.getStore('AdminOrderManagementDetailsStore');
+                                var data = Ext.JSON.decode(response.responseText);
+                                Ext.each(data, function(record){
+                                    var order = {
+                                        id:record.id,
+                                        meal:record.meal.name,
+                                        quantity:record.quantity
+                                    };
+                                    orderManagementStore.add(order);
+                                });
+                            }
+                        });
+    },
+
+    onBtnOrderManagementClick: function() {
+         this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminCommentsPanel().hide();
+            this.getAdminProductsPanel().hide();
+            this.getAdminTransactionsPanel().hide();
+            this.getAdminUserPanel().hide();
+            this.getAdminOrderManagementPanel().show();
+
+        var store = Ext.getStore('AdminOrderManagementStore');
+        store.removeAll();
                 Ext.Ajax.request({
                     url : 'order/getAllOrders',
                     params : {
@@ -65,15 +170,12 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
                     },
                     scope : this,
                     success : function(response) {
-                    var data = Ext.JSON.decode(response.responseText);
-                    Ext.each(data, function(record){
+                        var data = Ext.JSON.decode(response.responseText);
+                        Ext.each(data, function(record){
                             var order = {
-                                Id:record.id,
-                                Code:record.code,
-                                Name:record.name,
-                                Description:record.description,
-                                Category:record.category,
-                                Price:record.price,
+                                id:record.id,
+                                userId:record.user.id,
+                                status:record.status
                             };
                             store.add(order);
                         });
@@ -81,9 +183,65 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
                 });
     },
 
-    onAdminOrderManagementGridItemDblClick: function() {
-        alert('gumana');
-                Ext.create('BurgerQueen.view.AdminOrderManagementViewWindow').show();
+    onBtnOrderManagementClick: function() {
+         this.getProducts().hide();
+            this.getUserProfile().hide();
+            this.getAdminCommentsPanel().hide();
+            this.getAdminProductsPanel().hide();
+            this.getAdminTransactionsPanel().hide();
+            this.getAdminUserPanel().hide();
+            this.getAdminOrderManagementPanel().show();
+
+        var store = Ext.getStore('AdminOrderManagementStore');
+
+                Ext.Ajax.request({
+                    url : 'order/getAllOrders',
+                    params : {
+
+                    },
+                    scope : this,
+                    success : function(response) {
+                        var data = Ext.JSON.decode(response.responseText);
+                        Ext.each(data, function(record){
+                            var order = {
+                                id:record.id,
+                                user_id:record.user.id,
+                                status:record.status
+                            };
+                            store.add(order);
+                        });
+                    }
+                });
+    },
+
+    onAdminOrderManagementViewWindowShow: function(component, eOpts) {
+
+        var grid = Ext.getCmp('adminOrderManagementGrid'),
+            store =  grid.getStore(),
+            model = grid.getSelectionModel(),
+            selected = model.getSelection()[0].data,
+            id = selected.id;
+
+
+        Ext.Ajax.request({
+            url : 'orderItem/getAllOrderItemsByOrderId',
+            params : {
+                id:id
+            },
+            scope : this,
+            success : function(response) {
+                var orderManagementStore = Ext.getStore('AdminOrderManagementDetailsStore');
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.each(data, function(record){
+                    var order = {
+                        id:record.id,
+                        meal:record.meal.name,
+                        quantity:record.quantity
+                    };
+                    orderManagementStore.add(order);
+                });
+            }
+        });
     },
 
     init: function(application) {
@@ -91,11 +249,19 @@ Ext.define('BurgerQueen.controller.AdminOrderManagement', {
             "#adminDoneBttn": {
                 click: this.onAdminDoneBttn
             },
-            "#AdminOrderManagementPanel": {
-                render: this.onAdminOrderManagementPanelRender
-            },
             "#adminOrderManagementGrid": {
                 itemdblclick: this.onAdminOrderManagementGridItemDblClick
+            },
+            "#onAdminOrderManagementBttnClose": {
+                click: this.onOnAdminOrderManagementBttnCloseClick
+            },
+            "#AdminOrderManagementViewWindow": {
+                show: this.onAdminOrderManagementViewWindowShow,
+                show: this.onAdminOrderManagementViewWindowShow
+            },
+            "#btnOrderManagement": {
+                click: this.onBtnOrderManagementClick,
+                click: this.onBtnOrderManagementClick
             }
         });
     }

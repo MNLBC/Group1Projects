@@ -32,7 +32,8 @@ Ext.application({
         'TransactionDetailsModel',
         'CommentsModel',
         'UsersModel',
-        'AdminOrderManagementModel'
+        'AdminOrderManagementModel',
+        'AdminOrderManagementDetailsModel'
     ],
     stores: [
         'ProductStore',
@@ -42,7 +43,8 @@ Ext.application({
         'TransactionDetailsStore',
         'CommentsStore',
         'UsersStore',
-        'AdminOrderManagementStore'
+        'AdminOrderManagementStore',
+        'AdminOrderManagementDetailsStore'
     ],
     views: [
         'MyViewport',

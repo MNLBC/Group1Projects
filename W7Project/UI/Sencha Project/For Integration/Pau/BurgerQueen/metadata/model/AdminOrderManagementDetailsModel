@@ -6,11 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "AdminOrderManagementModel",
-        "idProperty": "adminOrderId"
+        "designer|userClassName": "AdminOrderManagementDetailsModel"
     },
     "name": "MyModel",
-    "designerId": "f0a38a15-3541-4460-a5e2-77dd19fbfbf4",
+    "designerId": "6f6b615e-7626-473a-8984-bfcc782d0eb9",
     "cn": [
         {
             "type": "Ext.data.Field",
@@ -22,8 +21,8 @@
             "userConfig": {
                 "name": "id"
             },
-            "name": "MyField42",
-            "designerId": "6ab18082-1199-4484-bd9b-17a8126a95e9"
+            "name": "MyField37",
+            "designerId": "efd471f0-0fe3-451f-9ce1-3ad41f4e7461"
         },
         {
             "type": "Ext.data.Field",
@@ -33,10 +32,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "userId"
+                "name": "meal"
             },
-            "name": "MyField38",
-            "designerId": "4ae257b0-01d3-4479-8256-726a4fea4e89"
+            "name": "MyField40",
+            "designerId": "ddfb0b6c-11f7-47d5-9de7-2d1d96140154"
         },
         {
             "type": "Ext.data.Field",
@@ -46,10 +45,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "status"
+                "name": "quantity"
             },
-            "name": "MyField41",
-            "designerId": "496a58ca-dfc2-4919-8cc0-09f7d0c83a3d"
+            "name": "MyField43",
+            "designerId": "c41432ad-3f83-4cbd-a097-38913aa5d5d5"
         }
     ]
 }
