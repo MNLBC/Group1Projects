@@ -169,6 +169,15 @@ Ext.define('BurgerQueen.view.AdminUserPanel', {
                             itemId: 'btnDisable',
                             width: 100,
                             text: 'Disable'
+                        },
+                        {
+                            xtype: 'button',
+                            disabled: true,
+                            height: 45,
+                            id: 'btnManage',
+                            itemId: 'btnManage',
+                            width: 100,
+                            text: 'Manage'
                         }
                     ]
                 }

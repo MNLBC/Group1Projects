@@ -48,7 +48,11 @@ Ext.define('BurgerQueen.view.WinUserEdit', {
                     margin: 20,
                     fieldLabel: 'User Type',
                     labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
-                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;'
+                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                    displayField: 'type',
+                    queryMode: 'local',
+                    store: 'UserTypeStore',
+                    valueField: 'type'
                 },
                 {
                     xtype: 'textfield',
@@ -57,7 +61,8 @@ Ext.define('BurgerQueen.view.WinUserEdit', {
                     margin: 20,
                     fieldLabel: 'Points',
                     labelStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
-                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;'
+                    fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
+                    inputType: 'number'
                 },
                 {
                     xtype: 'button',

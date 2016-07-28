@@ -63,7 +63,8 @@ Ext.application({
          ],
     controllers: [
         'HomePage',
-        'Windows'
+        'Windows',
+        'AdminUser'
     ],
     name: 'BurgerQueen',
 
