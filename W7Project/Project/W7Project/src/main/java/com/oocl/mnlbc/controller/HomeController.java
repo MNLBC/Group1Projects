@@ -18,37 +18,64 @@ import com.oocl.mnlbc.service.impl.HomeService;
  */
 @Controller
 public class HomeController {
-
+	
+	/**
+	 * Automatic instantiation of home Service
+	 */
 	@Autowired
 	HomeService homeService;
-
+	
+	/**
+	 * This request is for  accesing the homepage.
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		return homeService.home();
 	}
-
+	
+	/**
+	 * This request is for accessing using index url.
+	 * @return
+	 */
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return homeService.index();
 	}
-
+	
+	/**
+	 * This request is for accessing using admin url.
+	 * @return
+	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin() {
 		return homeService.admin();
 	}
-
+	
+	/**
+	 * This request is for getting all the logged users.
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getLoggedUsers" }, method = RequestMethod.GET)
 	public List<User> getAllLoggedUsers(HttpSession session) {
 		return homeService.getAllLoggedUsers(session);
 	}
-
+	
+	/**
+	 * This request is for getting the user session.
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getUserSession" }, method = RequestMethod.GET)
 	private User getUserSession(HttpSession session) {
 		return homeService.getUserSession(session);
 	}
-
+	
+	/**
+	 * This request is for getting all the visitors of the page.
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/visitor" }, method = RequestMethod.GET)
 	public int getVisitors(HttpSession session) {

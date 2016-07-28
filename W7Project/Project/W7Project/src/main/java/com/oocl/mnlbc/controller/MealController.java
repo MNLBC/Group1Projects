@@ -25,34 +25,57 @@ import com.oocl.mnlbc.service.impl.MealService;
 @Controller
 @RequestMapping("/meal")
 public class MealController {
-
+	
+	/**
+	 * Automatic instantiation of meal Service
+	 */
 	@Autowired
 	MealService mealService;
 	
+	/**
+	 * This request is for getting all the meals using GET.
+	 * 
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getAllMeals" }, method = RequestMethod.GET)
 	public List<Meal> getAllMeals() {
 		return mealService.getAllMeals();
 	}
 	
+	/**
+	 * This request is for getting meal using id by GET.
+	 * 
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getMealByID/{id}" }, method = RequestMethod.GET)
 	public Meal getMealByID(@PathVariable("id") int id) {
 		return mealService.getMealByID(id);
 	}
 	
+	/**
+	 * This request is for getting meal using code by GET.
+	 * 
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/getMealByCode/{code}" }, method = RequestMethod.GET)
 	public Meal getMealByCode(@PathVariable("code") String code) {
 		return mealService.getMealByCode(code);
 	}
 	
+	/**
+	 * This request is for adding meal using POST.
+	 * 
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/addMeal" }, method = RequestMethod.POST)
 	public boolean addMeal(@RequestBody Meal meal) {
 		return mealService.addMeal(meal);
 	}
 	
+	/**
+	 * This request is for checking meal code if already exists using POST.
+	 * 
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "/checkMealCode" }, method = RequestMethod.POST)
 	public boolean checkMealCode(@RequestParam(required=true) String code) {
