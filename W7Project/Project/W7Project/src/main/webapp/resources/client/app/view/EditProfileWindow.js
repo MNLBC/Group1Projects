@@ -107,8 +107,7 @@ Ext.define('BurgerQueen.view.EditProfileWindow', {
                             fieldStyle: 'text-align: center; font-family:\'Abel\' ; font-size:18px;',
                             allowBlank: false,
                             allowOnlyWhitespace: false,
-                            emptyText: 'Contact Number',
-                            regex: '^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$'
+                            emptyText: 'Contact Number'
                         },
                         {
                             xtype: 'button',

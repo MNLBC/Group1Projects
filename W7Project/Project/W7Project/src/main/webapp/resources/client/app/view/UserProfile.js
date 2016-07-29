@@ -211,7 +211,6 @@ Ext.define('BurgerQueen.view.UserProfile', {
                                     itemId: 'transactionHistoryGrid',
                                     autoScroll: true,
                                     title: 'Recent Transactions',
-                                    hideHeaders: true,
                                     store: 'TransactionStore',
                                     columns: [
                                         {
