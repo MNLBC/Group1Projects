@@ -1,0 +1,52 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TrayStore",
+        "model": "TrayModel",
+        "storeId": "TrayStore"
+    },
+    "name": "MyStore",
+    "designerId": "a50727e3-1fa2-4d09-a572-a06bb7a2095a",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onStoreDataChangeD",
+                "implHandler": [
+                    "var trays =[];",
+                    "",
+                    "Ext.each(store.getRange(),function(record){",
+                    "    trays.push(record.data);",
+                    "});",
+                    "",
+                    "",
+                    "Ext.Ajax.request({",
+                    "                            url : 'tray/setTraySession',",
+                    "                            params : {",
+                    "                                'trays':Ext.JSON.encode(trays)",
+                    "                            },",
+                    "                            scope : this,",
+                    "                            success : function(response) {",
+                    "                                //var data = Ext.JSON.decode(response.responseText);",
+                    "",
+                    "                            }",
+                    "                        });"
+                ],
+                "name": "datachanged",
+                "scope": "me"
+            },
+            "name": "onStoreDataChangeD",
+            "designerId": "3b405baa-76cf-45c6-8a27-523c8cb1e386"
+        }
+    ]
+}

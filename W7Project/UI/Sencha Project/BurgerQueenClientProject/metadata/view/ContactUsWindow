@@ -1,0 +1,159 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ContactUsWindow",
+        "height": 330,
+        "id": "contactUsWindow",
+        "itemId": "contactUsWindow",
+        "modal": true,
+        "title": "",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "6c6d70a5-9d05-4f30-bd1e-45f706c4f069",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": [
+                    "<center><div id=\"nav\"><h1 style = 'font-family: Arial; color:#565652;' >Contact Us!</h1></div></center>"
+                ]
+            },
+            "name": "MyContainer17",
+            "designerId": "fec24b4d-314a-4586-80b2-76571393842a"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox"
+            },
+            "name": "MyContainer18",
+            "designerId": "1308ccf9-a2c1-4e68-9224-a028b1107efc",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "header": false,
+                        "id": "contactUsForm",
+                        "itemId": "contactUsForm",
+                        "layout|flex": 1,
+                        "title": "My Form"
+                    },
+                    "name": "MyForm7",
+                    "designerId": "d0b6d987-f8af-4b1e-962c-676cf43a4372",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "style": [
+                                    "font-family:'Abel';",
+                                    "font-size: 20px;"
+                                ],
+                                "text": "Branch:Grand BayView Hotel Zhuhai, China"
+                            },
+                            "name": "MyLabel",
+                            "designerId": "3d18774e-28bc-4ed5-9216-bb205c692a00"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "margin": "",
+                                "padding": "",
+                                "style": [
+                                    "font-family:'Abel';",
+                                    "font-size: 20px;"
+                                ],
+                                "text": "Contact Number: 09123456789"
+                            },
+                            "name": "MyLabel1",
+                            "designerId": "4bc09bf0-cb66-4483-9a31-d40c7458b8ad"
+                        },
+                        {
+                            "type": "Ext.form.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Comments:",
+                                "height": 97,
+                                "hidden": true,
+                                "id": "commentBox",
+                                "itemId": "commentBox",
+                                "labelStyle": "font-family:'Abel';font-size:18px;",
+                                "width": 351
+                            },
+                            "name": "MyTextArea1",
+                            "designerId": "eb60913e-2117-40fa-9977-36b426210072"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyContainer19",
+                            "designerId": "4f05b483-36e8-4766-89db-06aeff15bbe5"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 35,
+                                "hidden": true,
+                                "id": "btnSubmitComment",
+                                "itemId": "btnSubmitComment",
+                                "margin": "0 0 0 250",
+                                "text": "Submit",
+                                "width": 100
+                            },
+                            "name": "MyButton22",
+                            "designerId": "2d0f2838-21f3-45bc-ab1a-1ed47ddea35c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
