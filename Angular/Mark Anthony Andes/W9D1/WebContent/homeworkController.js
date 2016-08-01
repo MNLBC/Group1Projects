@@ -24,7 +24,7 @@ app.controller('basicsCtrl', [ '$scope', '$routeParams', '$location',
 				phone : '2346234236'
 			} 
 			];
-			$scope.showAlert = function(data) {
+			$scope.showInfo = function(data) {
 				$location.path('/' + data.fullname);
 				$scope.info = data;
 				console.log(data.fullname)
