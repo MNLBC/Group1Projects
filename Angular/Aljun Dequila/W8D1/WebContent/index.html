@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>AngularJS Homework</title>
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="lib/controller.js"></script>
+<link href="lib/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="appJS" ng-controller="initController">
+	<div>
+		<h2 align="center">
+			Search: <input ng-model="searchField">
+		</h2>
+	</div>
+	<div>
+		<table id="searchTextResults">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+			<tr ng-repeat="data in list | filter:searchField"
+				ng-dblclick="showAlert(data)">
+				<td>{{data.name}}</td>
+				<td>{{data.email}}</td>
+				<td>{{data.phone}}</td>
+			</tr>
+		</table>
+	</div>
+	<div ng-view></div>
+</body>
+</html>
