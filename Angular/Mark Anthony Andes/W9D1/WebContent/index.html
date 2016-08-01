@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Work - Mark Anthony Andes</title>
+
+<script type="text/javascript" src="angular.js"></script>
+<script data-require="jquery@*" data-semver="2.1.4"
+	src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+<script data-require="bootstrap@*" data-semver="3.3.2"
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script data-require="angular.js@*" data-semver="2.0.0-alpha.26"
+	src="https://code.angularjs.org/2.0.0-alpha.26/angular.js"></script>
+<script data-require="smart-table@*" data-semver="1.4.13"
+	src="https://raw.githubusercontent.com/lorenzofox3/Smart-Table/v1.4.13/dist/smart-table.js"></script>
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="homeworkController.js"></script>
+<script src="angular-route.js"></script>
+
+</head>
+<body ng-app="myapp" ng-controller="basicsCtrl">
+	<div class="container-fluid holds-all">
+		<div class="rows-fluid">
+			<!-- COL - Holds Profile -->
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="container-fluid">
+					<div class="row-fluid">
+						<div>
+							<div class="panel panel-info">
+								<div class="panel-body addtoppad">
+									<div class="row-fluid">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+											<table st-table="rowCollection" class="table table-striped">
+												<thead>
+													<tr>
+														<th><input ng-model="searchField"
+															placeholder="Search Fullname"
+															class="input-sm form-control" type="search" /></th>
+													</tr>
+													<tr>
+														<th st-sort="firstName">First name</th>
+														<th st-sort="lastName">Last name</th>
+														<th st-sort="phone">Phone</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="row in rowCollection  | filter:searchField"
+														ng-dblclick="showAlert(row)">
+														<td>{{row.fullname}}</td>
+														<td>{{row.email}}</td>
+														<td>{{row.phone}}</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="5" class="text-center">
+															<div st-pagination="" st-items-by-page="itemsByPage"
+																st-displayed-pages="7"></div>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									<div ng-view></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
