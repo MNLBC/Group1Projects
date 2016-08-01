@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>	
+</head>
+<body>
+	<div class="container" ng-controller="MainCtrl">
+		<input type="text" name="name" ng-model="name">
+		<input type="button" name="search" ng-click='searchButtonClicked()' value="Search">
+		<input type="button" ng-click="viewRecord()" value="View" ng-show="displayView"><br>
+		 <div  ui-grid="gridOptions" ui-grid-selection  class="grid"></div>
+	</div>
+
+	
+</body>
+</html>
