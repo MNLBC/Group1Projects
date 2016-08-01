@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+<meta charset="utf-8">
+<title>Home Work</title>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<script src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+<center>
+	<table class="table table-striped">
+		<center>
+			<thead>
+				<input type="text" name="name" placeholder="Search" ng-model = "searchValue">
+				<input type="button" name="search" value="Search"
+					ng-click="onSearchBtnClick()">
+			</thead>
+		</center>
+		<tbody>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+			<tr ng-repeat="data in myData" ng-dblclick="onDblClickView(data)">
+				<th ng-bind="data.firstName"></th>
+				<td ng-bind="data.lastName"></td>
+				<td ng-bind="data.email"></td>
+			</tr>
+		</tbody>
+	</table>
+<div ng-view></div>
+</center>
+</body>
+</html>
