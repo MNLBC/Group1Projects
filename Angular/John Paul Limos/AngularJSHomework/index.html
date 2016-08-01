@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Angular JS Grid Homework</title>
+    <script src = "js/angular.js"></script>
+    <script src = "js/angular-route.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+<center>
+    <input type="text" name="name" ng-model="searchKey" placeholder="Search Person">
+    <input type="button" name="search" value = "Search" ng-click="searchText()">
+</center>
+<table style = "width:100%;" border="1" >
+<tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Phone</td>
+</tr>
+  <tr ng-repeat="info in peopleData" ng-dblclick="gridDblClick(info)">
+    <td ng-bind="info.firstname"></td>
+    <td ng-bind="info.lastname"></td>
+    <td ng-bind="info.email"></td>
+    <td ng-bind="info.phone"></td>
+  </tr>
+</table>
+<div ng-view></div>
+</body>
+</html>
