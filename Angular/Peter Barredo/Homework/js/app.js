@@ -2,7 +2,7 @@ var app = angular.module('app', ['ui.grid', 'ui.grid.selection','ngRoute']);
 app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
 	$scope.name = '';
 	$scope.displayView = false;
-	$scope.rowSelectedEntity = false;
+	rowSelectedEntity = false;
 
 	$scope.myData = [{
 		"name": "Peter Barredo",
@@ -19,11 +19,17 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
 		"email": "limos@yahoo.com",
 		"phone": "454575"
 
+	}, {
+		"name": "Pauline Racelis",
+		"email": "pau@yahoo.com",
+		"phone": "232375"
+
 	}];
 
 	$scope.gridOptions = {
 		enableRowSelection: true,
 		enableRowHeaderSelection: false,
+		data: $scope.myData,
 		multiSelect : false,
 		columnDefs : [
 		{ field: 'name', displayName: 'Name' },
@@ -31,7 +37,6 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
 		{ field: 'phone', displayName: 'Phone' }
 		]
 	};
-	$scope.mySelections = [];
 
 	
 	$scope.gridOptions.onRegisterApi = function (gridApi) {
@@ -39,6 +44,7 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
                 gridApi.selection.on.rowSelectionChanged($scope, function(row){
                 	if(row.isSelected){
 						$scope.rowSelectedEntity = row.entity;
+						rowSelectedEntity = row.entity;
 						$scope.displayView = true;
                 	}else{
                 		$scope.rowSelectedEntity = false;
@@ -47,13 +53,13 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
                 	
                 });
         };
-    $scope.gridOptions.data = $scope.myData;
+    
 	
 
 	$scope.searchButtonClicked = function(){
 		$scope.gridOptions.data = [];
 		angular.forEach($scope.myData, function(value, key) {
-		  	var input = $scope.name.toLowerCase();
+		  	var input = $scope.name.toLowerCase(),
 		  		name = value.name.toLowerCase();
 		  	if(name.indexOf(input) != -1){
 		  		$scope.gridOptions.data.push(value);
@@ -63,19 +69,26 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
 	}
 
 	$scope.viewRecord = function(){
+		if(!$scope.rowSelectedEntity){
+			alert('No Selected grid record');
+		}
 		$location.path('/view');
 	}
 
 }]);
+app.controller('viewCtrl', ['$scope', function($scope){
+	$scope.rowSelectedEntity = rowSelectedEntity;
+}]);
+
 app.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
 		.when("/", {
        		 templateUrl : 'main.html',
-       		 controller: 'MainCtrl'
+       		 controller : 'MainCtrl'
     	})
 		.when('/view', {
 			templateUrl: 'view.html',
-			controller: 'MainCtrl'
+			controller : 'viewCtrl'
 		});
 	}
 ]);
