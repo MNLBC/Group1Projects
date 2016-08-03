@@ -3,9 +3,9 @@
 <head>	
 </head>
 <body>
-	<input type="text" ng-model="name">
-	<input type="button" name="search" ng-click='searchButtonClicked()' value="Search">
-	<input type="button" ng-click="viewRecord()" value="View" ng-show="displayView"><br>
+	<br>
+	Search Student by Name: <input type="text" ng-model="name">
+	<input type="button" name="search" ng-click='searchButtonClicked()' value="Search"><br><br>
 	<div  ui-grid="gridOptions" ui-grid-selection  class="grid"></div>
 </body>
 </html>

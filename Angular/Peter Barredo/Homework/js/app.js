@@ -1,5 +1,5 @@
-var app = angular.module('app', ['ui.grid', 'ui.grid.selection','ngRoute']);
-app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
+var app = angular.module('app', ['ui.grid', 'ui.grid.selection', 'ngRoute']);
+app.controller('MainCtrl', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
 	$scope.name = '';
 	$scope.displayView = false;
 	rowSelectedEntity = false;
@@ -30,65 +30,69 @@ app.controller('MainCtrl',['$scope', '$routeParams', '$location', function($scop
 		enableRowSelection: true,
 		enableRowHeaderSelection: false,
 		data: $scope.myData,
-		multiSelect : false,
-		columnDefs : [
-		{ field: 'name', displayName: 'Name' },
-		{ field: 'email', displayName: 'Email' },
-		{ field: 'phone', displayName: 'Phone' }
-		]
+		multiSelect: false,
+		appScopeProvider: {
+			onDblClick: function(row) {
+				$location.path('/view');
+			}
+		},
+		rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell ></div>",
+		noUnselect: true,
+		columnDefs: [{
+			field: 'name',
+			displayName: 'Name'
+		}, {
+			field: 'email',
+			displayName: 'Email'
+		}, {
+			field: 'phone',
+			displayName: 'Phone'
+		}]
 	};
 
-	
-	$scope.gridOptions.onRegisterApi = function (gridApi) {
-                $scope.gridApi = gridApi;
-                gridApi.selection.on.rowSelectionChanged($scope, function(row){
-                	if(row.isSelected){
-						$scope.rowSelectedEntity = row.entity;
-						rowSelectedEntity = row.entity;
-						$scope.displayView = true;
-                	}else{
-                		$scope.rowSelectedEntity = false;
-                		$scope.displayView = false;
-                	}
-                	
-                });
-        };
-    
-	
 
-	$scope.searchButtonClicked = function(){
+
+	$scope.gridOptions.onRegisterApi = function(gridApi) {
+		$scope.gridApi = gridApi;
+		gridApi.selection.on.rowSelectionChanged($scope, function(row) {
+			if (row.isSelected) {
+				rowSelectedEntity = row.entity;
+				$scope.displayView = true;
+			} else {
+				$scope.displayView = false;
+			}
+
+		});
+	};
+
+
+
+	$scope.searchButtonClicked = function() {
 		$scope.gridOptions.data = [];
 		angular.forEach($scope.myData, function(value, key) {
-		  	var input = $scope.name.toLowerCase(),
-		  		name = value.name.toLowerCase();
-		  	if(name.indexOf(input) != -1){
-		  		$scope.gridOptions.data.push(value);
-		  	}
+			var input = $scope.name.toLowerCase(),
+				name = value.name.toLowerCase();
+			if (name.indexOf(input) != -1) {
+				$scope.gridOptions.data.push(value);
+			}
 
 		});
 	}
 
-	$scope.viewRecord = function(){
-		if(!$scope.rowSelectedEntity){
-			alert('No Selected grid record');
-		}
-		$location.path('/view');
-	}
 
 }]);
-app.controller('viewCtrl', ['$scope', function($scope){
+app.controller('viewCtrl', ['$scope', function($scope) {
 	$scope.rowSelectedEntity = rowSelectedEntity;
 }]);
 
 app.config(['$routeProvider', function($routeProvider) {
-		$routeProvider
+	$routeProvider
 		.when("/", {
-       		 templateUrl : 'main.html',
-       		 controller : 'MainCtrl'
-    	})
+			templateUrl: 'main.html',
+			controller: 'MainCtrl'
+		})
 		.when('/view', {
 			templateUrl: 'view.html',
-			controller : 'viewCtrl'
+			controller: 'viewCtrl'
 		});
-	}
-]);
+}]);
