@@ -1,0 +1,40 @@
+{
+  "name": "public",
+  "authors": [
+    "pvbarredo <peter.emmanuel.barredo@oocl.com>"
+  ],
+  "description": "front end",
+  "main": "",
+  "keywords": [
+    "project"
+  ],
+  "license": "MIT",
+  "homepage": "indext.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.5.3",
+    "angular-route": "~1.5.3",
+    "components-font-awesome": "^4.5.0",
+    "angular-dialog-service": "^5.3.0",
+    "angular-bootstrap-datetimepicker-github": "^1.0.1",
+    "angular-notify": "^2.5.0",
+    "lodash": "^4.8.2",
+    "angular-animate": "^1.5.3",
+    "angular-ui-grid": "^3.1.1",
+    "angular-bootstrap-contextmenu": "^0.9.7",
+    "angular-ui": "^0.4.0",
+    "angular-ui-utils": "ui-utils#^3.0.0",
+    "util": "^3.46.1",
+    "angular-ui-select": "^0.17.1",
+    "angular-cookies": "~1.4.7",
+    "moment": "~2.9.0",
+    "sweetalert": "^1.1.3"
+  }
+}

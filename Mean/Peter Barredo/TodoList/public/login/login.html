@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login </title>
+</head>
+<body >
+	
+	<form class="form-horizontal" ng-controller="loginCtrl">
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Login</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="textinput">Username:</label>  
+		  <div class="col-md-4">
+		  <input id="textinput" name="textinput" ng-model="username" class="form-control input-md" type="text">
+		    
+		  </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="passwordinput">Password</label>
+		  <div class="col-md-4">
+		    <input id="passwordinput" name="passwordinput" ng-model="password" class="form-control input-md" type="password">
+		    
+		  </div>
+		</div>
+
+		<!-- Button (Double) -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for=""></label>
+		  <div class="col-md-4">
+		    <button id="" name="" class="btn btn-success" ng-click="login()">Login</button>
+		    <button id="" name="" class="btn ">Cancel</button>
+		  </div>
+		</div>
+
+		</fieldset>
+	</form>
+
+</body>
+</html>
