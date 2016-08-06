@@ -1,0 +1,7 @@
+.ui-grid-header {
+ height: 75px; 
+}
+
+.pull-right {
+  float: right !important;
+}
