@@ -1,0 +1,19 @@
+<div class="col-md-4 col-md-offset-4" style="border:ridge; border-color: white;padding: 2%;">
+    <div style="text-align: center">
+    <h2 style="font-family: 'Monotype Corsiva'; color: whitesmoke; font-weight: bold">Login</h2>
+    </div>
+    <div ng-controller="loginCtrl">
+        <div class="form-group">
+            <!--<label for="username">Username</label>-->
+            <input  placeholder="Username" type="text" name="username" id="username" class="form-control" ng-model="username" required />
+        </div>
+        <div class="form-group">
+            <!--<label for="password">Password</label>-->
+            <input placeholder="Password" type="password" name="password" id="password" class="form-control" ng-model="password" required />
+        </div>
+        <div class="form-actions" align="right">
+            <button type="submit" ng-click="login(username,password)" class="btn btn-primary">Login</button>
+           <p style="color: red; float: left">{{error}}</p>
+        </div>
+    </div>
+</div>

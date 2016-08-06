@@ -1,0 +1,130 @@
+<div class="container" ng-controller="toDoListCtrl">
+    <div>
+        <p style="text-align: right;color: whitesmoke "> Welcome {{username}}!
+            <button class="btn btn-primary" ng-click="logoutButtonClicked()">Logout</button>
+        </p>
+
+    </div>
+    <div class="form-group">
+        <div class="form-actions">
+            <button class="btn btn-success" ng-click="addButtonClicked()">Add</button>
+        </div>
+        <div class="form-group">
+            <div ui-grid="gridOptions" ui-grid-selection class="grid"></div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-danger" style="float: right" ng-click="removeToList()">Delete</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for adding Task-->
+    <div class="modal fade" id="newTodoList" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form name="validate">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Task</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">New Task</label>
+                                <div class="col-md-6">
+                            <textarea required name="textarea" rows="10" cols=30 ng-model="newTask"
+                                      style="width: 330px; height: 150px;"
+                                      placeholder="What is in your mind?"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Priority</label>
+                                <div class="col-md-6 selectContainer">
+                                    <select required class="form-control" ng-model="priority">
+                                        <option value="">Choose a priority</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Med">Med</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" ng-disabled="validate.$invalid" class="btn btn-success"
+                                ng-click="addTodoButtonClicked(newTask,priority)"
+                                data-dismiss="modal">Add
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Modal Update Task-->
+    <div class="modal fade" id="updateTask" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Task</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Task</label>
+                                <div class="col-md-6">
+                            <textarea required name="textarea" rows="10" cols=30 ng-model="selected.message"
+                                      style="width: 330px; height: 150px;"
+                                      placeholder="What is in your mind?"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Priority</label>
+                                <div class="col-md-6 selectContainer">
+                                    <select required class="form-control" ng-model="selected.priority">
+                                        <option value="Low">Low</option>
+                                        <option value="Med">Med</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Status</label>
+                                <div class="col-md-6 selectContainer">
+                                    <select required class="form-control" ng-model="selected.status">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Done">Done</option>
+                                        <option value="Canceled">Canceled</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success"
+                                    ng-click="updateTodoClicked(selected.message,selected.priority,selected.status)"
+                                    data-dismiss="modal">
+                                Update
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>

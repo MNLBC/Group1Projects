@@ -1,0 +1,83 @@
+* {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    font-family: calibri;
+}
+.strike span {
+    text-decoration: line-through;
+    color: #ccc;
+}
+.notes {
+    padding: 20px;
+}
+.note {
+    padding: 10px;
+    font-size: 21px;
+    border-bottom: 1px solid;
+}
+.note .btn {
+    margin-left: 5px;
+    width: 90px;
+}
+.note:hover {
+    background: #e7e7e7;
+}
+@media (max-width: 991px) {
+    .note .btn {
+        margin-bottom: 10px;
+    }
+    .note input[type=checkbox] {
+        width: 25px;
+        height: 25px;
+    }
+}
+@media (max-width: 991px) {
+    .note .btn-warning {
+        margin-top: 10px;
+        margin-left: 0px
+    }
+}
+
+@media (max-width: 450px) {
+    .note .col-xs-8 {
+        width: 85%;
+    }
+    .note .col-xs-4 {
+        width: 100%;
+        text-align: center;
+        border-top: 1px dashed #aaa;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .note .col-xs-8 {
+        width: 85%;
+    }
+    .note .col-xs-4 {
+        width: 100%;
+        text-align: center;
+        border-top: 1px dashed #aaa;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+}
+
+.searchbar {
+    top: 1px
+}
+body{
+    /*background-image: url('/../public/css/backgroundview.jpg')   no-repeat center center fixed;*/
+    /*background-size:     cover;*/
+    /*background-repeat:   no-repeat;*/
+    /*background-position: center center;*/
+
+    background: url('/../public/css/backgroundview.jpg')  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
