@@ -1,52 +1,13 @@
-userApp.controller('userCtrl', function ($rootScope, $scope, $location, userFactory) {
-
-	$scope.allusers = [];
-	userdata = false;
-	$scope.hasError = false;
-
-	$scope.loginBtn = function() {
-		var uname = $scope.username,
-		pword = $scope.password;
-		if(uname !=null && pword!=null){
-			var check = $scope.getUser(uname,pword);
-			if(check){
-				$location.path('/user');	
-			} else{
-				$scope.alertValid = "Username and Password are incorrect.";
-				$scope.hasError = true;
-			}
-		}else{
-			$scope.alertValid = "Please fill up all the fields.";
-			$scope.hasError = true;
-		}
-	};
-
-	$scope.getUser = function(username,password){
-		var check = false;
-		angular.forEach($scope.allusers, function(value,key){
-			if(value.username === username && value.password === password){
-				 userFactory.getUser({
-				 	"username": username,
-				 	"password": password
-				 }).then(function(data){
-					userdata = data.data[0];				 	
-				 });
-				 check = true;
-			}
-		});
-		return check;
-	};
-
-    userFactory.getUsers().then(function (data) {
-    	$scope.allusers = data.data;
-    });
-});
-
-userApp.controller('taskCtrl', function ($scope,userFactory) {
+userApp.controller('taskCtrl', function ($scope, $location,userFactory) {
 	$scope.userdata = userdata;
 	$scope.usertask = $scope.userdata.task;
 	$scope.selectedRow = false;
 	$scope.selectedRowIndex = false;
+	$scope.addPriorityText = 1;
+
+	$scope.logout = function(){
+		$location.path('/');
+	};
 
 	$scope.gridOptions = {
 		enableRowSelection: true,
@@ -59,6 +20,7 @@ userApp.controller('taskCtrl', function ($scope,userFactory) {
 				$('#updateTaskModal').modal('show');
 				$scope.selectedRow=row.entity;
 				$scope.updateEntryText = row.entity.entry;
+				$scope.updatePriorityText = row.entity.priority;
 			}
 		},
 		rowTemplate: "<div ng-dblclick=\"grid.appScope.onDblClick(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell ></div>",
@@ -98,24 +60,18 @@ userApp.controller('taskCtrl', function ($scope,userFactory) {
 	};
 
 	$scope.addTask = function(){
-		var newTask = {
-			entry:$scope.addTextEntry,
-			status:"Not Completed",
-			priority: 1
-		};
-
 		userFactory.saveTask({
 			user:{
 				"username":userdata.username,
 				"password":userdata.password
 			},
 			entry:$scope.addTextEntry,
-			status:"Not Completed",
-			priority: 1
+			status:"Pending",
+			priority: $scope.addPriorityText
 		}).then(function(data){
-			// console.log(data);
+			$scope.getUserTask();
 		});
-		$scope.getUserTask();
+		
 		// $scope.gridOptions.data.push(newTask);
 	}
 
@@ -130,9 +86,8 @@ userApp.controller('taskCtrl', function ($scope,userFactory) {
 			status:row.status,
 			priority: row.priority
 		}).then(function(data){
-			// console.log(data);
+			$scope.getUserTask();
 		});
-		$scope.getUserTask();
 		// $scope.gridOptions.data.splice($scope.selectedRowIndex, 1);
 	}
 
@@ -147,17 +102,40 @@ userApp.controller('taskCtrl', function ($scope,userFactory) {
 			old:{
 				entry:row.entry,
 				status:row.status,
-				priority: row.priority
+				priority:row.priority
 			},
 			new:{
 				entry:$scope.updateEntryText,
 				status:row.status,
-				priority: row.priority
+				priority:$scope.updatePriorityText
 			}
 		}).then(function(data){
-			// console.log(data);
+			$scope.getUserTask();
 		});
-		$scope.getUserTask();
+
 		// $scope.gridOptions.data.splice($scope.selectedRowIndex, 1);
+	}
+
+	$scope.markComplete = function(){
+		var row = $scope.selectedRow;
+
+		userFactory.updateTask({	
+			user:{
+				"username":userdata.username,
+				"password":userdata.password
+			},
+			old:{
+				entry:row.entry,
+				status:row.status,
+				priority:row.priority
+			},
+			new:{
+				entry:row.entry,
+				status:"Completed",
+				priority:row.priority
+			}
+		}).then(function(data){
+			$scope.getUserTask();
+		});
 	}
 });

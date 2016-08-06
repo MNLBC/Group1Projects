@@ -1,6 +1,6 @@
 module.exports = {
     mongodb: {
-        uri: 'mongodb://localhost/homework',
+        uri: 'mongodb://zha-ita105-w7/homework',
         // options: {
         //     user: '',
         //     pass: ''

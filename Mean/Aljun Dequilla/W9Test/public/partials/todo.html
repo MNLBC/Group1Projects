@@ -1,12 +1,15 @@
-<head><link rel="stylesheet" type="text/css" href="/css/grid.css"></head>
+<head><link rel="stylesheet" type="text/css" href="/public/css/grid.css"></head>
 
-<h1>Hi, {{userdata.name}}</h1>
-
+<div class="row">
+	<h1 class="pull-right">Hi, {{userdata.name}}</h1>
+	<br>
+</div>
 <div class="row">
 	<div class="btn-group pull-right" role="group" aria-label="...">
 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#addTaskModal"">Add</button>
-		<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#updateTaskModal" >Edit</button> -->
+		<button type="button" class="btn btn-default" ng-click="markComplete()">Mark as Complete</button>
 		<button type="button" class="btn btn-default" ng-click="removeTask()">Delete</button>
+		<button type="button" class="btn btn-primary" ng-click="logout()">Logout</button>
 	</div>	
 </div>
 
@@ -27,7 +30,7 @@
 				<h4 class="modal-title">Add Task</h4>
 			</div>
 			<div class="modal-body">
-			<div class="panel ">
+				<div class="panel ">
 					<div class="panel-body">
 						<div class="row">
 							<div class="input-group">
@@ -37,21 +40,13 @@
 						</div>
 						<br>
 						<div class="row">
-							<!-- Single button -->
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Priority <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-								</ul>
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">Priority</span>
+								<input type="number" class="form-control" max="3" min="1" value="1" ng-model="addPriorityText">
 							</div>
 						</div>
 					</div>
 				</div>
-				<p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,28 +75,9 @@
 						</div>
 						<br>
 						<div class="row">
-							<!-- Single button -->
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Priority <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#" ng-click="alert('1')">1</a></li>
-									<li><a href="#" ng-click="alert('2')">2</a></li>
-									<li><a href="#" ng-click="alert('3')">3</a></li>
-								</ul>
-							</div>
-							
-							
-							</div>
-						</div>
-						<div class="row">
-							 <div class="col-lg-3">
 							<div class="input-group">
-								<span class="input-group-addon">
-									<input type="checkbox" aria-label="...">Complete
-								</span>
+								<span class="input-group-addon" id="basic-addon1">Priority</span>
+								<input type="number" class="form-control" max="3" min="1" value="1" ng-model="updatePriorityText">
 							</div>
 						</div>
 					</div>

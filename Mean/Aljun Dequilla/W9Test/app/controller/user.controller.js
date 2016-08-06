@@ -13,6 +13,7 @@ var UserSchema = mongoose.Schema({
 });
 
 var UserModel = db.model('usercollec',UserSchema);
+
 var userController = {};
 
 userController.getAll = function(req,res){

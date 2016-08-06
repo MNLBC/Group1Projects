@@ -6,8 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var routes = require('./routes/user.route');
-var config = require('./config/config');
+var routes = require('./app/routes/user.route');
+var config = require('./app/config/config');
 
 
 // Bootstrap db connection
@@ -30,7 +30,7 @@ var db = mongoose.connect(config.mongodb.uri, config.mongodb.options, function (
 // Start the web server
 var app = express();
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 

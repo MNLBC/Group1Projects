@@ -2,11 +2,11 @@ userApp = angular.module('userApp', ['ui.grid', 'ui.grid.selection','ui.bootstra
     .config(function ($routeProvider) {
         $routeProvider
         	.when('/', {
-                templateUrl: '/partials/login.html',
+                templateUrl: '/public/partials/login.html',
                 controller: 'userCtrl'
             })
             .when('/user', {
-                templateUrl: '/partials/todo.html',
+                templateUrl: '/public/partials/todo.html',
                 controller: 'taskCtrl'
             });
     });
