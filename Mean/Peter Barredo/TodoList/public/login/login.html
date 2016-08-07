@@ -1,45 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login </title>
-</head>
-<body >
-	
-	<form class="form-horizontal" ng-controller="loginCtrl">
-		<fieldset>
 
-		<!-- Form Name -->
-		<legend>Login</legend>
+<div class="form-horizontal">
+	<fieldset>
 
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textinput">Username:</label>  
-		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" ng-model="username" class="form-control input-md" type="text">
-		    
-		  </div>
-		</div>
+	<!-- Form Name -->
+	<legend>Login</legend>
 
-		<!-- Password input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="passwordinput">Password</label>
-		  <div class="col-md-4">
-		    <input id="passwordinput" name="passwordinput" ng-model="password" class="form-control input-md" type="password">
-		    
-		  </div>
-		</div>
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="textinput">Username:</label>  
+	  <div class="col-md-4">
+	  <input id="textinput" name="textinput" ng-model="vm.username" class="form-control input-md" type="text">
+	    
+	  </div>
+	</div>
 
-		<!-- Button (Double) -->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for=""></label>
-		  <div class="col-md-4">
-		    <button id="" name="" class="btn btn-success" ng-click="login()">Login</button>
-		    <button id="" name="" class="btn ">Cancel</button>
-		  </div>
-		</div>
+	<!-- Password input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="passwordinput">Password</label>
+	  <div class="col-md-4">
+	    <input id="passwordinput" name="passwordinput" ng-model="vm.password" class="form-control input-md" type="password">
+	    
+	  </div>
+	</div>
 
-		</fieldset>
-	</form>
+	<!-- Button (Double) -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for=""></label>
+	  <div class="col-md-4">
+	    <button class="btn btn-success" ng-click="vm.login()">Login</button>
+	    <button class="btn" ng-click="vm.cancel()">Cancel</button>
+	  </div>
+	</div>
 
-</body>
-</html>
+	</fieldset>
+
+</div>

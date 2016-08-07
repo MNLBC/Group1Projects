@@ -1,0 +1,110 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Todo</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#/main">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><button class="btn" ng-click="vm.logout()"><span class="glyphicon glyphicon-log-out"> Logout</span></button></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+	<br>
+	<div  ui-grid="vm.gridOptions" ui-grid-selection  class="grid"></div>
+	<br>
+	<button ng-click="vm.showAddModalButtonClicked()" class="btn btn-success">Add</button>
+	<button ng-click="vm.removeButtonClicked()" class="btn btn-remove">Remove</button>
+
+	<!-- Modal for edit details-->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Todo</h4>
+	        </div>
+	        <div class="modal-body">
+
+             <form class="form-horizontal" role="form" method="POST">
+	          	<div class="form-group">
+                    <label class="col-md-4 control-label">Description</label>
+                    <div class="col-md-6">
+                   		  <input type="text" ng-model="vm.selected.description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Priority</label>
+                    <div class="col-md-6">
+                   		  <input type="number" ng-model="vm.selected.priority">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Status</label>
+                    <div class="col-md-6">
+                   		  <input type="text" ng-model="vm.selected.status">
+                    </div>
+                </div>
+
+	        	</div>
+	        </form>
+	        <div class="modal-footer">
+	        <button type="button" class="btn btn-success"  ng-click="vm.updateTodoClicked()" data-dismiss="modal">Update</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+
+	  <!-- Modal for adding details-->
+	  <div class="modal fade" id="newTodoModal" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Todo</h4>
+	        </div>
+	        <div class="modal-body">
+	          	<form class="form-horizontal" role="form" method="POST">
+		          	<div class="form-group">
+                        <label class="col-md-4 control-label">Description</label>
+                        <div class="col-md-6">
+                       		  <input type="text" ng-model="vm.todo.description">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Priority</label>
+                        <div class="col-md-6">
+                       		  <input type="number" ng-model="vm.todo.priority">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Status</label>
+                        <div class="col-md-6">
+                       		  <input type="text" ng-model="vm.todo.status">
+                        </div>
+                    </div>
+
+		        	
+		        </form>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-success" ng-click="vm.addTodoButtonClicked()" data-dismiss="modal">Add</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+
+
+</div>
+	

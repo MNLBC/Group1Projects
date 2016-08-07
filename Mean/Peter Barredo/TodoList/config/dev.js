@@ -7,7 +7,7 @@ module.exports = {
     contextPath: '/todo',
     // The secret should be set to a non-guessable string that
     // is used to compute a session hash
-    sessionSecret: 'dsh',
+    sessionSecret: 'todo',
     // The name of the MongoDB collection to store sessions in
     sessionCollection: 'sessions',
     // The session cookie settings
@@ -31,7 +31,7 @@ module.exports = {
     port: 3342,
     url: 'http://localhost:3343',
     mongodb: {
-        uri: 'mongodb://localhost:27017/todo',
+        uri: 'mongodb://zha-ita098-w7:27017/todo',
         options: {
             server: {
                 socketOptions: {connectTimeoutMS: 10000}
