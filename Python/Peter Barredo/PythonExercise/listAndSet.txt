@@ -1,0 +1,8 @@
+List
+	You can add same data and display it	
+
+Set
+	If you add same data, it will only show 1 . No duplication
+	theres a union and intersection
+	ordered list
+	

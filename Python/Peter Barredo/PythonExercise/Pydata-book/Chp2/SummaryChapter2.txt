@@ -1,0 +1,7 @@
+Panda
+	-data frame
+	-easier than numpy
+	- table like structure
+	- built on top of numpy
+	- easy operation 
+	
